@@ -1028,16 +1028,15 @@ O boleto gerado no modo de teste sempre será um boleto simulado.</p>
 
 <aside class="notice">É muito importante que, ao liberar sua loja para a realização de vendas para seus clientes, **a loja não esteja em modo de teste**. Transações realizadas nesse ambiente poderão ser finalizadas normalmente, mas **não serão descontadas do cartão do cliente** e não poderão ser “transferidas” para o ambiente de venda padrão.</aside>
 
-<h1 id="criando-o-carrinho">Criando o carrinho</h1>
+<h1 id="criando-a-página-de-pagamento">Criando a página de pagamento</h1>
 
-<p>Na integração via API, a tela transacional é “montada” com bases em dados enviados que formam um <strong>Carrinho de compras</strong>.
-Esses dados são separados nos seguintes “nós principais”:</p>
+<p>Na integração via API, a página de pagamento é montada com bases em dados enviados que formam um carrinho de compras. Esses dados são separados nos seguintes nós principais:</p>
 
 <table>
   <thead>
     <tr>
-      <th>Nó</th>
-      <th>Descrição</th>
+      <th>NÓ</th>
+      <th>DESCRIÇÃO</th>
     </tr>
   </thead>
   <tbody>
@@ -1051,11 +1050,11 @@ Esses dados são separados nos seguintes “nós principais”:</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment</code></td>
-      <td>Contém informações que influenciam o valor cobrado. <strong>Não contém informações sobre meios de pagamento</strong>.</td>
+      <td>Contém informações que influenciam o valor cobrado. Não contém informações sobre meios de pagamento.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer</code></td>
-      <td>Contém os dados o comprador. Não obrigatório na integração, mas exigido na tela de pagamentos. Sugerimos que seja enviado para acelerar o processo de compra.</td>
+      <td>Contém os dados do comprador. Não obrigatório na integração, mas exigido na tela de pagamentos. Sugerimos que seja enviado para acelerar o processo de compra.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Options</code></td>
@@ -1064,19 +1063,53 @@ Esses dados são separados nos seguintes “nós principais”:</p>
   </tbody>
 </table>
 
-<p>Após o envio dos dados do carrinho, o Checkout enviará uma resposta contendo um <strong>link para a tela de pagamento</strong> no campo <code class="language-plaintext highlighter-rouge">CheckoutUrl</code>.</p>
+<p>Após o envio dos dados do carrinho, o Checkout enviará uma resposta contendo um link para a página de pagamento no campo <code class="language-plaintext highlighter-rouge">CheckoutUrl</code>.</p>
 
-<p><strong>Importante</strong>: A requisição de criação do carrinho <strong>não cria uma transação</strong>. A URL retornada (<code class="language-plaintext highlighter-rouge">CheckoutUrl</code>) é apenas uma “pré-ordem” indicando que uma tela transacional está pronta para ser utilizada. A transação é criada apenas quando o comprador clica em Finalizar na tela do <strong>Checkout</strong>.</p>
+<blockquote>
+  <p><strong>Importante</strong>: A requisição de criação da página de pagamento não cria uma transação. A URL retornada (<code class="language-plaintext highlighter-rouge">CheckoutUrl</code>) é apenas uma “pré-ordem” indicando que a página de pagamento está pronta para ser utilizada. A transação é criada apenas quando o comprador clica em <strong>Finalizar</strong> na tela do Checkout.</p>
+</blockquote>
 
 <h2 id="requisição-1">Requisição</h2>
 
-<p>Confira um exemplo de requisição de criação do carrinho (tela transacional) no Checkout Cielo.</p>
+<p>Confira um exemplo de requisição de criação da página de pagamento no Checkout Cielo.</p>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/orders</span></aside>
 
+<p><strong>Parâmetros no cabeçalho (header)</strong></p>
+
+<p>Todas as requisições enviadas para a Cielo deverão ser autenticadas pela loja. A autenticação para a criação da página de pagamento consiste no envio do <code class="language-plaintext highlighter-rouge">MerchantId</code> no header da requisição:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>PARÂMETRO</th>
+      <th>TIPO</th>
+      <th>OBRIGATÓRIO</th>
+      <th>TAMANHO</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>GUID</td>
+      <td>Sim</td>
+      <td>36</td>
+      <td>Identificador único da loja fornecido pela Cielo após a afiliação da loja. Formato: 00000000-0000-0000-0000-000000000000</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content-type</code></td>
+      <td>alfanumérico</td>
+      <td>Sim</td>
+      <td>n/a</td>
+      <td>Tipo do conteúdo da mensagem a ser enviada. Utilizar: “application/json”</td>
+    </tr>
+  </tbody>
+</table>
+
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"OrderNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido01"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Exemplo"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nomefantasia"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"Cart"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"Discount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Percent"</span><span class="p">,</span><span class="w">
@@ -1123,7 +1156,6 @@ Esses dados são separados nos seguintes “nós principais”:</p>
   </span><span class="p">},</span><span class="w">
   </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"BoletoDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"DebitDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"MaxNumberOfInstallments"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
   </span><span class="p">},</span><span class="w">
@@ -1137,210 +1169,326 @@ Esses dados são separados nos seguintes “nós principais”:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Header/Cabeçalho</strong></p>
+<p><strong>Parâmetros no corpo (body)</strong></p>
 
 <table>
   <thead>
     <tr>
-      <th>Campo</th>
-      <th>Tipo</th>
-      <th>Obrigatório</th>
-      <th>Tamanho</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Guid</td>
-      <td>Sim</td>
-      <td>36</td>
-      <td>Identificador único da loja. <strong>Formato:</strong> 00000000-0000-0000-0000-000000000000</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Content-type</code></td>
-      <td>Alphanumeric</td>
-      <td>Sim</td>
-      <td>n/a</td>
-      <td>Tipo do conteúdo da mensagem a ser enviada. <strong>Utilizar:</strong> “application/json”</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Cabeçalho e Autenticação</strong> - Todas as requisições enviadas para a Cielo deverão ser autenticadas pela loja. A autenticação consiste no envio do <code class="language-plaintext highlighter-rouge">MerchantId</code>, que é o identificador único da loja fornecido pela Cielo após a afiliação da loja. A autenticação da loja deverá ser feita através do envio do campo de cabeçalho HTTP <code class="language-plaintext highlighter-rouge">MerchantId</code>:</p>
-
-<p><strong>Body - Detalhado</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Campo</th>
-      <th>Tipo</th>
-      <th>Obrigatório</th>
-      <th>Tamanho</th>
-      <th>Condicional</th>
+      <th>PARÂMETRO</th>
+      <th>DESCRIÇÃO</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>OBRIGATÓRIO?</th>
+      <th> </th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">OrderNumber</code></td>
-      <td>Alphanumeric</td>
-      <td>Opcional</td>
+      <td>Número do pedido enviado pela loja.</td>
+      <td>alfanumérico</td>
       <td>64</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">SoftDescriptor</code></td>
-      <td>Alphanumeric</td>
-      <td>Opcional</td>
+      <td>Descrição a ser apresentada na fatura do cartão de crédito do portador.</td>
+      <td>alfanumérico</td>
       <td>13</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Cart.Discount.Type</code></td>
-      <td>Alphanumeric</td>
-      <td>Condicional</td>
+      <td>Obrigatório caso <code class="language-plaintext highlighter-rouge">Cart.Discount.Value</code> for maior ou igual a zero.</td>
+      <td>alfanumérico</td>
       <td>255</td>
-      <td>Obrigatório caso Cart.Discount.Value for maior ou igual a zero.</td>
+      <td>Condicional</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Cart.Discount.Value</code></td>
-      <td>Numeric</td>
-      <td>Condicional</td>
+      <td>Obrigatório caso <code class="language-plaintext highlighter-rouge">Cart.Discount.Type</code> for Amount ou Percent.</td>
+      <td>número</td>
       <td>18</td>
-      <td>Obrigatório caso Cart.Discount.Type for <code class="language-plaintext highlighter-rouge">Amount</code> ou <code class="language-plaintext highlighter-rouge">Percent</code>.</td>
+      <td>Condicional</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Cart.Items.Name</code></td>
-      <td>Alphanumeric</td>
-      <td>Sim</td>
+      <td>Nome do item no carrinho.Exemplo: Pedido ABC.</td>
+      <td>alfanumérico</td>
       <td>128</td>
+      <td>Sim</td>
       <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Cart.Items.Description</code></td>
-      <td>Alphanumeric</td>
-      <td>Opcional</td>
+      <td>Descrição do item no carrinho. Exemplo: 50 canetas - R$30,00</td>
+      <td>alfanumérico</td>
       <td>256</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Cart.Items.UnitPrice</code></td>
-      <td>Numeric</td>
-      <td>Sim</td>
+      <td>Preço unitário do produto em centavos. Exemplo: R$ 1,00 = 100</td>
+      <td>número</td>
       <td>18</td>
+      <td>Sim</td>
       <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Cart.Items.Quantity</code></td>
-      <td>Numeric</td>
-      <td>Sim</td>
+      <td>Quantidade do item no carrinho. Exemplo: 1.</td>
+      <td>número</td>
       <td>9</td>
+      <td>Sim</td>
       <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Cart.Items.Type</code></td>
-      <td>Alphanumeric</td>
-      <td>Sim</td>
+      <td>Tipo do item no carrinho.<br />Ex.:<br />Asset<br />Digital<br />Service<br />Payment</td>
+      <td>alfanumérico</td>
       <td>255</td>
+      <td>Sim</td>
       <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Cart.Items.Sku</code></td>
-      <td>Alphanumeric</td>
-      <td>Opcional</td>
+      <td>Identificador do produto.</td>
+      <td>alfanumérico</td>
       <td>32</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Cart.Items.Weight</code></td>
-      <td>Numeric</td>
-      <td>Condicional</td>
+      <td>Peso do produto.</td>
+      <td>número</td>
       <td>9</td>
-      <td>Necessário caso Shipping.Type for “Correios”.</td>
+      <td>Necessário caso <code class="language-plaintext highlighter-rouge">Shipping.Type</code> for “Correios”.</td>
+      <td>Condicional</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.BoletoDiscount</code></td>
-      <td>Numeric</td>
-      <td>Condicional</td>
+      <td>Desconto, em porcentagem, para pagamentos a serem realizados com boleto.</td>
+      <td>número</td>
       <td>3</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.DebitDiscount</code></td>
-      <td>Numeric</td>
-      <td>Condicional</td>
-      <td>3</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">FirstInstallmentDiscount</code></td>
-      <td>Numeric</td>
-      <td>Condicional</td>
+      <td>Desconto, em porcentagem, para pagamentos à vista no cartão de crédito.</td>
+      <td>número</td>
       <td>3</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MaxNumberOfInstallments</code></td>
-      <td>Numeric</td>
-      <td>Condicional</td>
+      <td>Define número máximo de parcelas apresentadas na página de pagamento.</td>
+      <td>número</td>
       <td>2</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
-      <td>Numeric</td>
-      <td>Condicional</td>
+      <td>Identificação do comprador (CPF ou CNPJ). Se enviado, esse valor já vem preenchido na tela do Checkout Cielo. <em>Não obrigatório na API, mas obrigatório na tela transacional</em>.</td>
+      <td>número</td>
       <td>14</td>
-      <td>Não obrigatório na API, mas obrigatório na tela transacional.</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.FullName</code></td>
-      <td>Alphanumeric</td>
-      <td>Condicional</td>
+      <td>Nome completo do comprador. <em>Não obrigatório na API, mas obrigatório na tela transacional</em>.</td>
+      <td>alfanumérico</td>
       <td>288</td>
-      <td>Não obrigatório na API, mas obrigatório na tela transacional.</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
-      <td>Alphanumeric</td>
-      <td>Condicional</td>
+      <td>E-mail do comprador. Se enviado, esse valor já vem preenchido na tela do Checkout Cielo. <em>Não obrigatório na API, mas obrigatório na tela transacional</em>.</td>
+      <td>alfanumérico</td>
       <td>64</td>
-      <td>Não obrigatório na API, mas obrigatório na tela transacional.</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Phone</code></td>
-      <td>Numeric</td>
-      <td>Condicional</td>
+      <td>Telefone do comprador. Se enviado, esse valor já vem preenchido na tela do Checkout Cielo. <em>Não obrigatório na API, mas obrigatório na tela transacional</em>.</td>
+      <td>número</td>
       <td>11</td>
-      <td>Não obrigatório na API, mas obrigatório na tela transacional.</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Options.ReturnUrl</code></td>
-      <td>Strin</td>
-      <td>Condicional</td>
+      <td>URL fixa definida pela loja que pode ser registrada no backoffice Checkout. Após finalizar o pagamento, o comprador pode ser redirecionado para uma página definida web pela loja.</td>
+      <td>string</td>
       <td>255</td>
-      <td>Uma URL fixa pode ser registrada no Backoffice Checkout.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Type</code></td>
+      <td>Tipo do frete:<br />Correios<br />FixedAmount<br />Free<br />WithoutShippingPickUp<br />WithoutShipping</td>
+      <td>alfanumérico</td>
+      <td>255</td>
+      <td>Sim</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.SourceZipCode</code></td>
+      <td>CEP de origem do carrinho de compras. Obrigatório caso <code class="language-plaintext highlighter-rouge">Shipping.Type</code> seja “Correios”.</td>
+      <td>número</td>
+      <td>8</td>
+      <td>Condicional</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.TargetZipCode</code></td>
+      <td>CEP do endereço de entrega do comprador.</td>
+      <td>número</td>
+      <td>8</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Address.Street</code></td>
+      <td>Rua, avenida, travessa, etc, do endereço de entrega do comprador.</td>
+      <td>alfanumérico</td>
+      <td>256</td>
+      <td>Não*</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Address.Number</code></td>
+      <td>Número do endereço de entrega do comprador.</td>
+      <td>alfanumérico</td>
+      <td>8</td>
+      <td>Não*</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Address.Complement</code></td>
+      <td>Complemento do endereço de entrega do comprador.</td>
+      <td>alfanumérico</td>
+      <td>14</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Address.District</code></td>
+      <td>Bairro do endereço de entrega do comprador.</td>
+      <td>alfanumérico</td>
+      <td>64</td>
+      <td>Não*</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Address.City</code></td>
+      <td>Cidade do endereço de entrega do comprador.</td>
+      <td>alfanumérico</td>
+      <td>64</td>
+      <td>Não*</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Address.State</code></td>
+      <td>Estado (UF) do endereço de entrega do comprador.</td>
+      <td>alfanumérico</td>
+      <td>2</td>
+      <td>Não*</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Services.Name</code></td>
+      <td>Nome do serviço de frete.</td>
+      <td>alfanumérico</td>
+      <td>128</td>
+      <td>Sim</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Services.Price</code></td>
+      <td>Preço do serviço de frete em centavos. Ex: R$ 1,00 = 100.</td>
+      <td>número</td>
+      <td>18</td>
+      <td>Sim</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Services.Deadline</code></td>
+      <td>Prazo de entrega (em dias).</td>
+      <td>número</td>
+      <td>9</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Package</code></td>
+      <td>Tipo de pacote:<br />“Box”: caixa<br />“Rol”: cilindro ou envelope. Saiba mais em <a href="#### Cálculo do frete dos Correios">Cálculo do frete dos Correios</a></td>
+      <td>alfanumérico</td>
+      <td>Inteiro</td>
+      <td>Sim</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Length</code></td>
+      <td>Comprimento do pacote. Saiba mais em <a href="#### Cálculo do frete dos Correios">Cálculo do frete dos Correios</a>.</td>
+      <td>número</td>
+      <td>Inteiro</td>
+      <td>Sim</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Height</code></td>
+      <td>Altura do pacote enviado. Obrigatório caso <code class="language-plaintext highlighter-rouge">Shipping.Package</code> como “Box”</td>
+      <td>número</td>
+      <td>Inteiro</td>
+      <td>Condicional</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Width</code></td>
+      <td>Largura do pacote. Obrigatório caso <code class="language-plaintext highlighter-rouge">Shipping.Package</code> seja “Box” ou “Envelope”.Saiba mais em <a href="#### Cálculo do frete dos Correios">Cálculo do frete dos Correios</a>.</td>
+      <td>número</td>
+      <td>Inteiro</td>
+      <td>Condicional</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Diameter</code></td>
+      <td>Diâmetro do pacote.Obrigatório caso <code class="language-plaintext highlighter-rouge">Shipping.Package</code> como “Rol”.Saiba mais em <a href="#### Cálculo do frete dos Correios">Cálculo do frete dos Correios</a>.</td>
+      <td>número</td>
+      <td>Inteiro</td>
+      <td>Condicional</td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="respostas">Respostas</h2>
+<p>/* Não é obrigatório, mas recomendamos enviar.</p>
 
-<p>Devido ao seu fluxo de venda ser dividido em duas etapas, sendo a primeira, a criação da tela transacional e a segunda, a finalização do pagamento, o Checkout possui duas respostas para uma transação:</p>
+<blockquote>
+  <p>Veja mais informações sobre o nó <code class="language-plaintext highlighter-rouge">Shipping</code> em <a href="###Definindo o frete">Definindo o frete</a>.</p>
+</blockquote>
 
-<ul>
-  <li><strong>Response - Tela transacional</strong> - é a resposta retornada com dados para enviar o comprador para a tela transacional;</li>
-  <li><strong>Response - Transação Finalizada</strong> - contém dados sobre o resultado da transação, após o comprador clica em <strong>Finalizar</strong> na tela transacional. <strong>É retornado apenas via Notificação</strong></li>
-</ul>
-
-<p><strong>Resultado/Status da transação:</strong> Para obter o retorno do status da transação, é necessário definir uma URL de NOTIFICAÇÃO. Veja a sessão de notificação para maiores informações.</p>
-
-<p><strong>Response - Tela transacional</strong></p>
+<h2 id="resposta-1">Resposta</h2>
 
 <p>Existem apenas duas opções de resposta na integração da API: sucesso ou erro.</p>
 
-<p><strong>Sucesso</strong>: em caso de sucesso, a resposta será o conteúdo da requisição mais o link que direciona a tela transacional (<code class="language-plaintext highlighter-rouge">CheckoutUrl</code>):</p>
+<blockquote>
+  <p><strong>Importante</strong>: A requisição de criação da página de pagamento não cria uma transação, mas sim a URl da página de pagamento (<code class="language-plaintext highlighter-rouge">CheckoutUrl</code>). A resposta de sucesso ou erro se refere a criação da página de pagamento, e não tem relação com a transação.</p>
+</blockquote>
+
+<p>✅ <strong>Sucesso</strong>: em caso de sucesso, a resposta será o conteúdo da requisição mais o link que direciona a tela transacional (<code class="language-plaintext highlighter-rouge">CheckoutUrl</code>):</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1354,39 +1502,39 @@ Esses dados são separados nos seguintes “nós principais”:</p>
 <table>
   <thead>
     <tr>
-      <th>Campo</th>
-      <th>Tipo</th>
-      <th>Obrigatório</th>
-      <th>Tamanho</th>
-      <th>Descrição</th>
+      <th>PARÂMETRO</th>
+      <th>DESCRIÇÃO</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th> </th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CheckoutUrl</code></td>
+      <td>URL da tela transacional. O Comprador deve ser direcionado para esse ambiente para finalizar a transação</td>
       <td>String</td>
-      <td>Sim</td>
       <td>255</td>
-      <td>URL da tela transacional. O Comprador <strong>deve ser direcionado para esse ambiente para finalizar a transação</strong></td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Profile</code></td>
-      <td>String</td>
-      <td>Sim</td>
-      <td>16</td>
       <td>Perfil do lojista: fixo “CheckoutCielo”.</td>
+      <td>String</td>
+      <td>16</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Version</code></td>
+      <td>Versão do serviço de criação de pedido (versão: 1).</td>
       <td>String</td>
       <td>Sim</td>
       <td>1</td>
-      <td>Versão do serviço de criação de pedido (versão: 1).</td>
     </tr>
   </tbody>
 </table>
 
-<p><strong>Erro</strong> - Em caso de erro, a mensagem abaixo será retornada.</p>
+<p>❌ <strong>Erro</strong>: em caso de erro, a API retornará a mensagem:</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"An error has occurred."</span><span class="w">
@@ -1396,81 +1544,105 @@ Esses dados são separados nos seguintes “nós principais”:</p>
 <table>
   <thead>
     <tr>
-      <th>Campo</th>
-      <th>Tipo</th>
-      <th>Obrigatório</th>
-      <th>Tamanho</th>
-      <th>Descrição</th>
+      <th>PARÂMETRO</th>
+      <th>DESCRIÇÃO</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Message</code></td>
-      <td>String</td>
-      <td>Sim</td>
-      <td>254</td>
       <td>Mensagem descritiva do erro</td>
+      <td>String</td>
+      <td>254</td>
     </tr>
   </tbody>
 </table>
 
+<h2 id="criando-pagamento-parcelado">Criando pagamento parcelado</h2>
+
+<p>O <strong>Checkout Cielo</strong> permite que o lojista realize transações de crédito parceladas em até 12 vezes.</p>
+
 <blockquote>
-  <p><strong>Importante</strong>: O Checkout Cielo não possui erros numerados, apenas uma mensagem genérica. Veja a sessão “Identificando erros de Integração” para mais informações.</p>
+  <p><strong>Importante</strong>: O Checkout é limitado a parcelamentos em até 12 vezes, mesmo que sua afiliação Cielo suporte valores superiores. Caso o valor apresentado nas <strong>Configurações da loja</strong> no site Cielo seja menor que 12, entre em contato com o Suporte Cielo e verifique a configuração de sua Afiliação.</p>
 </blockquote>
 
-<h2 id="funcionalidades-adicionais">Funcionalidades adicionais</h2>
+<p>Nesta opção, a loja pode configurar a quantidade de parcelas por venda. O Checkout realiza o cálculo das parcelas considerando valor total e limite de parcelas enviadas via API.</p>
 
-<p>O Checkout Cielo possui funcionalidades adicionais que seguem regras específicas para utilização e não estão disponíveis na integração via botão.</p>
+<blockquote>
+  <p><strong>Atenção</strong>: O número de parcelas desejadas deve ser inferior a quantidade que está cadastrada nas <strong>Configurações da Loja</strong> no site Cielo.</p>
+</blockquote>
+
+<p><strong>Características</strong></p>
 
 <ul>
-  <li><strong>Tipos de Desconto</strong></li>
-  <li><strong>Tipos de Frete</strong></li>
+  <li>O lojista envia a quantidade máxima de parcelas que deseja exibir ao comprador;
+ O valor do frete é somado ao valor do parcelamento.</li>
 </ul>
 
-<h3 id="tipos-de-desconto">Tipos de Desconto</h3>
+<p>O Parcelamento via API é realizado enviando o campo <code class="language-plaintext highlighter-rouge">MaxNumberOfInstallments</code> dentro do nó <code class="language-plaintext highlighter-rouge">Payment</code>. Isso forçará o Checkout a recalcular o valor do parcelamento. Abaixo, um exemplo do nó</p>
 
-<p>O Checkout Cielo permite que o lojista aplique descontos específicos tanto para o carrinho quanto para meios de pagamento.
-Os descontos disponíveis no Checkout Cielo são:</p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nl">"MaxNumberOfInstallments"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <table>
   <thead>
     <tr>
-      <th>Desconto</th>
-      <th>Aplicação</th>
-      <th>Descrição</th>
+      <th>PARÂMETRO</th>
+      <th>DESCRIÇÃO</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>OBRIGATÓRIO?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MaxNumberOfInstallments</code></td>
+      <td>Define número máximo de parcelas apresentadas na página de pagamento.</td>
+      <td>número</td>
+      <td>2</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="aplicando-descontos">Aplicando descontos</h2>
+
+<p>O Checkout Cielo permite que a loja aplique descontos específicos tanto para o carrinho quanto para meios de pagamento. Os descontos disponíveis no Checkout Cielo são:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>DESCONTO</th>
+      <th>DESCRIÇÃO</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><strong>Carrinho</strong></td>
-      <td>API</td>
-      <td>Quando enviado, aplica o desconto sobre todo o carrinho, independente do meio de pagamento.</td>
+      <td>Aplica o desconto sobre todo o carrinho, independente do meio de pagamento.</td>
     </tr>
     <tr>
-      <td><strong>Boleto</strong></td>
-      <td>API e Backoffice</td>
-      <td>Quando enviado, o desconto é aplicado somente caso o boleto seja o meio de pagamento escolhido.</td>
+      <td><strong>Meio de pagamento - boleto</strong></td>
+      <td>Aplica o desconto quando o meio de pagamento escolhido é boleto.</td>
     </tr>
     <tr>
-      <td><strong>Débito Online</strong></td>
-      <td>API e Backoffice</td>
-      <td>Quando enviado, o desconto é aplicado somente caso o débito online seja o meio de pagamento escolhido.</td>
-    </tr>
-    <tr>
-      <td><strong>À vista</strong></td>
-      <td>API</td>
-      <td>Quando enviado, o desconto é aplicado quando cartão de crédito à vista é o meio de pagamento escolhido.</td>
+      <td><strong>Meio de pagamento - crédito à vista</strong></td>
+      <td>Aplica o desconto quando o meio de pagamento escolhido é cartão de crédito à vista.</td>
     </tr>
   </tbody>
 </table>
 
 <blockquote>
-  <p><strong>Observação</strong>: Descontos podem ser enviados na API ou definidos no Backoffice. Caso um valor de desconto seja enviado na API, esse será o valor considerado, mesmo que o Backoffice possua outro valor registrado.</p>
+  <p><strong>Observação</strong>: Você pode aplicar descontos via API ou site Cielo. Caso um valor de desconto seja enviado na API, esse será o valor considerado, mesmo que o site Cielo possua outro valor registrado.</p>
 </blockquote>
 
-<p><strong>Carrinho</strong></p>
+<h4 id="desconto-no-carrinho">Desconto no carrinho</h4>
 
-<p>Para enviar um desconto sobre o <strong>carrinho</strong> basta enviar o nó <code class="language-plaintext highlighter-rouge">Discount</code> dentro do nó <code class="language-plaintext highlighter-rouge">Cart</code>:</p>
+<p>Para enviar um desconto sobre o carrinho basta enviar o nó <code class="language-plaintext highlighter-rouge">Discount</code> dentro do nó <code class="language-plaintext highlighter-rouge">Cart</code>:</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Discount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1483,54 +1655,37 @@ Os descontos disponíveis no Checkout Cielo são:</p>
 <table>
   <thead>
     <tr>
-      <th>Campo</th>
-      <th>Tipo</th>
-      <th>Obrigatório</th>
-      <th>Tamanho</th>
-      <th>Descrição</th>
-      <th>Condicional</th>
+      <th>PARÂMETRO</th>
+      <th>DESCRIÇÃO</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>OBRIGATÓRIO?</th>
+      <th> </th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Cart.Discount.Type</code></td>
-      <td>Alphanumeric</td>
-      <td>Condicional</td>
+      <td>Tipo do desconto a ser aplicado: “Amount” (valor) ou “Percent” (percentual).<br />Obrigatório caso <code class="language-plaintext highlighter-rouge">Cart.Discount.Value</code> for maior ou igual a zero.</td>
+      <td>alfanumérico</td>
       <td>255</td>
-      <td>Tipo do desconto a ser aplicado: <code class="language-plaintext highlighter-rouge">Amount</code> ou <code class="language-plaintext highlighter-rouge">Percent</code>.</td>
-      <td>Obrigatório caso Cart.Discount.Value for maior ou igual a zero.</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Cart.Discount.Value</code></td>
-      <td>Numeric</td>
-      <td>Condicional</td>
+      <td>Valor do desconto a ser aplicado: “Amount” (valor) ou “Percent” (percentual).</td>
+      <td>Obrigatório caso <code class="language-plaintext highlighter-rouge">Cart.Discount.Type</code> for “Amount” ou “Percent”.</td>
+      <td>número</td>
       <td>18</td>
-      <td>Valor do desconto a ser aplicado: Valor ou Percentual</td>
-      <td>Obrigatório caso Cart.Discount.Type for <code class="language-plaintext highlighter-rouge">Amount</code> ou <code class="language-plaintext highlighter-rouge">Percent</code>.</td>
+      <td>Não</td>
     </tr>
   </tbody>
 </table>
 
-<p>Veja o desconto apresentado no carrinho:</p>
+<h4 id="desconto-por-meio-de-pagamento">Desconto por meio de pagamento</h4>
 
-<table>
-  <thead>
-    <tr>
-      <th>Percentual</th>
-      <th>Valor</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><img src="https://developercielo.github.io/images/checkout/checkout-discount-percent.png" alt="Percentual" /></td>
-      <td><img src="https://developercielo.github.io/images/checkout/checkout-discount-amount.png" alt="Valor" /></td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Boleto e cartão de crédito</strong></p>
-
-<p>Para enviar um desconto sobre o <strong>boleto</strong>, <strong>débito online</strong> e/ou <strong>cartão de crédito à vista</strong> envie dentro do nó Payment o campo correspondente:</p>
+<p>Para enviar um desconto sobre o <strong>boleto e/ou cartão de crédito à vista</strong> envie dentro do nó <code class="language-plaintext highlighter-rouge">Payment</code> o campo correspondente:</p>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">BoletoDiscount</code> para boleto;</li>
@@ -1542,7 +1697,6 @@ Os descontos disponíveis no Checkout Cielo são:</p>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"BoletoDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"DebitDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
     </span><span class="nl">"FirstInstallmentDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">90</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1551,428 +1705,285 @@ Os descontos disponíveis no Checkout Cielo são:</p>
 <table>
   <thead>
     <tr>
-      <th>Campo</th>
-      <th>Tipo</th>
-      <th>Obrigatório</th>
-      <th>Tamanho</th>
-      <th>Descrição</th>
+      <th>PARÂMETRO</th>
+      <th>DESCRIÇÃO</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>OBRIGATÓRIO?</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.BoletoDiscount</code></td>
-      <td>Numeric</td>
-      <td>Condicional</td>
-      <td>3</td>
       <td>Desconto, em porcentagem, para pagamentos a serem realizados com boleto.</td>
+      <td>número</td>
+      <td>3</td>
+      <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FirstInstallmentDiscount</code></td>
-      <td>Numeric</td>
-      <td>Condicional</td>
-      <td>3</td>
       <td>Desconto, em porcentagem, para pagamentos à vista no cartão de crédito.</td>
+      <td>número</td>
+      <td>3</td>
+      <td>Não</td>
     </tr>
   </tbody>
 </table>
 
-<p>AVeja o desconto apresentado no carrinho:</p>
+<h2 id="definindo-o-frete">Definindo o frete</h2>
+
+<p>O Checkout Cielo permite definir cinco opções de frete no parâmetro <code class="language-plaintext highlighter-rouge">Shipping.Type</code>.</p>
 
 <table>
   <thead>
     <tr>
-      <th>Tela transacional</th>
+      <th>TIPO DE FRETE</th>
+      <th>VALOR DO PARÂMETRO <code class="language-plaintext highlighter-rouge">Shipping.Type</code></th>
+      <th>DESCRIÇÃO</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><img src="https://developercielo.github.io/images/checkout/checkout-discount-mp.png" alt="Meios de pagamento" /></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="tipos-de-frete">Tipos de Frete</h3>
-
-<p>O Checkout cielo possui diferentes tipos de frete.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Campo</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FixedAmount</code></td>
+      <td><strong>Frete fixo</strong></td>
+      <td>“FixedAmount”</td>
       <td>Valor fixo enviado pelo lojista. Utilizado caso o Lojista possua um método de entrega próprio.</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Free</code></td>
+      <td><strong>Frete grátis</strong></td>
+      <td>“Free”</td>
       <td>Não realiza cálculo de frete e exibe na tela transacional “Frete Grátis”.</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">WithoutShippingPickUp</code></td>
-      <td>Considerado <strong>Retirada na loja</strong>.</td>
+      <td><strong>Retirada na loja</strong></td>
+      <td>“WithoutShippingPickUp”</td>
+      <td>Considerado <strong><em>Retirada na loja</em></strong>.</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">WithoutShipping</code></td>
+      <td><strong>Não tem frete</strong></td>
+      <td>“WithoutShipping”</td>
       <td>Sem cobrança de frete (aplicável para serviços e produtos digitais).</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Correios</code></td>
-      <td>Utiliza a API dos correios para realizar o cálculo do custo. O valor do cálculo dependerá o contrato utilizado (escolhido no Backoffice do checkout) e do tipo de integração para cálculo: <strong>Frete com Volume</strong> ou <strong>Frete sem Volume</strong></td>
+      <td><strong>Correios</strong></td>
+      <td>“Correios”</td>
+      <td>Utiliza a API dos Correios para realizar o cálculo do custo. O valor do cálculo dependerá o contrato utilizado (informado nas Configurações da Loja) e do tipo de integração para cálculo.</td>
     </tr>
   </tbody>
 </table>
 
-<p>Abaixo, como cada opção é demonstrada na tela transacional:</p>
+<blockquote>
+  <p><strong>Observação</strong>: As opções para múltiplos fretes na categoria Correios devem ser selecionadas dentro das <strong>Configurações da Loja</strong> no site Cielo.</p>
+</blockquote>
 
-<table>
-  <thead>
-    <tr>
-      <th>Tipo de frete</th>
-      <th>Transacional</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FixedAmount</code></td>
-      <td><img src="https://developercielo.github.io/images/checkout/fixedamount.png" alt="FixedAmount" /></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Free</code></td>
-      <td><img src="https://developercielo.github.io/images/checkout/free.png" alt="Free" /></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">WithoutShippingPickUp</code></td>
-      <td><img src="https://developercielo.github.io/images/checkout/withoutshippingpickup.png" alt="WithoutShippingPickUp" /></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">WithoutShipping</code></td>
-      <td><img src="https://developercielo.github.io/images/checkout/withoutshippingpickup.png" alt="WithoutShipping" /></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Correios</code></td>
-      <td><img src="https://developercielo.github.io/images/checkout/correios.png" alt="Correios" /></td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Observação:</strong> As opções para múltiplos fretes na categoria <code class="language-plaintext highlighter-rouge">Correios</code> devem ser selecionadas dentro do Backoffice Cielo.</p>
-
-<p>Os nós que formam as informações de frete abaixo:</p>
+<p>Confira os nós que formam as informações de frete abaixo:</p>
 
 <ul>
-  <li><strong>Shipping</strong> - Nó base. É obrigatório na integração via API. Ele define os tipos de frete a serem utilizados</li>
+  <li><code class="language-plaintext highlighter-rouge">Shipping</code>: nó base. É obrigatório na integração via API. Ele define os tipos de frete a serem utilizados</li>
 </ul>
 
 <table>
   <thead>
     <tr>
-      <th>Campo</th>
-      <th>Tipo</th>
-      <th>Obrigatório</th>
-      <th>Tamanho</th>
-      <th>Descrição</th>
-      <th>Condicional</th>
+      <th>PARÂMETRO</th>
+      <th>DESCRIÇÃO</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>OBRIGATÓRIO?</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Shipping.Type</code></td>
-      <td>Alphanumeric</td>
-      <td>Sim</td>
+      <td>Tipo do frete:<br />Correios<br />FixedAmount<br />Free<br />WithoutShippingPickUp<br />WithoutShipping</td>
+      <td>alfanumérico</td>
       <td>255</td>
-      <td>Tipo do frete: <br /><code class="language-plaintext highlighter-rouge">Correios</code><br /><code class="language-plaintext highlighter-rouge">FixedAmount</code><br /><code class="language-plaintext highlighter-rouge">Free</code><br /><code class="language-plaintext highlighter-rouge">WithoutShippingPickUp</code><br /><code class="language-plaintext highlighter-rouge">WithoutShipping</code></td>
-      <td> </td>
+      <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Shipping.SourceZipCode</code></td>
-      <td>Numeric</td>
-      <td>Condicional</td>
+      <td>CEP de origem do carrinho de compras. Obrigatório caso <code class="language-plaintext highlighter-rouge">Shipping.Type</code> seja “Correios”.</td>
+      <td>número</td>
       <td>8</td>
-      <td>CEP de origem do carrinho de compras.</td>
-      <td>Obrigatório caso Shipping.Type for “Correios”.</td>
+      <td>Condicional</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Shipping.TargetZipCode</code></td>
-      <td>Numeric</td>
-      <td>Opcional</td>
-      <td>8</td>
       <td>CEP do endereço de entrega do comprador.</td>
-      <td> </td>
+      <td>número</td>
+      <td>8</td>
+      <td>Não</td>
     </tr>
   </tbody>
 </table>
 
-<p><strong>Shipping.Address</strong> - Informações de endereço de entrega. <strong>Não obrigatório no contrato da API, mas obrigatório na tela transacional</strong>. Sugerimos que esses dados sejam enviados, se já foram recolhidos dentro do ambiente da loja.</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Shipping.Address</code>: informações de endereço de entrega. Não obrigatório no contrato da API, mas sugerimos que esses dados sejam enviados se já foram recolhidos dentro do ambiente da loja. Se não foram recolhidos, a página de pagamento exibirá os campos de endereço para preenchimento pelo comprador.</li>
+</ul>
 
 <table>
   <thead>
     <tr>
-      <th>Campo</th>
-      <th>Tipo</th>
-      <th>Obrigatório</th>
-      <th>Tamanho</th>
-      <th>Descrição</th>
+      <th>PARÂMETRO</th>
+      <th>DESCRIÇÃO</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>OBRIGATÓRIO?</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Shipping.Address.Street</code></td>
-      <td>Alphanumeric</td>
-      <td>Sim</td>
-      <td>256</td>
       <td>Rua, avenida, travessa, etc, do endereço de entrega do comprador.</td>
+      <td>alfanumérico</td>
+      <td>256</td>
+      <td>Não*</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Shipping.Address.Number</code></td>
-      <td>Alphanumeric</td>
-      <td>Sim</td>
-      <td>8</td>
       <td>Número do endereço de entrega do comprador.</td>
+      <td>alfanumérico</td>
+      <td>8</td>
+      <td>Não*</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Shipping.Address.Complement</code></td>
-      <td>Alphanumeric</td>
-      <td>Opcional</td>
-      <td>14</td>
       <td>Complemento do endereço de entrega do comprador.</td>
+      <td>alfanumérico</td>
+      <td>14</td>
+      <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Shipping.Address.District</code></td>
-      <td>Alphanumeric</td>
-      <td>Sim</td>
-      <td>64</td>
       <td>Bairro do endereço de entrega do comprador.</td>
+      <td>alfanumérico</td>
+      <td>64</td>
+      <td>Não*</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Shipping.Address.City</code></td>
-      <td>Alphanumeric</td>
-      <td>Sim</td>
-      <td>64</td>
       <td>Cidade do endereço de entrega do comprador.</td>
+      <td>alfanumérico</td>
+      <td>64</td>
+      <td>Não*</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Shipping.Address.State</code></td>
-      <td>Alphanumeric</td>
-      <td>Sim</td>
-      <td>2</td>
       <td>Estado (UF) do endereço de entrega do comprador.</td>
+      <td>alfanumérico</td>
+      <td>2</td>
+      <td>Não*</td>
     </tr>
   </tbody>
 </table>
 
-<p><strong>Shipping.Services</strong></p>
+<p>/* Não é obrigatório, mas recomendamos enviar.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Shipping.Services</code>: usado para frete fixo, como serviços de frete cfontratados pela loja.</li>
+</ul>
 
 <table>
   <thead>
     <tr>
-      <th>Campo</th>
-      <th>Tipo</th>
-      <th>Obrigatório</th>
-      <th>Tamanho</th>
-      <th>Descrição</th>
+      <th>PARÂMETRO</th>
+      <th>DESCRIÇÃO</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>OBRIGATÓRIO?</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Shipping.Services.Name</code></td>
-      <td>Alphanumeric</td>
-      <td>Sim</td>
-      <td>128</td>
       <td>Nome do serviço de frete.</td>
+      <td>alfanumérico</td>
+      <td>128</td>
+      <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Shipping.Services.Price</code></td>
-      <td>Numeric</td>
-      <td>Sim</td>
-      <td>18</td>
       <td>Preço do serviço de frete em centavos. Ex: R$ 1,00 = 100.</td>
+      <td>número</td>
+      <td>18</td>
+      <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Shipping.Services.Deadline</code></td>
-      <td>Numeric</td>
-      <td>Condicional</td>
-      <td>9</td>
       <td>Prazo de entrega (em dias).</td>
+      <td>número</td>
+      <td>9</td>
+      <td>Não</td>
     </tr>
   </tbody>
 </table>
 
-<p>O Frete Correios pode ser calculado de 2 maneiras:</p>
+<h3 id="cálculo-do-frete-dos-correios">Cálculo do frete dos Correios</h3>
+
+<p>O cálculo do frete é feito pela API dos Correios e pode ser de dois tipos:</p>
 
 <ul>
-  <li><strong>Frete com Volume</strong> - Utiliza a API dos correios, mas exige que a loja envie as dimensões do pacote a ser enviado com as mercadorias</li>
-  <li><strong>Frete sem Volume</strong> - Utiliza a API dos correios, mas considera apenas o peso do carrinho como base de cálculo para a entrega.</li>
+  <li><strong>Frete com Volume</strong>: exige que a loja informe as dimensões do pacote que será enviado com as mercadorias;</li>
+  <li><strong>Frete sem Volume</strong>: considera apenas o peso do carrinho como base de cálculo para a entrega.</li>
 </ul>
 
-<p>Para utilizar o frete volumétrico, basta enviar o nó <code class="language-plaintext highlighter-rouge">Shipping.Measures</code>, seguindo as regras de integração via API REST.</p>
+<p>Para usar o frete com volume, envie o nó <code class="language-plaintext highlighter-rouge">Shipping.Measures</code>, seguindo as regras de integração via API REST.</p>
 
-<p><strong>Shipping.Measures</strong></p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Shipping.Measures</code>: indica as medidas do pacote.</li>
+</ul>
 
 <table>
   <thead>
     <tr>
-      <th>Campo</th>
-      <th>Tipo</th>
-      <th>Obrigatório</th>
-      <th>Tamanho</th>
-      <th>Descrição</th>
-      <th>Condicional</th>
+      <th>PARÂMETRO</th>
+      <th>DESCRIÇÃO</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>OBRIGATÓRIO?</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Shipping.Package</code></td>
-      <td>Alphanumeric</td>
-      <td>Obrigatório</td>
+      <td>Tipo de pacote:<br />“Box”: caixa<br />“Rol”: cilindro ou envelope.</td>
+      <td>alfanumérico</td>
       <td>Inteiro</td>
-      <td>Tipo de pacote: <br /><code class="language-plaintext highlighter-rouge">BOX</code>- Caixa <br /> <code class="language-plaintext highlighter-rouge">ROL</code> - Cilindro ou ENVELOPE</td>
-      <td> </td>
+      <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Shipping.Lenght</code></td>
-      <td>Numeric</td>
-      <td>Obrigatório</td>
-      <td>Inteiro</td>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Length</code></td>
       <td>Comprimento do pacote</td>
-      <td> </td>
+      <td>número</td>
+      <td>Inteiro</td>
+      <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Shipping.Height</code></td>
-      <td>Numeric</td>
-      <td>Condicional</td>
+      <td>Altura do pacote enviado. Obrigatório caso <code class="language-plaintext highlighter-rouge">Shipping.Package</code> como “Box”.</td>
+      <td>número</td>
       <td>Inteiro</td>
-      <td>Altura do pacote enviado</td>
-      <td>Obrigatório caso Shipping.Package como BOX</td>
+      <td>Condicional</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Shipping.Width</code></td>
-      <td>Numeric</td>
-      <td>Condicional</td>
+      <td>Largura do pacote. Obrigatório caso <code class="language-plaintext highlighter-rouge">Shipping.Package</code> seja “Box” ou “Rol”.</td>
+      <td>número</td>
       <td>Inteiro</td>
-      <td>Largura do pacote.</td>
-      <td>Obrigatório caso Shipping.Package como BOX ou ENVELOPE</td>
+      <td>Condicional</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Shipping.Diameter</code></td>
-      <td>Numeric</td>
-      <td>Condicional</td>
+      <td>Diâmetro do pacote.Obrigatório caso <code class="language-plaintext highlighter-rouge">Shipping.Package</code> como “Rol”.</td>
+      <td>número</td>
       <td>Inteiro</td>
-      <td>Diâmetro do pacote.</td>
-      <td>Obrigatório caso Shipping.Package como ROL</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Para realizar o cálculo de frete via Correios é necessário respeitar as medidas definidas pelo contrato utilizado pelo lojista. Para maiores informações sobre as dimensões e pesos permitidos, sugerimos que valide o contrato da loja no link abaixo:</p>
-
-<p><a href="http://www.correios.com.br/para-voce/precisa-de-ajuda/limites-de-dimensoes-e-de-peso">Limites e dimensões para entregas do correio</a></p>
-
-<h3 id="identificando-erros-de-integração">Identificando Erros de integração</h3>
-
-<p>Devido a estrutura do checkout Cielo, onde o comprador é redirecionado para um ambiente separado para completa a transação, existem possibilidades de erros e falhas de integração em diferentes momentos do fluxo de pagamento.
-Durante a integração é importante
-Há dois tipos de erro que poderão ocorrer durante o processo de integração com o Checkout Cielo. São eles:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Tipo de frete</th>
-      <th>Transacional</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Pré-Tela transacional</strong></td>
-      <td>Significa que houve algum dado errado no envio da transação. Dados obrigatórios podem estar faltando ou no formato invalido. Aqui o lojista sempre vai receber um e-mail informando o que deu errado</td>
-    </tr>
-    <tr>
-      <td><strong>Pós-Tela transacional</strong></td>
-      <td>Significa que há algum impedimento de cadastro que limita a venda. Coisas como afiliação bloqueada, erro nos dados salvos no cadastro ou até problemas no próprio checkout</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Caso algum erro ocorra após a finalização da transação, entre em contato com o Suporte Cielo.</p>
-
-<h1 id="parcelamentos-do-checkout-cielo">Parcelamentos do Checkout Cielo</h1>
-
-<h2 id="tipo-de-parcelamento">Tipo de Parcelamento</h2>
-
-<p>O Checkout Cielo permite que o lojista realize transações de crédito parceladas em até 12 vezes.
-Existem dois métodos de parcelamento:</p>
-
-<ul>
-  <li><strong>Parcelamento via backoffice</strong> - é o método padrão de parcelamento do Checkout. Cada bandeira possui uma configuração de parcelamento até 12X. O Valor do Carrinho (Produtos + Frete) é dividido igualmente pelo número de parcelas.</li>
-  <li><strong>Parcelamento via API</strong> - O Lojista limita o número de parcelas a serem apresentadas no backoffice</li>
-</ul>
-
-<p><strong>OBS:</strong> O Checkout é limitado a parcelamentos de 12X, mesmo que sua afiliação Cielo suporte valores superiores. Caso o valor apresentando em seu backoffice seja menor que 12, entre em contato com o Suporte Cielo e verifique a configuração de sua Afiliação.</p>
-
-<h2 id="parcelamento-via-backoffice">Parcelamento via backoffice</h2>
-
-<p>Neste modo, o lojista controla o limite máximo de parcelas que a loja realizará pelo Backoffice Checkout. O Valor das parcelas é definido acessando a aba <strong>Configurações</strong> e alterando a sessão <strong>Pagamentos</strong></p>
-
-<p><img src="https://developercielo.github.io/images/checkout/parcelamento.png" alt="Seleção de Parcelas" /></p>
-
-<p><strong>OBS:</strong> O Check Box deve estar marcado para que o meio de pagamento seja exibido na tela transacional.</p>
-
-<p><strong>Características</strong></p>
-
-<ul>
-  <li>Disponível nas integrações do Checkout Cielo via API ou Botão;</li>
-  <li>O valor total dos itens do carrinho é somado e dividido pela quantidade de parcelas do lojista;</li>
-  <li>O valor da compra é sempre o mesmo, independentemente da quantidade de parcelas escolhida pelo comprador (Não há cobrança de Juros);</li>
-  <li>O valor do frete é somado ao valor do parcelamento;</li>
-  <li>A opção “à vista” sempre está disponível ao comprador.</li>
-  <li>Todas as transações possuirão as mesmas opções de parcelamento.</li>
-</ul>
-
-<h2 id="parcelamento-via-api">Parcelamento via API</h2>
-
-<p>Nesta opção, o lojista pode configurar a quantidade de parcelas por venda, especificado via request da API no momento de envio da transação.
-O Checkout realiza o cálculo das parcelas considerando valor total e limite parcelas enviadas via API.</p>
-
-<p><strong>ATENÇÃO:</strong> Nesta opção de parcelamento, o número de parcelas desejadas deve ser inferior a quantidade que está cadastrada no backoffice Checkout.</p>
-
-<p><strong>Características</strong></p>
-
-<ul>
-  <li>O lojista envia a quantidade máxima de parcelas que deseja exibir ao comprador.</li>
-  <li>O valor do frete é somado ao valor do parcelamento.</li>
-</ul>
-
-<p>O Parcelamento via API é realizado enviando o campo <code class="language-plaintext highlighter-rouge">MaxNumberOfInstallments</code> dentro do nó Payment. Isso forçará o Checkout a recalcular o valor do parcelamento.
-Abaixo, um exemplo do Nó</p>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-  </span><span class="nl">"MaxNumberOfInstallments"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Campo</th>
-      <th>Tipo</th>
-      <th>Obrigatório</th>
-      <th>Tamanho</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MaxNumberOfInstallments</code></td>
-      <td>Numeric</td>
       <td>Condicional</td>
-      <td>2</td>
-      <td>Define valor máximo de parcelas apresentadas no transacional, ignorando configuração do Backoffice</td>
     </tr>
   </tbody>
 </table>
+
+<blockquote>
+  <p>Para realizar o cálculo de frete via Correios é necessário respeitar as medidas definidas pelo contrato utilizado pelo lojista. Para mais informações sobre as dimensões e pesos permitidos, sugerimos que valide o contrato da loja em <a href="https://www.correios.com.br/enviar/precisa-de-ajuda/arquivos/contratos-formalizados-ate-fevereiro-de-2020/18-termo-de-condicoes-de-prestacao-de-servicos-de-encomendas-nacio-ns-sedex-e-pac.pdf/view" target="_blank">Termo de Condições de Prestação de Serviços de Encomendas Nacionais dos Correios</a></p>
+</blockquote>
 
 <h1 id="recorrência-do-checkout-cielo">Recorrência do Checkout Cielo</h1>
 
