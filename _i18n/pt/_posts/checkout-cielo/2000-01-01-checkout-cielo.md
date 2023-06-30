@@ -557,33 +557,41 @@ Essas transações terão o símbolo de teste as diferenciando de suas outras tr
 
 <aside class="notice">É muito importante que, ao liberar sua loja para a realização de vendas para seus clientes, **a loja não esteja em modo de teste**. Transações realizadas nesse ambiente poderão ser finalizadas normalmente, mas **não serão descontadas do cartão do cliente** e não poderão ser “transferidas” para o ambiente de venda padrão.</aside>
 
-# Criando o carrinho
+# Criando a página de pagamento
 
-Na integração via API, a tela transacional é "montada" com bases em dados enviados que formam um **Carrinho de compras**.
-Esses dados são separados nos seguintes "nós principais":
+Na integração via API, a página de pagamento é montada com bases em dados enviados que formam um carrinho de compras. Esses dados são separados nos seguintes nós principais:
 
-| Nó         | Descrição                                                                                                                                                 |
-| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Cart`     | Contém dados dos produtos a serem vendidos.                                                                                                               |
-| `Shipping` | Contém dados do tipo de frete a ser cobrado. É influenciado pelo nó `Cart`.                                                                                |
-| `Payment`  | Contém informações que influenciam o valor cobrado. **Não contém informações sobre meios de pagamento**.                                                   |
-| `Customer` | Contém os dados o comprador. Não obrigatório na integração, mas exigido na tela de pagamentos. Sugerimos que seja enviado para acelerar o processo de compra. |
-| `Options`  | Controla features opcionais do Checkout. Não é obrigatório.                                                                                               |
+|NÓ|DESCRIÇÃO|
+|---|---|
+|`Cart`|Contém dados dos produtos a serem vendidos.|
+|`Shipping`|Contém dados do tipo de frete a ser cobrado. É influenciado pelo nó `Cart`.|
+|`Payment`|Contém informações que influenciam o valor cobrado. Não contém informações sobre meios de pagamento.|
+|`Customer`|Contém os dados do comprador. Não obrigatório na integração, mas exigido na tela de pagamentos. Sugerimos que seja enviado para acelerar o processo de compra.|
+|`Options`|Controla features opcionais do Checkout. Não é obrigatório.|
 
-Após o envio dos dados do carrinho, o Checkout enviará uma resposta contendo um **link para a tela de pagamento** no campo `CheckoutUrl`.
+Após o envio dos dados do carrinho, o Checkout enviará uma resposta contendo um link para a página de pagamento no campo `CheckoutUrl`.
 
-**Importante**: A requisição de criação do carrinho **não cria uma transação**. A URL retornada (`CheckoutUrl`) é apenas uma "pré-ordem" indicando que uma tela transacional está pronta para ser utilizada. A transação é criada apenas quando o comprador clica em Finalizar na tela do **Checkout**.
+> **Importante**: A requisição de criação da página de pagamento não cria uma transação. A URL retornada (`CheckoutUrl`) é apenas uma “pré-ordem” indicando que a página de pagamento está pronta para ser utilizada. A transação é criada apenas quando o comprador clica em **Finalizar** na tela do Checkout.
 
 ## Requisição
 
-Confira um exemplo de requisição de criação do carrinho (tela transacional) no Checkout Cielo.
+Confira um exemplo de requisição de criação da página de pagamento no Checkout Cielo.
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/orders</span></aside>
+
+**Parâmetros no cabeçalho (header)**
+
+Todas as requisições enviadas para a Cielo deverão ser autenticadas pela loja. A autenticação para a criação da página de pagamento consiste no envio do `MerchantId` no header da requisição:
+
+|PARÂMETRO|TIPO|OBRIGATÓRIO|TAMANHO|DESCRIÇÃO|
+|---|---|---|---|---|
+|`MerchantId`|GUID|Sim|36|Identificador único da loja fornecido pela Cielo após a afiliação da loja. Formato: 00000000-0000-0000-0000-000000000000|
+|`Content-type`|alfanumérico|Sim|n/a|Tipo do conteúdo da mensagem a ser enviada. Utilizar: “application/json”|
 
 ```json
 {
   "OrderNumber": "Pedido01",
-  "SoftDescriptor": "Exemplo",
+  "SoftDescriptor": "Nomefantasia",
   "Cart": {
     "Discount": {
       "Type": "Percent",
@@ -630,7 +638,6 @@ Confira um exemplo de requisição de criação do carrinho (tela transacional) 
   },
   "Payment": {
     "BoletoDiscount": 15,
-    "DebitDiscount": 10,
     "Installments": null,
     "MaxNumberOfInstallments": null
   },
@@ -644,54 +651,58 @@ Confira um exemplo de requisição de criação do carrinho (tela transacional) 
 }
 ```
 
-**Header/Cabeçalho**
+**Parâmetros no corpo (body)**
 
-| Campo          | Tipo         | Obrigatório | Tamanho | Descrição                                                                      |
-| -------------- | ------------ | ----------- | ------- | ------------------------------------------------------------------------------ |
-| `MerchantId`   | Guid         | Sim         | 36      | Identificador único da loja. **Formato:** 00000000-0000-0000-0000-000000000000 |
-| `Content-type` | Alphanumeric | Sim         | n/a     | Tipo do conteúdo da mensagem a ser enviada. **Utilizar:** "application/json"   |
+|PARÂMETRO|DESCRIÇÃO|TIPO|TAMANHO|OBRIGATÓRIO?|
+|---|---|---|---|---|
+|`OrderNumber`|Número do pedido enviado pela loja.|alfanumérico|64|Não|
+|`SoftDescriptor`|Descrição a ser apresentada na fatura do cartão de crédito do portador.|alfanumérico|13|Não|
+|`Cart.Discount.Type`|Obrigatório caso `Cart.Discount.Value` for maior ou igual a zero.|alfanumérico|255|Condicional|
+|`Cart.Discount.Value`|Obrigatório caso `Cart.Discount.Type` for Amount ou Percent.|número|18|Condicional|
+|`Cart.Items.Name`|Nome do item no carrinho.Exemplo: Pedido ABC.|alfanumérico|128|Sim|
+|`Cart.Items.Description`|Descrição do item no carrinho. Exemplo: 50 canetas - R$30,00|alfanumérico|256|Não|
+|`Cart.Items.UnitPrice`|Preço unitário do produto em centavos. Exemplo: R$ 1,00 = 100|número|18|Sim|
+|`Cart.Items.Quantity`|Quantidade do item no carrinho. Exemplo: 1.|número|9|Sim|
+|`Cart.Items.Type`|Tipo do item no carrinho.<br>Ex.:<br>Asset<br>Digital<br>Service<br>Payment|alfanumérico|255|Sim|
+|`Cart.Items.Sku`|Identificador do produto.|alfanumérico|32|Não|
+|`Cart.Items.Weight`|Peso do produto.|número|9|Necessário caso `Shipping.Type` for “Correios”.|Condicional|
+|`Payment.BoletoDiscount`|Desconto, em porcentagem, para pagamentos a serem realizados com boleto.|número|3|Não|
+|`FirstInstallmentDiscount`|Desconto, em porcentagem, para pagamentos à vista no cartão de crédito.|número|3|Não|
+|`MaxNumberOfInstallments`|Define número máximo de parcelas apresentadas na página de pagamento.|número|2|Não|
+|`Customer.Identity`|Identificação do comprador (CPF ou CNPJ). Se enviado, esse valor já vem preenchido na tela do Checkout Cielo. *Não obrigatório na API, mas obrigatório na tela transacional*.|número|14|Não|
+|`Customer.FullName`|Nome completo do comprador. *Não obrigatório na API, mas obrigatório na tela transacional*.|alfanumérico|288|Não|
+|`Customer.Email`|E-mail do comprador. Se enviado, esse valor já vem preenchido na tela do Checkout Cielo. *Não obrigatório na API, mas obrigatório na tela transacional*.|alfanumérico|64|Não|
+|`Customer.Phone`|Telefone do comprador. Se enviado, esse valor já vem preenchido na tela do Checkout Cielo. *Não obrigatório na API, mas obrigatório na tela transacional*.|número|11|Não|
+|`Options.ReturnUrl`|URL fixa definida pela loja que pode ser registrada no backoffice Checkout. Após finalizar o pagamento, o comprador pode ser redirecionado para uma página definida web pela loja.|string|255|Não|
+|`Shipping.Type`|Tipo do frete:<br>Correios<br>FixedAmount<br>Free<br>WithoutShippingPickUp<br>WithoutShipping|alfanumérico|255|Sim|
+|`Shipping.SourceZipCode`|CEP de origem do carrinho de compras. Obrigatório caso `Shipping.Type` seja “Correios”.|número|8|Condicional|
+|`Shipping.TargetZipCode`|CEP do endereço de entrega do comprador.|número|8|Não|
+|`Shipping.Address.Street`|Rua, avenida, travessa, etc, do endereço de entrega do comprador.|alfanumérico|256|Não*|
+|`Shipping.Address.Number`|Número do endereço de entrega do comprador.|alfanumérico|8|Não*|
+|`Shipping.Address.Complement`|Complemento do endereço de entrega do comprador.|alfanumérico|14|Não|
+|`Shipping.Address.District`|Bairro do endereço de entrega do comprador.|alfanumérico|64|Não*|
+|`Shipping.Address.City`|Cidade do endereço de entrega do comprador.|alfanumérico|64|Não*|
+|`Shipping.Address.State`|Estado (UF) do endereço de entrega do comprador.|alfanumérico|2|Não*|
+|`Shipping.Services.Name`|Nome do serviço de frete.|alfanumérico|128|Sim|
+|`Shipping.Services.Price`|Preço do serviço de frete em centavos. Ex: R$ 1,00 = 100.|número|18|Sim|
+|`Shipping.Services.Deadline`|Prazo de entrega (em dias).|número|9|Não|
+|`Shipping.Package`|Tipo de pacote:<br>"Box": caixa<br>"Rol": cilindro ou envelope. Saiba mais em [Cálculo do frete dos Correios](#### Cálculo do frete dos Correios)|alfanumérico|Inteiro|Sim|
+|`Shipping.Length`|Comprimento do pacote. Saiba mais em [Cálculo do frete dos Correios](#### Cálculo do frete dos Correios).|número|Inteiro|Sim|
+|`Shipping.Height`|Altura do pacote enviado. Obrigatório caso `Shipping.Package` como "Box"|número|Inteiro|Condicional|
+|`Shipping.Width`|Largura do pacote. Obrigatório caso `Shipping.Package` seja "Box" ou "Envelope".Saiba mais em [Cálculo do frete dos Correios](#### Cálculo do frete dos Correios).|número|Inteiro|Condicional|
+|`Shipping.Diameter`|Diâmetro do pacote.Obrigatório caso `Shipping.Package` como "Rol".Saiba mais em [Cálculo do frete dos Correios](#### Cálculo do frete dos Correios).|número|Inteiro|Condicional|
 
-**Cabeçalho e Autenticação** - Todas as requisições enviadas para a Cielo deverão ser autenticadas pela loja. A autenticação consiste no envio do `MerchantId`, que é o identificador único da loja fornecido pela Cielo após a afiliação da loja. A autenticação da loja deverá ser feita através do envio do campo de cabeçalho HTTP `MerchantId`:
+/* Não é obrigatório, mas recomendamos enviar.
 
-**Body - Detalhado**
+> Veja mais informações sobre o nó `Shipping` em [Definindo o frete](###Definindo o frete).
 
-| Campo                      | Tipo         | Obrigatório | Tamanho | Condicional                                                     |
-| -------------------------- | ------------ | ----------- | ------- | --------------------------------------------------------------- |
-| `OrderNumber`              | Alphanumeric | Opcional    | 64      |                                                                 |
-| `SoftDescriptor`           | Alphanumeric | Opcional    | 13      |                                                                 |
-| `Cart.Discount.Type`       | Alphanumeric | Condicional | 255     | Obrigatório caso Cart.Discount.Value for maior ou igual a zero. |
-| `Cart.Discount.Value`      | Numeric      | Condicional | 18      | Obrigatório caso Cart.Discount.Type for `Amount` ou `Percent`.  |
-| `Cart.Items.Name`          | Alphanumeric | Sim         | 128     |                                                                 |
-| `Cart.Items.Description`   | Alphanumeric | Opcional    | 256     |                                                                 |
-| `Cart.Items.UnitPrice`     | Numeric      | Sim         | 18      |                                                                 |
-| `Cart.Items.Quantity`      | Numeric      | Sim         | 9       |                                                                 |
-| `Cart.Items.Type`          | Alphanumeric | Sim         | 255     |                                                                 |
-| `Cart.Items.Sku`           | Alphanumeric | Opcional    | 32      |                                                                 |
-| `Cart.Items.Weight`        | Numeric      | Condicional | 9       | Necessário caso Shipping.Type for "Correios".                   |
-| `Payment.BoletoDiscount`   | Numeric      | Condicional | 3       |                                                                 |
-| `Payment.DebitDiscount`    | Numeric      | Condicional | 3       |                                                                 |
-| `FirstInstallmentDiscount` | Numeric      | Condicional | 3       |                                                                 |
-| `MaxNumberOfInstallments`  | Numeric      | Condicional | 2       |                                                                 |
-| `Customer.Identity`        | Numeric      | Condicional | 14      | Não obrigatório na API, mas obrigatório na tela transacional.   |
-| `Customer.FullName`        | Alphanumeric | Condicional | 288     | Não obrigatório na API, mas obrigatório na tela transacional.   |
-| `Customer.Email`           | Alphanumeric | Condicional | 64      | Não obrigatório na API, mas obrigatório na tela transacional.   |
-| `Customer.Phone`           | Numeric      | Condicional | 11      | Não obrigatório na API, mas obrigatório na tela transacional.   |
-| `Options.ReturnUrl`        | Strin        | Condicional | 255     | Uma URL fixa pode ser registrada no Backoffice Checkout.        |
-
-## Respostas
-
-Devido ao seu fluxo de venda ser dividido em duas etapas, sendo a primeira, a criação da tela transacional e a segunda, a finalização do pagamento, o Checkout possui duas respostas para uma transação:
-
-- **Response - Tela transacional** - é a resposta retornada com dados para enviar o comprador para a tela transacional;
-- **Response - Transação Finalizada** - contém dados sobre o resultado da transação, após o comprador clica em **Finalizar** na tela transacional. **É retornado apenas via Notificação**
-
-**Resultado/Status da transação:** Para obter o retorno do status da transação, é necessário definir uma URL de NOTIFICAÇÃO. Veja a sessão de notificação para maiores informações.
-
-**Response - Tela transacional**
+## Resposta
 
 Existem apenas duas opções de resposta na integração da API: sucesso ou erro.
 
-**Sucesso**: em caso de sucesso, a resposta será o conteúdo da requisição mais o link que direciona a tela transacional (`CheckoutUrl`):
+> **Importante**: A requisição de criação da página de pagamento não cria uma transação, mas sim a URl da página de pagamento (`CheckoutUrl`). A resposta de sucesso ou erro se refere a criação da página de pagamento, e não tem relação com a transação.
+
+&#9989; **Sucesso**: em caso de sucesso, a resposta será o conteúdo da requisição mais o link que direciona a tela transacional (`CheckoutUrl`):
 
 ```json
 {
@@ -703,13 +714,13 @@ Existem apenas duas opções de resposta na integração da API: sucesso ou erro
 }
 ```
 
-| Campo         | Tipo   | Obrigatório | Tamanho | Descrição                                                                                                 |
-| ------------- | ------ | ----------- | ------- | --------------------------------------------------------------------------------------------------------- |
-| `CheckoutUrl` | String | Sim         | 255     | URL da tela transacional. O Comprador **deve ser direcionado para esse ambiente para finalizar a transação** |
-| `Profile`     | String | Sim         | 16      | Perfil do lojista: fixo “CheckoutCielo”.                                                                  |
-| `Version`     | String | Sim         | 1       | Versão do serviço de criação de pedido (versão: 1).                                                       |
+|PARÂMETRO|DESCRIÇÃO|TIPO|TAMANHO|
+|---|---|---|---|
+|`CheckoutUrl`|URL da tela transacional. O Comprador deve ser direcionado para esse ambiente para finalizar a transação|String|255|
+|`Profile`|Perfil do lojista: fixo “CheckoutCielo”.|String|16|
+|`Version`|Versão do serviço de criação de pedido (versão: 1).|String|Sim|1|
 
-**Erro** - Em caso de erro, a mensagem abaixo será retornada.
+&#10060; **Erro**: em caso de erro, a API retornará a mensagem:
 
 ```json
 {
@@ -717,36 +728,52 @@ Existem apenas duas opções de resposta na integração da API: sucesso ou erro
 }
 ```
 
-| Campo     | Tipo   | Obrigatório | Tamanho | Descrição                   |
-| --------- | ------ | ----------- | ------- | --------------------------- |
-| `Message` | String | Sim         | 254     | Mensagem descritiva do erro |
+|PARÂMETRO|DESCRIÇÃO|TIPO|TAMANHO|
+|---|---|---|---|
+|`Message`|Mensagem descritiva do erro|String|254|
 
-> **Importante**: O Checkout Cielo não possui erros numerados, apenas uma mensagem genérica. Veja a sessão "Identificando erros de Integração" para mais informações.
+## Criando pagamento parcelado
 
-## Funcionalidades adicionais
+O **Checkout Cielo** permite que o lojista realize transações de crédito parceladas em até 12 vezes.
 
-O Checkout Cielo possui funcionalidades adicionais que seguem regras específicas para utilização e não estão disponíveis na integração via botão.
+> **Importante**: O Checkout é limitado a parcelamentos em até 12 vezes, mesmo que sua afiliação Cielo suporte valores superiores. Caso o valor apresentado nas **Configurações da loja** no site Cielo seja menor que 12, entre em contato com o Suporte Cielo e verifique a configuração de sua Afiliação.
 
-- **Tipos de Desconto**
-- **Tipos de Frete**
+Nesta opção, a loja pode configurar a quantidade de parcelas por venda. O Checkout realiza o cálculo das parcelas considerando valor total e limite de parcelas enviadas via API.
 
-### Tipos de Desconto
+> **Atenção**: O número de parcelas desejadas deve ser inferior a quantidade que está cadastrada nas **Configurações da Loja** no site Cielo.
 
-O Checkout Cielo permite que o lojista aplique descontos específicos tanto para o carrinho quanto para meios de pagamento.
-Os descontos disponíveis no Checkout Cielo são:
+**Características**
 
-| Desconto        | Aplicação        | Descrição                                                                                              |
-| --------------- | ---------------- | ------------------------------------------------------------------------------------------------------ |
-| **Carrinho**      | API              | Quando enviado, aplica o desconto sobre todo o carrinho, independente do meio de pagamento.             |
-| **Boleto**        | API e Backoffice | Quando enviado, o desconto é aplicado somente caso o boleto seja o meio de pagamento escolhido.         |
-| **Débito Online** | API e Backoffice | Quando enviado, o desconto é aplicado somente caso o débito online seja o meio de pagamento escolhido.  |
-| **À vista**       | API              | Quando enviado, o desconto é aplicado quando cartão de crédito à vista é o meio de pagamento escolhido. |
+* O lojista envia a quantidade máxima de parcelas que deseja exibir ao comprador;
+ O valor do frete é somado ao valor do parcelamento.
 
-> **Observação**: Descontos podem ser enviados na API ou definidos no Backoffice. Caso um valor de desconto seja enviado na API, esse será o valor considerado, mesmo que o Backoffice possua outro valor registrado.
+O Parcelamento via API é realizado enviando o campo `MaxNumberOfInstallments` dentro do nó `Payment`. Isso forçará o Checkout a recalcular o valor do parcelamento. Abaixo, um exemplo do nó
 
-**Carrinho**
+```json
+"Payment": {
+  "MaxNumberOfInstallments": 3
+}
+```
 
-Para enviar um desconto sobre o **carrinho** basta enviar o nó `Discount` dentro do nó `Cart`:
+|PARÂMETRO|DESCRIÇÃO|TIPO|TAMANHO|OBRIGATÓRIO?|
+|---|---|---|---|---|
+|`MaxNumberOfInstallments`|Define número máximo de parcelas apresentadas na página de pagamento.|número|2|Não|
+
+## Aplicando descontos
+
+O Checkout Cielo permite que a loja aplique descontos específicos tanto para o carrinho quanto para meios de pagamento. Os descontos disponíveis no Checkout Cielo são:
+
+|DESCONTO|DESCRIÇÃO|
+|---|---|
+|**Carrinho**|Aplica o desconto sobre todo o carrinho, independente do meio de pagamento.|
+|**Meio de pagamento - boleto**|Aplica o desconto quando o meio de pagamento escolhido é boleto.|
+|**Meio de pagamento - crédito à vista**|Aplica o desconto quando o meio de pagamento escolhido é cartão de crédito à vista.|
+
+> **Observação**: Você pode aplicar descontos via API ou site Cielo. Caso um valor de desconto seja enviado na API, esse será o valor considerado, mesmo que o site Cielo possua outro valor registrado.
+
+#### Desconto no carrinho
+
+Para enviar um desconto sobre o carrinho basta enviar o nó `Discount` dentro do nó `Cart`:
 
 ```json
 {
@@ -757,20 +784,14 @@ Para enviar um desconto sobre o **carrinho** basta enviar o nó `Discount` dentr
 }
 ```
 
-| Campo                 | Tipo         | Obrigatório | Tamanho | Descrição                                               | Condicional                                                     |
-| --------------------- | ------------ | ----------- | ------- | ------------------------------------------------------- | --------------------------------------------------------------- |
-| `Cart.Discount.Type`  | Alphanumeric | Condicional | 255     | Tipo do desconto a ser aplicado: `Amount` ou `Percent`. | Obrigatório caso Cart.Discount.Value for maior ou igual a zero. |
-| `Cart.Discount.Value` | Numeric      | Condicional | 18      | Valor do desconto a ser aplicado: Valor ou Percentual   | Obrigatório caso Cart.Discount.Type for `Amount` ou `Percent`.  |
+|PARÂMETRO|DESCRIÇÃO|TIPO|TAMANHO|OBRIGATÓRIO?|
+|---|---|---|---|---|---|
+|`Cart.Discount.Type`|Tipo do desconto a ser aplicado: "Amount" (valor) ou "Percent" (percentual).<br>Obrigatório caso `Cart.Discount.Value` for maior ou igual a zero.|alfanumérico|255|Não|
+|`Cart.Discount.Value`|Valor do desconto a ser aplicado: "Amount" (valor) ou "Percent" (percentual).|Obrigatório caso `Cart.Discount.Type` for "Amount" ou "Percent".|número|18|Não|
 
-Veja o desconto apresentado no carrinho:
+#### Desconto por meio de pagamento
 
-| Percentual                                                                           | Valor                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| ![Percentual]({{ site.baseurl_root }}/images/checkout/checkout-discount-percent.png) | ![Valor]({{ site.baseurl_root }}/images/checkout/checkout-discount-amount.png) |
-
-**Boleto e cartão de crédito**
-
-Para enviar um desconto sobre o **boleto**, **débito online** e/ou **cartão de crédito à vista** envie dentro do nó Payment o campo correspondente:
+Para enviar um desconto sobre o **boleto e/ou cartão de crédito à vista** envie dentro do nó `Payment` o campo correspondente:
 
 * `BoletoDiscount` para boleto;
 * `FirstInstallmentDiscount` para cartão de crédito à vista.
@@ -781,163 +802,81 @@ Para enviar um desconto sobre o **boleto**, **débito online** e/ou **cartão de
 {
   "Payment": {
     "BoletoDiscount": 15,
-    "DebitDiscount": 10,
     "FirstInstallmentDiscount": 90
   }
 }
 ```
 
-| Campo                              | Tipo    | Obrigatório | Tamanho | Descrição                                                                       |
-| ---------------------------------- | ------- | ----------- | ------- | ------------------------------------------------------------------------------- |
-| `Payment.BoletoDiscount`           | Numeric | Condicional | 3       | Desconto, em porcentagem, para pagamentos a serem realizados com boleto.        |
-| `Payment.FirstInstallmentDiscount` | Numeric | Condicional | 3       | Desconto, em porcentagem, para pagamentos à vista no cartão de crédito.          |
+|PARÂMETRO|DESCRIÇÃO|TIPO|TAMANHO|OBRIGATÓRIO?|
+|---|---|---|---|---|
+|`Payment.BoletoDiscount`|Desconto, em porcentagem, para pagamentos a serem realizados com boleto.|número|3|Não|
+|`Payment.FirstInstallmentDiscount`|Desconto, em porcentagem, para pagamentos à vista no cartão de crédito.|número|3|Não|
 
-AVeja o desconto apresentado no carrinho:
+## Definindo o frete
 
-| Tela transacional                                                                       |
-| --------------------------------------------------------------------------------------- |
-| ![Meios de pagamento]({{ site.baseurl_root }}/images/checkout/checkout-discount-mp.png) |
+O Checkout Cielo permite definir cinco opções de frete no parâmetro `Shipping.Type`.
 
-### Tipos de Frete
+|TIPO DE FRETE|VALOR DO PARÂMETRO `Shipping.Type`|DESCRIÇÃO|
+|---|---|---|
+|**Frete fixo**| "FixedAmount"|Valor fixo enviado pelo lojista. Utilizado caso o Lojista possua um método de entrega próprio.|
+|**Frete grátis**|"Free"|Não realiza cálculo de frete e exibe na tela transacional “Frete Grátis”.|
+|**Retirada na loja**|"WithoutShippingPickUp"|Considerado **_Retirada na loja_**.|
+|**Não tem frete**| "WithoutShipping"|Sem cobrança de frete (aplicável para serviços e produtos digitais).|
+|**Correios**|"Correios"|Utiliza a API dos Correios para realizar o cálculo do custo. O valor do cálculo dependerá o contrato utilizado (informado nas Configurações da Loja) e do tipo de integração para cálculo.|
 
-O Checkout cielo possui diferentes tipos de frete.
+> **Observação**: As opções para múltiplos fretes na categoria Correios devem ser selecionadas dentro das **Configurações da Loja** no site Cielo.
 
-| Campo                   | Descrição                                                                                                                                                                                                                               |
-| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `FixedAmount`           | Valor fixo enviado pelo lojista. Utilizado caso o Lojista possua um método de entrega próprio.                                                                                                                                           |
-| `Free`                  | Não realiza cálculo de frete e exibe na tela transacional "Frete Grátis".                                                                                                                                                                |
-| `WithoutShippingPickUp` | Considerado **Retirada na loja**.                                                                                                                                                                                                          |
-| `WithoutShipping`       | Sem cobrança de frete (aplicável para serviços e produtos digitais).                                                                                                                                                                    |
-| `Correios`              | Utiliza a API dos correios para realizar o cálculo do custo. O valor do cálculo dependerá o contrato utilizado (escolhido no Backoffice do checkout) e do tipo de integração para cálculo: **Frete com Volume** ou **Frete sem Volume** |
+Confira os nós que formam as informações de frete abaixo:
 
-Abaixo, como cada opção é demonstrada na tela transacional:
+* `Shipping`: nó base. É obrigatório na integração via API. Ele define os tipos de frete a serem utilizados
 
-| Tipo de frete           | Transacional                                                                                |
-| ----------------------- | ------------------------------------------------------------------------------------------- |
-| `FixedAmount`           | ![FixedAmount]({{ site.baseurl_root }}/images/checkout/fixedamount.png)                     |
-| `Free`                  | ![Free]({{ site.baseurl_root }}/images/checkout/free.png)                                   |
-| `WithoutShippingPickUp` | ![WithoutShippingPickUp]({{ site.baseurl_root }}/images/checkout/withoutshippingpickup.png) |
-| `WithoutShipping`       | ![WithoutShipping]({{ site.baseurl_root }}/images/checkout/withoutshippingpickup.png)       |
-| `Correios`              | ![Correios]({{ site.baseurl_root }}/images/checkout/correios.png)                           |
+|PARÂMETRO|DESCRIÇÃO|TIPO|TAMANHO|OBRIGATÓRIO?|
+|----|---|---|---|---|
+|`Shipping.Type`|Tipo do frete:<br>Correios<br>FixedAmount<br>Free<br>WithoutShippingPickUp<br>WithoutShipping|alfanumérico|255|Sim|
+|`Shipping.SourceZipCode`|CEP de origem do carrinho de compras. Obrigatório caso `Shipping.Type` seja “Correios”.|número|8|Condicional|
+|`Shipping.TargetZipCode`|CEP do endereço de entrega do comprador.|número|8|Não|
 
-**Observação:** As opções para múltiplos fretes na categoria `Correios` devem ser selecionadas dentro do Backoffice Cielo.
+* `Shipping.Address`: informações de endereço de entrega. Não obrigatório no contrato da API, mas sugerimos que esses dados sejam enviados se já foram recolhidos dentro do ambiente da loja. Se não foram recolhidos, a página de pagamento exibirá os campos de endereço para preenchimento pelo comprador.
 
-Os nós que formam as informações de frete abaixo:
+|PARÂMETRO|DESCRIÇÃO|TIPO|TAMANHO|OBRIGATÓRIO?|
+|----|---|---|---|---|
+|`Shipping.Address.Street`|Rua, avenida, travessa, etc, do endereço de entrega do comprador.|alfanumérico|256|Não*|
+|`Shipping.Address.Number`|Número do endereço de entrega do comprador.|alfanumérico|8|Não*|
+|`Shipping.Address.Complement`|Complemento do endereço de entrega do comprador.|alfanumérico|14|Não|
+|`Shipping.Address.District`|Bairro do endereço de entrega do comprador.|alfanumérico|64|Não*|
+|`Shipping.Address.City`|Cidade do endereço de entrega do comprador.|alfanumérico|64|Não*|
+|`Shipping.Address.State`|Estado (UF) do endereço de entrega do comprador.|alfanumérico|2|Não*|
 
-- **Shipping** - Nó base. É obrigatório na integração via API. Ele define os tipos de frete a serem utilizados
+/* Não é obrigatório, mas recomendamos enviar.
 
-| Campo                    | Tipo         | Obrigatório | Tamanho | Descrição                                                                                                | Condicional                                    |
-| ------------------------ | ------------ | ----------- | ------- | -------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
-| `Shipping.Type`          | Alphanumeric | Sim         | 255     | Tipo do frete: <br>`Correios`<br>`FixedAmount`<br>`Free`<br>`WithoutShippingPickUp`<br>`WithoutShipping` |                                                |
-| `Shipping.SourceZipCode` | Numeric      | Condicional | 8       | CEP de origem do carrinho de compras.                                                                    | Obrigatório caso Shipping.Type for "Correios". |
-| `Shipping.TargetZipCode` | Numeric      | Opcional    | 8       | CEP do endereço de entrega do comprador.                                                                 |                                                |
+* `Shipping.Services`: usado para frete fixo, como serviços de frete cfontratados pela loja.
 
-**Shipping.Address** - Informações de endereço de entrega. **Não obrigatório no contrato da API, mas obrigatório na tela transacional**. Sugerimos que esses dados sejam enviados, se já foram recolhidos dentro do ambiente da loja.
+|PARÂMETRO|DESCRIÇÃO|TIPO|TAMANHO|OBRIGATÓRIO?|
+|----|---|---|---|---|
+|`Shipping.Services.Name`|Nome do serviço de frete.|alfanumérico|128|Sim|
+|`Shipping.Services.Price`|Preço do serviço de frete em centavos. Ex: R$ 1,00 = 100.|número|18|Sim|
+|`Shipping.Services.Deadline`|Prazo de entrega (em dias).|número|9|Não|
 
-| Campo                         | Tipo         | Obrigatório | Tamanho | Descrição                                                         |
-| ----------------------------- | ------------ | ----------- | ------- | ----------------------------------------------------------------- |
-| `Shipping.Address.Street`     | Alphanumeric | Sim         | 256     | Rua, avenida, travessa, etc, do endereço de entrega do comprador. |
-| `Shipping.Address.Number`     | Alphanumeric | Sim         | 8       | Número do endereço de entrega do comprador.                       |
-| `Shipping.Address.Complement` | Alphanumeric | Opcional    | 14      | Complemento do endereço de entrega do comprador.                  |
-| `Shipping.Address.District`   | Alphanumeric | Sim         | 64      | Bairro do endereço de entrega do comprador.                       |
-| `Shipping.Address.City`       | Alphanumeric | Sim         | 64      | Cidade do endereço de entrega do comprador.                       |
-| `Shipping.Address.State`      | Alphanumeric | Sim         | 2       | Estado (UF) do endereço de entrega do comprador.                  |
+### Cálculo do frete dos Correios
 
-**Shipping.Services**
+O cálculo do frete é feito pela API dos Correios e pode ser de dois tipos:
 
-| Campo                        | Tipo         | Obrigatório | Tamanho | Descrição                                                 |
-| ---------------------------- | ------------ | ----------- | ------- | --------------------------------------------------------- |
-| `Shipping.Services.Name`     | Alphanumeric | Sim         | 128     | Nome do serviço de frete.                                 |
-| `Shipping.Services.Price`    | Numeric      | Sim         | 18      | Preço do serviço de frete em centavos. Ex: R$ 1,00 = 100. |
-| `Shipping.Services.Deadline` | Numeric      | Condicional | 9       | Prazo de entrega (em dias).                               |
+* **Frete com Volume**: exige que a loja informe as dimensões do pacote que será enviado com as mercadorias;
+* **Frete sem Volume**: considera apenas o peso do carrinho como base de cálculo para a entrega.
 
-O Frete Correios pode ser calculado de 2 maneiras:
+Para usar o frete com volume, envie o nó `Shipping.Measures`, seguindo as regras de integração via API REST.
 
-- **Frete com Volume** - Utiliza a API dos correios, mas exige que a loja envie as dimensões do pacote a ser enviado com as mercadorias
-- **Frete sem Volume** - Utiliza a API dos correios, mas considera apenas o peso do carrinho como base de cálculo para a entrega.
+* `Shipping.Measures`: indica as medidas do pacote.
 
-Para utilizar o frete volumétrico, basta enviar o nó `Shipping.Measures`, seguindo as regras de integração via API REST.
+|PARÂMETRO|DESCRIÇÃO|TIPO|TAMANHO|OBRIGATÓRIO?|
+|----|---|---|---|---|
+|`Shipping.Package`|Tipo de pacote:<br>"Box": caixa<br>"Rol": cilindro ou envelope.|alfanumérico|Inteiro|Sim|
+|`Shipping.Length`|Comprimento do pacote|número|Inteiro|Sim|
+|`Shipping.Height`|Altura do pacote enviado. Obrigatório caso `Shipping.Package` como "Box".|número|Inteiro|Condicional|
+|`Shipping.Width`|Largura do pacote. Obrigatório caso `Shipping.Package` seja "Box" ou "Rol".|número|Inteiro|Condicional|
+|`Shipping.Diameter`|Diâmetro do pacote.Obrigatório caso `Shipping.Package` como "Rol".|número|Inteiro|Condicional|
 
-**Shipping.Measures**
-
-| Campo               | Tipo         | Obrigatório | Tamanho | Descrição                                                          | Condicional                                            |
-| ------------------- | ------------ | ----------- | ------- | ------------------------------------------------------------------ | ------------------------------------------------------ |
-| `Shipping.Package`  | Alphanumeric | Obrigatório | Inteiro | Tipo de pacote: <br>`BOX`- Caixa <br> `ROL` - Cilindro ou ENVELOPE |                                                        |
-| `Shipping.Lenght`   | Numeric      | Obrigatório | Inteiro | Comprimento do pacote                                              |                                                        |
-| `Shipping.Height`   | Numeric      | Condicional | Inteiro | Altura do pacote enviado                                           | Obrigatório caso Shipping.Package como BOX             |
-| `Shipping.Width`    | Numeric      | Condicional | Inteiro | Largura do pacote.                                                 | Obrigatório caso Shipping.Package como BOX ou ENVELOPE |
-| `Shipping.Diameter` | Numeric      | Condicional | Inteiro | Diâmetro do pacote.                                                | Obrigatório caso Shipping.Package como ROL             |
-
-Para realizar o cálculo de frete via Correios é necessário respeitar as medidas definidas pelo contrato utilizado pelo lojista. Para maiores informações sobre as dimensões e pesos permitidos, sugerimos que valide o contrato da loja no link abaixo:
-
-[Limites e dimensões para entregas do correio](http://www.correios.com.br/para-voce/precisa-de-ajuda/limites-de-dimensoes-e-de-peso)
-
-### Identificando Erros de integração
-
-Devido a estrutura do checkout Cielo, onde o comprador é redirecionado para um ambiente separado para completa a transação, existem possibilidades de erros e falhas de integração em diferentes momentos do fluxo de pagamento.
-Durante a integração é importante
-Há dois tipos de erro que poderão ocorrer durante o processo de integração com o Checkout Cielo. São eles:
-
-| Tipo de frete             | Transacional                                                                                                                                                                                         |
-| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Pré-Tela transacional** | Significa que houve algum dado errado no envio da transação. Dados obrigatórios podem estar faltando ou no formato invalido. Aqui o lojista sempre vai receber um e-mail informando o que deu errado |
-| **Pós-Tela transacional** | Significa que há algum impedimento de cadastro que limita a venda. Coisas como afiliação bloqueada, erro nos dados salvos no cadastro ou até problemas no próprio checkout                           |
-
-Caso algum erro ocorra após a finalização da transação, entre em contato com o Suporte Cielo.
-
-# Parcelamentos do Checkout Cielo
-
-## Tipo de Parcelamento
-
-O Checkout Cielo permite que o lojista realize transações de crédito parceladas em até 12 vezes.
-Existem dois métodos de parcelamento:
-
-- **Parcelamento via backoffice** - é o método padrão de parcelamento do Checkout. Cada bandeira possui uma configuração de parcelamento até 12X. O Valor do Carrinho (Produtos + Frete) é dividido igualmente pelo número de parcelas.
-- **Parcelamento via API** - O Lojista limita o número de parcelas a serem apresentadas no backoffice
-
-**OBS:** O Checkout é limitado a parcelamentos de 12X, mesmo que sua afiliação Cielo suporte valores superiores. Caso o valor apresentando em seu backoffice seja menor que 12, entre em contato com o Suporte Cielo e verifique a configuração de sua Afiliação.
-
-## Parcelamento via backoffice
-
-Neste modo, o lojista controla o limite máximo de parcelas que a loja realizará pelo Backoffice Checkout. O Valor das parcelas é definido acessando a aba **Configurações** e alterando a sessão **Pagamentos**
-
-![Seleção de Parcelas]({{ site.baseurl_root }}/images/checkout/parcelamento.png)
-
-**OBS:** O Check Box deve estar marcado para que o meio de pagamento seja exibido na tela transacional.
-
-**Características**
-
-- Disponível nas integrações do Checkout Cielo via API ou Botão;
-- O valor total dos itens do carrinho é somado e dividido pela quantidade de parcelas do lojista;
-- O valor da compra é sempre o mesmo, independentemente da quantidade de parcelas escolhida pelo comprador (Não há cobrança de Juros);
-- O valor do frete é somado ao valor do parcelamento;
-- A opção “à vista” sempre está disponível ao comprador.
-- Todas as transações possuirão as mesmas opções de parcelamento.
-
-## Parcelamento via API
-
-Nesta opção, o lojista pode configurar a quantidade de parcelas por venda, especificado via request da API no momento de envio da transação.
-O Checkout realiza o cálculo das parcelas considerando valor total e limite parcelas enviadas via API.
-
-**ATENÇÃO:** Nesta opção de parcelamento, o número de parcelas desejadas deve ser inferior a quantidade que está cadastrada no backoffice Checkout.
-
-**Características**
-
-- O lojista envia a quantidade máxima de parcelas que deseja exibir ao comprador.
-- O valor do frete é somado ao valor do parcelamento.
-
-O Parcelamento via API é realizado enviando o campo `MaxNumberOfInstallments` dentro do nó Payment. Isso forçará o Checkout a recalcular o valor do parcelamento.
-Abaixo, um exemplo do Nó
-
-```json
-"Payment": {
-  "MaxNumberOfInstallments": 3
-}
-```
-
-| Campo                     | Tipo    | Obrigatório | Tamanho | Descrição                                                                                          |
-| ------------------------- | ------- | ----------- | ------- | -------------------------------------------------------------------------------------------------- |
-| `MaxNumberOfInstallments` | Numeric | Condicional | 2       | Define valor máximo de parcelas apresentadas no transacional, ignorando configuração do Backoffice |
+> Para realizar o cálculo de frete via Correios é necessário respeitar as medidas definidas pelo contrato utilizado pelo lojista. Para mais informações sobre as dimensões e pesos permitidos, sugerimos que valide o contrato da loja em [Termo de Condições de Prestação de Serviços de Encomendas Nacionais dos Correios](https://www.correios.com.br/enviar/precisa-de-ajuda/arquivos/contratos-formalizados-ate-fevereiro-de-2020/18-termo-de-condicoes-de-prestacao-de-servicos-de-encomendas-nacio-ns-sedex-e-pac.pdf/view){:target="_blank"}
 
 # Recorrência do Checkout Cielo
 
