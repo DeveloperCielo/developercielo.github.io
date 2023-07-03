@@ -1312,7 +1312,7 @@ authorization_code: "01234567"
 
 # Status e códigos
 
-# Payment_status
+## Payment_status
 
 O Checkout possui status próprios, diferente do site Cielo ou da API E-commerce Cielo. Veja a seguir a lista completa.
 
