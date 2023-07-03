@@ -2998,7 +2998,87 @@ O boleto gerado no modo de teste sempre será um boleto simulado.</p>
   </tbody>
 </table>
 
-<h1 id="programa-de-retentativa-das-bandeiras">Programa de Retentativa das Bandeiras</h1>
+<h1 id="status-e-códigos">Status e códigos</h1>
+
+<h1 id="payment_status-1">Payment_status</h1>
+
+<p>O Checkout possui status próprios, diferente do site Cielo ou da API E-commerce Cielo. Veja a seguir a lista completa.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>VALOR</th>
+      <th>STATUS DA TRANSAÇÃO</th>
+      <th>TRANSACTION STATUS</th>
+      <th>MEIOS DE PAGAMENTO</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Pendente</td>
+      <td>Pending</td>
+      <td>Para todos os meios de pagamento</td>
+      <td>Indica que o pagamento ainda está sendo processado; Obs.: Boleto - Indica que o boleto não teve o status alterado pelo lojista</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Pago</td>
+      <td>Paid</td>
+      <td>Para todos os meios de pagamento</td>
+      <td>Transação capturada e o dinheiro será depositado em conta.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Negado</td>
+      <td>Denied</td>
+      <td>Somente para Cartão Crédito</td>
+      <td>Transação não autorizada pelo responsável do meio de pagamento</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Expirado</td>
+      <td>Expired</td>
+      <td>Cartões de Crédito e Boleto</td>
+      <td>Transação deixa de ser válida para captura - <strong>15 dias após a autorização</strong></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Cancelado</td>
+      <td>Voided</td>
+      <td>Para cartões de crédito</td>
+      <td>Transação foi cancelada pelo lojista</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Não Finalizado</td>
+      <td>NotFinalized</td>
+      <td>Todos os meios de pagamento</td>
+      <td>Pagamento esperando Status - Pode indicar erro ou falha de processamento. Entre em contato com o Suporte Cielo</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Autorizado</td>
+      <td>Authorized</td>
+      <td>Somente para Cartão de Crédito</td>
+      <td>Transação autorizada pelo emissor do cartão. Deve ser capturada para que o dinheiro seja depositado em conta</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Chargeback</td>
+      <td>Chargeback</td>
+      <td>somente para Cartão de Crédito</td>
+      <td>Transação cancelada pelo consumidor junto ao emissor do cartão. O dinheiro não será depositado em conta.</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p><strong>Observação</strong>: Para consultas de pedido, o campo <code class="language-plaintext highlighter-rouge">payment.status</code> será retornado no formato texto, sempre em inglês (coluna Transaction Status).</p>
+</blockquote>
+
+<h2 id="programa-de-retentativa-das-bandeiras">Programa de Retentativa das Bandeiras</h2>
 
 <p>Quando uma pessoa tenta fazer uma compra com cartão no e-commerce a transação pode ser negada devido a uma série de fatores. As <strong>tentativas seguintes de concluir a transação</strong> usando o <strong>mesmo cartão</strong> são o que chamamos de <strong>retentativa</strong>.</p>
 
@@ -3018,7 +3098,7 @@ As retentativas podem ser cobradas pela bandeira e a quantidade de vezes que uma
   <p>Para ver as regras de retentativa de cada bandeira, acesse o manual <a href="https://developercielo.github.io/tutorial/programa-retentativa-bandeiras" target="_blank">Programa de Retentativa das Bandeiras</a>.</p>
 </blockquote>
 
-<h1 id="códigos-de-retorno-abecs">Códigos de retorno ABECS</h1>
+<h2 id="códigos-de-retorno-abecs">Códigos de retorno ABECS</h2>
 
 <p>A Associação Brasileira das Empresas de Cartão de Crédito e Serviços (ABECS) é responsável pela padronização do <strong>código de retorno das autorizações de vendas negadas</strong> tanto para as soluções pagamento do mundo físico quanto de e-commerce do mercado brasileiro.</p>
 
@@ -3028,15 +3108,19 @@ As retentativas podem ser cobradas pela bandeira e a quantidade de vezes que uma
 
 <h1 id="suporte-cielo">Suporte Cielo</h1>
 
-<p>Após a leitura deste manual, caso ainda persistam dúvidas (técnicas ou não), a Cielo disponibiliza o suporte técnico 24 horas por dia, 7 dias por semana em idiomas (Português e Inglês), nos seguintes contatos:</p>
+<p>A Cielo disponibiliza o suporte técnico 24 horas por dia, 7 dias por semana em português e inglês, nos seguintes contatos:</p>
 
 <ul>
-  <li>+55 4002-5472 – <em>Capitais e Regiões Metropolitanas</em></li>
-  <li>+55 0800 570 8472 – <em>Demais Localidades</em></li>
-  <li>+55 11 2860-1348 – <em>Internacionais</em></li>
-  <li>Opção 5 – <em>Suporte E-commerce;</em></li>
   <li>E-mail: <a href="mailto:cieloecommerce@cielo.com.br">cieloecommerce@cielo.com.br</a></li>
+  <li>+55 4002-5472 (capitais e regiões metropolitanas)</li>
+  <li>+55 0800 570 8472 (demais Localidades)</li>
+  <li>+55 11 2860-1348 (internacionais)
+    <ul>
+      <li>Opção 5 (Suporte E-commerce)</li>
+    </ul>
+  </li>
 </ul>
+
 </div>
 
 
