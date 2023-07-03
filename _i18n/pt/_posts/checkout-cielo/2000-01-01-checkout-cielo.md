@@ -1310,6 +1310,316 @@ authorization_code: "01234567"
 |`nsu`|NSU - Número sequencial único da transação.|Alfanumérico|6|
 |`authorization_code`|Código de autorização.|Alfanumérico|8|
 
+# Consulta, captura e cancelamento
+
+## Consultando transações
+
+A consulta de transações via API pode ser feita até 45 dias após a venda ter sido realizada.
+
+A consulta deve ser feita pela **API de Controle Transacional**, enviando o `access_token` como autenticação.
+
+A consulta de pedidos pode ser feita por:
+
+* `order_number`: é o `MerchantOrderNumber` retornado na notificação de finalização da transação;
+* `checkout_cielo_order_number`: é retornado na notificação de finalização da transação ou na notificação de mudança de status.
+
+### Por order_number
+
+A consulta de transações por `order_number` retorna uma lista de transações com o mesmo número de pedidos; isso ocorre pois o Checkout não impede a duplicação de `order_number`s por parte da loja. A resposta retornará o `checkout_cielo_order_number`, que deverá ser usado na consulta de uma transação específica.
+
+#### Requisição
+
+Para consultar uma transação pelo `order_number`, faça um `GET`.
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/merchantOrderNumber/{ordernumber}</span></aside>
+
+|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|---|---|---|---|---|
+|`order_number`|Número do pedido da loja. É o `MerchantOrderNumber` retornado na notificação. |string|-|Exemplo: 1db9226geg8b54e6b2972e9b745b23c4|
+
+#### Resposta
+
+``` json
+[
+    {
+        "$id": "1",
+        "checkoutOrderNumber": "a58995ce24fd4f1cb025701e95a51478",
+        "createdDate": "2023-03-30T12:09:33.57",
+        "links": [
+            {
+                "$id": "2",
+                "method": "GET",
+                "rel": "self",
+                "href": "https://cieloecommerce.cielo.com.br/api/public/v2/orders/a58995ce24fd4f1cb025701e95a51478"
+            }
+        ]
+    },
+    {
+        "$id": "3",
+        "checkoutOrderNumber": "438f3391860a4bedbae9a868180dda6e",
+        "createdDate": "2023-03-30T12:05:41.317",
+        "links": [
+            {
+                "$id": "4",
+                "method": "GET",
+                "rel": "self",
+                "href": "https://cieloecommerce.cielo.com.br/api/public/v2/orders/438f3391860a4bedbae9a868180dda6e"
+            }
+        ]
+    }
+]
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|---|---|---|---|---|
+|`$id`|Id do nó.|Número|-|Exemplo: 1|
+|`checkoutOrderNumber`|Código de pedido gerado pelo Checkout Cielo.|Texto|32|Exmeplo: a58995ce24fd4f1cb025701e95a51478|
+|`createdDate`|Data de criação do pedido |Data|-|AAAA-MM-DDTHH:mm:SS.ss|
+|`links.$id`|Id do nó.|Número|-|Exemplo: 1|
+|`links.method`|Método para consumo da operação.|Texto|10|Exemplos: GET, POST ou PUT.|
+|`links.rel`|Relação para consumo da operação.|Texto|10|Exemplo: self|
+|`links.href`|Endpoint para consumo da operação.|Texto|512|Exemplo: https://cieloecommerce.cielo.com.br/api/public/v2/orders/438f3391860a4bedbae9a868180dda6e|
+
+### Por Checkout_Cielo_Order_Number
+
+#### Requisição
+
+Para consultar uma transação pelo `Checkout_Cielo_Order_Number`, basta realizar um `GET`.
+
+> Header: `Authorization`: `Bearer {access_token}`
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/orders/{checkout_cielo_order_number}</span></aside>
+
+#### Resposta
+
+``` json
+{ 
+    "merchantId": "c89fdfbb-dbe2-4e77-806a-6d75cd397dac", 
+    "orderNumber": "054f5b509f7149d6aec3b4023a6a2957", 
+    "softDescriptor": "Pedido1234", 
+    "cart": { 
+        "items": [ 
+            { 
+                "name": "Pedido ABC", 
+                "description": "50 canetas - R$30,00 | 10 cadernos - R$50,00 | 10 Borrachas - R$10,00", 
+                "unitPrice": 9000, 
+                "quantity": 1, 
+                "type": "1" 
+            } 
+        ] 
+    }, 
+    "shipping": { 
+        "type": "FixedAmount", 
+        "services": [ 
+            { 
+              "name": "Entrega Rápida", 
+                "price": 2000 
+            } 
+        ], 
+        "address": { 
+            "street": "Alameda Xingu", 
+            "number": "512", 
+            "complement": "21 andar", 
+            "district": "Alphaville", 
+            "city": "Barueri", 
+            "state": "SP" 
+        } 
+    }, 
+    "payment": { 
+        "status": "Paid", 
+        "tid": "10127355487AK2C3EOTB",
+        "nsu": "149111",
+        "authorizationCode": "294551",
+        "numberOfPayments": 1,
+        "createdDate": "2023-03-02T14:29:43.767",
+        "finishedDate": "2023-03-02T14:29:46.117",
+        "cardMaskedNumber": "123456******2007",
+        "brand": "Visa",
+        "type": "creditCard",
+        "errorcode": "00",
+        "antifraud": { 
+            "antifraudeResult": 1,
+            "description": "Risco Baixo" 
+        } 
+    }, 
+    "customer": { 
+        "identity": "12345678911", 
+        "fullName": "Nome do comprador", 
+        "email": "exemplo@email.com.br", 
+        "phone": "11123456789" 
+    }, 
+    "links": [ 
+        { 
+            "method": "GET", 
+            "rel": "self", 
+            "href": "https://cieloecommerce.cielo.com.br/api/public/v2/orders/054f5b509f7149d6aec3b4023a6a2957" 
+        }, 
+        { 
+            "method": "PUT", 
+            "rel": "void", 
+            "href": "https://cieloecommerce.cielo.com.br/api/public/v2/orders/054f5b509f7149d6aec3b4023a6a2957/void" 
+        } 
+    ] 
+}
+```
+
+|PROPRIEDADE|Tipo|Tamanho|Descrição|Formato|
+|---|---|---|---|---|
+|`merchantId`|GUID|36|Id da Loja no Checkout Cielo.|Exemplo: c89fdfbb-dbe2-4e77-806a-6d75cd397dac|
+|`orderNumber`|Texto|32|Número do pedido da loja.|Exemplo: 123456|
+|`softDescriptor`|Texto|13|Nome fantasia da loja exibido na fatura do comprador. Sem caracteres especiais ou espaços.|Exemplo: `Loja_ABC_1234`|
+|`cart.discount.type`|Texto|10|Tipo de desconto aplicado.|Valores possíveis: Amount ou Percent|
+|`cart.discount.value`|Número|18|Valor ou porcentagem de desconto aplicado.|Exemplo: Se `discount.type` for Amount, então 1000 = R$10,00. Se `discount.type` for Percent, o valor estará entre 0 e 100.|
+|`cart.items.name`|Texto|128|Nome do item no carrinho.|Exemplo: Pedido ABC|
+|`cart.items.sku` | Texto | 32 | Identificador do produto. | Existirá se fornecido, ex: abc123456789|
+|`cart.items.weight` | Número | 10 | Peso do produto. | Existirá se fornecido, ex: 2
+|`cart.items.description`|Texto|256|Descrição do item no carrinho.|Exemplo: 50 canetas - R$30,00|
+|`cart.items.unitPrice`|Número|18|Preço unitário do produto em centavos|Exemplo: R$ 1,00 = 100|
+|`cart.items.quantity`|Número|9|Quantidade do item no carrinho.|Exemplo: 1|
+|`cart.items.type`|Texto|255|Tipo do item no carrinho|`Asset`<br>`Digital`<br>`Service`<br>`Payment`|
+|`shipping.type`|Número|36|Modalidade de frete.|Exemplo: 1|
+|`shipping.services.name`|Texto|128|Modalidade de frete.|Exemplo: Casa Principal|
+|`shipping.services.price`|Número|10|Valor do serviço de frete, em centavos.|Exemplo: R$ 10,00 = 1000|
+|`shipping.services.deadline` | Numérico | 10 | Prazo de entrega para o pedido em dias | Exemplo: 10|
+|`shipping.services.carrier` | Numérico | 1 | Código do tipo de entrega, segue a tabela Shipping_Type | Exemplo: 1|
+|`shipping.address.street`|Texto|256|Endereço de entrega.|Exemplo: Rua João da Silva|
+|`shipping.address.number`|Número|8|Número do endereço de entrega.|Exemplo: 123|
+|`shipping.address.complement`|Texto|64|Complemento do endereço de entrega.|Exemplo: Casa|
+|`shipping.address.district`|Texto|64|Bairro do endereço de entrega.|Exemplo: Alphaville|
+|`shipping.address.city`|Texto|64|Cidade do endereço de entrega.|Exemplo: São Paulo|
+|`shipping.address.state`|Texto|2|Estado de endereço de entrega.|Exemplo: SP|
+|`Payment.status`|Texto|10|Status da transação|Exemplo: Paid [Lista Completa](https://developercielo.github.io/manual/linkdepagamentos5#payment_status)|
+|`Payment.tid`|Texto|32|TID Cielo gerado no momento da autorização da transação.|Exemplo: 10127355487AK2C3EOTB|
+|`Payment.nsu`|Texto|6|NSU Cielo gerado no momento da autorização da transação.|Exemplo: 123456|
+|`Payment.authorizationCode`|Texto|3|Código de autorização.|Exemplo: 456789|
+|`Payment.numberOfPayments`|Número|6|Número de Parcelas.|Exemplo: 123456|
+|`Payment.createdDate`|Texto|22|Data de criação da transação.|Exemplo: AAAA-MM-DDTHH:mm:SS.ss|
+|`Payment.finishedDate`|Texto|22|Data de finalização da transação.|Exemplo: AAAA-MM-DDTHH:mm:SS.ss|
+|`Payment.cardMaskedNumber`|Texto|19|Número do cartão mascarado.|Exemplo: 123456******2007|
+|`Payment.brand`|Texto|10|Bandeira do cartão.|Exemplo: Visa. Veja a [lista completa](https://developercielo.github.io/manual/checkout-cielo#payment_method_brand).|
+|`Payment.antifraud.antifraudeResult`|Número|1|Status do antifraude|Exemplo: 1|
+|`Payment.antifraud.description`|Texto|256|Descrição do status do antifraude|Exemplo: Lojista optou não realizar a análise do antifraude|
+|`Payment.type`|Texto|11|Tipo de meio de pagamento|Exemplo: CreditCard. Veja a [lista completa](https://developercielo.github.io/manual/checkout-cielo#payment_method_type)|
+|`Payment.errorcode`|Número|2|Código de retorno|Exemplo: 00, 51, 57 etc. Veja a [lista completa](https://developercielo.github.io/manual/linkdepagamentos5#c%C3%B3digos-de-retorno-abecs)|
+|`Customer.Identity`|Número|14|CPF ou CNPJ do comprador.|Exemplo: 12345678909|
+|`Customer.FullName`|Texto|256|Nome completo do comprador.|Exemplo: Fulano da Silva|
+|`Customer.Email`|Texto|64|Email do comprador.|Exemplo: exemplo@email.com.br|
+|`Customer.Phone`|Número|11|Telefone do comprador.|Exemplo: 11123456789|
+
+## Capturando transações
+
+A captura consiste na confirmação de uma autorização que foi realizada previamente e é um procedimento exclusivo para transações de **cartões de crédito**.
+
+A captura acontece após a autorização, para que a venda seja concretizada e a cobrança seja feita no cartão. Somente após a captura o portador do cartão poderá visualizá-la em seu extrato ou fatura.
+
+### Requisição
+
+Para capturar uma transação de cartão de crédito pelo `Checkout_Cielo_Order_Number`, basta realizar um `PUT`.
+
+> **Header:** Authorization: Bearer {access_token}
+
+**Captura Total**
+
+É a captura do valor total da transação.
+
+<aside class="request"><span class="method put">PUT</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/orders/`{checkout_cielo_order_number}`/capture</span></aside>
+
+**Captura Parcial**
+
+É a captura de parte do valor da transação. Só pode ser realizada uma vez.
+
+<aside class="request"><span class="method put">PUT</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/orders/`{checkout_cielo_order_number}`/capture?amount={Valor}</span></aside>
+
+> **Observação**: A captura parcial pode ser realizada apenas uma vez e é exclusiva para cartão de crédito.
+
+### Resposta
+
+```json
+{
+  "success": true,
+  "status": 2,
+  "returnCode": "6",
+  "returnMessage": "Operation Successful",
+  "links": [
+    {
+      "method": "GET",
+      "rel": "self",
+      "href": "https://cieloecommerce.cielo.com.br/api/public/v2/orders/a9d517d81fb24b98b2d16eae2744be96"
+    },
+    {
+      "method": "PUT",
+      "rel": "void",
+      "href": "https://cieloecommerce.cielo.com.br/api/public/v2/orders/a9d517d81fb24b98b2d16eae2744be96/void"
+    }
+  ]
+}
+```
+
+|PROPRIEDADE |DESCRIÇÃO  | TIPO    | TAMANHO |
+| -----------|-----------|---------|---------|
+| `success`       | Define o status do processo de | Boolean |    -     |
+| `status`        | Status da transação no Checkout | int     | 2       |
+| `returnCode`    | Código de explicação o motivo de transações negadas ou autorizadas | String  | 2       |
+| `returnMessage` | Mensagem que explica o motivo de transações negadas ou autorizadas  | String  | 255     |
+
+## Cancelando transações
+
+Para cancelar uma transação pelo `Checkout_Cielo_Order_Number`, basta realizar um `PUT`.
+
+Para as solicitações de cancelamento da mesma transação, é necessário aguardar um período de **5 segundos** entre uma solicitação e outra, para que seja realizada a consulta de saldo, reserva do valor na agenda financeira e sensibilização do saldo, evitando duplicidade de cancelamento. Esta regra vale para cancelamentos totais e/ou parciais.
+
+Para identificar que as solicitações de cancelamento são da mesma transação, consideramos o número do EC, número da autorização de cancelamento, data da venda, valor da venda e NSU.
+
+> **Importante**: Para realizar qualquer solicitação de cancelamento, é necessário que o estabelecimento possua saldo suficiente na transação/em agenda.
+
+### Requisição
+
+> **Header:** Authorization: Bearer {access_token}
+
+**Cancelamento total**
+
+É o cancelamento do valor total da transação.
+
+<aside class="request"><span class="method put">PUT</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/orders/`{checkout_cielo_order_number}`/void</span></aside>
+
+**Camcelamento Parcial**
+
+É o cancelamento de parte do valor da transação. Pode ser realizado mais de uma vez, até que o valor total seja cancelado.
+
+<aside class="request"><span class="method put">PUT</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/orders/`{checkout_cielo_order_number}`/void?amount={Valor}</span></aside>
+
+> **Atenção**: O cancelamento parcial pode ser realizado apenas após a captura. O cancelamento parcial pode ser realizado inúmeras vezes até que o valor total seja cancelado.
+
+### Resposta
+
+```json
+{
+  "success": true,
+  "status": 2,
+  "returnCode": "6",
+  "returnMessage": "Operation Successful",
+  "links": [
+    {
+      "method": "GET",
+      "rel": "self",
+      "href": "https://cieloecommerce.cielo.com.br/api/public/v2/orders/a9d517d81fb24b98b2d16eae2744be96"
+    },
+    {
+      "method": "PUT",
+      "rel": "void",
+      "href": "https://cieloecommerce.cielo.com.br/api/public/v2/orders/a9d517d81fb24b98b2d16eae2744be96/void"
+    }
+  ]
+}
+```
+
+|PROPRIEDADE |DESCRIÇÃO  | TIPO    | TAMANHO |
+| -----------|-----------|---------|---------|
+| `success`       | Define o status do processo de | Boolean |    -     |
+| `status`        | Status da transação no Checkout | int     | 2       |
+| `returnCode`    | Código de explicação o motivo de transações negadas ou autorizadas | String  | 2       |
+| `returnMessage` | Mensagem que explica o motivo de transações negadas ou autorizadas  | String  | 255     |
+
 # Status e códigos
 
 ## Payment_status
