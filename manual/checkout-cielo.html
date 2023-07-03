@@ -2998,6 +2998,707 @@ O boleto gerado no modo de teste sempre será um boleto simulado.</p>
   </tbody>
 </table>
 
+<h1 id="consulta-captura-e-cancelamento">Consulta, captura e cancelamento</h1>
+
+<h2 id="consultando-transações">Consultando transações</h2>
+
+<p>A consulta de transações via API pode ser feita até 45 dias após a venda ter sido realizada.</p>
+
+<p>A consulta deve ser feita pela <strong>API de Controle Transacional</strong>, enviando o <code class="language-plaintext highlighter-rouge">access_token</code> como autenticação.</p>
+
+<p>A consulta de pedidos pode ser feita por:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">order_number</code>: é o <code class="language-plaintext highlighter-rouge">MerchantOrderNumber</code> retornado na notificação de finalização da transação;</li>
+  <li><code class="language-plaintext highlighter-rouge">checkout_cielo_order_number</code>: é retornado na notificação de finalização da transação ou na notificação de mudança de status.</li>
+</ul>
+
+<h3 id="por-order_number">Por order_number</h3>
+
+<p>A consulta de transações por <code class="language-plaintext highlighter-rouge">order_number</code> retorna uma lista de transações com o mesmo número de pedidos; isso ocorre pois o Checkout não impede a duplicação de <code class="language-plaintext highlighter-rouge">order_number</code>s por parte da loja. A resposta retornará o <code class="language-plaintext highlighter-rouge">checkout_cielo_order_number</code>, que deverá ser usado na consulta de uma transação específica.</p>
+
+<h4 id="requisição-3">Requisição</h4>
+
+<p>Para consultar uma transação pelo <code class="language-plaintext highlighter-rouge">order_number</code>, faça um <code class="language-plaintext highlighter-rouge">GET</code>.</p>
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/merchantOrderNumber/{ordernumber}</span></aside>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Formato</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">order_number</code></td>
+      <td>Número do pedido da loja. É o <code class="language-plaintext highlighter-rouge">MerchantOrderNumber</code> retornado na notificação.</td>
+      <td>string</td>
+      <td>-</td>
+      <td>Exemplo: 1db9226geg8b54e6b2972e9b745b23c4</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="resposta-2">Resposta</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"checkoutOrderNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a58995ce24fd4f1cb025701e95a51478"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-03-30T12:09:33.57"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/api/public/v2/orders/a58995ce24fd4f1cb025701e95a51478"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"checkoutOrderNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"438f3391860a4bedbae9a868180dda6e"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-03-30T12:05:41.317"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/api/public/v2/orders/438f3391860a4bedbae9a868180dda6e"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Formato</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">$id</code></td>
+      <td>Id do nó.</td>
+      <td>Número</td>
+      <td>-</td>
+      <td>Exemplo: 1</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">checkoutOrderNumber</code></td>
+      <td>Código de pedido gerado pelo Checkout Cielo.</td>
+      <td>Texto</td>
+      <td>32</td>
+      <td>Exmeplo: a58995ce24fd4f1cb025701e95a51478</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">createdDate</code></td>
+      <td>Data de criação do pedido</td>
+      <td>Data</td>
+      <td>-</td>
+      <td>AAAA-MM-DDTHH:mm:SS.ss</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">links.$id</code></td>
+      <td>Id do nó.</td>
+      <td>Número</td>
+      <td>-</td>
+      <td>Exemplo: 1</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">links.method</code></td>
+      <td>Método para consumo da operação.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Exemplos: GET, POST ou PUT.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">links.rel</code></td>
+      <td>Relação para consumo da operação.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Exemplo: self</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">links.href</code></td>
+      <td>Endpoint para consumo da operação.</td>
+      <td>Texto</td>
+      <td>512</td>
+      <td>Exemplo: https://cieloecommerce.cielo.com.br/api/public/v2/orders/438f3391860a4bedbae9a868180dda6e</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="por-checkout_cielo_order_number">Por Checkout_Cielo_Order_Number</h3>
+
+<h4 id="requisição-4">Requisição</h4>
+
+<p>Para consultar uma transação pelo <code class="language-plaintext highlighter-rouge">Checkout_Cielo_Order_Number</code>, basta realizar um <code class="language-plaintext highlighter-rouge">GET</code>.</p>
+
+<blockquote>
+  <p>Header: <code class="language-plaintext highlighter-rouge">Authorization</code>: <code class="language-plaintext highlighter-rouge">Bearer {access_token}</code></p>
+</blockquote>
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/orders/{checkout_cielo_order_number}</span></aside>
+
+<h4 id="resposta-3">Resposta</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w"> 
+    </span><span class="nl">"merchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c89fdfbb-dbe2-4e77-806a-6d75cd397dac"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"orderNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"054f5b509f7149d6aec3b4023a6a2957"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"softDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido1234"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"cart"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+        </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> 
+            </span><span class="p">{</span><span class="w"> 
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido ABC"</span><span class="p">,</span><span class="w"> 
+                </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50 canetas - R$30,00 | 10 cadernos - R$50,00 | 10 Borrachas - R$10,00"</span><span class="p">,</span><span class="w"> 
+                </span><span class="nl">"unitPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">9000</span><span class="p">,</span><span class="w"> 
+                </span><span class="nl">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> 
+                </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w"> 
+            </span><span class="p">}</span><span class="w"> 
+        </span><span class="p">]</span><span class="w"> 
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="nl">"shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FixedAmount"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nl">"services"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> 
+            </span><span class="p">{</span><span class="w"> 
+              </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Entrega Rápida"</span><span class="p">,</span><span class="w"> 
+                </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">2000</span><span class="w"> 
+            </span><span class="p">}</span><span class="w"> 
+        </span><span class="p">],</span><span class="w"> 
+        </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+            </span><span class="nl">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w"> 
+            </span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"512"</span><span class="p">,</span><span class="w"> 
+            </span><span class="nl">"complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21 andar"</span><span class="p">,</span><span class="w"> 
+            </span><span class="nl">"district"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alphaville"</span><span class="p">,</span><span class="w"> 
+            </span><span class="nl">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Barueri"</span><span class="p">,</span><span class="w"> 
+            </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="w"> 
+        </span><span class="p">}</span><span class="w"> 
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="nl">"payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paid"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nl">"tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10127355487AK2C3EOTB"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"nsu"</span><span class="p">:</span><span class="w"> </span><span class="s2">"149111"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"authorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"294551"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"numberOfPayments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-03-02T14:29:43.767"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"finishedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-03-02T14:29:46.117"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cardMaskedNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456******2007"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"creditCard"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"errorcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"antifraud"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+            </span><span class="nl">"antifraudeResult"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Risco Baixo"</span><span class="w"> 
+        </span><span class="p">}</span><span class="w"> 
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="nl">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+        </span><span class="nl">"identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678911"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nl">"fullName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do comprador"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"exemplo@email.com.br"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11123456789"</span><span class="w"> 
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> 
+        </span><span class="p">{</span><span class="w"> 
+            </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w"> 
+            </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w"> 
+            </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/api/public/v2/orders/054f5b509f7149d6aec3b4023a6a2957"</span><span class="w"> 
+        </span><span class="p">},</span><span class="w"> 
+        </span><span class="p">{</span><span class="w"> 
+            </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w"> 
+            </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w"> 
+            </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/api/public/v2/orders/054f5b509f7149d6aec3b4023a6a2957/void"</span><span class="w"> 
+        </span><span class="p">}</span><span class="w"> 
+    </span><span class="p">]</span><span class="w"> 
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Descrição</th>
+      <th>Formato</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">merchantId</code></td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Id da Loja no Checkout Cielo.</td>
+      <td>Exemplo: c89fdfbb-dbe2-4e77-806a-6d75cd397dac</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">orderNumber</code></td>
+      <td>Texto</td>
+      <td>32</td>
+      <td>Número do pedido da loja.</td>
+      <td>Exemplo: 123456</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">softDescriptor</code></td>
+      <td>Texto</td>
+      <td>13</td>
+      <td>Nome fantasia da loja exibido na fatura do comprador. Sem caracteres especiais ou espaços.</td>
+      <td>Exemplo: <code class="language-plaintext highlighter-rouge">Loja_ABC_1234</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">cart.discount.type</code></td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Tipo de desconto aplicado.</td>
+      <td>Valores possíveis: Amount ou Percent</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">cart.discount.value</code></td>
+      <td>Número</td>
+      <td>18</td>
+      <td>Valor ou porcentagem de desconto aplicado.</td>
+      <td>Exemplo: Se <code class="language-plaintext highlighter-rouge">discount.type</code> for Amount, então 1000 = R$10,00. Se <code class="language-plaintext highlighter-rouge">discount.type</code> for Percent, o valor estará entre 0 e 100.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">cart.items.name</code></td>
+      <td>Texto</td>
+      <td>128</td>
+      <td>Nome do item no carrinho.</td>
+      <td>Exemplo: Pedido ABC</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">cart.items.sku</code></td>
+      <td>Texto</td>
+      <td>32</td>
+      <td>Identificador do produto.</td>
+      <td>Existirá se fornecido, ex: abc123456789</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">cart.items.weight</code></td>
+      <td>Número</td>
+      <td>10</td>
+      <td>Peso do produto.</td>
+      <td>Existirá se fornecido, ex: 2</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">cart.items.description</code></td>
+      <td>Texto</td>
+      <td>256</td>
+      <td>Descrição do item no carrinho.</td>
+      <td>Exemplo: 50 canetas - R$30,00</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">cart.items.unitPrice</code></td>
+      <td>Número</td>
+      <td>18</td>
+      <td>Preço unitário do produto em centavos</td>
+      <td>Exemplo: R$ 1,00 = 100</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">cart.items.quantity</code></td>
+      <td>Número</td>
+      <td>9</td>
+      <td>Quantidade do item no carrinho.</td>
+      <td>Exemplo: 1</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">cart.items.type</code></td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Tipo do item no carrinho</td>
+      <td><code class="language-plaintext highlighter-rouge">Asset</code><br /><code class="language-plaintext highlighter-rouge">Digital</code><br /><code class="language-plaintext highlighter-rouge">Service</code><br /><code class="language-plaintext highlighter-rouge">Payment</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">shipping.type</code></td>
+      <td>Número</td>
+      <td>36</td>
+      <td>Modalidade de frete.</td>
+      <td>Exemplo: 1</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">shipping.services.name</code></td>
+      <td>Texto</td>
+      <td>128</td>
+      <td>Modalidade de frete.</td>
+      <td>Exemplo: Casa Principal</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">shipping.services.price</code></td>
+      <td>Número</td>
+      <td>10</td>
+      <td>Valor do serviço de frete, em centavos.</td>
+      <td>Exemplo: R$ 10,00 = 1000</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">shipping.services.deadline</code></td>
+      <td>Numérico</td>
+      <td>10</td>
+      <td>Prazo de entrega para o pedido em dias</td>
+      <td>Exemplo: 10</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">shipping.services.carrier</code></td>
+      <td>Numérico</td>
+      <td>1</td>
+      <td>Código do tipo de entrega, segue a tabela Shipping_Type</td>
+      <td>Exemplo: 1</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">shipping.address.street</code></td>
+      <td>Texto</td>
+      <td>256</td>
+      <td>Endereço de entrega.</td>
+      <td>Exemplo: Rua João da Silva</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">shipping.address.number</code></td>
+      <td>Número</td>
+      <td>8</td>
+      <td>Número do endereço de entrega.</td>
+      <td>Exemplo: 123</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">shipping.address.complement</code></td>
+      <td>Texto</td>
+      <td>64</td>
+      <td>Complemento do endereço de entrega.</td>
+      <td>Exemplo: Casa</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">shipping.address.district</code></td>
+      <td>Texto</td>
+      <td>64</td>
+      <td>Bairro do endereço de entrega.</td>
+      <td>Exemplo: Alphaville</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">shipping.address.city</code></td>
+      <td>Texto</td>
+      <td>64</td>
+      <td>Cidade do endereço de entrega.</td>
+      <td>Exemplo: São Paulo</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">shipping.address.state</code></td>
+      <td>Texto</td>
+      <td>2</td>
+      <td>Estado de endereço de entrega.</td>
+      <td>Exemplo: SP</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.status</code></td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Status da transação</td>
+      <td>Exemplo: Paid <a href="https://developercielo.github.io/manual/linkdepagamentos5#payment_status">Lista Completa</a></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.tid</code></td>
+      <td>Texto</td>
+      <td>32</td>
+      <td>TID Cielo gerado no momento da autorização da transação.</td>
+      <td>Exemplo: 10127355487AK2C3EOTB</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.nsu</code></td>
+      <td>Texto</td>
+      <td>6</td>
+      <td>NSU Cielo gerado no momento da autorização da transação.</td>
+      <td>Exemplo: 123456</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.authorizationCode</code></td>
+      <td>Texto</td>
+      <td>3</td>
+      <td>Código de autorização.</td>
+      <td>Exemplo: 456789</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.numberOfPayments</code></td>
+      <td>Número</td>
+      <td>6</td>
+      <td>Número de Parcelas.</td>
+      <td>Exemplo: 123456</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.createdDate</code></td>
+      <td>Texto</td>
+      <td>22</td>
+      <td>Data de criação da transação.</td>
+      <td>Exemplo: AAAA-MM-DDTHH:mm:SS.ss</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.finishedDate</code></td>
+      <td>Texto</td>
+      <td>22</td>
+      <td>Data de finalização da transação.</td>
+      <td>Exemplo: AAAA-MM-DDTHH:mm:SS.ss</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.cardMaskedNumber</code></td>
+      <td>Texto</td>
+      <td>19</td>
+      <td>Número do cartão mascarado.</td>
+      <td>Exemplo: 123456<strong>**</strong>2007</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.brand</code></td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Bandeira do cartão.</td>
+      <td>Exemplo: Visa. Veja a <a href="https://developercielo.github.io/manual/checkout-cielo#payment_method_brand">lista completa</a>.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.antifraud.antifraudeResult</code></td>
+      <td>Número</td>
+      <td>1</td>
+      <td>Status do antifraude</td>
+      <td>Exemplo: 1</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.antifraud.description</code></td>
+      <td>Texto</td>
+      <td>256</td>
+      <td>Descrição do status do antifraude</td>
+      <td>Exemplo: Lojista optou não realizar a análise do antifraude</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.type</code></td>
+      <td>Texto</td>
+      <td>11</td>
+      <td>Tipo de meio de pagamento</td>
+      <td>Exemplo: CreditCard. Veja a <a href="https://developercielo.github.io/manual/checkout-cielo#payment_method_type">lista completa</a></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.errorcode</code></td>
+      <td>Número</td>
+      <td>2</td>
+      <td>Código de retorno</td>
+      <td>Exemplo: 00, 51, 57 etc. Veja a <a href="https://developercielo.github.io/manual/linkdepagamentos5#c%C3%B3digos-de-retorno-abecs">lista completa</a></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
+      <td>Número</td>
+      <td>14</td>
+      <td>CPF ou CNPJ do comprador.</td>
+      <td>Exemplo: 12345678909</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.FullName</code></td>
+      <td>Texto</td>
+      <td>256</td>
+      <td>Nome completo do comprador.</td>
+      <td>Exemplo: Fulano da Silva</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
+      <td>Texto</td>
+      <td>64</td>
+      <td>Email do comprador.</td>
+      <td>Exemplo: exemplo@email.com.br</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Phone</code></td>
+      <td>Número</td>
+      <td>11</td>
+      <td>Telefone do comprador.</td>
+      <td>Exemplo: 11123456789</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="capturando-transações">Capturando transações</h2>
+
+<p>A captura consiste na confirmação de uma autorização que foi realizada previamente e é um procedimento exclusivo para transações de <strong>cartões de crédito</strong>.</p>
+
+<p>A captura acontece após a autorização, para que a venda seja concretizada e a cobrança seja feita no cartão. Somente após a captura o portador do cartão poderá visualizá-la em seu extrato ou fatura.</p>
+
+<h3 id="requisição-5">Requisição</h3>
+
+<p>Para capturar uma transação de cartão de crédito pelo <code class="language-plaintext highlighter-rouge">Checkout_Cielo_Order_Number</code>, basta realizar um <code class="language-plaintext highlighter-rouge">PUT</code>.</p>
+
+<blockquote>
+  <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
+</blockquote>
+
+<p><strong>Captura Total</strong></p>
+
+<p>É a captura do valor total da transação.</p>
+
+<aside class="request"><span class="method put">PUT</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/orders/`{checkout_cielo_order_number}`/capture</span></aside>
+
+<p><strong>Captura Parcial</strong></p>
+
+<p>É a captura de parte do valor da transação. Só pode ser realizada uma vez.</p>
+
+<aside class="request"><span class="method put">PUT</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/orders/`{checkout_cielo_order_number}`/capture?amount={Valor}</span></aside>
+
+<blockquote>
+  <p><strong>Observação</strong>: A captura parcial pode ser realizada apenas uma vez e é exclusiva para cartão de crédito.</p>
+</blockquote>
+
+<h3 id="resposta-4">Resposta</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"returnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"returnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/api/public/v2/orders/a9d517d81fb24b98b2d16eae2744be96"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/api/public/v2/orders/a9d517d81fb24b98b2d16eae2744be96/void"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <th>DESCRIÇÃO</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">success</code></td>
+      <td>Define o status do processo de</td>
+      <td>Boolean</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">status</code></td>
+      <td>Status da transação no Checkout</td>
+      <td>int</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">returnCode</code></td>
+      <td>Código de explicação o motivo de transações negadas ou autorizadas</td>
+      <td>String</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">returnMessage</code></td>
+      <td>Mensagem que explica o motivo de transações negadas ou autorizadas</td>
+      <td>String</td>
+      <td>255</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="cancelando-transações">Cancelando transações</h2>
+
+<p>Para cancelar uma transação pelo <code class="language-plaintext highlighter-rouge">Checkout_Cielo_Order_Number</code>, basta realizar um <code class="language-plaintext highlighter-rouge">PUT</code>.</p>
+
+<p>Para as solicitações de cancelamento da mesma transação, é necessário aguardar um período de <strong>5 segundos</strong> entre uma solicitação e outra, para que seja realizada a consulta de saldo, reserva do valor na agenda financeira e sensibilização do saldo, evitando duplicidade de cancelamento. Esta regra vale para cancelamentos totais e/ou parciais.</p>
+
+<p>Para identificar que as solicitações de cancelamento são da mesma transação, consideramos o número do EC, número da autorização de cancelamento, data da venda, valor da venda e NSU.</p>
+
+<blockquote>
+  <p><strong>Importante</strong>: Para realizar qualquer solicitação de cancelamento, é necessário que o estabelecimento possua saldo suficiente na transação/em agenda.</p>
+</blockquote>
+
+<h3 id="requisição-6">Requisição</h3>
+
+<blockquote>
+  <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
+</blockquote>
+
+<p><strong>Cancelamento total</strong></p>
+
+<p>É o cancelamento do valor total da transação.</p>
+
+<aside class="request"><span class="method put">PUT</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/orders/`{checkout_cielo_order_number}`/void</span></aside>
+
+<p><strong>Camcelamento Parcial</strong></p>
+
+<p>É o cancelamento de parte do valor da transação. Pode ser realizado mais de uma vez, até que o valor total seja cancelado.</p>
+
+<aside class="request"><span class="method put">PUT</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/orders/`{checkout_cielo_order_number}`/void?amount={Valor}</span></aside>
+
+<blockquote>
+  <p><strong>Atenção</strong>: O cancelamento parcial pode ser realizado apenas após a captura. O cancelamento parcial pode ser realizado inúmeras vezes até que o valor total seja cancelado.</p>
+</blockquote>
+
+<h3 id="resposta-5">Resposta</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"returnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"returnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/api/public/v2/orders/a9d517d81fb24b98b2d16eae2744be96"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/api/public/v2/orders/a9d517d81fb24b98b2d16eae2744be96/void"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <th>DESCRIÇÃO</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">success</code></td>
+      <td>Define o status do processo de</td>
+      <td>Boolean</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">status</code></td>
+      <td>Status da transação no Checkout</td>
+      <td>int</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">returnCode</code></td>
+      <td>Código de explicação o motivo de transações negadas ou autorizadas</td>
+      <td>String</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">returnMessage</code></td>
+      <td>Mensagem que explica o motivo de transações negadas ou autorizadas</td>
+      <td>String</td>
+      <td>255</td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="status-e-códigos">Status e códigos</h1>
 
 <h2 id="payment_status-1">Payment_status</h2>
