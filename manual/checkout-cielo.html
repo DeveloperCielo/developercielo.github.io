@@ -146,9 +146,7 @@
                 </div>
             </div>
 
-            <div class="post"><h1 id="sobre-essa-documentação">Sobre essa documentação</h1>
-
-<p>Este manual irá guiar o desenvolvedor na integração com a API do Checkout Cielo. Ao integrar a API do Checkout, você vai conseguir:</p>
+            <div class="post"><p>Este manual irá guiar o desenvolvedor na integração com a API do Checkout Cielo. Ao integrar a API do Checkout, você vai conseguir:</p>
 
 <ul>
   <li>Configurar a sua loja e personalizar sua página de pagamento;</li>
@@ -1876,7 +1874,7 @@ O boleto gerado no modo de teste sempre será um boleto simulado.</p>
   </tbody>
 </table>
 
-<p>/* Não é obrigatório, mas recomendamos enviar.</p>
+<p>*Não é obrigatório, mas recomendamos enviar.</p>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">Shipping.Services</code>: usado para frete fixo, como serviços de frete cfontratados pela loja.</li>
@@ -1987,50 +1985,32 @@ O boleto gerado no modo de teste sempre será um boleto simulado.</p>
 
 <h1 id="recorrência-do-checkout-cielo">Recorrência do Checkout Cielo</h1>
 
-<p>A Recorrência é um processo de agendamento automático de transações de crédito, ou seja, é uma transação que se repetirá automaticamente, sem a necessidade do comprador acessar a tela transacional, de acordo com as regras definidas no momento do agendamento.</p>
+<p>A <strong>recorrência</strong> é um processo de agendamento automático de transações de crédito, ou seja, é uma transação que se repetirá automaticamente, sem a necessidade do comprador acessar a tela transacional, de acordo com as regras definidas no momento do agendamento.</p>
 
-<aside class="notice">Caso uma das transações não seja autorizada, o Checkout Cielo executa a retentativa automaticamente; para mais detalhes sobre a retentativa automática, veja a seção Retentativa.</aside>
+<blockquote>
+  <p>Caso uma das transações não seja autorizada, o Checkout Cielo executa a retentativa automaticamente; para mais detalhes sobre a retentativa automática, veja a seção <a href="https://developercielo.github.io/manual/checkout-cielo#retentativa-de-recorr%C3%AAncias">Retentativa de Recorrências</a>.</p>
+</blockquote>
 
-<p>Recorrência</p>
-
-<p>Transações recorrentes são ideais para modelos de negócios que envolvam o <strong>conceito de assinatura, plano ou mensalidade</strong> na sua forma de <strong>cobrança</strong>.
-Alguns exemplos de negócios são:</p>
+<p>Transações recorrentes são ideais para modelos de negócios que envolvam o <strong>conceito de assinatura, plano ou mensalidade</strong> na sua forma de <strong>cobrança</strong>, como:</p>
 
 <ul>
-  <li>Escolas</li>
-  <li>Academias</li>
-  <li>Editoras</li>
-  <li>Serviços de hospedagem</li>
+  <li>Escolas;</li>
+  <li>Academias;</li>
+  <li>Editoras;</li>
+  <li>Serviços de hospedagem.</li>
 </ul>
 
-<p><strong>Diferença entre transações recorrentes e parceladas:</strong></p>
+<blockquote>
+  <p>A transação recorrente não é uma transação parcelada. O valor total da venda compromete o limite do cartão de crédito do comprador independentemente do valor da parcela inicial.</p>
+</blockquote>
 
-<table>
-  <thead>
-    <tr>
-      <th>Tipo</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Parceladas</strong></td>
-      <td>Se trata de <strong>uma transação dividida em vários meses</strong>. <br />O valor total da venda compromete o limite do cartão de crédito do comprador independentemente do valor da parcela inicial.<br /> O lojista recebe o valor da venda parceladamente e não corre o risco de uma das parcelas ser negada.<br /> <strong>EX</strong>: Venda de R$1.000,00 parcelado em 2 vezes. Apesar de o comprador pagar apenas R$500,00 na primeira parcela, o valor do limite de crédito consumido é o integral, ou seja, R$1.000,00. Se o limite do cartão for inferior ou o montante não estiver liberado, a R$1.000,00 a transação será negada</td>
-    </tr>
-    <tr>
-      <td><strong>Recorrentes</strong></td>
-      <td>São <strong>transações diferentes realizadas no mesmo cartão em momentos previamente agendados</strong>.<br /> A primeira venda agenda as futuras vendas a partir de um intervalo de tempo pré definido.<br /> A cada intervalo haverá uma cobrança no cartão de crédito. <br /> O pagamento recorrente bloqueia do limite do cartão apenas o valor debitado na data da primeira venda recorrente e do valor total da venda.<br /> <strong>EX</strong>: Venda de R$ 1.000,00 em 15/01/2015, com recorrência mensal e data final em 01/06/2015. Todo dia 15 haverá uma nova cobrança de R$1.000,00 no cartão do comprador, se repetindo até 15/05/2015, última data válida antes da data final.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="recorrência-por-api">Recorrência por API</h2>
+<h2 id="criando-pagamento-recorrente">Criando pagamento recorrente</h2>
 
 <p>Uma transação de recorrência no Checkout Cielo possui duas configurações: <code class="language-plaintext highlighter-rouge">Intervalo</code> e <code class="language-plaintext highlighter-rouge">Data de encerramento</code>.</p>
 
 <ul>
-  <li><strong>Intervalo</strong> – padrão de repetição e intervalo de tempo entre cada transação. Esse intervalo temporal entre as transações podem ser: Mensal, Bimestral, Trimestral, Semestral e Anual.</li>
-  <li><strong>Data de encerramento</strong> – Data que o processo de recorrência deixa de ocorrer.</li>
+  <li><strong>Intervalo</strong>: padrão de repetição e intervalo de tempo entre cada transação. Esse intervalo temporal entre as transações podem ser mensal, bimestral, trimestral, semestral e anual;</li>
+  <li><strong>Data de encerramento</strong>: data que o processo de recorrência deixa de ocorrer.</li>
 </ul>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2038,6 +2018,7 @@ Alguns exemplos de negócios são:</p>
             </span><span class="nl">"Interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monthly"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"EndDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-31"</span><span class="w">
         </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
 <p><strong>Payment.RecurrentPayment</strong></p>
@@ -2045,67 +2026,37 @@ Alguns exemplos de negócios são:</p>
 <table>
   <thead>
     <tr>
-      <th>Campo</th>
-      <th>Tipo</th>
-      <th>Obrigatório</th>
-      <th>Tamanho</th>
-      <th>Descrição</th>
+      <th>PARÂMETRO</th>
+      <th>DESCRIÇÃO</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>OBRIGATÓRIO?</th>
+      <th> </th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.Interval</code></td>
-      <td>Alphanumeric</td>
-      <td>Sim</td>
-      <td>10</td>
       <td>Intervalo entre cada transação da recorrência</td>
+      <td>“Monthly” para mensal;<br />“Bimonthly” para bimestral<br />“Quarterly” para trimestral<br />“SemiAnnual” para semestral<br />“Annual” para anual</td>
+      <td>alfanumérico</td>
+      <td>10</td>
+      <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.EndDate</code></td>
-      <td>YYYY-MM-DD</td>
-      <td>Não</td>
+      <td>Data de encerramento da recorrência. Se não enviado, a recorrência se encerra somente se cancelada.</td>
+      <td>data (formato YYYY-MM-DD)</td>
       <td>255</td>
-      <td>Data onde a Recorrência se encerrará; Se não enviado a recorrência se encerra somente se cancelada</td>
-    </tr>
-  </tbody>
-</table>
-
-<table>
-  <thead>
-    <tr>
-      <th>Intervalo</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Monthly</code></td>
-      <td>Mensal</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Bimonthly</code></td>
-      <td>Bimestral</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Quarterly</code></td>
-      <td>Trimestral</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">SemiAnnual</code></td>
-      <td>Semestral</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Annual</code></td>
-      <td>Anual</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
 
 <p>Os dados do cartão de crédito do comprador ficam armazenados de forma segura dentro do Checkout Cielo, permitindo sua reutilização em uma transação recorrente. Esses dados não são acessados pelo lojista e essa inteligência é controlada pelo Checkout Cielo.</p>
 
-<p>Exceto o objeto <code class="language-plaintext highlighter-rouge">Payment</code> que contém um novo elemento específico para a recorrência chamado <code class="language-plaintext highlighter-rouge">RecurrentPayment</code>, todos os outros objetos são iguais à integração com o Carrinho.</p>
-
-<h3 id="request">Request</h3>
+<h3 id="requisição-2">Requisição</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"OrderNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12344"</span><span class="p">,</span><span class="w">
@@ -2164,10 +2115,11 @@ Alguns exemplos de negócios são:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Exemplo</strong>: Bem Físico</p>
+<p><strong>Exemplo</strong>: bem físico</p>
 
-<p>Se o tipo de produto for <code class="language-plaintext highlighter-rouge">Bem Físico</code>, a <strong>API obriga o envio do tipo de frete</strong>.
-Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo <code class="language-plaintext highlighter-rouge">WithoutShipping</code>, caso contrário, a seguinte resposta será apresentada:</p>
+<p>Se o tipo de produto for material físico (<code class="language-plaintext highlighter-rouge">Cart.Items.Type</code> = “Asset”), a <strong>API obriga o envio do tipo de frete</strong> (<code class="language-plaintext highlighter-rouge">Shipping.Type</code>).</p>
+
+<p>Se no contrato técnico existir o nó da recorrência, é obrigatório enviar o tipo <code class="language-plaintext highlighter-rouge">WithoutShipping</code>, caso contrário, a seguinte resposta será apresentada:</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The request is invalid."</span><span class="p">,</span><span class="w">
@@ -2179,86 +2131,38 @@ Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo 
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>IMPORTANTE:</strong> A Recorrência é criada apenas se a transação for <strong>AUTORIZADA</strong>. Independente de captura ou não, uma vez autorizada, o processo de recorrência se inicia.</p>
-
-<h2 id="recorrência-por-botão">Recorrência por Botão</h2>
-
-<p>Uma maneira de realizar a recorrência dentro do Checkout é criar um botão recorrente.</p>
-
-<p>Basta cadastrar o produto, incluindo um intervalo de cobrança e uma data para encerramento (Opcional), como no exemplo abaixo:</p>
-
-<p><img src="https://developercielo.github.io/images/checkout-botao-recorrencia.png" alt="Botão recorrência" /></p>
-
-<p><strong>ATENÇÃO:</strong> Caso um botão seja utilizado após a “Data final” cadastrada, a transação apresentará um erro exibindo <strong>Oppss</strong> na tela transacional. A Data pode ser editada na tela de edição do botão dentro de “Detalhes do Produto”</p>
+<blockquote>
+  <p><strong>Importante:</strong> A recorrência é criada apenas se a transação for <strong>autorizada</strong>. Independente de captura ou não, uma vez autorizada, o processo de recorrência se inicia.</p>
+</blockquote>
 
 <h2 id="retentativa-de-recorrências">Retentativa de Recorrências</h2>
 
 <p>Caso uma das transações da recorrência não seja autorizada, o Checkout Cielo executa a retentativa automaticamente, o envio de uma nova transação, considerando:</p>
 
 <ul>
-  <li><strong>Intervalo de tempo entre as tentativas:</strong> 4 dias</li>
-  <li><strong>Quantidade de retentativas:</strong> 4 (quatro), uma por dia, por 4 dias corridos a partir do dia seguinte da transação original não autorizada.</li>
+  <li><strong>Intervalo de tempo entre as tentativas</strong>: quatro dias;</li>
+  <li><strong>Quantidade de retentativas</strong>: quatro retentativas, uma por dia, por quatro dias corridos a partir do dia seguinte da transação original não autorizada.</li>
 </ul>
 
 <p><strong>OBS</strong>: Esse processo visa manter obter uma resposta positiva do processo de autorização, impedindo o lojista de perder a venda. O Processo de retentativa gera pedidos duplicados dentro do Backoffice, pois o pedido original, negado, será apresentado na lista de Pedidos, junto com a nova transação autorizada</p>
 
 <p><strong>ATENÇÃO:</strong> A regra da retentativa não pode ser modificada pelo lojista.</p>
 
-<h2 id="consultando-transações">Consultando transações</h2>
+<blockquote>
+  <p>É possível consultar e cancelar transações recorrentes no site Cielo.</p>
+</blockquote>
 
-<p>As transações de Recorrência ficam disponíveis no Backoffice Checkout Cielo como as outras vendas de sua loja na aba “PEDIDOS” (veja imagem abaixo).</p>
+<h2 id="alterando-dados-da-recorrência">Alterando dados da Recorrência</h2>
 
-<p>A primeira transação da recorrência é uma transação normal, seguindo as regras e preferências definidas pelo lojista no Backoffice.</p>
-
-<p><strong>ATENÇÃO:</strong> O valor e data de cobrança das transações recorrentes serão sempre os mesmos da transação inicial. O agendamento passa a funcionar automaticamente a partir da data em que a primeira transação for autorizada.</p>
-
-<p><img src="https://developercielo.github.io/images/checkout-consulta-recorrencia.png" alt="Consultando transações" /></p>
-
-<p>Esta tela mostra a data que a 1° transação da recorrência foi autorizada e deverá ser capturada manualmente. <strong>As demais transações da recorrência sempre serão capturadas automaticamente</strong>, independente se primeira transação foi capturada ou cancelada. Se o Cliente tiver configurado Captura automática, a captura da recorrência também será automática.</p>
-
-<p><strong>ATENÇÃO:</strong> Somente a 1° transação é submetida a análise do antifraude</p>
-
-<h2 id="cancelamento-de-recorrência-no-checkout-cielo">Cancelamento de Recorrência no Checkout Cielo</h2>
-
-<p>O cancelamento da recorrência ocorre dentro do Backoffice do Checkout Cielo, também na aba “PEDIDOS”. Basta:</p>
-
-<ol>
-  <li>Acessar uma transação de recorrência (marcada com o símbolo “Recorrente”)</li>
-  <li>Entrar em Detalhes (o símbolo de “+”)</li>
-</ol>
-
-<p><img src="https://developercielo.github.io/images/checkout-cancelar-recorrencia.png" alt="Pedido de recorrência" /></p>
-
-<p><img src="https://developercielo.github.io/images/checkout/pedidoreccance.png" alt="Cancelamento de recorrência" /></p>
-
-<p>Tela de detalhes da Recorrência</p>
-
-<p>Na tela acima, há duas opções de Cancelamento pelos botões:</p>
+<p>A API do Checkout permite a desativação da recorrência. Além disso, no <strong>site Cielo</strong> é possível alterar:</p>
 
 <ul>
-  <li><strong>Cancelar</strong> – Cancela a transação, sem efetuar o cancelamento das futuras transações de recorrência.</li>
-  <li><strong>Cancelar Recorrência</strong> - Cancela o agendamento de futuras transações, encerrando a recorrência. Não cancela a transação atual nem as que já ocorreram. Essas necessitam ser canceladas manualmente.</li>
+  <li><strong>Ativação</strong>: uma recorrência pode ser ativada ou cancelada;</li>
+  <li><strong>Intervalo</strong>: é possivel modificar o intervalo de execução;</li>
+  <li><strong>Dia de ocorrência</strong>: é possivel modificar o dia de execução da transação r6ecorrente.</li>
 </ul>
 
-<p><strong>ATENÇÃO:</strong></p>
-
-<ul>
-  <li>A Recorrência ocorre somente para Cartões de crédito e para produtos tipo “SERVIÇO” e “BENS DIGITAIS”.</li>
-  <li>A Recorrência é iniciada no momento da AUTORIZAÇAO, NÃO NA CAPTURA. Se a recorrência não tiver uma data para ser finalizada, ela se repetirá automaticamente até ser cancelada manualmente.</li>
-  <li>Sua afiliação Cielo deve ser habilitada para transacionar sem CVV ou Em recorrência, do contrário, todas as transações recorrentes serão negadas.</li>
-</ul>
-
-<h2 id="edição-da-recorrência">Edição da Recorrência</h2>
-
-<p>O Checkout Cielo permite que o lojista modifique 3 dados da recorrência:</p>
-
-<ul>
-  <li><strong>Ativação</strong> - Uma recorrência pode ser ativada ou cancelada.</li>
-  <li><strong>Intervalo</strong> - É possivel modificar o intervalo de execução.</li>
-  <li><strong>Dia de ocorrência</strong> - É possivel modificar o dia de execução da transação recorrente.</li>
-</ul>
-
-<p>A atualização é feita exclusivamente via o Backoffice Cielo. Acesso o <a href="https://developercielo.github.io/tutorial/checkout-tutoriais"><strong>Tutorial do Backoffice Checkout Cielo</strong></a> para mais informações.</p>
+<p>Acesse o <a href="https://developercielo.github.io/tutorial/checkout-tutoriais">Tutorial do Backoffice Checkout Cielo</a> para mais informações.</p>
 
 <h1 id="notificações-da-transação">Notificações da transação</h1>
 
