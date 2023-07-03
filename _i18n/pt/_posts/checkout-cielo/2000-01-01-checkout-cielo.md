@@ -1310,7 +1310,26 @@ authorization_code: "01234567"
 |`nsu`|NSU - Número sequencial único da transação.|Alfanumérico|6|
 |`authorization_code`|Código de autorização.|Alfanumérico|8|
 
-# Programa de Retentativa das Bandeiras
+# Status e códigos
+
+# Payment_status
+
+O Checkout possui status próprios, diferente do site Cielo ou da API E-commerce Cielo. Veja a seguir a lista completa.
+
+|VALOR|STATUS DA TRANSAÇÃO|TRANSACTION STATUS|MEIOS DE PAGAMENTO|DESCRIÇÃO|
+|---|---|---|---|---|
+|1|Pendente|Pending|Para todos os meios de pagamento|Indica que o pagamento ainda está sendo processado; Obs.: Boleto - Indica que o boleto não teve o status alterado pelo lojista|
+|2|Pago|Paid|Para todos os meios de pagamento|Transação capturada e o dinheiro será depositado em conta.|
+|3|Negado|Denied|Somente para Cartão Crédito|Transação não autorizada pelo responsável do meio de pagamento|
+|4|Expirado|Expired|Cartões de Crédito e Boleto|Transação deixa de ser válida para captura - **15 dias após a autorização**|
+|5|Cancelado|Voided|Para cartões de crédito|Transação foi cancelada pelo lojista
+|6|Não Finalizado|NotFinalized|Todos os meios de pagamento|Pagamento esperando Status - Pode indicar erro ou falha de processamento. Entre em contato com o Suporte Cielo|
+|7|Autorizado|Authorized|Somente para Cartão de Crédito|Transação autorizada pelo emissor do cartão. Deve ser capturada para que o dinheiro seja depositado em conta|
+|8|Chargeback|Chargeback|somente para Cartão de Crédito|Transação cancelada pelo consumidor junto ao emissor do cartão. O dinheiro não será depositado em conta.|
+
+> **Observação**: Para consultas de pedido, o campo `payment.status` será retornado no formato texto, sempre em inglês (coluna Transaction Status).
+
+## Programa de Retentativa das Bandeiras
 
 Quando uma pessoa tenta fazer uma compra com cartão no e-commerce a transação pode ser negada devido a uma série de fatores. As **tentativas seguintes de concluir a transação** usando o **mesmo cartão** são o que chamamos de **retentativa**.
 
@@ -1326,7 +1345,7 @@ As retentativas podem ser cobradas pela bandeira e a quantidade de vezes que uma
 
 > Para ver as regras de retentativa de cada bandeira, acesse o manual [Programa de Retentativa das Bandeiras](https://developercielo.github.io/tutorial/programa-retentativa-bandeiras){:target="_blank"}.
 
-# Códigos de retorno ABECS
+## Códigos de retorno ABECS
 
 A Associação Brasileira das Empresas de Cartão de Crédito e Serviços (ABECS) é responsável pela padronização do **código de retorno das autorizações de vendas negadas** tanto para as soluções pagamento do mundo físico quanto de e-commerce do mercado brasileiro.
 
@@ -1334,10 +1353,11 @@ A Associação Brasileira das Empresas de Cartão de Crédito e Serviços (ABECS
 
 # Suporte Cielo
 
-Após a leitura deste manual, caso ainda persistam dúvidas (técnicas ou não), a Cielo disponibiliza o suporte técnico 24 horas por dia, 7 dias por semana em idiomas (Português e Inglês), nos seguintes contatos:
+A Cielo disponibiliza o suporte técnico 24 horas por dia, 7 dias por semana em português e inglês, nos seguintes contatos:
 
-- +55 4002-5472 – _Capitais e Regiões Metropolitanas_
-- +55 0800 570 8472 – _Demais Localidades_
-- +55 11 2860-1348 – _Internacionais_
-- Opção 5 – _Suporte E-commerce;_
-- E-mail: [cieloecommerce@cielo.com.br](mailto:cieloecommerce@cielo.com.br)
+* E-mail: [cieloecommerce@cielo.com.br](mailto:cieloecommerce@cielo.com.br)
+* +55 4002-5472 (capitais e regiões metropolitanas)
+* +55 0800 570 8472 (demais Localidades)
+* +55 11 2860-1348 (internacionais)
+  * Opção 5 (Suporte E-commerce)
+
