@@ -60,7 +60,7 @@ A versão atual do Checkout Cielo possui suporte aos seguintes meios de pagament
 O Checkout Cielo possui uma lista de requisitos básicos para que o processo de integração seja bem sucedido. A seguir listamos pontos que devem estar prontos antes da integração:
 
 1. O cadastro da loja deve estar **ativo** junto à Cielo;
-2. Deve-se definir um **timeout** adequado nas requisições HTTP à Cielo. Recomendamos 30 segundos;
+2. É necessário definir um **timeout** adequado nas requisições HTTP à Cielo. Recomendamos 30 segundos;
 3. O certificado Root da entidade certificadora (CA) de nosso Web Service deve estar cadastrado. Veja a seção [Certificado Extended Validation](#certificado-extended-validation) para mais informações;
 4. Recomendamos o uso dos navegadores Chrome e Edge para web e Safari, Chrome e Samsung Internet para mobile, todos sempre em suas versões mais atualizadas.
 
@@ -89,8 +89,8 @@ Os endpoints para integração com o Checkout Cielo são apresentados na tabela 
 |API| URL | DESCRIÇÃO|
 |---|---|---|
 |**API Checkout Cielo** | https://cieloecommerce.cielo.com.br/api/public/v1/orders/| Criação da página de pagamento.|
-|**Cielo OAUTH2 Server** | https://cieloecommerce.cielo.com.br/api/public/v2/token | Autenticação para consulta, captura e cancelamento de transações.|
-|**API de Controle Transacional** | https://cieloecommerce.cielo.com.br/api/public/v2/ | Consulta de transações.|
+|**Cielo OAUTH2 Server** | https://cieloecommerce.cielo.com.br/api/public/v2/token | Autenticação para consulta, captura e cancelamento de transações (criação do `access_token`).|
+|**API de Controle Transacional** | https://cieloecommerce.cielo.com.br/api/public/v2/ | Consulta, captura e cancelamento de transações.|
 
 > **Importante**: A API do Checkout não possui sandbox, mas você pode criar páginas de pagamento de teste ativando o Modo Teste no site Cielo.
 
@@ -501,59 +501,58 @@ O Certificado poderá ser visualizado na aba padrão “Outras Pessoas” ou na 
 
 Repita o mesmo procedimento para os 3 arquivos enviados.
 
-# Modo de teste do Checkout Cielo
+# Modo Teste
 
-O modo de teste Checkout Cielo é uma ferramenta que permite testar a integração do seu site com a plataforma. Com o modo teste, você pode realizar transações a medida que evolui com a integração e consegue simular cenários para testar diferentes meios de pagamento.
+Por se tratar de uma chamada não financeira, a API do Checkout não possui um sandbox para testar a criação de páginas de pagamento. As páginas de pagamento devem ser criadas a partir de um cadastro de produção. O credenciamento pode ser feito através do site Cielo ou por meio de uma solicitação do gestor comercial do estabelecimento.
 
-## Ativação do Modo de Teste
+Os testes financeiros podem ser executados a partir da ativação do modo teste nas configurações da sua loja.
 
-O modo de teste pode ser ativado na aba **Configurações**, onde existe um caixa de seleção que, quando marcada, habilitará o modo de teste do Checkout Cielo. O modo teste somente se iniciará quando a seleção for salva.
+## Ativando o Modo Teste
 
-![Ativando Modo de teste]({{ site.baseurl_root }}/images/checkout/tm01.png)
+O modo de teste pode ser ativado na aba **Configurações**, ao habilitar a caixa de seleção do Modo Teste. O modo teste somente se iniciará quando a seleção for salva.
 
-Quando a opção for salva, uma tarja vermelha será exibida na parte superior da tela. Ela será exibida em todas as telas do [Backoffice Cielo Checkout]({{ site.baseurl_root }}{% post_url 2000-01-01-checkout-tutoriais%}){:target="_blank"} e na tela transacional do Checkout Cielo.
+![Modo Teste Ativo selecionado]({{ site.baseurl_root }}/images/checkout/superlink/superlink-modotesteativo.png)
 
-Essa tarja indica que a sua loja Checkout Cielo está agora operando em ambiente de teste, ou seja, toda a transação realizada nesse modo será considerada como teste.
+Após salvar, uma tarja vermelha será exibida na parte superior da tela. Ela será exibida em todas as telas do Checkout.
 
-| Backoffice                                                                               | Transacional                                                                                 |
-| ---------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| ![Tarja vermelha - Backoffice]({{ site.baseurl_root }}/images/checkout/tmbackoffice.png) | ![Tarja vermelha - Transacional]({{ site.baseurl_root }}/images/checkout/tmtransacional.png) |
+Essa tarja indica que a sua loja está agora operando em ambiente de teste, ou seja, toda a transação realizada nesse modo será considerada como teste.
 
-## Como transacionar no Modo de teste
+![Modo Teste Ativo Tarja Vermelha]({{ site.baseurl_root }}/images/checkout/superlink/superlink-modoteste-tarjavermelha.png)
 
-A realização de transações no modo de teste ocorre de forma normal. As informações da transação são enviadas via POST ou API, utilizando os parâmetros como descrito no tópico [Integração por API](#integração-por-api), entretanto, os meios de pagamentos a serem usados serão meios simulados.
+## Transações de teste
 
-Para realizar transações de teste com diferentes meios de pagamento, siga as seguintes regras:
+Todas as transações realizadas no modo de teste serão exibidas como transações normais na aba **Pedidos**, entretanto, elas serão marcadas como transações de teste e não serão contabilizadas em conjunto com as transações realizadas fora do ambiente de teste.
 
-### Transações com cartão de crédito
-
-Para testar cartões de crédito é necessário que dois dados importantes sejam definidos o status da autorização do cartão e o retorno da análise de fraude.
-
-**Status da Autorização do cartão de crédito**
-
-| Status da Transação | Cartões para realização dos testes        |
-| ------------------- | ----------------------------------------- |
-| Autorizado          | 0000.0000.0000.0000 / 0000.0000.0000.0004 |
-| Não Autorizado      | 0000.0000.0000.0005 / 0000.0000.0000.0009 |
-
-**Exemplo:** 540443424293010**0** = **Autorizado**
-
-### Boleto bancário
-
-Basta realizar o processo de compra normalmente sem nenhuma alteração no procedimento.
-O boleto gerado no modo de teste sempre será um boleto simulado.
-
-### Transações de teste
-
-Todas as transações realizadas no modo de teste serão exibidas como transações normais na aba Pedidos do Checkout Cielo, entretanto, elas serão marcadas como transações de teste e não serão contabilizadas em conjunto com as transações realizadas fora do ambiente de teste.
-
-![Transações de teste]({{ site.baseurl_root }}/images/checkout-cielo-modo-teste-transacoes-de-teste.png)
+![Lista de Transações no Modo Teste]({{ site.baseurl_root }}/images/checkout/superlink/superlink-transacoes-modoteste.png)
 
 Essas transações terão o símbolo de teste as diferenciando de suas outras transações. Elas podem ser capturadas ou canceladas utilizando os mesmos procedimentos das transações reais.
 
-![Transações de teste]({{ site.baseurl_root }}/images/checkout-cielo-modo-teste-transacoes-de-teste-cancelamento.png)
+> **IMPORTANTE**:<br>
+> * Ao liberar sua loja para a realização de vendas para seus clientes, certifique-se de que o **Modo Teste está desabilitado**;<br>
+> * As transações realizadas no Modo Teste poderão ser finalizadas normalmente, mas não serão descontadas do cartão do cliente e não poderão ser transferidas para o ambiente de venda padrão.
 
-<aside class="notice">É muito importante que, ao liberar sua loja para a realização de vendas para seus clientes, **a loja não esteja em modo de teste**. Transações realizadas nesse ambiente poderão ser finalizadas normalmente, mas **não serão descontadas do cartão do cliente** e não poderão ser “transferidas” para o ambiente de venda padrão.</aside>
+## Como transacionar no modo teste
+
+Após ativar o modo teste, a realização de transações ocorre de forma normal. A criação da página de pagamento pode ser feita usando os mesmos parâmetros do ambiente de produção, entretanto, os meios de pagamentos a serem usados serão meios simulados.
+
+Para realizar transações de teste com diferentes meios de pagamento, siga as seguintes regras:
+
+### Transações com cartão de crédito ou débito
+
+Para testar cartões de crédito ou débito é necessário usar um cartão que siga o *algoritmo de Luhn* e cujo número final corresponda ao status desejado da autorização do cartão (veja detalhes na tabela a seguir).
+
+**Status da autorização do cartão de crédito ou débito**
+
+|STATUS DESEJADO DA TRANSAÇÃO | CARTÕES PARA REALIZAÇÃO DOS TESTES|
+|---|---|
+|Autorizado |Cartões com final 0 a 4.<br>Ex.:<br>XXXXXXXXXXXXXXX0<br>XXXXXXXXXXXXXXX1<br>XXXXXXXXXXXXXXX2<br>XXXXXXXXXXXXXXX3<br>XXXXXXXXXXXXXXX4|
+|Não Autorizado | Cartões com final 5 a 9.<br>Ex.:<br>XXXXXXXXXXXXXXX5<br>XXXXXXXXXXXXXXX6<br>XXXXXXXXXXXXXXX7<br>XXXXXXXXXXXXXXX8<br>XXXXXXXXXXXXXXX9|
+
+**Exemplo**: 5404434242930100 = **Autorizado**
+
+### Boleto bancário
+
+Basta realizar o processo de compra normalmente sem nenhuma alteração no procedimento. O boleto gerado no modo de teste sempre será um boleto simulado.
 
 # Criando a página de pagamento
 
@@ -1661,7 +1660,7 @@ A Associação Brasileira das Empresas de Cartão de Crédito e Serviços (ABECS
 
 > Para ver a relação completa dos códigos de retorno das transações negadas, acesse a tabela [Códigos de retorno ABECS](https://developercielo.github.io/tutorial/abecs-e-outros-codigos){:target="_blank"}.
 
-# Suporte Cielo
+**Suporte Cielo**
 
 A Cielo disponibiliza o suporte técnico 24 horas por dia, 7 dias por semana em português e inglês, nos seguintes contatos:
 
