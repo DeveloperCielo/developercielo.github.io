@@ -2146,7 +2146,7 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
 
 <p><strong>Observação</strong>: Esse processo visa obter uma resposta positiva do processo de autorização, impedindo o lojista de perder a venda. O processo de retentativa gera pedidos duplicados dentro do Backoffice, pois o pedido original negado será apresentado na lista de Pedidos, junto com a nova transação autorizada.</p>
 
-<p><strong>ATENÇÃO:</strong> A regra da retentativa não pode ser modificada pelo lojista.</p>
+<p><strong>Atenção:</strong> A regra da retentativa não pode ser modificada pelo lojista.</p>
 
 <blockquote>
   <p>É possível consultar e cancelar transações recorrentes no site Cielo.</p>
@@ -2245,7 +2245,7 @@ Acesse o <a href="https://developercielo.github.io/tutorial/checkout-tutoriais">
 
 <h3 id="notificação-via-post">Notificação via POST</h3>
 
-<p>Contém todos os dados da transação, inclusive o <code class="language-plaintext highlighter-rouge">merchant_order_number</code> e o <code class="language-plaintext highlighter-rouge">checkout_cielo_order_number</code>, que poderão ser usados para a <a href="https://developercielo.github.io/manual/linkdepagamentos5#consulta-de-transa%C3%A7%C3%B5es">consulta de transações</a>.</p>
+<p>Contém todos os dados da transação, inclusive o <code class="language-plaintext highlighter-rouge">merchant_order_number</code> e o <code class="language-plaintext highlighter-rouge">checkout_cielo_order_number</code>, que poderão ser usados para a <a href="https://developercielo.github.io/manual/checkout-cielo#consultando-transa%C3%A7%C3%B5es">consulta de transações</a>.</p>
 
 <p><strong>Exemplo:</strong></p>
 
@@ -2269,7 +2269,7 @@ Acesse o <a href="https://developercielo.github.io/tutorial/checkout-tutoriais">
 </span><span class="err">nsu:</span><span class="w"> </span><span class="s2">"00339922"</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Veja a descrição dos detalhes da transação na sessão <a href="https://developercielo.github.io/manual/linkdepagamentos5#conte%C3%BAdo-das-notifica%C3%A7%C3%B5es">Conteúdo das notificações</a>.</p>
+<p>Veja a descrição dos detalhes da transação na sessão <a href="https://developercielo.github.io/manual/checkout-cielo#conte%C3%BAdo-das-notifica%C3%A7%C3%B5es">Conteúdo das notificações</a>.</p>
 
 <h3 id="notificação-via-json">Notificação via JSON</h3>
 
@@ -3009,8 +3009,8 @@ Acesse o <a href="https://developercielo.github.io/tutorial/checkout-tutoriais">
 <p>A consulta de pedidos pode ser feita por:</p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">order_number</code>: é o <code class="language-plaintext highlighter-rouge">MerchantOrderNumber</code> retornado na notificação de finalização da transação;</li>
-  <li><code class="language-plaintext highlighter-rouge">checkout_cielo_order_number</code>: é retornado na notificação de finalização da transação ou na notificação de mudança de status.</li>
+  <li><code class="language-plaintext highlighter-rouge">order_number</code>: é o <code class="language-plaintext highlighter-rouge">MerchantOrderNumber</code> retornado na notificação de <a href="https://developercielo.github.io/manual/checkout-cielo#notifica%C3%A7%C3%A3o-de-finaliza%C3%A7%C3%A3o-da-transa%C3%A7%C3%A3o">finalização da transação</a>;</li>
+  <li><code class="language-plaintext highlighter-rouge">checkout_cielo_order_number</code>: é retornado na notificação de <a href="https://developercielo.github.io/manual/checkout-cielo#notifica%C3%A7%C3%A3o-de-finaliza%C3%A7%C3%A3o-da-transa%C3%A7%C3%A3o">finalização da transação</a> ou na notificação de <a href="https://developercielo.github.io/manual/checkout-cielo#notifica%C3%A7%C3%A3o-de-mudan%C3%A7a-de-status">mudança de status</a>.</li>
 </ul>
 
 <h3 id="por-order_number">Por order_number</h3>
@@ -3023,10 +3023,12 @@ Acesse o <a href="https://developercielo.github.io/tutorial/checkout-tutoriais">
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/merchantOrderNumber/{ordernumber}</span></aside>
 
+<p><strong>Parâmetro na query string</strong></p>
+
 <table>
   <thead>
     <tr>
-      <th>Propriedade</th>
+      <th>Parâmetro</th>
       <th>Descrição</th>
       <th>Tipo</th>
       <th>Tamanho</th>
@@ -3150,6 +3152,29 @@ Acesse o <a href="https://developercielo.github.io/tutorial/checkout-tutoriais">
 </blockquote>
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/orders/{checkout_cielo_order_number}</span></aside>
+
+<p><strong>Parâmetro na query string</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parâmetro</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Formato</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Checkout_Cielo_Order_Number</code></td>
+      <td>Identificador único gerado pelo Checkout Cielo. É obtido no conteúdo da notificação de <a href="https://developercielo.github.io/manual/checkout-cielo#notifica%C3%A7%C3%A3o-de-finaliza%C3%A7%C3%A3o-da-transa%C3%A7%C3%A3o">finalização da transação</a> ou de <a href="https://developercielo.github.io/manual/checkout-cielo#notifica%C3%A7%C3%A3o-de-mudan%C3%A7a-de-status">mudança de status</a>.</td>
+      <td>string</td>
+      <td>32</td>
+      <td>Exemplo: 1db9226geg8b54e6b2972e9b745b23c4</td>
+    </tr>
+  </tbody>
+</table>
 
 <h4 id="resposta-3">Resposta</h4>
 
