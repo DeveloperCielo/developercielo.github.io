@@ -146,11 +146,12 @@
                 </div>
             </div>
 
-            <div class="post"><p>Este manual irá guiar o desenvolvedor na integração com a API do Checkout Cielo. Ao integrar a API do Checkout, você vai conseguir:</p>
+            <div class="post"><p>Este manual irá guiar o desenvolvedor na integração com a <strong>API do Checkout Cielo</strong>. Ao integrar a API do Checkout, você vai conseguir:</p>
 
 <ul>
   <li>Configurar a sua loja e personalizar sua página de pagamento;</li>
   <li>Criar uma página de pagamento via API;</li>
+  <li>Consultar, capturar e cancelar transações via API;</li>
   <li>Receber notificações de pagamentos.</li>
 </ul>
 
@@ -272,7 +273,7 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
 </ol>
 
 <blockquote>
-  <p><strong>Importante</strong>: O Checkout Cielo não notifica os compradores a respeito do status da compra. O Checkout Cielo notifica apenas a loja quando há alguma alteração no status do pagamento, permitindo assim que a loja decida quando e como informar aos seus compradores sobre o prazo de entrega e processo de envio. Para receber notificações, é necessário configurar ao menos um tipo de URL de notificação nas <strong>Configurações da Loja.</strong></p>
+  <p><strong>Importante</strong>: O Checkout Cielo não notifica os compradores a respeito do status da compra. O Checkout Cielo notifica apenas a loja quando há alguma alteração no status do pagamento, permitindo assim que a loja decida quando e como informar aos seus compradores sobre o prazo de entrega e processo de envio. Para receber notificações, é necessário configurar ao menos um tipo de URL de notificação nas <strong><a href="https://developercielo.github.io/manual/checkout-cielo#configura%C3%A7%C3%B5es-da-loja">Configurações da Loja</a>.</strong></p>
 </blockquote>
 
 <h2 id="endpoints">Endpoints</h2>
@@ -352,7 +353,7 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
 
 <ol>
   <li>Após receber o nº de estabelecimento (EC) com a habilitação para o Checkout, acesse o <a href="https://minhaconta2.cielo.com.br/login/" target="_blank">site Cielo</a> e faça o login;</li>
-  <li>Vá para a aba <strong>Ecommerce</strong> &gt; <strong>Super Link</strong> &gt; <strong>Configurações</strong> &gt; <strong>Dados Cadastrais</strong>;</li>
+  <li>Vá para a aba <strong>Ecommerce</strong> &gt; <strong>Checkout</strong> &gt; <strong>Configurações</strong> &gt; <strong>Dados Cadastrais</strong>;</li>
   <li>Na seção <strong>Contato técnico</strong>, preencha com os dados de contato da pessoa responsável por receber as chaves da sua loja. <em>ATENÇÃO: apenas coloque os dados da pessoa que realmente pode ter acesso às chaves da sua loja, que são informações sigilosas de cada estabelecimento</em>;</li>
   <li>Clique em <strong>Gerar Credenciais de Acesso às APIs</strong>;</li>
   <li>O contato técnico receberá um e-mail com as credenciais.</li>
@@ -457,14 +458,14 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
 <p>Para iniciar a sua integração com a API do Checkout Cielo, você vai precisar:</p>
 
 <ol>
-  <li>Solicitar o nº de estabelecimento (EC) para o Checkout Cielo;</li>
-  <li>Definir as configurações da loja (personalização da página, escolha dos meios de pagamento e contrato com os Correios, se houver);</li>
-  <li>Configurar uma URL de notificação e de mudança de status para a sua loja;</li>
-  <li>Instalar o certificado Extended Validation;</li>
-  <li>Enviar a primeira requisição de criação de página de pagamento;</li>
-  <li>Quando houver uma tentativa de pagamento no Checkout Cielo, você receberá uma notificação* com todos os dados preenchidos na página de pagamento;</li>
-  <li>Se a transação mudar de status, você receberá uma notificação* de mudança de status;</li>
-  <li>Para efetuar testes, use o Modo de Teste do Checkout Cielo.</li>
+  <li>Solicitar o <a href="https://developercielo.github.io/manual/checkout-cielo#habilitando-o-n%C2%BA-de-estabelecimento-(ec)-para-o-checkout">nº de estabelecimento (EC)</a> para o Checkout Cielo;</li>
+  <li>Definir as <a href="https://developercielo.github.io/manual/checkout-cielo#configurando-a-sua-loja">configurações da loja</a> (personalização da página, escolha dos meios de pagamento e contrato com os Correios, se houver);</li>
+  <li>Configurar uma <a href="https://developercielo.github.io/manual/checkout-cielo#4.-configure-as-urls-de-retorno,-notifica%C3%A7%C3%A3o-e-mudan%C3%A7a-de-status-da-sua-loja">URL de notificação e de mudança de status</a> para a sua loja;</li>
+  <li>Instalar o <a href="https://developercielo.github.io/manual/checkout-cielo#certificado-extended-validation">certificado Extended Validation</a>;</li>
+  <li>Enviar a primeira requisição de <a href="https://developercielo.github.io/manual/checkout-cielo#criando-a-p%C3%A1gina-de-pagamento">criação de página de pagamento</a>;</li>
+  <li>Quando houver uma tentativa de pagamento no Checkout Cielo, você receberá uma <a href="https://developercielo.github.io/manual/checkout-cielo#notifica%C3%A7%C3%B5es-da-transa%C3%A7%C3%A3o">notificação*</a> com todos os dados preenchidos na página de pagamento;</li>
+  <li>Se a transação mudar de status, você receberá uma <a href="https://developercielo.github.io/manual/checkout-cielo#notifica%C3%A7%C3%A3o-de-mudan%C3%A7a-de-status">notificação* de mudança de status</a>;</li>
+  <li>Para efetuar testes, use o <a href="https://developercielo.github.io/manual/checkout-cielo#modo-teste">Modo de Teste do Checkout Cielo</a>.</li>
 </ol>
 
 <p>*Desde que tenha configurado a URL de notificação.</p>
@@ -484,7 +485,7 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
 
 <p><strong>Acesse as Configurações da loja no site Cielo</strong></p>
 
-<p>Vá para o <a href="https://minhaconta2.cielo.com.br/login/" target="_blank">site Cielo</a> e faça login. Acesse <strong>E-commerce</strong> &gt; <strong>Super Link</strong> &gt; <strong>Configurações</strong> &gt; <strong>Configurações da loja</strong>.</p>
+<p>Vá para o <a href="https://minhaconta2.cielo.com.br/login/" target="_blank">site Cielo</a> e faça login. Acesse <strong>E-commerce</strong> &gt; <strong>Checkout</strong> &gt; <strong>Configurações</strong> &gt; <strong>Configurações da loja</strong>.</p>
 
 <h3 id="1-personalize-a-aparência-da-página-de-pagamento">1. Personalize a aparência da página de pagamento</h3>
 
@@ -514,7 +515,7 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
 
 <p>O Checkout Cielo permite a utilização de Cartões de Crédito das principais bandeiras nacionais e internacionais. Esse meio de pagamento é liberado automaticamente junto a afiliação de Cielo, podendo ser utilizado inicialmente com a integração Checkout.</p>
 
-<p>Transações de cartão de crédito serão incluídas no Backoffice Cielo Checkout como PENDENTE, AUTORIZADO, PAGO, NEGADO, EXPIRADO OU CHARGEBACK dependendo do resultado da autorização junto ao Banco.</p>
+<p>Transações de cartão de crédito serão incluídas no Backoffice Cielo Checkout como PENDENTE, AUTORIZADO, PAGO, NEGADO, EXPIRADO OU CHARGEBACK dependendo do resultado da autorização junto ao banco.</p>
 
 <p>Os status de cartão de crédito são:</p>
 
@@ -530,12 +531,12 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
     <tr>
       <td>1</td>
       <td>Pendente</td>
-      <td>Status original. A transação está ocorrendo, esperando resposta do processo de autorização</td>
+      <td>Status original. A transação está ocorrendo, esperando resposta do processo de autorização.</td>
     </tr>
     <tr>
       <td>7</td>
       <td>Autorizado / Negado</td>
-      <td>Resultado do processo de autorização.<br />Autorizado: crédito foi reservado para a compra<br />Negado: cartão não autorizado pelo emissor a continuar a transação</td>
+      <td>Resultado do processo de autorização.<br /><em>Autorizado</em>: crédito foi reservado para a compra<br /><em>Negado</em>: cartão não autorizado pelo emissor a continuar a transação.</td>
     </tr>
     <tr>
       <td>2</td>
@@ -555,7 +556,7 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
   </tbody>
 </table>
 
-<p>As transações de cartão de crédito precisam ser capturadas de forma automática ou manual - depende do que escolher no passo 5. Configure a captura e Antifraude.</p>
+<p>As transações de cartão de crédito precisam ser capturadas de forma automática ou manual - depende do que escolher no passo <a href="https://developercielo.github.io/manual/checkout-cielo#5.-configure-a-captura-e-antifraude">5. Configure a captura e Antifraude</a>.</p>
 
 <blockquote>
   <p><strong>Atenção</strong>
@@ -573,14 +574,14 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
 <table>
   <thead>
     <tr>
-      <th>ORDEM</th>
+      <th>VALOR</th>
       <th>STATUS</th>
       <th>DESCRIÇÃO</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>1</td>
+      <td>6</td>
       <td><strong>Não Finalizado</strong></td>
       <td>Status intermediário. Neste ponto o Checkout Cielo espera a confirmação do banco sobre o status da autenticação e transação. Caso o comprador abandone o ambiente do banco, o status não se altera</td>
     </tr>
@@ -603,9 +604,9 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
 
 <p><strong>Habilitando o Pix no portal Cielo</strong></p>
 
-<p>Para usar o <strong>Pix</strong>, o seu <strong>cadastro deve estar habilitado com o meio de pagamento Pix</strong>. Para confirmar a habilitação, acesse o <a href="https://www.cielo.com.br/" target="_blank">portal Cielo</a>e clique em <strong>Meu Cadastro</strong> &gt; <strong>Autorizações</strong> &gt; <strong>Pix</strong>.</p>
+<p>Para usar o <strong>Pix</strong>, o seu <strong>cadastro deve estar habilitado com o meio de pagamento Pix</strong>. Para confirmar a habilitação, acesse o <a href="https://www.cielo.com.br/" target="_blank">portal Cielo</a> e clique em <strong>Meu Cadastro</strong> &gt; <strong>Autorizações</strong> &gt; <strong>Pix</strong>.</p>
 
-<p>Caso o Pix não esteja habilitado em seu cadastro, será apresentada a tela de adesão caso o seu estabelecimento (EC) seja elegível; após concluir o processo de adesão do Pix, já será possível usar o Pix no Super Link Cielo.</p>
+<p>Caso o Pix não esteja habilitado em seu cadastro, será apresentada a tela de adesão caso o seu estabelecimento (EC) seja elegível; após concluir o processo de adesão do Pix, já será possível usar o Pix no Checkout Cielo.</p>
 
 <p><img src="https://developercielo.github.io/images/apicieloecommerce/adesao-pix.png" alt="Adesão ao Pix" /></p>
 
@@ -631,7 +632,7 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
     <tr>
       <td>6</td>
       <td><strong>Não Finalizado</strong></td>
-      <td>Pagamento esperando Status - Pode indicar erro ou falha de processamento</td>
+      <td>Pagamento esperando Status - pode indicar erro ou falha de processamento</td>
     </tr>
   </tbody>
 </table>
@@ -702,8 +703,8 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
 
 <ul>
   <li><strong>URL de Retorno</strong>: após finalizar o pagamento, o comprador pode ser redirecionado para uma página definida web pela loja. Nenhum dado é trocado ou enviado para essa URL e sua configuração é opcional;</li>
-  <li><strong>[URL de Notificação]</strong>: corresponde à notificação de finalização da transação. É a URL pela qual a sua loja irá receber a notificação com todos os dados do carrinho quando a transação é finalizada;</li>
-  <li><strong>[URL de Mudança de Status]</strong>: corresponde à notificação de mudança de status. É a URL pela qual a sua loja irá receber a notificação quando um pedido tiver seu status alterado. A notificação de mudança de status não contém dados do carrinho, apenas dados de identificação do pedido.</li>
+  <li><strong><a href="https://developercielo.github.io/manual/checkout-cielo#notifica%C3%A7%C3%A3o-de-finaliza%C3%A7%C3%A3o-da-transa%C3%A7%C3%A3o">URL de Notificação</a></strong>: corresponde à notificação de finalização da transação. É a URL pela qual a sua loja irá receber a notificação com todos os dados do carrinho quando a transação é finalizada;</li>
+  <li><strong><a href="https://developercielo.github.io/manual/checkout-cielo#notifica%C3%A7%C3%A3o-de-mudan%C3%A7a-de-status">URL de Mudança de Status</a></strong>: corresponde à notificação de mudança de status. É a URL pela qual a sua loja irá receber a notificação quando um pedido tiver seu status alterado. A notificação de mudança de status não contém dados do carrinho, apenas dados de identificação do pedido.</li>
 </ul>
 
 <h3 id="5-configure-a-captura-e-antifraude">5. Configure a captura e Antifraude</h3>
@@ -807,6 +808,7 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
   <li>A opção de aceitar cartões internacionais estará ativada;</li>
   <li>O valor mínimo da parcela será de R$5,00;</li>
   <li>Os meios de pagamento crédito e débito terão 12 parcelas habilitadas (se o seu cadastro Cielo permitir);</li>
+  <li>O meio de pagamento débito estará habilitado;</li>
   <li>O meio de pagamento QR Code Crédito terá uma parcela habilitada;</li>
   <li>O boleto não terá valor mínimo ou desconto definido (zerado);</li>
   <li>A opção <strong>Sempre fazer Captura Automática</strong> só estará habilitada para transações que não são consideradas de alto risco;</li>
