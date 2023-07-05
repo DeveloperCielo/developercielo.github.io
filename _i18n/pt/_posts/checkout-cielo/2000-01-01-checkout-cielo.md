@@ -875,7 +875,7 @@ Para usar o frete com volume, envie o nó `Shipping.Measures`, seguindo as regra
 
 > Para realizar o cálculo de frete via Correios é necessário respeitar as medidas definidas pelo contrato utilizado pelo lojista. Para mais informações sobre as dimensões e pesos permitidos, sugerimos que valide o contrato da loja em [Termo de Condições de Prestação de Serviços de Encomendas Nacionais dos Correios](https://www.correios.com.br/enviar/precisa-de-ajuda/arquivos/contratos-formalizados-ate-fevereiro-de-2020/18-termo-de-condicoes-de-prestacao-de-servicos-de-encomendas-nacio-ns-sedex-e-pac.pdf/view){:target="_blank"}
 
-# Recorrência do Checkout Cielo
+# Recorrência
 
 A **recorrência** é um processo de agendamento automático de transações de crédito, ou seja, é uma transação que se repetirá automaticamente, sem a necessidade do comprador acessar a tela transacional, de acordo com as regras definidas no momento do agendamento.
 
