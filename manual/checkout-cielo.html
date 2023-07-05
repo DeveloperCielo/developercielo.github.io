@@ -989,7 +989,7 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
 
 <p>Para realizar transações de teste com diferentes meios de pagamento, siga as seguintes regras:</p>
 
-<h3 id="transações-com-cartão-de-crédito-ou-débito">Transações com cartão de crédito ou débito</h3>
+<h3 id="cartão-de-crédito-ou-débito">Cartão de crédito ou débito</h3>
 
 <p>Para testar cartões de crédito ou débito é necessário usar um cartão que siga o <em>algoritmo de Luhn</em> e cujo número final corresponda ao status desejado da autorização do cartão (veja detalhes na tabela a seguir).</p>
 
@@ -1016,9 +1016,9 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
 
 <p><strong>Exemplo</strong>: 5404434242930100 = <strong>Autorizado</strong></p>
 
-<h3 id="boleto-bancário">Boleto bancário</h3>
+<h3 id="boleto-1">Boleto</h3>
 
-<p>Basta realizar o processo de compra normalmente sem nenhuma alteração no procedimento. O boleto gerado no modo de teste sempre será um boleto simulado.</p>
+<p>Para testar transações de boleto, realize o processo de compra normalmente sem nenhuma alteração no procedimento. O boleto gerado no modo de teste sempre será um boleto simulado.</p>
 
 <h1 id="criando-a-página-de-pagamento">Criando a página de pagamento</h1>
 
@@ -1466,10 +1466,12 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
   </tbody>
 </table>
 
-<p>/* Não é obrigatório, mas recomendamos enviar.</p>
+<ul>
+  <li>Não é obrigatório, mas recomendamos enviar.</li>
+</ul>
 
 <blockquote>
-  <p>Veja mais informações sobre o nó <code class="language-plaintext highlighter-rouge">Shipping</code> em <a href="###Definindo o frete">Definindo o frete</a>.</p>
+  <p>Veja mais informações sobre o nó <code class="language-plaintext highlighter-rouge">Shipping</code> em <a href="https://developercielo.github.io/manual/checkout-cielo#definindo-o-frete">Definindo o frete</a>.</p>
 </blockquote>
 
 <h2 id="resposta-1">Resposta</h2>
@@ -1477,10 +1479,10 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
 <p>Existem apenas duas opções de resposta na integração da API: sucesso ou erro.</p>
 
 <blockquote>
-  <p><strong>Importante</strong>: A requisição de criação da página de pagamento não cria uma transação, mas sim a URl da página de pagamento (<code class="language-plaintext highlighter-rouge">CheckoutUrl</code>). A resposta de sucesso ou erro se refere a criação da página de pagamento, e não tem relação com a transação.</p>
+  <p><strong>Importante</strong>: A requisição de criação da página de pagamento não cria uma transação, mas sim a URl da página de pagamento (<code class="language-plaintext highlighter-rouge">CheckoutUrl</code>). A resposta de sucesso ou erro se refere a criação da página de pagamento e não tem relação com a transação.</p>
 </blockquote>
 
-<p>✅ <strong>Sucesso</strong>: em caso de sucesso, a resposta será o conteúdo da requisição mais o link que direciona a tela transacional (<code class="language-plaintext highlighter-rouge">CheckoutUrl</code>):</p>
+<p>✅ <strong>Sucesso</strong>: em caso de sucesso, a resposta será o conteúdo da requisição mais o link que direciona a tela transacional (<code class="language-plaintext highlighter-rouge">CheckoutUrl</code>), detacada no exemplo a seguir:</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1526,7 +1528,7 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
   </tbody>
 </table>
 
-<p>❌ <strong>Erro</strong>: em caso de erro, a API retornará a mensagem:</p>
+<p>❌ <strong>Erro</strong>: em caso de erro, a API retornará a seguinte mensagem:</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"An error has occurred."</span><span class="w">
@@ -1563,17 +1565,17 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
 <p>Nesta opção, a loja pode configurar a quantidade de parcelas por venda. O Checkout realiza o cálculo das parcelas considerando valor total e limite de parcelas enviadas via API.</p>
 
 <blockquote>
-  <p><strong>Atenção</strong>: O número de parcelas desejadas deve ser inferior a quantidade que está cadastrada nas <strong>Configurações da Loja</strong> no site Cielo.</p>
+  <p><strong>Atenção</strong>: O número de parcelas desejadas deve ser inferior a quantidade que está cadastrada nas <strong>Configurações da loja</strong> no site Cielo.</p>
 </blockquote>
 
 <p><strong>Características</strong></p>
 
 <ul>
-  <li>O lojista envia a quantidade máxima de parcelas que deseja exibir ao comprador;
- O valor do frete é somado ao valor do parcelamento.</li>
+  <li>O lojista envia a quantidade máxima de parcelas que deseja exibir ao comprador;</li>
+  <li>O valor do frete é somado ao valor do parcelamento.</li>
 </ul>
 
-<p>O Parcelamento via API é realizado enviando o campo <code class="language-plaintext highlighter-rouge">MaxNumberOfInstallments</code> dentro do nó <code class="language-plaintext highlighter-rouge">Payment</code>. Isso forçará o Checkout a recalcular o valor do parcelamento. Abaixo, um exemplo do nó</p>
+<p>O parcelamento via API é realizado enviando o campo <code class="language-plaintext highlighter-rouge">MaxNumberOfInstallments</code> dentro do nó <code class="language-plaintext highlighter-rouge">Payment</code>. Isso forçará o Checkout a recalcular o valor do parcelamento. Abaixo, um exemplo do nó</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
   </span><span class="nl">"MaxNumberOfInstallments"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
