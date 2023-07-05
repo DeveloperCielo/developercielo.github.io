@@ -115,7 +115,7 @@ Para utilizar o Cielo OAUTH são necessárias as seguintes credenciais:
 Para obter as credenciais `ClientId` e `ClientSecret`, siga os passos a seguir:
 
 1. Após receber o nº de estabelecimento (EC) com a habilitação para o Checkout, acesse o [site Cielo](https://minhaconta2.cielo.com.br/login/){:target="_blank"} e faça o login;
-2. Vá para a aba **Ecommerce** > **Super Link** > **Configurações** > **Dados Cadastrais**;
+2. Vá para a aba **Ecommerce** > **Checkout** > **Configurações** > **Dados Cadastrais**;
 3. Na seção **Contato técnico**, preencha com os dados de contato da pessoa responsável por receber as chaves da sua loja. *ATENÇÃO: apenas coloque os dados da pessoa que realmente pode ter acesso às chaves da sua loja, que são informações sigilosas de cada estabelecimento*;
 4. Clique em **Gerar Credenciais de Acesso às APIs**;
 5. O contato técnico receberá um e-mail com as credenciais.
@@ -199,7 +199,7 @@ Antes das configurações, você precisa habilitar o Checkout Cielo para a sua l
 
 **Acesse as Configurações da loja no site Cielo**
 
-Vá para o [site Cielo](https://minhaconta2.cielo.com.br/login/){:target="_blank"} e faça login. Acesse **E-commerce** > **Super Link** > **Configurações** > **Configurações da loja**.
+Vá para o [site Cielo](https://minhaconta2.cielo.com.br/login/){:target="_blank"} e faça login. Acesse **E-commerce** > **Checkout** > **Configurações** > **Configurações da loja**.
 
 ### 1. Personalize a aparência da página de pagamento
 
