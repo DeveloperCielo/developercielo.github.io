@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title: Tutoriais
+title: Tutorial Checkout e Super Link
 description: Tutorial do backoffice Checkout e Super Link e tutorial de criação do link
 search: true
 toc_footers: true
