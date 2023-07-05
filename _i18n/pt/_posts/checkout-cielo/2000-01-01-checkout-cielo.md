@@ -1007,7 +1007,7 @@ Caso uma das transações da recorrência não seja autorizada, o Checkout Cielo
 
 **Observação**: Esse processo visa obter uma resposta positiva do processo de autorização, impedindo o lojista de perder a venda. O processo de retentativa gera pedidos duplicados dentro do Backoffice, pois o pedido original negado será apresentado na lista de Pedidos, junto com a nova transação autorizada.
 
-**ATENÇÃO:** A regra da retentativa não pode ser modificada pelo lojista.
+**Atenção:** A regra da retentativa não pode ser modificada pelo lojista.
 
 > É possível consultar e cancelar transações recorrentes no site Cielo.
 
@@ -1063,7 +1063,7 @@ Caso a notificação não seja recebida, é possível solicitar o reenvio manual
 
 ### Notificação via POST
 
-Contém todos os dados da transação, inclusive o `merchant_order_number` e o `checkout_cielo_order_number`, que poderão ser usados para a [consulta de transações](https://developercielo.github.io/manual/linkdepagamentos5#consulta-de-transa%C3%A7%C3%B5es).
+Contém todos os dados da transação, inclusive o `merchant_order_number` e o `checkout_cielo_order_number`, que poderão ser usados para a [consulta de transações](https://developercielo.github.io/manual/checkout-cielo#consultando-transa%C3%A7%C3%B5es).
 
 **Exemplo:**
 
@@ -1088,7 +1088,7 @@ product_description: "123",
 nsu: "00339922"
 ```
 
-Veja a descrição dos detalhes da transação na sessão [Conteúdo das notificações](https://developercielo.github.io/manual/linkdepagamentos5#conte%C3%BAdo-das-notifica%C3%A7%C3%B5es).
+Veja a descrição dos detalhes da transação na sessão [Conteúdo das notificações](https://developercielo.github.io/manual/checkout-cielo#conte%C3%BAdo-das-notifica%C3%A7%C3%B5es).
 
 ### Notificação via JSON
 
@@ -1323,8 +1323,8 @@ A consulta deve ser feita pela **API de Controle Transacional**, enviando o `acc
 
 A consulta de pedidos pode ser feita por:
 
-* `order_number`: é o `MerchantOrderNumber` retornado na notificação de finalização da transação;
-* `checkout_cielo_order_number`: é retornado na notificação de finalização da transação ou na notificação de mudança de status.
+* `order_number`: é o `MerchantOrderNumber` retornado na notificação de [finalização da transação](https://developercielo.github.io/manual/checkout-cielo#notifica%C3%A7%C3%A3o-de-finaliza%C3%A7%C3%A3o-da-transa%C3%A7%C3%A3o);
+* `checkout_cielo_order_number`: é retornado na notificação de [finalização da transação](https://developercielo.github.io/manual/checkout-cielo#notifica%C3%A7%C3%A3o-de-finaliza%C3%A7%C3%A3o-da-transa%C3%A7%C3%A3o) ou na notificação de [mudança de status](https://developercielo.github.io/manual/checkout-cielo#notifica%C3%A7%C3%A3o-de-mudan%C3%A7a-de-status).
 
 ### Por order_number
 
@@ -1336,7 +1336,9 @@ Para consultar uma transação pelo `order_number`, faça um `GET`.
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/merchantOrderNumber/{ordernumber}</span></aside>
 
-|Propriedade|Descrição|Tipo|Tamanho|Formato|
+**Parâmetro na query string**
+
+|Parâmetro|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
 |`order_number`|Número do pedido da loja. É o `MerchantOrderNumber` retornado na notificação. |string|-|Exemplo: 1db9226geg8b54e6b2972e9b745b23c4|
 
@@ -1392,6 +1394,12 @@ Para consultar uma transação pelo `Checkout_Cielo_Order_Number`, basta realiza
 > Header: `Authorization`: `Bearer {access_token}`
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/orders/{checkout_cielo_order_number}</span></aside>
+
+**Parâmetro na query string**
+
+|Parâmetro|Descrição|Tipo|Tamanho|Formato|
+|---|---|---|---|---|
+|`Checkout_Cielo_Order_Number`|Identificador único gerado pelo Checkout Cielo. É obtido no conteúdo da notificação de [finalização da transação](https://developercielo.github.io/manual/checkout-cielo#notifica%C3%A7%C3%A3o-de-finaliza%C3%A7%C3%A3o-da-transa%C3%A7%C3%A3o) ou de [mudança de status](https://developercielo.github.io/manual/checkout-cielo#notifica%C3%A7%C3%A3o-de-mudan%C3%A7a-de-status).|string|32|Exemplo: 1db9226geg8b54e6b2972e9b745b23c4|
 
 #### Resposta
 
