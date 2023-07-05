@@ -1264,7 +1264,7 @@ O Checkout permite apenas um tipo de Boleto por estabelecimento, sendo assim a n
 |8|Discover|
 |9|HiperCard|
 
-Nas consultas a bandeira do cartão é retornada no campo `Payment.Brand` e vem preenchida com o valor literal.
+Nas Consultas, a bandeira do cartão é retornada no campo `Payment.Brand` e vem preenchida com o valor literal.
 
 #### Payment_method_bank
 
@@ -1287,7 +1287,7 @@ Nas consultas a bandeira do cartão é retornada no campo `Payment.Brand` e vem 
 
 É enviada para a URL de mudança de status e contém o `checkout_cielo_order_number`, o novo status e alguns dados da transação.
 
-Para saber mais detalhes da transação, faça uma consulta usando o `checkout_cielo_order_number`.
+Para saber mais detalhes da transação, faça uma consulta usando o [`checkout_cielo_order_number`](https://developercielo.github.io/manual/checkout-cielo#por-checkout_cielo_order_number).
 
 O formato da notificação de mudança de status é POST (form data).
 
@@ -1307,8 +1307,8 @@ authorization_code: "01234567"
 |`checkout_cielo_order_number`|Identificador único gerado pelo Checkout Cielo.|Alfanumérico|32|
 |`amount`|Preço unitário do produto, em centavos (ex: R$ 1,00 = 100)|Número|10|
 |`order_number`|Número do pedido enviado pela loja.|Alfanumérico|32|
-|`payment_method_brand`|Bandeira- somente para transações com meio de pagamento cartão de crédito. [Lista Completa](https://developercielo.github.io/manual/linkdepagamentos5#payment_method_brand) |Número|20|
-|`payment_status`|Status da transação. [Lista Completa](https://developercielo.github.io/manual/linkdepagamentos5#status-e-c%C3%B3digos)|Número|1|
+|`payment_method_brand`|Bandeira- somente para transações com meio de pagamento cartão de crédito. [Lista Completa](https://developercielo.github.io/manual/checkout-cielo#payment_method_brand) |Número|20|
+|`payment_status`|Status da transação. [Lista Completa](https://developercielo.github.io/manual/checkout-cielo#status-e-c%C3%B3digos)|Número|1|
 |`test_transaction`|Indica se a transação foi gerada com o Modo de teste ativado|Boolean|32|
 |`nsu`|NSU - Número sequencial único da transação.|Alfanumérico|6|
 |`authorization_code`|Código de autorização.|Alfanumérico|8|
