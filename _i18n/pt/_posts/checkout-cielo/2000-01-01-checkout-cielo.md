@@ -353,9 +353,11 @@ Você pode visualizar o status do Antifraude acessando os detalhes da compra, na
 
 ### 6. Configure as opções de frete dos Correios
 
-Se a sua loja trabalha com a entrega de **produtos físicos** (aqueles que precisam de frete), informe seu login e senha dos Correios e selecione os serviços desejados, como os tipos de Sedex e PAC.
+Se a sua loja trabalha com a entrega de **produtos físicos** (aqueles que precisam de frete) usando os Correios, informe seu login e senha dos Correios e selecione os serviços desejados, como os tipos de Sedex e PAC.
 
 Se a sua loja trabalha com materiais digitais, serviços ou pagamentos, ou seja, vendas que não precisam de frete, pule esta etapa.
+
+> Também é possível usar outros serviços de frete contratados pela loja. Nesse caso, envie o nó `Shipping.Services` na criação da página de pagamento. Saiba mais em [Definindo o frete](https://developercielo.github.io/manual/checkout-cielo#definindo-o-frete)
 
 ![Configuração do Frete Correios]({{ site.baseurl_root }}/images/checkout/superlink/superlink-configuracao-frete-correios.png)
 
@@ -848,7 +850,7 @@ Confira os nós que formam as informações de frete abaixo:
 
 *Não é obrigatório, mas recomendamos enviar.
 
-* `Shipping.Services`: usado para frete fixo, como serviços de frete cfontratados pela loja.
+* `Shipping.Services`: usado para frete fixo, como serviços de frete contratados pela loja.
 
 |PARÂMETRO|DESCRIÇÃO|TIPO|TAMANHO|OBRIGATÓRIO?|
 |----|---|---|---|---|
@@ -860,8 +862,8 @@ Confira os nós que formam as informações de frete abaixo:
 
 O cálculo do frete é feito pela API dos Correios e pode ser de dois tipos:
 
-* **Frete com Volume**: exige que a loja informe as dimensões do pacote que será enviado com as mercadorias;
-* **Frete sem Volume**: considera apenas o peso do carrinho como base de cálculo para a entrega.
+* **Frete com volume**: exige que a loja informe as dimensões do pacote que será enviado com as mercadorias;
+* **Frete sem volume**: considera apenas o peso do carrinho como base de cálculo para a entrega.
 
 Para usar o frete com volume, envie o nó `Shipping.Measures`, seguindo as regras de integração via API REST.
 
@@ -894,7 +896,7 @@ Transações recorrentes são ideais para modelos de negócios que envolvam o **
 
 ## Criando pagamento recorrente
 
-Uma transação de recorrência no Checkout Cielo possui duas configurações: `Intervalo` e `Data de encerramento`.
+Uma transação de recorrência no Checkout Cielo possui duas configurações: **Intervalo** e **Data de encerramento**.
 
 * **Intervalo**: padrão de repetição e intervalo de tempo entre cada transação. Esse intervalo temporal entre as transações podem ser mensal, bimestral, trimestral, semestral e anual;
 * **Data de encerramento**: data que o processo de recorrência deixa de ocorrer.
@@ -908,14 +910,14 @@ Uma transação de recorrência no Checkout Cielo possui duas configurações: `
 }
 ```
 
-**Payment.RecurrentPayment**
+**`Payment.RecurrentPayment`**
 
 |PARÂMETRO|DESCRIÇÃO|TIPO|TAMANHO|OBRIGATÓRIO?|
 |---|---|---|---|---|
 | `Payment.RecurrentPayment.Interval` | Intervalo entre cada transação da recorrência|"Monthly" para mensal;<br>"Bimonthly" para bimestral<br>"Quarterly" para trimestral<br>"SemiAnnual" para semestral<br>"Annual" para anual|alfanumérico | 10 |Não|
 | `Payment.RecurrentPayment.EndDate`  | Data de encerramento da recorrência. Se não enviado, a recorrência se encerra somente se cancelada. | data (formato YYYY-MM-DD)   |  255 | Não |
 
-Os dados do cartão de crédito do comprador ficam armazenados de forma segura dentro do Checkout Cielo, permitindo sua reutilização em uma transação recorrente. Esses dados não são acessados pelo lojista e essa inteligência é controlada pelo Checkout Cielo.
+Os dados do cartão de crédito do comprador ficam armazenados de forma segura na Cielo, permitindo sua reutilização em uma transação recorrente. Esses dados não são acessados pelo lojista e essa inteligência é controlada pelo Checkout Cielo.
 
 ### Requisição
 
@@ -1003,7 +1005,7 @@ Caso uma das transações da recorrência não seja autorizada, o Checkout Cielo
 * **Intervalo de tempo entre as tentativas**: quatro dias;
 * **Quantidade de retentativas**: quatro retentativas, uma por dia, por quatro dias corridos a partir do dia seguinte da transação original não autorizada.
 
-**OBS**: Esse processo visa manter obter uma resposta positiva do processo de autorização, impedindo o lojista de perder a venda. O Processo de retentativa gera pedidos duplicados dentro do Backoffice, pois o pedido original, negado, será apresentado na lista de Pedidos, junto com a nova transação autorizada
+**Observação**: Esse processo visa obter uma resposta positiva do processo de autorização, impedindo o lojista de perder a venda. O processo de retentativa gera pedidos duplicados dentro do Backoffice, pois o pedido original negado será apresentado na lista de Pedidos, junto com a nova transação autorizada.
 
 **ATENÇÃO:** A regra da retentativa não pode ser modificada pelo lojista.
 
@@ -1015,8 +1017,8 @@ A API do Checkout permite a desativação da recorrência. Além disso, no **sit
 
 * **Ativação**: uma recorrência pode ser ativada ou cancelada;
 * **Intervalo**: é possivel modificar o intervalo de execução;
-* **Dia de ocorrência**: é possivel modificar o dia de execução da transação r6ecorrente.
-
+* **Dia de ocorrência**: é possivel modificar o dia de execução da transação recorrente.
+<br/>
 Acesse o [Tutorial do Backoffice Checkout Cielo](https://developercielo.github.io/tutorial/checkout-tutoriais) para mais informações.
 
 # Notificações da transação
