@@ -793,9 +793,13 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
 
 <h3 id="6-configure-as-opções-de-frete-dos-correios">6. Configure as opções de frete dos Correios</h3>
 
-<p>Se a sua loja trabalha com a entrega de <strong>produtos físicos</strong> (aqueles que precisam de frete), informe seu login e senha dos Correios e selecione os serviços desejados, como os tipos de Sedex e PAC.</p>
+<p>Se a sua loja trabalha com a entrega de <strong>produtos físicos</strong> (aqueles que precisam de frete) usando os Correios, informe seu login e senha dos Correios e selecione os serviços desejados, como os tipos de Sedex e PAC.</p>
 
 <p>Se a sua loja trabalha com materiais digitais, serviços ou pagamentos, ou seja, vendas que não precisam de frete, pule esta etapa.</p>
+
+<blockquote>
+  <p>Também é possível usar outros serviços de frete contratados pela loja. Nesse caso, envie o nó <code class="language-plaintext highlighter-rouge">Shipping.Services</code> na criação da página de pagamento. Saiba mais em <a href="https://developercielo.github.io/manual/checkout-cielo#definindo-o-frete">Definindo o frete</a></p>
+</blockquote>
 
 <p><img src="https://developercielo.github.io/images/checkout/superlink/superlink-configuracao-frete-correios.png" alt="Configuração do Frete Correios" /></p>
 
@@ -1873,7 +1877,7 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
 <p>*Não é obrigatório, mas recomendamos enviar.</p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">Shipping.Services</code>: usado para frete fixo, como serviços de frete cfontratados pela loja.</li>
+  <li><code class="language-plaintext highlighter-rouge">Shipping.Services</code>: usado para frete fixo, como serviços de frete contratados pela loja.</li>
 </ul>
 
 <table>
@@ -1916,8 +1920,8 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
 <p>O cálculo do frete é feito pela API dos Correios e pode ser de dois tipos:</p>
 
 <ul>
-  <li><strong>Frete com Volume</strong>: exige que a loja informe as dimensões do pacote que será enviado com as mercadorias;</li>
-  <li><strong>Frete sem Volume</strong>: considera apenas o peso do carrinho como base de cálculo para a entrega.</li>
+  <li><strong>Frete com volume</strong>: exige que a loja informe as dimensões do pacote que será enviado com as mercadorias;</li>
+  <li><strong>Frete sem volume</strong>: considera apenas o peso do carrinho como base de cálculo para a entrega.</li>
 </ul>
 
 <p>Para usar o frete com volume, envie o nó <code class="language-plaintext highlighter-rouge">Shipping.Measures</code>, seguindo as regras de integração via API REST.</p>
@@ -2002,7 +2006,7 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
 
 <h2 id="criando-pagamento-recorrente">Criando pagamento recorrente</h2>
 
-<p>Uma transação de recorrência no Checkout Cielo possui duas configurações: <code class="language-plaintext highlighter-rouge">Intervalo</code> e <code class="language-plaintext highlighter-rouge">Data de encerramento</code>.</p>
+<p>Uma transação de recorrência no Checkout Cielo possui duas configurações: <strong>Intervalo</strong> e <strong>Data de encerramento</strong>.</p>
 
 <ul>
   <li><strong>Intervalo</strong>: padrão de repetição e intervalo de tempo entre cada transação. Esse intervalo temporal entre as transações podem ser mensal, bimestral, trimestral, semestral e anual;</li>
@@ -2017,7 +2021,7 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Payment.RecurrentPayment</strong></p>
+<p><strong><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment</code></strong></p>
 
 <table>
   <thead>
@@ -2050,7 +2054,7 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
   </tbody>
 </table>
 
-<p>Os dados do cartão de crédito do comprador ficam armazenados de forma segura dentro do Checkout Cielo, permitindo sua reutilização em uma transação recorrente. Esses dados não são acessados pelo lojista e essa inteligência é controlada pelo Checkout Cielo.</p>
+<p>Os dados do cartão de crédito do comprador ficam armazenados de forma segura na Cielo, permitindo sua reutilização em uma transação recorrente. Esses dados não são acessados pelo lojista e essa inteligência é controlada pelo Checkout Cielo.</p>
 
 <h3 id="requisição-2">Requisição</h3>
 
@@ -2140,7 +2144,7 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
   <li><strong>Quantidade de retentativas</strong>: quatro retentativas, uma por dia, por quatro dias corridos a partir do dia seguinte da transação original não autorizada.</li>
 </ul>
 
-<p><strong>OBS</strong>: Esse processo visa manter obter uma resposta positiva do processo de autorização, impedindo o lojista de perder a venda. O Processo de retentativa gera pedidos duplicados dentro do Backoffice, pois o pedido original, negado, será apresentado na lista de Pedidos, junto com a nova transação autorizada</p>
+<p><strong>Observação</strong>: Esse processo visa obter uma resposta positiva do processo de autorização, impedindo o lojista de perder a venda. O processo de retentativa gera pedidos duplicados dentro do Backoffice, pois o pedido original negado será apresentado na lista de Pedidos, junto com a nova transação autorizada.</p>
 
 <p><strong>ATENÇÃO:</strong> A regra da retentativa não pode ser modificada pelo lojista.</p>
 
@@ -2155,10 +2159,10 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
 <ul>
   <li><strong>Ativação</strong>: uma recorrência pode ser ativada ou cancelada;</li>
   <li><strong>Intervalo</strong>: é possivel modificar o intervalo de execução;</li>
-  <li><strong>Dia de ocorrência</strong>: é possivel modificar o dia de execução da transação r6ecorrente.</li>
+  <li><strong>Dia de ocorrência</strong>: é possivel modificar o dia de execução da transação recorrente.
+<br />
+Acesse o <a href="https://developercielo.github.io/tutorial/checkout-tutoriais">Tutorial do Backoffice Checkout Cielo</a> para mais informações.</li>
 </ul>
-
-<p>Acesse o <a href="https://developercielo.github.io/tutorial/checkout-tutoriais">Tutorial do Backoffice Checkout Cielo</a> para mais informações.</p>
 
 <h1 id="notificações-da-transação">Notificações da transação</h1>
 
