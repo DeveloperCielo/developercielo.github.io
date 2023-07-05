@@ -539,7 +539,7 @@ Após ativar o modo teste, a realização de transações ocorre de forma normal
 
 Para realizar transações de teste com diferentes meios de pagamento, siga as seguintes regras:
 
-### Transações com cartão de crédito ou débito
+### Cartão de crédito ou débito
 
 Para testar cartões de crédito ou débito é necessário usar um cartão que siga o *algoritmo de Luhn* e cujo número final corresponda ao status desejado da autorização do cartão (veja detalhes na tabela a seguir).
 
@@ -552,9 +552,9 @@ Para testar cartões de crédito ou débito é necessário usar um cartão que s
 
 **Exemplo**: 5404434242930100 = **Autorizado**
 
-### Boleto bancário
+### Boleto
 
-Basta realizar o processo de compra normalmente sem nenhuma alteração no procedimento. O boleto gerado no modo de teste sempre será um boleto simulado.
+Para testar transações de boleto, realize o processo de compra normalmente sem nenhuma alteração no procedimento. O boleto gerado no modo de teste sempre será um boleto simulado.
 
 # Criando a página de pagamento
 
@@ -691,17 +691,17 @@ Todas as requisições enviadas para a Cielo deverão ser autenticadas pela loja
 |`Shipping.Width`|Largura do pacote. Obrigatório caso `Shipping.Package` seja "Box" ou "Envelope".Saiba mais em [Cálculo do frete dos Correios](#### Cálculo do frete dos Correios).|número|Inteiro|Condicional|
 |`Shipping.Diameter`|Diâmetro do pacote.Obrigatório caso `Shipping.Package` como "Rol".Saiba mais em [Cálculo do frete dos Correios](#### Cálculo do frete dos Correios).|número|Inteiro|Condicional|
 
-/* Não é obrigatório, mas recomendamos enviar.
+* Não é obrigatório, mas recomendamos enviar.
 
-> Veja mais informações sobre o nó `Shipping` em [Definindo o frete](###Definindo o frete).
+> Veja mais informações sobre o nó `Shipping` em [Definindo o frete](https://developercielo.github.io/manual/checkout-cielo#definindo-o-frete).
 
 ## Resposta
 
 Existem apenas duas opções de resposta na integração da API: sucesso ou erro.
 
-> **Importante**: A requisição de criação da página de pagamento não cria uma transação, mas sim a URl da página de pagamento (`CheckoutUrl`). A resposta de sucesso ou erro se refere a criação da página de pagamento, e não tem relação com a transação.
+> **Importante**: A requisição de criação da página de pagamento não cria uma transação, mas sim a URl da página de pagamento (`CheckoutUrl`). A resposta de sucesso ou erro se refere a criação da página de pagamento e não tem relação com a transação.
 
-&#9989; **Sucesso**: em caso de sucesso, a resposta será o conteúdo da requisição mais o link que direciona a tela transacional (`CheckoutUrl`):
+&#9989; **Sucesso**: em caso de sucesso, a resposta será o conteúdo da requisição mais o link que direciona a tela transacional (`CheckoutUrl`), detacada no exemplo a seguir:
 
 ```json
 {
@@ -719,7 +719,7 @@ Existem apenas duas opções de resposta na integração da API: sucesso ou erro
 |`Profile`|Perfil do lojista: fixo “CheckoutCielo”.|String|16|
 |`Version`|Versão do serviço de criação de pedido (versão: 1).|String|Sim|1|
 
-&#10060; **Erro**: em caso de erro, a API retornará a mensagem:
+&#10060; **Erro**: em caso de erro, a API retornará a seguinte mensagem:
 
 ```json
 {
@@ -739,14 +739,14 @@ O **Checkout Cielo** permite que o lojista realize transações de crédito parc
 
 Nesta opção, a loja pode configurar a quantidade de parcelas por venda. O Checkout realiza o cálculo das parcelas considerando valor total e limite de parcelas enviadas via API.
 
-> **Atenção**: O número de parcelas desejadas deve ser inferior a quantidade que está cadastrada nas **Configurações da Loja** no site Cielo.
+> **Atenção**: O número de parcelas desejadas deve ser inferior a quantidade que está cadastrada nas **Configurações da loja** no site Cielo.
 
 **Características**
 
 * O lojista envia a quantidade máxima de parcelas que deseja exibir ao comprador;
- O valor do frete é somado ao valor do parcelamento.
+* O valor do frete é somado ao valor do parcelamento.
 
-O Parcelamento via API é realizado enviando o campo `MaxNumberOfInstallments` dentro do nó `Payment`. Isso forçará o Checkout a recalcular o valor do parcelamento. Abaixo, um exemplo do nó
+O parcelamento via API é realizado enviando o campo `MaxNumberOfInstallments` dentro do nó `Payment`. Isso forçará o Checkout a recalcular o valor do parcelamento. Abaixo, um exemplo do nó
 
 ```json
 "Payment": {
