@@ -234,7 +234,7 @@
 <h3 id="links-de-pagamento">Links de Pagamento</h3>
 
 <blockquote>
-  <p>Se você é cliente Checkout Cielo, pule para a aba [Relatórios].</p>
+  <p>Se você é cliente Checkout Cielo, pule para a aba <a href="https://developercielo.github.io/tutorial/tutorial-checkout-link#relat%C3%B3rios">Relatórios</a>.</p>
 </blockquote>
 
 <p>Esta aba apresenta todos os links de pagamentos criados pela sua loja. Esses links podem ser utilizados de diferentes maneiras para proporcionar um maior volume de vendas.</p>
@@ -484,7 +484,7 @@
 
 <aside class="notice">O meio de pagamento débito online foi descontinuado.</aside>
 
-<aside class="warning">Se o valor da compra for inferior ao valor mínimo da parcela, caso não haja outro meio de pagamento disponível, não haverá opção para o comprador, obrigando-o a retornar à loja e criar um carrinho com o valor acima do mínimo. Para evitar essa situação sugerimos:<br /><br />Caso sua loja não tenha outros meios de pagamento, informe ao comprador sobre o valor mínimo do boleto.<br /><br />Adquira outros meios de pagamento, como cartões de crédito.</aside>
+<aside class="warning">Se o valor da compra for inferior ao valor mínimo da parcela, caso não haja outro meio de pagamento disponível, não haverá opção para o comprador, obrigando-o a retornar à loja e criar um carrinho com o valor acima do mínimo. Para evitar essa situação sugerimos:<br /><br /><ul><li>Caso sua loja não tenha outros meios de pagamento, informe ao comprador sobre o valor mínimo do boleto.<br /><br /></li><li>Adquira outros meios de pagamento, como cartões de crédito.</li></ul></aside>
 
 <aside class="warning">O valor mínimo do boleto não funciona em caso de descontos definidos pela loja. Caso a loja defina o valor mínimo de boleto como R$100,00 e um desconto de 10%, será gerado um boleto de R$90,00 (inferior ao mínimo).</aside>
 
@@ -511,7 +511,7 @@
   </ul>
 </blockquote>
 
-<aside class="warning">Sobre Autenticação de transações: O checkbox obriga todos os cartões Visa, Master e Elo a serem direcionados ao ambiente bancário do 3DS para validação de segurança.</aside>
+<aside class="warning"><b>Sobre Autenticação de transações:</b> O checkbox obriga todos os cartões Visa, Master e Elo a serem direcionados ao ambiente bancário do 3DS para validação de segurança.</aside>
 
 <h5 id="meios-de-pagamentos-ativos">Meios de pagamentos ativos</h5>
 
@@ -601,7 +601,12 @@
 
 <p><img src="https://developercielo.github.io/images/checkout/tutoriais-checkout/28-frete.png" alt="Frete Correios" /></p>
 
-<h1 id="tutorial---super-link">Tutorial - Super Link</h1>
+<!---
+Há diferença entre os fretes disponíveis para Super Link e Checkout, não?
+Super Link somente Correios e Checkout tem opções de frete por transportadoras. Há alguma diferença aqui na parte de Configurações?
+--->
+
+<h1 id="tutorial-do-super-link">Tutorial do Super Link</h1>
 
 <h2 id="criando-o-link-de-pagamento">Criando o Link de Pagamento</h2>
 
@@ -843,8 +848,6 @@
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- **Botão**: o Super Link irá criar um código HTML como o abaixo: 
 
-```xml 
-
  
 
      
@@ -853,7 +856,7 @@
 
 </code></pre></div></div>
 
-<p><strong>Exemplo de um botão Funcional:</strong></p>
+<p><strong>Exemplo de um botão funcional:</strong></p>
 
 <form method="post" action="https://cieloecommerce.cielo.com.br/transactionalvnext/order/buynow" target="blank"><input type="hidden" name="id" value="937874c6-a4d7-477e-9272-a4cb8b0c5f79" /><input type="image" name="submit" alt="Comprar" src="https://cieloecommerce.cielo.com.br/backoffice/Content/img/buttons/button-5-1.png" /></form>
 <p>```</p>
