@@ -91,7 +91,7 @@ O resultado da busca será uma lista de transações que pode ser exportada como
 
 ### Links de Pagamento
 
-> Se você é cliente Checkout Cielo, pule para a aba [Relatórios].
+> Se você é cliente Checkout Cielo, pule para a aba [Relatórios](https://developercielo.github.io/tutorial/tutorial-checkout-link#relat%C3%B3rios).
 
 Esta aba apresenta todos os links de pagamentos criados pela sua loja. Esses links podem ser utilizados de diferentes maneiras para proporcionar um maior volume de vendas.
 
@@ -357,7 +357,7 @@ Há diferença entre os fretes disponíveis para Super Link e Checkout, não?
 Super Link somente Correios e Checkout tem opções de frete por transportadoras. Há alguma diferença aqui na parte de Configurações?
 --->
 
-# Tutorial - Super Link
+# Tutorial do Super Link
 
 ## Criando o Link de Pagamento
 
@@ -449,8 +449,6 @@ Abaixo a listagem de itens que devem ser cadastrados para a criação do link:
 ```xml
 - **Botão**: o Super Link irá criar um código HTML como o abaixo: 
 
-```xml 
-
 <form method='post' action='https://cieloecommerce.cielo.com.br/transactional/Checkout/BuyNow' target='blank'> 
 
     <input type='hidden' name='id' value=00000000-0000-0000-000000000000/><input type='image' name='submit' alt='Comprar' src='https://cieloecommerce.cielo.com.br /BackOffice/Content{{ site.baseurl_root }}/images/botao_comprar_3.jpg' /> 
@@ -459,7 +457,7 @@ Abaixo a listagem de itens que devem ser cadastrados para a criação do link:
 
 ```
 
-**Exemplo de um botão Funcional:** 
+**Exemplo de um botão funcional:** 
 
 <form method='post' action='https://cieloecommerce.cielo.com.br/transactionalvnext/order/buynow' target='blank'><input type='hidden' name='id' value='937874c6-a4d7-477e-9272-a4cb8b0c5f79' /><input type='image' name='submit' alt='Comprar' src='https://cieloecommerce.cielo.com.br/backoffice/Content/img/buttons/button-5-1.png'/></form>
 ```
