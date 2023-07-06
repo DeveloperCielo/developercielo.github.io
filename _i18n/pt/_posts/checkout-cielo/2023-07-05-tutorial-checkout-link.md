@@ -268,7 +268,7 @@ A tarja vermelha indica que a sua loja está operando em ambiente de teste, ou s
 
 Na tela de pedidos, dentro de cada transação, há a opção de reenvio da notificação de mudança de status. Basta clicar nos botões azuis, indicados na imagem:
 
-![Detalhes do pedido]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/37-detalhes-pedido.png)
+![Detalhes do pedido]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/37-detalhes-pedido.jpg)
 
 > Para mais informações sobre as notificações visite o manual de integração da [API do Checkout](https://developercielo.github.io/manual/checkout-cielo#notifica%C3%A7%C3%B5es-de-pagamento){:target="_blank"} ou da [API do Super Link](https://developercielo.github.io/manual/linkdepagamentos5#notifica%C3%A7%C3%B5es-da-transa%C3%A7%C3%A3o){:target="_blank"}.
 
@@ -351,11 +351,6 @@ Nesta área você configura as opções de frete disponíveis em sua Loja. Na se
 Na área de fretes de Correios há uma calculadora de frete para consultas (essa calculadora dá o valor de frete de cada tipo de frete cadastrado para um determinado peso e localidade).
 
 ![Frete Correios]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/28-frete.png)
-
-<!---
-Há diferença entre os fretes disponíveis para Super Link e Checkout, não?
-Super Link somente Correios e Checkout tem opções de frete por transportadoras. Há alguma diferença aqui na parte de Configurações?
---->
 
 # Tutorial do Super Link
 
