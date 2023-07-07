@@ -22,7 +22,7 @@ A Cielo informa seus clientes que está preparada para processar as transações
 > Para uma melhor performance na autorização, consulte o manual [Programa de Retentativa de Bandeiras](https://developercielo.github.io/manual/cielo-ecommerce#programa-de-retentativa-das-bandeiras){:target="_blank"} para saber qual a ação tomar caso a retentativa seja permitida.
 
 | Mensagem | Tipo de Código | ELO   | VISA   | MASTERCARD/HIPER | AMEX  | AMEX - De/Para Cielo | Mensagem POS/Ecommerce | Houve alteração da ABECS em 2022?|
-|---|---|---|---|---|---|---|---|---|
+|---|---|:----:|:----:|:----:|:----:|:----:|---|---|
 | GENÉRICA                                                       | REVERSÍVEL     | 5                         | 5                         | 5                         | 100                       | FA                        | CONTATE A CENTRAL DO SEU CARTÃO                                      | Não                                                           |
 | SALDO/LIMITE INSUFICIENTE                                      | REVERSÍVEL     | 51                        | 51                        | 51                        | 116                       | A5                        | NÃO AUTORIZADA                                                       | Não                                                           |
 | SALDO/LIMITE INSUFICIENTE                                      | REVERSÍVEL     | 51                        | 51                        | 51                        | 121                       | A5                        | NÃO AUTORIZADA                                                       | Somente na nossa Documentação                                 |
