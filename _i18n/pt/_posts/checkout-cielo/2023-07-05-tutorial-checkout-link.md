@@ -11,13 +11,13 @@ tags:
   - Link de Pagamento
 ---
 
-# Tutorial do Backoffice Checkout e Super Link
+# Tutorial do Checkout e Super Link no site Cielo
 
 ## Sobre este tutorial
 
-Este tutorial tem como objetivo auxiliar o lojista na utilização dos produtos Checkout e Super Link backoffice do site Cielo. Neste tutorial você vai aprender a:
+Este tutorial tem como objetivo auxiliar o lojista na utilização dos produtos Checkout e Super Link pelo backoffice do site Cielo. Neste tutorial você vai aprender a:
 
-* Configurar a sua loja no Checkout ou Super Link, desde a aparência da sua página de pagamento do até os meios de pagamento que irá disponibilizar aos seus clientes e opções de captura;
+* Configurar a sua loja no **Checkout** ou **Super Link**, desde a aparência da sua página de pagamento do até os meios de pagamento que irá disponibilizar aos seus clientes e opções de captura;
 * Criar links de pagamento;
 * Visualizar o dashboard que apresenta o total de vendas e os gráficos do volume financeiro e volume transacional da sua loja;
 * Visualizar as transações (pedidos) da sua loja;
@@ -30,38 +30,40 @@ Este tutorial tem como objetivo auxiliar o lojista na utilização dos produtos 
 
 ## Acessando o backoffice Checkout e Super Link
 
-O acesso ao painel administrativo ou backoffice é feito dentro do site Cielo. O acesso pode ser feito por meio do CPF, N° do estabelecimento (EC) ou e-mail do seu cadastro de e-commerce na Cielo.
+O acesso ao painel administrativo ou backoffice é feito dentro do site Cielo.
+
+1. Acesse o site Cielo em [https://www.cielo.com.br/](https://www.cielo.com.br/) e vá para **Acessar minha conta**;
+2. Preencha o seu login, que pode ser o CPF, n° do estabelecimento (EC) ou e-mail do seu cadastro de e-commerce na Cielo;
+3. Preencha a sua senha. Em caso de primeiro acesso, será necessário ter realizado o processo de Identidade Digital conforme as orientações que foram enviadas para seu e-mail.
 
 ![Login Backoffice Cielo]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/1login.png)
 
-Após o preenchimento do CPF/e-mail/N° do EC, o site irá solicitar a sua senha. Em caso de primeiro acesso, será necessário ter realizado o processo de Identidade Digital conforme as orientações que foram enviadas para seu e-mai
+4. Após logar no site Cielo, localize o menu **E-commerce** e depois a sessão **Super Link** ou **Checkout Cielo**;
 
-![Senha Backoffice Cielo]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/2-login.png)
-
-> Após logar no site Cielo, localize o menu **E-commerce** e depois a sessão **Super Link** ou **Checkout Cielo**. No menu superior da página, certifique-se de que está selecionado o **número de estabelecimento (EC)** correto para o produto desejado. Caso esteja no EC incorreto, realize a troca para o EC de E-commerce correspondente ao produto que deseja utilizar.
+> No menu superior da página, certifique-se de que está selecionado o **número de estabelecimento (EC)** correto para o produto desejado. Caso esteja no EC incorreto, realize a troca para o EC de E-commerce correspondente ao produto que deseja utilizar.
 
 ![Vendas online]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/3-menu-ecommerce.png)
 
-## Abas do Backoffice
+## Abas do backoffice
 
-O backoffice **Super Link** ou **Checkout Cielo** é um painel com seis abas distintas que permitem a configuração de sua loja e a utilização dos produtos contratados.
+O backoffice **Super Link** ou **Checkout Cielo** é um painel administrativo com seis abas distintas que permitem a configuração de sua loja e a utilização dos produtos contratados.
 
 ![Abas do Backoffice]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/4-9-12-30-backoffice.png)
 
 Cada aba tem um objetivo diferente. A tabela abaixo demonstra o objetivo de cada tela.
 
-| Aba                    | Descrição    |
+| Aba                    | Descrição                     |
 | ---------------------- |------------------------------ |
 | **Dashboard**          | Aba inicial que apresenta informações sobre o volume transacionado em sua loja online, o volume financeiro e alertas.                             |
 | **Pedidos**            | Essa aba apresenta a lista de transações realizadas em seu estabelecimento. Aqui é possível pesquisar um determinado pedido ou transação.                                            |
-| **Links de Pagamento** | É onde você poderá criar e salvar os links de pagamentos da sua loja. **Se a sua loja usa o Checkout Cielo, não é necessário usar a aba **Link de Pagamento**.|
+| **Links de Pagamento** | É onde você poderá criar e salvar os links de pagamentos da sua loja. *Se a sua loja usa o Checkout Cielo, não é necessário usar a aba **Link de Pagamento***.|
 | **Relatórios**         | Nesta aba é possível gerar seis tipos de relatórios: <br>Relatório financeiro<br>Detalhado de vendas<br>Listagem de clientes<br>Extrato de Cobrança<br>Relatório de Recorrência<br>Pedidos de Recorrência    |
 | **Suporte**            | Links para os manuais de utilização do produto e Perguntas Frequetes (FAQ). |
 | **Configurações**      | Aba onde você deve fazer as configurações da sua loja e dos seus dados cadastrais.|
 
 ### Dashboard
 
-Aba inicial que apresenta informações sobre o volume transacionado em sua loja online, o volume financeiro e alertas.
+O Dashboard é a aba inicial que apresenta informações sobre o volume transacionado em sua loja online, o volume financeiro e alertas.
 
 * **Alertas**: indica se há pedidos a expirar na data atual;
 * **Volume financeiro e transacional**: são gráficos interativos que demonstram em porcentagem e em valores totais a participação de cada meio de pagamento no total de transações realizadas e o volume total de acordo com o status das transações.
@@ -96,7 +98,7 @@ O resultado da busca será uma lista de transações que pode ser exportada como
 
 Esta aba apresenta todos os links de pagamentos criados pela sua loja. Esses links podem ser utilizados de diferentes maneiras para proporcionar um maior volume de vendas.
 
-> Para saber mais sobre links de pagamentos veja o [Tutorial Link de Pagamento](https://developercielo.github.io/tutorial/checkout-tutoriais#Tutorial-LinkdePagamentos)
+Para saber mais sobre links de pagamentos veja o [Tutorial do Super Link](https://developercielo.github.io/tutorial/tutorial-checkout-link#tutorial-do-super-link)
 
 No menu Link de Pagamentos, existem as áreas: **Cadastrar de Link de Pagamentos** e **Listar Links de Pagamentos Cadastrados**.
 
@@ -108,25 +110,7 @@ Clicando no **Título** ou **SKU** do produto, você irá visualizar a página d
 
 #### Criar de Link de Pagamento
 
-Nessa página é possível gerar seus links de pagamento com base no tipo de produto. Você pode gerar links de pagamento pra cinco tipos de produtos diferentes: Material Físico, Digital, Serviço, Recorrência e Pagamentos:
-
-* **Material físico**: produtos físicos que necessitam ser entregues pela loja, como roupas e brinquedos; essa opção permite a cobrança do valor de frete em um campo separado;
-* **Digital**: bens digitais vendidos pela internet. Ex.: software, jogos, músicas etc.;
-* **Serviço**: serviços a serem prestados. Ex.: serviços de delivery, projetos e orçamentos;
-* **Recorrência**: transações que se repetem em um determinado intervalo de tempo. Ex.: assinaturas e mensalidades;
-* **Pagamentos**: pagamentos unicos ou transferência de valores. Ex: quitação de dividas.
-
-![Cadastrar Link de pagamentos]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/9-tipo-de-produto.png)
-
-<aside class="notice">Material físico exige que um tipo de frete seja cadastrado.</aside>
-
-<aside class="notice">O campo “SoftDescriptor” permite que a loja insira uma mensagem que será exibida na fatura do cartão de crédito do comprador. Essa funcionalidade é indicada para lojas que tem o nome fantasia muito diferente em relação a razão social.</aside>
-
-<aside class="notice">A mensagem inclusa no campo “SoftDescriptor” deve ser limitada a 13 letras e não pode conter espaços.</aside>
-
-Após gerar um link de pagamento, a seguinte tela será exibida:
-
-![Detalhes do produto]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/13-31-sharelink.png)
+Nessa página é possível gerar seus links de pagamento com base no tipo de produto. 
 
 O link de pagamento pode ser compartilhado de três formas:
 
@@ -134,9 +118,7 @@ O link de pagamento pode ser compartilhado de três formas:
 2. Implementando o botão **Pague com segurança** em uma página da sua loja;
 3. Compartilhando o QR Code do link.
 
-Confira no vídeo o passo a passo de como gerar um link:
-
-[![Gerar Super Link]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/video-superlink.png)](https://www.youtube.com/watch?v=GWKYSdgSko8){:target="_blank"}
+> Para saber como criar um link, acesse o tópico [Tutorial do Super Link](https://developercielo.github.io/tutorial/tutorial-checkout-link#tutorial-do-super-link) neste mesmo manual.
 
 ### Relatórios
 
@@ -353,6 +335,8 @@ Na área de fretes de Correios há uma calculadora de frete para consultas (essa
 
 ![Frete Correios]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/28-frete.png)
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 # Tutorial do Super Link
 
 ## Criando o Link de Pagamento
@@ -406,15 +390,15 @@ Você pode gerar links de pagamento pra cinco tipos de produtos diferentes:
 * **Recorrência**: transações que se repetem em um determinado intervalo de tempo. Ex.: assinaturas e mensalidades;
 * **Pagamentos**: pagamentos unicos ou transferência de valores. Ex: quitação de dividas.
 
+**1.** Para criar um link de pagamento, vá para a opção **Cadastrar Link de Pagamento**, preencha os campos necessários e clique em **Gerar Super Link**:
+
 ![Cadastrar Link de pagamentos]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/9-tipo-de-produto.png)
 
-**Confira a tela de geração de um link no site Cielo**
+<aside class="notice">Material físico exige que um tipo de frete seja cadastrado.</aside>
 
-![criar Link de pagamentos]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/4-9-12-30-backoffice.png)
+<aside class="notice">O campo “SoftDescriptor” permite que a loja insira uma mensagem que será exibida na fatura do cartão de crédito do comprador. Essa funcionalidade é indicada para lojas que tem o nome fantasia muito diferente em relação a razão social.</aside>
 
-**Após preencher os campos e gerar um link, aparecerá uma tela de resumo com as informações, assim como com o código para usar o botão ou o QR Code do link.**
-
-![Compartilhar Link]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/13-31-sharelink.png)
+<aside class="notice">A mensagem inclusa no campo “SoftDescriptor” deve ser limitada a 13 letras e não pode conter espaços.</aside>
 
 Abaixo a listagem de itens que devem ser cadastrados para a criação do link:
 
@@ -441,19 +425,24 @@ Abaixo a listagem de itens que devem ser cadastrados para a criação do link:
 
 **Envio obrigatório caso a transação seja recorrente.
 
-**Adicionando o botão na sua página, você deve copiar o código HTML do botão criado e inclui-lo no HTML de seu site, conforme o exemplo:**
+**2.** Após preencher os campos e gerar um link, aparecerá uma tela de resumo com os detalhes do link de pagamento, assim como as opções de compartilhamento por **link, botão ou QRCode**:
+
+![Compartilhar Link]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/13-31-sharelink.png)
+
+### Compartilhando o link por botão
+
+Para adicionar o botão na página do seu site
+
+1. Copie o código HTML do botão exibido na tela do link criado;
+2. Inclua o trecho de código do botão no HTML de seu site.
 
 **Botão** - o Super Link irá criar um código HTML como o seguinte:
 
-```xml
-<form method='post' action='https://cieloecommerce.cielo.com.br/transactional/Checkout/BuyNow' target='blank'>
-    <input type='hidden' name='id' value=00000000-0000-0000-000000000000/><input type='image' name='submit' alt='Comprar' src='https://cieloecommerce.cielo.com.br /BackOffice/Content{{ site.baseurl_root }}/images/botao_comprar_3.jpg' />
-</form>
-```
-
 **Exemplo de um botão funcional** 
 
+```
 <form method='post' action='https://cieloecommerce.cielo.com.br/transactionalvnext/order/buynow' target='blank'><input type='hidden' name='id' value='937874c6-a4d7-477e-9272-a4cb8b0c5f79' /><input type='image' name='submit' alt='Comprar' src='https://cieloecommerce.cielo.com.br/backoffice/Content/img/buttons/button-5-1.png'/></form>
+```
 
 <aside class="notice">O código deve ser inserido dentro da área adequada no seu HTML.</aside>
 
