@@ -32,13 +32,13 @@ Este tutorial tem como objetivo auxiliar o lojista na utilização dos produtos 
 
 O acesso ao painel administrativo ou backoffice é feito dentro do site Cielo.
 
-1. Acesse o site Cielo em [https://www.cielo.com.br/](https://www.cielo.com.br/) e vá para **Acessar minha conta**;
-2. Preencha o seu login, que pode ser o CPF, n° do estabelecimento (EC) ou e-mail do seu cadastro de e-commerce na Cielo;
-3. Preencha a sua senha. Em caso de primeiro acesso, será necessário ter realizado o processo de Identidade Digital conforme as orientações que foram enviadas para seu e-mail.
+**1. Acesse o site Cielo em [https://www.cielo.com.br/](https://www.cielo.com.br/) e vá para *Acessar minha conta*;**
+**2. Preencha o seu login, que pode ser o CPF, n° do estabelecimento (EC) ou e-mail do seu cadastro de e-commerce na Cielo;**
+**3. Preencha a sua senha. Em caso de primeiro acesso, será necessário ter realizado o processo de Identidade Digital conforme as orientações que foram enviadas para seu e-mail.**
 
 ![Login Backoffice Cielo]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/1login.png)
 
-4. Após logar no site Cielo, localize o menu **E-commerce** e depois a sessão **Super Link** ou **Checkout Cielo**;
+**4. Após logar no site Cielo, localize o menu **E-commerce** e depois a sessão **Super Link** ou **Checkout Cielo**.**
 
 > No menu superior da página, certifique-se de que está selecionado o **número de estabelecimento (EC)** correto para o produto desejado. Caso esteja no EC incorreto, realize a troca para o EC de E-commerce correspondente ao produto que deseja utilizar.
 
