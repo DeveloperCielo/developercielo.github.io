@@ -468,7 +468,7 @@
 
 <aside class="notice">O meio de pagamento débito online foi descontinuado.</aside>
 
-<aside class="warning">Se o valor da compra for inferior ao valor mínimo da parcela, caso não haja outro meio de pagamento disponível, não haverá opção para o comprador, obrigando-o a retornar à loja e criar um carrinho com o valor acima do mínimo. Para evitar essa situação sugerimos:<br /><br />Caso sua loja não tenha outros meios de pagamento, informe ao comprador sobre o valor mínimo do boleto.<br /><br />Adquira outros meios de pagamento, como cartões de crédito.</aside>
+<aside class="warning">Se o valor da compra for inferior ao valor mínimo da parcela, caso não haja outro meio de pagamento disponível, não haverá opção para o comprador, obrigando-o a retornar à loja e criar um carrinho com o valor acima do mínimo. Para evitar essa situação sugerimos:<br /><br /><ul><li>Caso sua loja não tenha outros meios de pagamento, informe ao comprador sobre o valor mínimo do boleto.<br /><br /></li><li>Adquira outros meios de pagamento, como cartões de crédito.</li></ul></aside>
 
 <aside class="warning">O valor mínimo do boleto não funciona em caso de descontos definidos pela loja. Caso a loja defina o valor mínimo de boleto como R$100,00 e um desconto de 10%, será gerado um boleto de R$90,00 (inferior ao mínimo).</aside>
 
@@ -495,7 +495,7 @@
   </ul>
 </blockquote>
 
-<aside class="warning">Sobre Autenticação de transações: O checkbox obriga todos os cartões Visa, Master e Elo a serem direcionados ao ambiente bancário do 3DS para validação de segurança.</aside>
+<aside class="warning"><b>Sobre Autenticação de transações:</b> O checkbox obriga todos os cartões Visa, Master e Elo a serem direcionados ao ambiente bancário do 3DS para validação de segurança.</aside>
 
 <h5 id="meios-de-pagamentos-ativos">Meios de pagamentos ativos</h5>
 
@@ -684,7 +684,7 @@
   <li><strong>Pagamentos</strong>: pagamentos unicos ou transferência de valores. Ex: quitação de dividas.</li>
 </ul>
 
-<p><strong>1.</strong> Para criar um link de pagamento, vá para a opção <strong>Cadastrar Link de Pagamento</strong>, preencha os campos necessários e clique em <strong>Gerar Super Link</strong>:</p>
+<p><strong>1. Para criar um link de pagamento, vá para a opção <em>Cadastrar Link de Pagamento</em>, preencha os campos necessários e clique em <em>Gerar Super Link</em>:</strong></p>
 
 <p><img src="https://developercielo.github.io/images/checkout/tutoriais-checkout/9-tipo-de-produto.png" alt="Cadastrar Link de pagamentos" /></p>
 
@@ -792,7 +792,7 @@
 
 <p>**Envio obrigatório caso a transação seja recorrente.</p>
 
-<p><strong>2.</strong> Após preencher os campos e gerar um link, aparecerá uma tela de resumo com os detalhes do link de pagamento, assim como as opções de compartilhamento por <strong>link, botão ou QRCode</strong>:</p>
+<p><strong>2. Após preencher os campos e gerar um link, aparecerá uma tela de resumo com os detalhes do link de pagamento, assim como as opções de compartilhamento por <em>link, botão ou QRCode</em></strong>:</p>
 
 <p><img src="https://developercielo.github.io/images/checkout/tutoriais-checkout/13-31-sharelink.png" alt="Compartilhar Link" /></p>
 
@@ -809,8 +809,11 @@
 
 <p><strong>Exemplo de um botão funcional</strong></p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;form method='post' action='https://cieloecommerce.cielo.com.br/transactionalvnext/order/buynow' target='blank'&gt;&lt;input type='hidden' name='id' value='937874c6-a4d7-477e-9272-a4cb8b0c5f79' /&gt;&lt;input type='image' name='submit' alt='Comprar' src='https://cieloecommerce.cielo.com.br/backoffice/Content/img/buttons/button-5-1.png'/&gt;&lt;/form&gt;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 </code></pre></div></div>
+
+<form method="post" action="https://cieloecommerce.cielo.com.br/transactionalvnext/order/buynow" target="blank"><input type="hidden" name="id" value="937874c6-a4d7-477e-9272-a4cb8b0c5f79" /><input type="image" name="submit" alt="Comprar" src="https://cieloecommerce.cielo.com.br/backoffice/Content/img/buttons/button-5-1.png" /></form>
+<p>```</p>
 
 <aside class="notice">O código deve ser inserido dentro da área adequada no seu HTML.</aside>
 
