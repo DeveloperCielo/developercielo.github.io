@@ -431,19 +431,18 @@ Abaixo a listagem de itens que devem ser cadastrados para a criação do link:
 
 ### Compartilhando o link por botão
 
-Para adicionar o botão na página do seu site
+Para adicionar o botão na página do seu site:
 
 1. Copie o código HTML do botão exibido na tela do link criado;
 2. Inclua o trecho de código do botão no HTML de seu site.
 
-**Botão** - o Super Link irá criar um código HTML como o seguinte:
+O Super Link irá criar um código HTML como o seguinte:
 
-**Exemplo de um botão funcional** 
+![Código do botão]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/13-31-sharelink.png)
 
-```
-<form method='post' action='https://cieloecommerce.cielo.com.br/transactional/Checkout/BuyNow' target='blank'><input type='hidden' name='id' value=00000000-0000-0000-000000000000/><input type='image' name='submit' alt='Comprar' src='https://cieloecommerce.cielo.com.br /BackOffice/Content{{ site.baseurl_root }}/images/botao_comprar_3.jpg'/></form>
-```
+E o **botão funcional** vai aparecer assim:
 
+```xml
 <form method='post' action='https://cieloecommerce.cielo.com.br/transactionalvnext/order/buynow' target='blank'><input type='hidden' name='id' value='937874c6-a4d7-477e-9272-a4cb8b0c5f79' /><input type='image' name='submit' alt='Comprar' src='https://cieloecommerce.cielo.com.br/backoffice/Content/img/buttons/button-5-1.png'/></form>
 ```
 
