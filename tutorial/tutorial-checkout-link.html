@@ -464,7 +464,7 @@
 
 <aside class="notice">O meio de pagamento débito online foi descontinuado.</aside>
 
-<aside class="warning">Se o valor da compra for inferior ao valor mínimo da parcela, caso não haja outro meio de pagamento disponível, não haverá opção para o comprador, obrigando-o a retornar à loja e criar um carrinho com o valor acima do mínimo. Para evitar essa situação sugerimos:<br /><br /><ul><li>Caso sua loja não tenha outros meios de pagamento, informe ao comprador sobre o valor mínimo do boleto.<br /><br /></li><li>Adquira outros meios de pagamento, como cartões de crédito.</li></ul></aside>
+<aside class="warning">Se o valor da compra for inferior ao valor mínimo da parcela, caso não haja outro meio de pagamento disponível, não haverá opção para o comprador, obrigando-o a retornar à loja e criar um carrinho com o valor acima do mínimo. Para evitar essa situação sugerimos:<br /><br />Caso sua loja não tenha outros meios de pagamento, informe ao comprador sobre o valor mínimo do boleto.<br /><br />Adquira outros meios de pagamento, como cartões de crédito.</aside>
 
 <aside class="warning">O valor mínimo do boleto não funciona em caso de descontos definidos pela loja. Caso a loja defina o valor mínimo de boleto como R$100,00 e um desconto de 10%, será gerado um boleto de R$90,00 (inferior ao mínimo).</aside>
 
@@ -491,7 +491,7 @@
   </ul>
 </blockquote>
 
-<aside class="warning"><b>Sobre Autenticação de transações:</b> O checkbox obriga todos os cartões Visa, Master e Elo a serem direcionados ao ambiente bancário do 3DS para validação de segurança.</aside>
+<aside class="warning">Sobre Autenticação de transações: O checkbox obriga todos os cartões Visa, Master e Elo a serem direcionados ao ambiente bancário do 3DS para validação de segurança.</aside>
 
 <h5 id="meios-de-pagamentos-ativos">Meios de pagamentos ativos</h5>
 
@@ -794,22 +794,21 @@
 
 <h3 id="compartilhando-o-link-por-botão">Compartilhando o link por botão</h3>
 
-<p>Para adicionar o botão na página do seu site</p>
+<p>Para adicionar o botão na página do seu site:</p>
 
 <ol>
   <li>Copie o código HTML do botão exibido na tela do link criado;</li>
   <li>Inclua o trecho de código do botão no HTML de seu site.</li>
 </ol>
 
-<p><strong>Botão</strong> - o Super Link irá criar um código HTML como o seguinte:</p>
+<p>O Super Link irá criar um código HTML como o seguinte:</p>
 
-<p><strong>Exemplo de um botão funcional</strong></p>
+<p><img src="https://developercielo.github.io/images/checkout/tutoriais-checkout/13-31-sharelink.png" alt="Código do botão" /></p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<p>E o <strong>botão funcional</strong> vai aparecer assim:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;form</span> <span class="na">method=</span><span class="s">'post'</span> <span class="na">action=</span><span class="s">'https://cieloecommerce.cielo.com.br/transactionalvnext/order/buynow'</span> <span class="na">target=</span><span class="s">'blank'</span><span class="nt">&gt;&lt;input</span> <span class="na">type=</span><span class="s">'hidden'</span> <span class="na">name=</span><span class="s">'id'</span> <span class="na">value=</span><span class="s">'937874c6-a4d7-477e-9272-a4cb8b0c5f79'</span> <span class="nt">/&gt;&lt;input</span> <span class="na">type=</span><span class="s">'image'</span> <span class="na">name=</span><span class="s">'submit'</span> <span class="na">alt=</span><span class="s">'Comprar'</span> <span class="na">src=</span><span class="s">'https://cieloecommerce.cielo.com.br/backoffice/Content/img/buttons/button-5-1.png'</span><span class="nt">/&gt;&lt;/form&gt;</span>
 </code></pre></div></div>
-
-<form method="post" action="https://cieloecommerce.cielo.com.br/transactionalvnext/order/buynow" target="blank"><input type="hidden" name="id" value="937874c6-a4d7-477e-9272-a4cb8b0c5f79" /><input type="image" name="submit" alt="Comprar" src="https://cieloecommerce.cielo.com.br/backoffice/Content/img/buttons/button-5-1.png" /></form>
-<p>```</p>
 
 <aside class="notice">O código deve ser inserido dentro da área adequada no seu HTML.</aside>
 
