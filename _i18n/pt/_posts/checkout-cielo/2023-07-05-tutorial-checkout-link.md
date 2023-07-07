@@ -413,7 +413,7 @@ Você pode gerar links de pagamento pra cinco tipos de produtos diferentes:
 
 **Após preencher os campos e gerar um link, aparecerá uma tela de resumo com as informações, assim como com o código para usar o botão ou o QR Code do link.**
 
-![Compartilhar Link]({{ site.baseurl_root }}/images/checkout/13-31-sharelink.png)
+![Compartilhar Link]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/13-31-sharelink.png)
 
 Abaixo a listagem de itens que devem ser cadastrados para a criação do link:
 
@@ -437,6 +437,7 @@ Abaixo a listagem de itens que devem ser cadastrados para a criação do link:
 |`Data final da recorrência`|Quando o tipo for recorrente. É a data limite para cobrança automática da recorrência.|Condicional**|
 
 *Envio obrigatório caso o tipo de produto seja **material físico**.
+
 **Envio obrigatório caso a transação seja recorrente.
 
 **Adicionando o botão na sua página, você deve copiar o código HTML do botão criado e inclui-lo no HTML de seu site, conforme o exemplo:**
@@ -444,11 +445,11 @@ Abaixo a listagem de itens que devem ser cadastrados para a criação do link:
 ```xml
 - **Botão**: o Super Link irá criar um código HTML como o abaixo: 
 
-<form method='post' action='https://cieloecommerce.cielo.com.br/transactional/Checkout/BuyNow' target='blank'> 
+"<form method='post' action='https://cieloecommerce.cielo.com.br/transactional/Checkout/BuyNow' target='blank'> 
 
     <input type='hidden' name='id' value=00000000-0000-0000-000000000000/><input type='image' name='submit' alt='Comprar' src='https://cieloecommerce.cielo.com.br /BackOffice/Content{{ site.baseurl_root }}/images/botao_comprar_3.jpg' /> 
 
-</form> 
+</form>" 
 
 ```
 
