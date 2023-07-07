@@ -429,9 +429,9 @@ Saiba mais sobre os itens que podem ser cadastrados para a criação do link na 
 
 ![Compartilhar Link]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/13-31-sharelink.png)
 
-> **Compartilhando o link por botão**
-> Para adicionar o botão na página do seu site:
-> **1.** Copie o código HTML do botão exibido na tela do link criado:
+> **Compartilhando o link por botão**<br>
+> Para adicionar o botão na página do seu site:<br>
+> **1.** Copie o código HTML do botão exibido na tela do link criado:<br>
 > ![Código do botão]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/botao-codigo.png)
 > **2**. Inclua o trecho de código do botão no HTML de seu site. O **botão funcional** vai aparecer assim:
 > ![botão funcional]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/botao-funcional.png)
