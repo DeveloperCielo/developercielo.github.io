@@ -8,6 +8,7 @@ categories: tutorial
 sort_order: 2
 tags:
   - Checkout
+  - Link de Pagamento
 ---
 
 # Tutorial do Backoffice Checkout e Super Link
@@ -422,7 +423,7 @@ Abaixo a listagem de itens que devem ser cadastrados para a criação do link:
 | `Tipo do Produto` | Indique se está vendendo material físico, digital, serviço, recorrência ou pagamento. A opção de frete só será apresentada no tipo *material físico*.     | Sim         |
 | `SKU`             | Código de identificação do produto   |  Não         |
 | `Nome do produto`          | Nome do Produto   | Sim         |
-| `Descrição`       | Descrição do Produto  | 1            | 255          | Sim         |
+| `Descrição`       | Descrição do Produto  | Sim         |
 | `Preço`           | Valor total do pedido **em reais**. |  Sim         |
 | `Frete`           | Escolher dentre uma das opções de frete (*Correios, Frete Fixo* ou *Frete Grátis*).  | Condicional*         |
 | `CEP de Origem`   | Esse campo só aparece para o frete tipo Correios, deve ser preenchido com o CEP de onde vai partir a mercadoria para fins de cálculo de frete. | Condicional*         |
@@ -442,21 +443,17 @@ Abaixo a listagem de itens que devem ser cadastrados para a criação do link:
 
 **Adicionando o botão na sua página, você deve copiar o código HTML do botão criado e inclui-lo no HTML de seu site, conforme o exemplo:**
 
+**Botão** - o Super Link irá criar um código HTML como o seguinte:
+
 ```xml
-- **Botão**: o Super Link irá criar um código HTML como o abaixo: 
-
-"<form method='post' action='https://cieloecommerce.cielo.com.br/transactional/Checkout/BuyNow' target='blank'> 
-
-    <input type='hidden' name='id' value=00000000-0000-0000-000000000000/><input type='image' name='submit' alt='Comprar' src='https://cieloecommerce.cielo.com.br /BackOffice/Content{{ site.baseurl_root }}/images/botao_comprar_3.jpg' /> 
-
-</form>" 
-
+<form method='post' action='https://cieloecommerce.cielo.com.br/transactional/Checkout/BuyNow' target='blank'>
+    <input type='hidden' name='id' value=00000000-0000-0000-000000000000/><input type='image' name='submit' alt='Comprar' src='https://cieloecommerce.cielo.com.br /BackOffice/Content{{ site.baseurl_root }}/images/botao_comprar_3.jpg' />
+</form>
 ```
 
-**Exemplo de um botão funcional:** 
+**Exemplo de um botão funcional** 
 
 <form method='post' action='https://cieloecommerce.cielo.com.br/transactionalvnext/order/buynow' target='blank'><input type='hidden' name='id' value='937874c6-a4d7-477e-9272-a4cb8b0c5f79' /><input type='image' name='submit' alt='Comprar' src='https://cieloecommerce.cielo.com.br/backoffice/Content/img/buttons/button-5-1.png'/></form>
-```
 
 <aside class="notice">O código deve ser inserido dentro da área adequada no seu HTML.</aside>
 
