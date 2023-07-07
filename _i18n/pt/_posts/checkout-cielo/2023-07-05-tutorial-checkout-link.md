@@ -32,11 +32,11 @@ Este tutorial tem como objetivo auxiliar o lojista na utilização dos produtos 
 
 O acesso ao painel administrativo ou backoffice é feito dentro do site Cielo.
 
-**1. Acesse o site Cielo em [https://www.cielo.com.br/](https://www.cielo.com.br/) e vá para *Acessar minha conta*;**
+**1.** Acesse o site Cielo em [https://www.cielo.com.br/](https://www.cielo.com.br/){:target="_blank"} e vá para **Acessar minha conta**;
 
-**2. Preencha o seu login, que pode ser o CPF, n° do estabelecimento (EC) ou e-mail do seu cadastro de e-commerce na Cielo;**
+**2.** Preencha o seu login, que pode ser o **CPF, n° do estabelecimento (EC) ou e-mail** do seu cadastro de e-commerce na Cielo;
 
-**3. Preencha a sua senha. Em caso de primeiro acesso, será necessário ter realizado o processo de Identidade Digital conforme as orientações que foram enviadas para seu e-mail.**
+**3.** Preencha a sua senha. Em caso de primeiro acesso, será necessário ter realizado o processo de Identidade Digital conforme as orientações que foram enviadas para seu e-mail.
 
 ![Login Backoffice Cielo]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/1login.png)
 
@@ -45,6 +45,8 @@ O acesso ao painel administrativo ou backoffice é feito dentro do site Cielo.
 ![Vendas online]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/3-menu-ecommerce.png)
 
 > No menu superior da página, certifique-se de que está selecionado o **número de estabelecimento (EC)** correto para o produto desejado. Caso esteja no EC incorreto, realize a troca para o EC de E-commerce correspondente ao produto que deseja utilizar.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Abas do backoffice
 
@@ -353,7 +355,7 @@ Você compartilhar o link de pagamento de três formas:
 
 |Exemplo|Método| Descrição|
 |---|---|---|
-| ![Botão]({{ site.baseurl_root }}/images/checkout/botao.png)   | **Botão**  | É um código HTML que ao ser colado em um site, vai direcionar o comprador à pagina de pagamento do link - ideal para uso em *hotsites* ou *e-mail marketing* |
+| ![botão funcional]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/botao-funcional.png)   | **Botão**  | É um código HTML que ao ser colado em um site, vai direcionar o comprador à pagina de pagamento do link - ideal para uso em *hotsites* ou *e-mail marketing* |
 | ![QRCODE]({{ site.baseurl_root }}/images/checkout/qrcode.png) | **QR Code** | Código interpretável por smartphones e tablets - ideal para uso em *marketing impresso* ou *digital*  |
 | `"https://cielolink.com.br/3oZmZki`                                       |  **Link**  | É um link compartilhável, ideal para uso em **redes sociais** ou **aplicativos de mensagens**    |
 
@@ -398,7 +400,7 @@ Você pode gerar links de pagamento pra cinco tipos de produtos diferentes:
 
 <aside class="notice">A mensagem inclusa no campo “SoftDescriptor” deve ser limitada a 13 letras e não pode conter espaços.</aside>
 
-Abaixo a listagem de itens que devem ser cadastrados para a criação do link:
+Saiba mais sobre os itens que podem ser cadastrados para a criação do link na tabela a seguir:
 
 | Campos            | Descrição  | Obrigatório |
 | ----------------- | ---------- | ----------- |
@@ -427,20 +429,12 @@ Abaixo a listagem de itens que devem ser cadastrados para a criação do link:
 
 ![Compartilhar Link]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/13-31-sharelink.png)
 
-### Compartilhando o link por botão
-
-Para adicionar o botão na página do seu site:
-
-1. Copie o código HTML do botão exibido na tela do link criado;
-2. Inclua o trecho de código do botão no HTML de seu site.
-
-O Super Link irá criar um código HTML como o seguinte:
-
-![Código do botão]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/botao-codigo.png)
-
-E o **botão funcional** vai aparecer assim:
-
-![botão funcional]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/botao-funcional.png)
+> **Compartilhando o link por botão**
+> Para adicionar o botão na página do seu site:
+> **1.** Copie o código HTML do botão exibido na tela do link criado:
+> ![Código do botão]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/botao-codigo.png)
+> **2**. Inclua o trecho de código do botão no HTML de seu site. O **botão funcional** vai aparecer assim:
+> ![botão funcional]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/botao-funcional.png)
 
 <aside class="notice">O código deve ser inserido dentro da área adequada no seu HTML.</aside>
 
