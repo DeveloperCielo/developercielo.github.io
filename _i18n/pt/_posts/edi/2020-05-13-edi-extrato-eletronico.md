@@ -1374,3 +1374,23 @@ MASTERCARD: a data de apresentação da 1ª parcela também será a data base pa
 [Atualização de Layout EE - Registro de Recebíveis + PIX](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Atualizacao_layout_EE_-_Registro_de_Recebiveis_PIX_0.pdf)
 
 [Arquivos de teste – Comunicado 09/12/2022](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Arquivos_de_teste_-_Comunicado_09122022.rar)
+
+## Nova versão dos extratos eletrônicos – V15 - Documentação e arquivos de teste
+
+Visando trazer maior transparência e fluidez na conciliação dos extratos, os nossos arquivos terão uma nova estrutura em sua demonstração.
+
+> Esta mudança está prevista para implantação em nov/23.
+
+Abaixo segue o comunicado enviado com os detalhes das alterações, arquivos de teste e documentação complementar para apoiar com a homologação.
+
+[PT-BR](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/PT.rar)
+
+[EN](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/EN.rar)
+
+[ES](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/ES.rar)
+
+[Arquivos de Teste](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/ARQUIVOS_DE_TESTE.rar)
+
+É importante que a homologação da nova estrutura ocorra até a data indicada para não impactar a leitura dos extratos.
+
+> Importante! A versão atual dos extratos não terá mais suporte e geração a partir de jan/24
