@@ -11,15 +11,15 @@ tags:
 
 # Códigos de retorno ABECS
 
-Para acessar o programa de retentativa das bandeira acesse esse [Link](https://developercielo.github.io/manual/cielo-ecommerce#programa-de-retentativa-das-bandeiras)
-
-A Associação Brasileira das Empresas de Cartão de Crédito e Serviços (ABECS) estabelece a partir do dia 15 de Julho de 2020 a padronização do código de retorno das autorizações de vendas recusadas tanto para as soluções pagamento do mundo físico e e-commerce do mercado brasileiro.
+A Associação Brasileira das Empresas de Cartão de Crédito e Serviços (ABECS) estabeleceu em 15 de Julho de 2020 a padronização do código de retorno das autorizações de vendas recusadas tanto para as soluções pagamento do mundo físico e e-commerce do mercado brasileiro.
 
 Essa medida normativa busca trazer benefícios para todo o mercado de pagamentos, proporcionando maior transparência no entendimento do motivo de recusa das transações, além de possibilitar maior assertividade na adoção de estratégias de retentativas de vendas.
 
 A Cielo informa seus clientes que está preparada para processar as transações seguindo esse novo padrão do mercado, segue abaixo a tabela de códigos padronizados pela ABECS.
 
 <aside class="notice">Os códigos da bandeira AMEX sofreram um de/para de modo a manter dois dígitos. Reforçamos que essa medida não altera os motivos de retorno.</aside>
+
+> Para uma melhor performance na autorização, consulte o manual [Programa de Retentativa de Bandeiras](https://developercielo.github.io/manual/cielo-ecommerce#programa-de-retentativa-das-bandeiras){:target="_blank"} para saber qual a ação tomar caso a retentativa seja permitida.
 
 | Mensagem | Tipo de Código | ELO   | VISA   | MASTERCARD/HIPER | AMEX  | AMEX - De/Para Cielo | Mensagem POS/Ecommerce | Houve alteração da ABECS em 2022?|
 |---|---|---|---|---|---|---|---|---|
