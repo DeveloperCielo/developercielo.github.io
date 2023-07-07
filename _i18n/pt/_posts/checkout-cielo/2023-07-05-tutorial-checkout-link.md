@@ -390,7 +390,7 @@ Você pode gerar links de pagamento pra cinco tipos de produtos diferentes:
 * **Recorrência**: transações que se repetem em um determinado intervalo de tempo. Ex.: assinaturas e mensalidades;
 * **Pagamentos**: pagamentos unicos ou transferência de valores. Ex: quitação de dividas.
 
-**1.** Para criar um link de pagamento, vá para a opção **Cadastrar Link de Pagamento**, preencha os campos necessários e clique em **Gerar Super Link**:
+**1. Para criar um link de pagamento, vá para a opção *Cadastrar Link de Pagamento*, preencha os campos necessários e clique em *Gerar Super Link*:**
 
 ![Cadastrar Link de pagamentos]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/9-tipo-de-produto.png)
 
@@ -425,7 +425,7 @@ Abaixo a listagem de itens que devem ser cadastrados para a criação do link:
 
 **Envio obrigatório caso a transação seja recorrente.
 
-**2.** Após preencher os campos e gerar um link, aparecerá uma tela de resumo com os detalhes do link de pagamento, assim como as opções de compartilhamento por **link, botão ou QRCode**:
+**2. Após preencher os campos e gerar um link, aparecerá uma tela de resumo com os detalhes do link de pagamento, assim como as opções de compartilhamento por *link, botão ou QRCode***:
 
 ![Compartilhar Link]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/13-31-sharelink.png)
 
@@ -441,6 +441,9 @@ Para adicionar o botão na página do seu site
 **Exemplo de um botão funcional** 
 
 ```
+<form method='post' action='https://cieloecommerce.cielo.com.br/transactional/Checkout/BuyNow' target='blank'><input type='hidden' name='id' value=00000000-0000-0000-000000000000/><input type='image' name='submit' alt='Comprar' src='https://cieloecommerce.cielo.com.br /BackOffice/Content{{ site.baseurl_root }}/images/botao_comprar_3.jpg'/></form>
+```
+
 <form method='post' action='https://cieloecommerce.cielo.com.br/transactionalvnext/order/buynow' target='blank'><input type='hidden' name='id' value='937874c6-a4d7-477e-9272-a4cb8b0c5f79' /><input type='image' name='submit' alt='Comprar' src='https://cieloecommerce.cielo.com.br/backoffice/Content/img/buttons/button-5-1.png'/></form>
 ```
 
