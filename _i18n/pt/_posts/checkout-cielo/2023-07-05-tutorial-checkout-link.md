@@ -438,13 +438,11 @@ Para adicionar o botão na página do seu site:
 
 O Super Link irá criar um código HTML como o seguinte:
 
-![Código do botão]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/13-31-sharelink.png)
+![Código do botão]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/botao-codigo.png)
 
 E o **botão funcional** vai aparecer assim:
 
-```xml
-<form method='post' action='https://cieloecommerce.cielo.com.br/transactionalvnext/order/buynow' target='blank'><input type='hidden' name='id' value='937874c6-a4d7-477e-9272-a4cb8b0c5f79' /><input type='image' name='submit' alt='Comprar' src='https://cieloecommerce.cielo.com.br/backoffice/Content/img/buttons/button-5-1.png'/></form>
-```
+![botão funcional]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/botao-funcional.png)
 
 <aside class="notice">O código deve ser inserido dentro da área adequada no seu HTML.</aside>
 
