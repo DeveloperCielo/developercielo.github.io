@@ -1395,4 +1395,12 @@ Abaixo segue o comunicado enviado com os detalhes das alterações, arquivos de 
 
 > Importante! A versão atual dos extratos não terá mais suporte e geração a partir de jan/24
 
+## Inclusão de novos campos Pix (CIELO16)
+
+> Esta mudança está prevista para implantação em 01/09/2023
+
+[CIELO_Extrato_Eletronico_-_Manual_-_Versao_14_v1.1(pix)](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO_Extrato_Eletronico_-_Manual_-_Versao_14_v1.1pix.pdf)
+
+[Massa_PIX_Cenarios_EDI_V2](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Massa_PIX_Cenarios_EDI_V2.txt)
+
 ![PIX](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/comunicadopix.png)
