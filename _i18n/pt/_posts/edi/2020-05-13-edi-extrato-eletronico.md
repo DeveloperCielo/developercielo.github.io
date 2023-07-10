@@ -1394,3 +1394,5 @@ Abaixo segue o comunicado enviado com os detalhes das alterações, arquivos de 
 É importante que a homologação da nova estrutura ocorra até a data indicada para não impactar a leitura dos extratos.
 
 > Importante! A versão atual dos extratos não terá mais suporte e geração a partir de jan/24
+
+![PIX](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/comunicadopix.png)
