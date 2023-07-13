@@ -23,7 +23,7 @@ tags:
 
 [Arquivos de teste – Comunicado 09/12/2022](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Arquivos_de_teste_-_Comunicado_09122022.rar)
 
-## 01/09/2023 - v14 Inclusão de novos campos Pix (CIELO16)
+## 01/09/2023 - V14 - Inclusão de novos campos Pix (CIELO16) - Documentação e arquivos de teste
 
 > Esta mudança está prevista para implantação em 01/09/2023
 
