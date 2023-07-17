@@ -235,6 +235,10 @@ A tarja vermelha indica que a sua loja está operando em ambiente de teste, ou s
 
 ![Modo Teste Ativo Tarja Vermelha]({{ site.baseurl_root }}/images/checkout/superlink/superlink-modoteste-tarjavermelha.png)
 
+**Página de pagamento com o modo de teste ativo**
+
+![Modo Teste Ativo Tarja Vermelha Página de Pagamento]({{ site.baseurl_root }}/images/checkout/superlink/modoteste-telapgto.jpg)
+
 ##### Tipos de URLs
 
 * **URL de Retorno**: ao finalizar a transação o comprador poderá ser redirecionado para uma página definida pela loja. Ao clicar no botão **Voltar** na tela de comprovante de vendas, o comprador será direcionando para a URL de retorno previamente cadastrada no BackOffice;
