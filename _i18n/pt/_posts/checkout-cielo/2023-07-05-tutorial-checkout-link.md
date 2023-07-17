@@ -237,7 +237,7 @@ A tarja vermelha indica que a sua loja está operando em ambiente de teste, ou s
 
 **Página de pagamento com o modo de teste ativo**
 
-![Modo Teste Ativo Tarja Vermelha Página de Pagamento]({{ site.baseurl_root }}/images/checkout/superlink/modoteste-telapgto.jpg)
+![Modo Teste Ativo Tarja Vermelha Página de Pagamento]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/modoteste-telapgto.jpg)
 
 ##### Tipos de URLs
 
