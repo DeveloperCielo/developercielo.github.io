@@ -923,7 +923,7 @@
 <aside class="notice">Warning: In the request header, use Content-Type application/json .</aside>
 
 <blockquote>
-  <p><strong>Mastercard credit card transactions with stored credentials</strong>: Mastercard brand requires the Transaction Initiator Indicator for credit and debit card transactions using stored card data. The goal is to indicate if the transaction was initiated by the cardholder or by the merchant. In this scenario, the node <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator</code> must be sent with the parameters <code class="language-plaintext highlighter-rouge">Category</code> and <code class="language-plaintext highlighter-rouge">SubCategory</code> for Mastercard transactions, within the node <code class="language-plaintext highlighter-rouge">Payment</code>. Please check the complete list of categories in the <code class="language-plaintext highlighter-rouge">Category</code> parameter description and the subcategories tables in Transaction Initiator Indicator Tables.</p>
+  <p><strong>Mastercard credit card transactions with stored credentials</strong>: Mastercard brand requires the Transaction Initiator Indicator for credit and debit card transactions using stored card data. The goal is to indicate if the transaction was initiated by the cardholder or by the merchant. In this scenario, the node <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator</code> must be sent with the parameters <code class="language-plaintext highlighter-rouge">Category</code> and <code class="language-plaintext highlighter-rouge">SubCategory</code> for Mastercard transactions, within the node <code class="language-plaintext highlighter-rouge">Payment</code>. Please check the complete list of categories in the <code class="language-plaintext highlighter-rouge">Category</code> parameter description and the subcategories tables in <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator-tables">Transaction Initiator Indicator Tables</a>.</p>
 </blockquote>
 
 <p>Please refer to <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#credit-card-with-authentication">Credit card with authentication</a> to create an authenticated credit card trnsaction.</p>
@@ -1487,7 +1487,7 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Subcategory</code></td>
-      <td>Transaction Initiator Indicator subcategory. <em>Valid only for Mastercard</em>. Please refer to Transaction Initiator Indicator Tables for the full list.</td>
+      <td>Transaction Initiator Indicator subcategory. <em>Valid only for Mastercard</em>. Please refer to the <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator-tables">Transaction Initiator Indicator</a> tables for the full list.</td>
       <td>string</td>
       <td>-</td>
       <td>Conditional. Required only for Mastercard.</td>
@@ -2017,7 +2017,7 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Subcategory</code></td>
-      <td>Transaction Initiator Indicator subcategory. <em>Valid only for Mastercard</em>. Please refer to Transaction Initiator Indicator Tables for the full list.</td>
+      <td>Transaction Initiator Indicator subcategory. <em>Valid only for Mastercard</em>. Please refer to the <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator-tables">Transaction Initiator Indicator</a> tables for the full list.</td>
       <td>string</td>
       <td>-</td>
       <td>Conditional. Required only for Mastercard.</td>
