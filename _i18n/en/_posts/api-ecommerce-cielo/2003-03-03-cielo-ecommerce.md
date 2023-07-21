@@ -435,15 +435,19 @@ To enjoy all the features available in our API, it is important that you first u
 
 <aside class="warning">IMPORTANT: The order identification number (MerchantOrderId) does not change, remaining the same throughout the transactional flow. However, an additional number can be generated for the order and used during the transaction. This number will only be different in case of adaptation to the acquirer's rules or in case there are repeated order identification numbers (MerchantOrderId). For reconciliation purposes, use TransactionId.</aside>
 
-#### Creating a credit transaction
+#### Creating a credit card transaction
 
-To create a credit card transaction, you need to send a request using the `POST` method to the Payment feature, as shown. This example covers all the possible fields you can send; check which fields are required in the request property table.
+To create a credit card transaction, you need to send a request using the `POST` method, as shown. This example covers all the possible fields you can send; check which fields are required in the request property table.
 
 > The transaction **capture** can be **authomatic** or **posterior**. For an authomatic capure, send the `Payment.Capture` field in the request as “true”. For a posterior capture, send the field as "false" and, later, do the [capture request](https://developercielo.github.io/en/manual/cielo-ecommerce#consult-capture-cancel){:target="\_blank"}.
 
 <aside class="notice"><strong>Warning:</strong> It is not possible to carry out a transaction with its value as (`Amount`) 0.</aside>
 
 <aside class="notice"><strong>Warning:</strong> In the request header, use Content-Type application/json .</aside>
+
+> **Mastercard credit card transactions with stored credentials**: Mastercard brand requires the Transaction Initiator Indicator for credit and debit card transactions using stored card data. The goal is to indicate if the transaction was initiated by the cardholder or by the merchant. In this scenario, the node `InitiatedTransactionIndicator` must be sent with the parameters `Category` and `SubCategory` for Mastercard transactions, within the node `Payment`. Please check the complete list of categories in the `Category` parameter description and the subcategories tables in Transaction Initiator Indicator Tables.
+
+Please refer to [Credit card with authentication](https://developercielo.github.io/en/manual/cielo-ecommerce#credit-card-with-authentication) to create an authenticated credit card trnsaction.
 
 ##### Request
 
@@ -501,12 +505,16 @@ To create a credit card transaction, you need to send a request using the `POST`
       "ExpirationDate": "12/2030",
       "SecurityCode": "123",
       "SaveCard": "false",
-      "Brand": "Master",
+      "Brand": "Visa",
       "CardOnFile": {
         "Usage": "Used",
         "Reason": "Unscheduled"
       }
     },
+      "InitiatedTransactionIndicator": {
+          "Category": "C1",
+          "Subcategory": "Standingorder"
+    },    
     "IsCryptoCurrencyNegotiation": true,
     "Type": "CreditCard",
     "Amount": 15700,
@@ -576,12 +584,16 @@ curl
          "ExpirationDate":"12/2030",
          "SecurityCode":"123",
          "SaveCard":"false",
-         "Brand":"Master",
+         "Brand":"Visa",
          "CardOnFile":{
             "Usage": "Used",
             "Reason":"Unscheduled"
          }
      },
+      "InitiatedTransactionIndicator": {
+          "Category": "C1",
+          "Subcategory": "Standingorder"
+    },     
      "IsCryptoCurrencyNegotiation": true,
      "Type":"CreditCard",
      "Amount":15700,
@@ -650,6 +662,8 @@ curl
 | `Payment.CreditCard.Brand`                    | Text         | 10   | Yes                | Card brand. Possible values:Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper.                                                                                                                                                                                               |
 | `Payment.CreditCard.CardOnFile.Usage`         | Text         | -    | No                 | **First** if the card was stored and it's your first use.<br>**Used** if the card was stored and has been used for another transaction before.    Get more information on the topic [Card On File](https://developercielo.github.io/en/manual/cielo-ecommerce#card-on-file){:target="_blank"}                                                                                                                                                         |
 | `Payment.CreditCard.CardOnFile.Reason`        | Text         | -    | Conditional        | Indicates the motive for card storage, if the "Usage" field is "Used". <br> **Recurring** - Programmed recurring transaction (e.g. Subscriptions). <br> **Unscheduled** - Recurring transaction with no fixed date (e.g. service apps) <br>**Installments** - Installments through recurring transactions. Get more information on the topic [Card On File](https://developercielo.github.io/en/manual/cielo-ecommerce#card-on-file){:target="_blank"} |
+|`Payment.InitiatedTransactionIndicator.Category`|Transaction Initiator Indicator category. *Valid only for Mastercard*.<br>Possible values:<br>- “C1”: transaction initiated by the cardholder;<br>- “M1”: recurring payment or installment initiated by the merchant<br>- “M2”: transaction initiated by the merchant.|string|2|Conditional. Required only for Mastercard.|
+|`Payment.InitiatedTransactionIndicator.Subcategory`|Transaction Initiator Indicator subcategory. *Valid only for Mastercard*. Please refer to Transaction Initiator Indicator Tables for the full list.|string|-|Conditional. Required only for Mastercard.|
 
 ##### Response
 
@@ -702,13 +716,17 @@ curl
       "Holder": "Teste Holder",
       "ExpirationDate": "12/2030",
       "SaveCard": false,
-      "Brand": "Master",
+      "Brand": "Visa",
       "PaymentAccountReference": "92745135160550440006111072222",
       "CardOnFile": {
         "Usage": "Used",
         "Reason": "Unscheduled"
       }
     },
+      "InitiatedTransactionIndicator": {
+          "Category": "C1",
+          "Subcategory": "Standingorder"
+    },    
     "IsCryptoCurrencyNegotiation": true,
     "TryAutomaticCancellation": true,
     "ProofOfSale": "674532",
@@ -727,7 +745,7 @@ curl
     "Status": 2,
     "ReturnCode": "6",
     "ReturnMessage": "Operation Successful",
-    "Payment.MerchantAdviceCode": "1",
+    "MerchantAdviceCode": "1",
     "Links": [
       {
         "Method": "GET",
@@ -796,13 +814,17 @@ curl
             "Holder": "Teste Holder",
             "ExpirationDate": "12/2030",
             "SaveCard": false,
-            "Brand": "Master",
+            "Brand": "Visa",
             "PaymentAccountReference":"92745135160550440006111072222",
          "CardOnFile":{
             "Usage": "Used",
             "Reason":"Unscheduled"
          }
         },
+        "InitiatedTransactionIndicator": {
+          "Category": "C1",
+          "Subcategory": "Standingorder"
+    },        
         "IsCryptoCurrencyNegotiation": true,
         "TryAutomaticCancellation":true,
         "ProofOfSale": "674532",
@@ -864,6 +886,8 @@ To integrate the authentication method, check the [3DS 2.0 documentation](https:
 
 > **Debit without authentication**: or “debit without password”, can only be done when the e-commerce has the issuing bank's authorization to dismiss the authentication. In case you have that permission, send the field `Authenticate` as "false" in the standard request for debit card.
 
+> **Mastercard debit card transactions with stored credentials**: Mastercard brand requires the Transaction Initiator Indicator for credit and debit card transactions using stored card data. The goal is to indicate if the transaction was initiated by the cardholder or by the merchant. In this scenario, the node `InitiatedTransactionIndicator` must be sent with the parameters `Category` and `SubCategory` for Mastercard transactions, within the node `Payment`. Please check the complete list of categories in the `Category` parameter description and the subcategories tables in Transaction Initiator Indicator Tables.
+
 #### Creating a debit transaction
 
 To sell with a debit card, you should request using the POST method. The example below shows the minimum necessary fields that should be sent for the authorization.
@@ -897,7 +921,11 @@ To sell with a debit card, you should request using the POST method. The example
       "Eci": "5",
       "Version": "2",
       "ReferenceID": "a24a5d87-b1a1-4aef-a37b-2f30b91274e6"
-    }
+    },
+    "InitiatedTransactionIndicator": {
+        "Category": "C1",
+        "Subcategory": "Standingorder"
+    },
   }
 }
 ```
@@ -932,7 +960,11 @@ curl
          "Eci":"5",
          "Version":"2",
          "ReferenceID":"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"
-      }
+      },
+    "InitiatedTransactionIndicator": {
+        "Category": "C1",
+        "Subcategory": "Standingorder"
+    },      
    }
 }
 --verbose
@@ -956,6 +988,8 @@ curl
 | `Payment.DebitCard.ExpirationDate`                   | Expiration date printed on the card.                                                            | Text    | 7    | Yes                |
 | `Payment.DebitCard.SecurityCode`                     | Security code printed on the back of the card.                                                  | Text    | 4    | No                 |
 | `Payment.DebitCard.Brand`                            | Card brand.                                                                                     | Text    | 10   | Yes                |
+|`Payment.InitiatedTransactionIndicator.Category`|Transaction Initiator Indicator category. *Valid only for Mastercard*.<br>Possible values:<br>- “C1”: transaction initiated by the cardholder;<br>- “M1”: recurring payment or installment initiated by the merchant<br>- “M2”: transaction initiated by the merchant.|string|2|Conditional. Required only for Mastercard.|
+|`Payment.InitiatedTransactionIndicator.Subcategory`|Transaction Initiator Indicator subcategory. *Valid only for Mastercard*. Please refer to Transaction Initiator Indicator Tables for the full list.|string|-|Conditional. Required only for Mastercard.|
 | `Payment.ExternalAuthentication.Eci`         | E-Commerce Indicator returned on the authentication process.                                    | Number  | 1    | Yes                |
 | `Payment.ExternalAuthentication.ReferenceId` | `RequestID` returned on the authentication process.                                             | GUID    | 36   | Yes                |
 
@@ -988,6 +1022,10 @@ curl
       "Version": "2",
       "ReferenceId": "a24a5d87-b1a1-4aef-a37b-2f30b91274e6"
     },
+    "InitiatedTransactionIndicator": {
+        "Category": "C1",
+        "Subcategory": "Standingorder"
+    },    
     "Recurrent": false,
     "Amount": 15700,
     "ReceivedDate": "2022-08-26 10:47:53",
@@ -1042,6 +1080,10 @@ curl
             "Version": "2",
             "ReferenceId": "a24a5d87-b1a1-4aef-a37b-2f30b91274e6"
         },
+        "InitiatedTransactionIndicator": {
+            "Category": "C1",
+            "Subcategory": "Standingorder"
+        },        
         "Recurrent": false,
         "Amount": 15700,
         "ReceivedDate": "2022-08-26 10:47:53",
@@ -1498,6 +1540,50 @@ The Merchant plug-in, known as MPI, is a service that allows you to make the cal
 - **Internal MPI**: it is a service already integrated to 3DS Cielo, without needing to integrate or hire.
 
 - **External MPI**: used when your e-commerce hires a MPI solution, without Cielo's participation. No matter the 3DS version hired, follow the [Authorization with Authentication guide](https://developercielo.github.io/en/manual/autorizacao-com-autenticacao){:target="\_blank"}.
+
+### Mastercard Transaction Initiator Indicator Tables
+
+The following tables should be used for Mastercard credit and debit transactions with stored card data (tokenized cards). The aim is to identify if the transaction was initiated by the cardholder (Cardholder Initiated Transaction - CIT) ou by the merchant (Merchant Initiated Transaction - MIT).
+
+The Transaction Initiator Indicator must be sent in the node `Payment.InitiatedTransactionIndicator`, within parameters `Category` and `Subcategory`. Please refer to the following tables to know the details:
+
+**Category C1 - transaction initiated by the cardholder**
+
+`Payment.InitiatedTransactionIndicator.Category` = "C1"
+
+|Indicator subcategory|Meaning|Description/Example|
+|---|---|---|
+|`CredentialsOnFile`| Saves card data for future purchases. | The shopper initiates the purchase and the merchant asks for the shopper to save card data for future purchases initiated by the cardholder.|
+|`StandingOrder`| Saves card data for recurrent purchases of variable amount and fixed frequency. | Initial transaction to store card data for utility bills monthly payments.|
+|`Subscription` | Saves card data for recurrent purchases of fixed amount and fixed frequency.|Initial transaction to store card data for a monthly subscription (e.g.newspapers and magazines).|
+|`Installment` | Saves card data for installment buying. | Initial transaction to store card data for installment buying |
+
+**Category M1 - recurring payment or installment initiated by the merchant**
+
+`Payment.InitiatedTransactionIndicator.Category` = "M1"
+
+In this category, the transaction is completed after an agreement between merchant and cardholder, in which the cardholder authorizes the merchant to store and use cardholder account data to initiate one or more transactions in the future, according to the subcategory:
+
+|Indicator subcategory|Meaning|Description/Example|
+|---|---|---|
+|`CredentialsOnFile`| Saves card data for future purchases initiated by the merchant, with fixed or variable amount and no fixed interval or scheduled date|E.g.: the shopper agrees with transactions for toll charges when the balance in their account is below a certain amount (auto-recharge)|
+|`StandingOrder` | Saves card data for future purchases initiated by the merchant, with variable amount and fixed frequency. | E.g.: utility bills monthy payments.|
+|`Subscription`| Saves card data for future purchases initiated by the merchant, with fixed amount and fixed frequency. | E.g.: monthly subscription or fixed monthly service payment.|
+
+|`Installment` | Saves card data for future purchases initiated by the merchant, with known amount and defined period. | E.g.: the shopper buys a TV for $600 and choses to pay in three $200 installments; in this situation, the first transaction is initiated by the cardholder and the following two transactions are initiated by the merchant.|
+
+**Category M2 - transaction initiated by the merchant**
+
+`Payment.InitiatedTransactionIndicator.Category` = "M2"
+
+|Indicator subcategory|Meaning|Description/Example|
+|---|---|---|
+| `PartialShipment` | Saves card data for future purchases initiated by the merchant, when the purchased goods will be deliverd in more than one shipping. | Partial shipment may occur when the amount of purchased goods in the e-commerce is not available for shipping in the time of purchase. Each shipping is a separate transaction.|
+|`RelatedOrDelayedCharge` | Saves card data for future purchases initiated by the merchant for additional expenses. | Additional charge after providing initial services and processing the payment. E.g.: hotel minibar fridge charges after cardholder check-out.|
+|`NoShow`| Saves card data for future purchases initiated by the merchant for fine charges. | A fine charged according to the merchant cancellation policy. E.g.: the cardholder cancels a reservation.|
+| `Resubmission` | Saves card data for retrying previously denied transactions.| The previous attempt to submit a transaction was denied, but the issuer response does not prohibit the merchant to retry. E.g.: insufficient funds/response above credit limit.|
+
+> **Important**: Card data is stored as a token.
 
 ## Alelo Cards
 
