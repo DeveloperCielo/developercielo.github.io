@@ -1480,17 +1480,17 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Category</code></td>
-      <td>Transaction Initiator Indicator category. <em>Valid only for Mastercard</em>.<br />Possible values:<br />- “C1”: transaction initiated by the cardholder;<br />- “M1”: recurring payment or installment initiated by the merchant<br />- “M2”: transaction initiated by the merchant.</td>
       <td>string</td>
       <td>2</td>
       <td>Conditional. Required only for Mastercard.</td>
+      <td>Transaction Initiator Indicator category. <em>Valid only for Mastercard</em>.<br />Possible values:<br />- “C1”: transaction initiated by the cardholder;<br />- “M1”: recurring payment or installment initiated by the merchant<br />- “M2”: transaction initiated by the merchant.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Subcategory</code></td>
-      <td>Transaction Initiator Indicator subcategory. <em>Valid only for Mastercard</em>. Please refer to the <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator-tables">Transaction Initiator Indicator</a> tables for the full list.</td>
       <td>string</td>
       <td>-</td>
       <td>Conditional. Required only for Mastercard.</td>
+      <td>Transaction Initiator Indicator subcategory. <em>Valid only for Mastercard</em>. Please refer to the <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator-tables">Transaction Initiator Indicator</a> tables for the full list.</td>
     </tr>
   </tbody>
 </table>
@@ -3095,11 +3095,6 @@
       <td>Saves card data for future purchases initiated by the merchant, with fixed amount and fixed frequency.</td>
       <td>E.g.: monthly subscription or fixed monthly service payment.</td>
     </tr>
-  </tbody>
-</table>
-
-<table>
-  <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Installment</code></td>
       <td>Saves card data for future purchases initiated by the merchant, with known amount and defined period.</td>

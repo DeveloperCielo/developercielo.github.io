@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-07-21T18:33:10+00:00</updated>
+    <updated>2023-07-21T18:45:25+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -32629,17 +32629,17 @@ You can import them directly into your POSTMAN and have all the examples ready t
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.InitiatedTransactionIndicator.Category&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Transaction Initiator Indicator category. &lt;em&gt;Valid only for Mastercard&lt;/em&gt;.&lt;br /&gt;Possible values:&lt;br /&gt;- “C1”: transaction initiated by the cardholder;&lt;br /&gt;- “M1”: recurring payment or installment initiated by the merchant&lt;br /&gt;- “M2”: transaction initiated by the merchant.&lt;/td&gt;
       &lt;td&gt;string&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
       &lt;td&gt;Conditional. Required only for Mastercard.&lt;/td&gt;
+      &lt;td&gt;Transaction Initiator Indicator category. &lt;em&gt;Valid only for Mastercard&lt;/em&gt;.&lt;br /&gt;Possible values:&lt;br /&gt;- “C1”: transaction initiated by the cardholder;&lt;br /&gt;- “M1”: recurring payment or installment initiated by the merchant&lt;br /&gt;- “M2”: transaction initiated by the merchant.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.InitiatedTransactionIndicator.Subcategory&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Transaction Initiator Indicator subcategory. &lt;em&gt;Valid only for Mastercard&lt;/em&gt;. Please refer to the &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator-tables&quot;&gt;Transaction Initiator Indicator&lt;/a&gt; tables for the full list.&lt;/td&gt;
       &lt;td&gt;string&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Conditional. Required only for Mastercard.&lt;/td&gt;
+      &lt;td&gt;Transaction Initiator Indicator subcategory. &lt;em&gt;Valid only for Mastercard&lt;/em&gt;. Please refer to the &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator-tables&quot;&gt;Transaction Initiator Indicator&lt;/a&gt; tables for the full list.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -34244,11 +34244,6 @@ You can import them directly into your POSTMAN and have all the examples ready t
       &lt;td&gt;Saves card data for future purchases initiated by the merchant, with fixed amount and fixed frequency.&lt;/td&gt;
       &lt;td&gt;E.g.: monthly subscription or fixed monthly service payment.&lt;/td&gt;
     &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;table&gt;
-  &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Installment&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Saves card data for future purchases initiated by the merchant, with known amount and defined period.&lt;/td&gt;
