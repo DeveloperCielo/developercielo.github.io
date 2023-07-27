@@ -27,7 +27,7 @@ tags:
 
 > Esta mudança está prevista para implantação em 01/09/2023
 
-[Extrato_Eletronico_-_Manual_-_Versao_14_v1.1(pix)](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Manual_Versao_14_v1.2pix.pdf)
+[CIELO_Extrato_Eletronico_-_Manual_-_Versao_14_v1.2(pix)](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Manual_Versao_14_v1.2pix.pdf)
 
 [Massa_PIX_Cenarios_EDI_V2](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Massa_PIX_Cenarios_EDI_V2.rar)
 
