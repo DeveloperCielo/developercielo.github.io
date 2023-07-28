@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-07-28T12:14:25+00:00</updated>
+    <updated>2023-07-28T12:27:48+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -5581,7 +5581,57 @@ PAULO&lt;/strong&gt;801010033”https://www.cielo.com.br/qrcode”0116&lt;strong
         <link href="https://developercielo.github.io/en/tutorial/edi-extrato-eletronico"/>
         <updated>2020-05-13T00:00:00+00:00</updated>
         <id>https://developercielo.github.io/en/tutorial/edi-extrato-eletronico</id>
-        <content type="html">&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
+        <content type="html">&lt;h1 id=&quot;important&quot;&gt;Important&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Note: the updates below will be available from June 7, 2021.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Electronic_Statement_-_English_-_Version_14_1_0.pdf&quot;&gt;Electronic Statement Manual&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_14_1_0.pdf&quot;&gt;Electronic Statement Manual - Versão Portuguesa&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Atualizacao_layout_EE_-_Registro_de_Recebiveis_PIX_0.pdf&quot;&gt;EE Layout Update - Receivables Registration + PIX&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Arquivos_de_teste_-_Comunicado_09122022.rar&quot;&gt;Test files - Announcement 12/09/2022&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;01092023---v14---inclusion-of-new-pix-fields-cielo16---documentation-and-test-files&quot;&gt;01/09/2023 - V14 - Inclusion of new Pix fields (CIELO16) - Documentation and test files&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;This change is expected to be implemented on 9/1/2023&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/English_Version_14_v1.0pix.pdf&quot;&gt;CIELO_Electronic_Statement_-_English_-_Version_14_v1.0(pix)&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Massa_PIX_Cenarios_EDI_V2.rar&quot;&gt;Massa_PIX_Cenarios_EDI_V2&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Slide4.JPG&quot; alt=&quot;PIX&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;112023---v15---new-version-of-electronic-statements---documentation-and-test-files&quot;&gt;11/2023 - V15 - New version of electronic statements - Documentation and test files&lt;/h2&gt;
+
+&lt;p&gt;Aiming to bring greater transparency and fluidity in the conciliation of extracts, our files will have a new structure in their demonstration.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;This change is expected to be implemented in Nov/23.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Below is the communication sent with the details of the changes, test files and complementary documentation to support the homologation.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/PT.rar&quot;&gt;PT-BR&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/EN.rar&quot;&gt;EN&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/ES.rar&quot;&gt;ES&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/ARQUIVOS_DE_TESTE.rar&quot;&gt;Test Files&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;It is important that the approval of the new structure takes place by the indicated date so as not to impact the reading of the extracts.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Important! The current version of the extracts will no longer be supported and generated from Jan/24&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
 
 &lt;p&gt;This API makes possible to register groups and maintain their registration to receive Electronic Data Interchange (EDI) files&lt;/p&gt;
 
@@ -9855,20 +9905,6 @@ demonstrated in the sales files, being necessary to request the reprocessing of 
 &lt;p&gt;&lt;strong&gt;Types of registration:&lt;/strong&gt; with registration by the Commercial Group, which uses the CNPJ root, all new merchants from the root are automatically included in the electronic statement, avoiding the loss of information.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/niveis_extrato_eletronico.png&quot; alt=&quot;Electronic Extract Levels&quot; /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;important&quot;&gt;Important&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Note: the updates mentioned below will be available from June 07, 2021.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Electronic_Statement_-_English_-_Version_14_1_0.pdf&quot;&gt;Electronic Statement Manual&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_14_1_0.pdf&quot;&gt;Electronic Statement Manual - Versão Portuguesa&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Atualizacao_layout_EE_-_Registro_de_Recebiveis_PIX_0.pdf&quot;&gt;EE Layout Update - Receivables Registration + PIX&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Arquivos_de_teste_-_Comunicado_09122022.rar&quot;&gt;Test files – Announcement 12/09/2022&lt;/a&gt;&lt;/p&gt;
 </content>
     </entry>
     
@@ -22918,7 +22954,57 @@ See more details at &lt;a href=&quot;https://developercielo.github.io/en/manual/
         <link href="https://developercielo.github.io/en/tutorial/edi"/>
         <updated>2017-11-30T00:00:00+00:00</updated>
         <id>https://developercielo.github.io/en/tutorial/edi</id>
-        <content type="html">&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
+        <content type="html">&lt;h1 id=&quot;important&quot;&gt;Important&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Note: the updates below will be available from June 7, 2021.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Electronic_Statement_-_English_-_Version_14_1_0.pdf&quot;&gt;Electronic Statement Manual&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_14_1_0.pdf&quot;&gt;Electronic Statement Manual - Versão Portuguesa&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Atualizacao_layout_EE_-_Registro_de_Recebiveis_PIX_0.pdf&quot;&gt;EE Layout Update - Receivables Registration + PIX&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Arquivos_de_teste_-_Comunicado_09122022.rar&quot;&gt;Test files - Announcement 12/09/2022&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;01092023---v14---inclusion-of-new-pix-fields-cielo16---documentation-and-test-files&quot;&gt;01/09/2023 - V14 - Inclusion of new Pix fields (CIELO16) - Documentation and test files&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;This change is expected to be implemented on 9/1/2023&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/English_Version_14_v1.0pix.pdf&quot;&gt;CIELO_Electronic_Statement_-_English_-_Version_14_v1.0(pix)&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Massa_PIX_Cenarios_EDI_V2.rar&quot;&gt;Massa_PIX_Cenarios_EDI_V2&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Slide4.JPG&quot; alt=&quot;PIX&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;112023---v15---new-version-of-electronic-statements---documentation-and-test-files&quot;&gt;11/2023 - V15 - New version of electronic statements - Documentation and test files&lt;/h2&gt;
+
+&lt;p&gt;Aiming to bring greater transparency and fluidity in the conciliation of extracts, our files will have a new structure in their demonstration.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;This change is expected to be implemented in Nov/23.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Below is the communication sent with the details of the changes, test files and complementary documentation to support the homologation.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/PT.rar&quot;&gt;PT-BR&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/EN.rar&quot;&gt;EN&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/ES.rar&quot;&gt;ES&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/ARQUIVOS_DE_TESTE.rar&quot;&gt;Test Files&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;It is important that the approval of the new structure takes place by the indicated date so as not to impact the reading of the extracts.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Important! The current version of the extracts will no longer be supported and generated from Jan/24&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
 
 &lt;p&gt;The EDI - Eletronic Data Interchange is a channel of capture and processing of large transactions volume in lot, through changing the files between the client, the files transmission partner (VANs) and Cielo.&lt;/p&gt;
 
