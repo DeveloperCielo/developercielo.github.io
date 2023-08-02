@@ -2343,20 +2343,22 @@ Com a e-wallet já totalmente integrada, o seu fluxo transacional de pagamento s
 
 ## QR Code
 
-### Cartão de crédito via QR Code - Sandbox
+### Cartão de crédito via QR Code em Sandbox
 
-Para testar o cenário de autorização com sucesso via QRCode, utilize o cartão **4551.8700.0000.0183**
+Para testar em sandbox o cenário de autorização com sucesso via QRCode, utilize o cartão **4551.8700.0000.0183**
 
 As informações de **Cód.Segurança (CVV)** e validade podem ser aleatórias, mantendo o formato:
 
 - CVV com 3 dígitos;
-- Validade no formato _MM/YYYY_.
+- Validade no formato *MM/YYYY*.
 
 ### Gerando um QR Code via API
 
 Para criar uma transação que utilizará cartão de crédito, é necessário enviar uma requisição utilizando o método `POST` para o recurso Payment, conforme o exemplo. Esse exemplo contempla o mínimo de campos necessários a serem enviados para a autorização.
 
 <aside class="notice"><strong>Atenção:</strong> Não é possivel realizar uma transação com valor (`Amount`) 0.</aside>
+
+> **Facilitadores de Pagamento** (ou subcredenciadores) devem, obrigatoriamente, enviar os parâmetros do nó `PaymentFacilitator` por exigência do Banco Central e das bandeiras. Caso não sejam enviados, a bandeira pode aplicar penalidades ao facilitador de pagamento.
 
 #### Requisição
 
@@ -2374,6 +2376,24 @@ Para criar uma transação que utilizará cartão de crédito, é necessário en
     "Installments": 1,
     "Capture": false,
     "Modality": "Credit"
+    "QrCode": {
+    "MerchantName": "Loja Teste"
+    },
+    "PaymentFacilitator": {     
+        "EstablishmentCode": "12345",
+        "SubEstablishment": {
+            "EstablishmentCode": "2000130733",
+            "Mcc": "8999",
+            "Address": "Av Marechal Camara 160",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "CountryCode": "76",
+            "PostalCode": "20020080",
+            "CompanyName": "Lojinha01",
+            "Identity": "90501654000191",
+            "PhoneNumber": "24999399555"
+      }
+    }
   }
 }
 ```
@@ -2387,17 +2407,35 @@ curl
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
 {
-   "MerchantOrderId":"2019010101",
-   "Customer":{
-      "Name":"QRCode Test"
-   },
-   "Payment":{
-     "Type":"qrcode",
-     "Amount":100,
-     "Installments":1,
-     "Capture":false,
-     "Modality": "Credit"
-   }
+  "MerchantOrderId": "2019010101",
+  "Customer": {
+    "Name": "QRCode Test"
+  },
+  "Payment": {
+    "Type": "qrcode",
+    "Amount": 100,
+    "Installments": 1,
+    "Capture": false,
+    "Modality": "Credit"
+    "QrCode": {
+    "MerchantName": "Loja Teste"
+    },
+    "PaymentFacilitator": {     
+        "EstablishmentCode": "12345",
+        "SubEstablishment": {
+            "EstablishmentCode": "2000130733",
+            "Mcc": "8999",
+            "Address": "Av Marechal Camara 160",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "CountryCode": "76",
+            "PostalCode": "20020080",
+            "CompanyName": "Lojinha01",
+            "Identity": "90501654000191",
+            "PhoneNumber": "24999399555"
+      }
+    }
+  }
 }
 --verbose
 ```
@@ -2415,6 +2453,18 @@ curl
 | `Payment.Installments` | Número   | 2       | Sim         | Número de Parcelas.                                                                                     |
 | `Payment.Capture`      | Booleano | -       | Não         | Enviar **true** para uma trasação de captura automática.                                                |
 | `Payment.Modality`     | Texto    | 10      | Não         | Indica se o pagamento será feito com crédito ou débito. Valores possíveis: "Credit" (padrão) ou "Debit" |
+|`Payment.PaymentFacilitator.EstablishmentCode`                  | Texto* | 11      | Obrigatório para facilitadores | Código do estabelecimento do Facilitador. "Facilitator ID” (Cadastro do facilitador com as bandeiras)<br>O código é diferente por bandeira, podendo variar inclusive o tamanho do campo:<br>Bandeira Mastercard –06 dígitos<br>Bandeira Visa –08 dígitos<br>Bandeira ELO –de 04 à 05 dígitos<br>Bandeira Hipercard –06 dígitos<br>Para demais bandeiras, como Amex e JCB, o campo pode ser preenchido com “0” zeros. |
+| `Payment.PaymentFacilitator.SubEstablishment.EstablishmentCode` | Texto* | 15      | Obrigatório para facilitadores | Código do estabelecimento do sub Merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador)  |
+| `Payment.PaymentFacilitator.SubEstablishment.Identity`          | Texto* | 14      | Obrigatório para facilitadores | CNPJ ou CPF do sub-merchant.  |
+| `Payment.PaymentFacilitator.SubEstablishment.Mcc`               | Texto* | 4       | Obrigatório para facilitadores | MCC do sub Merchant.    |
+| `Payment.PaymentFacilitator.SubEstablishment.Address`           | Texto* | 22      | Obrigatório para facilitadores | Endereço do sub Merchant.    |
+| `Payment.PaymentFacilitator.SubEstablishment.City`              | Texto* | 13      | Obrigatório para facilitadores | Cidade do sub Merchant.     |
+| `Payment.PaymentFacilitator.SubEstablishment.State`             | Texto* | 2       | Obrigatório para facilitadores | Estado do sub Merchant.    |
+| `Payment.PaymentFacilitator.SubEstablishment.PostalCode`        | Texto* | 9       | Obrigatório para facilitadores | Código postal do sub Merchant.  |
+| `Payment.PaymentFacilitator.SubEstablishment.CountryCode`       | Texto* | 3       | Obrigatório para facilitadores | Código país do sub-merchant com base no ISO 3166<br>Ex: código ISO 3166 do Brasil é o 076. [Lista completa online](https://www.iso.org/obp/ui/#search/code/).   |
+| `Payment.PaymentFacilitator.SubEstablishment.PhoneNumber`       | Texto* | 13      | Obrigatório para facilitadores | Número de telefone do sub Merchant. |
+
+*Evite utilizar acentos pois eles são considerados como dois caracteres.
 
 #### Resposta
 
@@ -2437,6 +2487,21 @@ curl
     "Status": 12,
     "IsSplitted": false,
     "QrCode": "iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAYAAAB5fY51AAAQ1klEQVR42u3de6hlVR(...)",
+    "PaymentFacilitator": {     
+        "EstablishmentCode": "12345",
+        "SubEstablishment": {
+            "EstablishmentCode": "2000130733",
+            "Mcc": "8999",
+            "Address": "Av Marechal Camara 160",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "CountryCode": "76",
+            "PostalCode": "20020080",
+            "CompanyName": "Lojinha01",
+            "Identity": "90501654000191",
+            "PhoneNumber": "24999399555"
+      }
+    },
     "ReturnMessage": "QRCode gerado com sucesso",
     "PaymentId": "5d7e8fd3-70b6-4a88-9660-e064d72fdcdd",
     "Type": "qrcode",
@@ -2475,6 +2540,21 @@ curl
         "Status": 12,
         "IsSplitted": false,
         "QrCodeBase64Image": "iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAYAAAB5fY51AAAQ1klEQVR42u3de6hlVR(...)",
+        "PaymentFacilitator": {     
+            "EstablishmentCode": "12345",
+            "SubEstablishment": {
+                "EstablishmentCode": "2000130733",
+                "Mcc": "8999",
+                "Address": "Av Marechal Camara 160",
+                "City": "Rio de Janeiro",
+                "State": "RJ",
+                "CountryCode": "76",
+                "PostalCode": "20020080",
+                "CompanyName": "Lojinha01",
+                "Identity": "90501654000191",
+                "PhoneNumber": "24999399555"
+      }
+    },
         "ReturnMessage": "QRCode gerado com sucesso",
         "PaymentId": "5d7e8fd3-70b6-4a88-9660-e064d72fdcdd",
         "Type": "qrcode",
