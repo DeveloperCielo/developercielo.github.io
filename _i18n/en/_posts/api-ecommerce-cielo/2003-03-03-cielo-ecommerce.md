@@ -1,7 +1,7 @@
 ---
 layout: manual
-title: Integration Manual eCommerce Cielo
-description: The purpose of this documentation is to guide the developer on how to integrate with Cielo's API Cielo e-Commerce.
+title: Integration Manual E-commerce Cielo
+description: The purpose of this documentation is to guide the developer on how to integrate with Cielo's API E-commerce Cielo.
 search: true
 translated: true
 categories: manual
@@ -2347,6 +2347,8 @@ To create a transaction that will use a credit card, you need to send a request 
 
 <aside class="notice"><strong>Warning:</strong> It is not possible to make a transaction with the value (`Amount`) 0.</aside>
 
+> **Payment Facilitators** (or submerchants) must send the parameters within node `PaymentFacilitator` as required by Banco Central do Brasil and card brands. If the node `PaymentFacilitator` is not sent, the card brand may apply penalties to the submerchant.
+
 #### Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
@@ -2363,6 +2365,24 @@ To create a transaction that will use a credit card, you need to send a request 
     "Installments": 1,
     "Capture": false,
     "Modality": "Credit"
+    "QrCode": {
+    "MerchantName": "Loja Teste"
+    },
+    "PaymentFacilitator": {     
+        "EstablishmentCode": "12345",
+        "SubEstablishment": {
+            "EstablishmentCode": "2000130733",
+            "Mcc": "8999",
+            "Address": "Av Marechal Camara 160",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "CountryCode": "76",
+            "PostalCode": "20020080",
+            "CompanyName": "Lojinha01",
+            "Identity": "90501654000191",
+            "PhoneNumber": "24999399555"
+      }
+    }
   }
 }
 ```
@@ -2376,17 +2396,35 @@ curl
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
 {
-   "MerchantOrderId":"2019010101",
-   "Customer":{
-      "Name":"QRCode Test"
-   },
-   "Payment":{
-     "Type":"qrcode",
-     "Amount":100,
-     "Installments":1,
-     "Capture":false,
-     "Modality": "Credit"
-   }
+  "MerchantOrderId": "2019010101",
+  "Customer": {
+    "Name": "QRCode Test"
+  },
+  "Payment": {
+    "Type": "qrcode",
+    "Amount": 100,
+    "Installments": 1,
+    "Capture": false,
+    "Modality": "Credit"
+    "QrCode": {
+    "MerchantName": "Loja Teste"
+    },
+    "PaymentFacilitator": {     
+        "EstablishmentCode": "12345",
+        "SubEstablishment": {
+            "EstablishmentCode": "2000130733",
+            "Mcc": "8999",
+            "Address": "Av Marechal Camara 160",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "CountryCode": "76",
+            "PostalCode": "20020080",
+            "CompanyName": "Lojinha01",
+            "Identity": "90501654000191",
+            "PhoneNumber": "24999399555"
+      }
+    }
+  }
 }
 --verbose
 ```
@@ -2404,6 +2442,16 @@ curl
 | `Payment.Installments` | Number  | 2    | Yes      | Number of installments.                                                                                      |
 | `Payment.Capture`      | Boolean | -    | No       | Send as **true** for the capture to be authomatic.                                                           |
 | `Payment.Modality`     | Text    | 10   | No       | Indicates if the payment will be made with credit or debit. Possible values: "Credit" (standard) or "Debit". |
+| `PaymentFacilitator.EstablishmentCode`            | Number       | 11   | Required for facilitators | Facilitator's establishment code. “Facilitator ID” (Registration of the facilitator with the card brands).<br>The code is different depending on the brand, varying even the size of the field:<br>MasterCard –06 digits<br>Visa –08 digits<br>ELO –from 04 to 05 digits<br>Hipercard –06 digits<br>For other brands, like Amex and JCB, the field can be filled in by "0" zeros. |
+| `PaymentFacilitator.SubEstablishment.EstablishmentCode` | Number       | 15   | Required for facilitators | Submerchant establishment code. “Sub-Merchant ID” (Registration of sub-accredited with the facilitator)    |
+| `PaymentFacilitator.SubEstablishment.Identity`          | Number       | 14   | Required for facilitators | Submerchant CNPJ or CPF    |
+| `PaymentFacilitator.SubEstablishment.Mcc`               | Number       | 4    | Required for facilitators | Submerchant MCC.      |
+| `PaymentFacilitator.SubEstablishment.Address`          | Alphanumeric | 22   | Required for facilitators | Submerchant address.   |
+| `PaymentFacilitator.SubEstablishment.City`              | Alphanumeric | 13   | Required for facilitators | Submerchant city.   |
+| `PaymentFacilitator.SubEstablishment.State`             | Alphanumeric | 2    | Required for facilitators | Submerchant state.  |
+| `PaymentFacilitator.SubEstablishment.PostalCode`        | Number       | 9    | Required for facilitators | Submerchant Postcode.  |
+| `PaymentFacilitator.SubEstablishment.CountryCode`       | Number       | 3    | Required for facilitators | Submerchant country code based on ISO 3166.<br>Ex: Brazil's ISO 3166 code is 076. [Complete list online](https://www.iso.org/obp/ui/#search/code/){:target="_blank"}  |
+| `PaymentFacilitator.SubEstablishment.PhoneNumber`       | Number       | 13   | Required for facilitators | Submerchant Phone Number. |
 
 #### Response
 
@@ -2426,6 +2474,21 @@ curl
     "Status": 12,
     "IsSplitted": false,
     "QrCode": "iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAYAAAB5fY51AAAQ1klEQVR42u3de6hlVR(...)",
+    "PaymentFacilitator": {     
+        "EstablishmentCode": "12345",
+        "SubEstablishment": {
+            "EstablishmentCode": "2000130733",
+            "Mcc": "8999",
+            "Address": "Av Marechal Camara 160",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "CountryCode": "76",
+            "PostalCode": "20020080",
+            "CompanyName": "Lojinha01",
+            "Identity": "90501654000191",
+            "PhoneNumber": "24999399555"
+      }
+    },
     "ReturnMessage": "QRCode gerado com sucesso",
     "PaymentId": "5d7e8fd3-70b6-4a88-9660-e064d72fdcdd",
     "Type": "qrcode",
@@ -2464,6 +2527,21 @@ curl
         "Status": 12,
         "IsSplitted": false,
         "QrCodeBase64Image": "iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAYAAAB5fY51AAAQ1klEQVR42u3de6hlVR(...)",
+        "PaymentFacilitator": {     
+            "EstablishmentCode": "12345",
+            "SubEstablishment": {
+                "EstablishmentCode": "2000130733",
+                "Mcc": "8999",
+                "Address": "Av Marechal Camara 160",
+                "City": "Rio de Janeiro",
+                "State": "RJ",
+                "CountryCode": "76",
+                "PostalCode": "20020080",
+                "CompanyName": "Lojinha01",
+                "Identity": "90501654000191",
+                "PhoneNumber": "24999399555"
+      }
+    },
         "ReturnMessage": "QRCode gerado com sucesso",
         "PaymentId": "5d7e8fd3-70b6-4a88-9660-e064d72fdcdd",
         "Type": "qrcode",
@@ -2485,6 +2563,7 @@ curl
 | `QrCodeBase64Image` | QR Code codified in base 64. The image can be shown on the page using a HTML code like this:<br><pre lang="html">&lt;img src=&quot;data:image/png;base64, image_code_in_base_64&quot;&gt;</pre> | Text | variable | Alphanumeric text                    |
 | `PaymentId`         | Payment ID number.                                                                                                                                                                              | Guid | 36       | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 | `Status`            | Transaction status. For QR code transactions, the initial status is 12 (Pending).                                                                                                               | Byte | ---      | 2                                    |
+
 | `ReturnCode`        | Acquirer return code.                                                                                                                                                                           | Text | 32       | Alphanumeric text                    |
 | `ReturnMessage`     | Acquirer return message.                                                                                                                                                                        | Text | 512      | Alphanumeric text                    |
 
