@@ -14,7 +14,7 @@
   />
 
   <title>
-     Integration Manual eCommerce Cielo &middot; Documentações e tutoriais 
+     Integration Manual E-commerce Cielo &middot; Documentações e tutoriais 
   </title>
 
   <link rel="shortcut icon" href="https://developercielo.github.io/en/assets/favicon.ico" />
@@ -137,7 +137,7 @@
                             
                                 
                                     
-                                    <li class="active">&gt; <a href="https://developercielo.github.io/en/manual/cielo-ecommerce">Integration Manual eCommerce Cielo</a></li>
+                                    <li class="active">&gt; <a href="https://developercielo.github.io/en/manual/cielo-ecommerce">Integration Manual E-commerce Cielo</a></li>
                                     
                                 
                             
@@ -4657,6 +4657,10 @@
 
 <aside class="notice">Warning: It is not possible to make a transaction with the value (`Amount`) 0.</aside>
 
+<blockquote>
+  <p><strong>Payment Facilitators</strong> (or submerchants) must send the parameters within node <code class="language-plaintext highlighter-rouge">PaymentFacilitator</code> as required by Banco Central do Brasil and card brands. If the node <code class="language-plaintext highlighter-rouge">PaymentFacilitator</code> is not sent, the card brand may apply penalties to the submerchant.</p>
+</blockquote>
+
 <h4 id="request-8">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
@@ -4672,6 +4676,24 @@
     </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Modality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="w">
+    </span><span class="nl">"QrCode"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"MerchantName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loja Teste"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"PaymentFacilitator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">     
+        </span><span class="nl">"EstablishmentCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"SubEstablishment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"EstablishmentCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2000130733"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Mcc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8999"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Av Marechal Camara 160"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"CountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"76"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"PostalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20020080"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"CompanyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lojinha01"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90501654000191"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"PhoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24999399555"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
@@ -4684,17 +4706,35 @@
 <span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
 <span class="nt">--data-binary</span>
 <span class="o">{</span>
-   <span class="s2">"MerchantOrderId"</span>:<span class="s2">"2019010101"</span>,
-   <span class="s2">"Customer"</span>:<span class="o">{</span>
-      <span class="s2">"Name"</span>:<span class="s2">"QRCode Test"</span>
-   <span class="o">}</span>,
-   <span class="s2">"Payment"</span>:<span class="o">{</span>
-     <span class="s2">"Type"</span>:<span class="s2">"qrcode"</span>,
-     <span class="s2">"Amount"</span>:100,
-     <span class="s2">"Installments"</span>:1,
-     <span class="s2">"Capture"</span>:false,
-     <span class="s2">"Modality"</span>: <span class="s2">"Credit"</span>
-   <span class="o">}</span>
+  <span class="s2">"MerchantOrderId"</span>: <span class="s2">"2019010101"</span>,
+  <span class="s2">"Customer"</span>: <span class="o">{</span>
+    <span class="s2">"Name"</span>: <span class="s2">"QRCode Test"</span>
+  <span class="o">}</span>,
+  <span class="s2">"Payment"</span>: <span class="o">{</span>
+    <span class="s2">"Type"</span>: <span class="s2">"qrcode"</span>,
+    <span class="s2">"Amount"</span>: 100,
+    <span class="s2">"Installments"</span>: 1,
+    <span class="s2">"Capture"</span>: <span class="nb">false</span>,
+    <span class="s2">"Modality"</span>: <span class="s2">"Credit"</span>
+    <span class="s2">"QrCode"</span>: <span class="o">{</span>
+    <span class="s2">"MerchantName"</span>: <span class="s2">"Loja Teste"</span>
+    <span class="o">}</span>,
+    <span class="s2">"PaymentFacilitator"</span>: <span class="o">{</span>     
+        <span class="s2">"EstablishmentCode"</span>: <span class="s2">"12345"</span>,
+        <span class="s2">"SubEstablishment"</span>: <span class="o">{</span>
+            <span class="s2">"EstablishmentCode"</span>: <span class="s2">"2000130733"</span>,
+            <span class="s2">"Mcc"</span>: <span class="s2">"8999"</span>,
+            <span class="s2">"Address"</span>: <span class="s2">"Av Marechal Camara 160"</span>,
+            <span class="s2">"City"</span>: <span class="s2">"Rio de Janeiro"</span>,
+            <span class="s2">"State"</span>: <span class="s2">"RJ"</span>,
+            <span class="s2">"CountryCode"</span>: <span class="s2">"76"</span>,
+            <span class="s2">"PostalCode"</span>: <span class="s2">"20020080"</span>,
+            <span class="s2">"CompanyName"</span>: <span class="s2">"Lojinha01"</span>,
+            <span class="s2">"Identity"</span>: <span class="s2">"90501654000191"</span>,
+            <span class="s2">"PhoneNumber"</span>: <span class="s2">"24999399555"</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
 <span class="o">}</span>
 <span class="nt">--verbose</span>
 </code></pre></div></div>
@@ -4787,6 +4827,76 @@
       <td>No</td>
       <td>Indicates if the payment will be made with credit or debit. Possible values: “Credit” (standard) or “Debit”.</td>
     </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PaymentFacilitator.EstablishmentCode</code></td>
+      <td>Number</td>
+      <td>11</td>
+      <td>Required for facilitators</td>
+      <td>Facilitator’s establishment code. “Facilitator ID” (Registration of the facilitator with the card brands).<br />The code is different depending on the brand, varying even the size of the field:<br />MasterCard –06 digits<br />Visa –08 digits<br />ELO –from 04 to 05 digits<br />Hipercard –06 digits<br />For other brands, like Amex and JCB, the field can be filled in by “0” zeros.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PaymentFacilitator.SubEstablishment.EstablishmentCode</code></td>
+      <td>Number</td>
+      <td>15</td>
+      <td>Required for facilitators</td>
+      <td>Submerchant establishment code. “Sub-Merchant ID” (Registration of sub-accredited with the facilitator)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PaymentFacilitator.SubEstablishment.Identity</code></td>
+      <td>Number</td>
+      <td>14</td>
+      <td>Required for facilitators</td>
+      <td>Submerchant CNPJ or CPF</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PaymentFacilitator.SubEstablishment.Mcc</code></td>
+      <td>Number</td>
+      <td>4</td>
+      <td>Required for facilitators</td>
+      <td>Submerchant MCC.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PaymentFacilitator.SubEstablishment.Address</code></td>
+      <td>Alphanumeric</td>
+      <td>22</td>
+      <td>Required for facilitators</td>
+      <td>Submerchant address.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PaymentFacilitator.SubEstablishment.City</code></td>
+      <td>Alphanumeric</td>
+      <td>13</td>
+      <td>Required for facilitators</td>
+      <td>Submerchant city.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PaymentFacilitator.SubEstablishment.State</code></td>
+      <td>Alphanumeric</td>
+      <td>2</td>
+      <td>Required for facilitators</td>
+      <td>Submerchant state.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PaymentFacilitator.SubEstablishment.PostalCode</code></td>
+      <td>Number</td>
+      <td>9</td>
+      <td>Required for facilitators</td>
+      <td>Submerchant Postcode.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PaymentFacilitator.SubEstablishment.CountryCode</code></td>
+      <td>Number</td>
+      <td>3</td>
+      <td>Required for facilitators</td>
+      <td>Submerchant country code based on ISO 3166.<br />Ex: Brazil’s ISO 3166 code is 076. <a href="https://www.iso.org/obp/ui/#search/code/" target="_blank">Complete list online</a></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PaymentFacilitator.SubEstablishment.PhoneNumber</code></td>
+      <td>Number</td>
+      <td>13</td>
+      <td>Required for facilitators</td>
+      <td>Submerchant Phone Number.</td>
+    </tr>
   </tbody>
 </table>
 
@@ -4810,6 +4920,21 @@
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
     </span><span class="nl">"IsSplitted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="nl">"QrCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAYAAAB5fY51AAAQ1klEQVR42u3de6hlVR(...)"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"PaymentFacilitator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">     
+        </span><span class="nl">"EstablishmentCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"SubEstablishment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"EstablishmentCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2000130733"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Mcc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8999"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Av Marechal Camara 160"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"CountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"76"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"PostalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20020080"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"CompanyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lojinha01"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90501654000191"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"PhoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24999399555"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QRCode gerado com sucesso"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5d7e8fd3-70b6-4a88-9660-e064d72fdcdd"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"qrcode"</span><span class="p">,</span><span class="w">
@@ -4847,6 +4972,21 @@
         <span class="s2">"Status"</span>: 12,
         <span class="s2">"IsSplitted"</span>: <span class="nb">false</span>,
         <span class="s2">"QrCodeBase64Image"</span>: <span class="s2">"iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAYAAAB5fY51AAAQ1klEQVR42u3de6hlVR(...)"</span>,
+        <span class="s2">"PaymentFacilitator"</span>: <span class="o">{</span>     
+            <span class="s2">"EstablishmentCode"</span>: <span class="s2">"12345"</span>,
+            <span class="s2">"SubEstablishment"</span>: <span class="o">{</span>
+                <span class="s2">"EstablishmentCode"</span>: <span class="s2">"2000130733"</span>,
+                <span class="s2">"Mcc"</span>: <span class="s2">"8999"</span>,
+                <span class="s2">"Address"</span>: <span class="s2">"Av Marechal Camara 160"</span>,
+                <span class="s2">"City"</span>: <span class="s2">"Rio de Janeiro"</span>,
+                <span class="s2">"State"</span>: <span class="s2">"RJ"</span>,
+                <span class="s2">"CountryCode"</span>: <span class="s2">"76"</span>,
+                <span class="s2">"PostalCode"</span>: <span class="s2">"20020080"</span>,
+                <span class="s2">"CompanyName"</span>: <span class="s2">"Lojinha01"</span>,
+                <span class="s2">"Identity"</span>: <span class="s2">"90501654000191"</span>,
+                <span class="s2">"PhoneNumber"</span>: <span class="s2">"24999399555"</span>
+      <span class="o">}</span>
+    <span class="o">}</span>,
         <span class="s2">"ReturnMessage"</span>: <span class="s2">"QRCode gerado com sucesso"</span>,
         <span class="s2">"PaymentId"</span>: <span class="s2">"5d7e8fd3-70b6-4a88-9660-e064d72fdcdd"</span>,
         <span class="s2">"Type"</span>: <span class="s2">"qrcode"</span>,
@@ -4895,6 +5035,11 @@
       <td>—</td>
       <td>2</td>
     </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
       <td>Acquirer return code.</td>
