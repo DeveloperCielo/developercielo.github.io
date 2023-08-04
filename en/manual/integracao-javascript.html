@@ -288,7 +288,13 @@
 
 <p><img src="https://developercielo.github.io/images/exemplo-html.jpg" alt="Script Example 3DS 2.0" /></p>
 
-<p>Events Description</p>
+<h2 id="description-of-events">Description of Events</h2>
+
+<p>The events are actions that the script considers as a response for following the authentication process, but do not indicate if the transaction was successfully authenticated.</p>
+
+<p>The ECI (E-commerce Indicator) is what indicates if the transaction was authenticated or not and the liability in case of chargeback. In order to sumbit a transaction for authorization, please consider the ECI value and use the events only as a complemenatry information for decision-making.</p>
+
+<aside class="warning">Submitting a non-authenticated transaction for authorization is allowed; however, the liability shift in case of chargeback remains with the merchant.</aside>
 
 <table>
   <thead>
@@ -329,7 +335,7 @@
   </tbody>
 </table>
 
-<p>Request Parameters Description</p>
+<h2 id="description-of-request-parameters">Description of Request Parameters</h2>
 
 <table>
   <thead>

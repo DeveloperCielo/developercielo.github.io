@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-08-04T18:33:11+00:00</updated>
+    <updated>2023-08-04T18:57:17+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -10969,7 +10969,13 @@ The QR Code Cielo payment solution does not currently accept debit payments.&lt;
 
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/exemplo-html.jpg&quot; alt=&quot;Script Example 3DS 2.0&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Events Description&lt;/p&gt;
+&lt;h2 id=&quot;description-of-events&quot;&gt;Description of Events&lt;/h2&gt;
+
+&lt;p&gt;The events are actions that the script considers as a response for following the authentication process, but do not indicate if the transaction was successfully authenticated.&lt;/p&gt;
+
+&lt;p&gt;The ECI (E-commerce Indicator) is what indicates if the transaction was authenticated or not and the liability in case of chargeback. In order to sumbit a transaction for authorization, please consider the ECI value and use the events only as a complemenatry information for decision-making.&lt;/p&gt;
+
+&lt;aside class=&quot;warning&quot;&gt;Submitting a non-authenticated transaction for authorization is allowed; however, the liability shift in case of chargeback remains with the merchant.&lt;/aside&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -11010,7 +11016,7 @@ The QR Code Cielo payment solution does not currently accept debit payments.&lt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;Request Parameters Description&lt;/p&gt;
+&lt;h2 id=&quot;description-of-request-parameters&quot;&gt;Description of Request Parameters&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
