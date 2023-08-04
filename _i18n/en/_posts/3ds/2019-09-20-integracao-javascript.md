@@ -93,7 +93,13 @@ This step contains the _script_ and the mapping of _classes_ implementation resp
 
 ![Script Example 3DS 2.0](https://developercielo.github.io/images/exemplo-html.jpg)
 
-Events Description
+## Description of Events
+
+The events are actions that the script considers as a response for following the authentication process, but do not indicate if the transaction was successfully authenticated.
+
+The ECI (E-commerce Indicator) is what indicates if the transaction was authenticated or not and the liability in case of chargeback. In order to sumbit a transaction for authorization, please consider the ECI value and use the events only as a complemenatry information for decision-making.
+
+<aside class="warning">Submitting a non-authenticated transaction for authorization is allowed; however, the liability shift in case of chargeback remains with the merchant.</aside>
 
 | **Event**          | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -105,7 +111,7 @@ Events Description
 | onError            | It is triggered when the authentication process receives a systemic error. In this scenario, if the transaction is authorized, the liability shift remains with the merchant.                                                                                                                                                                                                                                                                                                                          |
 | onUnsupportedBrand | It is triggered when the card scheme is not supported by 3DS 2.0                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 
-Request Parameters Description
+## Description of Request Parameters
 
 | **Parameter** | **Description**                                                                                                                                | **Type**                                                                                          |
 | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
