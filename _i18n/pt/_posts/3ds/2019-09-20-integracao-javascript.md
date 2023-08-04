@@ -95,6 +95,12 @@ Neste passo, é implementado o _script_ e o mapeamento de _classes_ responsávei
 
 Descrição dos Eventos
 
+Os eventos são ações que o script toma como resposta para acompanhamento do processo de autenticação, mas não indicam se a transação foi autenticada com sucesso.
+
+O que indica se a transação foi autenticada ou não e de quem é o risco de chargeback é o valor retornado no ECI (E-commerce Indicator). Para submeter a transação para autorização, considere o valor do ECI e use os eventos apenas como complemento para auxiliar na tomada de decisão. 
+
+<aside class="warning">É possível submeter uma transação não autenticada para autorização; no entanto, o risco de chargeback passa a ser do estabelecimento.</aside>
+
 | **Evento**         | **Descrição**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | onReady            | É acionado quando todos os procedimentos de carregamento do script da solução foram concluídos com sucesso, o que incluir a validação do token de acesso, indicando que o checkout está pronto para iniciar a autenticação                                                                                                                                                                                                                                                                                        |
