@@ -286,6 +286,12 @@
 
 <p>Descrição dos Eventos</p>
 
+<p>Os eventos são ações que o script toma como resposta para acompanhamento do processo de autenticação, mas não indicam se a transação foi autenticada com sucesso.</p>
+
+<p>O que indica se a transação foi autenticada ou não e de quem é o risco de chargeback é o valor retornado no ECI (E-commerce Indicator). Para submeter a transação para autorização, considere o valor do ECI e use os eventos apenas como complemento para auxiliar na tomada de decisão.</p>
+
+<aside class="warning">É possível submeter uma transação não autenticada para autorização; no entanto, o risco de chargeback passa a ser do estabelecimento.</aside>
+
 <table>
   <thead>
     <tr>
