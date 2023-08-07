@@ -154,7 +154,16 @@
 
 <h3 id="2-selecionando-o-conector">2. Selecionando o Conector</h3>
 
-<p>Selecione o conector <strong>CieloEcommerce</strong> e insira as informações conforme recebidas após a contratação das soluções desejadas.</p>
+<p>Selecione o conector desejado e insira as informações recebidas após a contratação da solução. Os conectores disponíveis são:</p>
+
+<ul>
+  <li><strong>Braspag</strong>;</li>
+  <li><strong>BraspagV2</strong>;</li>
+  <li><strong>CieloV3</strong>;</li>
+  <li><strong>CieloV4</strong></li>
+</ul>
+
+<aside class="notice">Em breve o conector **CieloEcommerce**; também estará disponível.</aside>
 
 <p><img src="https://developercielo.github.io/images/modulos/vtex/01-cieloecommerce.jpeg" alt="CieloEcommerce" /></p>
 
@@ -189,71 +198,96 @@
 
 <h3 id="4-preenchendo-dados-necessários">4. Preenchendo Dados Necessários</h3>
 
-<p>Preencha os campos com os dados requisitados:</p>
+<p>Preencha os campos com os dados requisitados. A imagem a seguir é um exemplo do preenchimento para o conector <strong>CieloEcommerce</strong>; consulte a tabela Dados da Afiliação para verificar quais são os campos correspondentes ao conector desejado.</p>
 
 <p><img src="https://developercielo.github.io/images/modulos/vtex/03a-dados.jpg" alt="1Dados Afiliação" />
 <img src="https://developercielo.github.io/images/modulos/vtex/03b-dados.jpg" alt="2Dados Afiliação" /></p>
+
+<h4 id="dados-da-afiliação">Dados da Afiliação</h4>
 
 <table>
   <thead>
     <tr>
       <th>Campo</th>
       <th>Descrição</th>
+      <th>Conector</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><strong>Nome da Afiliação</strong></td>
       <td>Insira nome identificador da afiliação.</td>
+      <td>Todos.</td>
     </tr>
     <tr>
       <td><strong>Application Key</strong></td>
       <td>Insira o MerchantID.</td>
+      <td>Todos.</td>
     </tr>
     <tr>
       <td><strong>Application Token</strong></td>
       <td>Insira o MerchantKey.</td>
+      <td>Todos.</td>
     </tr>
     <tr>
       <td><strong>Integration</strong></td>
       <td>Selecione <strong>Adquirência</strong> se o seu contrato é somente com a adquirência Cielo. <br />Selecione <strong>Gateway</strong> se o seu contrato é para utilização de outros provedores.</td>
+      <td>CieloEcommerce*</td>
     </tr>
     <tr>
       <td><strong>Provider</strong></td>
       <td>Selecione o provedor  que deseja configurar a afiliação conforme o tipo de pagamento. <br />Exemplo: Se o seu provedor de Boleto é o Bradesco e o seu provedor de Crédito, Débito e Pix é o Cielo será necessário adicionar duas afiliações. <br />O provedor <strong>Simulado</strong> deve ser utilizado para transaçãoes de teste.<br />O provedor <strong>Cielo</strong> deve ser configurado para Integração <strong>Adquirência</strong>. <br />O provedor <strong>Cielo30</strong> deve ser configurado para Integração <strong>Gateway</strong>.</td>
+      <td>Todos.<br />Obs. 1: Braspag e CieloV3 possuem o provedor listado em cada tipo de pagamento.<br />Obs. 2: Cada conector possui uma lista de provedores aptos para seleção.</td>
     </tr>
     <tr>
       <td><strong>UseSPLIT</strong></td>
-      <td>Insira “Sim” ou “Não” se deseja utilizar o SPLIT de pagamentos. Disponível para os tipos de pagamento Crédito, Débito e Boleto.</td>
+      <td>Insira “Sim” ou “Não” se deseja utilizar o SPLIT de pagamentos. Disponível para os tipos de pagamento crédito, débito e boleto.</td>
+      <td>BraspagV2, CieloEcommerce* e CieloV4.</td>
     </tr>
     <tr>
       <td><strong>UseMPI</strong></td>
       <td>Insira “Sim” ou “Não” se deseja utilizar a Autenticação de 3DS2.0. Este campo é obrigatório para o tipo de pagamento Débito.</td>
+      <td>BraspagV2, CieloEcommerce* e CieloV4.</td>
     </tr>
     <tr>
       <td><strong>MpiClientId</strong></td>
       <td>ID do MPI, disponibilizado para o cliente pela Cielo.</td>
+      <td>BraspagV2, CieloEcommerce* e CieloV4.</td>
     </tr>
     <tr>
       <td><strong>MpiClientSecret</strong></td>
       <td>Chave secreta do MPI, disponibilizada para o cliente pela Cielo.</td>
+      <td>BraspagV2, CieloEcommerce* e CieloV4.</td>
     </tr>
     <tr>
       <td><strong>MpiMerchantName</strong></td>
       <td>Nome da loja, disponibilizado pela Cielo.</td>
+      <td>BraspagV2, CieloEcommerce* e CieloV4.</td>
     </tr>
     <tr>
       <td><strong>MpiMCC</strong></td>
       <td>Merchant Category Code da loja, disponibilizado pela Cielo.</td>
+      <td>BraspagV2, CieloEcommerce* e CieloV4.</td>
     </tr>
     <tr>
       <td><strong>MpiEstablishmentCode</strong></td>
       <td>Código de estabelecimento da loja, disponibilizado pela Cielo.</td>
+      <td>BraspagV2, CieloEcommerce* e CieloV4.</td>
+    </tr>
+    <tr>
+      <td><strong>Captura</strong></td>
+      <td>Tempo (em horas) em que a captura deve ser solicitada.<br />O tempo Padrão ou Desativdo será realizado quatro dias após a autorização.</td>
+      <td>Braspag e CieloV3.</td>
+    </tr>
+    <tr>
+      <td><strong>Alterar tempo máximo para captura automática</strong></td>
+      <td>Tempo (em dias) em que a capatura deve ser solicitada.</td>
+      <td>Braspag e CieloV3.</td>
     </tr>
   </tbody>
 </table>
 
-<p>Após salvar o conector ele irá aparecer na lista <strong>Processar com afiliação</strong> da tela de configuração da <strong>Condição de Pagamento</strong>. </p>
+<p>*O conector CieloEcommerce estará disponível em breve.</p>
 
 <h2 id="condição-de-pagamento">Condição de Pagamento</h2>
 
