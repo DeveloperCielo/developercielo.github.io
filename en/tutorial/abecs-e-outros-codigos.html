@@ -128,20 +128,10 @@
 
 <aside class="notice">The AMEX flag codes have undergone a to/from in order to maintain two digits. We reinforce that this measure does not change the reasons for return.</aside>
 
+<p>|Message|Code Type|ELO|VISA|MASTERCARD/HIPER|AMEX|AMEX - From/To Cielo|Message POS/Ecommerce|Did ABECS change anything in 2022?|
+|-|-|-|-|-|-|-|-|</p>
+
 <table>
-  <thead>
-    <tr>
-      <th>Message</th>
-      <th>Code Type</th>
-      <th>ELO</th>
-      <th>VISA</th>
-      <th>MASTERCARD/HIPER</th>
-      <th>AMEX</th>
-      <th>AMEX - From/To Cielo</th>
-      <th>Message POS/Ecommerce</th>
-      <th>Did ABECS change anything in 2022?</th>
-    </tr>
-  </thead>
   <tbody>
     <tr>
       <td>GENERIC</td>
@@ -191,9 +181,9 @@
       <td>TRANSACTION NOT ALLOWED FOR CARD</td>
       <td>REVERSIBLE</td>
       <td>-</td>
+      <td>-</td>
       <td>57</td>
-      <td>57</td>
-      <td>200</td>
+      <td>-</td>
       <td>FD</td>
       <td>TRANSACTION NOT ALLOWED FOR CARD</td>
       <td>Yes</td>
@@ -202,9 +192,9 @@
       <td>TRANSACTION NOT ALLOWED FOR CARD</td>
       <td>IRREVERSIBLE</td>
       <td>57</td>
+      <td>57</td>
       <td>-</td>
-      <td>-</td>
-      <td>-</td>
+      <td>200</td>
       <td>-</td>
       <td>TRANSACTION NOT ALLOWED FOR CARD - DON’T TRY AGAIN</td>
       <td>New</td>
@@ -214,7 +204,7 @@
       <td>IRREVERSIBLE</td>
       <td>14 ou 56</td>
       <td>14</td>
-      <td>14 or 01</td>
+      <td>14 or 1</td>
       <td>122</td>
       <td>8</td>
       <td>CHECK THE CARD DATA</td>
@@ -224,7 +214,7 @@
       <td>SECURITY BREACH</td>
       <td>IRREVERSIBLE</td>
       <td>63</td>
-      <td>63</td>
+      <td>N7</td>
       <td>-</td>
       <td>122</td>
       <td>8</td>
@@ -243,7 +233,7 @@
       <td>New</td>
     </tr>
     <tr>
-      <td>SUSPECTED FRAUD</td>
+      <td>SUSPECTED FRAUD/TRAVEL WARNING</td>
       <td>REVERSIBLE</td>
       <td>59</td>
       <td>59</td>
@@ -265,7 +255,7 @@
       <td>Yes</td>
     </tr>
     <tr>
-      <td>REDO THE TRANSACTION (ISSUER REQUESTS RETRY</td>
+      <td>REDO THE TRANSACTION (ISSUER REQUESTS RETRY)</td>
       <td>REVERSIBLE</td>
       <td>4</td>
       <td>NO CORRESPONDING CODE</td>
@@ -301,7 +291,7 @@
       <td>CARD ERROR</td>
       <td>IRREVERSIBLE</td>
       <td>12</td>
-      <td>6</td>
+      <td>06</td>
       <td>NO CORRESPONDING CODE</td>
       <td>115</td>
       <td>A2</td>
@@ -386,7 +376,7 @@
       <td>Yes</td>
     </tr>
     <tr>
-      <td>TRANSACTION NOT ALLOWED | TERMINAL CAPACITY</td>
+      <td>TRANSACTION NOT ALLOWED/TERMINAL CAPACITY</td>
       <td>IRREVERSIBLE</td>
       <td>57</td>
       <td>58</td>
@@ -465,7 +455,7 @@
     <tr>
       <td>PASSWORD EXPIRED / PASSWORD CRYPTOGRAPHY ERROR</td>
       <td>IRREVERSIBLE</td>
-      <td>74</td>
+      <td>83</td>
       <td>74 or 81</td>
       <td>88</td>
       <td>180</td>
@@ -507,26 +497,15 @@
       <td>No</td>
     </tr>
     <tr>
-      <td>NEW CARD WITHOUT UNLOCKING</td>
+      <td>NEW CARD WITHOUT UNLOCKING (INCLUDES CARD BLOCKED BY THE CLIENT ON THE APP)</td>
       <td>REVERSIBLE</td>
       <td>78</td>
       <td>78</td>
-      <td>NO CORRESPONDING CODE</td>
+      <td>57</td>
       <td>NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>UNLOCK THE CARD</td>
       <td>Yes</td>
-    </tr>
-    <tr>
-      <td>NEW CARD WITHOUT UNLOCKING</td>
-      <td>IRREVERSIBLE</td>
-      <td>-</td>
-      <td>78</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>UNLOCK THE CARD</td>
-      <td>New</td>
     </tr>
     <tr>
       <td>INVALID CARD (cryptogram)</td>
@@ -564,7 +543,7 @@
     <tr>
       <td>DIFFERENCE - PRE-AUTHORIZATION</td>
       <td>IRREVERSIBLE</td>
-      <td>99</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>N8</td>
       <td>NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
@@ -574,7 +553,7 @@
     </tr>
     <tr>
       <td>INCORRECT FUNCTION (DEBIT)</td>
-      <td>IRREVERSIBLE</td>
+      <td>REVERSIBLE</td>
       <td>AB</td>
       <td>52 or 53</td>
       <td>NO CORRESPONDING CODE</td>
@@ -585,7 +564,7 @@
     </tr>
     <tr>
       <td>INCORRECT FUNCTION (CREDIT)</td>
-      <td>IRREVERSIBLE</td>
+      <td>REVERSIBLE</td>
       <td>AC</td>
       <td>39</td>
       <td>NO CORRESPONDING CODE</td>
@@ -610,7 +589,7 @@
       <td>REVERSIBLE</td>
       <td>P6</td>
       <td>NO CORRESPONDING CODE</td>
-      <td>NO CORRESPONDING CODE</td>
+      <td>55</td>
       <td>NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>INVALID PASSWORD USE THE NEW PASSWORD</td>
@@ -621,7 +600,7 @@
       <td>IRREVERSIBLE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>4</td>
-      <td>NO CORRESPONDING CODE</td>
+      <td>4</td>
       <td>NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>CONTACT YOUR CARD CENTER - DON’T TRY AGAIN</td>
@@ -828,7 +807,7 @@
     <tr>
       <td>CLOSED ACCOUNT</td>
       <td>IRREVERSIBLE</td>
-      <td>NO CORRESPONDING CODE</td>
+      <td>46</td>
       <td>46</td>
       <td>62</td>
       <td>NO CORRESPONDING CODE</td>

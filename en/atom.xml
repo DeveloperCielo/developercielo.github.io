@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-08-08T14:01:41+00:00</updated>
+    <updated>2023-08-09T14:04:49+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -714,20 +714,10 @@
 
 &lt;aside class=&quot;notice&quot;&gt;The AMEX flag codes have undergone a to/from in order to maintain two digits. We reinforce that this measure does not change the reasons for return.&lt;/aside&gt;
 
+&lt;p&gt;|Message|Code Type|ELO|VISA|MASTERCARD/HIPER|AMEX|AMEX - From/To Cielo|Message POS/Ecommerce|Did ABECS change anything in 2022?|
+|-|-|-|-|-|-|-|-|&lt;/p&gt;
+
 &lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Message&lt;/th&gt;
-      &lt;th&gt;Code Type&lt;/th&gt;
-      &lt;th&gt;ELO&lt;/th&gt;
-      &lt;th&gt;VISA&lt;/th&gt;
-      &lt;th&gt;MASTERCARD/HIPER&lt;/th&gt;
-      &lt;th&gt;AMEX&lt;/th&gt;
-      &lt;th&gt;AMEX - From/To Cielo&lt;/th&gt;
-      &lt;th&gt;Message POS/Ecommerce&lt;/th&gt;
-      &lt;th&gt;Did ABECS change anything in 2022?&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;GENERIC&lt;/td&gt;
@@ -777,9 +767,9 @@
       &lt;td&gt;TRANSACTION NOT ALLOWED FOR CARD&lt;/td&gt;
       &lt;td&gt;REVERSIBLE&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;57&lt;/td&gt;
-      &lt;td&gt;57&lt;/td&gt;
-      &lt;td&gt;200&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;FD&lt;/td&gt;
       &lt;td&gt;TRANSACTION NOT ALLOWED FOR CARD&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
@@ -788,9 +778,9 @@
       &lt;td&gt;TRANSACTION NOT ALLOWED FOR CARD&lt;/td&gt;
       &lt;td&gt;IRREVERSIBLE&lt;/td&gt;
       &lt;td&gt;57&lt;/td&gt;
+      &lt;td&gt;57&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
-      &lt;td&gt;-&lt;/td&gt;
-      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;200&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;TRANSACTION NOT ALLOWED FOR CARD - DON’T TRY AGAIN&lt;/td&gt;
       &lt;td&gt;New&lt;/td&gt;
@@ -800,7 +790,7 @@
       &lt;td&gt;IRREVERSIBLE&lt;/td&gt;
       &lt;td&gt;14 ou 56&lt;/td&gt;
       &lt;td&gt;14&lt;/td&gt;
-      &lt;td&gt;14 or 01&lt;/td&gt;
+      &lt;td&gt;14 or 1&lt;/td&gt;
       &lt;td&gt;122&lt;/td&gt;
       &lt;td&gt;8&lt;/td&gt;
       &lt;td&gt;CHECK THE CARD DATA&lt;/td&gt;
@@ -810,7 +800,7 @@
       &lt;td&gt;SECURITY BREACH&lt;/td&gt;
       &lt;td&gt;IRREVERSIBLE&lt;/td&gt;
       &lt;td&gt;63&lt;/td&gt;
-      &lt;td&gt;63&lt;/td&gt;
+      &lt;td&gt;N7&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;122&lt;/td&gt;
       &lt;td&gt;8&lt;/td&gt;
@@ -829,7 +819,7 @@
       &lt;td&gt;New&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;SUSPECTED FRAUD&lt;/td&gt;
+      &lt;td&gt;SUSPECTED FRAUD/TRAVEL WARNING&lt;/td&gt;
       &lt;td&gt;REVERSIBLE&lt;/td&gt;
       &lt;td&gt;59&lt;/td&gt;
       &lt;td&gt;59&lt;/td&gt;
@@ -851,7 +841,7 @@
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;REDO THE TRANSACTION (ISSUER REQUESTS RETRY&lt;/td&gt;
+      &lt;td&gt;REDO THE TRANSACTION (ISSUER REQUESTS RETRY)&lt;/td&gt;
       &lt;td&gt;REVERSIBLE&lt;/td&gt;
       &lt;td&gt;4&lt;/td&gt;
       &lt;td&gt;NO CORRESPONDING CODE&lt;/td&gt;
@@ -887,7 +877,7 @@
       &lt;td&gt;CARD ERROR&lt;/td&gt;
       &lt;td&gt;IRREVERSIBLE&lt;/td&gt;
       &lt;td&gt;12&lt;/td&gt;
-      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;06&lt;/td&gt;
       &lt;td&gt;NO CORRESPONDING CODE&lt;/td&gt;
       &lt;td&gt;115&lt;/td&gt;
       &lt;td&gt;A2&lt;/td&gt;
@@ -972,7 +962,7 @@
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;TRANSACTION NOT ALLOWED | TERMINAL CAPACITY&lt;/td&gt;
+      &lt;td&gt;TRANSACTION NOT ALLOWED/TERMINAL CAPACITY&lt;/td&gt;
       &lt;td&gt;IRREVERSIBLE&lt;/td&gt;
       &lt;td&gt;57&lt;/td&gt;
       &lt;td&gt;58&lt;/td&gt;
@@ -1051,7 +1041,7 @@
     &lt;tr&gt;
       &lt;td&gt;PASSWORD EXPIRED / PASSWORD CRYPTOGRAPHY ERROR&lt;/td&gt;
       &lt;td&gt;IRREVERSIBLE&lt;/td&gt;
-      &lt;td&gt;74&lt;/td&gt;
+      &lt;td&gt;83&lt;/td&gt;
       &lt;td&gt;74 or 81&lt;/td&gt;
       &lt;td&gt;88&lt;/td&gt;
       &lt;td&gt;180&lt;/td&gt;
@@ -1093,26 +1083,15 @@
       &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;NEW CARD WITHOUT UNLOCKING&lt;/td&gt;
+      &lt;td&gt;NEW CARD WITHOUT UNLOCKING (INCLUDES CARD BLOCKED BY THE CLIENT ON THE APP)&lt;/td&gt;
       &lt;td&gt;REVERSIBLE&lt;/td&gt;
       &lt;td&gt;78&lt;/td&gt;
       &lt;td&gt;78&lt;/td&gt;
-      &lt;td&gt;NO CORRESPONDING CODE&lt;/td&gt;
+      &lt;td&gt;57&lt;/td&gt;
       &lt;td&gt;NO CORRESPONDING CODE&lt;/td&gt;
       &lt;td&gt;NO CORRESPONDING CODE&lt;/td&gt;
       &lt;td&gt;UNLOCK THE CARD&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;NEW CARD WITHOUT UNLOCKING&lt;/td&gt;
-      &lt;td&gt;IRREVERSIBLE&lt;/td&gt;
-      &lt;td&gt;-&lt;/td&gt;
-      &lt;td&gt;78&lt;/td&gt;
-      &lt;td&gt;-&lt;/td&gt;
-      &lt;td&gt;-&lt;/td&gt;
-      &lt;td&gt;-&lt;/td&gt;
-      &lt;td&gt;UNLOCK THE CARD&lt;/td&gt;
-      &lt;td&gt;New&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;INVALID CARD (cryptogram)&lt;/td&gt;
@@ -1150,7 +1129,7 @@
     &lt;tr&gt;
       &lt;td&gt;DIFFERENCE - PRE-AUTHORIZATION&lt;/td&gt;
       &lt;td&gt;IRREVERSIBLE&lt;/td&gt;
-      &lt;td&gt;99&lt;/td&gt;
+      &lt;td&gt;NO CORRESPONDING CODE&lt;/td&gt;
       &lt;td&gt;N8&lt;/td&gt;
       &lt;td&gt;NO CORRESPONDING CODE&lt;/td&gt;
       &lt;td&gt;NO CORRESPONDING CODE&lt;/td&gt;
@@ -1160,7 +1139,7 @@
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;INCORRECT FUNCTION (DEBIT)&lt;/td&gt;
-      &lt;td&gt;IRREVERSIBLE&lt;/td&gt;
+      &lt;td&gt;REVERSIBLE&lt;/td&gt;
       &lt;td&gt;AB&lt;/td&gt;
       &lt;td&gt;52 or 53&lt;/td&gt;
       &lt;td&gt;NO CORRESPONDING CODE&lt;/td&gt;
@@ -1171,7 +1150,7 @@
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;INCORRECT FUNCTION (CREDIT)&lt;/td&gt;
-      &lt;td&gt;IRREVERSIBLE&lt;/td&gt;
+      &lt;td&gt;REVERSIBLE&lt;/td&gt;
       &lt;td&gt;AC&lt;/td&gt;
       &lt;td&gt;39&lt;/td&gt;
       &lt;td&gt;NO CORRESPONDING CODE&lt;/td&gt;
@@ -1196,7 +1175,7 @@
       &lt;td&gt;REVERSIBLE&lt;/td&gt;
       &lt;td&gt;P6&lt;/td&gt;
       &lt;td&gt;NO CORRESPONDING CODE&lt;/td&gt;
-      &lt;td&gt;NO CORRESPONDING CODE&lt;/td&gt;
+      &lt;td&gt;55&lt;/td&gt;
       &lt;td&gt;NO CORRESPONDING CODE&lt;/td&gt;
       &lt;td&gt;NO CORRESPONDING CODE&lt;/td&gt;
       &lt;td&gt;INVALID PASSWORD USE THE NEW PASSWORD&lt;/td&gt;
@@ -1207,7 +1186,7 @@
       &lt;td&gt;IRREVERSIBLE&lt;/td&gt;
       &lt;td&gt;NO CORRESPONDING CODE&lt;/td&gt;
       &lt;td&gt;4&lt;/td&gt;
-      &lt;td&gt;NO CORRESPONDING CODE&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
       &lt;td&gt;NO CORRESPONDING CODE&lt;/td&gt;
       &lt;td&gt;NO CORRESPONDING CODE&lt;/td&gt;
       &lt;td&gt;CONTACT YOUR CARD CENTER - DON’T TRY AGAIN&lt;/td&gt;
@@ -1414,7 +1393,7 @@
     &lt;tr&gt;
       &lt;td&gt;CLOSED ACCOUNT&lt;/td&gt;
       &lt;td&gt;IRREVERSIBLE&lt;/td&gt;
-      &lt;td&gt;NO CORRESPONDING CODE&lt;/td&gt;
+      &lt;td&gt;46&lt;/td&gt;
       &lt;td&gt;46&lt;/td&gt;
       &lt;td&gt;62&lt;/td&gt;
       &lt;td&gt;NO CORRESPONDING CODE&lt;/td&gt;
