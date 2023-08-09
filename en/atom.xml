@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-08-09T14:04:49+00:00</updated>
+    <updated>2023-08-09T14:15:38+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -714,10 +714,20 @@
 
 &lt;aside class=&quot;notice&quot;&gt;The AMEX flag codes have undergone a to/from in order to maintain two digits. We reinforce that this measure does not change the reasons for return.&lt;/aside&gt;
 
-&lt;p&gt;|Message|Code Type|ELO|VISA|MASTERCARD/HIPER|AMEX|AMEX - From/To Cielo|Message POS/Ecommerce|Did ABECS change anything in 2022?|
-|-|-|-|-|-|-|-|-|&lt;/p&gt;
-
 &lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Message&lt;/th&gt;
+      &lt;th&gt;Code Type&lt;/th&gt;
+      &lt;th&gt;ELO&lt;/th&gt;
+      &lt;th&gt;VISA&lt;/th&gt;
+      &lt;th&gt;MASTERCARD/HIPER&lt;/th&gt;
+      &lt;th&gt;AMEX&lt;/th&gt;
+      &lt;th&gt;AMEX - From/To Cielo&lt;/th&gt;
+      &lt;th&gt;Message POS/Ecommerce&lt;/th&gt;
+      &lt;th&gt;Did ABECS change anything in 2022?&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;GENERIC&lt;/td&gt;
