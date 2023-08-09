@@ -22,8 +22,7 @@ Cielo informs its customers that it's prepared to process transactions following
 <aside class="notice">The AMEX flag codes have undergone a to/from in order to maintain two digits. We reinforce that this measure does not change the reasons for return.</aside>
 
 |Message|Code Type|ELO|VISA|MASTERCARD/HIPER|AMEX|AMEX - From/To Cielo|Message POS/Ecommerce|Did ABECS change anything in 2022?|
-|-|-|-|-|-|-|-|-|
-
+|-|-|-|-|-|-|-|-|-|
 |GENERIC|REVERSIBLE|5|5|5|100|FA|CONTACT YOUR CARD CENTER|No|   
 |INSUFFICIENT BALANCE/LIMIT|REVERSIBLE|51|51|51|116| 5|NOT AUTHORIZED|No|
 |INSUFFICIENT BALANCE/LIMIT|REVERSIBLE|51|51|51|121|A5|NOT AUTHORIZED|Only in our documentation|
