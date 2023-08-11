@@ -27,11 +27,11 @@ tags:
 
 > This change is expected to be implemented on 9/1/2023
 
-[CIELO_Electronic_Statement_-_English_-_Version_14_v1.0(pix)](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/English_Version_14_v1.0pix.pdf)
+[CIELO_Electronic_Statement_-_English_-_Version_14_v2(pix)](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/English_Version_14_v2pix.pdf)
 
 [Massa_PIX_Cenarios_EDI_V2](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Massa_PIX_Cenarios_EDI_V2.rar)
 
-![PIX](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Slide4.JPG)
+![PIX](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Slide6.JPG)
 
 ## 11/2023 - V15 - New version of electronic statements - Documentation and test files
 
