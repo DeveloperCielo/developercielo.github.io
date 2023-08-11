@@ -27,11 +27,11 @@ tags:
 
 > Esta mudança está prevista para implantação em 01/09/2023
 
-[CIELO_Extrato_Eletronico_-_Manual_-_Versao_14_v1.4(pix)](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Manual_Versao_14_v1.4pix.pdf)
+[CIELO_Extrato_Eletronico_-_Manual_-_Versao_14_v2(pix)](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Manual_-_Versao_14_v2pix.pdf)
 
 [Massa_PIX_Cenarios_EDI_V2](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Massa_PIX_Cenarios_EDI_V2.rar)
 
-![PIX](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Slide3.JPG)
+![PIX](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Slide5.JPG)
 
 ## 11/2023 - V15 - Nova versão dos extratos eletrônicos - Documentação e arquivos de teste
 
