@@ -7,7 +7,7 @@ translated: true
 categories: manual
 sort_order: 1
 tags:
-  - Módulos
+  - Plataformas
 ---
 
 # Integração VTEX
