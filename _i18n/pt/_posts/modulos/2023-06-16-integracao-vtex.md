@@ -58,7 +58,7 @@ Insira o Nome da Afiliação:
 
 ### 4. Preenchendo Dados Necessários
 
-Preencha os campos com os dados requisitados. A imagem a seguir é um exemplo do preenchimento para o conector **CieloEcommerce**; consulte a tabela Dados da Afiliação para verificar quais são os campos correspondentes ao conector desejado.
+Preencha os campos com os dados requisitados. A imagem a seguir é um **exemplo** do preenchimento para o conector **CieloEcommerce**; consulte a tabela [Dados da Afiliação](https://developercielo.github.io/manual/integracao-vtex#dados-da-afilia%C3%A7%C3%A3o) para verificar quais são os campos correspondentes ao conector desejado.
 
 ![1Dados Afiliação]({{ site.baseurl_root }}/images/modulos/vtex/03a-dados.jpg)
 ![2Dados Afiliação]({{ site.baseurl_root }}/images/modulos/vtex/03b-dados.jpg)
@@ -73,16 +73,18 @@ Preencha os campos com os dados requisitados. A imagem a seguir é um exemplo do
 |**Integration**|Selecione **Adquirência** se o seu contrato é somente com a adquirência Cielo. <br>Selecione **Gateway** se o seu contrato é para utilização de outros provedores.|CieloEcommerce*|
 |**Provider**|Selecione o provedor  que deseja configurar a afiliação conforme o tipo de pagamento. <br>Exemplo: Se o seu provedor de Boleto é o Bradesco e o seu provedor de Crédito, Débito e Pix é o Cielo será necessário adicionar duas afiliações. <br>O provedor **Simulado** deve ser utilizado para transaçãoes de teste.<br>O provedor **Cielo** deve ser configurado para Integração **Adquirência**. <br>O provedor **Cielo30** deve ser configurado para Integração **Gateway**.|Todos.<br>Obs. 1: Braspag e CieloV3 possuem o provedor listado em cada tipo de pagamento.<br>Obs. 2: Cada conector possui uma lista de provedores aptos para seleção.|
 |**UseSPLIT**|Insira “Sim” ou “Não” se deseja utilizar o SPLIT de pagamentos. Disponível para os tipos de pagamento crédito, débito e boleto.|BraspagV2, CieloEcommerce* e CieloV4.|
-|**UseMPI**|Insira “Sim” ou “Não” se deseja utilizar a Autenticação de 3DS2.0. Este campo é obrigatório para o tipo de pagamento Débito.|BraspagV2, CieloEcommerce* e CieloV4.|
-|**MpiClientId**|ID do MPI, disponibilizado para o cliente pela Cielo.|BraspagV2, CieloEcommerce* e CieloV4.|
-|**MpiClientSecret**|Chave secreta do MPI, disponibilizada para o cliente pela Cielo.|BraspagV2, CieloEcommerce* e CieloV4.|
-|**MpiMerchantName**|Nome da loja, disponibilizado pela Cielo.|BraspagV2, CieloEcommerce* e CieloV4.|
-|**MpiMCC**|Merchant Category Code da loja, disponibilizado pela Cielo.|BraspagV2, CieloEcommerce* e CieloV4.|
-|**MpiEstablishmentCode**|Código de estabelecimento da loja, disponibilizado pela Cielo.|BraspagV2, CieloEcommerce* e CieloV4.|
+|**UseMPI**|Insira “Sim” ou “Não” se deseja utilizar a **Autenticação 3DS 2.0**. Este campo é **obrigatório para o tipo de pagamento débito**.|BraspagV2, CieloEcommerce* e CieloV4.|
+|**MpiClientId**|ID do MPI, disponibilizado para o cliente pela Cielo. *Campo relacionado à autenticação 3DS***.|BraspagV2, CieloEcommerce* e CieloV4.|
+|**MpiClientSecret**|Chave secreta do MPI, disponibilizada para o cliente pela Cielo. *Campo relacionado à autenticação 3DS***.|BraspagV2, CieloEcommerce* e CieloV4.|
+|**MpiMerchantName**|Nome da loja, disponibilizado pela Cielo. *Campo relacionado à autenticação 3DS***.|BraspagV2, CieloEcommerce* e CieloV4.|
+|**MpiMCC**|Merchant Category Code da loja, disponibilizado pela Cielo. *Campo relacionado à autenticação 3DS***.|BraspagV2, CieloEcommerce* e CieloV4.|
+|**MpiEstablishmentCode**|Código de estabelecimento da loja, disponibilizado pela Cielo. *Campo relacionado à autenticação 3DS***.|BraspagV2, CieloEcommerce* e CieloV4.|
 |**Captura**|Tempo (em horas) em que a captura deve ser solicitada.<br>O tempo Padrão ou Desativdo será realizado quatro dias após a autorização.|Braspag e CieloV3.|
 |**Alterar tempo máximo para captura automática**|Tempo (em dias) em que a capatura deve ser solicitada. |Braspag e CieloV3.|
 
 *O conector CieloEcommerce estará disponível em breve.
+
+**O preenchimento dos campos relacionados ao MPI é opcional; você pode escolher preencher os dados de MPI e deixar a opção **UseMpi** desativada ("No") e, mais tarde, caso deseje ativar o 3DS para esta afiliação, apenas altere a opção **UseMpi** para "Yes".
 
 ## Condição de Pagamento
 
@@ -155,7 +157,7 @@ Nesta seção configure os dados para Private Label e Ticket:
 
 ## 3DS
 
-As credenciais recebidas para utilização da solução devem ser inseridas conforme em [Afiliação de Pagamento](https://braspag.github.io//tutorial/integracao-vtex#afilia%C3%A7%C3%A3o-de-pagamento)
+As credenciais recebidas para utilização da solução devem ser inseridas conforme em [Afiliação de Pagamento](https://braspag.github.io//tutorial/integracao-vtex#afilia%C3%A7%C3%A3o-de-pagamento). Caso não use a solução 3DS, selecione o campo **UseMpi** como "No" em [Preenchendo os Dados Necessários](https://braspag.github.io//tutorial/integracao-vtex#4.-preenchendo-dados-necess%C3%A1rios).
 
 ## Split de Pagamentos
 
