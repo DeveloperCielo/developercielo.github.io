@@ -198,7 +198,7 @@
 
 <h3 id="4-preenchendo-dados-necessários">4. Preenchendo Dados Necessários</h3>
 
-<p>Preencha os campos com os dados requisitados. A imagem a seguir é um exemplo do preenchimento para o conector <strong>CieloEcommerce</strong>; consulte a tabela Dados da Afiliação para verificar quais são os campos correspondentes ao conector desejado.</p>
+<p>Preencha os campos com os dados requisitados. A imagem a seguir é um <strong>exemplo</strong> do preenchimento para o conector <strong>CieloEcommerce</strong>; consulte a tabela <a href="https://developercielo.github.io/manual/integracao-vtex#dados-da-afilia%C3%A7%C3%A3o">Dados da Afiliação</a> para verificar quais são os campos correspondentes ao conector desejado.</p>
 
 <p><img src="https://developercielo.github.io/images/modulos/vtex/03a-dados.jpg" alt="1Dados Afiliação" />
 <img src="https://developercielo.github.io/images/modulos/vtex/03b-dados.jpg" alt="2Dados Afiliação" /></p>
@@ -246,32 +246,32 @@
     </tr>
     <tr>
       <td><strong>UseMPI</strong></td>
-      <td>Insira “Sim” ou “Não” se deseja utilizar a Autenticação de 3DS2.0. Este campo é obrigatório para o tipo de pagamento Débito.</td>
+      <td>Insira “Sim” ou “Não” se deseja utilizar a <strong>Autenticação 3DS 2.0</strong>. Este campo é <strong>obrigatório para o tipo de pagamento débito</strong>.</td>
       <td>BraspagV2, CieloEcommerce* e CieloV4.</td>
     </tr>
     <tr>
       <td><strong>MpiClientId</strong></td>
-      <td>ID do MPI, disponibilizado para o cliente pela Cielo.</td>
+      <td>ID do MPI, disponibilizado para o cliente pela Cielo. <em>Campo relacionado à autenticação 3DS</em>**.</td>
       <td>BraspagV2, CieloEcommerce* e CieloV4.</td>
     </tr>
     <tr>
       <td><strong>MpiClientSecret</strong></td>
-      <td>Chave secreta do MPI, disponibilizada para o cliente pela Cielo.</td>
+      <td>Chave secreta do MPI, disponibilizada para o cliente pela Cielo. <em>Campo relacionado à autenticação 3DS</em>**.</td>
       <td>BraspagV2, CieloEcommerce* e CieloV4.</td>
     </tr>
     <tr>
       <td><strong>MpiMerchantName</strong></td>
-      <td>Nome da loja, disponibilizado pela Cielo.</td>
+      <td>Nome da loja, disponibilizado pela Cielo. <em>Campo relacionado à autenticação 3DS</em>**.</td>
       <td>BraspagV2, CieloEcommerce* e CieloV4.</td>
     </tr>
     <tr>
       <td><strong>MpiMCC</strong></td>
-      <td>Merchant Category Code da loja, disponibilizado pela Cielo.</td>
+      <td>Merchant Category Code da loja, disponibilizado pela Cielo. <em>Campo relacionado à autenticação 3DS</em>**.</td>
       <td>BraspagV2, CieloEcommerce* e CieloV4.</td>
     </tr>
     <tr>
       <td><strong>MpiEstablishmentCode</strong></td>
-      <td>Código de estabelecimento da loja, disponibilizado pela Cielo.</td>
+      <td>Código de estabelecimento da loja, disponibilizado pela Cielo. <em>Campo relacionado à autenticação 3DS</em>**.</td>
       <td>BraspagV2, CieloEcommerce* e CieloV4.</td>
     </tr>
     <tr>
@@ -288,6 +288,8 @@
 </table>
 
 <p>*O conector CieloEcommerce estará disponível em breve.</p>
+
+<p><strong>O preenchimento dos campos relacionados ao MPI é opcional; você pode escolher preencher os dados de MPI e deixar a opção **UseMpi</strong> desativada (“No”) e, mais tarde, caso deseje ativar o 3DS para esta afiliação, apenas altere a opção <strong>UseMpi</strong> para “Yes”.</p>
 
 <h2 id="condição-de-pagamento">Condição de Pagamento</h2>
 
@@ -435,7 +437,7 @@
 
 <h2 id="3ds">3DS</h2>
 
-<p>As credenciais recebidas para utilização da solução devem ser inseridas conforme em <a href="https://braspag.github.io//tutorial/integracao-vtex#afilia%C3%A7%C3%A3o-de-pagamento">Afiliação de Pagamento</a></p>
+<p>As credenciais recebidas para utilização da solução devem ser inseridas conforme em <a href="https://braspag.github.io//tutorial/integracao-vtex#afilia%C3%A7%C3%A3o-de-pagamento">Afiliação de Pagamento</a>. Caso não use a solução 3DS, selecione o campo <strong>UseMpi</strong> como “No” em <a href="https://braspag.github.io//tutorial/integracao-vtex#4.-preenchendo-dados-necess%C3%A1rios">Preenchendo os Dados Necessários</a>.</p>
 
 <h2 id="split-de-pagamentos">Split de Pagamentos</h2>
 
