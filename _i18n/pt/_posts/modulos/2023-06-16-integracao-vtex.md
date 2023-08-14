@@ -84,7 +84,7 @@ Preencha os campos com os dados requisitados. A imagem a seguir é um **exemplo*
 
 *O conector CieloEcommerce estará disponível em breve.
 
-**O preenchimento dos campos relacionados ao MPI é opcional; você pode escolher preencher os dados de MPI e deixar a opção **UseMpi** desativada ("No") e, mais tarde, caso deseje ativar o 3DS para esta afiliação, apenas altere a opção **UseMpi** para "Yes".
+** O preenchimento dos campos relacionados ao MPI é opcional; você pode escolher preencher os dados de MPI e deixar a opção **UseMpi** desativada ("No") e, mais tarde, caso deseje ativar o 3DS para esta afiliação, apenas altere a opção **UseMpi** para "Yes".
 
 ## Condição de Pagamento
 
