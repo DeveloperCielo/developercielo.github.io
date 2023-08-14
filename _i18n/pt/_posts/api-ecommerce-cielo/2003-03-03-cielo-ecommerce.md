@@ -3795,7 +3795,9 @@ Nesse modelo, a loja é responsável por criar a inteligência necessária para:
 | **Criar repetição transacional**        | A loja deverá enviar uma nova transação sempre que necessitar de uma autorização.                |
 | **Comportamento para transação negada** | Caso uma das transações seja negada, caberá a loja a decisão de _retentar_ uma nova autorização. |
 
-> A recorrência própria é uma transação padrão para a Cielo, sendo sua única diferença a necessidade de enviar um parâmetro adicional que a define como **Recorrência Própria**:<br/> > <br/> > **Parâmetro:** `Payment.Recurrent`= "true".
+> A recorrência própria é uma transação padrão para a Cielo; a única diferença é a necessidade de enviar um parâmetro adicional que a define como **Recorrência Própria**:<br/>
+>
+> **Parâmetro:** `Payment.Recurrent`= "true".
 
 ![Fluxo recorrência própria]({{ site.baseurl_root }}/images/apicieloecommerce/recorrencia-cielo-rec-propria.png)
 
