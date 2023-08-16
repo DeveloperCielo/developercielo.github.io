@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-08-16T14:51:05+00:00</updated>
+    <updated>2023-08-16T15:07:22+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -43224,7 +43224,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
 
 &lt;p&gt;This information allows you to take actions at the time of payment to improve the store’s conversion rates.&lt;/p&gt;
 
-&lt;aside class=&quot;warning&quot;&gt;BIN Query must be enabled by Cielo Support Team. Contact them to enable the service.&lt;/aside&gt;
+&lt;aside class=&quot;warning&quot;&gt;Contact Cielo Support Team to enable BIN Query.&lt;/aside&gt;
 
 &lt;h2 id=&quot;use-case&quot;&gt;Use Case&lt;/h2&gt;
 
@@ -43375,6 +43375,8 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
 &lt;p&gt;Zero Auth supports &lt;strong&gt;Visa, Master&lt;/strong&gt; and &lt;strong&gt;Elo&lt;/strong&gt; for both credit and debit cards.&lt;/p&gt;
 
 &lt;p&gt;If other brands are sent, there will be an error with the return “&lt;strong&gt;57-Invalid Brand&lt;/strong&gt;”.&lt;/p&gt;
+
+&lt;aside class=&quot;warning&quot;&gt;Contact Cielo Support Team to enable Zero Auth.&lt;/aside&gt;
 
 &lt;h2 id=&quot;integration-1&quot;&gt;Integration&lt;/h2&gt;
 
