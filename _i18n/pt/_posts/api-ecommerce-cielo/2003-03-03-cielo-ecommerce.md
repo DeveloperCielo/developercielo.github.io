@@ -6376,6 +6376,8 @@ O Zero Auth suporta as bandeiras **Visa, Master** e **Elo** tanto para cartões 
 
 Caso outras bandeiras sejam enviadas, haverá um erro com o retorno "**57-Bandeira inválida**".
 
+<aside class="warning">Para habilitar a Consulta Bin, entre em contato com a equipe de suporte da Cielo.</aside>
+
 ## Integração
 
 Para realizar a consulta ao Zero Auth, o lojista deverá enviar uma requisição `POST` para a API Cielo Ecommerce, simulando uma transação.
