@@ -6345,7 +6345,7 @@ curl
 
 This information allows you to take actions at the time of payment to improve the store's conversion rates.
 
-<aside class="warning">BIN Query must be enabled by Cielo Support Team. Contact them to enable the service.</aside>
+<aside class="warning">Contact Cielo Support Team to enable BIN Query.</aside>
 
 ## Use Case
 
@@ -6426,6 +6426,8 @@ Zero Auth is the correct way to validate cards according to the recommendations 
 Zero Auth supports **Visa, Master** and **Elo** for both credit and debit cards.
 
 If other brands are sent, there will be an error with the return "**57-Invalid Brand**".
+
+<aside class="warning">Contact Cielo Support Team to enable Zero Auth.</aside>
 
 ## Integration
 
