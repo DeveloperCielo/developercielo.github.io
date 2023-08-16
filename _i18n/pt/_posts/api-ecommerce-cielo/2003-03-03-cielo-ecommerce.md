@@ -6376,7 +6376,7 @@ O Zero Auth suporta as bandeiras **Visa, Master** e **Elo** tanto para cartões 
 
 Caso outras bandeiras sejam enviadas, haverá um erro com o retorno "**57-Bandeira inválida**".
 
-<aside class="warning">Para habilitar Zero Auth, entre em contato com a equipe de suporte da Cielo.</aside>
+<aside class="warning">Para habilitar o Zero Auth, entre em contato com a equipe de suporte da Cielo.</aside>
 
 ## Integração
 
