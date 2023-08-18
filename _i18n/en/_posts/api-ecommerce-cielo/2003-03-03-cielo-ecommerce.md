@@ -433,7 +433,7 @@ To enjoy all the features available in our API, it is important that you first u
 | **Cancellation**   | The cancellation is necessary when, for some reason, a sale will not be effected anymore.                                                                                                                                                                         |
 | **Authentication** | The authentication process makes it possible to effective a sale, which will pass through the authentication process of the card issuing bank, then providing more security for the sale and transferring the risk of fraud to the bank.                          |
 
-<aside class="warning">IMPORTANT: The order identification number (MerchantOrderId) does not change, remaining the same throughout the transactional flow. However, an additional number can be generated for the order and used during the transaction. This number will only be different in case of adaptation to the acquirer's rules or in case there are repeated order identification numbers (MerchantOrderId). For reconciliation purposes, use TransactionId.</aside>
+<aside class="warning">IMPORTANT: The order identification number (MerchantOrderId) does not change, remaining the same throughout the transactional flow. However, an additional number can be generated for the order and used during the transaction. This number will only be different in case of adaptation to the acquirer's rules or in case there are repeated order identification numbers (MerchantOrderId) in less then 24 hours. For reconciliation purposes, use TransactionId.</aside>
 
 #### Creating a credit card transaction
 
