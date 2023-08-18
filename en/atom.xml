@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-08-18T16:00:57+00:00</updated>
+    <updated>2023-08-18T18:31:15+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -32138,7 +32138,7 @@ You can import them directly into your POSTMAN and have all the examples ready t
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;aside class=&quot;warning&quot;&gt;IMPORTANT: The order identification number (MerchantOrderId) does not change, remaining the same throughout the transactional flow. However, an additional number can be generated for the order and used during the transaction. This number will only be different in case of adaptation to the acquirer's rules or in case there are repeated order identification numbers (MerchantOrderId). For reconciliation purposes, use TransactionId.&lt;/aside&gt;
+&lt;aside class=&quot;warning&quot;&gt;IMPORTANT: The order identification number (MerchantOrderId) does not change, remaining the same throughout the transactional flow. However, an additional number can be generated for the order and used during the transaction. This number will only be different in case of adaptation to the acquirer's rules or in case there are repeated order identification numbers (MerchantOrderId) in less then 24 hours. For reconciliation purposes, use TransactionId.&lt;/aside&gt;
 
 &lt;h4 id=&quot;creating-a-credit-card-transaction&quot;&gt;Creating a credit card transaction&lt;/h4&gt;
 

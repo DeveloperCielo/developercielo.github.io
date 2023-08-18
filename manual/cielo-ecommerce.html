@@ -912,7 +912,7 @@ Abaixo especificamos qualquer diferença existente:</p>
   </tbody>
 </table>
 
-<aside class="warning">IMPORTANTE: O número de identificação do pedido (`MerchantOrderId`) não sofre alteração ao longo do fluxo transacional. Contudo, um número adicional pode ser gerado para o pedido e utilizado durante a transação. Esse número só será diferente em caso de adequação a regras da adquirente ou em caso de números de identificação do pedido (`MerchantOrderId`) repetidos. Para fins de conciliação, use o `TransactionId`.</aside>
+<aside class="warning">IMPORTANTE: O número de identificação do pedido (`MerchantOrderId`) não sofre alteração ao longo do fluxo transacional. Contudo, um número adicional pode ser gerado para o pedido e utilizado durante a transação. Esse número só será diferente em caso de adequação a regras da adquirente ou em caso de números de identificação do pedido (`MerchantOrderId`) repetidos em menos de 24 horas. Para fins de conciliação, use o `TransactionId`.</aside>
 
 <h4 id="criando-uma-transação-de-crédito">Criando uma transação de crédito</h4>
 
