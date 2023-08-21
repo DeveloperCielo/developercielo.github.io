@@ -14,7 +14,7 @@
   />
 
   <title>
-     API Super Link &middot; Documentações e tutoriais 
+     API Link de Pagamento Cielo &middot; Documentações e tutoriais 
   </title>
 
   <link rel="shortcut icon" href="https://developercielo.github.io/assets/favicon.ico" />
@@ -137,7 +137,7 @@
                             
                                 
                                     
-                                    <li class="active">&gt; <a href="https://developercielo.github.io/manual/linkdepagamentos5">API Super Link</a></li>
+                                    <li class="active">&gt; <a href="https://developercielo.github.io/manual/linkdepagamentos5">API Link de Pagamento Cielo</a></li>
                                     
                                 
                             
@@ -146,11 +146,11 @@
                 </div>
             </div>
 
-            <div class="post"><h1 id="super-link">Super Link</h1>
+            <div class="post"><h1 id="link-de-pagamento-cielo">Link de Pagamento Cielo</h1>
 
 <h1 id="sobre-esta-documentação">Sobre esta documentação</h1>
 
-<p>Este manual irá guiar o desenvolvedor na integração com a API Super Link da Cielo. Ao integrar a API do Super Link, você vai conseguir:</p>
+<p>Este manual irá guiar o desenvolvedor na integração com a API Link de Pagamento Cielo. Ao integrar a API do Link de Pagamento, você vai conseguir:</p>
 
 <ul>
   <li>Configurar a sua loja e personalizar seus links de pagamentos;</li>
@@ -160,12 +160,12 @@
 </ul>
 
 <blockquote>
-  <p>Você também pode usar o Super Link pelo <a href="https://www.cielo.com.br/" target="_blank">site Cielo</a> ou pelo app <a href="https://play.google.com/store/apps/details?id=br.com.mobicare.cielo&amp;hl=pt_BR&amp;gl=US" target="_blank">Cielo Gestão</a>.</p>
+  <p>Você também pode usar o Link de Pagamento pelo <a href="https://www.cielo.com.br/" target="_blank">site Cielo</a> ou pelo app <a href="https://play.google.com/store/apps/details?id=br.com.mobicare.cielo&amp;hl=pt_BR&amp;gl=US" target="_blank">Cielo Gestão</a>.</p>
 </blockquote>
 
-<h1 id="sobre-o-super-link">Sobre o Super Link</h1>
+<h1 id="sobre-o-link-de-pagamento-cielo">Sobre o Link de Pagamento Cielo</h1>
 
-<p>O <strong>Super Link</strong> permite que você envie um <strong>link de pagamento de um pedido</strong> para seus clientes pelas redes sociais ou pelo canal que preferir. Ao abrir o link de pagamento, a pessoa compradora vai ver uma página personalizada com o logo da sua loja e as opções de pagamento.</p>
+<p>O <strong>Link de Pagamento</strong> permite que você envie um <strong>link de pagamento de um pedido</strong> para seus clientes pelas redes sociais ou pelo canal que preferir. Ao abrir o link de pagamento, a pessoa compradora vai ver uma página personalizada com o logo da sua loja e as opções de pagamento.</p>
 
 <p>Você pode vender diferentes tipos de produtos:</p>
 
@@ -177,34 +177,34 @@
   <li><strong>Recorrência</strong>: vendas que se repetem dentro de uma determinada periodicidade, como mensalidade de academia ou aulas de idiomas.</li>
 </ul>
 
-<h2 id="como-criar-um-super-link">Como criar um Super Link?</h2>
+<h2 id="como-criar-um-link-de-pagamento">Como criar um Link de Pagamento?</h2>
 
-<p>Você pode criar um Super Link pelo site Cielo, app Cielo Gestão ou pela API Super Link. Neste manual, vamos tratar da integração da API do Super Link.</p>
+<p>Você pode criar um Link de Pagamento pelo site Cielo, app Cielo Gestão ou pela API Link de Pagamento. Neste manual, vamos tratar da integração da API do Link de Pagamento.</p>
 
-<h2 id="quem-pode-usar-o-super-link">Quem pode usar o Super Link?</h2>
+<h2 id="quem-pode-usar-o-link-de-pagamento">Quem pode usar o Link de Pagamento?</h2>
 
-<p>Qualquer loja que deseje vender online pode criar um link de pagamento e compartilhar esse link pelas redes sociais. Você não precisa ter um e-commerce para usar o Super Link.</p>
+<p>Qualquer loja que deseje vender online pode criar um link de pagamento e compartilhar esse link pelas redes sociais. Você não precisa ter um e-commerce para usar o Link de Pagamento.</p>
 
-<h1 id="api-do-super-link">API do Super Link</h1>
+<h1 id="api-do-link-de-pagamento-cielo">API do Link de Pagamento Cielo</h1>
 
-<p>A <strong>API do Super Link</strong> é uma API REST que permite <strong>criar, editar e consultar links de pagamentos</strong>. A principal vantagem da API é permitir que lojas possam criar links de pagamento (por botões ou QR Codes) através de seus próprios sistemas e compartilhar o Super Link com seus clie ntes, sem a necessidade de acessar o site Cielo.</p>
+<p>A <strong>API do Link de Pagamento</strong> é uma API REST que permite <strong>criar, editar e consultar links de pagamentos</strong>. A principal vantagem da API é permitir que lojas possam criar links de pagamento (por botões ou QR Codes) através de seus próprios sistemas e compartilhar o Super Link com seus clientes, sem a necessidade de acessar o site Cielo.</p>
 
-<p>A imagem a seguir representa o fluxo geral do funcionamento da API do Super Link:</p>
+<p>A imagem a seguir representa o fluxo geral do funcionamento da API do Link de Pagamento:</p>
 
 <p><img src="https://developercielo.github.io/images/checkout/superlink/fluxo-superlink.png" alt="Imagem Fluxo Geral Super Link" /></p>
 
 <ol>
-  <li>A loja envia requisição de criação do link de pagamento para a API do Super Link;</li>
-  <li>A API do Super Link retorna a URL do link de pagamento e o ID do link;</li>
+  <li>A loja envia requisição de criação do link de pagamento para a API do Link de Pagamento;</li>
+  <li>A API do Link de Pagamento retorna a URL do link de pagamento e o ID do link;</li>
   <li>A loja compartilha o link de pagamento com o comprador;</li>
   <li>O comprador efetua o pagamento;</li>
-  <li>A Cielo (como adquirência) autoriza o pagamento e envia confirmação para o Super Link;</li>
-  <li>A API do Super Link envia a notificação de finalização da transação ou a notificação de mudança de status para a loja. Se desejar, a loja pode desenvolver um processo para disparo de e-mail de confirmação ao comprador (não disponível pela API do Super Link).</li>
+  <li>A Cielo (como adquirência) autoriza o pagamento e envia confirmação para o Link de Pagamento;</li>
+  <li>A API do Link de Pagamento envia a notificação de finalização da transação ou a notificação de mudança de status para a loja. Se desejar, a loja pode desenvolver um processo para disparo de e-mail de confirmação ao comprador (não disponível pela API do Link de Pagamento).</li>
 </ol>
 
 <h2 id="meios-de-pagamento-e-bandeiras">Meios de pagamento e bandeiras</h2>
 
-<p>No Super Link você pode vender seus produtos e serviços pelos principais meios de pagamento, como cartões de crédito e débito ou carteiras digitais.</p>
+<p>No Link de Pagamento você pode vender seus produtos e serviços pelos principais meios de pagamento, como cartões de crédito e débito ou carteiras digitais.</p>
 
 <table>
   <thead>
@@ -235,10 +235,10 @@
 
 <h1 id="início-rápido">Início Rápido</h1>
 
-<p>Para iniciar a sua integração com a API do Super Link, você vai precisar:</p>
+<p>Para iniciar a sua integração com a API do Link de Pagamento, você vai precisar:</p>
 
 <ol>
-  <li>Solicitar o <a href="https://developercielo.github.io/manual/linkdepagamentos5#configura%C3%A7%C3%B5es-da-loja">nº de estabelecimento (EC) para o Super Link</a></li>
+  <li>Solicitar o <a href="https://developercielo.github.io/manual/linkdepagamentos5#configura%C3%A7%C3%B5es-da-loja">nº de estabelecimento (EC) para o Link de Pagamento</a></li>
   <li>Definir as <a href="https://developercielo.github.io/manual/linkdepagamentos5#configura%C3%A7%C3%B5es-da-loja">configurações da loja</a> (personalização da página, escolha dos meios de pagamento e contrato com os Correios, se houver);</li>
   <li>Configurar uma <a href="https://developercielo.github.io/manual/linkdepagamentos5#configura%C3%A7%C3%B5es-da-loja">URL de notificação e de mudança de status</a> para a sua loja;</li>
   <li>Obter as <a href="https://developercielo.github.io/manual/linkdepagamentos5#autentica%C3%A7%C3%A3o-cielo-oauth">credenciais de acesso à API</a> (<code class="language-plaintext highlighter-rouge">ClientId</code> e <code class="language-plaintext highlighter-rouge">Client Secret</code>);</li>
@@ -246,19 +246,19 @@
   <li>Com o token, <a href="https://developercielo.github.io/manual/linkdepagamentos5#criar-link">criar um link de pagamento</a>;</li>
   <li>Quando houver uma tentativa de pagamento no link, você receberá uma <a href="https://developercielo.github.io/manual/linkdepagamentos5#notifica%C3%A7%C3%B5es-da-transa%C3%A7%C3%A3o">notificação</a>* com todos os dados preenchidos no checkout;</li>
   <li>Se a transação mudar de status, você receberá uma <a href="https://developercielo.github.io/manual/linkdepagamentos5#notifica%C3%A7%C3%B5es-da-transa%C3%A7%C3%A3o">notificação</a>* de mudança de status;</li>
-  <li>Para efetuar testes, use o <a href="https://developercielo.github.io/manual/linkdepagamentos5#modo-teste">Modo de Teste</a> do Super Link.</li>
+  <li>Para efetuar testes, use o <a href="https://developercielo.github.io/manual/linkdepagamentos5#modo-teste">Modo de Teste</a> do Link de Pagamento.</li>
 </ol>
 
 <p>*<em>Desde que tenha configurado a URL de notificação.</em></p>
 
 <h1 id="configurações-da-loja">Configurações da loja</h1>
 
-<p>Antes das configurações, você precisa habilitar o Super Link para a sua loja.</p>
+<p>Antes das configurações, você precisa habilitar o Link de Pagamento para a sua loja.</p>
 
-<h2 id="habilitando-o-nº-de-estabelecimento-ec-para-o-super-link">Habilitando o nº de estabelecimento (EC) para o Super Link</h2>
+<h2 id="habilitando-o-nº-de-estabelecimento-ec-para-o-link-de-pagamento">Habilitando o nº de estabelecimento (EC) para o Link de Pagamento</h2>
 
 <ul>
-  <li><strong>Se você ainda não é cliente Cielo ou se só usa a maquininha</strong>, acesse o <a href="https://www.cielo.com.br/" target="_blank">site Cielo</a> para habilitar nº do estabelecimento (EC) para o Super Link;</li>
+  <li><strong>Se você ainda não é cliente Cielo ou se só usa a maquininha</strong>, acesse o <a href="https://www.cielo.com.br/" target="_blank">site Cielo</a> para habilitar nº do estabelecimento (EC) para o Link de Pagamento;</li>
   <li><strong>Se você já é cliente Cielo E-commerce</strong>, entre em contato com seu gestor comercial ou com o Suporte Cielo.</li>
 </ul>
 
@@ -299,11 +299,11 @@
 <blockquote>
   <p><strong>Habilitando o Pix no portal Cielo</strong><br />
 Para usar o <strong>Pix</strong>, o seu <strong>cadastro deve estar habilitado com o meio de pagamento Pix</strong>. Para confirmar a habilitação, acesse o <a href="https://www.cielo.com.br/" target="_blank">portal Cielo</a>  e clique em <strong>Meu Cadastro</strong> &gt; <strong>Autorizações</strong> &gt; <strong>Pix</strong>.<br />
-Caso o Pix não esteja habilitado em seu cadastro, será apresentada a tela de adesão caso o seu estabelecimento (EC) seja elegível; após concluir o processo de adesão do Pix, já será possível usar o Pix no Super Link Cielo.<br />
+Caso o Pix não esteja habilitado em seu cadastro, será apresentada a tela de adesão caso o seu estabelecimento (EC) seja elegível; após concluir o processo de adesão do Pix, já será possível usar o Pix no Link de Pagamento Cielo.<br />
 <img src="https://developercielo.github.io/images/apicieloecommerce/adesao-pix.png" alt="Adesão ao Pix" /></p>
 </blockquote>
 
-<p>Para mais detalhes veja o <a href="https://developercielo.github.io/tutorial/checkout-tutoriais" target="_blank">tutorial Super Link e Checkout Cielo</a>.</p>
+<p>Para mais detalhes veja o <a href="https://developercielo.github.io/tutorial/checkout-tutoriais" target="_blank">tutorial Link de Pagamento e Checkout Cielo</a>.</p>
 
 <h3 id="4-configure-as-urls-de-retorno-notificação-e-mudança-de-status-da-sua-loja">4. Configure as URLs de retorno, notificação e mudança de status da sua loja</h3>
 
@@ -339,7 +339,7 @@ Caso o Pix não esteja habilitado em seu cadastro, será apresentada a tela de a
 
 <h3 id="configurações-padrão">Configurações padrão</h3>
 
-<p>Caso você não preencha as Configurações da Loja, o Super Link irá considerar o seguinte padrão:</p>
+<p>Caso você não preencha as Configurações da Loja, o Link de Pagamento irá considerar o seguinte padrão:</p>
 
 <ul>
   <li>A opção de envio de e-mail ao portador estará ligada;</li>
@@ -356,7 +356,7 @@ Caso o Pix não esteja habilitado em seu cadastro, será apresentada a tela de a
 
 <h2 id="sandbox">Sandbox</h2>
 
-<p>Por se tratar de uma chamada não financeira, a API do Super Link não possui um sandbox para testar a criação de links. Os links devem ser criados a partir de um cadastro de produção. O credenciamento pode ser feito através do site Cielo ou por meio de uma solicitação do Gestor comercial do estabelecimento.</p>
+<p>Por se tratar de uma chamada não financeira, a API do Link de Pagamento não possui um sandbox para testar a criação de links. Os links devem ser criados a partir de um cadastro de produção. O credenciamento pode ser feito através do site Cielo ou por meio de uma solicitação do Gestor comercial do estabelecimento.</p>
 
 <p><strong>Suporte Cielo E-commerce</strong></p>
 
@@ -374,7 +374,7 @@ Caso o Pix não esteja habilitado em seu cadastro, será apresentada a tela de a
 
 <p><img src="https://developercielo.github.io/images/checkout/superlink/superlink-modotesteativo.png" alt="Modo Teste Ativo selecionado" /></p>
 
-<p>Quando a opção for salva, uma tarja vermelha será exibida na parte superior da tela. Ela será exibida em todas as telas do Super Link.</p>
+<p>Quando a opção for salva, uma tarja vermelha será exibida na parte superior da tela. Ela será exibida em todas as telas do Link de Pagamento.</p>
 
 <p>Essa tarja indica que a sua loja está agora operando em ambiente de teste, ou seja, toda a transação realizada nesse modo será considerada como teste.</p>
 
@@ -432,7 +432,7 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
 
 <h1 id="endpoints">Endpoints</h1>
 
-<p>Os endpoints para integração com o Super Link são apresentados na tabela a seguir:</p>
+<p>Os endpoints para integração com o Link de Pagamento são apresentados na tabela a seguir:</p>
 
 <table>
   <thead>
@@ -449,7 +449,7 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
       <td>Autenticação</td>
     </tr>
     <tr>
-      <td>API Super Link</td>
+      <td>API Link de Pagamento</td>
       <td>https://cieloecommerce.cielo.com.br/api/public/v1/products/</td>
       <td>Criação, consulta e exclusão de links de pagamento.</td>
     </tr>
@@ -462,14 +462,14 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
 </table>
 
 <blockquote>
-  <p>Importante: A API do Super Link não possui sandbox, mas você pode criar links de teste ativando o Modo Teste no site Cielo.</p>
+  <p>Importante: A API do Link de Pagamento não possui sandbox, mas você pode criar links de teste ativando o Modo Teste no site Cielo.</p>
 </blockquote>
 
 <p>As transações criadas com o Modo Teste ativado podem ser consultadas pela API de Controle Transacional.</p>
 
 <h1 id="autenticação-cielo-oauth">Autenticação Cielo OAUTH</h1>
 
-<p>O Cielo OAUTH é um processo de autenticação das APIs Cielo relacionadas ao e-commerce. O Cielo OAUTH utiliza como segurança o protocolo <strong><a href="https://oauth.net/2/" target="_blank">OAUTH2</a> </strong>, no qual é necessário primeiro obter um token de acesso utlizando suas credenciais e, posteriormente, enviá-lo à API do Super Link.</p>
+<p>O Cielo OAUTH é um processo de autenticação das APIs Cielo relacionadas ao e-commerce. O Cielo OAUTH utiliza como segurança o protocolo <strong><a href="https://oauth.net/2/" target="_blank">OAUTH2</a> </strong>, no qual é necessário primeiro obter um token de acesso utlizando suas credenciais e, posteriormente, enviá-lo à API do Link de Pagamento.</p>
 
 <p>Para utilizar o Cielo OAUTH são necessarias as seguintes credenciais:</p>
 
@@ -501,10 +501,10 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
 
 <h2 id="obtendo-as-credenciais">Obtendo as credenciais</h2>
 
-<p>Para obter as credenciais <code class="language-plaintext highlighter-rouge">ClientId</code> e <code class="language-plaintext highlighter-rouge">ClientSecret</code> para autenticação na API do Super Link, siga os passos a seguir:</p>
+<p>Para obter as credenciais <code class="language-plaintext highlighter-rouge">ClientId</code> e <code class="language-plaintext highlighter-rouge">ClientSecret</code> para autenticação na API do Link de Pagamento, siga os passos a seguir:</p>
 
 <ol>
-  <li>Após receber o nº de estabelecimento (EC) com a habilitação para o Super Link, acesse o <a href="https://minhaconta2.cielo.com.br/login/" target="_blank">site Cielo</a> e faça o login;</li>
+  <li>Após receber o nº de estabelecimento (EC) com a habilitação para o Link de Pagamento, acesse o <a href="https://minhaconta2.cielo.com.br/login/" target="_blank">site Cielo</a> e faça o login;</li>
   <li>Vá para a aba <strong>Ecommerce</strong> &gt; <strong>Super Link</strong> &gt; <strong>Configurações</strong> &gt; <strong>Dados Cadastrais</strong>;</li>
   <li>Na seção <strong>Contato técnico</strong>, preencha com os dados de contato da pessoa responsável por receber as chaves da sua loja. <em>ATENÇÃO: apenas coloque os dados da pessoa que realmente pode ter acesso às chaves da sua loja, que são informações sigilosas de cada estabelecimento</em>;</li>
   <li>Clique em <strong>Gerar Credenciais de Acesso às APIs</strong>;</li>
@@ -564,7 +564,7 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
 
 <h3 id="resposta">Resposta</h3>
 
-<p>A resposta retornará o <code class="language-plaintext highlighter-rouge">access_token</code>, que deverá ser usado nas requisições da API do Super Link.</p>
+<p>A resposta retornará o <code class="language-plaintext highlighter-rouge">access_token</code>, que deverá ser usado nas requisições da API do Link de Pagamento.</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w">
@@ -602,7 +602,7 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
 </table>
 
 <blockquote>
-  <p>O token retornado (<code class="language-plaintext highlighter-rouge">access_token</code>) deverá ser utilizado em toda requisição à API do Super link como uma chave de autorização. O <code class="language-plaintext highlighter-rouge">access_token</code> possui uma validade de 20 minutos (1200 segundos) e é necessário gerar um novo token toda vez que a validade expirar.</p>
+  <p>O token retornado (<code class="language-plaintext highlighter-rouge">access_token</code>) deverá ser utilizado em toda requisição à API do Link de Pagamento como uma chave de autorização. O <code class="language-plaintext highlighter-rouge">access_token</code> possui uma validade de 20 minutos (1200 segundos) e é necessário gerar um novo token toda vez que a validade expirar.</p>
 </blockquote>
 
 <h1 id="link-de-pagamento">Link de pagamento</h1>
@@ -886,7 +886,7 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
     <tr>
       <td><code class="language-plaintext highlighter-rouge">shortUrl</code></td>
       <td>string</td>
-      <td>Representa o link de pagamento que ao ser aberto, em um browser, apresentará a tela do Super Link Cielo.</td>
+      <td>Representa o link de pagamento que ao ser aberto, em um browser, apresentará a tela do Link de Pagamento Cielo.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">links</code></td>
@@ -972,7 +972,7 @@ Para consultar uma transação, veja a seção <a href="https://developercielo.g
     <tr>
       <td><code class="language-plaintext highlighter-rouge">shortUrl</code></td>
       <td>string</td>
-      <td>Representa o link de pagamento que ao ser aberto, em um browser, apresentará a tela do Super Link Cielo.</td>
+      <td>Representa o link de pagamento que ao ser aberto, em um browser, apresentará a tela do Link de Pagamento Cielo.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">links</code></td>
@@ -1078,7 +1078,7 @@ Para consultar uma transação, veja a seção <a href="https://developercielo.g
     <tr>
       <td><code class="language-plaintext highlighter-rouge">shortUrl</code></td>
       <td>string</td>
-      <td>Representa o link de pagamento que ao ser aberto, em um browser, apresentará a tela do Super Link Cielo.</td>
+      <td>Representa o link de pagamento que ao ser aberto, em um browser, apresentará a tela do Link de Pagamento Cielo.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">links</code></td>
@@ -1138,11 +1138,11 @@ Para consultar uma transação, veja a seção <a href="https://developercielo.g
   </tbody>
 </table>
 
-<p>*As notificações são enviadas para as URLs definidas pelo estabelecimento nas <a href="https://developercielo.github.io/manual/linkdepagamentos5#configura%C3%A7%C3%B5es-da-loja" target="_blank"><strong>Configurações da Loja</strong></a> e contêm os dados das transações realizadas no Super Link.</p>
+<p>*As notificações são enviadas para as URLs definidas pelo estabelecimento nas <a href="https://developercielo.github.io/manual/linkdepagamentos5#configura%C3%A7%C3%B5es-da-loja" target="_blank"><strong>Configurações da Loja</strong></a> e contêm os dados das transações realizadas no Link de Pagamento.</p>
 
-<p>Vale destacar que o Super Link realiza a notificação somente quando uma transação é considerada finalizada, ou seja, o comprador preencheu todos os dados da tela de pagamento e clicou em <strong>Finalizar</strong>.</p>
+<p>Vale destacar que o Link de Pagamento realiza a notificação somente quando uma transação é considerada finalizada, ou seja, o comprador preencheu todos os dados da tela de pagamento e clicou em <strong>Finalizar</strong>.</p>
 
-<p><strong>Exemplo</strong>: <em>O comprador acessa o link de pagamento e escolhe pagar via Pix. Ao clicar em Finalizar, o Super Link gera a chave Pix e envia para a loja a notificação de finalização da transação, que estará com o status “Pendente”. Quando o comprador fizer o pagamento via Pix, a transação ficará com o status “Pago” e o Super Link enviará a notificação de mudança de status.</em></p>
+<p><strong>Exemplo</strong>: <em>O comprador acessa o link de pagamento e escolhe pagar via Pix. Ao clicar em Finalizar, o Link de Pagamento gera a chave Pix e envia para a loja a notificação de finalização da transação, que estará com o status “Pendente”. Quando o comprador fizer o pagamento via Pix, a transação ficará com o status “Pago” e o Link de Pagamento enviará a notificação de mudança de status.</em></p>
 
 <h2 id="características-das-notificações">Características das notificações</h2>
 
@@ -1169,11 +1169,11 @@ Para consultar uma transação, veja a seção <a href="https://developercielo.g
 
 <p><strong>Formato das notificações</strong></p>
 
-<p>Nas notificações suportadas pela API do Super Link o formato enviado é <em>Form Data</em>, discriminado pelo header <code class="language-plaintext highlighter-rouge">Content-Type</code> ‘x-www-form-urlencoded’.</p>
+<p>Nas notificações suportadas pela API do Link de Pagamento o formato enviado é <em>Form Data</em>, discriminado pelo header <code class="language-plaintext highlighter-rouge">Content-Type</code> ‘x-www-form-urlencoded’.</p>
 
 <p><strong>Retorno esperado</strong></p>
 
-<p>O servidor da loja deve enviar o retorno <code class="language-plaintext highlighter-rouge">HTTPStatus = 200 (OK)</code> para a API do Super Link, indicando que a notificação foi recebida e processada com sucesso.</p>
+<p>O servidor da loja deve enviar o retorno <code class="language-plaintext highlighter-rouge">HTTPStatus = 200 (OK)</code> para a API do Link de Pagamento, indicando que a notificação foi recebida e processada com sucesso.</p>
 
 <blockquote>
   <p><strong>IMPORTANTE</strong>: Se a URL cadastrada retornar algum erro ou estiver indisponível, serão realizadas três novas tentativas, com intervalo de uma hora entre cada POST.</p>
@@ -1215,7 +1215,7 @@ Para consultar uma transação, veja a seção <a href="https://developercielo.g
 
 <h3 id="notificação-via-json">Notificação via JSON</h3>
 
-<p>A notificação via JSON é um método mais seguro e flexível para realizar uma consulta no Super Link Cielo. Nessa modalidade a loja recebe o <code class="language-plaintext highlighter-rouge">MerchantId</code> e o <code class="language-plaintext highlighter-rouge">MerchantOrderNumber</code> e uma URL para realizar uma consulta (GET) junto à base de dados do Super Link Cielo e acessar os detalhes da transação.</p>
+<p>A notificação via JSON é um método mais seguro e flexível para realizar uma consulta no Link de Pagamento Cielo. Nessa modalidade a loja recebe o <code class="language-plaintext highlighter-rouge">MerchantId</code> e o <code class="language-plaintext highlighter-rouge">MerchantOrderNumber</code> e uma URL para realizar uma consulta (GET) junto à base de dados do Link de Pagamento Cielo e acessar os detalhes da transação.</p>
 
 <p><strong>Conteúdo da notificação via JSON</strong></p>
 
@@ -1240,18 +1240,18 @@ Para consultar uma transação, veja a seção <a href="https://developercielo.g
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Identificador da loja no Super Link; consta no site Cielo no menu Configuração &gt; Dados Cadastrais.</td>
+      <td>Identificador da loja no Link de Pagamento; consta no site Cielo no menu Configuração &gt; Dados Cadastrais.</td>
       <td>Alfanumérico (guid)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderNumber</code></td>
-      <td>Número do pedido da loja; se não for enviado, o Super Link Cielo gerará um número, que será visualizado pelo Consumidor.</td>
+      <td>Número do pedido da loja; se não for enviado, o Link de Pagamento Cielo gerará um número, que será visualizado pelo Consumidor.</td>
       <td>Alfanumérico</td>
     </tr>
   </tbody>
 </table>
 
-<p><em>O servidor da loja deve enviar o retorno <code class="language-plaintext highlighter-rouge">HTTP Status = 200 (OK)</code> para a API do Super Link, indicando que a notificação foi recebida e processada com sucesso.</em></p>
+<p><em>O servidor da loja deve enviar o retorno <code class="language-plaintext highlighter-rouge">HTTP Status = 200 (OK)</code> para a API do Link de Pagamento, indicando que a notificação foi recebida e processada com sucesso.</em></p>
 
 <p><strong>Exemplo de uma consulta à URL retornada via JSON</strong></p>
 
@@ -1305,7 +1305,7 @@ Para consultar uma transação, veja a seção <a href="https://developercielo.g
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">checkout_cielo_order_number</code></td>
-      <td>Identificador único gerado pelo Super Link Cielo.</td>
+      <td>Identificador único gerado pelo Link de Pagamento Cielo.</td>
       <td>Alfanumérico</td>
       <td>32</td>
     </tr>
@@ -1329,25 +1329,25 @@ Para consultar uma transação, veja a seção <a href="https://developercielo.g
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">customer_name</code></td>
-      <td>Nome do consumidor. Se enviado, esse valor já vem preenchido na tela do Super Link Cielo</td>
+      <td>Nome do consumidor. Se enviado, esse valor já vem preenchido na tela do Link de Pagamento Cielo</td>
       <td>Alfanumérico</td>
       <td>289</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">customer_identity</code></td>
-      <td>Identificação do consumidor (CPF ou CNPJ) Se enviado, esse valor já vem preenchido na tela do Super Link Cielo</td>
+      <td>Identificação do consumidor (CPF ou CNPJ) Se enviado, esse valor já vem preenchido na tela do Link de Pagamento Cielo</td>
       <td>Alfanumérico</td>
       <td>14</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">customer_email</code></td>
-      <td>E-mail do consumidor. Se enviado, esse valor já vem preenchido na tela do Super Link Cielo</td>
+      <td>E-mail do consumidor. Se enviado, esse valor já vem preenchido na tela do Link de Pagamento Cielo</td>
       <td>Alfanumérico</td>
       <td>64</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">customer_phone</code></td>
-      <td>Telefone do consumidor. Se enviado, esse valor já vem preenchido na tela do Super Link Cielo</td>
+      <td>Telefone do consumidor. Se enviado, esse valor já vem preenchido na tela do Link de Pagamento Cielo</td>
       <td>Número</td>
       <td>11</td>
     </tr>
@@ -1575,7 +1575,7 @@ Para consultar uma transação, veja a seção <a href="https://developercielo.g
 
 <h4 id="payment_status">Payment_status</h4>
 
-<p>O Super Link possui status próprios, diferente do site Cielo ou da API E-commerce Cielo. Veja a seguir a lista completa.</p>
+<p>O Link de Pagamento possui status próprios, diferente do site Cielo ou da API E-commerce Cielo. Veja a seguir a lista completa.</p>
 
 <table>
   <thead>
@@ -1706,7 +1706,7 @@ Para consultar uma transação, veja a seção <a href="https://developercielo.g
 
 <h4 id="payment_method_type">Payment_method_type</h4>
 
-<p>O Super Link permite apenas um tipo de Boleto por estabelecimento, sendo assim a notificação não retorna se o provedor usado foi Bradesco ou Banco do Brasil, pois apenas um deles estará ativo na afiliação.</p>
+<p>O Link de Pagamento permite apenas um tipo de Boleto por estabelecimento, sendo assim a notificação não retorna se o provedor usado foi Bradesco ou Banco do Brasil, pois apenas um deles estará ativo na afiliação.</p>
 
 <table>
   <thead>
@@ -1891,7 +1891,7 @@ Para consultar uma transação, veja a seção <a href="https://developercielo.g
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">checkout_cielo_order_number</code></td>
-      <td>Identificador único gerado pelo Super Link Cielo.</td>
+      <td>Identificador único gerado pelo Link de Pagamento Cielo.</td>
       <td>Alfanumérico</td>
       <td>32</td>
     </tr>
@@ -1954,7 +1954,7 @@ Para consultar uma transação, veja a seção <a href="https://developercielo.g
 
 <h2 id="por-order_number">Por order_number</h2>
 
-<p>A consulta de transações por <code class="language-plaintext highlighter-rouge">order_number</code> retorna uma lista de transações com o mesmo número de pedidos; isso ocorre pois o Super Link não impede a duplicação de <code class="language-plaintext highlighter-rouge">order_number</code>s por parte da loja. A resposta retornará o <code class="language-plaintext highlighter-rouge">checkout_cielo_order_number</code>, que deverá ser usado na consulta de uma transação específica.</p>
+<p>A consulta de transações por <code class="language-plaintext highlighter-rouge">order_number</code> retorna uma lista de transações com o mesmo número de pedidos; isso ocorre pois o Link de Pagamento não impede a duplicação de <code class="language-plaintext highlighter-rouge">order_number</code>s por parte da loja. A resposta retornará o <code class="language-plaintext highlighter-rouge">checkout_cielo_order_number</code>, que deverá ser usado na consulta de uma transação específica.</p>
 
 <h3 id="requisição-5">Requisição</h3>
 
@@ -2014,7 +2014,7 @@ Para consultar uma transação, veja a seção <a href="https://developercielo.g
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">checkoutOrderNumber</code></td>
-      <td>Código de pedido gerado pelo Super Link Cielo.</td>
+      <td>Código de pedido gerado pelo Link de Pagamento Cielo.</td>
       <td>Texto</td>
       <td>32</td>
       <td>Exmeplo: a58995ce24fd4f1cb025701e95a51478</td>
@@ -2154,7 +2154,7 @@ Para consultar uma transação, veja a seção <a href="https://developercielo.g
       <td><code class="language-plaintext highlighter-rouge">merchantId</code></td>
       <td>GUID</td>
       <td>36</td>
-      <td>Id da Loja no Super Link Cielo.</td>
+      <td>Id da Loja no Link de Pagamento Cielo.</td>
       <td>Exemplo: c89fdfbb-dbe2-4e77-806a-6d75cd397dac</td>
     </tr>
     <tr>
@@ -2515,7 +2515,7 @@ Para consultar uma transação, veja a seção <a href="https://developercielo.g
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">orders.orderNumber</code></td>
-      <td>Id pedido gerado pelo Super Link Cielo.</td>
+      <td>Id pedido gerado pelo Link de Pagamento Cielo.</td>
       <td>Texto</td>
       <td>32</td>
       <td>Exemplo: b74df3e3c1ac49ccb7ad89fde2d787f7</td>
@@ -2593,7 +2593,7 @@ Para consultar uma transação, veja a seção <a href="https://developercielo.g
   </tbody>
 </table>
 
-<p>Para realizar o as consultas via API de Controle Transacional no Super Link Cielo é obrigatório que a loja tenha configurado um dos dois modelos de notificação:</p>
+<p>Para realizar o as consultas via API de Controle Transacional no Link de Pagamento Cielo é obrigatório que a loja tenha configurado um dos dois modelos de notificação:</p>
 
 <ul>
   <li>URL de Notificação da transação via <strong>POST</strong> ou</li>
@@ -2606,7 +2606,7 @@ Para consultar uma transação, veja a seção <a href="https://developercielo.g
 
 <h1 id="status-e-códigos">Status e Códigos</h1>
 
-<p>O <strong>Super Link</strong> possui status próprios, diferente do site Cielo ou da API Cielo E-commerce. Veja abaixo a lista completa.</p>
+<p>O <strong>Link de Pagamento</strong> possui status próprios, diferente do site Cielo ou da API Cielo E-commerce. Veja abaixo a lista completa.</p>
 
 <table>
   <thead>
