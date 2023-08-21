@@ -26,7 +26,7 @@ Este tutorial tem como objetivo auxiliar o lojista na utilização dos produtos 
 
 > Qualquer cliente Checkout e Link de Pagamento pode realizar as configurações, acompanhar relatórios e criar links de pagamento pelo site Cielo, mesmo se já use esses serviços pelo app Cielo Gestão ou pelas integrações com as APIs.
 
-> Para integrar com as APIs acesse o manual para desenvolvedores da [API do Checkout Cielo](https://developercielo.github.io/manual/checkout-cielo){:target="_blank"} ou da [API do Super Link](https://developercielo.github.io/manual/linkdepagamentos5){:target="_blank"}.
+> Para integrar com as APIs acesse o manual para desenvolvedores da [API do Checkout Cielo](https://developercielo.github.io/manual/checkout-cielo){:target="_blank"} ou da [API do Link de Pagamento](https://developercielo.github.io/manual/linkdepagamentos5){:target="_blank"}.
 
 ## Acessando o backoffice Checkout e Link de Pagamento
 
@@ -102,7 +102,7 @@ O resultado da busca será uma lista de transações que pode ser exportada como
 
 Esta aba apresenta todos os links de pagamentos criados pela sua loja. Esses links podem ser utilizados de diferentes maneiras para proporcionar um maior volume de vendas.
 
-Para saber mais sobre links de pagamentos veja o [Tutorial do Link de Pagamento](https://developercielo.github.io/tutorial/tutorial-checkout-link#tutorial-do-super-link)
+Para saber mais sobre links de pagamentos veja o [Tutorial do Link de Pagamento](https://developercielo.github.io/tutorial/tutorial-checkout-link#tutorial-do-link-de-pagamento)
 
 No menu Link de Pagamentos, existem as áreas: **Cadastrar de Link de Pagamentos** e **Listar Links de Pagamentos Cadastrados**.
 
@@ -122,7 +122,7 @@ O link de pagamento pode ser compartilhado de três formas:
 2. Implementando o botão **Pague com segurança** em uma página da sua loja;
 3. Compartilhando o QR Code do link.
 
-> Para saber como criar um link, acesse o tópico [Tutorial do Link de Pagamento](https://developercielo.github.io/tutorial/tutorial-checkout-link#tutorial-do-super-link) neste mesmo manual.
+> Para saber como criar um link, acesse o tópico [Tutorial do Link de Pagamento](https://developercielo.github.io/tutorial/tutorial-checkout-link#tutorial-do-link-de-pagamento) neste mesmo manual.
 
 ### Relatórios
 
