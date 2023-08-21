@@ -49,7 +49,7 @@ Qualquer loja que deseje vender online pode criar um link de pagamento e compart
 
 # API do Link de Pagamento Cielo
 
-A **API do Link de Pagamento** é uma API REST que permite **criar, editar e consultar links de pagamentos**. A principal vantagem da API é permitir que lojas possam criar links de pagamento (por botões ou QR Codes) através de seus próprios sistemas e compartilhar o Super Link com seus clientes, sem a necessidade de acessar o site Cielo.
+A **API do Link de Pagamento** é uma API REST que permite **criar, editar e consultar links de pagamentos**. A principal vantagem da API é permitir que lojas possam criar links de pagamento (por botões ou QR Codes) através de seus próprios sistemas e compartilhar o Link de Pagamento com seus clientes, sem a necessidade de acessar o site Cielo.
 
 A imagem a seguir representa o fluxo geral do funcionamento da API do Link de Pagamento:
 
@@ -102,7 +102,7 @@ Antes das configurações, você precisa habilitar o Link de Pagamento para a su
 
 **Acesse as Configurações da loja no site Cielo**
 
-Vá para o [site Cielo](https://minhaconta2.cielo.com.br/login/){:target="_blank"} e faça login. Acesse **E-commerce** > **Super Link** > **Configurações** > **Configurações da loja**.
+Vá para o [site Cielo](https://minhaconta2.cielo.com.br/login/){:target="_blank"} e faça login. Acesse **E-commerce** > **Link de Pagamento** > **Configurações** > **Configurações da loja**.
 
 ### 1. Personalize a aparência da página de pagamento
 
@@ -270,7 +270,7 @@ Para utilizar o Cielo OAUTH são necessarias as seguintes credenciais:
 Para obter as credenciais `ClientId` e `ClientSecret` para autenticação na API do Link de Pagamento, siga os passos a seguir:
 
 1. Após receber o nº de estabelecimento (EC) com a habilitação para o Link de Pagamento, acesse o [site Cielo](https://minhaconta2.cielo.com.br/login/){:target="_blank"} e faça o login;
-2. Vá para a aba **Ecommerce** > **Super Link** > **Configurações** > **Dados Cadastrais**;
+2. Vá para a aba **Ecommerce** > **Link de Pagamento** > **Configurações** > **Dados Cadastrais**;
 3. Na seção **Contato técnico**, preencha com os dados de contato da pessoa responsável por receber as chaves da sua loja. *ATENÇÃO: apenas coloque os dados da pessoa que realmente pode ter acesso às chaves da sua loja, que são informações sigilosas de cada estabelecimento*;
 4. Clique em **Gerar Credenciais de Acesso às APIs**;
 5. Você receberá um e-mail com as credenciais
