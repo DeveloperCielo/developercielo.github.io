@@ -1,7 +1,7 @@
 ---
 layout: tutorial
-title: Tutorial Checkout e Super Link
-description: Tutorial do backoffice Checkout e Super Link e tutorial de criação do link
+title: Tutorial Checkout e Link de Pagamento
+description: Tutorial do backoffice Checkout e Link de Pagamento e tutorial de criação do link
 search: true
 toc_footers: true
 categories: tutorial
@@ -11,24 +11,24 @@ tags:
   - Link de Pagamento
 ---
 
-# Tutorial do Checkout e Super Link no site Cielo
+# Tutorial do Checkout e Link de Pagamento no site Cielo
 
 ## Sobre este tutorial
 
-Este tutorial tem como objetivo auxiliar o lojista na utilização dos produtos Checkout e Super Link pelo backoffice do site Cielo. Neste tutorial você vai aprender a:
+Este tutorial tem como objetivo auxiliar o lojista na utilização dos produtos Checkout e Link de Pagamento pelo backoffice do site Cielo. Neste tutorial você vai aprender a:
 
-* Configurar a sua loja no **Checkout** ou **Super Link**, desde a aparência da sua página de pagamento do até os meios de pagamento que irá disponibilizar aos seus clientes e opções de captura;
+* Configurar a sua loja no **Checkout** ou **Link de Pagamento**, desde a aparência da sua página de pagamento do até os meios de pagamento que irá disponibilizar aos seus clientes e opções de captura;
 * Criar links de pagamento;
 * Visualizar o dashboard que apresenta o total de vendas e os gráficos do volume financeiro e volume transacional da sua loja;
 * Visualizar as transações (pedidos) da sua loja;
 * Acessar relatórios de gestão;
 * Acessar o manual de desenvolvedores e FAQ.
 
-> Qualquer cliente Checkout e Super Link pode realizar as configurações, acompanhar relatórios e criar links de pagamento pelo site Cielo, mesmo se já use esses serviços pelo app Cielo Gestão ou pelas integrações com as APIs.
+> Qualquer cliente Checkout e Link de Pagamento pode realizar as configurações, acompanhar relatórios e criar links de pagamento pelo site Cielo, mesmo se já use esses serviços pelo app Cielo Gestão ou pelas integrações com as APIs.
 
 > Para integrar com as APIs acesse o manual para desenvolvedores da [API do Checkout Cielo](https://developercielo.github.io/manual/checkout-cielo){:target="_blank"} ou da [API do Super Link](https://developercielo.github.io/manual/linkdepagamentos5){:target="_blank"}.
 
-## Acessando o backoffice Checkout e Super Link
+## Acessando o backoffice Checkout e Link de Pagamento
 
 O acesso ao painel administrativo ou backoffice é feito dentro do site Cielo.
 
@@ -40,7 +40,7 @@ O acesso ao painel administrativo ou backoffice é feito dentro do site Cielo.
 
 ![Login Backoffice Cielo]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/1login.png)
 
-**4.** Após logar no site Cielo, localize o menu **E-commerce** e depois a sessão **Super Link** ou **Checkout Cielo**.
+**4.** Após logar no site Cielo, localize o menu **E-commerce** e depois a sessão **Link de Pagamento** ou **Checkout Cielo**.
 
 ![Vendas online]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/3-menu-ecommerce.png)
 
@@ -50,7 +50,7 @@ O acesso ao painel administrativo ou backoffice é feito dentro do site Cielo.
 
 ## Abas do backoffice
 
-O backoffice **Super Link** ou **Checkout Cielo** é um painel administrativo com seis abas distintas que permitem a configuração de sua loja e a utilização dos produtos contratados.
+O backoffice **Link de Pagamento** ou **Checkout Cielo** é um painel administrativo com seis abas distintas que permitem a configuração de sua loja e a utilização dos produtos contratados.
 
 ![Abas do Backoffice]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/4-9-12-30-backoffice.png)
 
@@ -78,7 +78,7 @@ O Dashboard é a aba inicial que apresenta informações sobre o volume transaci
 
 ### Pedidos
 
-Esta aba apresenta a listagem de transações realizadas no Checkout Cielo ou no Super Link. Aqui é possível pesquisar um determinado pedido da seguinte forma:
+Esta aba apresenta a listagem de transações realizadas no Checkout Cielo ou no Link de Pagamento. Aqui é possível pesquisar um determinado pedido da seguinte forma:
 
 * **Preenchendo um dos filtros possíveis**: data inicial e final, valor mínimo e máximo do pedido, data de vencimento do boleto, identificador da transação, número do pedido, número do boleto, CPF ou CNPJ do cliente ou nome do cliente;
 * **Selecionando o meio de pagamento desejado**: você pode habilitar ou desabilitar o meio de pagamento para busca;
@@ -102,7 +102,7 @@ O resultado da busca será uma lista de transações que pode ser exportada como
 
 Esta aba apresenta todos os links de pagamentos criados pela sua loja. Esses links podem ser utilizados de diferentes maneiras para proporcionar um maior volume de vendas.
 
-Para saber mais sobre links de pagamentos veja o [Tutorial do Super Link](https://developercielo.github.io/tutorial/tutorial-checkout-link#tutorial-do-super-link)
+Para saber mais sobre links de pagamentos veja o [Tutorial do Link de Pagamento](https://developercielo.github.io/tutorial/tutorial-checkout-link#tutorial-do-super-link)
 
 No menu Link de Pagamentos, existem as áreas: **Cadastrar de Link de Pagamentos** e **Listar Links de Pagamentos Cadastrados**.
 
@@ -122,7 +122,7 @@ O link de pagamento pode ser compartilhado de três formas:
 2. Implementando o botão **Pague com segurança** em uma página da sua loja;
 3. Compartilhando o QR Code do link.
 
-> Para saber como criar um link, acesse o tópico [Tutorial do Super Link](https://developercielo.github.io/tutorial/tutorial-checkout-link#tutorial-do-super-link) neste mesmo manual.
+> Para saber como criar um link, acesse o tópico [Tutorial do Link de Pagamento](https://developercielo.github.io/tutorial/tutorial-checkout-link#tutorial-do-super-link) neste mesmo manual.
 
 ### Relatórios
 
@@ -191,12 +191,12 @@ Aqui você encontra os links para os seguintes materiais de suporte: Manual do D
 
 * **Manual do Desenvolvedor**: contém os procedimentos e diretrizes de integração da API do Checkout Cielo à sua loja virtual;
 * **FAQ**: perguntas frequentes a respeito do Checkout Cielo. Contém informações sobre questões comerciais, técnicas, operacionais e sobre o modo de teste;
-* **Tutorial do Lojista**: tem como objetivo auxiliar o lojista na utilização dos produtos Checkout e Super Link, incluindo gestão de vendas e configurações de loja na Cielo;
+* **Tutorial do Lojista**: tem como objetivo auxiliar o lojista na utilização dos produtos Checkout e Link de Pagamento, incluindo gestão de vendas e configurações de loja na Cielo;
 * **Portal de desenvolvedores**: direciona para a página principal do portal Desenvolvedores Cielo, que contém as documentações técnicas de integração de todos os produtos Cielo.
 
 ### Configurações da Loja
 
-É onde você vai definir as diversas opções do Checkout e/ou Super Link Cielo. Essa área é dividida em quatro partes diferentes: **Exibição**, **Pagamentos**, **Antifraude** e **Frete de Correios & Serviços**.
+É onde você vai definir as diversas opções do Checkout e/ou Link de Pagamento Cielo. Essa área é dividida em quatro partes diferentes: **Exibição**, **Pagamentos**, **Antifraude** e **Frete de Correios & Serviços**.
 
 #### Exibição
 
@@ -204,7 +204,7 @@ Aqui é possivel personalizar a sua página de pagamento com o logo da sua loja 
 
 ![Configuração Exibição]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/20-configuracoes-loja-aparencia.png)
 
-<aside class="notice">O logo da sua loja será exibido na página de pagamento do Checkout ou Super Link.</aside>
+<aside class="notice">O logo da sua loja será exibido na página de pagamento do Checkout ou Link de Pagamento.</aside>
 
 #### Pagamentos
 
@@ -221,13 +221,13 @@ Nesta tela é possível alterar as seguintes configurações:
 
 ##### Modo de Teste Checkout Cielo
 
-O modo de teste é uma ferramenta que permite testar a integração do Checkout ou Super Link. Com o modo teste, você pode criar páginas ou links de pagamento de teste e simular cenários para testar diferentes meios de pagamento.
+O modo de teste é uma ferramenta que permite testar a integração do Checkout ou Link de Pagamento. Com o modo teste, você pode criar páginas ou links de pagamento de teste e simular cenários para testar diferentes meios de pagamento.
 
 O modo de teste pode ser ativado marcando a caixa de seleção **Modo de Teste**.
 
 ![Ativando Modo de teste]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/22-modo-teste-ativo.png)
 
-Quando a opção for salva, uma tarja vermelha será exibida na parte superior da tela. Ela será exibida em todas as telas do Backoffice e na página de pagamento do Checkout Cielo ou Super Link.
+Quando a opção for salva, uma tarja vermelha será exibida na parte superior da tela. Ela será exibida em todas as telas do Backoffice e na página de pagamento do Checkout Cielo ou Link de Pagamento.
 
 A tarja vermelha indica que a sua loja está operando em ambiente de teste, ou seja, toda a transação realizada nesse modo será considerada como teste.
 
@@ -257,7 +257,7 @@ Na tela de pedidos, dentro de cada transação, há a opção de reenvio da noti
 
 ![Detalhes do pedido]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/37-detalhes-pedido.jpg)
 
-> Para mais informações sobre as notificações visite o manual de integração da [API do Checkout](https://developercielo.github.io/manual/checkout-cielo#notifica%C3%A7%C3%B5es-de-pagamento){:target="_blank"} ou da [API do Super Link](https://developercielo.github.io/manual/linkdepagamentos5#notifica%C3%A7%C3%B5es-da-transa%C3%A7%C3%A3o){:target="_blank"}.
+> Para mais informações sobre as notificações visite o manual de integração da [API do Checkout](https://developercielo.github.io/manual/checkout-cielo#notifica%C3%A7%C3%B5es-de-pagamento){:target="_blank"} ou da [API do Link de Pagamento](https://developercielo.github.io/manual/linkdepagamentos5#notifica%C3%A7%C3%B5es-da-transa%C3%A7%C3%A3o){:target="_blank"}.
 
 ##### Valores Mínimos e Descontos
 
@@ -302,7 +302,7 @@ Selecione os meios de pagamento que deseja disponibilizar no momento do pagament
 
 O parcelamento é definido por bandeira de cartão. O número de parcelas máximas disponibilizadas para cada cartão é definida pela loja.
 
-O Checkout e o Super Link Cielo permitem parcelamento em até 12 vezes sem juros. O número de parcelas exibidas no transacional depende do valor mínimo para parcelamento configurado pela loja.
+O Checkout e o Link de Pagamento Cielo permitem parcelamento em até 12 vezes sem juros. O número de parcelas exibidas no transacional depende do valor mínimo para parcelamento configurado pela loja.
 
 #### Antifraude e Captura Automática
 
@@ -333,7 +333,7 @@ Você pode visualizar o status do antifraude acessando o detalhe da compra, na a
 
 #### Frete de Correios & Serviços
 
-Nesta área você configura as opções de frete disponíveis em sua Loja. Na seção Informações sobre Frete há uma explicação mais detalhada sobre os tipos de fretes disponíveis no Checkout e no Super Link.
+Nesta área você configura as opções de frete disponíveis em sua Loja. Na seção Informações sobre Frete há uma explicação mais detalhada sobre os tipos de fretes disponíveis no Checkout e no Link de Pagamento.
 
 Na área de fretes de Correios há uma calculadora de frete para consultas (essa calculadora dá o valor de frete de cada tipo de frete cadastrado para um determinado peso e localidade).
 
@@ -341,7 +341,7 @@ Na área de fretes de Correios há uma calculadora de frete para consultas (essa
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Tutorial do Super Link
+# Tutorial do Link de Pagamento
 
 ## Criando o Link de Pagamento
 
@@ -374,17 +374,17 @@ O link de pagamento pode ser utilizado em diferentes cenários, como por exemplo
 
 ## Características do link de pagamento
 
-Cada link de pagamento possui um código único que só permite comprar aquele determinado produto nas condições de preço e frete cadastrados. Portanto, um fraudador não consegue alterar nenhuma destas informações na hora de submeter à compra na página de pagamento, pois o Super Link vai buscar todos os dados do produto no sistema.
+Cada link de pagamento possui um código único que só permite comprar aquele determinado produto nas condições de preço e frete cadastrados. Portanto, um fraudador não consegue alterar nenhuma destas informações na hora de submeter à compra na página de pagamento, pois o Link de Pagamento vai buscar todos os dados do produto no sistema.
 
 | Característica                   | Explicação   |
 | -------------------------------- | ------------ |
 | **Específico**                   | Cada link gerado serve somente para um determinado produto ou valor definidos no momento de criação do link de pagamento.<br>**Exemplo**: Você vai criar criar um link para vender uma camisa; se o comprador desejar duas camisas, ele precisará pagar o link duas vezes, ou você deverá criar um link com o valor de duas camisas. |
-| **Número do Pedido do Super Link** | O link não permite o cadastro do número de pedido loja. A Cielo vai criar a página de pagamento e gerar um número de pedido (um `GUID`) único. A loja vai receber esse número de pedido após o pagamento ser efetuado no link.|
+| **Número do Pedido do Link de Pagamento** | O link não permite o cadastro do número de pedido loja. A Cielo vai criar a página de pagamento e gerar um número de pedido (um `GUID`) único. A loja vai receber esse número de pedido após o pagamento ser efetuado no link.|
 | **Criação de pedidos**           | Ao gerar um link, você pode definir uma quantidade limite de pagamentos aceitos nesse link. Por ezemplo, se definir o limite de três pagamentos, só serão aceitos três pagamentos/pedidos nesse link. Se não preencher um número, o link aceitará pagamentos indefinidamente."   |
 
 ## Criando um link de pagamento
 
-Você pode criar um link de pagamento por diferentes canais: site Cielo, App Cielo Gestão ou API do Super Link. Nesse material iremos falar da criação de link via [site Cielo](https://www.cielo.com.br/){:target="_blank"}.
+Você pode criar um link de pagamento por diferentes canais: site Cielo, App Cielo Gestão ou API do Link de Pagamento. Nesse material iremos falar da criação de link via [site Cielo](https://www.cielo.com.br/){:target="_blank"}.
 
 Você pode gerar links de pagamento pra cinco tipos de produtos diferentes:
 
@@ -394,7 +394,7 @@ Você pode gerar links de pagamento pra cinco tipos de produtos diferentes:
 * **Recorrência**: transações que se repetem em um determinado intervalo de tempo. Ex.: assinaturas e mensalidades;
 * **Pagamentos**: pagamentos unicos ou transferência de valores. Ex: quitação de dividas.
 
-**1. Para criar um link de pagamento, vá para a opção *Cadastrar Link de Pagamento*, preencha os campos necessários e clique em *Gerar Super Link*:**
+**1. Para criar um link de pagamento, vá para a opção *Cadastrar Link de Pagamento*, preencha os campos necessários e clique em *Link de Pagamento*:**
 
 ![Cadastrar Link de pagamentos]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/9-tipo-de-produto.png)
 
@@ -421,7 +421,7 @@ Saiba mais sobre os itens que podem ser cadastrados para a criação do link na 
 | `Quantidade`      | Define a quantidade maxima de pedidos que o Botão pode gerar. Se não definido, o botão poderá gerar um numero infinito de pedidos      | Não         |
 |`Data de expiração`|Data e hora limite pro link funcionar e aceitar pagamentos (escolha a data e hora no calendário)| Não|
 |`Soft Descriptor`|Personalização do nome da loja que aparece na fatura (máximo de 13 caracteres)| Não|
-|`Máximo de parcelas`| Definição de um número máximo de parcelas para o link (até 12). A opção padrão reflete o que está na configuração da loja no Super Link/Checkout| Não|
+|`Máximo de parcelas`| Definição de um número máximo de parcelas para o link (até 12). A opção padrão reflete o que está na configuração da loja no Link de Pagamento/Checkout| Não|
 |`Intervalo da recorrência`|Quando o tipo for recorrente. É o intervalo de tempo pra cobrança do valor de forma automática. As opções são mensal, bimestral, trimestral, semestral, anual.|Condicional**|
 |`Data final da recorrência`|Quando o tipo for recorrente. É a data limite para cobrança automática da recorrência.|Condicional**|
 
