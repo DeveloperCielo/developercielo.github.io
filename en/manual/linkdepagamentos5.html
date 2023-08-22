@@ -14,7 +14,7 @@
   />
 
   <title>
-     Super Link API &middot; Documentações e tutoriais 
+     Link de Pagamento API &middot; Documentações e tutoriais 
   </title>
 
   <link rel="shortcut icon" href="https://developercielo.github.io/en/assets/favicon.ico" />
@@ -137,7 +137,7 @@
                             
                                 
                                     
-                                    <li class="active">&gt; <a href="https://developercielo.github.io/en/manual/linkdepagamentos5">Super Link API</a></li>
+                                    <li class="active">&gt; <a href="https://developercielo.github.io/en/manual/linkdepagamentos5">Link de Pagamento API</a></li>
                                     
                                 
                             
@@ -146,11 +146,11 @@
                 </div>
             </div>
 
-            <div class="post"><h1 id="super-link">Super Link</h1>
+            <div class="post"><h1 id="link-de-pagamento-cielo">Link de Pagamento Cielo</h1>
 
 <h1 id="about-this-documentation">About this documentation</h1>
 
-<p>This manual will guide the developer in the integration with Cielo’s Super Link API. By integrating the Super Link API, you will be able to:</p>
+<p>This manual will guide the developer in the integration with Link de Pagamento Cielo API. By integrating the Link de Pagamento API, you will be able to:</p>
 
 <ul>
   <li>Set up your store and customize your payment links;</li>
@@ -160,12 +160,12 @@
 </ul>
 
 <blockquote>
-  <p>You can also use Super Link through the <a href="https://www.cielo.com.br/" target="_blank">Cielo website</a> or through the <a href="https://play.google.com/store/apps/details?id=br.com.mobicare.cielo&amp;hl=pt_BR&amp;gl=US" target="_blank">Cielo Gestão</a> app.</p>
+  <p>You can also use Link de Pagamento through the <a href="https://www.cielo.com.br/" target="_blank">Cielo website</a> or through the <a href="https://play.google.com/store/apps/details?id=br.com.mobicare.cielo&amp;hl=pt_BR&amp;gl=US" target="_blank">Cielo Gestão</a> app.</p>
 </blockquote>
 
-<h1 id="about-super-link">About Super Link</h1>
+<h1 id="about-link-de-pagamento-cielo">About Link de Pagamento Cielo</h1>
 
-<p><strong>Super Link</strong> allows you to send an <strong>payment link for an order</strong> to your customers via social media or any other channel you prefer. When opening the payment link, the buyer will see a page customized with your store logo and payment options.</p>
+<p><strong>Link de Pagamento</strong> allows you to send an <strong>payment link for an order</strong> to your customers via social media or any other channel you prefer. When opening the payment link, the buyer will see a page customized with your store logo and payment options.</p>
 
 <p>You can sell different types of products:</p>
 
@@ -177,34 +177,34 @@
   <li><strong>Recurrence</strong>: sales that are repeated within a certain period, such as gym membership or language classes.</li>
 </ul>
 
-<h2 id="how-to-create-a-super-link">How to create a Super Link?</h2>
+<h2 id="how-to-create-a-link-de-pagamento">How to create a Link de Pagamento?</h2>
 
-<p>You can create a Super Link through the Cielo website, the Cielo Gestão app or through the Super Link API. In this manual, we will talk about the integration of the Super Link API.</p>
+<p>You can create a Link de Pagamento through the Cielo website, the Cielo Gestão app or through the Link de Pagamento API. In this manual, we will talk about the integration of the Link de Pagamento API.</p>
 
-<h2 id="who-can-use-super-link">Who can use Super Link?</h2>
+<h2 id="who-can-use-link-de-pagamento">Who can use Link de Pagamento?</h2>
 
-<p>Any store that wants to sell online can create a payment link and share this link through social media. You don’t need to have an e-commerce to use Super Link.</p>
+<p>Any store that wants to sell online can create a payment link and share this link through social media. You don’t need to have an e-commerce to use Link de Pagamento.</p>
 
-<h1 id="super-link-api">Super Link API</h1>
+<h1 id="link-de-pagamento-api">Link de Pagamento API</h1>
 
-<p>The <strong>Super Link API</strong> is a REST API that allows <strong>creating, editing and querying payment links</strong>. The main advantage of the API is that it allows stores to create payment links (via buttons or QR Codes) through their own systems and share the Super Link with their customers, without the need to access the Cielo website.</p>
+<p>The <strong>Link de Pagamento API</strong> is a REST API that allows <strong>creating, editing and querying payment links</strong>. The main advantage of the API is that it allows stores to create payment links (via buttons or QR Codes) through their own systems and share the Link de Pagamento with their customers, without the need to access the Cielo website.</p>
 
-<p>The following image represents the general flow of how the Super Link API works:</p>
+<p>The following image represents the general flow of how the Link de Pagamento API works:</p>
 
 <p><img src="https://developercielo.github.io/images/checkout/superlink/fluxo-superlink-en.png" alt="Imagem Fluxo Geral Super Link Ingles" /></p>
 
 <ol>
-  <li>The merchant sends a payment link creation request to the Super Link API;</li>
-  <li>Super Link API returns a payment link URL and a link ID;</li>
+  <li>The merchant sends a payment link creation request to the Link de Pagamento API;</li>
+  <li>Link de Pagamento API returns a payment link URL and a link ID;</li>
   <li>The merchant shares the payment link with the shopper;</li>
   <li>The shopper makes the payment;</li>
   <li>Cielo (as the acquirer) authorizes the payment and sends confirmation to Super Link;</li>
-  <li>The Super Link API sends a transaction completion notification or status change notification to the store. If desired, the merchant can develop a process for sending a confirmation email to the shopper (not available through the Super Link API).</li>
+  <li>The Link de Pagamento API sends a transaction completion notification or status change notification to the store. If desired, the merchant can develop a process for sending a confirmation email to the shopper (not available through the Link de Pagamento API).</li>
 </ol>
 
 <h2 id="payment-methods-and-brands">Payment methods and brands</h2>
 
-<p>With Super Link you can sell your products and services using the main payment methods, such as credit and debit cards or digital wallets</p>
+<p>With Link de Pagamento you can sell your products and services using the main payment methods, such as credit and debit cards or digital wallets</p>
 
 <table>
   <thead>
@@ -235,10 +235,10 @@
 
 <h1 id="quick-start">Quick Start</h1>
 
-<p>To start your integration with the Super Link API, you will need:</p>
+<p>To start your integration with the Link de Pagamento API, you will need:</p>
 
 <ol>
-  <li>Request the <a href="https://developercielo.github.io/en/manual/linkdepagamentos5#enabling-the-establishment-number-(ec)-for-the-super-link">establishment number (EC) for the Super Link</a>;</li>
+  <li>Request the <a href="https://developercielo.github.io/en/manual/linkdepagamentos5#enabling-the-establishment-number-(ec)-for-the-super-link">establishment number (EC) for the Link de Pagamento</a>;</li>
   <li>Configure the <a href="https://developercielo.github.io/en/manual/linkdepagamentos5#setting-up-your-store">store settings</a> (customization of the page, choosing payment methods and a contract with the Post Office, if there is one);</li>
   <li>Set up a <a href="https://developercielo.github.io/en/manual/linkdepagamentos5#4.-configure-your-store%E2%80%99s-return,-notification,-and-status-change-urls">notification and status change URL</a> for your store;</li>
   <li>Get the <a href="https://developercielo.github.io/en/manual/linkdepagamentos5#obtaining-the-credentials">API access credentials</a> (<code class="language-plaintext highlighter-rouge">ClientId</code> and <code class="language-plaintext highlighter-rouge">Client Secret</code>);</li>
@@ -246,19 +246,19 @@
   <li>With the token, <a href="https://developercielo.github.io/en/manual/linkdepagamentos5#creating-a-link">create a payment link</a>;</li>
   <li>When there is a payment attempt on the link, you will receive a <a href="https://developercielo.github.io/en/manual/linkdepagamentos5#transaction-completion-notification">notification</a>* with all data filled in at checkout;</li>
   <li>If the transaction changes status, you will receive a <a href="https://developercielo.github.io/en/manual/linkdepagamentos5#status-change-notification">notification</a>* of the status change;</li>
-  <li>To perform tests, use Super Link’s <a href="https://developercielo.github.io/en/manual/linkdepagamentos5#test-mode">Test Mode</a>.</li>
+  <li>To perform tests, use Link de Pagamento’s <a href="https://developercielo.github.io/en/manual/linkdepagamentos5#test-mode">Test Mode</a>.</li>
 </ol>
 
 <p>*<em>If you have configured the notification URL.</em></p>
 
 <h1 id="merchant-settings">Merchant Settings</h1>
 
-<p>Before setting up, you need to enable Super Link for your store.</p>
+<p>Before setting up, you need to enable Link de Pagamento for your store.</p>
 
-<h2 id="enabling-the-establishment-number-ec-for-the-super-link">Enabling the establishment number (EC) for the Super Link</h2>
+<h2 id="enabling-the-establishment-number-ec-for-the-link-de-pagamento">Enabling the establishment number (EC) for the Link de Pagamento</h2>
 
 <ul>
-  <li><strong>If you are not yet a Cielo client or if you only use the POS terminal</strong>, go to the <a href="https://www.cielo.com.br/" target="_blank">Cielo website</a> to enable the establishment number (EC) for the Super Link;</li>
+  <li><strong>If you are not yet a Cielo client or if you only use the POS terminal</strong>, go to the <a href="https://www.cielo.com.br/" target="_blank">Cielo website</a> to enable the establishment number (EC) for the Link de Pagamento;</li>
   <li><strong>If you are already a Cielo E-commerce client</strong>, contact your commercial manager or Cielo Support.</li>
 </ul>
 
@@ -266,7 +266,7 @@
 
 <p><strong>Access the Store Settings on the Cielo website</strong></p>
 
-<p>Go to the <a href="https://minhaconta2.cielo.com.br/login/" target="_blank">Cielo website</a> and login. Go to <strong>E-commerce</strong> &gt; <strong>Super Link</strong> &gt; <strong>Configurações</strong> &gt; <strong>Configurações da loja</strong>.</p>
+<p>Go to the <a href="https://minhaconta2.cielo.com.br/login/" target="_blank">Cielo website</a> and login. Go to <strong>E-commerce</strong> &gt; <strong>Link de Pagamento</strong> &gt; <strong>Configurações</strong> &gt; <strong>Configurações da loja</strong>.</p>
 
 <h3 id="1-customize-the-appearance-of-the-payment-page">1. Customize the appearance of the payment page</h3>
 
@@ -356,7 +356,7 @@ If Pix is not enabled in your registration, the adding screen will be displayed 
 
 <h2 id="sandbox">Sandbox</h2>
 
-<p>As it is a non-financial request, the Super Link API does not have a Sandbox to test the creation of links. Links must be created from the production environment. Accreditation can be done through the cielo website or through the ecommerce center.</p>
+<p>As it is a non-financial request, the Link de Pagamento API does not have a Sandbox to test the creation of links. Links must be created from the production environment. Accreditation can be done through the cielo website or through the ecommerce center.</p>
 
 <p><strong>Suporte Cielo E-commerce</strong></p>
 
@@ -374,7 +374,7 @@ If Pix is not enabled in your registration, the adding screen will be displayed 
 
 <p><img src="https://developercielo.github.io/images/checkout/superlink/superlink-modotesteativo.png" alt="Modo Teste Ativo selecionado" /></p>
 
-<p>When the option is saved, a red stripe will appear at the top of the screen. It will be displayed on all Super Link screens.</p>
+<p>When the option is saved, a red stripe will appear at the top of the screen. It will be displayed on all Link de Pagamento screens.</p>
 
 <p>This stripe indicates that your store is now operating in a test environment, that is, all transactions carried out in this mode will be considered as a test.</p>
 
@@ -449,7 +449,7 @@ Transactions carried out in Test Mode can be finalized normally, but will not be
       <td>Authentication</td>
     </tr>
     <tr>
-      <td>Super Link API</td>
+      <td>Link de Pagamento API</td>
       <td>https://cieloecommerce.cielo.com.br/api/public/v1/products/</td>
       <td>Creation, consultation and deletion of payment links.</td>
     </tr>
@@ -462,14 +462,14 @@ Transactions carried out in Test Mode can be finalized normally, but will not be
 </table>
 
 <blockquote>
-  <p>Important: The Super Link API does not have a sandbox, but you can create test links by activating Test Mode on the Cielo website.</p>
+  <p>Important: The Link de Pagamento API does not have a sandbox, but you can create test links by activating Test Mode on the Cielo website.</p>
 </blockquote>
 
 <p>Transactions created with Test Mode enabled can be queried by the Transactional Control API.</p>
 
 <h1 id="cielo-oauth-authentication">Cielo OAUTH Authentication</h1>
 
-<p>Cielo OAUTH is an authentication process for Cielo APIs related to e-commerce. Cielo OAUTH uses the <strong><a href="https://oauth.net/2/" target="_blank">OAUTH2</a></strong> protocol as security, in which it is first necessary to obtain an access token using your credentials and then send it to the Super Link API.</p>
+<p>Cielo OAUTH is an authentication process for Cielo APIs related to e-commerce. Cielo OAUTH uses the <strong><a href="https://oauth.net/2/" target="_blank">OAUTH2</a></strong> protocol as security, in which it is first necessary to obtain an access token using your credentials and then send it to the Link de Pagamento API.</p>
 
 <p>To use Cielo OAUTH the following credentials are required:</p>
 
@@ -564,7 +564,7 @@ Transactions carried out in Test Mode can be finalized normally, but will not be
 
 <h3 id="response">Response</h3>
 
-<p>The response will contain the <code class="language-plaintext highlighter-rouge">access_token</code>, which should be used in Super Link API requests.</p>
+<p>The response will contain the <code class="language-plaintext highlighter-rouge">access_token</code>, which should be used in Link de Pagamento API requests.</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6Ik1ldUNoZWNrb3V0IE1hc3RlciBLZXkiLCJjbGllbnRfaWQiOiJjODlmZGasdasdasdmUyLTRlNzctODA2YS02ZDc1Y2QzOTdkYWMiLCJzY29wZXMiOiJ7XCJTY29wZVwiOlwiQ2hlY2tvdXRBcGlcIixcIkNsYWltc1wiOltdfSIsInJvbGUiOiJasdasdasd291dEFwaSIsImlzc47I6Imh0dHBzOi8vYXV0aGhvbasdasdnJhc3BhZy5jb20uYnIiLCJhdWQiOiJVVlF4Y1VBMmNTSjFma1EzSVVFbk9pSTNkbTl0ZmasdsadQjVKVVV1UVdnPSIsImV4cCI6MTQ5Nzk5NjY3NywibmJmIjoxNDk3OTEwMjc3fQ.ozj4xnH9PA3dji-ARPSbI7Nakn9dw5I8w6myBRkF-uA"</span><span class="p">,</span><span class="w">
@@ -601,7 +601,7 @@ Transactions carried out in Test Mode can be finalized normally, but will not be
 </table>
 
 <blockquote>
-  <p>The token returned (<code class="language-plaintext highlighter-rouge">access_token</code>) must be used in every request to the Super link API as an authorization key. The <code class="language-plaintext highlighter-rouge">access_token</code> has a validity of 20 minutes (1200 seconds) and it is necessary to generate a new token every time the validity expires.</p>
+  <p>The token returned (<code class="language-plaintext highlighter-rouge">access_token</code>) must be used in every request to the Link de Pagamento API as an authorization key. The <code class="language-plaintext highlighter-rouge">access_token</code> has a validity of 20 minutes (1200 seconds) and it is necessary to generate a new token every time the validity expires.</p>
 </blockquote>
 
 <h1 id="payment-link">Payment Link</h1>
@@ -1137,11 +1137,11 @@ To query a transaction, see the section <a href="https://developercielo.github.i
   </tbody>
 </table>
 
-<p>*Notifications are sent to the URLs defined by the establishment in [<strong>Store Settings</strong>] and contain data on transactions carried out through the Super Link.</p>
+<p>*Notifications are sent to the URLs defined by the establishment in [<strong>Store Settings</strong>] and contain data on transactions carried out through the Link de Pagamento.</p>
 
-<p>It is worth noting that Super Link notifies only when a transaction is considered finalized, that is, the shopper has filled in all the details on the payment screen and clicked on <strong>Finalize</strong>.</p>
+<p>It is worth noting that Link de Pagamento notifies only when a transaction is considered finalized, that is, the shopper has filled in all the details on the payment screen and clicked on <strong>Finalize</strong>.</p>
 
-<p><strong>Example</strong>: <em>The shopper accesses the payment link and chooses to pay via Pix. When you click Finalize, Super Link generates the Pix key and sends the transaction completion notification to the store, which will have the status “Pendente (Pending)”. When the shopper makes the payment via Pix, the transaction will have the status “Pago (Paid)” and Super Link will send the status change notification.</em></p>
+<p><strong>Example</strong>: <em>The shopper accesses the payment link and chooses to pay via Pix. When you click Finalize, Link de Pagamento generates the Pix key and sends the transaction completion notification to the store, which will have the status “Pendente (Pending)”. When the shopper makes the payment via Pix, the transaction will have the status “Pago (Paid)” and Link de Pagamento will send the status change notification.</em></p>
 
 <h2 id="notification-features">Notification features</h2>
 
@@ -1168,11 +1168,11 @@ To query a transaction, see the section <a href="https://developercielo.github.i
 
 <p><strong>Format of notifications</strong></p>
 
-<p>In notifications supported by the Super Link API, the format sent is <em>Form Data</em>, broken down by the <code class="language-plaintext highlighter-rouge">Content-Type</code> header ‘x-www-form-urlencoded’.</p>
+<p>In notifications supported by the Link de Pagamento API, the format sent is <em>Form Data</em>, broken down by the <code class="language-plaintext highlighter-rouge">Content-Type</code> header ‘x-www-form-urlencoded’.</p>
 
 <p><strong>Expected return</strong></p>
 
-<p>The store’s server must return <code class="language-plaintext highlighter-rouge">HTTPStatus = 200 (OK)</code> to the Super Link API, indicating that the notification was successfully received and processed.</p>
+<p>The store’s server must return <code class="language-plaintext highlighter-rouge">HTTPStatus = 200 (OK)</code> to the Link de Pagamento API, indicating that the notification was successfully received and processed.</p>
 
 <blockquote>
   <p><strong>IMPORTANT</strong>: If the registered URL returns an error or is unavailable, three new attempts will be made, with an interval of one hour between each POST.</p>
@@ -1188,7 +1188,7 @@ To query a transaction, see the section <a href="https://developercielo.github.i
 
 <p>Contains all transaction data, including <code class="language-plaintext highlighter-rouge">merchant_order_number</code> and <code class="language-plaintext highlighter-rouge">checkout_cielo_order_number</code>, which can be used to <a href="https://developercielo.github.io/en/manual/linkdepagamentos5#transaction-query">query a transaction</a>.</p>
 
-<p><strong>Exemplo:</strong></p>
+<p><strong>Example:</strong></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">order_number:</span><span class="w"> </span><span class="s2">"40e00eefbf094763a147af713fa07ece"</span><span class="err">,</span><span class="w">
 </span><span class="err">amount:</span><span class="w"> </span><span class="s2">"5000"</span><span class="err">,</span><span class="w">
@@ -1214,7 +1214,7 @@ To query a transaction, see the section <a href="https://developercielo.github.i
 
 <h3 id="notification-via-json">Notification via JSON</h3>
 
-<p>Notification via JSON is a safer and more flexible method to perform a query on Super Link Cielo. In this mode, the store receives the <code class="language-plaintext highlighter-rouge">MerchantId</code> and the <code class="language-plaintext highlighter-rouge">MerchantOrderNumber</code> and a URL to perform a query (GET) against the Super Link Cielo database and access transaction details.</p>
+<p>Notification via JSON is a safer and more flexible method to perform a query on Link de Pagamento Cielo. In this mode, the store receives the <code class="language-plaintext highlighter-rouge">MerchantId</code> and the <code class="language-plaintext highlighter-rouge">MerchantOrderNumber</code> and a URL to perform a query (GET) against the Super Link Cielo database and access transaction details.</p>
 
 <p><strong>Notification content via JSON</strong></p>
 
@@ -1705,7 +1705,7 @@ To query a transaction, see the section <a href="https://developercielo.github.i
 
 <h4 id="payment_method_type">Payment_method_type</h4>
 
-<p>Super Link allows only one type of Boleto per establishment, so the notification does not return if the provider used was Bradesco or Banco do Brasil, as only one of them will be active in the affiliation.</p>
+<p>Link de Pagamento allows only one type of Boleto per establishment, so the notification does not return if the provider used was Bradesco or Banco do Brasil, as only one of them will be active in the affiliation.</p>
 
 <table>
   <thead>
@@ -1883,7 +1883,7 @@ To query a transaction, see the section <a href="https://developercielo.github.i
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">checkout_cielo_order_number</code></td>
-      <td>Unique identifier generated by Super Link Cielo.</td>
+      <td>Unique identifier generated by Link de Pagamento Cielo.</td>
       <td>Alphanumeric</td>
       <td>32</td>
     </tr>
@@ -2006,7 +2006,7 @@ To query a transaction, see the section <a href="https://developercielo.github.i
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">checkoutOrderNumber</code></td>
-      <td>Order code generated by Super Link Cielo.</td>
+      <td>Order code generated by Link de Pagamento Cielo.</td>
       <td>Text</td>
       <td>32</td>
       <td>Example: a58995ce24fd4f1cb025701e95a51478</td>
@@ -2146,7 +2146,7 @@ To query a transaction, see the section <a href="https://developercielo.github.i
       <td><code class="language-plaintext highlighter-rouge">merchantId</code></td>
       <td>GUID</td>
       <td>36</td>
-      <td>Id of the Store at Super Link Cielo.</td>
+      <td>Id of the Store at Link de Pagamento Cielo.</td>
       <td>Example: c89fdfbb-dbe2-4e77-806a-6d75cd397dac</td>
     </tr>
     <tr>
@@ -2425,7 +2425,7 @@ To query a transaction, see the section <a href="https://developercielo.github.i
   </tbody>
 </table>
 
-<h2 id="by-id-of-the-payment-link">By id of the payment link</h2>
+<h2 id="by-id-of-the-link-de-pagamento">By id of the Link de Pagamento</h2>
 
 <h3 id="request-7">Request</h3>
 
@@ -2585,7 +2585,7 @@ To query a transaction, see the section <a href="https://developercielo.github.i
   </tbody>
 </table>
 
-<p>To carry out queries via the Transactional Control API on Super Link Cielo, it is required that the merchant has configured one of the two notification models:</p>
+<p>To carry out queries via the Transactional Control API on Link de Pagamento Cielo, it is required that the merchant has configured one of the two notification models:</p>
 
 <ul>
   <li>Transaction Notification URL via <strong>POST</strong> or</li>
