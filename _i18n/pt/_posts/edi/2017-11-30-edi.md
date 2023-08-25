@@ -41,11 +41,11 @@ Visando trazer maior transparência e fluidez na conciliação dos extratos, os 
 
 Abaixo segue o comunicado enviado com os detalhes das alterações, arquivos de teste e documentação complementar para apoiar com a homologação.
 
-[PT-BR](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_PTBR.zip)
+[Material versão português](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_PTBR.zip)
 
-[EN](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_english.zip)
+[Material version english](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_english.zip)
 
-[ES](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_espanol.zip)
+[Material versión español](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_espanol.zip)
 
 [Arquivos de Teste](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Arquivos_Testes.zip)
 
