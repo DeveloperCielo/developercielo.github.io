@@ -53,7 +53,7 @@ A **API do Link de Pagamento** é uma API REST que permite **criar, editar e con
 
 A imagem a seguir representa o fluxo geral do funcionamento da API do Link de Pagamento:
 
-![Imagem Fluxo Geral Super Link]({{ site.baseurl_root }}/images/checkout/superlink/fluxo-superlink.png)
+![Imagem Fluxo Geral Super Link]({{ site.baseurl_root }}/images/checkout/superlink/link-fluxo-pt.png)
 
 1. A loja envia requisição de criação do link de pagamento para a API do Link de Pagamento;
 2. A API do Link de Pagamento retorna a URL do link de pagamento e o ID do link;
