@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-08-30T18:32:53+00:00</updated>
+    <updated>2023-08-30T18:58:41+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -47367,7 +47367,7 @@ If an error code is displayed, the requisition contains errors (such as size, co
 
 &lt;h1 id=&quot;about-link-de-pagamento-cielo&quot;&gt;About Link de Pagamento Cielo&lt;/h1&gt;
 
-&lt;p&gt;&lt;strong&gt;Link de Pagamento&lt;/strong&gt; allows you to send an &lt;strong&gt;payment link for an order&lt;/strong&gt; to your customers via social media or any other channel you prefer. When opening the payment link, the buyer will see a page customized with your store logo and payment options.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Link de Pagamento&lt;/strong&gt; allows you to send a &lt;strong&gt;payment link for an order&lt;/strong&gt; to your customers via social media or any other channel you prefer. When opening the payment link, the shopper will see a page customized with your store logo and payment options.&lt;/p&gt;
 
 &lt;p&gt;You can sell different types of products:&lt;/p&gt;
 
@@ -47389,11 +47389,11 @@ If an error code is displayed, the requisition contains errors (such as size, co
 
 &lt;h1 id=&quot;link-de-pagamento-api&quot;&gt;Link de Pagamento API&lt;/h1&gt;
 
-&lt;p&gt;The &lt;strong&gt;Link de Pagamento API&lt;/strong&gt; is a REST API that allows &lt;strong&gt;creating, editing and querying payment links&lt;/strong&gt;. The main advantage of the API is that it allows stores to create payment links (via buttons or QR Codes) through their own systems and share the Link de Pagamento with their customers, without the need to access the Cielo website.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Link de Pagamento API&lt;/strong&gt; is a REST API that allows &lt;strong&gt;creating, editing and querying payment links&lt;/strong&gt;. The main advantage of the API is that it allows stores to create payment links (via buttons or QR Codes) through their own systems and share the Link de Pagamento with their customers, without the need to access the Cielo website.&lt;/p&gt;
 
 &lt;p&gt;The following image represents the general flow of how the Link de Pagamento API works:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/superlink/fluxo-superlink-en.png&quot; alt=&quot;Imagem Fluxo Geral Super Link Ingles&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/superlink/link-fluxo-en.png&quot; alt=&quot;Imagem Fluxo Geral Super Link Ingles&quot; /&gt;&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;The merchant sends a payment link creation request to the Link de Pagamento API;&lt;/li&gt;
