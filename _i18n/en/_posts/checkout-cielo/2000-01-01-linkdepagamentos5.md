@@ -29,7 +29,7 @@ This manual will guide the developer in the integration with Link de Pagamento C
 
 # About Link de Pagamento Cielo
 
-**Link de Pagamento** allows you to send an **payment link for an order** to your customers via social media or any other channel you prefer. When opening the payment link, the buyer will see a page customized with your store logo and payment options.
+**Link de Pagamento** allows you to send a **payment link for an order** to your customers via social media or any other channel you prefer. When opening the payment link, the shopper will see a page customized with your store logo and payment options.
 
 You can sell different types of products:
 
@@ -49,11 +49,11 @@ Any store that wants to sell online can create a payment link and share this lin
 
 # Link de Pagamento API
 
-The **Link de Pagamento API** is a REST API that allows **creating, editing and querying payment links**. The main advantage of the API is that it allows stores to create payment links (via buttons or QR Codes) through their own systems and share the Link de Pagamento with their customers, without the need to access the Cielo website.
+**Link de Pagamento API** is a REST API that allows **creating, editing and querying payment links**. The main advantage of the API is that it allows stores to create payment links (via buttons or QR Codes) through their own systems and share the Link de Pagamento with their customers, without the need to access the Cielo website.
 
 The following image represents the general flow of how the Link de Pagamento API works:
 
-![Imagem Fluxo Geral Super Link Ingles]({{ site.baseurl_root }}/images/checkout/superlink/fluxo-superlink-en.png)
+![Imagem Fluxo Geral Super Link Ingles]({{ site.baseurl_root }}/images/checkout/superlink/link-fluxo-en.png)
 
 1. The merchant sends a payment link creation request to the Link de Pagamento API;
 2. Link de Pagamento API returns a payment link URL and a link ID;
