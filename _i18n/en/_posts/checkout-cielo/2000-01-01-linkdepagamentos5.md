@@ -53,7 +53,7 @@ Any store that wants to sell online can create a payment link and share this lin
 
 The following image represents the general flow of how the Link de Pagamento API works:
 
-![Imagem Fluxo Geral Super Link Ingles]({{ site.baseurl_root }}/images/checkout/superlink/link-fluxo-en.png)
+![Imagem Fluxo Geral Super Link Ingles]({{ site.baseurl_root }}/images/checkout/superlink/link-geral-en.png)
 
 1. The merchant sends a payment link creation request to the Link de Pagamento API;
 2. Link de Pagamento API returns a payment link URL and a link ID;
