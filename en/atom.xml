@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-08-30T19:53:08+00:00</updated>
+    <updated>2023-08-30T20:33:49+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -47393,7 +47393,7 @@ If an error code is displayed, the requisition contains errors (such as size, co
 
 &lt;p&gt;The following image represents the general flow of how the Link de Pagamento API works:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/superlink/link-fluxo-en.png&quot; alt=&quot;Imagem Fluxo Geral Super Link Ingles&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/superlink/link-geral-en.png&quot; alt=&quot;Imagem Fluxo Geral Super Link Ingles&quot; /&gt;&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;The merchant sends a payment link creation request to the Link de Pagamento API;&lt;/li&gt;
