@@ -8,7 +8,7 @@ categories: tutorial
 sort_order: 2
 tags:
   - 3. Checkout
-  - Link de Pagamento
+  - 4. Link de Pagamento
 ---
 
 # Tutorial do Checkout e Link de Pagamento no site Cielo
