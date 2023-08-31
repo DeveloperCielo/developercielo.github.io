@@ -6,7 +6,7 @@ search: true
 categories: manual
 sort_order: 1
 tags:
-  - Cielo Promo
+  - 11. Cielo Promo
 language_tabs:
   shell: cURL
 ---
