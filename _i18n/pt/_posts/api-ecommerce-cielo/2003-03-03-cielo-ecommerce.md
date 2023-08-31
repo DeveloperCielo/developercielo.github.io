@@ -8,7 +8,7 @@ toc_footers: true
 categories: manual
 sort_order: 2
 tags:
-  - API Pagamento
+  - 1. API E-commerce
 language_tabs:
   json: JSON
   shell: cURL
