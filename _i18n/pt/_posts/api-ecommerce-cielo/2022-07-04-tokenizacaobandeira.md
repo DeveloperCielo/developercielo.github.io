@@ -8,7 +8,7 @@ toc_footers: true
 categories: tutorial
 sort_order: 5
 tags:
-  - API Pagamento
+  - 1. API E-commerce
   - Tokenização Bandeira
   - Checkout
   - Link de Pagamento
