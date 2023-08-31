@@ -8,7 +8,7 @@ toc_footers: true
 categories: tutorial
 sort_order: 7
 tags:
-  - Commercialization Cielo
+  - 12. Commercialization Cielo
 ---
 
 # Introdução
