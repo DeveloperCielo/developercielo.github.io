@@ -6,7 +6,7 @@ toc_footers: true
 categories: tutorial
 sort_order: 5
 tags:
-  - Cielo LIO
+  - 6. Cielo LIO
 ---
 
 # SDKs Cielo LIO
