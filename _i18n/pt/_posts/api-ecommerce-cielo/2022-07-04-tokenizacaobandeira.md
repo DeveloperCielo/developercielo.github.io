@@ -9,7 +9,7 @@ categories: tutorial
 sort_order: 5
 tags:
   - 1. API E-commerce
-  - Tokenização Bandeira
+  - 10. Tokenização Bandeira
   - 3. Checkout
   - 4. Link de Pagamento
 ---
