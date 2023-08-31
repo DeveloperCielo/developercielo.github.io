@@ -7,7 +7,7 @@ translated: true
 categories: manual
 sort_order: 1
 tags:
-  - Plataformas
+  - 1. API E-commerce
 ---
 
 # Integração VTEX
