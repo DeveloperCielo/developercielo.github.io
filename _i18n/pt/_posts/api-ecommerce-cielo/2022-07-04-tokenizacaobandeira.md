@@ -11,7 +11,7 @@ tags:
   - 1. API E-commerce
   - Tokenização Bandeira
   - 3. Checkout
-  - Link de Pagamento
+  - 4. Link de Pagamento
 ---
 
 # Tokenização de Bandeira – Regra Visa
