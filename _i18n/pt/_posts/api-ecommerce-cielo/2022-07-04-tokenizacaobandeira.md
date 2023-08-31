@@ -10,7 +10,7 @@ sort_order: 5
 tags:
   - 1. API E-commerce
   - Tokenização Bandeira
-  - Checkout
+  - 3. Checkout
   - Link de Pagamento
 ---
 
