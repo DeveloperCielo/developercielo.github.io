@@ -7,7 +7,7 @@ toc_footers: true
 categories: tutorial
 sort_order: 2
 tags:
-  - Checkout
+  - 3. Checkout
   - Link de Pagamento
 ---
 
