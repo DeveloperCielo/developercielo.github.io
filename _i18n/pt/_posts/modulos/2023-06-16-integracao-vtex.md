@@ -56,7 +56,8 @@ Veja as diferenças entre conectores:
 
 *Bandeira própria
 
-<aside class="notice">Além disso, as soluções **Antifraude - Cybersource**, **Autenticação com 3DS 2.0** e **Split** são oferecidas pelos conectores Cielo V4 e CieloEcommerce. Braspag V2 oferece apenas Autenticação com 3DS 2.0 e Split, enquanto o Cielo V3 oferece apenas Antifraude - Cybersource. O conector Braspag não oferece nenhuma das soluções.</aside>
+> * A solução **Antifraude Braspag** é oferecida por todos os conectores.<br>
+> * As soluções **3DS 2.0** e **Split de Pagamentos** são oferecidas apenas pelos conectores Braspag V2, Cielo V4 e CieloEcommerce.
 
 ### 3. Escolhendo o Nome da Afiliação
 
