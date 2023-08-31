@@ -8,7 +8,7 @@ toc_footers: true
 categories: manual
 sort_order: 5
 tags:
-  - API Pagamento
+  - 1. API E-commerce
 ---
 
 # Prevenção contra fraudes e chargebacks
