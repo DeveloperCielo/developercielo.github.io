@@ -6,7 +6,7 @@ toc_footers: true
 categories: tutorial
 sort_order: 2
 tags:
-  - Documentos Adicionais
+  - 13. Documentos Adicionais
 ---
 
 # Programa de Retentativa das Bandeiras
