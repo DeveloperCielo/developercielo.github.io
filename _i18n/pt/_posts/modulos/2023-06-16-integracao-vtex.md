@@ -51,8 +51,7 @@ Veja as diferenças entre conectores:
 |Crédito|**Gateway**:<br>- Banorte<br>- Redecard<br>- Ditef<br>- Amex 2P <br>- PagosOnLine<br>- PayVision<br>- Sitef<br>- GetNet<br>- Sub1 <br>- Credibanco<br>- E-rede2<br>- E-rede<br>- SafraPay| **Gateway**:<br>- Cielo30<br>- Rede2|**Adquirência**:<br> - Cielo|**Adquirência**:<br>- Cielo|**Adquirência**:<br>- Cielo<br> **Gateway**:<br>- Cielo30<br>- Getnet<br>- Rede2 <br>- Safra2<br>- Sub1<br>- Banorte<br>- Credibanco2<br>- Carrefour* <br>- CredSystem*<br>- Credz*<br>- Dmcard*|
 |Débito|**Gateway**:<br>- Cielo3.0<br>- GetNet<br>- Rede2|**Gateway**:<br>- Cielo3.0<br>- Rede2|**Gateway**:<br>- Cielo|**Gateway**:<br>- Cielo|**Adquirência**:<br>- Cielo<br>**Gateway**:<br>- Cielo30<br>- Getnet<br>- Rede2<br>- Safra2|
 |Pix|Não se aplica|Não se aplica|Não se aplica|Não se aplica|**Adquirência**:<br>- Bradesco2<br>- Cielo <br>**Gateway**:<br> - Cielo30<br>- Bradesco2|
-|Transferência Bancária|Não se aplica|Não se aplica| ? |Não se aplica|Não se aplica|
-|Voucher|**Gateway**:<br>- Ticket|Não se aplica|**Adquirência**:<br>- Alelo|Não se aplica|**Adquirência**:<br> - Alelo<br>**Gateway**:<br>- Ticket<br>- Alelo|
+|Voucher|Não se aplica|**Gateway**:<br>- Ticket|**Adquirência**:<br>- Alelo|Não se aplica|**Adquirência**:<br> - Alelo<br>**Gateway**:<br>- Ticket<br>- Alelo|
 
 *Bandeira própria
 
