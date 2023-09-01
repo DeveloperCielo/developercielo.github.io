@@ -6,7 +6,7 @@ search: true
 categories: faq
 sort_order: 3
 tags:
-  - 6. Cielo LIO
+  - 4. Cielo LIO
 search: true
 ---
 
