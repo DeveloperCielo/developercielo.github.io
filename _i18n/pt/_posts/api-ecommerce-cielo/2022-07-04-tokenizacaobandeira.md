@@ -41,7 +41,7 @@ Com o objetivo de reduzir esse impacto financeiro para nossos clientes, a Cielo 
 
 **Quais transações são elegíveis?** Uma vez que hoje no mercado ainda existam cartões com BINs (primeiros 6 dígitos do cartão) não tokenizáveis, não será possível atendermos 100% das transações Visa. A Visa informou para a Cielo que aproximadamente 95% dos BINs Visa são elegíveis, e que haverá incidência de cobrança sobre os 5% não elegíveis. Sendo que, a Cielo irá repassar esses custos de operações com BINSs não elegíveis ao cliente.
 
-**Produtos Elegíveis:** API E-commerce Cielo, API 1.5, Super Link e Checkout Cielo.
+**Produtos Elegíveis:** API E-commerce Cielo, API 1.5, Link de Pagamento e Checkout Cielo.
 
 **Preciso fazer alguma modificação na integração ou solicitar a funcionalidade para a Cielo?** Não. A Cielo fará a ativação na data determinada, para você e todos os clientes, semcustos adicionais.
 
