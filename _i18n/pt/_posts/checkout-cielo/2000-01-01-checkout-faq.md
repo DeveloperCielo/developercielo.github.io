@@ -7,7 +7,7 @@ toc_footers: true
 categories: faq
 sort_order: 3
 tags:
-  - 3. Checkout
+  - 2. Checkout e Link de Pagamento
 ---
 
 # Dúvidas de Negócio
