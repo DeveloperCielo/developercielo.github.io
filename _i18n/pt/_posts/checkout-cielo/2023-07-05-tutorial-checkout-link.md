@@ -7,8 +7,7 @@ toc_footers: true
 categories: tutorial
 sort_order: 2
 tags:
-  - 3. Checkout
-  - 4. Link de Pagamento
+  - 2. Checkout e Link de Pagamento
 ---
 
 # Tutorial do Checkout e Link de Pagamento no site Cielo
