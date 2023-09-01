@@ -44,15 +44,15 @@ Selecione o conector desejado e insira as informações recebidas após a contra
 
 Veja as diferenças entre conectores:
 
-|Meios de Pagamento|Provedor Braspag|Provedor Braspag V2|Provedor Cielo V3|Provedor Cielo V4|Provedor CieloEcommerce|
+|Meios de Pagamento|Braspag|Braspag V2|Cielo V3|Cielo V4|CieloEcommerce|
 |-|-|-|-|-|-|
-|Boleto|Banco Brasil<br>Bradesco|Não se aplica|Banco Brasil<br>Bradesco|Não se aplica|Não se aplica|
-|Boleto Registrado|Banco Brasil2<br>Bradesco2|Não se aplica|Banco Brasil2<br>Bradesco2|Não se aplica|**Adquirência**:<br>- Bradesco2<br>- BancoDoBrasil2<br>**Gateway**: - ItauShopline<br>- Caixa2 <br>- CitiBank2<br>- Santander2|
-|Crédito|Cielo30<br>Banorte<br>Redecard<br>Ditef<br>Amex 2P <br>PagosOnLine<br>PayVision<br>Sitef<br>GetNet<br>Sub1 <br>Credibanco<br>E-rede2<br>E-rede<br>SafraPay|Cielo30<br>Rede2|Cielo|Cielo|Cielo - Adquirência<br>Cielo30<br>Getnet<br>Rede2 <br>Safra2<br>Sub1<br>Banorte<br>Credibanco2<br>Carrefour* <br>CredSystem*<br>Credz*<br>Dmcard*|
-|Débito|Cielo3.0<br>GetNet<br>Rede2|Cielo3.0<br>Rede2|Cielo|Cielo|Cielo - Adquirência<br>Cielo30<br>Getnet<br>Rede2<br>Safra2|
-|Pix|Não se aplica|Não se aplica|Não se aplica|Não se aplica|Bradesco2<br>Cielo - Adquirência<br>Cielo30 - Gateway|
+|Boleto|**Gateway**:<br>- BancoDoBrasil2<br>- Bradesco2|Não se aplica|**Adquirência**:<br>- BancoDoBrasil2<br>- Bradesco2|Não se aplica|Não se aplica|
+|Boleto Registrado|**Gateway**:<br>- BancoDoBrasil2<br>- Bradesco2|Não se aplica|**Adquirência**:<br>- BancoDoBrasil2<br>- Bradesco2|Não se aplica|**Adquirência**:<br>- Bradesco2<br>- BancoDoBrasil2<br>- BancoDoBrasil3<br>**Gateway**:<br>- Bradesco2<br>- BancoDoBrasil2<br>- BancoDoBrasil3<br> - ItauShopline<br>- Caixa2 <br>- CitiBank2<br>- Santander2|
+|Crédito|**Gateway**:<br>- Banorte<br>- Redecard<br>- Ditef<br>- Amex 2P <br>- PagosOnLine<br>- PayVision<br>- Sitef<br>- GetNet<br>- Sub1 <br>- Credibanco<br>- E-rede2<br>- E-rede<br>- SafraPay| **Gateway**:<br>- Cielo30<br>- Rede2|**Adquirência**:<br> - Cielo|**Adquirência**:<br>- Cielo|**Adquirência**:<br>- Cielo<br> **Gateway**:<br>- Cielo30<br>- Getnet<br>- Rede2 <br>- Safra2<br>- Sub1<br>- Banorte<br>- Credibanco2<br>- Carrefour* <br>- CredSystem*<br>- Credz*<br>- Dmcard*|
+|Débito|**Gateway**:<br>- Cielo3.0<br>- GetNet<br>- Rede2|**Gateway**:<br>- Cielo3.0<br>- Rede2|**Gateway**:<br>- Cielo|**Gateway**:<br>- Cielo|**Adquirência**:<br>- Cielo<br>**Gateway**:<br>- Cielo30<br>- Getnet<br>- Rede2<br>- Safra2|
+|Pix|Não se aplica|Não se aplica|Não se aplica|Não se aplica|**Adquirência**:<br>- Bradesco2<br>- Cielo <br>**Gateway**:<br> - Cielo30<br>- Bradesco2|
 |Transferência Bancária|Não se aplica|Não se aplica| ? |Não se aplica|Não se aplica|
-|Voucher|Ticket|Não se aplica|Alelo|Não se aplica|Ticket - Gateway<br>Alelo|
+|Voucher|**Gateway**:<br>- Ticket|Não se aplica|**Adquirência**:<br>- Alelo|Não se aplica|**Adquirência**:<br> - Alelo<br>**Gateway**:<br>- Ticket<br>- Alelo|
 
 *Bandeira própria
 
