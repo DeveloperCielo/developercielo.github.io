@@ -3866,7 +3866,7 @@
 
 <p>This operation requires the PaymentId received on the return of the payment, in addition to the EmvData data if the payment was made through Chip.</p>
 
-<p>Confirmation is only required for payments made through POS.</p>
+<p>Confirmation is required for all approved transactions.</p>
 
 <table>
   <thead>
@@ -7104,7 +7104,7 @@
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"TerminalBaseModel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"CommunicationType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CommunicationType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PERFIL_PADRAO"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"EquipmentModel"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nl">"EquipmentSerialNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"TerminalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
@@ -7158,7 +7158,7 @@
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Terminal"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"CommunicationType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CommunicationType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PERFIL_PADRAO"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"EquipmentModel"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nl">"EquipmentSerialNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"TerminalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
