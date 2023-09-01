@@ -9,8 +9,7 @@ categories: tutorial
 sort_order: 5
 tags:
   - 1. API E-commerce
-  - 3. Checkout
-  - 4. Link de Pagamento
+  - 2. Checkout e Link de Pagamento
 ---
 
 # Tokenização de Bandeira – Regra Visa
