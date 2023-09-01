@@ -6,7 +6,7 @@ search: true
 categories: manual
 sort_order: 2
 tags:
-  - 6. Cielo LIO
+  - 4. Cielo LIO
 search: true
 ---
 
