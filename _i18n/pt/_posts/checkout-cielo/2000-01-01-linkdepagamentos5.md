@@ -29,7 +29,7 @@ Este manual irá guiar o desenvolvedor na integração com a API Link de Pagamen
 
 # Sobre o Link de Pagamento Cielo
 
-O **Link de Pagamento** permite que você envie um **link de pagamento de um pedido** para seus clientes pelas redes sociais ou pelo canal que preferir. Ao abrir o link de pagamento, a pessoa compradora vai ver uma página personalizada com o logo da sua loja e as opções de pagamento.
+O Link de Pagamento permite que você envie um **link de pagamento de um pedido** para seus clientes pelas redes sociais ou pelo canal que preferir. Ao abrir o link de pagamento, a pessoa compradora vai ver uma página personalizada com o logo da sua loja e as opções de pagamento.
 
 Você pode vender diferentes tipos de produtos:
 
