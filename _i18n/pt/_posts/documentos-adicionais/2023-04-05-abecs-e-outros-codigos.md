@@ -6,7 +6,7 @@ toc_footers: true
 categories: tutorial
 sort_order: 1
 tags:
-  - 13. Documentos Adicionais
+  - Documentos Adicionais
 ---
 
 # Códigos de retorno ABECS
