@@ -1316,7 +1316,7 @@ When the payment returns successful, then it can be confirmed.
 
 This operation requires the PaymentId received on the return of the payment, in addition to the EmvData data if the payment was made through Chip.
 
-Confirmation is only required for payments made through POS.
+Confirmation is required for all approved transactions.
 
 |                    SandBox                     |                Production                |
 | :--------------------------------------------: | :--------------------------------------: |
@@ -2473,7 +2473,7 @@ Create a new terminal.
 ```json
 {
   "TerminalBaseModel": {
-    "CommunicationType": "string",
+    "CommunicationType": "PERFIL_PADRAO",
     "EquipmentModel": 0,
     "EquipmentSerialNumber": "string",
     "TerminalId": "string"
@@ -2493,7 +2493,7 @@ Create a new terminal.
 ```json
 {
   "Terminal": {
-    "CommunicationType": "string",
+    "CommunicationType": "PERFIL_PADRAO",
     "EquipmentModel": 0,
     "EquipmentSerialNumber": "string",
     "TerminalId": "string",
