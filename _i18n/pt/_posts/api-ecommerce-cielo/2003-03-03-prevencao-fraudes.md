@@ -6,7 +6,7 @@ search: true
 translated: false
 toc_footers: true
 categories: manual
-sort_order: 5
+sort_order: 6
 tags:
   - 1. API E-commerce
 ---
