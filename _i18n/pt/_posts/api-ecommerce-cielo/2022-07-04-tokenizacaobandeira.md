@@ -6,7 +6,7 @@ search: true
 translated: true
 toc_footers: true
 categories: tutorial
-sort_order: 5
+sort_order: 7
 tags:
   - 1. API E-commerce
   - 2. Checkout e Link de Pagamento
