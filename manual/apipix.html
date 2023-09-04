@@ -423,6 +423,24 @@ O usuário pagador recebe um Pix com o valor de devolução acordado.</p>
 
 <p>Para utilizar a API PIX, as requisições devem ser executadas utilizando as respectivas credenciais dos ambientes de <strong>Homologação</strong> e <strong>Produção</strong>.</p>
 
+<h2 id="descrição-ambiente">Descrição ambiente:</h2>
+
+<p><strong>Produção:</strong> é o ambiente transacional integrado ao ambiente da Cielo. As operações realizadas nesse ambiente são reais e não podem ser desfeitas.</p>
+
+<p><strong>Homologação:</strong> é o ambiente destinado à realização de testes. As operações são executadas em ambiente real, porém não produtivo.</p>
+
+<h2 id="homologação">Homologação</h2>
+
+<p>As credenciais para o ambiente de homologação são solicitadas diretamente em nosso <a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/myapps/new">Portal de Desenvolvedores</a></p>
+
+<p>Basta selecionar a API abaixo:</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/API_PIX_My_Apps.png" alt="API_PIX_My_Apps" /></p>
+
+<p>Após a criação será possível visualizar o seu client_id e client_secret, acesse:<a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/myapps/new">MINHAS CREDENCIAIS</a></p>
+
+<h2 id="produção">Produção</h2>
+
 <p><strong>Produção:</strong> Para os parceiros acessarem os dados dos clientes da Cielo, os clientes precisam informar as “chaves” ao parceiro.</p>
 
 <p><strong>E como funciona o fluxo de criação das credenciais em produção?</strong></p>
@@ -472,12 +490,6 @@ O usuário pagador recebe um Pix com o valor de devolução acordado.</p>
 <p><strong>Importante:</strong> as credenciais precisam ser copiadas/baixadas dentro de 3 minutos. Caso contrário, será necessário gerar uma nova credencial.</p>
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/PIX_Cielo_10.png" alt="IMG_PIX_10" /></p>
-
-<h2 id="descrição-ambiente">Descrição ambiente:</h2>
-
-<p><strong>Produção:</strong> é o ambiente transacional integrado ao ambiente da Cielo. As operações realizadas nesse ambiente são reais e não podem ser desfeitas.</p>
-
-<p><strong>Homologação:</strong> é o ambiente destinado à realização de testes. As operações são executadas em ambiente real, porém não produtivo.</p>
 
 <h1 id="api-pix-especificação-técnica">API Pix: Especificação Técnica</h1>
 
