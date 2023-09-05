@@ -446,7 +446,7 @@ Para criar uma transação de cartão de crédito, envie uma requisição utiliz
 
 > A **captura** da transação da crédito pode ser **automática** ou **posterior**. Para captura automática, envie o campo `Payment.Capture` na requisição como “true”. Para captura posterior, envie o campo como "false" e, posteriormente, faça a [requisição de captura](https://developercielo.github.io/manual/cielo-ecommerce#captura).
 
-<aside class="notice"><strong>Atenção:</strong> Não é possível realizar uma transação com valor (`Amount`) 0.</aside>
+<aside class="notice"><strong>Atenção:</strong> Não é possível realizar uma transação com valor (`Amount`) 0. Para verificar a validade de um cartão, use o [Zero Auth](https://developercielo.github.io/manual/cielo-ecommerce#zero-auth). </aside>
 
 <aside class="notice"><strong>Atenção:</strong> No header da requisição, use o Content-Type application/json .</aside>
 
