@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-09-05T14:56:21+00:00</updated>
+    <updated>2023-09-05T15:19:13+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -31911,7 +31911,7 @@ You can import them directly into your POSTMAN and have all the examples ready t
   &lt;p&gt;The transaction &lt;strong&gt;capture&lt;/strong&gt; can be &lt;strong&gt;authomatic&lt;/strong&gt; or &lt;strong&gt;posterior&lt;/strong&gt;. For an authomatic capure, send the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Capture&lt;/code&gt; field in the request as “true”. For a posterior capture, send the field as “false” and, later, do the &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#consult-capture-cancel&quot; target=&quot;\_blank&quot;&gt;capture request&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;Warning: It is not possible to carry out a transaction with its value as (`Amount`) 0.&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Warning: It is not possible to carry out a transaction with its value as (`Amount`) 0. To verify if a card is valid, use [Zero Auth](https://developercielo.github.io/en/manual/cielo-ecommerce#zero-auth).&lt;/aside&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;Warning: In the request header, use Content-Type application/json .&lt;/aside&gt;
 
@@ -32371,7 +32371,7 @@ You can import them directly into your POSTMAN and have all the examples ready t
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Number of installments.&lt;/td&gt;
+      &lt;td&gt;Number of installments. If the transaction is a recurrence, the number of installments will be 1. For installment transactions, the number of installments will be greater than 1.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Interest&lt;/code&gt;&lt;/td&gt;
@@ -32398,8 +32398,8 @@ You can import them directly into your POSTMAN and have all the examples ready t
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Recurrent&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Boolean&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
-      &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Indicates if the transaction is recurring (“true”) or not (“false”). The value “true” won’t originate a new recurrence, it will only allow a transaction without the need to send the security code. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Authenticate&lt;/code&gt; should be “false” if &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Recurrent&lt;/code&gt; is “true”.&lt;/td&gt;
+      &lt;td&gt;Conditional&lt;/td&gt;
+      &lt;td&gt;Indicates if the transaction is recurring (“true”) or not (“false”). The value “true” won’t originate a new recurrence, it will only allow a transaction without the need to send the security code. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Authenticate&lt;/code&gt; should be “false” if &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Recurrent&lt;/code&gt; is “true”. Find out more about &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#recurring-payments&quot;&gt;Recurring Payments&lt;/a&gt;.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.IsCryptocurrencyNegotiation&lt;/code&gt;&lt;/td&gt;
@@ -33616,7 +33616,7 @@ You can import them directly into your POSTMAN and have all the examples ready t
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Number of installments.&lt;/td&gt;
+      &lt;td&gt;Number of installments. If the transaction is a recurrence, the number of installments will be 1. For installment transactions, the number of installments will be greater than 1.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Interest&lt;/code&gt;&lt;/td&gt;
@@ -33643,8 +33643,8 @@ You can import them directly into your POSTMAN and have all the examples ready t
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Recurrent&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Boolean&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
-      &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Indicates if the transaction is recurring (“true”) or not (“false”). The value “true” won’t originate a new recurrence, it will only allow a transaction without the need to send the security code. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Authenticate&lt;/code&gt; should be “false” if &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Recurrent&lt;/code&gt; is “true”.&lt;/td&gt;
+      &lt;td&gt;Conditional&lt;/td&gt;
+      &lt;td&gt;Indicates if the transaction is recurring (“true”) or not (“false”). The value “true” won’t originate a new recurrence, it will only allow a transaction without the need to send the security code. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Authenticate&lt;/code&gt; should be “false” if &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Recurrent&lt;/code&gt; is “true”. Find out more about &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#recurring-payments&quot;&gt;Recurring Payments&lt;/a&gt;.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.IsCryptocurrencyNegotiation&lt;/code&gt;&lt;/td&gt;
@@ -35804,7 +35804,7 @@ You can import them directly into your POSTMAN and have all the examples ready t
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Number of installments.&lt;/td&gt;
+      &lt;td&gt;Number of installments. If the transaction is a recurrence, the number of installments will be 1. For installment transactions, the number of installments will be greater than 1.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Capture&lt;/code&gt;&lt;/td&gt;
@@ -36272,7 +36272,7 @@ You can import them directly into your POSTMAN and have all the examples ready t
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Number of installments.&lt;/td&gt;
+      &lt;td&gt;Number of installments. If the transaction is a recurrence, the number of installments will be 1. For installment transactions, the number of installments will be greater than 1.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Interest&lt;/code&gt;&lt;/td&gt;
@@ -36292,8 +36292,8 @@ You can import them directly into your POSTMAN and have all the examples ready t
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Recurrent&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Boolean&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
-      &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Indicates if the transaction is recurring (“true”) or not (“false”). The value “true” won’t originate a new recurrence, it will only allow a transaction without the need to send the security code. Authenticate should be “false” if Recurrent is “true”.&lt;/td&gt;
+      &lt;td&gt;Conditional&lt;/td&gt;
+      &lt;td&gt;Indicates if the transaction is recurring (“true”) or not (“false”). The value “true” won’t originate a new recurrence, it will only allow a transaction without the need to send the security code. Authenticate should be “false” if Recurrent is “true”. Find out more about &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#recurring-payments&quot;&gt;Recurring Payments&lt;/a&gt;.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CreditCard.CardNumber&lt;/code&gt;&lt;/td&gt;
@@ -38388,7 +38388,7 @@ In addition, you have to send some addictional data in the transaction, to that 
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Installments&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Number of Installments.&lt;/td&gt;
+      &lt;td&gt;Number of installments. If the transaction is a recurrence, the number of installments will be 1. For installment transactions, the number of installments will be greater than 1.&lt;/td&gt;
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
@@ -38402,10 +38402,10 @@ In addition, you have to send some addictional data in the transaction, to that 
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Recurrent&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Marking of an unscheduled recurrence transaction&lt;/td&gt;
+      &lt;td&gt;Indicates an unscheduled recurrence transaction.&lt;/td&gt;
       &lt;td&gt;Boolean&lt;/td&gt;
       &lt;td&gt;5&lt;/td&gt;
-      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CreditCard.CardNumber&lt;/code&gt;&lt;/td&gt;
@@ -38633,7 +38633,7 @@ In addition, you have to send some addictional data in the transaction, to that 
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Installments&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Number of Installments.&lt;/td&gt;
+      &lt;td&gt;Number of installments. If the transaction is a recurrence, the number of installments will be 1. For installment transactions, the number of installments will be greater than 1.&lt;/td&gt;
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
@@ -38647,10 +38647,10 @@ In addition, you have to send some addictional data in the transaction, to that 
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Recurrent&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Marking of an unscheduled recurrence transaction&lt;/td&gt;
+      &lt;td&gt;Indicates an unscheduled recurrence transaction.&lt;/td&gt;
       &lt;td&gt;Boolean&lt;/td&gt;
       &lt;td&gt;5&lt;/td&gt;
-      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CreditCard.CardNumber&lt;/code&gt;&lt;/td&gt;
@@ -38824,7 +38824,7 @@ In addition, you have to send some addictional data in the transaction, to that 
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Installments&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Number of Installments.&lt;/td&gt;
+      &lt;td&gt;Number of installments. If the transaction is a recurrence, the number of installments will be 1. For installment transactions, the number of installments will be greater than 1.&lt;/td&gt;
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
@@ -40284,7 +40284,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Installments&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Number of Installments.&lt;/td&gt;
+      &lt;td&gt;Number of installments. If the transaction is a recurrence, the number of installments will be 1. For installment transactions, the number of installments will be greater than 1.&lt;/td&gt;
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
@@ -40620,7 +40620,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Installments&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Number of Installments.&lt;/td&gt;
+      &lt;td&gt;Number of installments. If the transaction is a recurrence, the number of installments will be 1. For installment transactions, the number of installments will be greater than 1.&lt;/td&gt;
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;

@@ -918,7 +918,7 @@
   <p>The transaction <strong>capture</strong> can be <strong>authomatic</strong> or <strong>posterior</strong>. For an authomatic capure, send the <code class="language-plaintext highlighter-rouge">Payment.Capture</code> field in the request as “true”. For a posterior capture, send the field as “false” and, later, do the <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#consult-capture-cancel" target="\_blank">capture request</a>.</p>
 </blockquote>
 
-<aside class="notice">Warning: It is not possible to carry out a transaction with its value as (`Amount`) 0.</aside>
+<aside class="notice">Warning: It is not possible to carry out a transaction with its value as (`Amount`) 0. To verify if a card is valid, use [Zero Auth](https://developercielo.github.io/en/manual/cielo-ecommerce#zero-auth).</aside>
 
 <aside class="notice">Warning: In the request header, use Content-Type application/json .</aside>
 
@@ -1378,7 +1378,7 @@
       <td>Number</td>
       <td>2</td>
       <td>Yes</td>
-      <td>Number of installments.</td>
+      <td>Number of installments. If the transaction is a recurrence, the number of installments will be 1. For installment transactions, the number of installments will be greater than 1.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Interest</code></td>
@@ -1405,8 +1405,8 @@
       <td><code class="language-plaintext highlighter-rouge">Payment.Recurrent</code></td>
       <td>Boolean</td>
       <td>-</td>
-      <td>No</td>
-      <td>Indicates if the transaction is recurring (“true”) or not (“false”). The value “true” won’t originate a new recurrence, it will only allow a transaction without the need to send the security code. <code class="language-plaintext highlighter-rouge">Authenticate</code> should be “false” if <code class="language-plaintext highlighter-rouge">Recurrent</code> is “true”.</td>
+      <td>Conditional</td>
+      <td>Indicates if the transaction is recurring (“true”) or not (“false”). The value “true” won’t originate a new recurrence, it will only allow a transaction without the need to send the security code. <code class="language-plaintext highlighter-rouge">Authenticate</code> should be “false” if <code class="language-plaintext highlighter-rouge">Recurrent</code> is “true”. Find out more about <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#recurring-payments">Recurring Payments</a>.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.IsCryptocurrencyNegotiation</code></td>
@@ -2623,7 +2623,7 @@
       <td>Number</td>
       <td>2</td>
       <td>Yes</td>
-      <td>Number of installments.</td>
+      <td>Number of installments. If the transaction is a recurrence, the number of installments will be 1. For installment transactions, the number of installments will be greater than 1.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Interest</code></td>
@@ -2650,8 +2650,8 @@
       <td><code class="language-plaintext highlighter-rouge">Payment.Recurrent</code></td>
       <td>Boolean</td>
       <td>-</td>
-      <td>No</td>
-      <td>Indicates if the transaction is recurring (“true”) or not (“false”). The value “true” won’t originate a new recurrence, it will only allow a transaction without the need to send the security code. <code class="language-plaintext highlighter-rouge">Authenticate</code> should be “false” if <code class="language-plaintext highlighter-rouge">Recurrent</code> is “true”.</td>
+      <td>Conditional</td>
+      <td>Indicates if the transaction is recurring (“true”) or not (“false”). The value “true” won’t originate a new recurrence, it will only allow a transaction without the need to send the security code. <code class="language-plaintext highlighter-rouge">Authenticate</code> should be “false” if <code class="language-plaintext highlighter-rouge">Recurrent</code> is “true”. Find out more about <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#recurring-payments">Recurring Payments</a>.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.IsCryptocurrencyNegotiation</code></td>
@@ -4811,7 +4811,7 @@
       <td>Number</td>
       <td>2</td>
       <td>Yes</td>
-      <td>Number of installments.</td>
+      <td>Number of installments. If the transaction is a recurrence, the number of installments will be 1. For installment transactions, the number of installments will be greater than 1.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
@@ -5279,7 +5279,7 @@
       <td>Number</td>
       <td>2</td>
       <td>Yes</td>
-      <td>Number of installments.</td>
+      <td>Number of installments. If the transaction is a recurrence, the number of installments will be 1. For installment transactions, the number of installments will be greater than 1.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Interest</code></td>
@@ -5299,8 +5299,8 @@
       <td><code class="language-plaintext highlighter-rouge">Payment.Recurrent</code></td>
       <td>Boolean</td>
       <td>-</td>
-      <td>No</td>
-      <td>Indicates if the transaction is recurring (“true”) or not (“false”). The value “true” won’t originate a new recurrence, it will only allow a transaction without the need to send the security code. Authenticate should be “false” if Recurrent is “true”.</td>
+      <td>Conditional</td>
+      <td>Indicates if the transaction is recurring (“true”) or not (“false”). The value “true” won’t originate a new recurrence, it will only allow a transaction without the need to send the security code. Authenticate should be “false” if Recurrent is “true”. Find out more about <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#recurring-payments">Recurring Payments</a>.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
@@ -7395,7 +7395,7 @@ In addition, you have to send some addictional data in the transaction, to that 
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
-      <td>Number of Installments.</td>
+      <td>Number of installments. If the transaction is a recurrence, the number of installments will be 1. For installment transactions, the number of installments will be greater than 1.</td>
       <td>Number</td>
       <td>2</td>
       <td>Yes</td>
@@ -7409,10 +7409,10 @@ In addition, you have to send some addictional data in the transaction, to that 
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Recurrent</code></td>
-      <td>Marking of an unscheduled recurrence transaction</td>
+      <td>Indicates an unscheduled recurrence transaction.</td>
       <td>Boolean</td>
       <td>5</td>
-      <td>No</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
@@ -7640,7 +7640,7 @@ In addition, you have to send some addictional data in the transaction, to that 
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
-      <td>Number of Installments.</td>
+      <td>Number of installments. If the transaction is a recurrence, the number of installments will be 1. For installment transactions, the number of installments will be greater than 1.</td>
       <td>Number</td>
       <td>2</td>
       <td>Yes</td>
@@ -7654,10 +7654,10 @@ In addition, you have to send some addictional data in the transaction, to that 
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Recurrent</code></td>
-      <td>Marking of an unscheduled recurrence transaction</td>
+      <td>Indicates an unscheduled recurrence transaction.</td>
       <td>Boolean</td>
       <td>5</td>
-      <td>No</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
@@ -7831,7 +7831,7 @@ In addition, you have to send some addictional data in the transaction, to that 
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
-      <td>Number of Installments.</td>
+      <td>Number of installments. If the transaction is a recurrence, the number of installments will be 1. For installment transactions, the number of installments will be greater than 1.</td>
       <td>Number</td>
       <td>2</td>
       <td>Yes</td>
@@ -9291,7 +9291,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
-      <td>Number of Installments.</td>
+      <td>Number of installments. If the transaction is a recurrence, the number of installments will be 1. For installment transactions, the number of installments will be greater than 1.</td>
       <td>Number</td>
       <td>2</td>
       <td>Yes</td>
@@ -9627,7 +9627,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
-      <td>Number of Installments.</td>
+      <td>Number of installments. If the transaction is a recurrence, the number of installments will be 1. For installment transactions, the number of installments will be greater than 1.</td>
       <td>Number</td>
       <td>2</td>
       <td>Yes</td>
