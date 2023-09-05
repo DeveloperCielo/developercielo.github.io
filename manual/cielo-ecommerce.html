@@ -922,7 +922,7 @@ Abaixo especificamos qualquer diferença existente:</p>
   <p>A <strong>captura</strong> da transação da crédito pode ser <strong>automática</strong> ou <strong>posterior</strong>. Para captura automática, envie o campo <code class="language-plaintext highlighter-rouge">Payment.Capture</code> na requisição como “true”. Para captura posterior, envie o campo como “false” e, posteriormente, faça a <a href="https://developercielo.github.io/manual/cielo-ecommerce#captura">requisição de captura</a>.</p>
 </blockquote>
 
-<aside class="notice">Atenção: Não é possível realizar uma transação com valor (`Amount`) 0.</aside>
+<aside class="notice">Atenção: Não é possível realizar uma transação com valor (`Amount`) 0. Para verificar a validade de um cartão, use o [Zero Auth](https://developercielo.github.io/manual/cielo-ecommerce#zero-auth). </aside>
 
 <aside class="notice">Atenção: No header da requisição, use o Content-Type application/json .</aside>
 
