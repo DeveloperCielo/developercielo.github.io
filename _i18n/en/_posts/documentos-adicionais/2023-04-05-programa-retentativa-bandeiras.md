@@ -83,7 +83,7 @@ Within this retry program, there are programs that are specifically designed for
 
 The MAC program accepts a few values, however **only MACs 03 and 21 have a specific charge**. The other MACs do not fall under this MAC 03/21 charge.
 
-The other MAC codes: 01, 02, 04, 24, 25, 26, 27, 28, 29 and 30 aren't included the MAC billing program but are included in the Excessive Attempts program billing if you exceed the limits.
+The other MAC codes (01, 02, 04, 24, 25, 26, 27, 28, 29, 30, 40 and 41) are not included the MAC billing program but are included in the Excessive Attempts program billing if you exceed the limits.
 
 Since **10/14/2022** Mastercard has introduced new MAC codes 24, 25, 26, 27, 28, 29 and 30, when an issuer declines a transaction with the response code 51 (Insufficient Funds) followed by one of the MACs below, for the merchant to take the best action.
 
@@ -96,19 +96,20 @@ Since **10/14/2022** Mastercard has introduced new MAC codes 24, 25, 26, 27, 28,
 |03|Retry is not allowed|Must seek another method of guaranteeing payment, avoiding unnecessary costs of multiple authorization requests that will continue to result in declines|
 |04|Token requirements not met for this model token|Need to review the token requirements, as they were not met for the model token sent in the transaction|
 |21|Plan cancelled|Customer cancels plan and even after cancellation, the establishment continues to send purchase authorization request.|
-|24|Try again after 1 hour|Only valid for response code 51 (Insufficient Funds)|
-|25|Try again after 24 hours|Only valid for response code 51 (Insufficient Funds)|
-|26|Try again after 2 days|Only valid for response code 51 (Insufficient Funds)|
-|27|Try again after 4 days|Only valid for response code 51 (Insufficient Funds)|
-|28|Try again after 6 days|Only valid for response code 51 (Insufficient Funds)|
-|29|Try again after 8 days|Only valid for response code 51 (Insufficient Funds)|
+|24|Try again after 1 hour|Only valid for response code 51 (Insufficient Funds).|
+|25|Try again after 24 hours|Only valid for response code 51 (Insufficient Funds).|
+|26|Try again after 2 days|Only valid for response code 51 (Insufficient Funds).|
+|27|Try again after 4 days|Only valid for response code 51 (Insufficient Funds).|
+|28|Try again after 6 days|Only valid for response code 51 (Insufficient Funds).|
+|29|Try again after 8 days|Only valid for response code 51 (Insufficient Funds).|
 |30|Try again after 10 days|Only valid for response code 51 (Insufficient Funds)|
+|40|Retry is not allowed | Consumers non-reloadable prepaid card. |
+|41|Retry is not allowed | Consumers single-use virtual card. |
 
 Some return codes will no longer be sent:
 
 * 04 (Capture Card)
 * 14 (Invalid card number)
-* 41 (Lost Card)
 * 43 (Stolen Card)
 * 54 (Expired Card)
 * 57 (Transaction Not Allowed)
