@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-09-06T14:44:11+00:00</updated>
+    <updated>2023-09-06T14:58:03+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -30278,51 +30278,6 @@ Lastly, we’ll access our application IP to see if all worked fine!&lt;/p&gt;
   &lt;span class=&quot;c1&quot;&gt;// o cartão é válido e podemos dar andamento na integração&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-</content>
-    </entry>
-    
-    <entry>
-        <title>SDKs</title>
-        <category term="tutorial" />
-        <link href="https://developercielo.github.io/en/tutorial/sdks-cielo"/>
-        <updated>2004-03-03T00:00:00+00:00</updated>
-        <id>https://developercielo.github.io/en/tutorial/sdks-cielo</id>
-        <content type="html">&lt;h1 id=&quot;cielo-lio-sdks&quot;&gt;Cielo LIO SDKs&lt;/h1&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Type&lt;/th&gt;
-      &lt;th&gt;SDK&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Sample&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/LIO-SDK-Sample-Integracao-Local&quot;&gt;&lt;strong&gt;Local Integration&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Order Management&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/order-management&quot;&gt;&lt;strong&gt;Local Integration&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Android&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/LIO-SDK-API-Integracao-Remota-v1-Android&quot;&gt;&lt;strong&gt;Remote Integration&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;PHP&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/LIO-SDK-API-Integracao-Remota-v1-PHP&quot;&gt;&lt;strong&gt;Remote Integration&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Java&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/LIO-SDK-API-Integracao-Remota-v1-Java&quot;&gt;&lt;strong&gt;Remote Integration&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;CSharp&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/LIO-SDK-API-Integracao-Remota-v1-CSHARP&quot;&gt;&lt;strong&gt;Remote Integration&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
 </content>
     </entry>
     
