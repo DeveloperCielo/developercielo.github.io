@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-09-06T14:38:11+00:00</updated>
+    <updated>2023-09-06T14:44:11+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -19294,7 +19294,7 @@ See example below, describing the submission of authentication data from the Pag
     </entry>
     
     <entry>
-        <title>Split Payments</title>
+        <title>Split</title>
         <category term="manual" />
         <link href="https://developercielo.github.io/en/manual/split-payments"/>
         <updated>2019-05-16T00:00:00+00:00</updated>
