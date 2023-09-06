@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Split Payments
+title: Split
 description: Split Payments Integration Manual
 search: true
 toc_footers: false
@@ -8,7 +8,7 @@ categories: manual
 sort_order: 3
 hub_visible: false
 tags:
-  - Marketplace Solutions
+  - 7. Marketplace Solutions
 ---
 
 # Split Payments
