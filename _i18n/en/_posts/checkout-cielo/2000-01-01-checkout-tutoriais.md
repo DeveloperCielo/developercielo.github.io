@@ -7,7 +7,7 @@ toc_footers: true
 categories: tutorial
 sort_order: 2
 tags:
-  - Cielo Checkout
+  - 3. Checkout
 ---
 
 # Backoffice - Tutorial
