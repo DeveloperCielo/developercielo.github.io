@@ -7,7 +7,7 @@ translated: true
 categories: manual
 Order: 1
 tags:
-  - Checkout Cielo
+  - 3. Checkout
 language_tabs:
   json: JSON
 ---
