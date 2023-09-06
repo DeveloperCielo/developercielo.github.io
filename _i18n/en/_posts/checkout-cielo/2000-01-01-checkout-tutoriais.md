@@ -8,6 +8,7 @@ categories: tutorial
 sort_order: 2
 tags:
   - 3. Checkout
+  - 4. Link de Pagamento 
 ---
 
 # Backoffice - Tutorial
