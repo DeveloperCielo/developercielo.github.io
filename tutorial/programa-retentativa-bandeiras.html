@@ -229,7 +229,7 @@ Significa que o emissor pode aprovar a transação, mas não pode fazê-lo agora
 
 <p>O programa MAC comporta alguns valores, porém <strong>somente os MACs 03 e 21 possuem uma cobrança específica</strong>. Os demais MACs não se enquadram nessa cobrança.</p>
 
-<p>Os outros códigos MAC (01, 02, 04, 24, 25, 26, 27, 28, 29 e 30) não entram no programa de cobrança do MAC mas entram na cobrança do programa Excessive Attempts, caso exceda os limites.</p>
+<p>Os outros códigos MAC (01, 02, 04, 24, 25, 26, 27, 28, 29, 30, 40 e 41) não entram no programa de cobrança do MAC mas entram na cobrança do programa Excessive Attempts, caso exceda os limites.</p>
 
 <p>Desde <strong>14/10/2022</strong> a Mastercard introduziu novos códigos MAC (24, 25, 26, 27, 28, 29 e 30) quando um emissor recusa uma transação com o código de resposta 51 (insuficiência de fundos) seguido de um dos MAC da tabela a seguir, para que o comerciante tome a melhor ação.</p>
 
@@ -272,37 +272,47 @@ Significa que o emissor pode aprovar a transação, mas não pode fazê-lo agora
     <tr>
       <td>24</td>
       <td>Tente novamente após 1 hora</td>
-      <td>Válido somente para o código de resposta 51 (insuficiência de fundos)</td>
+      <td>Válido somente para o código de resposta 51 (insuficiência de fundos).</td>
     </tr>
     <tr>
       <td>25</td>
       <td>Tente novamente após 24 horas</td>
-      <td>Válido somente para o código de resposta 51 (insuficiência de fundos)</td>
+      <td>Válido somente para o código de resposta 51 (insuficiência de fundos).</td>
     </tr>
     <tr>
       <td>26</td>
       <td>Tente novamente após 2 dias</td>
-      <td>Válido somente para o código de resposta 51 (insuficiência de fundos)</td>
+      <td>Válido somente para o código de resposta 51 (insuficiência de fundos).</td>
     </tr>
     <tr>
       <td>27</td>
       <td>Tente novamente após 4 dias</td>
-      <td>Válido somente para o código de resposta 51 (insuficiência de fundos)</td>
+      <td>Válido somente para o código de resposta 51 (insuficiência de fundos).</td>
     </tr>
     <tr>
       <td>28</td>
       <td>Tente novamente após 6 dias</td>
-      <td>Válido somente para o código de resposta 51 (insuficiência de fundos)</td>
+      <td>Válido somente para o código de resposta 51 (insuficiência de fundos).</td>
     </tr>
     <tr>
       <td>29</td>
       <td>Tente novamente após 8 dias</td>
-      <td>Válido somente para o código de resposta 51 (insuficiência de fundos)</td>
+      <td>Válido somente para o código de resposta 51 (insuficiência de fundos).</td>
     </tr>
     <tr>
       <td>30</td>
       <td>Tente novamente após 10 dias</td>
-      <td>Válido somente para o código de resposta 51 (insuficiência de fundos)</td>
+      <td>Válido somente para o código de resposta 51 (insuficiência de fundos).</td>
+    </tr>
+    <tr>
+      <td>40</td>
+      <td>Não é permitido retentar</td>
+      <td>Cartão pré pago não recarregável para consumo.</td>
+    </tr>
+    <tr>
+      <td>41</td>
+      <td>Não é permitido retentar</td>
+      <td>Cartão virtual de uso único do consumidor.</td>
     </tr>
   </tbody>
 </table>
@@ -312,7 +322,6 @@ Significa que o emissor pode aprovar a transação, mas não pode fazê-lo agora
 <ul>
   <li>04 (Cartão de Captura)</li>
   <li>14 (Número de cartão inválido)</li>
-  <li>41 (Cartão Perdido)</li>
   <li>43 (Cartão Roubado)</li>
   <li>54 (Cartão Expirado)</li>
   <li>57 (Transação Não Permitida)</li>
