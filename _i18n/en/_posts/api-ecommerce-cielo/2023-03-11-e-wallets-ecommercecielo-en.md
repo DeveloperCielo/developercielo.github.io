@@ -7,7 +7,7 @@ translated: true
 categories: manual
 sort_order: 3
 tags:
-  - API Payment
+  - 1. API E-commerce
 language_tabs:
   json: JSON
   shell: cURL
