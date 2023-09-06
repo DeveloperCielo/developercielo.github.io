@@ -83,7 +83,7 @@ Dentro desse programa de retentativas, há programas que se destinam especificam
 
 O programa MAC comporta alguns valores, porém **somente os MACs 03 e 21 possuem uma cobrança específica**. Os demais MACs não se enquadram nessa cobrança.
 
-Os outros códigos MAC (01, 02, 04, 24, 25, 26, 27, 28, 29 e 30) não entram no programa de cobrança do MAC mas entram na cobrança do programa Excessive Attempts, caso exceda os limites.
+Os outros códigos MAC (01, 02, 04, 24, 25, 26, 27, 28, 29, 30, 40 e 41) não entram no programa de cobrança do MAC mas entram na cobrança do programa Excessive Attempts, caso exceda os limites.
 
 Desde **14/10/2022** a Mastercard introduziu novos códigos MAC (24, 25, 26, 27, 28, 29 e 30) quando um emissor recusa uma transação com o código de resposta 51 (insuficiência de fundos) seguido de um dos MAC da tabela a seguir, para que o comerciante tome a melhor ação.
 
@@ -96,19 +96,20 @@ Desde **14/10/2022** a Mastercard introduziu novos códigos MAC (24, 25, 26, 27,
 | 03  | Não é permitido retentar                                 | Busque outro meio de garantir o pagamento, evitando custos desnecessários de várias solicitações de autorização que continuarão a resultar em declínios. |
 | 04  | Requisitos de token não atendidos para este token modelo | Há necessidade de revisar os requisitos de token, pois os requisitos não foram atendidos para este token modelo enviado na transação.                    |
 | 21  | Plano cancelado                                          | Comprador realiza cancelamento de plano e mesmo após o cancelamento, estabelecimento continua enviando solicitação de autorização de compra.             |
-| 24  | Tente novamente após 1 hora                              | Válido somente para o código de resposta 51 (insuficiência de fundos)                                                                                    |
-| 25  | Tente novamente após 24 horas                            | Válido somente para o código de resposta 51 (insuficiência de fundos)                                                                                    |
-| 26  | Tente novamente após 2 dias                              | Válido somente para o código de resposta 51 (insuficiência de fundos)                                                                                    |
-| 27  | Tente novamente após 4 dias                              | Válido somente para o código de resposta 51 (insuficiência de fundos)                                                                                    |
-| 28  | Tente novamente após 6 dias                              | Válido somente para o código de resposta 51 (insuficiência de fundos)                                                                                    |
-| 29  | Tente novamente após 8 dias                              | Válido somente para o código de resposta 51 (insuficiência de fundos)                                                                                    |
-| 30  | Tente novamente após 10 dias                             | Válido somente para o código de resposta 51 (insuficiência de fundos)                                                                                    |
+| 24  | Tente novamente após 1 hora                              | Válido somente para o código de resposta 51 (insuficiência de fundos).                                                                                    |
+| 25  | Tente novamente após 24 horas                            | Válido somente para o código de resposta 51 (insuficiência de fundos).                                                                                    |
+| 26  | Tente novamente após 2 dias                              | Válido somente para o código de resposta 51 (insuficiência de fundos).                                                                                   |
+| 27  | Tente novamente após 4 dias                              | Válido somente para o código de resposta 51 (insuficiência de fundos).                                                                                    |
+| 28  | Tente novamente após 6 dias                              | Válido somente para o código de resposta 51 (insuficiência de fundos).                                                                                    |
+| 29  | Tente novamente após 8 dias                              | Válido somente para o código de resposta 51 (insuficiência de fundos).                                                                                    |
+| 30  | Tente novamente após 10 dias                             | Válido somente para o código de resposta 51 (insuficiência de fundos).                                                                                    |
+| 40  | Não é permitido retentar                                 | Cartão pré pago não recarregável para consumo.|
+| 41  | Não é permitido retentar                                 | Cartão virtual de uso único do consumidor. |
 
 Além disso, alguns códigos de retorno deixarão de ser enviados:
 
 - 04 (Cartão de Captura)
 - 14 (Número de cartão inválido)
-- 41 (Cartão Perdido)
 - 43 (Cartão Roubado)
 - 54 (Cartão Expirado)
 - 57 (Transação Não Permitida)
