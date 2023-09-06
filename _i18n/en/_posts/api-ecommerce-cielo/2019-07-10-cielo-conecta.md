@@ -7,7 +7,7 @@ translated: true
 categories: manual
 sort_order: 1
 tags:
-  - 3. API Cielo Conecta
+  - 4. API Cielo Conecta
 language_tabs:
   json: JSON
   shell: cURL
