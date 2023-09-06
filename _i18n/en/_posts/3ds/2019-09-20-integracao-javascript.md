@@ -7,7 +7,7 @@ translated: true
 categories: manual
 sort_order: 2
 tags:
-  - 3DS 2.0 Authentication
+  - 2. 3DS 2.0 Authentication
 language_tabs:
   json: JSON
   shell: cURL
