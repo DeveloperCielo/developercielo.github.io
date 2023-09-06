@@ -241,7 +241,7 @@
 
 <p>The MAC program accepts a few values, however <strong>only MACs 03 and 21 have a specific charge</strong>. The other MACs do not fall under this MAC 03/21 charge.</p>
 
-<p>The other MAC codes: 01, 02, 04, 24, 25, 26, 27, 28, 29 and 30 aren’t included the MAC billing program but are included in the Excessive Attempts program billing if you exceed the limits.</p>
+<p>The other MAC codes (01, 02, 04, 24, 25, 26, 27, 28, 29, 30, 40 and 41) are not included the MAC billing program but are included in the Excessive Attempts program billing if you exceed the limits.</p>
 
 <p>Since <strong>10/14/2022</strong> Mastercard has introduced new MAC codes 24, 25, 26, 27, 28, 29 and 30, when an issuer declines a transaction with the response code 51 (Insufficient Funds) followed by one of the MACs below, for the merchant to take the best action.</p>
 
@@ -284,37 +284,47 @@
     <tr>
       <td>24</td>
       <td>Try again after 1 hour</td>
-      <td>Only valid for response code 51 (Insufficient Funds)</td>
+      <td>Only valid for response code 51 (Insufficient Funds).</td>
     </tr>
     <tr>
       <td>25</td>
       <td>Try again after 24 hours</td>
-      <td>Only valid for response code 51 (Insufficient Funds)</td>
+      <td>Only valid for response code 51 (Insufficient Funds).</td>
     </tr>
     <tr>
       <td>26</td>
       <td>Try again after 2 days</td>
-      <td>Only valid for response code 51 (Insufficient Funds)</td>
+      <td>Only valid for response code 51 (Insufficient Funds).</td>
     </tr>
     <tr>
       <td>27</td>
       <td>Try again after 4 days</td>
-      <td>Only valid for response code 51 (Insufficient Funds)</td>
+      <td>Only valid for response code 51 (Insufficient Funds).</td>
     </tr>
     <tr>
       <td>28</td>
       <td>Try again after 6 days</td>
-      <td>Only valid for response code 51 (Insufficient Funds)</td>
+      <td>Only valid for response code 51 (Insufficient Funds).</td>
     </tr>
     <tr>
       <td>29</td>
       <td>Try again after 8 days</td>
-      <td>Only valid for response code 51 (Insufficient Funds)</td>
+      <td>Only valid for response code 51 (Insufficient Funds).</td>
     </tr>
     <tr>
       <td>30</td>
       <td>Try again after 10 days</td>
       <td>Only valid for response code 51 (Insufficient Funds)</td>
+    </tr>
+    <tr>
+      <td>40</td>
+      <td>Retry is not allowed</td>
+      <td>Consumers non-reloadable prepaid card.</td>
+    </tr>
+    <tr>
+      <td>41</td>
+      <td>Retry is not allowed</td>
+      <td>Consumers single-use virtual card.</td>
     </tr>
   </tbody>
 </table>
@@ -324,7 +334,6 @@
 <ul>
   <li>04 (Capture Card)</li>
   <li>14 (Invalid card number)</li>
-  <li>41 (Lost Card)</li>
   <li>43 (Stolen Card)</li>
   <li>54 (Expired Card)</li>
   <li>57 (Transaction Not Allowed)</li>
