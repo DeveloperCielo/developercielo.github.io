@@ -8,7 +8,7 @@ toc_footers: true
 categories: manual
 sort_order: 4
 tags:
-  - Checkout Cielo
+  - 3. Checkout
 language_tabs:
   json: JSON
   shell: cURL
