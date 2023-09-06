@@ -7,7 +7,7 @@ translated: true
 categories: manual
 sort_order: 1
 tags:
-  - API Payment
+  - 3. API Cielo Conecta
 language_tabs:
   json: JSON
   shell: cURL
