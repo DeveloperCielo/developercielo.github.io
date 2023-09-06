@@ -8,7 +8,7 @@ toc_footers: true
 categories: tutorial
 sort_order: 7
 tags:
-  - 7. EDI Cielo
+  - 8. EDI Cielo
 ---
 
 # Important
