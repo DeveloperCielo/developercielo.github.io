@@ -7,7 +7,7 @@ translated: true
 categories: tutorial
 sort_order: 5
 tags:
-  - 6. Cielo LIO
+  - 4. Cielo LIO
 ---
 
 # Cielo LIO SDKs
