@@ -38,7 +38,7 @@ Description of the HTTP verbs commom to the APIs:
 
 Authentication flux and authorization to be performed to use the API features:
 
-![Flux]({{ site.baseurl_root }}/images/apicielopromotions/fluxoautenticacao.png)
+![Fluxo]({{ site.baseurl_root }}/images/apicielopromotions/fluxoautenticacao.png)
 
 ### Usage Diagram demonstrating the steps to the API usage
 
