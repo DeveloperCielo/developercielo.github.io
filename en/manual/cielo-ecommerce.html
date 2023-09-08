@@ -918,7 +918,9 @@
   <p>The transaction <strong>capture</strong> can be <strong>authomatic</strong> or <strong>posterior</strong>. For an authomatic capure, send the <code class="language-plaintext highlighter-rouge">Payment.Capture</code> field in the request as “true”. For a posterior capture, send the field as “false” and, later, do the <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#consult-capture-cancel" target="\_blank">capture request</a>.</p>
 </blockquote>
 
-<aside class="notice">Warning: It is not possible to carry out a transaction with its value as (`Amount`) 0. To verify if a card is valid, use [Zero Auth](https://developercielo.github.io/en/manual/cielo-ecommerce#zero-auth).</aside>
+<blockquote>
+  <p>Warning: It is not possible to carry out a transaction with its value as (<code class="language-plaintext highlighter-rouge">Amount</code>) 0. To verify if a card is valid, use <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#zero-auth">Zero Auth</a>.</p>
+</blockquote>
 
 <aside class="notice">Warning: In the request header, use Content-Type application/json .</aside>
 
