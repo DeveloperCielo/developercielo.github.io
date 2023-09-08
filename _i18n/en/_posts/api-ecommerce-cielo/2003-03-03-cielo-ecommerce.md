@@ -2645,6 +2645,8 @@ Card On File supports the following brands:
 
 #### Request
 
+> The Card On File transaction may or may not be recurring.
+
 See an example of a Card on File credit transaction request.
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
