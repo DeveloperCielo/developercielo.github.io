@@ -8,7 +8,7 @@ categories: manual
 sort_order: 3
 hub_visible: false
 tags:
-  - 7. Marketplace Solutions
+  - 6. Marketplace Solutions
 ---
 
 # Split Payments
