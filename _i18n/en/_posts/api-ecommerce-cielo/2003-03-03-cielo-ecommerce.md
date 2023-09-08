@@ -2668,7 +2668,7 @@ See an example of a Card on File credit transaction request.
      "Interest":"ByMerchant",
      "Capture":true,
      "Authenticate":"false",
-     "Recurrent":"false",
+     "Recurrent":"true",
      "SoftDescriptor":"123456789ABCD",
      "CreditCard":{  
          "CardNumber":"1234123412341231",
@@ -2727,7 +2727,7 @@ See an example of a Card on File credit transaction request.
         "Interest": 0,
         "Capture": true,
         "Authenticate": false,
-        "Recurrent": false,
+        "Recurrent": true,
         "CreditCard": {
             "CardNumber": "123412******1231",
             "Holder": "Teste Holder",
