@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-09-08T17:43:29+00:00</updated>
+    <updated>2023-09-08T17:54:23+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -32414,7 +32414,7 @@ You can import them directly into your POSTMAN and have all the examples ready t
       &lt;td&gt;Boolean&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
       &lt;td&gt;No (Default false)&lt;/td&gt;
-      &lt;td&gt;Boolean that identifies if the card will be saved to generate a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CardToken&lt;/code&gt;.&lt;/td&gt;
+      &lt;td&gt;Boolean that identifies if the card will be saved to generate a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CardToken&lt;/code&gt;. Find out more about &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#tokenization-of-cards&quot;&gt;Tokenization of Cards&lt;/a&gt;.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.CreditCard.Brand&lt;/code&gt;&lt;/td&gt;
@@ -33659,7 +33659,7 @@ You can import them directly into your POSTMAN and have all the examples ready t
       &lt;td&gt;Boolean&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
       &lt;td&gt;No (Default false)&lt;/td&gt;
-      &lt;td&gt;Boolean that identifies if the card will be saved to generate a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CardToken&lt;/code&gt;.&lt;/td&gt;
+      &lt;td&gt;Boolean that identifies if the card will be saved to generate a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CardToken&lt;/code&gt;. Find out more about &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#tokenization-of-cards&quot;&gt;Tokenization of Cards&lt;/a&gt;.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CreditCard.Brand&lt;/code&gt;&lt;/td&gt;
@@ -36294,7 +36294,7 @@ You can import them directly into your POSTMAN and have all the examples ready t
       &lt;td&gt;Boolean&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
       &lt;td&gt;No (Default false)&lt;/td&gt;
-      &lt;td&gt;Boolean that identifies if the card will be saved to generate a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CardToken&lt;/code&gt;.&lt;/td&gt;
+      &lt;td&gt;Boolean that identifies if the card will be saved to generate a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CardToken&lt;/code&gt;. Find out more about &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#tokenization-of-cards&quot;&gt;Tokenization of Cards&lt;/a&gt;.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CreditCard.Brand&lt;/code&gt;&lt;/td&gt;
@@ -37473,7 +37473,7 @@ In addition, you have to send some addictional data in the transaction, to that 
       &lt;td&gt;Boolean&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
       &lt;td&gt;No (Default false)&lt;/td&gt;
-      &lt;td&gt;Boolean that identifies whether the card will be saved to generate the CardToken.&lt;/td&gt;
+      &lt;td&gt;Boolean that identifies whether the card will be saved to generate the CardToken. Find out more about &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#tokenization-of-cards&quot;&gt;Tokenization of Cards&lt;/a&gt;.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.CreditCard.Brand&lt;/code&gt;&lt;/td&gt;
@@ -40869,7 +40869,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NewCard.SaveCard&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Identifies whether the card generated Cardtoken during the transaction&lt;/td&gt;
+      &lt;td&gt;Identifies whether the card generated Cardtoken during the transaction. Find out more about &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#tokenization-of-cards&quot;&gt;Tokenization of Cards&lt;/a&gt;&lt;/td&gt;
       &lt;td&gt;Boolean&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
@@ -43181,7 +43181,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SaveCard&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Defines if the card must be tokenized&lt;/td&gt;
+      &lt;td&gt;Defines if the card must be tokenized. Find out more about &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#tokenization-of-cards&quot;&gt;Tokenization of Cards&lt;/a&gt;.&lt;/td&gt;
       &lt;td&gt;Boolean&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
