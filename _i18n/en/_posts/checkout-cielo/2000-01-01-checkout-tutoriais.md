@@ -7,8 +7,7 @@ toc_footers: true
 categories: tutorial
 sort_order: 2
 tags:
-  - 3. Checkout
-  - 4. Link de Pagamento 
+  - 3. Checkout and Link de Pagamento
 ---
 
 # Backoffice - Tutorial
