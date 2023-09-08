@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-09-08T17:54:23+00:00</updated>
+    <updated>2023-09-08T18:10:34+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -36113,6 +36113,10 @@ You can import them directly into your POSTMAN and have all the examples ready t
 &lt;/ul&gt;
 
 &lt;h4 id=&quot;request-10&quot;&gt;Request&lt;/h4&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The Card On File transaction may or may not be recurring.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;See an example of a Card on File credit transaction request.&lt;/p&gt;
 
