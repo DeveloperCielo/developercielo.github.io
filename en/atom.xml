@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-09-08T14:57:08+00:00</updated>
+    <updated>2023-09-08T15:13:35+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -45221,7 +45221,7 @@ If an error code is displayed, the requisition contains errors (such as size, co
 
 &lt;p&gt;Authentication flux and authorization to be performed to use the API features:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/apicielopromotions/fluxoautenticacao.png&quot; alt=&quot;Flux&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/apicielopromotions/fluxoautenticacao.png&quot; alt=&quot;Fluxo&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;usage-diagram-demonstrating-the-steps-to-the-api-usage&quot;&gt;Usage Diagram demonstrating the steps to the API usage&lt;/h3&gt;
 
