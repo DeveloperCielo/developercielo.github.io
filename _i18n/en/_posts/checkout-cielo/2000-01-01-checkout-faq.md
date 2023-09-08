@@ -7,7 +7,7 @@ toc_footers: true
 categories: faq
 sort_order: 3
 tags:
-  - 3. Checkout
+  - 3. Checkout and Link de Pagamento
 ---
 
 # Questions about the integration
