@@ -2657,6 +2657,8 @@ O Card On File suporta as seguintes bandeiras:
 
 #### Requisição
 
+> A transação com Card On File pode ser reccorente ou não.
+
 Veja um exemplo de requisição de transação de crédito de Card on File.
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
