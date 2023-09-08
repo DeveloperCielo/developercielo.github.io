@@ -8,7 +8,7 @@ toc_footers: true
 categories: manual
 sort_order: 2
 tags:
-  - 4. Link de Pagamento
+  - 3. Checkout and Link de Pagamento
 language_tabs:
   json: JSON
   shell: cURL
