@@ -1478,7 +1478,7 @@
       <td>Text</td>
       <td>-</td>
       <td>Conditional</td>
-      <td>Indicates the motive for card storage, if the “Usage” field is “Used”. <br /> <strong>Recurring</strong> - Programmed recurring transaction (e.g. Subscriptions). <br /> <strong>Unscheduled</strong> - Recurring transaction with no fixed date (e.g. service apps) <br /><strong>Installments</strong> - Installments through recurring transactions. Get more information on the topic <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#card-on-file" target="_blank">Card On File</a></td>
+      <td>Indicates the motive for card storage, if the “Usage” field is “Used”. <br /> <strong>Recurring</strong> - Programmed recurring transaction (e.g. Subscriptions). If it is a recurring transaction, use <code class="language-plaintext highlighter-rouge">Payment.Recurrent</code> = true (merchant recurrence) or <code class="language-plaintext highlighter-rouge">Recurrent.Payment</code> = true (scheduled recurrence). <br /> <strong>Unscheduled</strong> - Recurring transaction with no fixed date (e.g. service apps) <br /><strong>Installments</strong> - Installments through recurring transactions. Get more information on the topic <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#card-on-file" target="_blank">Card On File</a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Category</code></td>
@@ -2723,7 +2723,7 @@
       <td>Text</td>
       <td>-</td>
       <td>Conditional</td>
-      <td>Indicates the motive for card storage, if the “Usage” field is “Used”. <br /> <strong>Recurring</strong> - Programmed recurring transaction (e.g. Subscriptions). <br /> <strong>Unscheduled</strong> - Recurring transaction with no fixed date (e.g. service apps) <br /><strong>Installments</strong> - Installments through recurring transactions.</td>
+      <td>Indicates the motive for card storage, if the “Usage” field is “Used”. <br /> <strong>Recurring</strong> - Programmed recurring transaction (e.g. Subscriptions). If it is a recurring transaction, use <code class="language-plaintext highlighter-rouge">Payment.Recurrent</code> = true (merchant recurrence) or <code class="language-plaintext highlighter-rouge">Recurrent.Payment</code> = true (scheduled recurrence). <br /> <strong>Unscheduled</strong> - Recurring transaction with no fixed date (e.g. service apps) <br /><strong>Installments</strong> - Installments through recurring transactions.</td>
     </tr>
   </tbody>
 </table>
@@ -5358,7 +5358,7 @@
       <td>Text</td>
       <td>-</td>
       <td>Conditional</td>
-      <td>Indicates the motive for card storage, if the <code class="language-plaintext highlighter-rouge">CardOnFile.Usage</code> field is “Used”.<br /><strong>Recurring</strong>: programmed recurring transaction (e.g. Subscriptions).<br /><strong>Unscheduled</strong>: recurring transaction with no fixed date (e.g. service apps).<br /><strong>Installments</strong>: installments through recurring transactions.</td>
+      <td>Indicates the motive for card storage, if the <code class="language-plaintext highlighter-rouge">CardOnFile.Usage</code> field is “Used”.<br /><strong>Recurring</strong>: programmed recurring transaction (e.g. Subscriptions). If it is a recurring transaction, use <code class="language-plaintext highlighter-rouge">Payment.Recurrent</code> = true (merchant recurrence) or <code class="language-plaintext highlighter-rouge">Recurrent.Payment</code> = true (scheduled recurrence).<br /><strong>Unscheduled</strong>: recurring transaction with no fixed date (e.g. service apps).<br /><strong>Installments</strong>: installments through recurring transactions.</td>
     </tr>
   </tbody>
 </table>
@@ -12252,7 +12252,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Reason</code></td>
-      <td>Indicates the purpose of storing cards, if the “Usage” field is “Used”.<br /><strong>Recurring</strong> - Scheduled recurring purchase (eg subscriptions)<br /><strong>Unscheduled</strong> - Recurring purchase without scheduling (eg service applications)<br /><strong>Installments</strong> - Installment through recurrence<br />.</td>
+      <td>Indicates the purpose of storing cards, if the “Usage” field is “Used”.<br /><strong>Recurring</strong> - Scheduled recurring purchase (eg subscriptions). If it is a recurring transaction, use <code class="language-plaintext highlighter-rouge">Payment.Recurrent</code> = true (merchant recurrence) or <code class="language-plaintext highlighter-rouge">Recurrent.Payment</code> = true (scheduled recurrence).<br /><strong>Unscheduled</strong> - Recurring purchase without scheduling (eg service applications)<br /><strong>Installments</strong> - Installment through recurrence<br />.</td>
       <td>Text</td>
       <td>—</td>
       <td>Conditional</td>

@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-09-08T17:28:22+00:00</updated>
+    <updated>2023-09-08T17:32:05+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -32435,7 +32435,7 @@ You can import them directly into your POSTMAN and have all the examples ready t
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Conditional&lt;/td&gt;
-      &lt;td&gt;Indicates the motive for card storage, if the “Usage” field is “Used”. &lt;br /&gt; &lt;strong&gt;Recurring&lt;/strong&gt; - Programmed recurring transaction (e.g. Subscriptions). &lt;br /&gt; &lt;strong&gt;Unscheduled&lt;/strong&gt; - Recurring transaction with no fixed date (e.g. service apps) &lt;br /&gt;&lt;strong&gt;Installments&lt;/strong&gt; - Installments through recurring transactions. Get more information on the topic &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#card-on-file&quot; target=&quot;_blank&quot;&gt;Card On File&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Indicates the motive for card storage, if the “Usage” field is “Used”. &lt;br /&gt; &lt;strong&gt;Recurring&lt;/strong&gt; - Programmed recurring transaction (e.g. Subscriptions). If it is a recurring transaction, use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Recurrent&lt;/code&gt; = true (merchant recurrence) or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Recurrent.Payment&lt;/code&gt; = true (scheduled recurrence). &lt;br /&gt; &lt;strong&gt;Unscheduled&lt;/strong&gt; - Recurring transaction with no fixed date (e.g. service apps) &lt;br /&gt;&lt;strong&gt;Installments&lt;/strong&gt; - Installments through recurring transactions. Get more information on the topic &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#card-on-file&quot; target=&quot;_blank&quot;&gt;Card On File&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.InitiatedTransactionIndicator.Category&lt;/code&gt;&lt;/td&gt;
@@ -33680,7 +33680,7 @@ You can import them directly into your POSTMAN and have all the examples ready t
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Conditional&lt;/td&gt;
-      &lt;td&gt;Indicates the motive for card storage, if the “Usage” field is “Used”. &lt;br /&gt; &lt;strong&gt;Recurring&lt;/strong&gt; - Programmed recurring transaction (e.g. Subscriptions). &lt;br /&gt; &lt;strong&gt;Unscheduled&lt;/strong&gt; - Recurring transaction with no fixed date (e.g. service apps) &lt;br /&gt;&lt;strong&gt;Installments&lt;/strong&gt; - Installments through recurring transactions.&lt;/td&gt;
+      &lt;td&gt;Indicates the motive for card storage, if the “Usage” field is “Used”. &lt;br /&gt; &lt;strong&gt;Recurring&lt;/strong&gt; - Programmed recurring transaction (e.g. Subscriptions). If it is a recurring transaction, use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Recurrent&lt;/code&gt; = true (merchant recurrence) or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Recurrent.Payment&lt;/code&gt; = true (scheduled recurrence). &lt;br /&gt; &lt;strong&gt;Unscheduled&lt;/strong&gt; - Recurring transaction with no fixed date (e.g. service apps) &lt;br /&gt;&lt;strong&gt;Installments&lt;/strong&gt; - Installments through recurring transactions.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -36315,7 +36315,7 @@ You can import them directly into your POSTMAN and have all the examples ready t
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Conditional&lt;/td&gt;
-      &lt;td&gt;Indicates the motive for card storage, if the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CardOnFile.Usage&lt;/code&gt; field is “Used”.&lt;br /&gt;&lt;strong&gt;Recurring&lt;/strong&gt;: programmed recurring transaction (e.g. Subscriptions).&lt;br /&gt;&lt;strong&gt;Unscheduled&lt;/strong&gt;: recurring transaction with no fixed date (e.g. service apps).&lt;br /&gt;&lt;strong&gt;Installments&lt;/strong&gt;: installments through recurring transactions.&lt;/td&gt;
+      &lt;td&gt;Indicates the motive for card storage, if the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CardOnFile.Usage&lt;/code&gt; field is “Used”.&lt;br /&gt;&lt;strong&gt;Recurring&lt;/strong&gt;: programmed recurring transaction (e.g. Subscriptions). If it is a recurring transaction, use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Recurrent&lt;/code&gt; = true (merchant recurrence) or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Recurrent.Payment&lt;/code&gt; = true (scheduled recurrence).&lt;br /&gt;&lt;strong&gt;Unscheduled&lt;/strong&gt;: recurring transaction with no fixed date (e.g. service apps).&lt;br /&gt;&lt;strong&gt;Installments&lt;/strong&gt;: installments through recurring transactions.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -43209,7 +43209,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Reason&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Indicates the purpose of storing cards, if the “Usage” field is “Used”.&lt;br /&gt;&lt;strong&gt;Recurring&lt;/strong&gt; - Scheduled recurring purchase (eg subscriptions)&lt;br /&gt;&lt;strong&gt;Unscheduled&lt;/strong&gt; - Recurring purchase without scheduling (eg service applications)&lt;br /&gt;&lt;strong&gt;Installments&lt;/strong&gt; - Installment through recurrence&lt;br /&gt;.&lt;/td&gt;
+      &lt;td&gt;Indicates the purpose of storing cards, if the “Usage” field is “Used”.&lt;br /&gt;&lt;strong&gt;Recurring&lt;/strong&gt; - Scheduled recurring purchase (eg subscriptions). If it is a recurring transaction, use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Recurrent&lt;/code&gt; = true (merchant recurrence) or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Recurrent.Payment&lt;/code&gt; = true (scheduled recurrence).&lt;br /&gt;&lt;strong&gt;Unscheduled&lt;/strong&gt; - Recurring purchase without scheduling (eg service applications)&lt;br /&gt;&lt;strong&gt;Installments&lt;/strong&gt; - Installment through recurrence&lt;br /&gt;.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
       &lt;td&gt;Conditional&lt;/td&gt;
