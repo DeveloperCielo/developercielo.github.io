@@ -3430,7 +3430,7 @@ curl
 | `Payment.CreditCard.Cryptogram`     | Texto    | 28      | Condicional*           | Criptograma gerado pela bandeira. Deve ser enviado caso a tokenização seja feita na bandeira (integração por fora).  |
 | `Payment.CreditCard.ExpirationDate` | Texto    | 7       | Sim                 | Data de validade do token gerado pela bandeira.                                                                                           |
 | `Payment.CreditCard.SecurityCode`   | Texto    | 4       | Não                 | Código de segurança impresso no verso do cartão - Ver Anexo.                                                                              |
-| `Payment.CreditCard.SaveCard`       | Booleano | ---     | Não (Default false) | Booleano que identifica se o cartão será salvo para gerar o CardToken.                                                                    |
+| `Payment.CreditCard.SaveCard`       | Booleano | ---     | Não (Default false) | Booleano que identifica se o cartão será salvo para gerar o CardToken. Saiba mais sobre [Tokenização](https://developercielo.github.io/manual/cielo-ecommerce#tokeniza%C3%A7%C3%A3o-de-cart%C3%B5es).                                                                    |
 | `Payment.CreditCard.Brand`          | Texto    | 10      | Sim                 | Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).                                     |
 
 **Deve ser enviado caso a tokenização seja feita na bandeira (integração por fora).*
