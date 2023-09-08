@@ -441,7 +441,7 @@ To create a credit card transaction, you need to send a request using the `POST`
 
 > The transaction **capture** can be **authomatic** or **posterior**. For an authomatic capure, send the `Payment.Capture` field in the request as “true”. For a posterior capture, send the field as "false" and, later, do the [capture request](https://developercielo.github.io/en/manual/cielo-ecommerce#consult-capture-cancel){:target="\_blank"}.
 
-<aside class="notice"><strong>Warning:</strong> It is not possible to carry out a transaction with its value as (`Amount`) 0. To verify if a card is valid, use [Zero Auth](https://developercielo.github.io/en/manual/cielo-ecommerce#zero-auth).</aside>
+> <strong>Warning:</strong> It is not possible to carry out a transaction with its value as (`Amount`) 0. To verify if a card is valid, use [Zero Auth](https://developercielo.github.io/en/manual/cielo-ecommerce#zero-auth).
 
 <aside class="notice"><strong>Warning:</strong> In the request header, use Content-Type application/json .</aside>
 
