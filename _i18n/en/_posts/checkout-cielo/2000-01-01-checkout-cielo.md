@@ -7,7 +7,7 @@ translated: true
 categories: manual
 Order: 1
 tags:
-  - 3. Checkout
+  - 3. Checkout and Link de Pagamento
 language_tabs:
   json: JSON
 ---
