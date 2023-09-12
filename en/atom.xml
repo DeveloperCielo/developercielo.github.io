@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-09-12T15:15:29+00:00</updated>
+    <updated>2023-09-12T15:20:43+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -43348,6 +43348,10 @@ The return code &lt;strong&gt;00 represents success in Zero Auth&lt;/strong&gt;,
   &lt;li&gt;&lt;em&gt;500 – Internal Server Error&lt;/em&gt;&lt;/li&gt;
   &lt;li&gt;&lt;em&gt;400 – Bad Request&lt;/em&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Fines are charged for excessive negative attempts, read more about it in &lt;a href=&quot;https://developercielo.github.io/tutorial/programa-retentativa-bandeiras&quot; target=&quot;\_blank&quot;&gt;Programa de Retentativa das Bandeiras&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h1 id=&quot;silent-order-post&quot;&gt;Silent Order Post&lt;/h1&gt;
 
