@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-09-12T15:35:09+00:00</updated>
+    <updated>2023-09-12T15:51:48+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -37989,7 +37989,7 @@ In addition, you have to send some addictional data in the transaction, to that 
 
 &lt;p&gt;Recurring payments are credit card transactions that repeat themselves after a certain period of time.&lt;/p&gt;
 
-&lt;p&gt;This type of payment is usually used for &lt;strong&gt;subscriptions&lt;/strong&gt;, where the shopper wants to be automatically charged but doesn’t want to re-enter the card details.&lt;/p&gt;
+&lt;p&gt;This type of payment is usually used for streaming services, education services, gyms and subscriptions, where the shopper wants to be automatically charged but doesn’t want to re-enter the card details.&lt;/p&gt;
 
 &lt;h2 id=&quot;types-of-recurrences&quot;&gt;Types of recurrences&lt;/h2&gt;
 
