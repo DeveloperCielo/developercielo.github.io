@@ -6450,7 +6450,7 @@ Os campos retornados na resposta dependem do resultado da validação. A tabela 
 | `Valid`               | Situação do cartão:<br> **True** – Cartão válido<BR>**False** – Cartão Inválido                                                                                                                                                                                                                                    | Boolean | ---     |
 | `ReturnCode`          | Código de retorno                                                                                                                                                                                                                                                                                                  | Texto   | 2       |
 | `ReturnMessage`       | Mensagem de retorno                                                                                                                                                                                                                                                                                                | Texto   | 255     |
-| `IssuerTransactionId` | Identificador de autenticação do emissor para transações de débito recorrentes. Este campo deve ser enviado nas transações subsequentes da primeira transação no modelo de recorrência própria. Já no modelo de recorrência programada, a Cielo será a responsável por enviar o campo nas transações subsequentes. | Texto   | 15      |
+| `IssuerTransactionId` | Identificador de autenticação do emissor para transações de crédito e débito recorrentes. Este campo deve ser enviado nas transações subsequentes da primeira transação no modelo de recorrência própria. Já no modelo de recorrência programada, a Cielo será a responsável por enviar o campo nas transações subsequentes. | Texto   | 15      |
 
 #### POSITIVA - Cartão válido
 
@@ -6464,7 +6464,7 @@ Os campos retornados na resposta dependem do resultado da validação. A tabela 
 ```
 
 > Consulte <https://developercielo.github.io/Webservice-3.0/#códigos-de-retorno-das-vendas> para visualizar a descrição dos códigos de retorno.
-> O código de retorno **00 representa sucesso no Zero Auth**, os demais códigos são definidos de acordo com a documentação acima.
+> O código de retorno **00 representa sucesso no Zero Auth**, os demais códigos são definidos de acordo com a documentação a seguir.
 
 #### NEGATIVA - Cartão inválido
 
