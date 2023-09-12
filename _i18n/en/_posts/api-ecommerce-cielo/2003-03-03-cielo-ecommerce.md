@@ -6547,6 +6547,8 @@ If there is an error in the flow and it is not possible to validate the card, th
 * *500 – Internal Server Error*
 * *400 – Bad Request*
 
+> Fines are charged for excessive negative attempts, read more about it in [Programa de Retentativa das Bandeiras](https://developercielo.github.io/tutorial/programa-retentativa-bandeiras){:target="\_blank"}.
+
 # Silent Order Post
 
 With Silent Order Post, payment data is securely transferred, maintaining full control over the checkout experience.
