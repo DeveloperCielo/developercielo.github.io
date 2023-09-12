@@ -6497,7 +6497,7 @@ The fields returned in the response depend on the validation result. The followi
 | `Valid`               | Card Status: <br> **True ** - Valid Card <BR> **False** - Invalid Card             | Boolean   | ---        |
 | `ReturnCode`          | Return code                                                                        | Text      | 2          |
 | `ReturnMessage`       | Return message                                                                     | Text      | 255        |
-| `IssuerTransactionId` | Issuer authentication identifier for recurring debit transactions. This field must be sent in subsequent transactions of the first transaction in the self-recurrence model. In the programmed recurrence model, Cielo will be responsible for sending the field in subsequent transactions. | Text   | 15      |
+| `IssuerTransactionId` | Issuer authentication identifier for recurring credit and debit transactions. This field must be sent in subsequent transactions of the first transaction in the self-recurrence model. In the programmed recurrence model, Cielo will be responsible for sending the field in subsequent transactions. | Text   | 15      |
 
 #### POSITIVE - Valid Card
 
@@ -6511,7 +6511,7 @@ The fields returned in the response depend on the validation result. The followi
 ```
 
 > See [Return codes](https://developercielo.github.io/en/manual/cielo-ecommerce#api-codes){:target="_blank"} to see the return codes descriptions. 
-> The return code **00 represents success in Zero Auth**, the other codes are defined according to the documentation above.
+> The return code **00 represents success in Zero Auth**, the other codes are defined according to the documentation to follow.
 
 #### NEGATIVE - Invalid Card
 
