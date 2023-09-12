@@ -3778,7 +3778,7 @@ curl
 
 Pagamentos recorrentes são transações de cartão de crédito que devem se repetir após um determinado período de tempo.
 
-São pagamentos normalmente encontrados em **assinaturas**, nas quais o comprador deseja ser cobrado automaticamente mas não quer informar novamente os dados do cartão de crédito.
+São pagamentos normalmente encontrados em serviços de streaming, serviços de educação, academias e assinaturas, nas quais o comprador deseja ser cobrado automaticamente mas não quer informar novamente os dados do cartão de crédito.
 
 ## Tipos de recorrências
 
