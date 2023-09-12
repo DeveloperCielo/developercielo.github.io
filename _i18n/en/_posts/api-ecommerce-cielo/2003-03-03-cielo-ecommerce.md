@@ -3748,7 +3748,7 @@ curl
 
 Recurring payments are credit card transactions that repeat themselves after a certain period of time.
 
-This type of payment is usually used for **subscriptions**, where the shopper wants to be automatically charged but doesn't want to re-enter the card details.
+This type of payment is usually used for streaming services, education services, gyms and subscriptions, where the shopper wants to be automatically charged but doesn't want to re-enter the card details.
 
 ## Types of recurrences
 
