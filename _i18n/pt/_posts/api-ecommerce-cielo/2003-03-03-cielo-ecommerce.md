@@ -6500,6 +6500,8 @@ Caso ocorra algum erro no fluxo e não seja possível validar o cartão, o servi
 - _500 – Internal Server Error_
 - _400 – Bad Request_
 
+> São cobradas multas por excesso de tentativas negativas, leia mais sobre em [Programa de Retentativa das Bandeiras](https://developercielo.github.io/tutorial/programa-retentativa-bandeiras){:target="\_blank"}.
+
 # Silent Order Post
 
 Com o Silent Order Post, os dados de pagamentos são trafegados de forma segura, mantendo o controle total sobre a experiência de checkout.
