@@ -12337,7 +12337,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">IssuerTransactionId</code></td>
-      <td>Issuer authentication identifier for recurring debit transactions. This field must be sent in subsequent transactions of the first transaction in the self-recurrence model. In the programmed recurrence model, Cielo will be responsible for sending the field in subsequent transactions.</td>
+      <td>Issuer authentication identifier for recurring credit and debit transactions. This field must be sent in subsequent transactions of the first transaction in the self-recurrence model. In the programmed recurrence model, Cielo will be responsible for sending the field in subsequent transactions.</td>
       <td>Text</td>
       <td>15</td>
     </tr>
@@ -12356,7 +12356,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
 
 <blockquote>
   <p>See <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#api-codes" target="_blank">Return codes</a> to see the return codes descriptions. 
-The return code <strong>00 represents success in Zero Auth</strong>, the other codes are defined according to the documentation above.</p>
+The return code <strong>00 represents success in Zero Auth</strong>, the other codes are defined according to the documentation to follow.</p>
 </blockquote>
 
 <h4 id="negative---invalid-card">NEGATIVE - Invalid Card</h4>

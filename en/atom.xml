@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-09-12T15:20:43+00:00</updated>
+    <updated>2023-09-12T15:35:09+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -43294,7 +43294,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IssuerTransactionId&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Issuer authentication identifier for recurring debit transactions. This field must be sent in subsequent transactions of the first transaction in the self-recurrence model. In the programmed recurrence model, Cielo will be responsible for sending the field in subsequent transactions.&lt;/td&gt;
+      &lt;td&gt;Issuer authentication identifier for recurring credit and debit transactions. This field must be sent in subsequent transactions of the first transaction in the self-recurrence model. In the programmed recurrence model, Cielo will be responsible for sending the field in subsequent transactions.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
     &lt;/tr&gt;
@@ -43313,7 +43313,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
 
 &lt;blockquote&gt;
   &lt;p&gt;See &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#api-codes&quot; target=&quot;_blank&quot;&gt;Return codes&lt;/a&gt; to see the return codes descriptions. 
-The return code &lt;strong&gt;00 represents success in Zero Auth&lt;/strong&gt;, the other codes are defined according to the documentation above.&lt;/p&gt;
+The return code &lt;strong&gt;00 represents success in Zero Auth&lt;/strong&gt;, the other codes are defined according to the documentation to follow.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h4 id=&quot;negative---invalid-card&quot;&gt;NEGATIVE - Invalid Card&lt;/h4&gt;
