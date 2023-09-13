@@ -3828,6 +3828,8 @@ Nesse modelo, a Cielo é a responsável por executar uma recorrência de maneira
 
 A **Recorrência Programada** permite que a loja crie uma transação base que, ao ser enviada para a API E-commerce Cielo, será salva e executada seguindo as regras definidas pela loja.
 
+> Para saber mais sobre a configuração de uma recorrência programada, acesse o manual [Backoffice API Cielo](https://developercielo.github.io/tutorial/tutoriais-3-0#configurando-a-recorr%C3%AAncia){:target="\_blank"}.
+
 Nesse modelo, a API realiza e permite:
 
 | Vantagens                      | Descrição                                                                                                                                              |
