@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-09-13T14:57:44+00:00</updated>
+    <updated>2023-09-13T15:05:20+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -39059,6 +39059,10 @@ In addition, you have to send some addictional data in the transaction, to that 
 &lt;h2 id=&quot;scheduling-a-scheduled-recurrence&quot;&gt;Scheduling a Scheduled Recurrence&lt;/h2&gt;
 
 &lt;p&gt;To create a recurring sale in which the first recurrence will not be authorized on the same date with the credit card payment method, just make a POST as in the example.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Before setting up a scheduled recurrence, use Zero Auth to validate the card. This way, you can guarantee that you are scheduling a recurrence with a valid card.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;Unlike the previous recurrence, this example does not authorize immediately, it schedules a future authorization. To schedule the first transaction in the series of recurrences, send the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AuthorizeNow&lt;/code&gt; parameter as “false” and add the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;StartDate&lt;/code&gt; parameter.&lt;/p&gt;
 

@@ -8103,6 +8103,10 @@ In addition, you have to send some addictional data in the transaction, to that 
 
 <p>To create a recurring sale in which the first recurrence will not be authorized on the same date with the credit card payment method, just make a POST as in the example.</p>
 
+<blockquote>
+  <p>Before setting up a scheduled recurrence, use Zero Auth to validate the card. This way, you can guarantee that you are scheduling a recurrence with a valid card.</p>
+</blockquote>
+
 <p>Unlike the previous recurrence, this example does not authorize immediately, it schedules a future authorization. To schedule the first transaction in the series of recurrences, send the <code class="language-plaintext highlighter-rouge">AuthorizeNow</code> parameter as “false” and add the <code class="language-plaintext highlighter-rouge">StartDate</code> parameter.</p>
 
 <h3 id="request-20">Request</h3>
