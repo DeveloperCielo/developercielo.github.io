@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-09-13T14:15:16+00:00</updated>
+    <updated>2023-09-13T14:32:25+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -38236,7 +38236,7 @@ In addition, you have to send some addictional data in the transaction, to that 
 
 &lt;h2 id=&quot;creating-recurrences&quot;&gt;Creating Recurrences&lt;/h2&gt;
 
-&lt;p&gt;Marking recurrence is important for transaction safety. When a recurrence is marked, Cielo understands the transaction as recurring and not as fraud.&lt;/p&gt;
+&lt;p&gt;Marking a recurrence is important for transaction safety. It is also important to mark the Card On File field when dealing with a recurrence with a stored credential. By marking these fields, Cielo understands the transaction as recurring and secure, without confusing it with fraud.&lt;/p&gt;
 
 &lt;h3 id=&quot;creating-a-merchant-recurrence&quot;&gt;Creating a Merchant Recurrence&lt;/h3&gt;
 

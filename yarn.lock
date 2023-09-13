@@ -2228,9 +2228,9 @@ default-resolution@^2.0.0:
   integrity sha512-2xaP6GiwVwOEbXCGoJ4ufgC76m8cj805jrghScewJC2ZDsb9U0b4BIrba+xt/Uytyd0HvQ6+WymSRTfnYj59GQ==
 
 define-data-property@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/define-data-property/-/define-data-property-1.0.1.tgz#37589faaa735405b557fcb9537b46b575655c4cb"
-  integrity sha512-22M+6zEspQHx10bfFQl2ET39IvfuQ7+rZIH7+ard8fCC4hPmkOSy+8JhKxBRLaWUziJ0O63NTYT97LR8zUfPTw==
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/define-data-property/-/define-data-property-1.1.0.tgz#0db13540704e1d8d479a0656cf781267531b9451"
+  integrity sha512-UzGwzcjyv3OtAvolTj1GoyNYzfFR+iqbGjcnBEENZVCpM4/Ng1yhGNvS3lR/xDS74Tb2wGG9WzNSNIOS9UVb2g==
   dependencies:
     get-intrinsic "^1.2.1"
     gopd "^1.0.1"
