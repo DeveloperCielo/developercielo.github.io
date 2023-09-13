@@ -3898,7 +3898,7 @@ What are the advantages of using scheduled recurrence for _MusicFy_?
 
 ## Creating Recurrences
 
-Marking recurrence is important for transaction safety. When a recurrence is marked, Cielo understands the transaction as recurring and not as fraud.
+Marking a recurrence is important for transaction safety. It is also important to mark the Card On File field when dealing with a recurrence with a stored credential. By marking these fields, Cielo understands the transaction as recurring and secure, without confusing it with fraud.
 
 ### Creating a Merchant Recurrence
 
