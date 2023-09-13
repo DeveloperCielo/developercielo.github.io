@@ -5055,7 +5055,7 @@ See [HTTP Status Code](#http-status-code) for the list with all HTTP status code
 
 Renova Fácil is a service developed by Cielo together with issuers. The objective of the service is to increase the conversion rate of recurring transactions with credit cards.
 
-By identifying expired cards at the time of the transaction, the transaction is authorized with the new card. The API then returns the updated card data so that the merchant stores the new card.
+Using this functionality allows the automatic replacement of a credit card that has been replaced by the issuing bank for some reason (expiry date, exchange, etc.). This way, when a recurrent transaction is submitted to the API and Cielo identifies that the card sent has been replaced, authorization will be denied and the API will return the new card data in the `NewCard` node. When you receive the new card details, you will need to make a new transaction, which this time will be authorized.
 
 <aside class="notice">To use Renova Fácil, you have to to enable the service at Cielo. No extra information is sent in the authorization request, however the response will include the `NewCard` node.</aside>
 
