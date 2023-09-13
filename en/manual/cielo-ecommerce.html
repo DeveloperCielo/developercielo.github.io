@@ -5131,396 +5131,6 @@
 
 <h2 id="specific-implementations">Specific Implementations</h2>
 
-<h3 id="card-on-file">Card On File</h3>
-
-<p><strong>What’s Card On File?</strong></p>
-
-<p>Card on File (COF) transactions are used by merchants to send financial and non financial (card validation) transactions with stored credentials.</p>
-
-<p>Most of these transactions do not contain CVV as PCI rules prevent the establishment from storing this information. However, it is important to consider that a merchant may have validated the CVV in a previous transaction, such as the first Card On File transaction.</p>
-
-<p>Examples of segments that use this type of modality are streaming services, education services, gyms and subscriptions, among others.</p>
-
-<p><strong>Why use Card On File?</strong></p>
-
-<p>Card On File allows for greater flexibility in online purchases, since it does not ask the cardholder to send all the data again (including the CVV); it is also possible to notice a better sales conversion rate since in the process for using the COF initiated by the merchant, necessarily, there is already a previous transaction initiated by the cardholder that already assists in the authorization of the transaction by the issuer.</p>
-
-<p><strong>Supported brands</strong></p>
-
-<p>Card On File supports the following brands:</p>
-
-<ul>
-  <li><strong>Mastercard</strong></li>
-  <li><strong>Visa</strong></li>
-  <li><strong>Elo</strong></li>
-</ul>
-
-<h4 id="request-10">Request</h4>
-
-<blockquote>
-  <p>The Card On File transaction may or may not be recurring.</p>
-</blockquote>
-
-<p>See an example of a Card on File credit transaction request.</p>
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
-   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2014111701"</span><span class="p">,</span><span class="w">
-   </span><span class="nl">"Customer"</span><span class="p">:{</span><span class="w">  
-      </span><span class="nl">"Name"</span><span class="p">:</span><span class="s2">"Comprador crédito completo"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Email"</span><span class="p">:</span><span class="s2">"compradorteste@teste.com"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Birthdate"</span><span class="p">:</span><span class="s2">"1991-01-02"</span><span class="w">
-   </span><span class="p">},</span><span class="w">
-   </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">  
-     </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">15700</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"Currency"</span><span class="p">:</span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"Interest"</span><span class="p">:</span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"Capture"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"Authenticate"</span><span class="p">:</span><span class="s2">"false"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"Recurrent"</span><span class="p">:</span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"CreditCard"</span><span class="p">:{</span><span class="w">  
-         </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="s2">"1234123412341231"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Holder"</span><span class="p">:</span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="s2">"false"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"CardOnFile"</span><span class="p">:{</span><span class="w">
-            </span><span class="nl">"Usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"First"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Reason"</span><span class="p">:</span><span class="s2">"Recurring"</span><span class="w">
-         </span><span class="p">}</span><span class="w">
-     </span><span class="p">}</span><span class="w">
-   </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>PROPERTY</th>
-      <th>TYPE</th>
-      <th>SIZE</th>
-      <th>REQUIRED</th>
-      <th>DESCRIPTION</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
-      <td>Text</td>
-      <td>50</td>
-      <td>Yes</td>
-      <td>Order ID number.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Text</td>
-      <td>255</td>
-      <td>No</td>
-      <td>Customer’s name.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
-      <td>Text</td>
-      <td>255</td>
-      <td>No</td>
-      <td>The customer’s registration status on the store. (NEW / EXISTING)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
-      <td>Text</td>
-      <td>255</td>
-      <td>No</td>
-      <td>Customer’s email</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Birthdate</code></td>
-      <td>Date</td>
-      <td>10</td>
-      <td>No</td>
-      <td>Customer’s birthdate</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>Text</td>
-      <td>100</td>
-      <td>Yes</td>
-      <td>Type of the Payment Method.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
-      <td>Number</td>
-      <td>15</td>
-      <td>Yes</td>
-      <td>Order Amount (to be sent in cents).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Currency</code></td>
-      <td>Text</td>
-      <td>3</td>
-      <td>No</td>
-      <td>Currency in which the payment will be made (BRL).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Country</code></td>
-      <td>Text</td>
-      <td>3</td>
-      <td>No</td>
-      <td>Country in which the payment will be made.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code></td>
-      <td>Text</td>
-      <td>13</td>
-      <td>No</td>
-      <td>The store’s name that will be on the shopper’s bank invoice. Does not allow special characters.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
-      <td>Number</td>
-      <td>2</td>
-      <td>Yes</td>
-      <td>Number of installments. If the transaction is a recurrence, the number of installments will be 1. For installment transactions, the number of installments will be greater than 1.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Interest</code></td>
-      <td>Text</td>
-      <td>10</td>
-      <td>No</td>
-      <td>Type of installments - Store (ByMerchant) or Card (ByIssuer).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
-      <td>Boolean</td>
-      <td>—</td>
-      <td>No (Default false)</td>
-      <td>Boolean that identifies if the authorization should be done by authomatic capture (true) or posterior capture (false).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Recurrent</code></td>
-      <td>Boolean</td>
-      <td>-</td>
-      <td>Conditional</td>
-      <td>Indicates if the transaction is recurring (“true”) or not (“false”). The value “true” won’t originate a new recurrence, it will only allow a transaction without the need to send the security code. Authenticate should be “false” if Recurrent is “true”. Find out more about <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#recurring-payments">Recurring Payments</a>.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
-      <td>Text</td>
-      <td>19</td>
-      <td>Yes</td>
-      <td>Shopper’s card number.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.Holder</code></td>
-      <td>Text</td>
-      <td>25</td>
-      <td>No</td>
-      <td>Name of the shopper that’s printed on the card. Does not accept special characters.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
-      <td>Text</td>
-      <td>7</td>
-      <td>Yes</td>
-      <td>Expiration date printed on the card. Example: MM/AAAA.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code></td>
-      <td>Text</td>
-      <td>4</td>
-      <td>No</td>
-      <td>Security code printed on the back of the card.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.SaveCard</code></td>
-      <td>Boolean</td>
-      <td>—</td>
-      <td>No (Default false)</td>
-      <td>Boolean that identifies if the card will be saved to generate a <code class="language-plaintext highlighter-rouge">CardToken</code>. Find out more about <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#tokenization-of-cards">Tokenization of Cards</a>.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
-      <td>Text</td>
-      <td>10</td>
-      <td>Yes</td>
-      <td>Card brand. Possible values: Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.CardOnFile.Usage</code></td>
-      <td>Text</td>
-      <td>-</td>
-      <td>No</td>
-      <td>“First” if the card was stored and it’s your first use. “Used” if the card was stored and has been used for another transaction before.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.CardOnFile.Reason</code></td>
-      <td>Text</td>
-      <td>-</td>
-      <td>Conditional</td>
-      <td>Indicates the motive for card storage, if the <code class="language-plaintext highlighter-rouge">CardOnFile.Usage</code> field is “Used”.<br /><strong>Recurring</strong>: programmed recurring transaction (e.g. Subscriptions). If it is a recurring transaction, use <code class="language-plaintext highlighter-rouge">Payment.Recurrent</code> = true (merchant recurrence) or <code class="language-plaintext highlighter-rouge">Recurrent.Payment</code> = true (scheduled recurrence).<br /><strong>Unscheduled</strong>: recurring transaction with no fixed date (e.g. service apps).<br /><strong>Installments</strong>: installments through recurring transactions.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="response-9">Response</h4>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111701"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comprador crédito completo"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"compradorteste@teste.com"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Birthdate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1991-01-02"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"ServiceTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Interest"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Authenticate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123412******1231"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"CardOnFile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"Usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"First"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Recurring"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="nl">"PaymentAccountReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JZHOZJHNZH87KQXM3G60B9I21GVZN"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0928084922246"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"652515"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"927181"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simulado"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"IsQrCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"DynamicCurrencyConversion"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15700</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-09-28 08:49:22"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"CapturedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15700</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"CapturedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-09-28 08:49:22"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"IsSplitted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"91bad53a-9198-4738-a280-f51dddc34988"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/91bad53a-9198-4738-a280-f51dddc34988"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/91bad53a-9198-4738-a280-f51dddc34988/void"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>PROPERTY</th>
-      <th>DESCRIPTION</th>
-      <th>TYPE</th>
-      <th>SIZE</th>
-      <th>FORMAT</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ProofOfSale</code></td>
-      <td>Authorization number, identical to NSU.</td>
-      <td>Text</td>
-      <td>6</td>
-      <td>Alphanumeric text</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Tid</code></td>
-      <td>Transaction Id on the acquirer.</td>
-      <td>Text</td>
-      <td>20</td>
-      <td>Alphanumeric text</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
-      <td>Authorization code.</td>
-      <td>Text</td>
-      <td>6</td>
-      <td>Alphanumeric text</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">SoftDescriptor</code></td>
-      <td>Text that will be printed on the carrier’s bank invoice. Does not allow special characters.</td>
-      <td>Text</td>
-      <td>13</td>
-      <td>Alphanumeric text</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Payment ID number, needed for future operations like Consulting, Capture and Cancellation.</td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ECI</code></td>
-      <td>Eletronic Commerce Indicator. Indicates how safe a transaction is.</td>
-      <td>Text</td>
-      <td>2</td>
-      <td>Example: 7</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Transaction status.</td>
-      <td>Byte</td>
-      <td>—</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
-      <td>Acquiring return code.</td>
-      <td>Text</td>
-      <td>32</td>
-      <td>Alphanumeric text</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReturnMessage</code></td>
-      <td>Acquiring return message.</td>
-      <td>Text</td>
-      <td>512</td>
-      <td>Alphanumeric text</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.MerchantAdviceCode</code></td>
-      <td>Card brand’s return code that defines the period for transaction submission retry. Valid only for Mastercard.</td>
-      <td>Text</td>
-      <td>2</td>
-      <td>Numeric</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.PaymentAccountReference</code></td>
-      <td>PAR (payment account reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the card brand doesn’t send the information the field will not be returned. If it is a debit transaction, include inside the <code class="language-plaintext highlighter-rouge">DebitCard</code> node.</td>
-      <td>Alphanumeric</td>
-      <td>29</td>
-      <td>—</td>
-    </tr>
-  </tbody>
-</table>
-
 <h3 id="quasi-cash">Quasi cash</h3>
 
 <p>Quasi Cash transactions are refer to purchases of currencies in online gaming, lottery tickets and more. Only a few MCCs (Merchant Category Codes) can process this type of transaction. Contact the Cielo team to know if your business fits in this category.</p>
@@ -5588,7 +5198,7 @@
   </ul>
 </blockquote>
 
-<h4 id="request-11">Request</h4>
+<h4 id="request-10">Request</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2222222222"</span><span class="p">,</span><span class="w">
@@ -5749,7 +5359,7 @@
 
 <aside class="warning">Attention: Fields mustn't be sent with spacing to the left. It can cause rejection in the settlement of transactions.</aside>
 
-<h4 id="response-10">Response</h4>
+<h4 id="response-9">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111701"</span><span class="p">,</span><span class="w">
@@ -5940,7 +5550,7 @@
 
 <p>Establishments that operate with this service must be registered with Visa and to operate as such, they must send some additional information through messenger, which is required by the brand. See below:</p>
 
-<h4 id="request-12">Request</h4>
+<h4 id="request-11">Request</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"merchantorderid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456ABCD1234"</span><span class="p">,</span><span class="w">
@@ -6020,7 +5630,7 @@
 
 <p><strong>Warning:</strong> The SDWO category is only available for Visa/Elo debit and credit and Mastercard credit. It also works with foreign cards.</p>
 
-<h4 id="request-13">Request</h4>
+<h4 id="request-12">Request</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012345678"</span><span class="p">,</span><span class="w">
@@ -6109,7 +5719,7 @@ In addition, you have to send some addictional data in the transaction, to that 
 
 <p><strong>Warning:</strong> The Cash In category is only accepted for the following types and brands: Visa/Mastercard – credit; Elo – debit and credit. Does not work with foreign cards.</p>
 
-<h4 id="request-14">Request</h4>
+<h4 id="request-13">Request</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012345678"</span><span class="p">,</span><span class="w">
@@ -6197,7 +5807,7 @@ In addition, you have to send some addictional data in the transaction, to that 
 
 <p>To save a card without authorizing a transaction, simply make a tokenization request with the card data.</p>
 
-<h3 id="request-15">Request</h3>
+<h3 id="request-14">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/card/</span></aside>
 
@@ -6276,7 +5886,7 @@ In addition, you have to send some addictional data in the transaction, to that 
   </tbody>
 </table>
 
-<h3 id="response-11">Response</h3>
+<h3 id="response-10">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"CardToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"db62dc71-d07b-4745-9969-42697b988ccb"</span><span class="p">,</span><span class="w">
@@ -6359,7 +5969,7 @@ In addition, you have to send some addictional data in the transaction, to that 
 
 <p>Check below the fields to be sent in the transaction if the option chosen is external integration:</p>
 
-<h3 id="request-16">Request</h3>
+<h3 id="request-15">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -6532,7 +6142,7 @@ In addition, you have to send some addictional data in the transaction, to that 
   </tbody>
 </table>
 
-<h3 id="response-12">Response</h3>
+<h3 id="response-11">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -6765,7 +6375,7 @@ In addition, you have to send some addictional data in the transaction, to that 
 
 <p>To create a tokenized credit card sale, submit a credit transaction requisition with <code class="language-plaintext highlighter-rouge">CardToken</code> as the following example.</p>
 
-<h3 id="request-17">Request</h3>
+<h3 id="request-16">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -6850,7 +6460,7 @@ In addition, you have to send some addictional data in the transaction, to that 
   </tbody>
 </table>
 
-<h3 id="response-13">Response</h3>
+<h3 id="response-12">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -7024,6 +6634,396 @@ In addition, you have to send some addictional data in the transaction, to that 
       <td>Text</td>
       <td>512</td>
       <td>Alphanumeric texto</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="card-on-file">Card On File</h1>
+
+<p><strong>What’s Card On File?</strong></p>
+
+<p>Card on File (COF) transactions are used by merchants to send financial and non financial (card validation) transactions with stored credentials.</p>
+
+<p>Most of these transactions do not contain CVV as PCI rules prevent the establishment from storing this information. However, it is important to consider that a merchant may have validated the CVV in a previous transaction, such as the first Card On File transaction.</p>
+
+<p>Examples of segments that use this type of modality are streaming services, education services, gyms and subscriptions, among others.</p>
+
+<p><strong>Why use Card On File?</strong></p>
+
+<p>Card On File allows for greater flexibility in online purchases, since it does not ask the cardholder to send all the data again (including the CVV); it is also possible to notice a better sales conversion rate since in the process for using the COF initiated by the merchant, necessarily, there is already a previous transaction initiated by the cardholder that already assists in the authorization of the transaction by the issuer.</p>
+
+<p><strong>Supported brands</strong></p>
+
+<p>Card On File supports the following brands:</p>
+
+<ul>
+  <li><strong>Mastercard</strong></li>
+  <li><strong>Visa</strong></li>
+  <li><strong>Elo</strong></li>
+</ul>
+
+<h2 id="request-17">Request</h2>
+
+<blockquote>
+  <p>The Card On File transaction may or may not be recurring.</p>
+</blockquote>
+
+<p>See an example of a Card on File credit transaction request.</p>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
+   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2014111701"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Customer"</span><span class="p">:{</span><span class="w">  
+      </span><span class="nl">"Name"</span><span class="p">:</span><span class="s2">"Comprador crédito completo"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Email"</span><span class="p">:</span><span class="s2">"compradorteste@teste.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Birthdate"</span><span class="p">:</span><span class="s2">"1991-01-02"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">  
+     </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">15700</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"Currency"</span><span class="p">:</span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"Interest"</span><span class="p">:</span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"Capture"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"Authenticate"</span><span class="p">:</span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"Recurrent"</span><span class="p">:</span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"CreditCard"</span><span class="p">:{</span><span class="w">  
+         </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="s2">"1234123412341231"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Holder"</span><span class="p">:</span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"CardOnFile"</span><span class="p">:{</span><span class="w">
+            </span><span class="nl">"Usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"First"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Reason"</span><span class="p">:</span><span class="s2">"Recurring"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPERTY</th>
+      <th>TYPE</th>
+      <th>SIZE</th>
+      <th>REQUIRED</th>
+      <th>DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
+      <td>Text</td>
+      <td>50</td>
+      <td>Yes</td>
+      <td>Order ID number.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
+      <td>Text</td>
+      <td>255</td>
+      <td>No</td>
+      <td>Customer’s name.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
+      <td>Text</td>
+      <td>255</td>
+      <td>No</td>
+      <td>The customer’s registration status on the store. (NEW / EXISTING)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
+      <td>Text</td>
+      <td>255</td>
+      <td>No</td>
+      <td>Customer’s email</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Birthdate</code></td>
+      <td>Date</td>
+      <td>10</td>
+      <td>No</td>
+      <td>Customer’s birthdate</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>Text</td>
+      <td>100</td>
+      <td>Yes</td>
+      <td>Type of the Payment Method.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>Number</td>
+      <td>15</td>
+      <td>Yes</td>
+      <td>Order Amount (to be sent in cents).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Currency</code></td>
+      <td>Text</td>
+      <td>3</td>
+      <td>No</td>
+      <td>Currency in which the payment will be made (BRL).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Country</code></td>
+      <td>Text</td>
+      <td>3</td>
+      <td>No</td>
+      <td>Country in which the payment will be made.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code></td>
+      <td>Text</td>
+      <td>13</td>
+      <td>No</td>
+      <td>The store’s name that will be on the shopper’s bank invoice. Does not allow special characters.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
+      <td>Number</td>
+      <td>2</td>
+      <td>Yes</td>
+      <td>Number of installments. If the transaction is a recurrence, the number of installments will be 1. For installment transactions, the number of installments will be greater than 1.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Interest</code></td>
+      <td>Text</td>
+      <td>10</td>
+      <td>No</td>
+      <td>Type of installments - Store (ByMerchant) or Card (ByIssuer).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>No (Default false)</td>
+      <td>Boolean that identifies if the authorization should be done by authomatic capture (true) or posterior capture (false).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Recurrent</code></td>
+      <td>Boolean</td>
+      <td>-</td>
+      <td>Conditional</td>
+      <td>Indicates if the transaction is recurring (“true”) or not (“false”). The value “true” won’t originate a new recurrence, it will only allow a transaction without the need to send the security code. Authenticate should be “false” if Recurrent is “true”. Find out more about <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#recurring-payments">Recurring Payments</a>.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
+      <td>Text</td>
+      <td>19</td>
+      <td>Yes</td>
+      <td>Shopper’s card number.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.Holder</code></td>
+      <td>Text</td>
+      <td>25</td>
+      <td>No</td>
+      <td>Name of the shopper that’s printed on the card. Does not accept special characters.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
+      <td>Text</td>
+      <td>7</td>
+      <td>Yes</td>
+      <td>Expiration date printed on the card. Example: MM/AAAA.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code></td>
+      <td>Text</td>
+      <td>4</td>
+      <td>No</td>
+      <td>Security code printed on the back of the card.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.SaveCard</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>No (Default false)</td>
+      <td>Boolean that identifies if the card will be saved to generate a <code class="language-plaintext highlighter-rouge">CardToken</code>. Find out more about <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#tokenization-of-cards">Tokenization of Cards</a>.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
+      <td>Text</td>
+      <td>10</td>
+      <td>Yes</td>
+      <td>Card brand. Possible values: Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.CardOnFile.Usage</code></td>
+      <td>Text</td>
+      <td>-</td>
+      <td>No</td>
+      <td>“First” if the card was stored and it’s your first use. “Used” if the card was stored and has been used for another transaction before.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.CardOnFile.Reason</code></td>
+      <td>Text</td>
+      <td>-</td>
+      <td>Conditional</td>
+      <td>Indicates the motive for card storage, if the <code class="language-plaintext highlighter-rouge">CardOnFile.Usage</code> field is “Used”.<br /><strong>Recurring</strong>: programmed recurring transaction (e.g. Subscriptions). If it is a recurring transaction, use <code class="language-plaintext highlighter-rouge">Payment.Recurrent</code> = true (merchant recurrence) or <code class="language-plaintext highlighter-rouge">Recurrent.Payment</code> = true (scheduled recurrence).<br /><strong>Unscheduled</strong>: recurring transaction with no fixed date (e.g. service apps).<br /><strong>Installments</strong>: installments through recurring transactions.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="response-13">Response</h2>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111701"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comprador crédito completo"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"compradorteste@teste.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Birthdate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1991-01-02"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"ServiceTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Interest"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Authenticate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123412******1231"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"CardOnFile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"First"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Recurring"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"PaymentAccountReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JZHOZJHNZH87KQXM3G60B9I21GVZN"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0928084922246"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"652515"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"927181"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simulado"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"IsQrCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DynamicCurrencyConversion"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15700</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-09-28 08:49:22"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"CapturedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15700</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"CapturedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-09-28 08:49:22"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"IsSplitted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"91bad53a-9198-4738-a280-f51dddc34988"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/91bad53a-9198-4738-a280-f51dddc34988"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/91bad53a-9198-4738-a280-f51dddc34988/void"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPERTY</th>
+      <th>DESCRIPTION</th>
+      <th>TYPE</th>
+      <th>SIZE</th>
+      <th>FORMAT</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ProofOfSale</code></td>
+      <td>Authorization number, identical to NSU.</td>
+      <td>Text</td>
+      <td>6</td>
+      <td>Alphanumeric text</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Tid</code></td>
+      <td>Transaction Id on the acquirer.</td>
+      <td>Text</td>
+      <td>20</td>
+      <td>Alphanumeric text</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
+      <td>Authorization code.</td>
+      <td>Text</td>
+      <td>6</td>
+      <td>Alphanumeric text</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SoftDescriptor</code></td>
+      <td>Text that will be printed on the carrier’s bank invoice. Does not allow special characters.</td>
+      <td>Text</td>
+      <td>13</td>
+      <td>Alphanumeric text</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
+      <td>Payment ID number, needed for future operations like Consulting, Capture and Cancellation.</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ECI</code></td>
+      <td>Eletronic Commerce Indicator. Indicates how safe a transaction is.</td>
+      <td>Text</td>
+      <td>2</td>
+      <td>Example: 7</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td>Transaction status.</td>
+      <td>Byte</td>
+      <td>—</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
+      <td>Acquiring return code.</td>
+      <td>Text</td>
+      <td>32</td>
+      <td>Alphanumeric text</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReturnMessage</code></td>
+      <td>Acquiring return message.</td>
+      <td>Text</td>
+      <td>512</td>
+      <td>Alphanumeric text</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.MerchantAdviceCode</code></td>
+      <td>Card brand’s return code that defines the period for transaction submission retry. Valid only for Mastercard.</td>
+      <td>Text</td>
+      <td>2</td>
+      <td>Numeric</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.PaymentAccountReference</code></td>
+      <td>PAR (payment account reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the card brand doesn’t send the information the field will not be returned. If it is a debit transaction, include inside the <code class="language-plaintext highlighter-rouge">DebitCard</code> node.</td>
+      <td>Alphanumeric</td>
+      <td>29</td>
+      <td>—</td>
     </tr>
   </tbody>
 </table>
