@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-09-13T13:01:51+00:00</updated>
+    <updated>2023-09-13T13:09:48+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -43263,6 +43263,10 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
 &lt;p&gt;The response always returns whether the card can currently be authorized. This information only means that the &lt;em&gt;card is valid for transactioning&lt;/em&gt;, but does not indicate that a certain value will be authorized.&lt;/p&gt;
 
 &lt;p&gt;The fields returned in the response depend on the validation result. The following table presents all possible fields; after the table, check out the examples of each type of response.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;If the response is negative, do not submit for authorization, submit only if the response code is positive.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
