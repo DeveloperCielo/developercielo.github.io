@@ -6445,6 +6445,8 @@ A resposta sempre retorna se o cartão pode ser autorizado no momento. Essa info
 
 Os campos retornados na resposta dependem do resultado da validação. A tabela a seguir apresenta todos os campos possíveis; depois da tabela, confira os exemplos de cada tipo de resposta.
 
+> Se a resposta for negativa, não submeter para autorização, submeter apenas se o código da resposta for positivo.
+
 | Paramêtro             | Descrição                                                                                                                                                                                                                                                                                                          | Tipo    | Tamanho |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- | ------- |
 | `Valid`               | Situação do cartão:<br> **True** – Cartão válido<BR>**False** – Cartão Inválido                                                                                                                                                                                                                                    | Boolean | ---     |
