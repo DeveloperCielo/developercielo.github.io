@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-09-13T14:32:25+00:00</updated>
+    <updated>2023-09-13T14:50:03+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -38364,7 +38364,7 @@ In addition, you have to send some addictional data in the transaction, to that 
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Installments&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Number of installments. If the transaction is a recurrence, the number of installments will be 1. For installment transactions, the number of installments will be greater than 1.&lt;/td&gt;
+      &lt;td&gt;Number of installments. As this is a recurrence, the number of installments will be 1.&lt;/td&gt;
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
@@ -38609,7 +38609,7 @@ In addition, you have to send some addictional data in the transaction, to that 
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Installments&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Number of installments. If the transaction is a recurrence, the number of installments will be 1. For installment transactions, the number of installments will be greater than 1.&lt;/td&gt;
+      &lt;td&gt;Number of installments. As this is a recurrence, the number of installments will be 1.&lt;/td&gt;
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
@@ -38800,7 +38800,7 @@ In addition, you have to send some addictional data in the transaction, to that 
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Installments&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Number of installments. If the transaction is a recurrence, the number of installments will be 1. For installment transactions, the number of installments will be greater than 1.&lt;/td&gt;
+      &lt;td&gt;Number of installments. As this is a recurrence, the number of installments will be 1.&lt;/td&gt;
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
@@ -40260,7 +40260,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Installments&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Number of installments. If the transaction is a recurrence, the number of installments will be 1. For installment transactions, the number of installments will be greater than 1.&lt;/td&gt;
+      &lt;td&gt;Number of installments. As this is a recurrence, the number of installments will be 1.&lt;/td&gt;
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
