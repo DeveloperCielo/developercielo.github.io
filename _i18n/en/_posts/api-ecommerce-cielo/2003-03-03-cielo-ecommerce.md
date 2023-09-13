@@ -3896,6 +3896,8 @@ What are the advantages of using scheduled recurrence for _MusicFy_?
 
 ## Creating Recurrences
 
+Marking recurrence is important for transaction safety. When a recurrence is marked, Cielo understands the transaction as recurring and not as fraud.
+
 ### Creating a Merchant Recurrence
 
 To create a recurring sale in which recurrence and interval process will be performed by the store itself, just make a POST as in the example.
