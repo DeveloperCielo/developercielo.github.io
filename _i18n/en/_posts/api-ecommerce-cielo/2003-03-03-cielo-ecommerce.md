@@ -3796,6 +3796,8 @@ In this model, Cielo is responsible for the intelligence necessary to perform a 
 
 The **Scheduled Recurrence** allows the merchant to create a base transaction that, when sent to the API E-commerce Cielo, will be saved and executed following the rules defined by the merchant.
 
+> To learn more about configuring a scheduled recurrence, access [Backoffice API Cielo](https://developercielo.github.io/tutorial/tutoriais-3-0#configurando-a-recorr%C3%AAncia){:target="\_blank"}.
+
 In this model, the API performs and allows:
 
 | Advantages                   | Description                                                                                                                                  |
