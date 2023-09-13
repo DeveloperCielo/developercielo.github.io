@@ -6492,6 +6492,8 @@ The response always returns whether the card can currently be authorized. This i
 
 The fields returned in the response depend on the validation result. The following table presents all possible fields; after the table, check out the examples of each type of response.
 
+> If the response is negative, do not submit for authorization, submit only if the response code is positive.
+
 | Field                 | Description                                                                        | Type      | Size |
 | --------------------- | ------------------------------- -------------------------------------------------- | --------- | : -------: |
 | `Valid`               | Card Status: <br> **True ** - Valid Card <BR> **False** - Invalid Card             | Boolean   | ---        |
