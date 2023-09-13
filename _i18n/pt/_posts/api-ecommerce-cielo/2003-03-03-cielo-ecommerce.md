@@ -3925,6 +3925,8 @@ Quais as vantagens de usar a recorrência programada para o _MusicFy_?
 
 ## Criando Recorrências
 
+A marcação de recorrência é importante para a segurança da transação. Ao marcar uma recorrência, a Cielo entende a transação como recorrente e não como fraude.
+
 ### Criando uma Recorrência Própria
 
 Para criar uma venda recorrente cuja o processo de recorrência e intervalo serão executados pela própria loja, basta fazer um POST conforme o exemplo.
