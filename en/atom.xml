@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-09-13T13:53:33+00:00</updated>
+    <updated>2023-09-13T14:15:16+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -38059,6 +38059,10 @@ In addition, you have to send some addictional data in the transaction, to that 
 &lt;p&gt;In this model, Cielo is responsible for the intelligence necessary to perform a recurrence automatically.&lt;/p&gt;
 
 &lt;p&gt;The &lt;strong&gt;Scheduled Recurrence&lt;/strong&gt; allows the merchant to create a base transaction that, when sent to the API E-commerce Cielo, will be saved and executed following the rules defined by the merchant.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;To learn more about configuring a scheduled recurrence, access &lt;a href=&quot;https://developercielo.github.io/tutorial/tutoriais-3-0#configurando-a-recorr%C3%AAncia&quot; target=&quot;\_blank&quot;&gt;Backoffice API Cielo&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;In this model, the API performs and allows:&lt;/p&gt;
 
