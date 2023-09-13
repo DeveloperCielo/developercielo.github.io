@@ -3975,7 +3975,7 @@ curl
 | `Customer.Name`             | Shopper's name.                                                                                                              | Text    | 255  | Yes      |
 | `Payment.Type`              | Type of the Payment Method.                                                                                                  | Text    | 100  | Yes      |
 | `Payment.Amount`            | Order Amount (to be sent in cents).                                                                                          | Number  | 15   | Yes      |
-| `Payment.Installments`      | Number of installments. If the transaction is a recurrence, the number of installments will be 1. For installment transactions, the number of installments will be greater than 1.                                                                                                      | Number  | 2    | Yes      |
+| `Payment.Installments`      | Number of installments. As this is a recurrence, the number of installments will be 1.                                                                                                      | Number  | 2    | Yes      |
 | `Payment.SoftDescriptor`    | Text that will be printed on the shopper's bank invoice - Available only for VISA/MASTER - does not allow special characters | Text    | 13   | No       |
 | `Payment.Recurrent`         | Indicates an unscheduled recurrence transaction.                                                                             | Boolean | 5    | Yes       |
 | `CreditCard.CardNumber`     | Shopper's Card Number.                                                                                                       | Text    | 19   | Yes      |
@@ -4121,7 +4121,7 @@ curl
 | `Customer.Name`             | Shopper's name.                                                                                                              | Text    | 255  | No       |
 | `Payment.Type`              | Type of the Payment Method.                                                                                                  | Text    | 100  | Yes      |
 | `Payment.Amount`            | Order Amount (to be sent in cents).                                                                                          | Number  | 15   | Yes      |
-| `Payment.Installments`      | Number of installments. If the transaction is a recurrence, the number of installments will be 1. For installment transactions, the number of installments will be greater than 1.                                                                                                      | Number  | 2    | Yes      |
+| `Payment.Installments`      | Number of installments. As this is a recurrence, the number of installments will be 1.                                                                                                      | Number  | 2    | Yes      |
 | `Payment.SoftDescriptor`    | Text that will be printed on the carrier's bank invoice - Available only for VISA/MASTER - does not allow special characters | Text    | 13   | No       |
 | `Payment.Recurrent`         | Indicates an unscheduled recurrence transaction.                                                                             | Boolean | 5    | Yes       |
 | `CreditCard.CardNumber`     | Shopper's Card Number.                                                                                                       | Text    | 19   | Yes      |
@@ -4213,7 +4213,7 @@ curl
 | `Customer.Name`                         | Shopper's name.                                                                                                                         | Text    | 255  | Yes      |
 | `Payment.Type`                          | Type of the Payment Method.                                                                                                             | Text    | 100  | Yes      |
 | `Payment.Amount`                        | Order Amount (to be sent in cents).                                                                                                     | Number  | 15   | Yes      |
-| `Payment.Installments`                  | Number of installments. If the transaction is a recurrence, the number of installments will be 1. For installment transactions, the number of installments will be greater than 1.                                                                                                                 | Number  | 2    | Yes      |
+| `Payment.Installments`                  | Number of installments. As this is a recurrence, the number of installments will be 1.                                                                                                                 | Number  | 2    | Yes      |
 | `Payment.SoftDescriptor`                | Text that will be printed on the carrier's bank invoice - Available only for VISA/MASTER - does not allow special characters            | Text    | 13   | No       |
 | `Payment.RecurrentPayment.EndDate`      | End date for recurrence.                                                                                                                | Text    | 10   | No       |
 | `Payment.RecurrentPayment.Interval`     | Recurrence interval.<br /><ul><li>Monthly (Default) </li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul> | Text    | 10   | No       |
@@ -4965,7 +4965,7 @@ curl
 | `RecurrentPaymentId`        | Recurrence identification number.                                                                                            | Text   | 50   | Yes      |
 | `Payment.Type`              | Type of the Payment Method.                                                                                                  | Text   | 100  | Yes      |
 | `Payment.Amount`            | Order Amount (to be sent in cents).                                                                                          | Number | 15   | Yes      |
-| `Payment.Installments`      | Number of installments. If the transaction is a recurrence, the number of installments will be 1. For installment transactions, the number of installments will be greater than 1.                                                                                                      | Number | 2    | Yes      |
+| `Payment.Installments`      | Number of installments. As this is a recurrence, the number of installments will be 1.                                                                                                      | Number | 2    | Yes      |
 | `Payment.SoftDescriptor`    | Text that will be printed on the carrier's bank invoice - Available only for VISA/MASTER - does not allow special characters | Text   | 13   | No       |
 | `CreditCard.CardNumber`     | Shopper's Card Number.                                                                                                       | Text   | 16   | Yes      |
 | `CreditCard.Holder`         | Shopper's name printed on card.                                                                                              | Text   | 25   | No       |
