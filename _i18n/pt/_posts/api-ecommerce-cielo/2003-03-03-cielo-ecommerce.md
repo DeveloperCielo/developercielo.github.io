@@ -3927,7 +3927,7 @@ Quais as vantagens de usar a recorrência programada para o _MusicFy_?
 
 ## Criando Recorrências
 
-A marcação de recorrência é importante para a segurança da transação. Ao marcar uma recorrência, a Cielo entende a transação como recorrente e não como fraude.
+A marcação de recorrência é importante para a segurança da transação. Também é importante a marcação do campo Card On File quando se tratar de uma recorrência com credencial armazenada. Ao marcar esses campos, a Cielo entende a transação como recorrente e segura, sem confudir com fraude.
 
 ### Criando uma Recorrência Própria
 
