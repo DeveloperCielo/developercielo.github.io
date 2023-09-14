@@ -3598,9 +3598,9 @@ Card On File supports the following brands:
 * **Visa**
 * **Elo**
 
-## Request
-
 > The Card On File transaction may or may not be recurring.
+
+## Request
 
 See an example of a Card on File credit transaction request.
 
@@ -5056,7 +5056,7 @@ See [HTTP Status Code](#http-status-code) for the list with all HTTP status code
 
 Renova Fácil is a service developed by Cielo together with issuers. The objective of the service is to increase the conversion rate of recurring transactions with credit cards.
 
-Using this functionality allows the automatic replacement of a credit card that has been replaced by the issuing bank for some reason (expiry date, exchange, etc.). This way, when a recurrent transaction is submitted to the API and Cielo identifies that the card sent has been replaced, authorization will be denied and the API will return the new card data in the `NewCard` node. When you receive the new card details, you will need to make a new transaction, which this time will be authorized.
+Using this functionality allows the automatic replacement of a credit card that has been replaced by the issuing bank for some reason (expiry date, exchange, etc.). This way, when a recurrent transaction is submitted to the API and Cielo identifies that the card sent has been replaced, authorization will be denied and the API will return the new card data in the `NewCard` node. When you receive the new card details, you will need to send a new authorization request with the new card details..
 
 <aside class="notice">To use Renova Fácil, you have to to enable the service at Cielo. No extra information is sent in the authorization request, however the response will include the `NewCard` node.</aside>
 
@@ -6556,7 +6556,7 @@ If there is an error in the flow and it is not possible to validate the card, th
 * *500 – Internal Server Error*
 * *400 – Bad Request*
 
-> Fines are charged for excessive negative attempts, read more about it in [Programa de Retentativa das Bandeiras](https://developercielo.github.io/tutorial/programa-retentativa-bandeiras){:target="\_blank"}.
+> Excessive negative attempts may result in fines. Read more at [Programa de Retentativa das Bandeiras](https://developercielo.github.io/tutorial/programa-retentativa-bandeiras){:target="\_blank"}.
 
 # Silent Order Post
 
