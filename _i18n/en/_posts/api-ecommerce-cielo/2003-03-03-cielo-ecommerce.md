@@ -3899,7 +3899,11 @@ What are the advantages of using scheduled recurrence for _MusicFy_?
 
 ## Creating Recurrences
 
-Marking a recurrence is important for transaction safety. It is also important to mark the Card On File field when dealing with a recurrence with a stored credential. By marking these fields, Cielo understands the transaction as recurring and secure, without confusing it with fraud.
+Marking a recurrence is important for the security of a recurring transaction, so that it is not denied due to suspected fraud. Therefore:
+
+* Send the field `Payment.Recurrent` = "true" in case of own recurrence;
+* Send `RecurrentPayment` node in case of scheduled recurrence;
+* And, if you are submitting a recurring transaction with a stored credential, submit the `CardOnFile.Usage` and `CardOnFile.Reason` fields. *Learn more at [Card On File](https://developercielo.github.io/manual/cielo-ecommerce#card-on-file)*.
 
 ### Creating a Merchant Recurrence
 
