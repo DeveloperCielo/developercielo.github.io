@@ -7279,7 +7279,13 @@ In addition, you have to send some addictional data in the transaction, to that 
 
 <h2 id="creating-recurrences">Creating Recurrences</h2>
 
-<p>Marking a recurrence is important for transaction safety. It is also important to mark the Card On File field when dealing with a recurrence with a stored credential. By marking these fields, Cielo understands the transaction as recurring and secure, without confusing it with fraud.</p>
+<p>Marking a recurrence is important for the security of a recurring transaction, so that it is not denied due to suspected fraud. Therefore:</p>
+
+<ul>
+  <li>Send the field <code class="language-plaintext highlighter-rouge">Payment.Recurrent</code> = “true” in case of own recurrence;</li>
+  <li>Send <code class="language-plaintext highlighter-rouge">RecurrentPayment</code> node in case of scheduled recurrence;</li>
+  <li>And, if you are submitting a recurring transaction with a stored credential, submit the <code class="language-plaintext highlighter-rouge">CardOnFile.Usage</code> and <code class="language-plaintext highlighter-rouge">CardOnFile.Reason</code> fields. <em>Learn more at <a href="https://developercielo.github.io/manual/cielo-ecommerce#card-on-file">Card On File</a></em>.</li>
+</ul>
 
 <h3 id="creating-a-merchant-recurrence">Creating a Merchant Recurrence</h3>
 
