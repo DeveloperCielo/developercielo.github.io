@@ -9552,6 +9552,37 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
 
 <p>Veja o Anexo <a href="#http-status-code">HTTP Status Code</a> para a lista com todos os códigos de status HTTP possivelmente retornados pela API.</p>
 
+<h2 id="retentativas">Retentativas</h2>
+
+<p><strong>O que é retentativa?</strong></p>
+
+<p>Retentativa é a ação de reenviar uma transação rejeitada com a finalidade de obter a aprovação. Para realizar uma retentativa, é importante que o código de resposta da transação negada seja considerado pela bandeira como reversível.</p>
+
+<p><strong>Qual é o impacto da retentativa no meu negócio?</strong></p>
+
+<p>A retentativa pode trazer um resultado positivo e converter vendas que foram negadas inicialmente. Entretanto, o excesso de retentativas pode prejudicar o estabelecimento perante os emissores e bandeiras, ao diminuir o índice de aprovação do estabelecimento e/ou gerar multa ao retentar quando não permitido.</p>
+
+<p><strong>Quando fazer uma retentativa?</strong></p>
+
+<p>É permitido retentar quando o código de resposta for reversível. A estratégia de retentativa também deve levar em consideração o código de resposta de cada bandeira.</p>
+
+<p><strong>Exemplos:</strong></p>
+
+<ul>
+  <li><strong>Saldo/Limite insuficiente (51)</strong>: esta resposta é normalmente reversível e, portanto, faz sentido retentar a transação. Contudo, uma estratégia de retentativas para este código deve levar em consideração que o comprador precisa realizar uma ação como pagamento de fatura ou aumento de limite para que haja sucesso na transação. Nesse caso, recomendamos intervalos maiores entre retentativas;</li>
+  <li><strong>Cartão inválido (14)</strong>: esta resposta é irreversível. Para este código, não adianta realizar novas transações nos mesmos parâmetros pois não serão aprovadas pelos emissores.</li>
+</ul>
+
+<p>Portanto, tenha atenção à resposta da transação para elaboração de uma boa estratégia de retentativa. Veja outros códigos de resposta e suas características em <a href="https://developercielo.github.io/tutorial/abecs-e-outros-codigos" target="\_blank">Códigos de retorno ABECS</a>.</p>
+
+<blockquote>
+  <p>O excesso de tentativas não aprovadas pode implicar em multas. Leia mais em <a href="https://developercielo.github.io/tutorial/programa-retentativa-bandeiras" target="\_blank">Programa de Retentativa das Bandeiras</a>.</p>
+</blockquote>
+
+<p><strong>É possível configurar para fazer retentativas automaticamente?</strong></p>
+
+<p>Para a Recorrência Programada, é possível deixar até quatro retentativas habilitadas de forma automática. Veja como configurar em <a href="https://developercielo.github.io/tutorial/tutoriais-3-0#configurando-a-recorr%C3%AAncia" target="\_blank">Backoffice API Cielo</a>.</p>
+
 <h2 id="transação-com-renova-fácil">Transação com Renova Fácil</h2>
 
 <p>O Renova Fácil é um serviço desenvolvido pela Cielo em conjunto com os emissores, cujo objetivo é aumentar a taxa de conversão de vendas recorrentes com cartão de crédito.</p>
