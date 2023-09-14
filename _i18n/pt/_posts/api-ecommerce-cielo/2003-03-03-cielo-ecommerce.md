@@ -3926,7 +3926,11 @@ Quais as vantagens de usar a recorrência programada para o _MusicFy_?
 
 ## Criando Recorrências
 
-A marcação de recorrência é importante para a segurança da transação. Também é importante a marcação do campo Card On File quando se tratar de uma recorrência com credencial armazenada. Ao marcar esses campos, a Cielo entende a transação como recorrente e segura, sem confudir com fraude.
+A marcação de recorrência é importante para a segurança de uma transação recorrente, para que não seja negada por suspeita de fraude. Sendo assim:
+
+* Envie o campo `Payment.Recurrent` = "true" no caso de recorrência própria; 
+* Envie o nó `RecurrentPayment` no caso de recorrência programada;
+* E, se estiver submetendo uma transação recorrente com credencial armazenada, envie os campos `CardOnFile.Usage` e `CardOnFile.Reason`. *Saiba mais em [Card On File](https://developercielo.github.io/manual/cielo-ecommerce#card-on-file)*.
 
 ### Criando uma Recorrência Própria
 
