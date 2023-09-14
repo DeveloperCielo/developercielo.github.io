@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-09-14T13:37:38+00:00</updated>
+    <updated>2023-09-14T13:45:34+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -37619,11 +37619,11 @@ In addition, you have to send some addictional data in the transaction, to that 
   &lt;li&gt;&lt;strong&gt;Elo&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;request-17&quot;&gt;Request&lt;/h2&gt;
-
 &lt;blockquote&gt;
   &lt;p&gt;The Card On File transaction may or may not be recurring.&lt;/p&gt;
 &lt;/blockquote&gt;
+
+&lt;h2 id=&quot;request-17&quot;&gt;Request&lt;/h2&gt;
 
 &lt;p&gt;See an example of a Card on File credit transaction request.&lt;/p&gt;
 
@@ -40459,7 +40459,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
 
 &lt;p&gt;Renova Fácil is a service developed by Cielo together with issuers. The objective of the service is to increase the conversion rate of recurring transactions with credit cards.&lt;/p&gt;
 
-&lt;p&gt;Using this functionality allows the automatic replacement of a credit card that has been replaced by the issuing bank for some reason (expiry date, exchange, etc.). This way, when a recurrent transaction is submitted to the API and Cielo identifies that the card sent has been replaced, authorization will be denied and the API will return the new card data in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NewCard&lt;/code&gt; node. When you receive the new card details, you will need to make a new transaction, which this time will be authorized.&lt;/p&gt;
+&lt;p&gt;Using this functionality allows the automatic replacement of a credit card that has been replaced by the issuing bank for some reason (expiry date, exchange, etc.). This way, when a recurrent transaction is submitted to the API and Cielo identifies that the card sent has been replaced, authorization will be denied and the API will return the new card data in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NewCard&lt;/code&gt; node. When you receive the new card details, you will need to send a new authorization request with the new card details..&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;To use Renova Fácil, you have to to enable the service at Cielo. No extra information is sent in the authorization request, however the response will include the `NewCard` node.&lt;/aside&gt;
 
@@ -43364,7 +43364,7 @@ The return code &lt;strong&gt;00 represents success in Zero Auth&lt;/strong&gt;,
 &lt;/ul&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;Fines are charged for excessive negative attempts, read more about it in &lt;a href=&quot;https://developercielo.github.io/tutorial/programa-retentativa-bandeiras&quot; target=&quot;\_blank&quot;&gt;Programa de Retentativa das Bandeiras&lt;/a&gt;.&lt;/p&gt;
+  &lt;p&gt;Excessive negative attempts may result in fines. Read more at &lt;a href=&quot;https://developercielo.github.io/tutorial/programa-retentativa-bandeiras&quot; target=&quot;\_blank&quot;&gt;Programa de Retentativa das Bandeiras&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h1 id=&quot;silent-order-post&quot;&gt;Silent Order Post&lt;/h1&gt;

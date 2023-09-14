@@ -6662,11 +6662,11 @@ In addition, you have to send some addictional data in the transaction, to that 
   <li><strong>Elo</strong></li>
 </ul>
 
-<h2 id="request-17">Request</h2>
-
 <blockquote>
   <p>The Card On File transaction may or may not be recurring.</p>
 </blockquote>
+
+<h2 id="request-17">Request</h2>
 
 <p>See an example of a Card on File credit transaction request.</p>
 
@@ -9502,7 +9502,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
 
 <p>Renova Fácil is a service developed by Cielo together with issuers. The objective of the service is to increase the conversion rate of recurring transactions with credit cards.</p>
 
-<p>Using this functionality allows the automatic replacement of a credit card that has been replaced by the issuing bank for some reason (expiry date, exchange, etc.). This way, when a recurrent transaction is submitted to the API and Cielo identifies that the card sent has been replaced, authorization will be denied and the API will return the new card data in the <code class="language-plaintext highlighter-rouge">NewCard</code> node. When you receive the new card details, you will need to make a new transaction, which this time will be authorized.</p>
+<p>Using this functionality allows the automatic replacement of a credit card that has been replaced by the issuing bank for some reason (expiry date, exchange, etc.). This way, when a recurrent transaction is submitted to the API and Cielo identifies that the card sent has been replaced, authorization will be denied and the API will return the new card data in the <code class="language-plaintext highlighter-rouge">NewCard</code> node. When you receive the new card details, you will need to send a new authorization request with the new card details..</p>
 
 <aside class="notice">To use Renova Fácil, you have to to enable the service at Cielo. No extra information is sent in the authorization request, however the response will include the `NewCard` node.</aside>
 
@@ -12407,7 +12407,7 @@ The return code <strong>00 represents success in Zero Auth</strong>, the other c
 </ul>
 
 <blockquote>
-  <p>Fines are charged for excessive negative attempts, read more about it in <a href="https://developercielo.github.io/tutorial/programa-retentativa-bandeiras" target="\_blank">Programa de Retentativa das Bandeiras</a>.</p>
+  <p>Excessive negative attempts may result in fines. Read more at <a href="https://developercielo.github.io/tutorial/programa-retentativa-bandeiras" target="\_blank">Programa de Retentativa das Bandeiras</a>.</p>
 </blockquote>
 
 <h1 id="silent-order-post">Silent Order Post</h1>
