@@ -6714,11 +6714,11 @@ Abaixo especificamos qualquer diferença existente:</p>
   <li><strong>Elo</strong></li>
 </ul>
 
-<h2 id="requisição-17">Requisição</h2>
-
 <blockquote>
   <p>A transação com Card On File pode ser reccorente ou não.</p>
 </blockquote>
+
+<h2 id="requisição-17">Requisição</h2>
 
 <p>Veja um exemplo de requisição de transação de crédito de Card on File.</p>
 
@@ -9550,7 +9550,7 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
 
 <p>O Renova Fácil é um serviço desenvolvido pela Cielo em conjunto com os emissores, cujo objetivo é aumentar a taxa de conversão de vendas recorrentes com cartão de crédito.</p>
 
-<p>O uso desta funcionalidade permite a substituição automática de um cartão de crédito que foi substituído pelo banco emissor por algum motivo (vencimento atingido, troca etc). Dessa forma, quando uma transação com marcação de recorrência for submetida para a API e a Cielo identificar que o cartão enviado foi substituído, sua autorização será negada e a API retornará os dados do novo cartão no nó <code class="language-plaintext highlighter-rouge">NewCard</code>. Quando receber os dados do novo cartão, será necessário fazer uma nova transação, que dessa vez será autorizada.</p>
+<p>O uso desta funcionalidade permite a substituição automática de um cartão de crédito que foi substituído pelo banco emissor por algum motivo (vencimento atingido, troca etc). Dessa forma, quando uma transação com marcação de recorrência for submetida para a API e a Cielo identificar que o cartão enviado foi substituído, sua autorização será negada e a API retornará os dados do novo cartão no nó <code class="language-plaintext highlighter-rouge">NewCard</code>. Quando receber os dados do novo cartão, será necessário enviar uma nova requisição de autorização com os dados do novo cartão.</p>
 
 <aside class="notice">Para usar o Renova Fácil, é necessário habilitar o serviço na Cielo. Nenhuma informação extra é enviada na requisição de autorização, porém a resposta terá o nó `NewCard`.</aside>
 
@@ -12271,7 +12271,7 @@ O código de retorno <strong>00 representa sucesso no Zero Auth</strong>, os dem
 </ul>
 
 <blockquote>
-  <p>São cobradas multas por excesso de tentativas negativas, leia mais sobre em <a href="https://developercielo.github.io/tutorial/programa-retentativa-bandeiras" target="\_blank">Programa de Retentativa das Bandeiras</a>.</p>
+  <p>O excesso de tentativas negativas pode implicar em multas. Leia mais em <a href="https://developercielo.github.io/tutorial/programa-retentativa-bandeiras" target="\_blank">Programa de Retentativa das Bandeiras</a>.</p>
 </blockquote>
 
 <h1 id="silent-order-post">Silent Order Post</h1>
