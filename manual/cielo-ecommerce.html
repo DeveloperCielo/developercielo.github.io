@@ -7325,7 +7325,13 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <h2 id="criando-recorrências">Criando Recorrências</h2>
 
-<p>A marcação de recorrência é importante para a segurança da transação. Também é importante a marcação do campo Card On File quando se tratar de uma recorrência com credencial armazenada. Ao marcar esses campos, a Cielo entende a transação como recorrente e segura, sem confudir com fraude.</p>
+<p>A marcação de recorrência é importante para a segurança de uma transação recorrente, para que não seja negada por suspeita de fraude. Sendo assim:</p>
+
+<ul>
+  <li>Envie o campo <code class="language-plaintext highlighter-rouge">Payment.Recurrent</code> = “true” no caso de recorrência própria;</li>
+  <li>Envie o nó <code class="language-plaintext highlighter-rouge">RecurrentPayment</code> no caso de recorrência programada;</li>
+  <li>E, se estiver submetendo uma transação recorrente com credencial armazenada, envie os campos <code class="language-plaintext highlighter-rouge">CardOnFile.Usage</code> e <code class="language-plaintext highlighter-rouge">CardOnFile.Reason</code>. <em>Saiba mais em <a href="https://developercielo.github.io/manual/cielo-ecommerce#card-on-file">Card On File</a></em>.</li>
+</ul>
 
 <h3 id="criando-uma-recorrência-própria">Criando uma Recorrência Própria</h3>
 
