@@ -1816,6 +1816,10 @@ Abaixo especificamos qualquer diferença existente:</p>
 <p>Para criar uma venda com cartão de débito, chame o método POST conforme o exemplo a seguir. O exemplo contempla o mínimo de campos necessários que devem ser enviados para a autorização.</p>
 
 <blockquote>
+  <p>Atenção: Não é possível realizar uma transação com valor (<code class="language-plaintext highlighter-rouge">Amount</code>) 0. Para verificar a validade de um cartão, use o <a href="https://developercielo.github.io/manual/cielo-ecommerce#zero-auth">Zero Auth</a>.</p>
+</blockquote>
+
+<blockquote>
   <p>Na transação de débito padrão (com autenticação), envie <code class="language-plaintext highlighter-rouge">Authenticate</code> = “true”.</p>
 </blockquote>
 
@@ -7476,7 +7480,7 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Indica que uma transação é de recorrência própria.</td>
       <td>boolean</td>
       <td>5</td>
-      <td>Sim</td>
+      <td>Sim*</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
@@ -7515,6 +7519,8 @@ Abaixo especificamos qualquer diferença existente:</p>
     </tr>
   </tbody>
 </table>
+
+<p>*Neste caso, o campo <code class="language-plaintext highlighter-rouge">Payment.Recurrent</code> é obrigatório, já que se trata de uma transação recorrente.</p>
 
 <h4 id="resposta-14">Resposta</h4>
 
@@ -7721,7 +7727,7 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Indica que uma transação é de recorrência própria.</td>
       <td>boolean</td>
       <td>5</td>
-      <td>Sim</td>
+      <td>Sim*</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
@@ -7760,6 +7766,8 @@ Abaixo especificamos qualquer diferença existente:</p>
     </tr>
   </tbody>
 </table>
+
+<p>*Neste caso, o campo <code class="language-plaintext highlighter-rouge">Payment.Recurrent</code> é obrigatório, já que se trata de uma transação recorrente.</p>
 
 <h3 id="criando-uma-recorrência-programada">Criando uma Recorrência Programada</h3>
 
