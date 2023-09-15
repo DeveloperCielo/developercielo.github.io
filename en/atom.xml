@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-09-15T12:50:42+00:00</updated>
+    <updated>2023-09-15T12:57:37+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1967,10 +1967,10 @@
 &lt;aside class=&quot;warning&quot;&gt;When the &quot;Wallet&quot; node is sent in the request, for the debit card it is necessary to send the &quot;DebitCard&quot; node containing the &quot;ReturnUrl&quot;.&lt;/aside&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Card brands supported by the wallets&lt;/strong&gt;
-Vist the wallet website to know more about supported card brands:
-&lt;a href=&quot;https://support.google.com/wallet/answer/12059326?visit_id=638217380303676306-1822163035&amp;amp;rd=1&quot; target=&quot;\_blank&quot;&gt;GooglePay&lt;/a&gt;
-&lt;a href=&quot;https://www.apple.com/br/apple-pay/&quot; target=&quot;\_blank&quot;&gt;ApplePay&lt;/a&gt;
+  &lt;p&gt;&lt;strong&gt;Card brands supported by the wallets&lt;/strong&gt;&lt;br /&gt;
+Vist the wallet website to know more about supported card brands:&lt;br /&gt;
+&lt;a href=&quot;https://support.google.com/wallet/answer/12059326?visit_id=638217380303676306-1822163035&amp;amp;rd=1&quot; target=&quot;\_blank&quot;&gt;GooglePay&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://www.apple.com/br/apple-pay/&quot; target=&quot;\_blank&quot;&gt;ApplePay&lt;/a&gt;&lt;br /&gt;
 &lt;a href=&quot;https://www.samsung.com.br/services/pay/&quot; target=&quot;\_blank&quot;&gt;SamsungPay&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
