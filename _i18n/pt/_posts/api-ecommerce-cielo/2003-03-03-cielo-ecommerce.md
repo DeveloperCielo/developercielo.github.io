@@ -899,6 +899,8 @@ Para integrar o método de autenticação, consulte a [documentação do 3DS 2.0
 
 Para criar uma venda com cartão de débito, chame o método POST conforme o exemplo a seguir. O exemplo contempla o mínimo de campos necessários que devem ser enviados para a autorização.
 
+> <strong>Atenção:</strong> Não é possível realizar uma transação com valor (`Amount`) 0. Para verificar a validade de um cartão, use o [Zero Auth](https://developercielo.github.io/manual/cielo-ecommerce#zero-auth).
+
 > Na transação de débito padrão (com autenticação), envie `Authenticate` = "true".
 
 ##### Requisição
@@ -4009,12 +4011,14 @@ curl
 | `Payment.Amount`            | Valor do Pedido (ser enviado em centavos).                                                                                     | Número  | 15      | Sim         |
 | `Payment.Installments`      | Número de parcelas. Como se trata de uma recorrência, o número de parcelas será 1.                                                                                                            | Número  | 2       | Sim         |
 | `Payment.SoftDescriptor`    | Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - não permite caracteres especiais | Texto   | 13      | Não         |
-| `Payment.Recurrent`         | Indica que uma transação é de recorrência própria.                                                                        | boolean | 5       | Sim         |
+| `Payment.Recurrent`         | Indica que uma transação é de recorrência própria.                                                                        | boolean | 5       | Sim*         |
 | `CreditCard.CardNumber`     | Número do Cartão do Comprador.                                                                                                 | Texto   | 19      | Sim         |
 | `CreditCard.Holder`         | Nome do Comprador impresso no cartão.                                                                                          | Texto   | 25      | Não         |
 | `CreditCard.ExpirationDate` | Data de validade impresso no cartão.                                                                                           | Texto   | 7       | Sim         |
 | `CreditCard.SecurityCode`   | Código de segurança impresso no verso do cartão.                                                                               | Texto   | 4       | Não         |
 | `CreditCard.Brand`          | Bandeira do cartão.                                                                                                            | Texto   | 10      | Sim         |
+
+*Neste caso, o campo `Payment.Recurrent` é obrigatório, já que se trata de uma transação recorrente.
 
 #### Resposta
 
@@ -4155,12 +4159,14 @@ curl
 | `Payment.Amount`            | Valor do Pedido (ser enviado em centavos).                                                                                     | Número  | 15      | Sim         |
 | `Payment.Installments`      | Número de parcelas. Como se trata de uma recorrência, o número de parcelas será 1.                                                                                                            | Número  | 2       | Sim         |
 | `Payment.SoftDescriptor`    | Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - não permite caracteres especiais | Texto   | 13      | Não         |
-| `Payment.Recurrent`         | Indica que uma transação é de recorrência própria.                                                                        | boolean | 5       | Sim         |
+| `Payment.Recurrent`         | Indica que uma transação é de recorrência própria.                                                                        | boolean | 5       | Sim*         |
 | `CreditCard.CardNumber`     | Número do Cartão do Comprador.                                                                                                 | Texto   | 19      | Sim         |
 | `CreditCard.Holder`         | Nome do Comprador impresso no cartão.                                                                                          | Texto   | 25      | Não         |
 | `CreditCard.ExpirationDate` | Data de validade impresso no cartão.                                                                                           | Texto   | 7       | Sim         |
 | `CreditCard.SecurityCode`   | Código de segurança impresso no verso do cartão.                                                                               | Texto   | 4       | Não         |
 | `CreditCard.Brand`          | Bandeira do cartão.                                                                                                            | Texto   | 10      | Sim         |
+
+*Neste caso, o campo `Payment.Recurrent` é obrigatório, já que se trata de uma transação recorrente.
 
 ### Criando uma Recorrência Programada
 
