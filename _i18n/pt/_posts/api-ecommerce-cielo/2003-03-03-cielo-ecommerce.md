@@ -4412,7 +4412,7 @@ curl
 
 Para criar uma venda recorrente cuja a primeira recorrência não será autorizada na mesma data com a forma de pagamento cartão de crédito, basta fazer um POST conforme o exemplo.
 
-> Antes de agendar uma recorrência programada, use o Zero Auth para validar o cartão. Dessa forma, você garate que está agendandando uma recorrência com um cartão válido.
+> Antes de agendar uma recorrência programada, use o Zero Auth para validar o cartão. Desta forma, você garante que está agendando a recorrência com um cartão válido.
 
 Diferente da recorrência anterior, este exemplo não autoriza imediatamente, mas agenda uma autorização futura. Para programar a primeira transação da série de recorrências, passe o parâmetro `AuthorizeNow` como “false” e adicione o parâmetro `StartDate`.
 
