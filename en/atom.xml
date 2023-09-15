@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-09-14T15:49:14+00:00</updated>
+    <updated>2023-09-15T12:37:27+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1942,9 +1942,9 @@
     <entry>
         <title>E-wallets Manual</title>
         <category term="manual" />
-        <link href="https://developercielo.github.io/en/manual/e-wallets-ecommercecielo-en"/>
-        <updated>2023-03-11T00:00:00+00:00</updated>
-        <id>https://developercielo.github.io/en/manual/e-wallets-ecommercecielo-en</id>
+        <link href="https://developercielo.github.io/en/manual/e-wallets-ecommercecielo"/>
+        <updated>2022-06-28T00:00:00+00:00</updated>
+        <id>https://developercielo.github.io/en/manual/e-wallets-ecommercecielo</id>
         <content type="html">&lt;h1 id=&quot;e-wallet-digital-wallet&quot;&gt;E-wallet (digital wallet)&lt;/h1&gt;
 
 &lt;p&gt;E-wallets are electronic safes (repositories) of cards and payment data for the physical and e-commerce customers. Digital wallets allow a customer to register their payment details, making the purchase process more convenient and secure.&lt;/p&gt;
