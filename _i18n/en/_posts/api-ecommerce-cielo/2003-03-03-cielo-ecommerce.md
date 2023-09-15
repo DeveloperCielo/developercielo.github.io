@@ -2311,7 +2311,7 @@ E-wallets are electronic safes (repositories) of cards and payment data for the 
 
 Contact the provider of your choice for further information on how to contract the service.
 
-## Available E-wallets
+### Available E-wallets
 
 API E-commerce Cielo supports the following digital wallets:
 
@@ -2322,7 +2322,7 @@ API E-commerce Cielo supports the following digital wallets:
 <aside class="warning">When the “Wallet” node is sent in the request, the “CreditCard” node becomes optional.</aside>
 <aside class="warning">When the "Wallet" node is sent in the request, for the debit card it is necessary to send the "DebitCard" node containing the "ReturnUrl".</aside>
 
-## E-wallet Integration
+### E-wallet Integration
   
 Please refer to the [E-Wallets documentation](https://developercielo.github.io/en/manual/e-wallets-ecommercecielo-en){:target="\_blank"} to get details about integrating this payment method. 
 
