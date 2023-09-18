@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-09-18T15:15:49+00:00</updated>
+    <updated>2023-09-18T15:22:29+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -40490,7 +40490,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
 
 &lt;p&gt;&lt;strong&gt;Is it possible to configure automatic retries?&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;For Scheduled Recurrence, it is possible to leave up to four retries enabled automatically. See how to set it up in &lt;a href=&quot;https://developercielo.github.io/tutorial/tutoriais-3-0#configurando-a-recorr%C3%AAncia&quot; target=&quot;\_blank&quot;&gt;Backoffice API Cielo&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;For Scheduled Recurrence, it is possible to leave up to four retries enabled automatically. See how to set it up in &lt;a href=&quot;https://developercielo.github.io/en/tutorial/tutoriais-3-0&quot; target=&quot;\_blank&quot;&gt;Backoffice API Cielo&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;renova-fácil&quot;&gt;Renova Fácil&lt;/h2&gt;
 
