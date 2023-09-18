@@ -3629,7 +3629,7 @@ O Card On File suporta as seguintes bandeiras:
 * **Visa**
 * **Elo**
 
-> A transação com Card On File pode ser reccorente ou não.
+> A transação com Card On File pode ser recorente ou não.
 
 ## Requisição
 
