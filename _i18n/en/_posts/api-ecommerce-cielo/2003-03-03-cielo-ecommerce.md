@@ -5081,7 +5081,7 @@ Therefore, pay attention to the transaction response to develop a good retry str
 
 **Is it possible to configure automatic retries?**
 
-For Scheduled Recurrence, it is possible to leave up to four retries enabled automatically. See how to set it up in [Backoffice API Cielo](https://developercielo.github.io/tutorial/tutoriais-3-0#configurando-a-recorr%C3%AAncia){:target="\_blank"}.
+For Scheduled Recurrence, it is possible to leave up to four retries enabled automatically. See how to set it up in [Backoffice API Cielo](https://developercielo.github.io/en/tutorial/tutoriais-3-0){:target="\_blank"}.
 
 ## Renova Fácil
 
