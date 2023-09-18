@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-09-18T15:37:30+00:00</updated>
+    <updated>2023-09-18T17:44:05+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -51787,14 +51787,14 @@ The response will have the &lt;code class=&quot;language-plaintext highlighter-r
     </entry>
     
     <entry>
-        <title>Tutoriais</title>
+        <title>Tutorial Checkout and Link de Pagamento</title>
         <category term="tutorial" />
         <link href="https://developercielo.github.io/en/tutorial/checkout-tutoriais"/>
         <updated>2000-01-01T00:00:00+00:00</updated>
         <id>https://developercielo.github.io/en/tutorial/checkout-tutoriais</id>
         <content type="html">&lt;h1 id=&quot;backoffice---tutorial&quot;&gt;Backoffice - Tutorial&lt;/h1&gt;
 
-&lt;p&gt;The purpose of this document is to guide the retailer about how to access and manipulate the Cielo Checkout Backoffice&lt;/p&gt;
+&lt;p&gt;The purpose of this document is to guide the retailer about how to access and use the Cielo Checkout Backoffice&lt;/p&gt;
 
 &lt;h2 id=&quot;accessing-the-backoffice&quot;&gt;Accessing the Backoffice&lt;/h2&gt;
 
