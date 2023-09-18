@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-09-18T15:05:59+00:00</updated>
+    <updated>2023-09-18T15:15:49+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -40460,6 +40460,37 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;See &lt;a href=&quot;#http-status-code&quot;&gt;HTTP Status Code&lt;/a&gt; for the list with all HTTP status codes possibly returned by the API.&lt;/p&gt;
+
+&lt;h2 id=&quot;retries&quot;&gt;Retries&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;What is a retry?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Retrying is resubmitting a rejected transaction to obtain approval. To retry, it is important that the denied transaction response code is considered by the brand as reversible.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;What is the impact of retrying on my business?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Retrying can bring a positive result and convert sales that were initially denied. However, excessive retries can harm the establishment in the eyes of issuers and brands, reducing the establishment’s approval rate and/or generating a fine for retrying when not permitted.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;When to retry?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;It is allowed to retry when the response code is reversible. The retry strategy must also take into account the response code for each brand.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Examples:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Insufficient Balance/Limit (51)&lt;/strong&gt;: this response is normally reversible and therefore it makes sense to retry the transaction. However, a retry strategy for this code must take into account that the shopper needs to perform an action such increasing the limit for the transaction to be successful. In this case, we recommend longer intervals between retries;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Invalid Card (14)&lt;/strong&gt;: this response is irreversible. For this code, there is no point in carrying out new transactions using the same parameters as they will not be approved by the issuers.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Therefore, pay attention to the transaction response to develop a good retry strategy. See other response codes and their characteristics in &lt;a href=&quot;https://developercielo.github.io/en/tutorial/abecs-e-outros-codigos&quot; target=&quot;\_blank&quot;&gt;Return Codes ABECS&lt;/a&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Excessive unapproved attempts may result in fines. Read more at &lt;a href=&quot;https://developercielo.github.io/tutorial/programa-retentativa-bandeiras&quot; target=&quot;\_blank&quot;&gt;Programa de Retentativa das Bandeiras&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Is it possible to configure automatic retries?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;For Scheduled Recurrence, it is possible to leave up to four retries enabled automatically. See how to set it up in &lt;a href=&quot;https://developercielo.github.io/tutorial/tutoriais-3-0#configurando-a-recorr%C3%AAncia&quot; target=&quot;\_blank&quot;&gt;Backoffice API Cielo&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;renova-fácil&quot;&gt;Renova Fácil&lt;/h2&gt;
 
