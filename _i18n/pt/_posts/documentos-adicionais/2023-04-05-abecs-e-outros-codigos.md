@@ -2,6 +2,7 @@
 layout: tutorial
 title: Códigos de retorno ABECS
 search: true
+translated: true
 toc_footers: true
 categories: tutorial
 sort_order: 1
