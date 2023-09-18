@@ -1,8 +1,9 @@
 ---
 layout: tutorial
-title: Tutoriais
+title: Tutorial Checkout and Link de Pagamento
 description:
 search: true
+translated: true
 toc_footers: true
 categories: tutorial
 sort_order: 2
