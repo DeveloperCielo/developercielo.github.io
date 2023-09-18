@@ -2,6 +2,7 @@
 layout: tutorial
 title: ABECS Return Codes
 search: true
+translated: true
 toc_footers: true
 categories: tutorial
 sort_order: 1
