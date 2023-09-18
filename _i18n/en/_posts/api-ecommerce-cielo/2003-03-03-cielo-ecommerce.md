@@ -5056,6 +5056,33 @@ HTTP Status 200
 
 See [HTTP Status Code](#http-status-code) for the list with all HTTP status codes possibly returned by the API.
 
+## Retries
+
+**What is a retry?**
+
+Retrying is resubmitting a rejected transaction to obtain approval. To retry, it is important that the denied transaction response code is considered by the brand as reversible.
+
+**What is the impact of retrying on my business?**
+
+Retrying can bring a positive result and convert sales that were initially denied. However, excessive retries can harm the establishment in the eyes of issuers and brands, reducing the establishment's approval rate and/or generating a fine for retrying when not permitted.
+
+**When to retry?**
+
+It is allowed to retry when the response code is reversible. The retry strategy must also take into account the response code for each brand.
+
+**Examples:**
+
+* **Insufficient Balance/Limit (51)**: this response is normally reversible and therefore it makes sense to retry the transaction. However, a retry strategy for this code must take into account that the shopper needs to perform an action such increasing the limit for the transaction to be successful. In this case, we recommend longer intervals between retries;
+* **Invalid Card (14)**: this response is irreversible. For this code, there is no point in carrying out new transactions using the same parameters as they will not be approved by the issuers.
+
+Therefore, pay attention to the transaction response to develop a good retry strategy. See other response codes and their characteristics in [Return Codes ABECS](https://developercielo.github.io/en/tutorial/abecs-e-outros-codigos){:target="\_blank"}.
+
+> Excessive unapproved attempts may result in fines. Read more at [Programa de Retentativa das Bandeiras](https://developercielo.github.io/tutorial/programa-retentativa-bandeiras){:target="\_blank"}.
+
+**Is it possible to configure automatic retries?**
+
+For Scheduled Recurrence, it is possible to leave up to four retries enabled automatically. See how to set it up in [Backoffice API Cielo](https://developercielo.github.io/tutorial/tutoriais-3-0#configurando-a-recorr%C3%AAncia){:target="\_blank"}.
+
 ## Renova Fácil
 
 Renova Fácil is a service developed by Cielo together with issuers. The objective of the service is to increase the conversion rate of recurring transactions with credit cards.
