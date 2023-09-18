@@ -13,7 +13,7 @@ tags:
 
 # Backoffice - Tutorial
 
-The purpose of this document is to guide the retailer about how to access and manipulate the Cielo Checkout Backoffice
+The purpose of this document is to guide the retailer about how to access and use the Cielo Checkout Backoffice
 
 ## Accessing the Backoffice
 
