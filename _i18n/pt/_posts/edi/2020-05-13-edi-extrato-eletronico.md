@@ -45,7 +45,7 @@ Abaixo segue o comunicado enviado com os detalhes das alterações, arquivos de 
 
 ## 01/09/2023 - V14 - Inclusão de novos campos Pix (CIELO16) - Documentação e arquivos de teste
 
-> Esta mudança está prevista para implantação em 01/09/2023
+> Esta mudança foi implantada em 01/09/2023
 
 [CIELO_Extrato_Eletronico_-_Manual_-_Versao_14_v2(pix)](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Manual_Versao_14_v2pix.pdf)
 
