@@ -13,26 +13,6 @@ tags:
 
 # Importante
 
-> Observação: as atualizações citadas abaixo, estarão disponíveis a partir do dia 07 de junho de 2021.
-
-[Manual de Extrato Eletrônico](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_14_1_0.pdf)
-
-[Electronic Statement Manual - English version](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Electronic_Statement_-_English_-_Version_14_1_0.pdf)
-
-[Atualização de Layout EE - Registro de Recebíveis + PIX](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Atualizacao_layout_EE_-_Registro_de_Recebiveis_PIX_0.pdf)
-
-[Arquivos de teste – Comunicado 09/12/2022](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Arquivos_de_teste_-_Comunicado_09122022.rar)
-
-## 01/09/2023 - V14 - Inclusão de novos campos Pix (CIELO16) - Documentação e arquivos de teste
-
-> Esta mudança está prevista para implantação em 01/09/2023
-
-[CIELO_Extrato_Eletronico_-_Manual_-_Versao_14_v2(pix)](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Manual_Versao_14_v2pix.pdf)
-
-[Massa_PIX_Cenarios_EDI_V2](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Massa_PIX_Cenarios_EDI_V2.rar)
-
-![PIX](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Slide5.JPG)
-
 ## 11/2023 - V15 - Nova versão dos extratos eletrônicos - Documentação e arquivos de teste
 
 Visando trazer maior transparência e fluidez na conciliação dos extratos, os nossos arquivos terão uma nova estrutura em sua demonstração.
@@ -52,6 +32,38 @@ Abaixo segue o comunicado enviado com os detalhes das alterações, arquivos de 
 É importante que a homologação da nova estrutura ocorra até a data indicada para não impactar a leitura dos extratos.
 
 > Importante! A versão atual dos extratos não terá mais suporte e geração a partir de jan/24
+
+# Histórico de Alterações
+
+## Versão Produtiva
+
+> Aqui você encontra as documentações referentes a versão produtiva do Extrato EDI, atualizada em: 06/09/2023
+
+[Manual versão português](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO-Versao-14-v3pixDCC.pdf)
+
+[Manual versão inglês](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO-English-Version-14-v3pixDCC.pdf)
+
+## 01/09/2023 - V14 - Inclusão de novos campos Pix (CIELO16) - Documentação e arquivos de teste
+
+> Esta mudança está prevista para implantação em 01/09/2023
+
+[CIELO_Extrato_Eletronico_-_Manual_-_Versao_14_v2(pix)](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Manual_Versao_14_v2pix.pdf)
+
+[Massa_PIX_Cenarios_EDI_V2](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Massa_PIX_Cenarios_EDI_V2.rar)
+
+![PIX](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Slide5.JPG)
+
+## 09/12/2022 – V14 – Negociação de Recebíveis + pix 
+
+> Observação: as atualizações citadas abaixo, estarão disponíveis a partir do dia 07 de junho de 2021.
+
+[Manual de Extrato Eletrônico](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_14_1_0.pdf)
+
+[Electronic Statement Manual - English version](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Electronic_Statement_-_English_-_Version_14_1_0.pdf)
+
+[Atualização de Layout EE - Registro de Recebíveis + PIX](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Atualizacao_layout_EE_-_Registro_de_Recebiveis_PIX_0.pdf)
+
+[Arquivos de teste – Comunicado 09/12/2022](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Arquivos_de_teste_-_Comunicado_09122022.rar)
 
 # Introdução
 
@@ -815,7 +827,7 @@ Apresenta as transações realizadas na modalidade PIX.
 |012|013|2|Num.|Tipo de transação|Código que identifica a transação – vide Tabela II.|
 |014|019|6|Num.|Data da transação|AAMMDD – Data em que a transação foi realizada.|
 |020|025|6|Num.|Hora da transação|Hora da transação apresentada no formato HHMMSS.|
-|026|061|36|Alfanum.|ID PIX Código que identifica a transação PIX.|
+|026|061|36|Alfanum.|ID PIX.|Código que identifica a transação PIX, ponta-a-ponta com 32 posições|
 |062|067|6|Alfanum.|NSU/DOC| Número sequencial, também conhecido como DOC (número do documento), que identifica a transação no dia em que ela foi realizada. Este número não é único e pode se repetir. Caso a venda tenha sido reprocessada, o NSU pode ser alterado.|
 |068|073|6|Num.|Data de pagamento|AAMMDD – Data de pagamento. No reprocessamento, pode ser atualizada após o processamento da transação ou ajuste.|
 |074|074|1|Alfa|Sinal do valor bruto|`“+”` identifica valor a crédito. <br>`“-”` identifica valor a débito.|
@@ -837,6 +849,10 @@ Apresenta as transações realizadas na modalidade PIX.
 |182|217|36|Alfanum.|ID PIX original|Código que identifica a transação PIX original.|
 |218|219|2|Alfanum.|Indicativo troco/saque|"TR"-Troco <br> "SQ"-Saque <br> " "-Venda|
 |220|250|31|Alfanum.|Uso Cielo|Em Branco. Reservado para Cielo.|
+|222|222|1|Alfa.|Identificador de transferência automática.|Indica se o Ciente possui ou não, a transferência automática da Conta Cielo para a Conta Domicílio habilitada no cadastro, no momento da transação: <br>“S": Transação está cadastrada na modalidade  de  transferência automática, pagamento no domicílio previamente cadastrado <br> “N": Transação não está cadastrada na modalidade  de  transferência automática, pagamento na Conta Cielo|
+|223|224|2|Alfanum.|Status de transferência para conta de pagamento|O Status de transferência para conta de pagamento, pode conter os seguintes valores: <br>Se o Ind. de transferência automática for igual a: <br> N: O Status de pagamento sempre será: <br> 01 - Pago na Conta Cielo <br> S: O Status de pagamento pode ser: <br> 02 - Em transf. para Conta Domicílio <br> 03 - Transferência negada pelo Banco.<br>04 - Transferência não realizada <br> 05 - Pago na Conta Domicílio|
+|225|230|6|Num.|Data de pagamento na conta Cielo|AAMMDD.|
+|231|250|20|Alfanum.|Uso Cielo|Em Branco. Reservado para a Cielo.|
 
 ### Registro A - Resumo Negociação de Recebíveis
 
