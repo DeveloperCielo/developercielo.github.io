@@ -30,6 +30,10 @@ Acesse o painel **ADMIN VTEX** (https://*nomedaloja*.myvtex.com/admin) e comece 
 
 ### 2. Selecionando o Conector
 
+> Apenas o conector CieloEcommerce receberá manutenção e atualização. [Veja como migrar entre conectores](https://suporte.braspag.com.br/hc/pt-br/articles/18072079824155-Como-fazer-a-migra%C3%A7%C3%A3o-entre-conectores-VTEX-){:target="_blank"}.
+
+<aside class="notice">O número do pedido que é exibido na tela do comprador é registrado na VTEX como informação "orderId" para o conector CieloEcommerce e como "reference" para o conector Braspag. Portanto, preste atenção ao migrar de um conector para o outro.</aside>
+
 Selecione o conector desejado e insira as informações recebidas após a contratação da solução. Os conectores disponíveis são:
 
 * **Braspag**;
@@ -39,8 +43,6 @@ Selecione o conector desejado e insira as informações recebidas após a contra
 * **CieloEcommerce**.
  
 ![CieloEcommerce]({{ site.baseurl_root }}/images/modulos/vtex/01-cieloecommerce.jpeg)
-
-É preciso configurar o mesmo conector quantas vezes necessárias de acordo com o tipo de pagamento desejado, por isso fique atento ao Nome da Afiliação utilizada. Sugerimos incluir no nome e o provedor configurado.
 
 Veja as diferenças entre conectores:
 
@@ -61,6 +63,8 @@ Veja as diferenças entre conectores:
 ### 3. Escolhendo o Nome da Afiliação
 
 Insira o Nome da Afiliação:
+
+É preciso configurar o mesmo conector com cada tipo de pagamento desejado, por isso preste atenção ao Nome da Afiliação utilizado. Sugerimos incluir no nome o provedor e meio de pagamento configurado, para facilitar o reconhecimento. Veja o exemplo:
 
 ![Nome da Afiliação]({{ site.baseurl_root }}/images/modulos/vtex/02-nome-afiliacao-ticket.jpeg)
 
@@ -85,21 +89,23 @@ Preencha os campos com os dados requisitados. A imagem a seguir é um **exemplo*
 |**Nome da Afiliação**|Insira nome identificador da afiliação.|Todos.|
 |**Application Key**|Insira o MerchantID.| Todos.|
 |**Application Token**|Insira o MerchantKey.| Todos. |
-|**Integration**|Selecione **Adquirência** se o seu contrato é somente com a adquirência Cielo. <br>Selecione **Gateway** se o seu contrato é para utilização de outros provedores.|CieloEcommerce*|
+|**Integration**|Selecione **Adquirência** se o seu contrato é somente com a adquirência Cielo. <br>Selecione **Gateway** se o seu contrato é para utilização de outros provedores.|CieloEcommerce|
 |**Provider**|Selecione o provedor  que deseja configurar a afiliação conforme o tipo de pagamento. <br>Exemplo: Se o seu provedor de Boleto é o Bradesco e o seu provedor de Crédito, Débito e Pix é o Cielo será necessário adicionar duas afiliações. <br>O provedor **Simulado** deve ser utilizado para transaçãoes de teste.<br>O provedor **Cielo** deve ser configurado para Integração **Adquirência**. <br>O provedor **Cielo30** deve ser configurado para Integração **Gateway**.|Todos.<br>Obs. 1: Braspag e CieloV3 possuem o provedor listado em cada tipo de pagamento.<br>Obs. 2: Cada conector possui uma lista de provedores aptos para seleção.|
-|**UseSPLIT**|Insira “Sim” ou “Não” se deseja utilizar o SPLIT de pagamentos. Disponível para os tipos de pagamento crédito, débito e boleto.|BraspagV2, CieloEcommerce* e CieloV4.|
-|**UseMPI**|Insira “Sim” ou “Não” se deseja utilizar a **Autenticação 3DS 2.0**. Este campo é **obrigatório para o tipo de pagamento débito**.|BraspagV2, CieloEcommerce* e CieloV4.|
-|**MpiClientId**|ID do MPI, disponibilizado para o cliente pela Cielo. *Campo relacionado à autenticação 3DS***.|BraspagV2, CieloEcommerce* e CieloV4.|
-|**MpiClientSecret**|Chave secreta do MPI, disponibilizada para o cliente pela Cielo. *Campo relacionado à autenticação 3DS***.|BraspagV2, CieloEcommerce* e CieloV4.|
-|**MpiMerchantName**|Nome da loja, disponibilizado pela Cielo. *Campo relacionado à autenticação 3DS***.|BraspagV2, CieloEcommerce* e CieloV4.|
-|**MpiMCC**|Merchant Category Code da loja, disponibilizado pela Cielo. *Campo relacionado à autenticação 3DS***.|BraspagV2, CieloEcommerce* e CieloV4.|
-|**MpiEstablishmentCode**|Código de estabelecimento da loja, disponibilizado pela Cielo. *Campo relacionado à autenticação 3DS***.|BraspagV2, CieloEcommerce* e CieloV4.|
-|**Captura**|Tempo (em horas) em que a captura deve ser solicitada.<br>O tempo Padrão ou Desativdo será realizado quatro dias após a autorização.|Braspag e CieloV3.|
+|**UseSPLIT**|Insira “Sim” ou “Não” se deseja utilizar o SPLIT de pagamentos. Disponível para os tipos de pagamento crédito, débito e boleto.|BraspagV2, CieloEcommerce e CieloV4.|
+|**UseMPI**|Insira “Sim” ou “Não” se deseja utilizar a **Autenticação 3DS 2.0**. Este campo é **obrigatório para o tipo de pagamento débito**.|BraspagV2, CieloEcommerce e CieloV4.|
+|**MpiClientId**|ID do MPI, disponibilizado para o cliente pela Cielo. *Campo relacionado à autenticação 3DS***.|BraspagV2, CieloEcommerce e CieloV4.|
+|**MpiClientSecret**|Chave secreta do MPI, disponibilizada para o cliente pela Cielo. *Campo relacionado à autenticação 3DS***.|BraspagV2, CieloEcommerce e CieloV4.|
+|**MpiMerchantName**|Nome da loja, disponibilizado pela Cielo. *Campo relacionado à autenticação 3DS***.|BraspagV2, CieloEcommerce e CieloV4.|
+|**MpiMCC**|Merchant Category Code da loja, disponibilizado pela Cielo. *Campo relacionado à autenticação 3DS***.|BraspagV2, CieloEcommerce e CieloV4.|
+|**MpiEstablishmentCode**|Código de estabelecimento da loja, disponibilizado pela Cielo. *Campo relacionado à autenticação 3DS***.|BraspagV2, CieloEcommerce e CieloV4.|
+|**SoftDescriptor**|Valor que será concatenado com o valor de cadastro na adquirente para identificação na fatura. Permite no máximo 13 caracteres.|CieloEcommerce.|
+|**Captura**|Tempo em horas em que será enviada a solicitação de captura. Em **Padrão** ou **Desativado**, a captura será será realizada 4 dias após a autorização. Em **Imediatamente** a captura será realizada imeadiatamente após a autorização. Não configura Capture = ‘True’.|Braspag, CieloV3 e CieloEcommerce.|
 |**Alterar tempo máximo para captura automática**|Tempo (em dias) em que a capatura deve ser solicitada. |Braspag e CieloV3.|
+|**Ativar Divisão e tempos de captura**|Selecione **Sim** se for ativar divisão entre Marketplace e Seller. Selecione **Não** se não possuir divisão entre Marketplace e Seller.|BraspagV2, CieloEcommerce e CieloV4|
+|**Responsabilidade pelas tarifas de pagamento. Essa configuração será enviada para o seu processador de pagamentos**|Selecione **Marketplace**, **Marketplace + Sellers** ou **Sellers**. Só será exibido se **Ativar Divisão** estiver preenchido com “Sim”.|BraspagV2, CieloEcommerce e CieloV4|
+|**Responsabilidade pelos estornos. Essa configuração será enviada para o seu processador de pagamentos**|Selecione **Marketplace** ou **Marketplace + Sellers** ou **Sellers**. Só será exibido se **Ativar Divisão** estiver preenchido com “Sim”.|BraspagV2, CieloEcommerce e CieloV4|
 
-*O conector CieloEcommerce estará disponível em breve.
-
-** O preenchimento dos campos relacionados ao MPI é opcional; você pode escolher preencher os dados de MPI e deixar a opção **UseMpi** desativada ("No") e, mais tarde, caso deseje ativar o 3DS para esta afiliação, apenas altere a opção **UseMpi** para "Yes".
+* O preenchimento dos campos relacionados ao MPI é opcional; você pode escolher preencher os dados de MPI e deixar a opção **UseMpi** desativada ("No") e, mais tarde, caso deseje ativar o 3DS para esta afiliação, apenas altere a opção **UseMpi** para "Yes".
 
 Após salvar o conector, ele irá aparecer na lista **Processar com afiliação** da tela de configuração da **Condição de Pagamento**.
 
@@ -140,19 +146,31 @@ Após essas duas etapas concluídas com todas as condições de pagamento criada
 
 ## Meios de Pagamento
 
-### Crédito e Débito
+### Boleto
+
+Selecione a Condição de Pagamento desejada e configure conforme o passo a passo em [Condição de Pagamento](https://braspag.github.io//tutorial/integracao-vtex#condi%C3%A7%C3%A3o-de-pagamento).
+
+### Crédito
+
+Selecione a Condição de Pagamento desejada e configure conforme o passo a passo em [Condição de Pagamento](https://braspag.github.io//tutorial/integracao-vtex#condi%C3%A7%C3%A3o-de-pagamento).
+
+### Débito
+
+Selecione a Condição de Pagamento desejada e configure conforme o passo a passo em [Condição de Pagamento](https://braspag.github.io//tutorial/integracao-vtex#condi%C3%A7%C3%A3o-de-pagamento).
+
+### Pix
 
 Selecione a Condição de Pagamento desejada e configure conforme o passo a passo em [Condição de Pagamento](https://braspag.github.io//tutorial/integracao-vtex#condi%C3%A7%C3%A3o-de-pagamento).
 
 ### Voucher
 
-Este meio de pagamento deve seguir a seção de [Pagamentos Customizados](https://braspag.github.io//tutorial/integracao-vtex#pagamentos-customizados) para que a opção seja exibida na Condição de Pagamento. Posteriormente, selecione a Condição de Pagamento desejada e configure conforme o passo a passo em [Condição de Pagamento](https://braspag.github.io//tutorial/integracao-vtex#condi%C3%A7%C3%A3o-de-pagamento).
+Este meio de pagamento deve seguir a seção de [Pagamentos Customizados](https://braspag.github.io//tutorial/integracao-vtex#pagamentos-customizados) para que a opção seja exibida na Condição de Pagamento. Posteriormente, selecione a Condição de Pagamento com o nome escolhido anteriormente e configure conforme o passo a passo em [Condição de Pagamento](https://braspag.github.io//tutorial/integracao-vtex#condi%C3%A7%C3%A3o-de-pagamento).
 
 ## Pagamentos Customizados
 
 Para configurar pagamentos customizados, acesse **Transações** > **Configurações** > **Pagamentos Customizados** > **Cartão da Loja – Bandeira Própria** > **Configurar**
 
-Nesta seção configure os dados para Private Label e Ticket:
+Nesta seção configure os dados para Private Label, Ticket e Alelo:
 
 ![1Pagamento Customizado]({{ site.baseurl_root }}/images/modulos/vtex/06a-pagamento-customizado.jpg)
 ![2Pagamento Customizado]({{ site.baseurl_root }}/images/modulos/vtex/06b-pagamento-customizado.jpg)
@@ -178,7 +196,11 @@ As credenciais recebidas para utilização da solução devem ser inseridas conf
 
 ## Split de Pagamentos
 
-Para que o Split seja utilizado corretamente, os sellers de um marketplace devem estar previamente cadastrados na plataforma VTEX e deve ser informado ao time de implantação fielmente ao cadastro da VTEX juntamente com o CNPJ. Uma vez editada essa informação na VTEX, o time Cielo deve ser informado dos novos dados.
+Para que o Split seja utilizado corretamente, os sellers de um marketplace devem estar previamente cadastrados na plataforma VTEX e deve ser informado ao time de implantação os dados de cadastro da VTEX juntamente com o CNPJ. Caso essa informação seja editada na VTEX, o time Cielo deve ser informado dos novos dados.
+
+<aside class="notice">A plataforma VTEX não possui cadastramento de seller do tipo pessoa física. </aside>
+
+> Para ativação do recurso Split abra um chamado no [suporte Cielo](https://suporte.braspag.com.br/hc/pt-br){:target="_blank"} e informe ao time de implantação os dados de seller cadastrados na plataforma VTEX. 
 
 Para fazer o cadastro de um seller, acesse **Marketplace** > **Sellers** > **Gerenciamento**:
 
