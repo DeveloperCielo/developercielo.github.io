@@ -7331,12 +7331,17 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <h2 id="criando-recorrências">Criando Recorrências</h2>
 
-<p>A marcação de recorrência é importante para a segurança de uma transação recorrente, para que não seja negada por suspeita de fraude. Sendo assim:</p>
+<p>A marcação de recorrência é importante para a segurança de uma transação recorrente, para evitar que seja negada por suspeita de fraude. Sendo assim:</p>
 
 <ul>
   <li>Envie o campo <code class="language-plaintext highlighter-rouge">Payment.Recurrent</code> = “true” no caso de recorrência própria;</li>
   <li>Envie o nó <code class="language-plaintext highlighter-rouge">RecurrentPayment</code> no caso de recorrência programada;</li>
-  <li>E, se estiver submetendo uma transação recorrente com credencial armazenada, envie os campos <code class="language-plaintext highlighter-rouge">CardOnFile.Usage</code> e <code class="language-plaintext highlighter-rouge">CardOnFile.Reason</code>. <em>Saiba mais em <a href="https://developercielo.github.io/manual/cielo-ecommerce#card-on-file">Card On File</a></em>.</li>
+  <li>Para transações recorrentes com credenciais armazenadas:
+    <ul>
+      <li>Envie os campos <code class="language-plaintext highlighter-rouge">CardOnFile.Usage</code> e <code class="language-plaintext highlighter-rouge">CardOnFile.Reason</code>. <em>Saiba mais em <a href="https://developercielo.github.io/manual/cielo-ecommerce#card-on-file">Card On File</a></em>;</li>
+      <li>Para <strong>cartões Mastercard</strong>, envie o nó de indicador do início da transação (<code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator</code>), para informar se a transação foi iniciada pelo comprador ou pela loja. Saiba mais em <a href="https://developercielo.github.io/manual/cielo-ecommerce#tabelas-do-indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard">Tabelas do Indicador de Início da Transação Mastercard</a>.</li>
+    </ul>
+  </li>
 </ul>
 
 <h3 id="criando-uma-recorrência-própria">Criando uma Recorrência Própria</h3>
