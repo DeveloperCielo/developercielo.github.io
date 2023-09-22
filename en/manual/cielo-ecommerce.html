@@ -7290,7 +7290,12 @@ In addition, you have to send some addictional data in the transaction, to that 
 <ul>
   <li>Send the field <code class="language-plaintext highlighter-rouge">Payment.Recurrent</code> = “true” in case of own recurrence;</li>
   <li>Send <code class="language-plaintext highlighter-rouge">RecurrentPayment</code> node in case of scheduled recurrence;</li>
-  <li>And, if you are submitting a recurring transaction with a stored credential, submit the <code class="language-plaintext highlighter-rouge">CardOnFile.Usage</code> and <code class="language-plaintext highlighter-rouge">CardOnFile.Reason</code> fields. <em>Learn more at <a href="https://developercielo.github.io/manual/cielo-ecommerce#card-on-file">Card On File</a></em>.</li>
+  <li>For recurring transactions with stored credentials:
+    <ul>
+      <li>Send the <code class="language-plaintext highlighter-rouge">CardOnFile.Usage</code> and <code class="language-plaintext highlighter-rouge">CardOnFile.Reason</code> fields. <em>Learn more at <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#card-on-file">Card On File</a></em>;</li>
+      <li>For <strong>Mastercard cards</strong>, send the transaction initiation indicator node (<code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator</code>) to indicate whether the transaction was initiated by the shopper or the store. Learn more in <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator-tables">Mastercard Transaction Initiator Indicator Tables</a>.</li>
+    </ul>
+  </li>
 </ul>
 
 <h3 id="creating-a-merchant-recurrence">Creating a Merchant Recurrence</h3>

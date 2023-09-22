@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-09-22T15:57:59+00:00</updated>
+    <updated>2023-09-22T16:12:08+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -38271,7 +38271,12 @@ In addition, you have to send some addictional data in the transaction, to that 
 &lt;ul&gt;
   &lt;li&gt;Send the field &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Recurrent&lt;/code&gt; = “true” in case of own recurrence;&lt;/li&gt;
   &lt;li&gt;Send &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RecurrentPayment&lt;/code&gt; node in case of scheduled recurrence;&lt;/li&gt;
-  &lt;li&gt;And, if you are submitting a recurring transaction with a stored credential, submit the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CardOnFile.Usage&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CardOnFile.Reason&lt;/code&gt; fields. &lt;em&gt;Learn more at &lt;a href=&quot;https://developercielo.github.io/manual/cielo-ecommerce#card-on-file&quot;&gt;Card On File&lt;/a&gt;&lt;/em&gt;.&lt;/li&gt;
+  &lt;li&gt;For recurring transactions with stored credentials:
+    &lt;ul&gt;
+      &lt;li&gt;Send the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CardOnFile.Usage&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CardOnFile.Reason&lt;/code&gt; fields. &lt;em&gt;Learn more at &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#card-on-file&quot;&gt;Card On File&lt;/a&gt;&lt;/em&gt;;&lt;/li&gt;
+      &lt;li&gt;For &lt;strong&gt;Mastercard cards&lt;/strong&gt;, send the transaction initiation indicator node (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.InitiatedTransactionIndicator&lt;/code&gt;) to indicate whether the transaction was initiated by the shopper or the store. Learn more in &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator-tables&quot;&gt;Mastercard Transaction Initiator Indicator Tables&lt;/a&gt;.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;creating-a-merchant-recurrence&quot;&gt;Creating a Merchant Recurrence&lt;/h3&gt;
