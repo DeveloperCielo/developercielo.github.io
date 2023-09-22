@@ -3588,6 +3588,8 @@ Most of these transactions do not contain CVV as PCI rules prevent the establish
 
 Examples of segments that use this type of modality are streaming services, education services, gyms and subscriptions, among others.
 
+<aside class="notice">Card On File transactions can be recurring or not.</aside>
+
 **Why use Card On File?**
 
 Card On File allows for greater flexibility in online purchases, since it does not ask the cardholder to send all the data again (including the CVV); it is also possible to notice a better sales conversion rate since in the process for using the COF initiated by the merchant, necessarily, there is already a previous transaction initiated by the cardholder that already assists in the authorization of the transaction by the issuer.
@@ -3600,7 +3602,7 @@ Card On File supports the following brands:
 * **Visa**
 * **Elo**
 
-> The Card On File transaction may or may not be recurring.
+> **For Card On File transactions with the Mastercard brand** it is necessary to send the indicator node at the beginning of the transaction (`Payment.InitiatedTransactionIndicator`), to inform whether the transaction was initiated by the shopper or by the store. Find out more at [Mastercard Transaction Initiator Indicator Tables](https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator-tables).
 
 ## Request
 
