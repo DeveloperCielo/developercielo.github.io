@@ -64,7 +64,7 @@ Veja as diferenças entre conectores:
 
 Insira o Nome da Afiliação:
 
-É preciso configurar o mesmo conector com cada tipo de pagamento desejado, por isso preste atenção ao Nome da Afiliação utilizado. Sugerimos incluir no nome o provedor e meio de pagamento configurado, para facilitar o reconhecimento. Veja o exemplo:
+> É preciso configurar o mesmo conector com cada tipo de pagamento desejado, por isso preste atenção ao Nome da Afiliação utilizado. Sugerimos incluir no nome o provedor e meio de pagamento configurado, para facilitar o reconhecimento. Veja o exemplo:
 
 ![Nome da Afiliação]({{ site.baseurl_root }}/images/modulos/vtex/02-nome-afiliacao-ticket.jpeg)
 
