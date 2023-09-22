@@ -17,7 +17,7 @@ language_tabs:
 
 # Overview
 
-The purpose of this documentation is to guide the developer on how to integrate with API E-commerce Cielo, describing the features, methods to be used, listing information to be sent and received, and providing examples.
+The purpose of this documentation is to guide the developer on how to integrate with **API E-commerce Cielo**, describing the features, methods to be used, listing information to be sent and received, and providing examples.
 
 We recommend intermediate knowledge in Web programming language, HTTP/HTTPS requests and JSON file manipulation are required to successfully deploy the E-commerce Cielo solution.
 
@@ -30,9 +30,11 @@ In this guide, you will find information on all operations available on API REST
 
 To perform an operation, combine the base URL of the environment with the URL of the desired operation and send it using the HTTP verb as described in the operation.
 
+> [Download the tutorial]({{ site.baseurl }}/attachment/merchantid-merchantkey-cielo-2023.pdf){:target="\_blank"} to learn how to generate your **MerchantId** and * *MerchantKey** on [Cielo portal](https://www.cielo.com.br/){:target="\_blank"}.
+
 ## Solution features
 
-The API E-commerce Cielo solution of the E-commerce Cielo platform was developed with REST technology, which is market standard and also independent of the technology used by our customers. In this way, it is possible to integrate using the most varied programming languages.
+The **API E-commerce Cielo** solution of the E-commerce Cielo platform was developed with REST technology, which is market standard and also independent of the technology used by our customers. In this way, it is possible to integrate using the most varied programming languages.
 
 > To get examples in these languages, see our conversion tutorial [**Postman Tutorial**](https://developercielo.github.io/en/tutorial/postman){:target="\_blank"}
 
