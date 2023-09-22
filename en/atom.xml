@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-09-22T15:01:19+00:00</updated>
+    <updated>2023-09-22T15:57:59+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -37633,6 +37633,8 @@ In addition, you have to send some addictional data in the transaction, to that 
 
 &lt;p&gt;Examples of segments that use this type of modality are streaming services, education services, gyms and subscriptions, among others.&lt;/p&gt;
 
+&lt;aside class=&quot;notice&quot;&gt;Card On File transactions can be recurring or not.&lt;/aside&gt;
+
 &lt;p&gt;&lt;strong&gt;Why use Card On File?&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Card On File allows for greater flexibility in online purchases, since it does not ask the cardholder to send all the data again (including the CVV); it is also possible to notice a better sales conversion rate since in the process for using the COF initiated by the merchant, necessarily, there is already a previous transaction initiated by the cardholder that already assists in the authorization of the transaction by the issuer.&lt;/p&gt;
@@ -37648,7 +37650,7 @@ In addition, you have to send some addictional data in the transaction, to that 
 &lt;/ul&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;The Card On File transaction may or may not be recurring.&lt;/p&gt;
+  &lt;p&gt;&lt;strong&gt;For Card On File transactions with the Mastercard brand&lt;/strong&gt; it is necessary to send the indicator node at the beginning of the transaction (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.InitiatedTransactionIndicator&lt;/code&gt;), to inform whether the transaction was initiated by the shopper or by the store. Find out more at &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator-tables&quot;&gt;Mastercard Transaction Initiator Indicator Tables&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h2 id=&quot;request-17&quot;&gt;Request&lt;/h2&gt;

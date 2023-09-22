@@ -6652,6 +6652,8 @@ In addition, you have to send some addictional data in the transaction, to that 
 
 <p>Examples of segments that use this type of modality are streaming services, education services, gyms and subscriptions, among others.</p>
 
+<aside class="notice">Card On File transactions can be recurring or not.</aside>
+
 <p><strong>Why use Card On File?</strong></p>
 
 <p>Card On File allows for greater flexibility in online purchases, since it does not ask the cardholder to send all the data again (including the CVV); it is also possible to notice a better sales conversion rate since in the process for using the COF initiated by the merchant, necessarily, there is already a previous transaction initiated by the cardholder that already assists in the authorization of the transaction by the issuer.</p>
@@ -6667,7 +6669,7 @@ In addition, you have to send some addictional data in the transaction, to that 
 </ul>
 
 <blockquote>
-  <p>The Card On File transaction may or may not be recurring.</p>
+  <p><strong>For Card On File transactions with the Mastercard brand</strong> it is necessary to send the indicator node at the beginning of the transaction (<code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator</code>), to inform whether the transaction was initiated by the shopper or by the store. Find out more at <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator-tables">Mastercard Transaction Initiator Indicator Tables</a>.</p>
 </blockquote>
 
 <h2 id="request-17">Request</h2>
