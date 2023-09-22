@@ -3907,7 +3907,9 @@ Marking a recurrence is important for the security of a recurring transaction, s
 
 * Send the field `Payment.Recurrent` = "true" in case of own recurrence;
 * Send `RecurrentPayment` node in case of scheduled recurrence;
-* And, if you are submitting a recurring transaction with a stored credential, submit the `CardOnFile.Usage` and `CardOnFile.Reason` fields. *Learn more at [Card On File](https://developercielo.github.io/manual/cielo-ecommerce#card-on-file)*.
+* For recurring transactions with stored credentials:
+  * Send the `CardOnFile.Usage` and `CardOnFile.Reason` fields. *Learn more at [Card On File](https://developercielo.github.io/en/manual/cielo-ecommerce#card-on-file)*;
+  * For **Mastercard cards**, send the transaction initiation indicator node (`Payment.InitiatedTransactionIndicator`) to indicate whether the transaction was initiated by the shopper or the store. Learn more in [Mastercard Transaction Initiator Indicator Tables](https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator-tables).
 
 ### Creating a Merchant Recurrence
 
