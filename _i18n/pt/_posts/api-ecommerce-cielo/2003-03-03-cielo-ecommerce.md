@@ -3617,6 +3617,8 @@ A maioria dessas transações não contém um CVV pois as regras PCI impedem o e
 
 São exemplos de segmentos que usam esse tipo de modalidade os serviços de streaming, serviços de educação, academias e assinaturas, entre outros.
 
+<aside class="notice">A transação com Card On File pode ser recorrente ou não.</aside>
+
 **Por que usar o Card On File?**
 
 O Card On File permite maior agilidade na compra online, uma vez que não solicita que o portador do cartão envie novamente todos os dados (inclusive o CVV); também é possível notar uma melhor taxa de conversão de vendas uma vez que no processo para utilização do COF iniciada pelo estabelecimento comercial, obrigatoriamente, já existe uma transação anterior iniciada pelo portador de cartão que já auxilia na autorização da transação pelo emissor.
@@ -3629,7 +3631,7 @@ O Card On File suporta as seguintes bandeiras:
 * **Visa**
 * **Elo**
 
-> A transação com Card On File pode ser recorente ou não.
+> **Para transações Card On File com a bandeira Mastercard** é necessário enviar o nó de indicador do início da transação (`Payment.InitiatedTransactionIndicator`), para informar se a transação foi iniciada pelo comprador ou pela loja. Saiba mais em [Tabelas do Indicador de Início da Transação Mastercard](https://developercielo.github.io/manual/cielo-ecommerce#tabelas-do-indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard).
 
 ## Requisição
 
