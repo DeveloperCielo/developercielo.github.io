@@ -65,13 +65,14 @@ To execute an operation:
 | **PUT**  | The`PUT` HTTP method is used to update an already existing feature. For example, capture or cancelation of a previously authorized transaction.      |
 | **GET**  | The `GET` HTTP method is used for querying already existing features. For example, transaction query.                                                |
 
-Every operation requires the access keys `MerchantId`and `MerchantKey` that should be sent in the header of the request. When you make a request you will get a code back, showing if it was successful or not.
+All operations require the access credentials **`MerchantId`** and **`MerchantKey`**, which must be sent in the header (_header_) of the request.<br>
+<br>Each request sent will return an [HTTP Status Code](https://developercielo.github.io/manual/cielo-ecommerce#http-status-code), indicating whether it was carried out successfully or not.
 
 ## Glossary
 
-In order to make it easier to understand, we have listed below a short glossary with the main terms related to e-commerce and also to card and acquiring market:
+To facilitate understanding, we have listed below a short glossary with the main terms related to e-commerce and also to card and acquiring market:
 
-| Term                               | Description                                                                                                                                                                                                                                                                    |
+| Terms                               | Description                                                                                                                                                                                                                                                                    |
 | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Authentication**                 | Process to ensure that the shopper is actually who they claim to be (lawful carrier), usually occurs at the issuing bank using a digital token or card with security keys.                                                                                                     |
 | **Authorization**                  | Process to check whether a purchase can or not be made with a card. At this point, several verifications are done with the card and the carrier (e.g., timely payments, card locks, etc.). It is also at this point that the card limit is checked with the transaction value. |
@@ -82,7 +83,7 @@ In order to make it easier to understand, we have listed below a short glossary 
 | **Commercial establishment or CE** | Entity that responds by the virtual store.                                                                                                                                                                                                                                     |
 | **Payment Gateway**                | Company responsible for technical integration and transaction processing.                                                                                                                                                                                                      |
 | **Carrier**                        | It is the person who carries the card at the time of sale.                                                                                                                                                                                                                     |
-| **TID (Transaction Identifier)**   | Code consisting of 20 characters that identifies a E-commerce Cielo transaction.                                                                                                                                                                                               |
+| **TID (Transaction Identifier)**   | Code consisting of 20 characters that identifies a Cielo e-commerce transaction.                                                                                                                                                                                               |
 
 ## Products and Supported Brands
 
@@ -118,11 +119,11 @@ Specialized companies are responsible for validating the domain and, depending o
 
 ![EV Internet Explorer Certificate]({{ site.baseurl }}/images/certificado-ie.jpg)
 
-### Firefox
+### Firefox:
 
 ![EV Firefox Certificate]({{ site.baseurl }}/images/certificado-firefox.jpg)
 
-### Google Chrome
+### Google Chrome:
 
 ![EV Google Chrome Certificate]({{ site.baseurl }}/images/certificado-chrome.jpg)
 
@@ -132,7 +133,7 @@ The EV Certificate ensures a higher level of security for virtual stores custome
 
 It is a more trustworthy certificate and when HTTPS is accessed the address bar will turn green, showing more reliability for users.
 
-## How to install the Extended Validation Certificate on the Store server?
+## How to install the **Extended Validation Certificate** on the Store server?
 
 You just have to install the following files in the server Trustedstore. Cielo does not offer support to the installation of the Certificate. If you are unsure about how to install the EV Certificate, then you should contact your server vendor support.
 
@@ -140,11 +141,11 @@ You just have to install the following files in the server Trustedstore. Cielo d
 - [Intermediate certificate]({{ site.baseurl }}/attachment/Intermediario.cer)
 - [E-Commerce Cielo certificate]({{ site.baseurl }}/attachment/cieloecommerce.cert-2023-2024.zip)
 
-## Step-by-Step for Installation
+## Installation tutorial
 
 ### Installation on the Virtual Store Server
 
-The step-by-step of the EV Certificate installation must contact your server vendor support.
+For the the step-by-step of the EV Certificate installation, you must contact your server vendor support.
 
 <aside class="warning">Cielo does not offer support for the installation of the Certificate.</aside>
 
@@ -162,47 +163,47 @@ Save these files below into a new folder, or into a folder that can be easily ac
 
 **Step 2:**
 
-In “Internet Explorer”, click on “Tools” and go to “Internet Options”:
+On Internet Explorer, click on **Tools** and go to **Internet Options**:
 
 ![Install IE]({{ site.baseurl }}/images/certificado-instalar-ie-1.jpg)
 
-In “Firefox”, click on “Open Menu” and go to “Advanced” and “Options”:
+On Firefox, click on **Open Menu** and go to **Advanced** > **Options**:
 
 ![Install FF]({{ site.baseurl }}/images/certificado-instalar-ff-1.jpg)
 
-In Google Chrome, click on "Control Google Chrome” and go to “Settings” and “Show advanced settings..." “Change Proxy Settings and “Content” and Certificates:
+On Google Chrome, click on **Control Google Chrome** and go to **Settings** > **Show advanced settings...** > **Change Proxy Settings...** > **Content** > **Certificates**:
 
 ![Install GC]({{ site.baseurl }}/images/certificado-instalar-gc-1.jpg)
 
 **Step 3:**
 
-In Internet Explorer, under “Certificates”, click on “Import.”
+On Internet Explorer, under **Certificates**, click on **Import...*:
 
 ![Install IE]({{ site.baseurl }}/images/certificado-instalar-ie-2.jpg)
 
-In Firefox, click on “View Certificates”, click on “Import”
+On Firefox, go on **View Certificates**, click on **Import...**:
 
 ![Install FF]({{ site.baseurl }}/images/certificado-instalar-ff-2.jpg)
 
-In Chrome, click on “Manage Certificates”, click on “Import”
+On Chrome, go on **Manage Certificates...**, click on **Import**:
 
 ![Install GC]({{ site.baseurl }}/images/certificado-instalar-gc-2.jpg)
 
 **Step 4:**
 
-In Internet Explorer and Chrome “Certificate Import Wizard”, click on “Next”.
+On Internet Explorer and Chrome, under **Certificate Import Wizard**, click on **Next**:
 
 ![Install IE and GC]({{ site.baseurl }}/images/certificado-instalar-ie-gc-3.jpg)
 
 ![Install IE and GC]({{ site.baseurl }}/images/certificado-instalar-ie-gc-4.jpg)
 
-In Firefox “Servers Tab”, click on “Import”
+On Firefox, under **Servers**, click on **Import...**:
 
 ![Install FF]({{ site.baseurl }}/images/certificado-instalar-ff-3.jpg)
 
 **Step 5:**
 
-In Chrome and Internet Explorer “Certificate Import Wizard”, click on “Search”, look for the folder where the files are and select the file “cieloecommerce.cielo.com.br.crt, click on “Open” and then “Next”.
+On Chrome and Internet Explorer, under **Certificate Import Wizard**, click on **Search**, look for the folder where the files are and select the file cieloecommerce.cielo.com.br.crt, click on **Open** and then **Next**.
 
 ![Install IE and GC]({{ site.baseurl }}/images/certificado-instalar-ie-gc-5.jpg)
 
@@ -216,19 +217,19 @@ Select the desired option: add the Certificate in a default folder or search for
 
 **Step 7:**
 
-Click on “Finish”.
+Click on **Finish**.
 
 ![Install IE and GC]({{ site.baseurl }}/images/certificado-instalar-ie-gc-8.jpg)
 
 **Step 8:**
 
-Click on “Ok” to complete the import.
+Click on **Ok** to complete the import.
 
 ![Install IE and GC]({{ site.baseurl }}/images/certificado-instalar-ie-gc-9.jpg)
 
 <aside class="notice">In Firefox there is no Successfull Import message, it only completes the import.</aside>
 
-The Certificate may be viewed in the default tab “Other People” or at the one chosen by the customer.
+The Certificate may be viewed in the default tab **Other People** or at the one chosen by the customer.
 
 ![Install IE and GC]({{ site.baseurl }}/images/certificado-instalar-ie-gc-10.jpg)
 
