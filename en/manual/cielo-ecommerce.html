@@ -242,16 +242,16 @@
   </tbody>
 </table>
 
-<p>Every operation requires the access keys <code class="language-plaintext highlighter-rouge">MerchantId</code>and <code class="language-plaintext highlighter-rouge">MerchantKey</code> that should be sent in the header of the request. When you make a request you will get a code back, showing if it was successful or not.</p>
+<p>All operations require the access credentials <strong><code class="language-plaintext highlighter-rouge">MerchantId</code></strong> and <strong><code class="language-plaintext highlighter-rouge">MerchantKey</code></strong>, which must be sent in the header (<em>header</em>) of the request.<br />Each request sent will return an <a href="https://developercielo.github.io/manual/cielo-ecommerce#http-status-code">HTTP Status Code</a>, indicating whether it was carried out successfully or not.</p>
 
 <h2 id="glossary">Glossary</h2>
 
-<p>In order to make it easier to understand, we have listed below a short glossary with the main terms related to e-commerce and also to card and acquiring market:</p>
+<p>To facilitate understanding, we have listed below a short glossary with the main terms related to e-commerce and also to card and acquiring market:</p>
 
 <table>
   <thead>
     <tr>
-      <th>Term</th>
+      <th>Terms</th>
       <th>Description</th>
     </tr>
   </thead>
@@ -294,7 +294,7 @@
     </tr>
     <tr>
       <td><strong>TID (Transaction Identifier)</strong></td>
-      <td>Code consisting of 20 characters that identifies a E-commerce Cielo transaction.</td>
+      <td>Code consisting of 20 characters that identifies a Cielo e-commerce transaction.</td>
     </tr>
   </tbody>
 </table>
@@ -408,11 +408,11 @@
 
 <p><img src="https://developercielo.github.io/en/images/certificado-ie.jpg" alt="EV Internet Explorer Certificate" /></p>
 
-<h3 id="firefox">Firefox</h3>
+<h3 id="firefox">Firefox:</h3>
 
 <p><img src="https://developercielo.github.io/en/images/certificado-firefox.jpg" alt="EV Firefox Certificate" /></p>
 
-<h3 id="google-chrome">Google Chrome</h3>
+<h3 id="google-chrome">Google Chrome:</h3>
 
 <p><img src="https://developercielo.github.io/en/images/certificado-chrome.jpg" alt="EV Google Chrome Certificate" /></p>
 
@@ -422,7 +422,7 @@
 
 <p>It is a more trustworthy certificate and when HTTPS is accessed the address bar will turn green, showing more reliability for users.</p>
 
-<h2 id="how-to-install-the-extended-validation-certificate-on-the-store-server">How to install the Extended Validation Certificate on the Store server?</h2>
+<h2 id="how-to-install-the-extended-validation-certificate-on-the-store-server">How to install the <strong>Extended Validation Certificate</strong> on the Store server?</h2>
 
 <p>You just have to install the following files in the server Trustedstore. Cielo does not offer support to the installation of the Certificate. If you are unsure about how to install the EV Certificate, then you should contact your server vendor support.</p>
 
@@ -432,11 +432,11 @@
   <li><a href="https://developercielo.github.io/en/attachment/cieloecommerce.cert-2023-2024.zip">E-Commerce Cielo certificate</a></li>
 </ul>
 
-<h2 id="step-by-step-for-installation">Step-by-Step for Installation</h2>
+<h2 id="installation-tutorial">Installation tutorial</h2>
 
 <h3 id="installation-on-the-virtual-store-server">Installation on the Virtual Store Server</h3>
 
-<p>The step-by-step of the EV Certificate installation must contact your server vendor support.</p>
+<p>For the the step-by-step of the EV Certificate installation, you must contact your server vendor support.</p>
 
 <aside class="warning">Cielo does not offer support for the installation of the Certificate.</aside>
 
@@ -456,47 +456,47 @@
 
 <p><strong>Step 2:</strong></p>
 
-<p>In “Internet Explorer”, click on “Tools” and go to “Internet Options”:</p>
+<p>On Internet Explorer, click on <strong>Tools</strong> and go to <strong>Internet Options</strong>:</p>
 
 <p><img src="https://developercielo.github.io/en/images/certificado-instalar-ie-1.jpg" alt="Install IE" /></p>
 
-<p>In “Firefox”, click on “Open Menu” and go to “Advanced” and “Options”:</p>
+<p>On Firefox, click on <strong>Open Menu</strong> and go to <strong>Advanced</strong> &gt; <strong>Options</strong>:</p>
 
 <p><img src="https://developercielo.github.io/en/images/certificado-instalar-ff-1.jpg" alt="Install FF" /></p>
 
-<p>In Google Chrome, click on “Control Google Chrome” and go to “Settings” and “Show advanced settings…” “Change Proxy Settings and “Content” and Certificates:</p>
+<p>On Google Chrome, click on <strong>Control Google Chrome</strong> and go to <strong>Settings</strong> &gt; <strong>Show advanced settings…</strong> &gt; <strong>Change Proxy Settings…</strong> &gt; <strong>Content</strong> &gt; <strong>Certificates</strong>:</p>
 
 <p><img src="https://developercielo.github.io/en/images/certificado-instalar-gc-1.jpg" alt="Install GC" /></p>
 
 <p><strong>Step 3:</strong></p>
 
-<p>In Internet Explorer, under “Certificates”, click on “Import.”</p>
+<p>On Internet Explorer, under <strong>Certificates</strong>, click on <em>*Import…</em>:</p>
 
 <p><img src="https://developercielo.github.io/en/images/certificado-instalar-ie-2.jpg" alt="Install IE" /></p>
 
-<p>In Firefox, click on “View Certificates”, click on “Import”</p>
+<p>On Firefox, go on <strong>View Certificates</strong>, click on <strong>Import…</strong>:</p>
 
 <p><img src="https://developercielo.github.io/en/images/certificado-instalar-ff-2.jpg" alt="Install FF" /></p>
 
-<p>In Chrome, click on “Manage Certificates”, click on “Import”</p>
+<p>On Chrome, go on <strong>Manage Certificates…</strong>, click on <strong>Import</strong>:</p>
 
 <p><img src="https://developercielo.github.io/en/images/certificado-instalar-gc-2.jpg" alt="Install GC" /></p>
 
 <p><strong>Step 4:</strong></p>
 
-<p>In Internet Explorer and Chrome “Certificate Import Wizard”, click on “Next”.</p>
+<p>On Internet Explorer and Chrome, under <strong>Certificate Import Wizard</strong>, click on <strong>Next</strong>:</p>
 
 <p><img src="https://developercielo.github.io/en/images/certificado-instalar-ie-gc-3.jpg" alt="Install IE and GC" /></p>
 
 <p><img src="https://developercielo.github.io/en/images/certificado-instalar-ie-gc-4.jpg" alt="Install IE and GC" /></p>
 
-<p>In Firefox “Servers Tab”, click on “Import”</p>
+<p>On Firefox, under <strong>Servers</strong>, click on <strong>Import…</strong>:</p>
 
 <p><img src="https://developercielo.github.io/en/images/certificado-instalar-ff-3.jpg" alt="Install FF" /></p>
 
 <p><strong>Step 5:</strong></p>
 
-<p>In Chrome and Internet Explorer “Certificate Import Wizard”, click on “Search”, look for the folder where the files are and select the file “cieloecommerce.cielo.com.br.crt, click on “Open” and then “Next”.</p>
+<p>On Chrome and Internet Explorer, under <strong>Certificate Import Wizard</strong>, click on <strong>Search</strong>, look for the folder where the files are and select the file cieloecommerce.cielo.com.br.crt, click on <strong>Open</strong> and then <strong>Next</strong>.</p>
 
 <p><img src="https://developercielo.github.io/en/images/certificado-instalar-ie-gc-5.jpg" alt="Install IE and GC" /></p>
 
@@ -510,19 +510,19 @@
 
 <p><strong>Step 7:</strong></p>
 
-<p>Click on “Finish”.</p>
+<p>Click on <strong>Finish</strong>.</p>
 
 <p><img src="https://developercielo.github.io/en/images/certificado-instalar-ie-gc-8.jpg" alt="Install IE and GC" /></p>
 
 <p><strong>Step 8:</strong></p>
 
-<p>Click on “Ok” to complete the import.</p>
+<p>Click on <strong>Ok</strong> to complete the import.</p>
 
 <p><img src="https://developercielo.github.io/en/images/certificado-instalar-ie-gc-9.jpg" alt="Install IE and GC" /></p>
 
 <aside class="notice">In Firefox there is no Successfull Import message, it only completes the import.</aside>
 
-<p>The Certificate may be viewed in the default tab “Other People” or at the one chosen by the customer.</p>
+<p>The Certificate may be viewed in the default tab <strong>Other People</strong> or at the one chosen by the customer.</p>
 
 <p><img src="https://developercielo.github.io/en/images/certificado-instalar-ie-gc-10.jpg" alt="Install IE and GC" /></p>
 

@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-09-22T16:12:08+00:00</updated>
+    <updated>2023-09-25T14:48:21+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -31223,16 +31223,16 @@ You can import them directly into your POSTMAN and have all the examples ready t
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;Every operation requires the access keys &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt; that should be sent in the header of the request. When you make a request you will get a code back, showing if it was successful or not.&lt;/p&gt;
+&lt;p&gt;All operations require the access credentials &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/strong&gt; and &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt;&lt;/strong&gt;, which must be sent in the header (&lt;em&gt;header&lt;/em&gt;) of the request.&lt;br /&gt;Each request sent will return an &lt;a href=&quot;https://developercielo.github.io/manual/cielo-ecommerce#http-status-code&quot;&gt;HTTP Status Code&lt;/a&gt;, indicating whether it was carried out successfully or not.&lt;/p&gt;
 
 &lt;h2 id=&quot;glossary&quot;&gt;Glossary&lt;/h2&gt;
 
-&lt;p&gt;In order to make it easier to understand, we have listed below a short glossary with the main terms related to e-commerce and also to card and acquiring market:&lt;/p&gt;
+&lt;p&gt;To facilitate understanding, we have listed below a short glossary with the main terms related to e-commerce and also to card and acquiring market:&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th&gt;Term&lt;/th&gt;
+      &lt;th&gt;Terms&lt;/th&gt;
       &lt;th&gt;Description&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -31275,7 +31275,7 @@ You can import them directly into your POSTMAN and have all the examples ready t
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;TID (Transaction Identifier)&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Code consisting of 20 characters that identifies a E-commerce Cielo transaction.&lt;/td&gt;
+      &lt;td&gt;Code consisting of 20 characters that identifies a Cielo e-commerce transaction.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -31389,11 +31389,11 @@ You can import them directly into your POSTMAN and have all the examples ready t
 
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-ie.jpg&quot; alt=&quot;EV Internet Explorer Certificate&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;firefox&quot;&gt;Firefox&lt;/h3&gt;
+&lt;h3 id=&quot;firefox&quot;&gt;Firefox:&lt;/h3&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-firefox.jpg&quot; alt=&quot;EV Firefox Certificate&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;google-chrome&quot;&gt;Google Chrome&lt;/h3&gt;
+&lt;h3 id=&quot;google-chrome&quot;&gt;Google Chrome:&lt;/h3&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-chrome.jpg&quot; alt=&quot;EV Google Chrome Certificate&quot; /&gt;&lt;/p&gt;
 
@@ -31403,7 +31403,7 @@ You can import them directly into your POSTMAN and have all the examples ready t
 
 &lt;p&gt;It is a more trustworthy certificate and when HTTPS is accessed the address bar will turn green, showing more reliability for users.&lt;/p&gt;
 
-&lt;h2 id=&quot;how-to-install-the-extended-validation-certificate-on-the-store-server&quot;&gt;How to install the Extended Validation Certificate on the Store server?&lt;/h2&gt;
+&lt;h2 id=&quot;how-to-install-the-extended-validation-certificate-on-the-store-server&quot;&gt;How to install the &lt;strong&gt;Extended Validation Certificate&lt;/strong&gt; on the Store server?&lt;/h2&gt;
 
 &lt;p&gt;You just have to install the following files in the server Trustedstore. Cielo does not offer support to the installation of the Certificate. If you are unsure about how to install the EV Certificate, then you should contact your server vendor support.&lt;/p&gt;
 
@@ -31413,11 +31413,11 @@ You can import them directly into your POSTMAN and have all the examples ready t
   &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/en/attachment/cieloecommerce.cert-2023-2024.zip&quot;&gt;E-Commerce Cielo certificate&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;step-by-step-for-installation&quot;&gt;Step-by-Step for Installation&lt;/h2&gt;
+&lt;h2 id=&quot;installation-tutorial&quot;&gt;Installation tutorial&lt;/h2&gt;
 
 &lt;h3 id=&quot;installation-on-the-virtual-store-server&quot;&gt;Installation on the Virtual Store Server&lt;/h3&gt;
 
-&lt;p&gt;The step-by-step of the EV Certificate installation must contact your server vendor support.&lt;/p&gt;
+&lt;p&gt;For the the step-by-step of the EV Certificate installation, you must contact your server vendor support.&lt;/p&gt;
 
 &lt;aside class=&quot;warning&quot;&gt;Cielo does not offer support for the installation of the Certificate.&lt;/aside&gt;
 
@@ -31437,47 +31437,47 @@ You can import them directly into your POSTMAN and have all the examples ready t
 
 &lt;p&gt;&lt;strong&gt;Step 2:&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;In “Internet Explorer”, click on “Tools” and go to “Internet Options”:&lt;/p&gt;
+&lt;p&gt;On Internet Explorer, click on &lt;strong&gt;Tools&lt;/strong&gt; and go to &lt;strong&gt;Internet Options&lt;/strong&gt;:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-instalar-ie-1.jpg&quot; alt=&quot;Install IE&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;In “Firefox”, click on “Open Menu” and go to “Advanced” and “Options”:&lt;/p&gt;
+&lt;p&gt;On Firefox, click on &lt;strong&gt;Open Menu&lt;/strong&gt; and go to &lt;strong&gt;Advanced&lt;/strong&gt; &amp;gt; &lt;strong&gt;Options&lt;/strong&gt;:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-instalar-ff-1.jpg&quot; alt=&quot;Install FF&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;In Google Chrome, click on “Control Google Chrome” and go to “Settings” and “Show advanced settings…” “Change Proxy Settings and “Content” and Certificates:&lt;/p&gt;
+&lt;p&gt;On Google Chrome, click on &lt;strong&gt;Control Google Chrome&lt;/strong&gt; and go to &lt;strong&gt;Settings&lt;/strong&gt; &amp;gt; &lt;strong&gt;Show advanced settings…&lt;/strong&gt; &amp;gt; &lt;strong&gt;Change Proxy Settings…&lt;/strong&gt; &amp;gt; &lt;strong&gt;Content&lt;/strong&gt; &amp;gt; &lt;strong&gt;Certificates&lt;/strong&gt;:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-instalar-gc-1.jpg&quot; alt=&quot;Install GC&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Step 3:&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;In Internet Explorer, under “Certificates”, click on “Import.”&lt;/p&gt;
+&lt;p&gt;On Internet Explorer, under &lt;strong&gt;Certificates&lt;/strong&gt;, click on &lt;em&gt;*Import…&lt;/em&gt;:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-instalar-ie-2.jpg&quot; alt=&quot;Install IE&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;In Firefox, click on “View Certificates”, click on “Import”&lt;/p&gt;
+&lt;p&gt;On Firefox, go on &lt;strong&gt;View Certificates&lt;/strong&gt;, click on &lt;strong&gt;Import…&lt;/strong&gt;:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-instalar-ff-2.jpg&quot; alt=&quot;Install FF&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;In Chrome, click on “Manage Certificates”, click on “Import”&lt;/p&gt;
+&lt;p&gt;On Chrome, go on &lt;strong&gt;Manage Certificates…&lt;/strong&gt;, click on &lt;strong&gt;Import&lt;/strong&gt;:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-instalar-gc-2.jpg&quot; alt=&quot;Install GC&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Step 4:&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;In Internet Explorer and Chrome “Certificate Import Wizard”, click on “Next”.&lt;/p&gt;
+&lt;p&gt;On Internet Explorer and Chrome, under &lt;strong&gt;Certificate Import Wizard&lt;/strong&gt;, click on &lt;strong&gt;Next&lt;/strong&gt;:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-instalar-ie-gc-3.jpg&quot; alt=&quot;Install IE and GC&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-instalar-ie-gc-4.jpg&quot; alt=&quot;Install IE and GC&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;In Firefox “Servers Tab”, click on “Import”&lt;/p&gt;
+&lt;p&gt;On Firefox, under &lt;strong&gt;Servers&lt;/strong&gt;, click on &lt;strong&gt;Import…&lt;/strong&gt;:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-instalar-ff-3.jpg&quot; alt=&quot;Install FF&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Step 5:&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;In Chrome and Internet Explorer “Certificate Import Wizard”, click on “Search”, look for the folder where the files are and select the file “cieloecommerce.cielo.com.br.crt, click on “Open” and then “Next”.&lt;/p&gt;
+&lt;p&gt;On Chrome and Internet Explorer, under &lt;strong&gt;Certificate Import Wizard&lt;/strong&gt;, click on &lt;strong&gt;Search&lt;/strong&gt;, look for the folder where the files are and select the file cieloecommerce.cielo.com.br.crt, click on &lt;strong&gt;Open&lt;/strong&gt; and then &lt;strong&gt;Next&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-instalar-ie-gc-5.jpg&quot; alt=&quot;Install IE and GC&quot; /&gt;&lt;/p&gt;
 
@@ -31491,19 +31491,19 @@ You can import them directly into your POSTMAN and have all the examples ready t
 
 &lt;p&gt;&lt;strong&gt;Step 7:&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Click on “Finish”.&lt;/p&gt;
+&lt;p&gt;Click on &lt;strong&gt;Finish&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-instalar-ie-gc-8.jpg&quot; alt=&quot;Install IE and GC&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Step 8:&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Click on “Ok” to complete the import.&lt;/p&gt;
+&lt;p&gt;Click on &lt;strong&gt;Ok&lt;/strong&gt; to complete the import.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-instalar-ie-gc-9.jpg&quot; alt=&quot;Install IE and GC&quot; /&gt;&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;In Firefox there is no Successfull Import message, it only completes the import.&lt;/aside&gt;
 
-&lt;p&gt;The Certificate may be viewed in the default tab “Other People” or at the one chosen by the customer.&lt;/p&gt;
+&lt;p&gt;The Certificate may be viewed in the default tab &lt;strong&gt;Other People&lt;/strong&gt; or at the one chosen by the customer.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-instalar-ie-gc-10.jpg&quot; alt=&quot;Install IE and GC&quot; /&gt;&lt;/p&gt;
 
