@@ -67,7 +67,7 @@ O modelo empregado na integração das APIs é simples e se baseia na utilizaç�
 | **PUT**     | Atualiza um recurso existente, ex.: captura ou cancelamento de uma transação previamente autorizada. |
 
 Todas a operações requerem as credenciais de acesso **`MerchantId`** e **`MerchantKey`**, que devem ser enviadas no cabeçalho (_header_) da requisição.<br>
-<br>Cada envio de requisição irá retornar um código de [Status HTTP](https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code), indicando se ela foi realizada com sucesso ou não.
+<br>Cada envio de requisição irá retornar um código de [Status HTTP](https://developercielo.github.io/manual/cielo-ecommerce#http-status-code), indicando se ela foi realizada com sucesso ou não.
 
 ## Glossário
 
@@ -125,11 +125,11 @@ Empresas especializadas são responsáveis por fazer a validação do domínio e
 
 ![Certificado EV Internet Explorer]({{ site.baseurl_root }}/images/certificado-ie.jpg)
 
-### Firefox
+### Firefox:
 
 ![Certificado EV Firefox]({{ site.baseurl_root }}/images/certificado-firefox.jpg)
 
-### Google Chrome
+### Google Chrome:
 
 ![Certificado EV Google Chrome]({{ site.baseurl_root }}/images/certificado-chrome.jpg)
 
@@ -151,7 +151,7 @@ Basta instalar os três arquivos a seguir na Trustedstore do servidor. A Cielo n
 
 ### Instalação no Servidor da Loja Virtual
 
-O passo a passo para a instalação do Certificado EV deverá ser contatado o suporte do fornecedor do seu servidor.
+Para o passo a passo para a instalação do Certificado EV, contate o suporte do fornecedor do seu servidor.
 
 <aside class="warning"><b>A Cielo não oferece suporte para a instalação do Certificado.</b></aside>
 
@@ -169,47 +169,47 @@ Salvar os três arquivos abaixo em uma pasta nova, ou que relembre facilmente, p
 
 **2o Passo:**
 
-No “Internet Explorer”, clique no menu “Ferramentas” e acesse as “Opções da Internet”:
+No Internet Explorer, clique no menu **Ferramentas** e acesse as **Opções da Internet**:
 
 ![Instalar IE]({{ site.baseurl_root }}/images/certificado-instalar-ie-1.jpg)
 
-No “Firefox”, clique no menu “Abrir Menu” e acesse “Avançado” e “Opções”:
+No Firefox, clique no menu **Abrir Menu** e acesse **Avançado** > **Opções**:
 
 ![Instalar FF]({{ site.baseurl_root }}/images/certificado-instalar-ff-1.jpg)
 
-No “Chrome”, clique no “Personalizar e Controlar o Google Chrome” e acesse “Configurações” e “Mostrar configurações avançadas... “Alterar Configurações de Proxy e “Conteúdo” e Certificados:
+No Chrome, clique em **Personalizar e Controlar o Google Chrome** e acesse **Configurações** > **Mostrar configurações avançadas...** > **Alterar Configurações de Proxy..** > **Conteúdo Certificados**:
 
 ![Instalar GC]({{ site.baseurl_root }}/images/certificado-instalar-gc-1.jpg)
 
 **3o Passo:**
 
-No Internet Explorer, em “Certificados”, clique em “Importar”.
+No Internet Explorer, em **Certificados**, clique em **Importar...**:
 
 ![Instalar IE]({{ site.baseurl_root }}/images/certificado-instalar-ie-2.jpg)
 
-No Firefox clique em “Ver Certificados”, clique em “Importar”
+No Firefox, clique em **Ver Certificados**, clique em **Importar...**:
 
 ![Instalar FF]({{ site.baseurl_root }}/images/certificado-instalar-ff-2.jpg)
 
-No Chrome clique em “Gerenciar Certificados”, clique em “Importar”
+No Chrome, clique em **Gerenciar Certificados...**, clique em **Importar...**:
 
 ![Instalar GC]({{ site.baseurl_root }}/images/certificado-instalar-gc-2.jpg)
 
 **4o Passo:**
 
-No Internet Explorer e Chrome “Assistente para Importação de Certificados”, clique em “Avançar”.
+No Internet Explorer e Chrome, na aba **Assistente para Importação de Certificados**, clique em **Avançar**:
 
 ![Instalar IE e GC]({{ site.baseurl_root }}/images/certificado-instalar-ie-gc-3.jpg)
 
 ![Instalar IE e GC]({{ site.baseurl_root }}/images/certificado-instalar-ie-gc-4.jpg)
 
-No Firefox “Aba Servidores ”, clique em “Importar”
+No Firefox, na aba **Servidores**, clique em **Importar...**:
 
 ![Instalar FF]({{ site.baseurl_root }}/images/certificado-instalar-ff-3.jpg)
 
 **5o Passo:**
 
-No Chrome e Internet Explorer “Assistente para Importação de Certificados”, clique em “Procurar”, procure a pasta onde estão os arquivos e selecione o arquivo “cieloecommerce.cielo.com.br.crt, clique em “Abrir” e em seguida “Avançar”.
+No Chrome e Internet Explorer, na aba **Assistente para Importação de Certificados**, clique em **Procurar**, procure a pasta onde estão os arquivos e selecione o arquivo cieloecommerce.cielo.com.br.crt, clique em **Abrir** e em seguida **Avançar**.
 
 ![Instalar IE e GC]({{ site.baseurl_root }}/images/certificado-instalar-ie-gc-5.jpg)
 
@@ -217,25 +217,25 @@ No Chrome e Internet Explorer “Assistente para Importação de Certificados”
 
 **6o Passo:**
 
-Selecionar a opção desejada: adicionar o Certificado em uma pasta padrão ou procurar a pasta de sua escolha.
+Selecionar a opção desejada: adicionar o Certificado em uma pasta padrão ou procurar a pasta de sua escolha:
 
 ![Instalar IE e GC]({{ site.baseurl_root }}/images/certificado-instalar-ie-gc-7.jpg)
 
 **7o Passo:**
 
-Clique em “Concluir”.
+Clique em **Concluir**:
 
 ![Instalar IE e GC]({{ site.baseurl_root }}/images/certificado-instalar-ie-gc-8.jpg)
 
 **8o Passo:**
 
-Clique em “Ok” para concluir a importação.
+Clique em **Ok** para concluir a importação:
 
 ![Instalar IE e GC]({{ site.baseurl_root }}/images/certificado-instalar-ie-gc-9.jpg)
 
 <aside class="notice">No Firefox não consta a mensagem de Importação com Êxito, apenas conclui a importação.</aside>
 
-O Certificado poderá ser visualizado na aba padrão “Outras Pessoas” ou na escolhida pelo cliente.
+O Certificado poderá ser visualizado na aba padrão **Outras Pessoas** ou na escolhida pelo cliente.
 
 ![Instalar IE e GC]({{ site.baseurl_root }}/images/certificado-instalar-ie-gc-10.jpg)
 
