@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-09-25T15:22:46+00:00</updated>
+    <updated>2023-09-26T15:44:28+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -31526,7 +31526,7 @@ You can import them directly into your POSTMAN and have all the examples ready t
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;Test account register&lt;/td&gt;
+      &lt;td&gt;Access credentials&lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt; obtained after creating your testing account on &lt;a href=&quot;https://cadastrosandbox.cieloecommerce.cielo.com.br/&quot; target=&quot;\_blank&quot;&gt;&lt;strong&gt;Sandbox Registration&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -31544,14 +31544,12 @@ You can import them directly into your POSTMAN and have all the examples ready t
 
 &lt;ul&gt;
   &lt;li&gt;No affiliation is required to use Sandbox Cielo.&lt;/li&gt;
-  &lt;li&gt;Just access the &lt;a href=&quot;https://cadastrosandbox.cieloecommerce.cielo.com.br/&quot; target=&quot;\_blank&quot;&gt;&lt;strong&gt;Sandbox Registration&lt;/strong&gt;&lt;/a&gt; create an account.&lt;/li&gt;
+  &lt;li&gt;Just access the &lt;a href=&quot;https://cadastrosandbox.cieloecommerce.cielo.com.br/&quot; target=&quot;\_blank&quot;&gt;&lt;strong&gt;Sandbox Registration&lt;/strong&gt;&lt;/a&gt; to create an account.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;integration-tool&quot;&gt;Integration Tool&lt;/h2&gt;
 
-&lt;p&gt;You can use &lt;strong&gt;Postman&lt;/strong&gt; to test your integration. Postman is an API Client that makes it easier for developers to create, share, test, and document APIs. This is done by allowing users to create and save simple and complex HTTP requests, as well as read their responses.&lt;/p&gt;
-
-&lt;p&gt;We suggest developers to access our &lt;a href=&quot;https://developercielo.github.io/en/tutorial/postman&quot; target=&quot;\_blank&quot;&gt;&lt;strong&gt;Tutorial&lt;/strong&gt;&lt;/a&gt; about the tool to better understand all the advantages it offers.&lt;/p&gt;
+&lt;p&gt;You can use Postman to test your integration, using the API E-commerce Cielo collection.&lt;/p&gt;
 
 &lt;h3 id=&quot;collection&quot;&gt;Collection&lt;/h3&gt;
 
