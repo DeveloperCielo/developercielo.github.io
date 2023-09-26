@@ -245,20 +245,18 @@ To facilitate testing during integration, Cielo offers a Sandbox environment tha
 
 | INFORMATION           | URL                                                                                                                                                                                |
 | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Test account register | `MerchantId` and `MerchantKey` obtained after creating your testing account on [**Sandbox Registration**](https://cadastrosandbox.cieloecommerce.cielo.com.br/){:target="\_blank"} |
+| Access credentials | `MerchantId` and `MerchantKey` obtained after creating your testing account on [**Sandbox Registration**](https://cadastrosandbox.cieloecommerce.cielo.com.br/){:target="\_blank"} |
 | Requests URL          | https://apisandbox.cieloecommerce.cielo.com.br                                                                                                                                     |
 | Queries URL           | https://apiquerysandbox.cieloecommerce.cielo.com.br                                                                                                                                |
 
 **Perks of using Sandbox**
 
 - No affiliation is required to use Sandbox Cielo.
-- Just access the [**Sandbox Registration**](https://cadastrosandbox.cieloecommerce.cielo.com.br/){:target="\_blank"} create an account.
+- Just access the [**Sandbox Registration**](https://cadastrosandbox.cieloecommerce.cielo.com.br/){:target="\_blank"} to create an account.
 
 ## Integration Tool
 
-You can use **Postman** to test your integration. Postman is an API Client that makes it easier for developers to create, share, test, and document APIs. This is done by allowing users to create and save simple and complex HTTP requests, as well as read their responses.
-
-We suggest developers to access our [**Tutorial**](https://developercielo.github.io/en/tutorial/postman){:target="\_blank"} about the tool to better understand all the advantages it offers.
+You can use Postman to test your integration, using the API E-commerce Cielo collection.
 
 ### Collection
 
