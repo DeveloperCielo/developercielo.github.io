@@ -275,16 +275,16 @@ Você pode usar o Postman para testar a sua integração, usando a collection da
 
 ### Environment
 
-Faça download do arquivo [**Environment Produção e Sandbox**](https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/attachment/postman/apicielo2021.rar){:target="\_blank"} e substitua os MerchantIDs e MerchantKeys pelos os da sua Loja.
+Faça download do arquivo [**Environment Produção e Sandbox**](https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/attachment/postman/apicielo2021.rar){:target="\_blank"} e substitua os MerchantIDs e MerchantKeys pelos dados da sua Loja.
 
 ## Cartão de crédito em sandbox
 
 Com esse meio de pagamento é possível simular os fluxos de:
 
-- Autorização;
-- Captura parcial e total;
-- Cancelamento;
-- Consulta.<br/>
+* Autorização;
+* Captura parcial e total;
+* Cancelamento;
+* Consulta.<br/>
 
 Para melhor aproveitar o meio de pagamento Simulado, você pode criar um número de cartão usando um gerador de cartões da internet ou escolhendo números aleatórios; para qualquer opção, os 15 primeiros dígitos do cartão podem ser aleatórios e o último dígito deve ser o número correspondente ao status da transação que deseja testar.
 
@@ -335,7 +335,7 @@ Com esse meio de pagamento é possível simular os fluxos de:
 | Não Autenticado | Negado         |
 | Não usar a URL  | Não Finalizado |
 
-<aside class="notice"><strong>Transferência Online:</strong> O mesmo comportamento do Cartão de débito em Sandbox é valido para cartão de débito</aside>
+> **Transferência Online**: O mesmo comportamento do Cartão de débito em Sandbox é valido para cartão de débito.
 
 ## Outros meios de pagamento em sandbox
 
