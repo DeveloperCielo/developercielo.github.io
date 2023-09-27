@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-09-26T15:44:28+00:00</updated>
+    <updated>2023-09-27T13:45:54+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -31578,28 +31578,24 @@ You can import them directly into your POSTMAN and have all the examples ready t
 
 &lt;h3 id=&quot;environment&quot;&gt;Environment&lt;/h3&gt;
 
-&lt;p&gt;Download the &lt;a href=&quot;https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/attachment/postman/apicielo2021.rar&quot; target=&quot;\_blank&quot;&gt;&lt;strong&gt;Environment Production and Sandbox&lt;/strong&gt;&lt;/a&gt; file and replace MerchantID and MerchantKeys by your store’s information.&lt;/p&gt;
+&lt;p&gt;Download the &lt;a href=&quot;https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/attachment/postman/apicielo2021.rar&quot; target=&quot;\_blank&quot;&gt;&lt;strong&gt;Environment Production and Sandbox&lt;/strong&gt;&lt;/a&gt; file and replace MerchantID and MerchantKeys with your store’s information.&lt;/p&gt;
 
-&lt;h2 id=&quot;credit-card---sandbox&quot;&gt;Credit card - Sandbox&lt;/h2&gt;
-
-&lt;p&gt;In Sandbox, it is necessary to use the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; as &lt;strong&gt;SIMULATED&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&quot;credit-card-in-sandbox&quot;&gt;Credit card in sandbox&lt;/h2&gt;
 
 &lt;p&gt;With this payment method it is possible to simulate the flows of:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Authorization&lt;/li&gt;
-  &lt;li&gt;Capture&lt;/li&gt;
-  &lt;li&gt;Cancellation.&lt;/li&gt;
-  &lt;li&gt;Consultation&lt;/li&gt;
+  &lt;li&gt;Authorization;&lt;/li&gt;
+  &lt;li&gt;Capture;&lt;/li&gt;
+  &lt;li&gt;Cancellation;&lt;/li&gt;
+  &lt;li&gt;Consultation.&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;For best use of the Simulated Payment Methods, we are providing &lt;strong&gt;test cards&lt;/strong&gt; in the table below.&lt;/p&gt;
 
 &lt;p&gt;To make better use of a simulated payment, you can create a fake card number using a generator online or choosing random numbers. For either option, the first 15 digits can be random, but the last one should correspond to the transaction status you want to test.&lt;/p&gt;
 
-&lt;p&gt;The information of &lt;strong&gt;Security Code (CVV)&lt;/strong&gt; and validity may be random, keeping the format - CVV (3 digits) Validity (MM/YYYY).&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;Security Code (CVV)&lt;/strong&gt; and expiration date information may be random, keeping the format - CVV (3 digits) and Validity (MM/YYYY).&lt;/p&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;Tokenization: Transactions in sandbox environment involving tokenization did not work based on test cards. Every card saved at the tokenization is treated as a real card, so it is not used in the simulation process.&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Tokenization: If you want to test a transaction on the API E-commerce Cielo by saving the card number, we recommend using a card generator to comply with the mod10 (Luhn Algorithm) rule, which is used in Sandbox and Production environments.&lt;/aside&gt;
 &lt;aside class=&quot;notice&quot;&gt;To simulate a successful authorization of a Zeroauth request in Sandbox, you have to send the request using a card number starting with 5, disregarding the issuer. For example: **5XXX.XXXX.XXXX.XXX4**.&lt;/aside&gt;
 &lt;aside class=&quot;notice&quot;&gt;The status of the transactions are defined by the final digits of each card, as well as the ReturnCode.&lt;/aside&gt;
 
@@ -31617,7 +31613,7 @@ You can import them directly into your POSTMAN and have all the examples ready t
       &lt;td&gt;XXXX.XXXX.XXXX.XXX0&lt;br /&gt;XXXX.XXXX.XXXX.XXX1&lt;br /&gt;XXXX.XXXX.XXXX.XXX4&lt;/td&gt;
       &lt;td&gt;Authorized&lt;/td&gt;
       &lt;td&gt;4/6&lt;/td&gt;
-      &lt;td&gt;Peration performed successfully&lt;/td&gt;
+      &lt;td&gt;Operation performed successfully&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;XXXX.XXXX.XXXX.XXX2&lt;/td&gt;
@@ -31635,7 +31631,7 @@ You can import them directly into your POSTMAN and have all the examples ready t
       &lt;td&gt;XXXX.XXXX.XXXX.XXX5&lt;/td&gt;
       &lt;td&gt;Not Authorized&lt;/td&gt;
       &lt;td&gt;78&lt;/td&gt;
-      &lt;td&gt;Locked Card&lt;/td&gt;
+      &lt;td&gt;Blocked Card&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;XXXX.XXXX.XXXX.XXX6&lt;/td&gt;
@@ -31664,15 +31660,15 @@ You can import them directly into your POSTMAN and have all the examples ready t
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;The test card &lt;strong&gt;4024.0071.5376.3191&lt;/strong&gt;, for example, would simulated a sueccesfull transaction.&lt;/p&gt;
+&lt;p&gt;The test card &lt;strong&gt;4024.0071.5376.3191&lt;/strong&gt;, for example, would simulated a successful transaction.&lt;/p&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;Warning: The  environment evaluates the format and end of the card, if an actual card is sent, the result of the operation will be identical to that described in the test cards table.&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Warning: The  environment evaluates the format and end of the card. If an actual card is sent, the result of the operation will be identical to that described in the test cards table.&lt;/aside&gt;
 
 &lt;aside class=&quot;Warning&quot;&gt;Warning: Sandbox return codes are not the same as the ones available in production. &lt;/aside&gt;
 
-&lt;p&gt;&lt;strong&gt;To check the return codes in Production,&lt;/strong&gt; check &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#api-codes&quot; target=&quot;\_blank&quot;&gt;API Codes&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;To check the return codes in Production,&lt;/strong&gt; check &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#api-codes&quot;&gt;API Codes&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h2 id=&quot;debit-card---sandbox&quot;&gt;Debit card - Sandbox&lt;/h2&gt;
+&lt;h2 id=&quot;debit-card-in-sandbox&quot;&gt;Debit card in sandbox&lt;/h2&gt;
 
 &lt;p&gt;With this payment method, it is possible to simulate the flows of:&lt;/p&gt;
 
@@ -31686,7 +31682,7 @@ You can import them directly into your POSTMAN and have all the examples ready t
 &lt;p&gt;The debit transaction needs to be authenticated:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Authentication via 3DS 2.0&lt;/strong&gt;: learn to simulation the authentication 3DS 2.0 in Sandbox in the &lt;a href=&quot;https://developercielo.github.io/en/manual/3ds&quot; target=&quot;\_blank&quot;&gt;3DS documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Authentication via 3DS 2.0&lt;/strong&gt;: learn to simulate the authentication 3DS 2.0 in Sandbox in the &lt;a href=&quot;https://developercielo.github.io/en/manual/3ds&quot; target=&quot;\_blank&quot;&gt;3DS documentation&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Authentication URL&lt;/strong&gt;: it’s being discontinued. In this type of authentication, the debit card transactional flow works by getting an Authentication URL from the transaction response. On the authentication screen, the chosen option defines the status of the transaction.
 &lt;br /&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -31714,11 +31710,13 @@ You can import them directly into your POSTMAN and have all the examples ready t
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;Online Transfer The same behavior of debit card in Sandbox is valid for debit card.&lt;/aside&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Online Transfer&lt;/strong&gt;: The same behavior of debit card in Sandbox is valid for debit card.&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;h2 id=&quot;other-payment-methods---sandbox&quot;&gt;Other payment methods - Sandbox&lt;/h2&gt;
+&lt;h2 id=&quot;other-payment-methods-in-sandbox&quot;&gt;Other payment methods in sandbox&lt;/h2&gt;
 
-&lt;p&gt;Other payment methods don’t have simulated specific data or cards like the credit card. Below we specify any existing differences:&lt;/p&gt;
+&lt;p&gt;Other payment methods do not have cards or specific simulated data, as in the case of credit cards. Below we specify any existing differences:&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -31730,28 +31728,28 @@ You can import them directly into your POSTMAN and have all the examples ready t
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;Boleto&lt;/td&gt;
-      &lt;td&gt;To send a boleto transaction in the Sandbox environmnet you should put the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; as &lt;strong&gt;Simulado&lt;/strong&gt;.&lt;br /&gt;There is no bank validation. The bank slip behaves as a bank slip without registration.&lt;/td&gt;
+      &lt;td&gt;To send a boleto transaction in the Sandbox environment you should put the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; as &lt;strong&gt;Simulado&lt;/strong&gt;.&lt;br /&gt;There is no bank validation. The boleto behaves as a boleto without registration.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Alelo&lt;/td&gt;
-      &lt;td&gt;Use the same values from the request at the Production environment for &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#alelo-cards&quot; target=&quot;\_blank&quot;&gt;Alelo Cards&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Use the same values from the request at the Production environment for &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#alelo-cards&quot;&gt;Alelo Cards&lt;/a&gt;.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;QR Code&lt;/td&gt;
-      &lt;td&gt;Use the same values from the resquest at the Production environment for &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#qr-code&quot; target=&quot;\_blank&quot;&gt;QR Code&lt;/a&gt; There is no bank conciliation.&lt;/td&gt;
+      &lt;td&gt;Use the same values from the resquest at the Production environment for &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#qr-code&quot;&gt;QR Code&lt;/a&gt;. There is no bank conciliation.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Carnê&lt;/td&gt;
-      &lt;td&gt;Use the same values from the request at the Production environmnet for &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#carn%C3%AA-transaction&quot; target=&quot;\_blank&quot;&gt;Carnê Transaction&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Use the same values from the request at the Production environmnet for &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#carn%C3%AA-transaction&quot;&gt;Carnê Transaction&lt;/a&gt;.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Electronic Transfer&lt;/td&gt;
-      &lt;td&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; useed should be &lt;strong&gt;“Simulado”&lt;/strong&gt; &lt;br /&gt; The redirecting URL for the bank environment will be a screen for you to choose the status of the authentication.&lt;/td&gt;
+      &lt;td&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; used should be &lt;strong&gt;“Simulado”&lt;/strong&gt;. &lt;br /&gt; The redirecting URL for the bank environment will be a screen for you to choose the status of the authentication.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;renova-fácil--sandbox&quot;&gt;Renova Fácil – Sandbox&lt;/h2&gt;
+&lt;h2 id=&quot;renova-fácil-in-sandbox&quot;&gt;Renova Fácil in Sandbox&lt;/h2&gt;
 
 &lt;p&gt;To simulate a transaction with return for a new card, updated by our service &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#renew-easy&quot; target=&quot;\_blank&quot;&gt;Renova Fácil&lt;/a&gt;, follow the instructions below.&lt;/p&gt;
 
