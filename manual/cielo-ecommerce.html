@@ -931,7 +931,7 @@ Abaixo especificamos qualquer diferença existente:</p>
 <aside class="notice">Atenção: No header da requisição, use o Content-Type application/json .</aside>
 
 <blockquote>
-  <p><strong>Transações de crédito Mastercard com credenciais armazenadas</strong>: a bandeira Mastercard exige o envio do <strong>Indicador de Início da Transação</strong> para compras de <strong>cartão de crédito e débito</strong> que usam os dados armazenados de um cartão. O objetivo é indicar se a transação foi iniciada pelo comprador (titular do cartão) ou pela loja. Nesse cenário é obrigatório o envio do nó <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator</code> com os parâmetros <code class="language-plaintext highlighter-rouge">Category</code> e <code class="language-plaintext highlighter-rouge">SubCategory</code> para transações Mastercard, dentro do nó <code class="language-plaintext highlighter-rouge">Payment</code>. Confira a lista de categorias na descrição do parâmetro <code class="language-plaintext highlighter-rouge">Category</code> e a tabela completa de subcategorias em <a href="https://developercielo.github.io/manual/cielo-ecommerce#tabelas-do-indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard">Tabelas do Indicador de Início da Transação</a>.</p>
+  <p><strong>Transações de crédito Mastercard com credenciais armazenadas</strong>: a bandeira Mastercard exige o envio do <strong>Indicador de Início da Transação</strong> para compras de <strong>cartão de crédito e débito</strong> que usam os dados armazenados de um cartão. O objetivo é indicar se a transação foi iniciada pelo comprador (Customer Initiated Transaction - CIT) ou pela loja (Merchant Initiated Transaction - MIT). Nesse cenário é obrigatório o envio do nó <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator</code> com os parâmetros <code class="language-plaintext highlighter-rouge">Category</code> e <code class="language-plaintext highlighter-rouge">SubCategory</code> para transações Mastercard, dentro do nó <code class="language-plaintext highlighter-rouge">Payment</code>. Confira a lista de categorias na descrição do parâmetro <code class="language-plaintext highlighter-rouge">Category</code> e a tabela completa de subcategorias em <a href="https://developercielo.github.io/manual/cielo-ecommerce#tabelas-do-indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard">Tabelas do Indicador de Início da Transação</a>.</p>
 </blockquote>
 
 <p>Saiba como realizar uma transação de crédito com autenticação em <a href="https://developercielo.github.io/manual/cielo-ecommerce#cart%C3%A3o-de-cr%C3%A9dito-com-autentica%C3%A7%C3%A3o">Autenticando uma Transação</a>.</p>
@@ -996,11 +996,7 @@ Abaixo especificamos qualquer diferença existente:</p>
         </span><span class="nl">"Usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unscheduled"</span><span class="w">
       </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-      </span><span class="nl">"InitiatedTransactionIndicator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"Category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C1"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"Subcategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Standingorder"</span><span class="w">
-    </span><span class="p">},</span><span class="w">    
+    </span><span class="p">},</span><span class="w">  
     </span><span class="nl">"IsCryptoCurrencyNegotiation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15700</span><span class="p">,</span><span class="w">
@@ -1074,11 +1070,7 @@ Abaixo especificamos qualquer diferença existente:</p>
             <span class="s2">"Usage"</span>: <span class="s2">"Used"</span>,
             <span class="s2">"Reason"</span>:<span class="s2">"Unscheduled"</span>
          <span class="o">}</span>
-     <span class="o">}</span>,
-      <span class="s2">"InitiatedTransactionIndicator"</span>: <span class="o">{</span>
-          <span class="s2">"Category"</span>: <span class="s2">"C1"</span>,
-          <span class="s2">"Subcategory"</span>: <span class="s2">"Standingorder"</span>
-    <span class="o">}</span>,     
+     <span class="o">}</span>,     
      <span class="s2">"IsCryptoCurrencyNegotiation"</span>: <span class="nb">true</span>,
      <span class="s2">"Type"</span>:<span class="s2">"CreditCard"</span>,
      <span class="s2">"Amount"</span>:15700,
@@ -1488,17 +1480,17 @@ Abaixo especificamos qualquer diferença existente:</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Category</code></td>
-      <td>Categoria do indicador de início da transação. Válido apenas para bandeira Mastercard.<br />Valores possíveis:<br />- “C1”: transação inciada pelo portador do cartão;<br />- “M1”: transação recorrente ou parcelada iniciada pela loja;<br />- “M2”: transação iniciada pela loja.</td>
       <td>string</td>
       <td>2</td>
-      <td>Condicional. Obrigatório apenas para bandeira Mastercard</td>
+      <td>Condicional. Obrigatório apenas para bandeira Mastercard.</td>
+      <td>Categoria do indicador de início da transação. Válido apenas para bandeira Mastercard.<br />Valores possíveis:<br />- “C1”: transação inciada pelo portador do cartão;<br />- “M1”: transação recorrente ou parcelada iniciada pela loja;<br />- “M2”: transação iniciada pela loja.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Subcategory</code></td>
-      <td>Subcategoria do indicador. Válido apenas para bandeira Mastercard.<br />Valores possíveis:<br />Se <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator.Category</code> = “C1” ou “M1”<br /><em>CredentialsOnFile</em><br /><em>StandingOrder</em><br /><em>Subscription</em><br /><em>Installment</em><br />Se <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator.Category</code> = “M2”<br /><em>PartialShipment</em><br /><em>RelatedOrDelayedCharge</em><br /><em>NoShow</em><br /><em>Resubmission</em><br />Consulte a tabela com a descrição das subcategorias em <a href="https://developercielo.github.io/manual/cielo-ecommerce#tabelas-do-indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard">Tabelas do Indicador de Início da Transação</a>.</td>
       <td>string</td>
       <td>-</td>
-      <td>Condicional. Obrigatório apenas para bandeira Mastercard</td>
+      <td>Condicional. Obrigatório apenas para bandeira Mastercard.</td>
+      <td>Subcategoria do indicador. Válido apenas para bandeira Mastercard.<br />Valores possíveis:<br />Se <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator.Category</code> = “C1” ou “M1”<br /><em>CredentialsOnFile</em><br /><em>StandingOrder</em><br /><em>Subscription</em><br /><em>Installment</em><br />Se <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator.Category</code> = “M2”<br /><em>PartialShipment</em><br /><em>RelatedOrDelayedCharge</em><br /><em>NoShow</em><br /><em>Resubmission</em><br />Consulte a tabela com a descrição das subcategorias em <a href="https://developercielo.github.io/manual/cielo-ecommerce#tabelas-do-indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard">Tabelas do Indicador de Início da Transação</a>.</td>
     </tr>
   </tbody>
 </table>
@@ -1559,10 +1551,6 @@ Abaixo especificamos qualquer diferença existente:</p>
         </span><span class="nl">"Usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unscheduled"</span><span class="w">
       </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-      </span><span class="nl">"InitiatedTransactionIndicator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"Category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C1"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"Subcategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Standingorder"</span><span class="w">
     </span><span class="p">},</span><span class="w">    
     </span><span class="nl">"IsCryptoCurrencyNegotiation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"TryAutomaticCancellation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -1656,11 +1644,7 @@ Abaixo especificamos qualquer diferença existente:</p>
             <span class="s2">"Usage"</span>: <span class="s2">"Used"</span>,
             <span class="s2">"Reason"</span>:<span class="s2">"Unscheduled"</span>
          <span class="o">}</span>
-        <span class="o">}</span>,
-        <span class="s2">"InitiatedTransactionIndicator"</span>: <span class="o">{</span>
-          <span class="s2">"Category"</span>: <span class="s2">"C1"</span>,
-          <span class="s2">"Subcategory"</span>: <span class="s2">"Standingorder"</span>
-    <span class="o">}</span>,        
+        <span class="o">}</span>,        
         <span class="s2">"IsCryptoCurrencyNegotiation"</span>: <span class="nb">true</span>,
         <span class="s2">"TryAutomaticCancellation"</span>:true,
         <span class="s2">"ProofOfSale"</span>: <span class="s2">"674532"</span>,
@@ -1810,7 +1794,7 @@ Abaixo especificamos qualquer diferença existente:</p>
 </blockquote>
 
 <blockquote>
-  <p><strong>Transações de débito Mastercard com credenciais armazenadas</strong>: a bandeira Mastercard exige o envio do <strong>Indicador de Início da Transação</strong> para compras de <strong>cartão de crédito e débito</strong> que usam os dados armazenados de um cartão. O objetivo é indicar se a transação foi iniciada pelo comprador (titular do cartão) ou pela loja. Nesse cenário é obrigatório o envio do nó <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator</code> com os parâmetros <code class="language-plaintext highlighter-rouge">Category</code> e <code class="language-plaintext highlighter-rouge">SubCategory</code> para transações Mastercard, dentro do nó <code class="language-plaintext highlighter-rouge">Payment</code>. Confira a lista de categorias na descrição do parâmetro <code class="language-plaintext highlighter-rouge">Category</code> e a tabela completa de subcategorias em <a href="https://developercielo.github.io/manual/cielo-ecommerce#tabelas-do-indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard">Tabelas do Indicador de Início da Transação</a>.</p>
+  <p><strong>Transações de débito Mastercard com credenciais armazenadas</strong>: a bandeira Mastercard exige o envio do <strong>Indicador de Início da Transação</strong> para compras de <strong>cartão de crédito e débito</strong> que usam os dados armazenados de um cartão. O objetivo é indicar se a transação foi iniciada pelo comprador (Customer Initiated Transaction - CIT) ou pela loja (Merchant Initiated Transaction - MIT). Nesse cenário é obrigatório o envio do nó <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator</code> com os parâmetros <code class="language-plaintext highlighter-rouge">Category</code> e <code class="language-plaintext highlighter-rouge">SubCategory</code> para transações Mastercard, dentro do nó <code class="language-plaintext highlighter-rouge">Payment</code>. Confira a lista de categorias na descrição do parâmetro <code class="language-plaintext highlighter-rouge">Category</code> e a tabela completa de subcategorias em <a href="https://developercielo.github.io/manual/cielo-ecommerce#tabelas-do-indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard">Tabelas do Indicador de Início da Transação</a>.</p>
 </blockquote>
 
 <h4 id="criando-uma-transação-de-débito">Criando uma transação de débito</h4>
@@ -1852,10 +1836,6 @@ Abaixo especificamos qualquer diferença existente:</p>
       </span><span class="nl">"Version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"ReferenceID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"InitiatedTransactionIndicator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C1"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Subcategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Standingorder"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
@@ -1889,11 +1869,7 @@ Abaixo especificamos qualquer diferença existente:</p>
          <span class="s2">"Eci"</span>:<span class="s2">"5"</span>,
          <span class="s2">"Version"</span>:<span class="s2">"2"</span>,
          <span class="s2">"ReferenceID"</span>:<span class="s2">"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"</span>
-      <span class="o">}</span>,
-    <span class="s2">"InitiatedTransactionIndicator"</span>: <span class="o">{</span>
-        <span class="s2">"Category"</span>: <span class="s2">"C1"</span>,
-        <span class="s2">"Subcategory"</span>: <span class="s2">"Standingorder"</span>
-    <span class="o">}</span>,      
+      <span class="o">}</span>,      
    <span class="o">}</span>
 <span class="o">}</span>
 <span class="nt">--verbose</span>
