@@ -450,7 +450,7 @@ Para criar uma transação de cartão de crédito, envie uma requisição utiliz
 
 <aside class="notice"><strong>Atenção:</strong> No header da requisição, use o Content-Type application/json .</aside>
 
-> **Transações de crédito Mastercard com credenciais armazenadas**: a bandeira Mastercard exige o envio do **Indicador de Início da Transação** para compras de **cartão de crédito e débito** que usam os dados armazenados de um cartão. O objetivo é indicar se a transação foi iniciada pelo comprador (titular do cartão) ou pela loja. Nesse cenário é obrigatório o envio do nó `InitiatedTransactionIndicator` com os parâmetros `Category` e `SubCategory` para transações Mastercard, dentro do nó `Payment`. Confira a lista de categorias na descrição do parâmetro `Category` e a tabela completa de subcategorias em [Tabelas do Indicador de Início da Transação](https://developercielo.github.io/manual/cielo-ecommerce#tabelas-do-indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard).
+> **Transações de crédito Mastercard com credenciais armazenadas**: a bandeira Mastercard exige o envio do **Indicador de Início da Transação** para compras de **cartão de crédito e débito** que usam os dados armazenados de um cartão. O objetivo é indicar se a transação foi iniciada pelo comprador (Customer Initiated Transaction - CIT) ou pela loja (Merchant Initiated Transaction - MIT). Nesse cenário é obrigatório o envio do nó `InitiatedTransactionIndicator` com os parâmetros `Category` e `SubCategory` para transações Mastercard, dentro do nó `Payment`. Confira a lista de categorias na descrição do parâmetro `Category` e a tabela completa de subcategorias em [Tabelas do Indicador de Início da Transação](https://developercielo.github.io/manual/cielo-ecommerce#tabelas-do-indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard).
 
 Saiba como realizar uma transação de crédito com autenticação em [Autenticando uma Transação](https://developercielo.github.io/manual/cielo-ecommerce#cart%C3%A3o-de-cr%C3%A9dito-com-autentica%C3%A7%C3%A3o).
 
@@ -515,11 +515,7 @@ Saiba como realizar uma transação de crédito com autenticação em [Autentica
         "Usage": "Used",
         "Reason": "Unscheduled"
       }
-    },
-      "InitiatedTransactionIndicator": {
-          "Category": "C1",
-          "Subcategory": "Standingorder"
-    },    
+    },  
     "IsCryptoCurrencyNegotiation": true,
     "Type": "CreditCard",
     "Amount": 15700,
@@ -594,11 +590,7 @@ curl
             "Usage": "Used",
             "Reason":"Unscheduled"
          }
-     },
-      "InitiatedTransactionIndicator": {
-          "Category": "C1",
-          "Subcategory": "Standingorder"
-    },     
+     },     
      "IsCryptoCurrencyNegotiation": true,
      "Type":"CreditCard",
      "Amount":15700,
@@ -667,8 +659,8 @@ curl
 | `Payment.CreditCard.Brand`                    | Texto        | 10      | Sim                 | Bandeira do cartão. Valores possíveis: Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper.                                                                                                                                                                            |
 | `Payment.CreditCard.CardOnFile.Usage`         | Texto        | -       | Não                 | **First** se o cartão foi armazenado e é seu primeiro uso.<br>**Used** se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação. Saiba mais em [Card On File](https://developercielo.github.io/manual/cielo-ecommerce#card-on-file){:target="_blank"}                                                                                                                                        |
 | `Payment.CreditCard.CardOnFile.Reason`        | Texto        | -       | Condicional         | Indica o propósito de armazenamento de cartões, caso o campo "Usage" for "Used".<BR>**Recurring** - Compra recorrente programada (ex. assinaturas). Se for transação recorrente, usar `Payment.Recurrent` = true (recorrência própria) ou `Recurrent.Payment` = true (recorrência programada). <br>**Unscheduled** - Compra recorrente sem agendamento (ex. aplicativos de serviços)<br>**Installments** - Parcelamento através da recorrência. Saiba mais em [Card On File](https://developercielo.github.io/manual/cielo-ecommerce#card-on-file){:target="_blank"}|
-|`Payment.InitiatedTransactionIndicator.Category`|Categoria do indicador de início da transação. Válido apenas para bandeira Mastercard.<br>Valores possíveis:<br>- “C1”: transação inciada pelo portador do cartão;<br>- “M1”: transação recorrente ou parcelada iniciada pela loja;<br>- “M2”: transação iniciada pela loja.|string|2|Condicional. Obrigatório apenas para bandeira Mastercard|
-|`Payment.InitiatedTransactionIndicator.Subcategory`|Subcategoria do indicador. Válido apenas para bandeira Mastercard.<br>Valores possíveis:<br>Se `InitiatedTransactionIndicator.Category` = "C1" ou "M1"<br>*CredentialsOnFile*<br>*StandingOrder*<br>*Subscription*<br>*Installment*<br>Se `InitiatedTransactionIndicator.Category` = "M2"<br>*PartialShipment*<br>*RelatedOrDelayedCharge*<br>*NoShow*<br>*Resubmission*<br>Consulte a tabela com a descrição das subcategorias em [Tabelas do Indicador de Início da Transação](https://developercielo.github.io/manual/cielo-ecommerce#tabelas-do-indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard).|string|-|Condicional. Obrigatório apenas para bandeira Mastercard|
+|`Payment.InitiatedTransactionIndicator.Category`| string | 2 |Condicional. Obrigatório apenas para bandeira Mastercard. | Categoria do indicador de início da transação. Válido apenas para bandeira Mastercard.<br>Valores possíveis:<br>- “C1”: transação inciada pelo portador do cartão;<br>- “M1”: transação recorrente ou parcelada iniciada pela loja;<br>- “M2”: transação iniciada pela loja.|
+|`Payment.InitiatedTransactionIndicator.Subcategory`| string | - | Condicional. Obrigatório apenas para bandeira Mastercard. | Subcategoria do indicador. Válido apenas para bandeira Mastercard.<br>Valores possíveis:<br>Se `InitiatedTransactionIndicator.Category` = "C1" ou "M1"<br>*CredentialsOnFile*<br>*StandingOrder*<br>*Subscription*<br>*Installment*<br>Se `InitiatedTransactionIndicator.Category` = "M2"<br>*PartialShipment*<br>*RelatedOrDelayedCharge*<br>*NoShow*<br>*Resubmission*<br>Consulte a tabela com a descrição das subcategorias em [Tabelas do Indicador de Início da Transação](https://developercielo.github.io/manual/cielo-ecommerce#tabelas-do-indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard).|
 
 ##### Resposta
 
@@ -727,10 +719,6 @@ curl
         "Usage": "Used",
         "Reason": "Unscheduled"
       }
-    },
-      "InitiatedTransactionIndicator": {
-          "Category": "C1",
-          "Subcategory": "Standingorder"
     },    
     "IsCryptoCurrencyNegotiation": true,
     "TryAutomaticCancellation": true,
@@ -825,11 +813,7 @@ curl
             "Usage": "Used",
             "Reason":"Unscheduled"
          }
-        },
-        "InitiatedTransactionIndicator": {
-          "Category": "C1",
-          "Subcategory": "Standingorder"
-    },        
+        },        
         "IsCryptoCurrencyNegotiation": true,
         "TryAutomaticCancellation":true,
         "ProofOfSale": "674532",
@@ -893,7 +877,7 @@ Para integrar o método de autenticação, consulte a [documentação do 3DS 2.0
 
 > **Débito sem autenticação**: ou “débito sem senha”, só pode ser realizada quando o e-commerce tem autorização do banco emissor para dispensa da autenticação. Caso você tenha essa permissão, envie o campo `Authenticate` como "false" na requisição padrão de cartão de débito.
 
-> **Transações de débito Mastercard com credenciais armazenadas**: a bandeira Mastercard exige o envio do **Indicador de Início da Transação** para compras de **cartão de crédito e débito** que usam os dados armazenados de um cartão. O objetivo é indicar se a transação foi iniciada pelo comprador (titular do cartão) ou pela loja. Nesse cenário é obrigatório o envio do nó `InitiatedTransactionIndicator` com os parâmetros `Category` e `SubCategory` para transações Mastercard, dentro do nó `Payment`. Confira a lista de categorias na descrição do parâmetro `Category` e a tabela completa de subcategorias em [Tabelas do Indicador de Início da Transação](https://developercielo.github.io/manual/cielo-ecommerce#tabelas-do-indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard).
+> **Transações de débito Mastercard com credenciais armazenadas**: a bandeira Mastercard exige o envio do **Indicador de Início da Transação** para compras de **cartão de crédito e débito** que usam os dados armazenados de um cartão. O objetivo é indicar se a transação foi iniciada pelo comprador (Customer Initiated Transaction - CIT) ou pela loja (Merchant Initiated Transaction - MIT). Nesse cenário é obrigatório o envio do nó `InitiatedTransactionIndicator` com os parâmetros `Category` e `SubCategory` para transações Mastercard, dentro do nó `Payment`. Confira a lista de categorias na descrição do parâmetro `Category` e a tabela completa de subcategorias em [Tabelas do Indicador de Início da Transação](https://developercielo.github.io/manual/cielo-ecommerce#tabelas-do-indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard).
 
 #### Criando uma transação de débito
 
@@ -931,10 +915,6 @@ Para criar uma venda com cartão de débito, chame o método POST conforme o exe
       "Version": "2",
       "ReferenceID": "a24a5d87-b1a1-4aef-a37b-2f30b91274e6"
     },
-    "InitiatedTransactionIndicator": {
-        "Category": "C1",
-        "Subcategory": "Standingorder"
-    },
   }
 }
 ```
@@ -969,11 +949,7 @@ curl
          "Eci":"5",
          "Version":"2",
          "ReferenceID":"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"
-      },
-    "InitiatedTransactionIndicator": {
-        "Category": "C1",
-        "Subcategory": "Standingorder"
-    },      
+      },      
    }
 }
 --verbose
