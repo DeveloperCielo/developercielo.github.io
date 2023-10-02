@@ -877,11 +877,11 @@ Para integrar o método de autenticação, consulte a [documentação do 3DS 2.0
 
 > **Débito sem autenticação**: ou “débito sem senha”, só pode ser realizada quando o e-commerce tem autorização do banco emissor para dispensa da autenticação. Caso você tenha essa permissão, envie o campo `Authenticate` como "false" na requisição padrão de cartão de débito.
 
-> **Transações de débito Mastercard com credenciais armazenadas**: a bandeira Mastercard exige o envio do **Indicador de Início da Transação** para compras de **cartão de crédito e débito** que usam os dados armazenados de um cartão. O objetivo é indicar se a transação foi iniciada pelo comprador (Cardholder-Initiated Transaction - CIT) ou pela loja (Merchant-Initiated Transaction - MIT). Nesse cenário é obrigatório o envio do nó `InitiatedTransactionIndicator` com os parâmetros `Category` e `SubCategory` para transações Mastercard, dentro do nó `Payment`. Confira a lista de categorias na descrição do parâmetro `Category` e a tabela completa de subcategorias em [Indicador de início da transação Mastercard](https://developercielo.github.io/manual/cielo-ecommerce#indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard).
-
 #### Criando uma transação de débito
 
 Para criar uma venda com cartão de débito, chame o método POST conforme o exemplo a seguir. O exemplo contempla o mínimo de campos necessários que devem ser enviados para a autorização.
+
+> **Transações de débito Mastercard com credenciais armazenadas**: a bandeira Mastercard exige o envio do **Indicador de Início da Transação** para compras de **cartão de crédito e débito** que usam os dados armazenados de um cartão. O objetivo é indicar se a transação foi iniciada pelo comprador (Cardholder-Initiated Transaction - CIT) ou pela loja (Merchant-Initiated Transaction - MIT). Nesse cenário é obrigatório o envio do nó `InitiatedTransactionIndicator` com os parâmetros `Category` e `SubCategory` para transações Mastercard, dentro do nó `Payment`. Confira a lista de categorias na descrição do parâmetro `Category` e a tabela completa de subcategorias em [Indicador de início da transação Mastercard](https://developercielo.github.io/manual/cielo-ecommerce#indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard).
 
 > <strong>Atenção:</strong> Não é possível realizar uma transação com valor (`Amount`) 0. Para verificar a validade de um cartão, use o [Zero Auth](https://developercielo.github.io/manual/cielo-ecommerce#zero-auth).
 
@@ -1525,9 +1525,12 @@ As tabelas a seguir se aplicam para transações de crédito e débito Mastercar
 * **Cardholder-Initiated Transaction (CIT)**: a transação é iniciada pela pessoa titular do cartão, que fornece suas credenciais de pagamento e permite que sejam armazenadas;
 * **Merchant-Initiated Transaction (MIT)**: a transação é iniciada pela loja, após um acordo no qual a pessoa titular do cartão autoriza a loja a armazenar e usar os dados de sua conta para iniciar uma ou mais transações futuras (como pagamentos recorrentes e parcelados e cobranças posteriores praticadas pelo setor de hospitalidade e turismo, por exemplo).
 <br/>
+<br/>
 Para indicar o iniciador de transação, é obrigatório enviar o nó `Payment.InitiatedTransactionIndicator`. Este nó tem dois parâmetros, categoria (`Category`) e subcategoria (`Subcategory`); confira a seguir o exemplo do nó na requisição e as tabelas com os valores correspondentes:
 
 #### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
 ```json
    "Payment":{
@@ -1550,6 +1553,8 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó `Payment.I
     (...)
    }
 ```
+
+> Confira o exemplo de requisição completa em [Criando uma transação de crédito](https://developercielo.github.io/manual/cielo-ecommerce#criando-uma-transa%C3%A7%C3%A3o-de-cr%C3%A9dito) ou em [Criando uma transação de débito](https://developercielo.github.io/manual/cielo-ecommerce#criando-uma-transa%C3%A7%C3%A3o-de-d%C3%A9bito)
 
 | Parâmetro | Tipo | Tamanho | Obrigatório? | Descrição |
 |---|---|---|---|---|
@@ -1584,7 +1589,7 @@ Nessa categoria, a transação é feita após um acordo com um acordo entre um t
 |`Subscription`| Salvar dados do cartão para compras futuras iniciadas pela loja, com valor e intervalo fixos.  | Exemplo: assinatura mensal ou pagamento de serviço mensal fixo. |
 |`Installment` | Salvar dados do cartão para compras futuras iniciadas pela loja, com valor conhecido e período definido.  | Exemplo: o consumidor compra uma televisão por R$2000,00 e faz o pagamento em quatro parcelas iguais de R$500,00; nesse cenário, a primeira transação é iniciada pelo titular do cartão e as três transações restantes são iniciadas pela loja. |
 
-**Categoria M2 - transação iniciada pela loja**
+**Categoria M2 - transação iniciada pela loja por prática do setor**
 
 `Payment.InitiatedTransactionIndicator.Category` = "M2"
 
@@ -1592,7 +1597,7 @@ Nessa categoria, a transação é feita após um acordo com um acordo entre um t
 |---|---|---|
 | `PartialShipment` | Salvar dados do cartão para compras futuras iniciadas pela loja, quando a compra será dividida em mais de uma remessa de entrega.  | Ocorre quando uma quantidade acordada de mercadorias encomendadas por e-commerce não está disponível para envio no momento da compra. Cada remessa é uma transação separada.  |
 |`RelatedOrDelayedCharge` | Salvar dados do cartão para compras futuras iniciadas pela loja para despesas adicionais.  |  Uma cobrança adicional da conta após a prestação dos serviços iniciais e o processamento do pagamento. Exemplo: cobrança do frigobar do hotel após o titular do cartão fazer check-out do hotel.  |
-|`NoShow`| Salvar dados do cartão para compras futuras iniciadas pela loja para cobrança de multas.  | Uma multa cobrada de acordo com a política de cancelamento do estabelecimento. Exemplo: O cancelamento de uma reserva pelo titular do cartão sem aviso prévio adequado ao estabelecimento.  | 
+|`NoShow`| Salvar dados do cartão para compras futuras iniciadas pela loja para cobrança de multas.  | Uma multa cobrada de acordo com a política de cancelamento do estabelecimento. Exemplo: o cancelamento de uma reserva pelo titular do cartão sem aviso prévio adequado ao estabelecimento.  | 
 | `Resubmission` | Salvar dados do cartão para retentativa de transações negadas anteriormente.  | A tentativa anterior de obter autorização para uma transação foi recusada, mas a resposta do emissor não proíbe a loja de tentar novamente mais tarde. Exemplo: fundos insuficientes/resposta acima do limite de crédito. |
 
 > **Atenção**: Os dados do cartão são armazenados de forma criptografada.
