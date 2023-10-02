@@ -925,7 +925,7 @@
 <aside class="notice">Warning: In the request header, use Content-Type application/json .</aside>
 
 <blockquote>
-  <p><strong>Mastercard credit card transactions with stored credentials</strong>: Mastercard brand requires the Transaction Initiator Indicator for credit and debit card transactions using stored card data. The goal is to indicate if the transaction was initiated by the cardholder or by the merchant. In this scenario, the node <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator</code> must be sent with the parameters <code class="language-plaintext highlighter-rouge">Category</code> and <code class="language-plaintext highlighter-rouge">SubCategory</code> for Mastercard transactions, within the node <code class="language-plaintext highlighter-rouge">Payment</code>. Please check the complete list of categories in the <code class="language-plaintext highlighter-rouge">Category</code> parameter description and the subcategories tables in <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator-tables">Transaction Initiator Indicator Tables</a>.</p>
+  <p><strong>Mastercard credit card transactions with stored credentials</strong>: Mastercard brand requires the Transaction Initiator Indicator for credit and debit card transactions using stored card data. The goal is to indicate if the transaction was initiated by the cardholder (cardholder-initiated transaction) or by the merchant (merchant-initiated transaction). In this scenario, the node <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator</code> must be sent with the parameters <code class="language-plaintext highlighter-rouge">Category</code> and <code class="language-plaintext highlighter-rouge">SubCategory</code> for Mastercard transactions, within the node <code class="language-plaintext highlighter-rouge">Payment</code>. Please check the complete list of categories in the <code class="language-plaintext highlighter-rouge">Category</code> parameter description and the subcategories tables in <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator-tables">Transaction Initiator Indicator Tables</a>.</p>
 </blockquote>
 
 <p>Please refer to <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#credit-card-with-authentication">Credit card with authentication</a> to create an authenticated credit card trnsaction.</p>
@@ -990,10 +990,6 @@
         </span><span class="nl">"Usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unscheduled"</span><span class="w">
       </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-      </span><span class="nl">"InitiatedTransactionIndicator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"Category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C1"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"Subcategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Standingorder"</span><span class="w">
     </span><span class="p">},</span><span class="w">    
     </span><span class="nl">"IsCryptoCurrencyNegotiation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
@@ -1068,11 +1064,7 @@
             <span class="s2">"Usage"</span>: <span class="s2">"Used"</span>,
             <span class="s2">"Reason"</span>:<span class="s2">"Unscheduled"</span>
          <span class="o">}</span>
-     <span class="o">}</span>,
-      <span class="s2">"InitiatedTransactionIndicator"</span>: <span class="o">{</span>
-          <span class="s2">"Category"</span>: <span class="s2">"C1"</span>,
-          <span class="s2">"Subcategory"</span>: <span class="s2">"Standingorder"</span>
-    <span class="o">}</span>,     
+     <span class="o">}</span>,    
      <span class="s2">"IsCryptoCurrencyNegotiation"</span>: <span class="nb">true</span>,
      <span class="s2">"Type"</span>:<span class="s2">"CreditCard"</span>,
      <span class="s2">"Amount"</span>:15700,
@@ -1553,10 +1545,6 @@
         </span><span class="nl">"Usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unscheduled"</span><span class="w">
       </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-      </span><span class="nl">"InitiatedTransactionIndicator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"Category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C1"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"Subcategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Standingorder"</span><span class="w">
     </span><span class="p">},</span><span class="w">    
     </span><span class="nl">"IsCryptoCurrencyNegotiation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"TryAutomaticCancellation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -1650,11 +1638,7 @@
             <span class="s2">"Usage"</span>: <span class="s2">"Used"</span>,
             <span class="s2">"Reason"</span>:<span class="s2">"Unscheduled"</span>
          <span class="o">}</span>
-        <span class="o">}</span>,
-        <span class="s2">"InitiatedTransactionIndicator"</span>: <span class="o">{</span>
-          <span class="s2">"Category"</span>: <span class="s2">"C1"</span>,
-          <span class="s2">"Subcategory"</span>: <span class="s2">"Standingorder"</span>
-    <span class="o">}</span>,        
+        <span class="o">}</span>,        
         <span class="s2">"IsCryptoCurrencyNegotiation"</span>: <span class="nb">true</span>,
         <span class="s2">"TryAutomaticCancellation"</span>:true,
         <span class="s2">"ProofOfSale"</span>: <span class="s2">"674532"</span>,
@@ -1802,7 +1786,7 @@
 </blockquote>
 
 <blockquote>
-  <p><strong>Mastercard debit card transactions with stored credentials</strong>: Mastercard brand requires the Transaction Initiator Indicator for credit and debit card transactions using stored card data. The goal is to indicate if the transaction was initiated by the cardholder or by the merchant. In this scenario, the node <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator</code> must be sent with the parameters <code class="language-plaintext highlighter-rouge">Category</code> and <code class="language-plaintext highlighter-rouge">SubCategory</code> for Mastercard transactions, within the node <code class="language-plaintext highlighter-rouge">Payment</code>. Please check the complete list of categories in the <code class="language-plaintext highlighter-rouge">Category</code> parameter description and the subcategories tables in Transaction Initiator Indicator Tables.</p>
+  <p><strong>Mastercard debit card transactions with stored credentials</strong>: Mastercard brand requires the Transaction Initiator Indicator for credit and debit card transactions using stored card data. The goal is to indicate if the transaction was initiated by the cardholder (cardholder-initiated transaction) or by the merchant (merchant-initiated transaction). In this scenario, the node <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator</code> must be sent with the parameters <code class="language-plaintext highlighter-rouge">Category</code> and <code class="language-plaintext highlighter-rouge">SubCategory</code> for Mastercard transactions, within the node <code class="language-plaintext highlighter-rouge">Payment</code>. Please check the complete list of categories in the <code class="language-plaintext highlighter-rouge">Category</code> parameter description and the subcategories tables in Transaction Initiator Indicator Tables.</p>
 </blockquote>
 
 <h4 id="creating-a-debit-transaction">Creating a debit transaction</h4>
@@ -1840,10 +1824,6 @@
       </span><span class="nl">"Version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"ReferenceID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"InitiatedTransactionIndicator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C1"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Subcategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Standingorder"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
@@ -1877,11 +1857,7 @@
          <span class="s2">"Eci"</span>:<span class="s2">"5"</span>,
          <span class="s2">"Version"</span>:<span class="s2">"2"</span>,
          <span class="s2">"ReferenceID"</span>:<span class="s2">"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"</span>
-      <span class="o">}</span>,
-    <span class="s2">"InitiatedTransactionIndicator"</span>: <span class="o">{</span>
-        <span class="s2">"Category"</span>: <span class="s2">"C1"</span>,
-        <span class="s2">"Subcategory"</span>: <span class="s2">"Standingorder"</span>
-    <span class="o">}</span>,      
+      <span class="o">}</span>,      
    <span class="o">}</span>
 <span class="o">}</span>
 <span class="nt">--verbose</span>
@@ -2068,10 +2044,6 @@
       </span><span class="nl">"Eci"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"ReferenceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"InitiatedTransactionIndicator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C1"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Subcategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Standingorder"</span><span class="w">
     </span><span class="p">},</span><span class="w">    
     </span><span class="nl">"Recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15700</span><span class="p">,</span><span class="w">
@@ -2125,10 +2097,6 @@
             <span class="s2">"Eci"</span>: <span class="s2">"5"</span>,
             <span class="s2">"Version"</span>: <span class="s2">"2"</span>,
             <span class="s2">"ReferenceId"</span>: <span class="s2">"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"</span>
-        <span class="o">}</span>,
-        <span class="s2">"InitiatedTransactionIndicator"</span>: <span class="o">{</span>
-            <span class="s2">"Category"</span>: <span class="s2">"C1"</span>,
-            <span class="s2">"Subcategory"</span>: <span class="s2">"Standingorder"</span>
         <span class="o">}</span>,        
         <span class="s2">"Recurrent"</span>: <span class="nb">false</span>,
         <span class="s2">"Amount"</span>: 15700,
