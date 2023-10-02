@@ -442,7 +442,7 @@ To create a credit card transaction, you need to send a request using the `POST`
 
 <aside class="notice"><strong>Warning:</strong> In the request header, use Content-Type application/json .</aside>
 
-> **Mastercard credit card transactions with stored credentials**: Mastercard brand requires the Transaction Initiator Indicator for credit and debit card transactions using stored card data. The goal is to indicate if the transaction was initiated by the cardholder or by the merchant. In this scenario, the node `InitiatedTransactionIndicator` must be sent with the parameters `Category` and `SubCategory` for Mastercard transactions, within the node `Payment`. Please check the complete list of categories in the `Category` parameter description and the subcategories tables in [Transaction Initiator Indicator Tables](https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator-tables).
+> **Mastercard credit card transactions with stored credentials**: Mastercard brand requires the Transaction Initiator Indicator for credit and debit card transactions using stored card data. The goal is to indicate if the transaction was initiated by the cardholder (cardholder-initiated transaction) or by the merchant (merchant-initiated transaction). In this scenario, the node `InitiatedTransactionIndicator` must be sent with the parameters `Category` and `SubCategory` for Mastercard transactions, within the node `Payment`. Please check the complete list of categories in the `Category` parameter description and the subcategories tables in [Transaction Initiator Indicator Tables](https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator-tables).
 
 Please refer to [Credit card with authentication](https://developercielo.github.io/en/manual/cielo-ecommerce#credit-card-with-authentication) to create an authenticated credit card trnsaction.
 
@@ -507,10 +507,6 @@ Please refer to [Credit card with authentication](https://developercielo.github.
         "Usage": "Used",
         "Reason": "Unscheduled"
       }
-    },
-      "InitiatedTransactionIndicator": {
-          "Category": "C1",
-          "Subcategory": "Standingorder"
     },    
     "IsCryptoCurrencyNegotiation": true,
     "Type": "CreditCard",
@@ -586,11 +582,7 @@ curl
             "Usage": "Used",
             "Reason":"Unscheduled"
          }
-     },
-      "InitiatedTransactionIndicator": {
-          "Category": "C1",
-          "Subcategory": "Standingorder"
-    },     
+     },    
      "IsCryptoCurrencyNegotiation": true,
      "Type":"CreditCard",
      "Amount":15700,
@@ -719,10 +711,6 @@ curl
         "Usage": "Used",
         "Reason": "Unscheduled"
       }
-    },
-      "InitiatedTransactionIndicator": {
-          "Category": "C1",
-          "Subcategory": "Standingorder"
     },    
     "IsCryptoCurrencyNegotiation": true,
     "TryAutomaticCancellation": true,
@@ -817,11 +805,7 @@ curl
             "Usage": "Used",
             "Reason":"Unscheduled"
          }
-        },
-        "InitiatedTransactionIndicator": {
-          "Category": "C1",
-          "Subcategory": "Standingorder"
-    },        
+        },        
         "IsCryptoCurrencyNegotiation": true,
         "TryAutomaticCancellation":true,
         "ProofOfSale": "674532",
@@ -883,7 +867,7 @@ To integrate the authentication method, check the [3DS 2.0 documentation](https:
 
 > **Debit without authentication**: or “debit without password”, can only be done when the e-commerce has the issuing bank's authorization to dismiss the authentication. In case you have that permission, send the field `Authenticate` as "false" in the standard request for debit card.
 
-> **Mastercard debit card transactions with stored credentials**: Mastercard brand requires the Transaction Initiator Indicator for credit and debit card transactions using stored card data. The goal is to indicate if the transaction was initiated by the cardholder or by the merchant. In this scenario, the node `InitiatedTransactionIndicator` must be sent with the parameters `Category` and `SubCategory` for Mastercard transactions, within the node `Payment`. Please check the complete list of categories in the `Category` parameter description and the subcategories tables in Transaction Initiator Indicator Tables.
+> **Mastercard debit card transactions with stored credentials**: Mastercard brand requires the Transaction Initiator Indicator for credit and debit card transactions using stored card data. The goal is to indicate if the transaction was initiated by the cardholder (cardholder-initiated transaction) or by the merchant (merchant-initiated transaction). In this scenario, the node `InitiatedTransactionIndicator` must be sent with the parameters `Category` and `SubCategory` for Mastercard transactions, within the node `Payment`. Please check the complete list of categories in the `Category` parameter description and the subcategories tables in Transaction Initiator Indicator Tables.
 
 #### Creating a debit transaction
 
@@ -919,10 +903,6 @@ To sell with a debit card, you should request using the POST method. The example
       "Version": "2",
       "ReferenceID": "a24a5d87-b1a1-4aef-a37b-2f30b91274e6"
     },
-    "InitiatedTransactionIndicator": {
-        "Category": "C1",
-        "Subcategory": "Standingorder"
-    },
   }
 }
 ```
@@ -957,11 +937,7 @@ curl
          "Eci":"5",
          "Version":"2",
          "ReferenceID":"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"
-      },
-    "InitiatedTransactionIndicator": {
-        "Category": "C1",
-        "Subcategory": "Standingorder"
-    },      
+      },      
    }
 }
 --verbose
@@ -1018,10 +994,6 @@ curl
       "Eci": "5",
       "Version": "2",
       "ReferenceId": "a24a5d87-b1a1-4aef-a37b-2f30b91274e6"
-    },
-    "InitiatedTransactionIndicator": {
-        "Category": "C1",
-        "Subcategory": "Standingorder"
     },    
     "Recurrent": false,
     "Amount": 15700,
@@ -1076,10 +1048,6 @@ curl
             "Eci": "5",
             "Version": "2",
             "ReferenceId": "a24a5d87-b1a1-4aef-a37b-2f30b91274e6"
-        },
-        "InitiatedTransactionIndicator": {
-            "Category": "C1",
-            "Subcategory": "Standingorder"
         },        
         "Recurrent": false,
         "Amount": 15700,
