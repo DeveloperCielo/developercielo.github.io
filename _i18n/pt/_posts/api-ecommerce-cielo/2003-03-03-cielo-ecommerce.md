@@ -1006,11 +1006,7 @@ curl
       "Eci": "5",
       "Version": "2",
       "ReferenceId": "a24a5d87-b1a1-4aef-a37b-2f30b91274e6"
-    },
-    "InitiatedTransactionIndicator": {
-        "Category": "C1",
-        "Subcategory": "Standingorder"
-    },    
+    },   
     "Recurrent": false,
     "Amount": 15700,
     "ReceivedDate": "2022-08-26 10:47:53",
@@ -1064,10 +1060,6 @@ curl
             "Eci": "5",
             "Version": "2",
             "ReferenceId": "a24a5d87-b1a1-4aef-a37b-2f30b91274e6"
-        },
-        "InitiatedTransactionIndicator": {
-            "Category": "C1",
-            "Subcategory": "Standingorder"
         },        
         "Recurrent": false,
         "Amount": 15700,
@@ -1526,11 +1518,42 @@ O Merchant plug-in, conhecido por MPI, é um serviço que permite a realização
 
 - **MPI Externo**: usado quando o seu e-commerce contrata uma solução de MPI, sem participação da Cielo. Independente da versão do 3DS contratada, siga as orientações do manual [3. Autorização com Autenticação](https://developercielo.github.io/manual/autorizacao-com-autenticacao){:target="\_blank"} para a integração.
 
-### Tabelas do Indicador de Início da Transação Mastercard
+### Indicador de início da transação Mastercard
 
-As tabelas a seguir se aplicam para transações de crédito e débito Mastercard com credenciais armazenadas. O objetivo é identificar se a transação foi iniciada pelo **titular do cartão** (Cardholder Initiated Transaction - CIT) ou pela **loja** (Merchant Initiated Transaction - MIT).
+As tabelas a seguir se aplicam para transações de crédito e débito Mastercard com credenciais armazenadas. O objetivo é identificar se a transação foi iniciada pelo **titular do cartão** ou pela **loja**:
 
-Para indicar o iniciador de transação, é obrigatório enviar o nó `Payment.InitiatedTransactionIndicator`. Este nó tem dois parâmetros, categoria (`Category`) e subcategoria (`Subcategory`); confira a seguir os valores correspondentes:
+* **Cardholder-Initiated Transaction (CIT)**: a transação é iniciada pela pessoa titular do cartão, que fornece suas credenciais de pagamento e permite que sejam armazenadas;
+* **Merchant-Initiated Transaction (MIT)**: a transação é iniciada pela loja, após um acordo no qual a pessoa titular do cartão autoriza a loja a armazenar e usar os dados de sua conta para iniciar uma ou mais transações futuras (como pagamentos recorrentes e parcelados e cobranças posteriores praticadas pelo setor de hospitalidade e turismo, por exemplo).
+
+Para indicar o iniciador de transação, é obrigatório enviar o nó `Payment.InitiatedTransactionIndicator`. Este nó tem dois parâmetros, categoria (`Category`) e subcategoria (`Subcategory`); confira a seguir o exemplo do nó na requisição e as tabelas com os valores correspondentes:
+
+#### Requisição
+
+```json
+   "Payment":{
+     (...)
+    "InitiatedTransactionIndicator": {
+        "Category": "C1",
+        "Subcategory": "Standingorder"
+    },
+    (...)
+   }
+```
+
+```shell
+   "Payment":{
+     (...)
+    "InitiatedTransactionIndicator": {
+        "Category": "C1",
+        "Subcategory": "Standingorder"
+    },
+    (...)
+   }
+```
+
+#### Resposta
+
+A resposta será o padrão da transação de crédito ou débito com o retorno do nó inserido na requisição.
 
 **Categoria C1 - transação iniciada pelo portador do cartão**
 
