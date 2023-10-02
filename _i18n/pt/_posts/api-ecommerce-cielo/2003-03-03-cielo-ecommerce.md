@@ -1524,7 +1524,7 @@ As tabelas a seguir se aplicam para transações de crédito e débito Mastercar
 
 * **Cardholder-Initiated Transaction (CIT)**: a transação é iniciada pela pessoa titular do cartão, que fornece suas credenciais de pagamento e permite que sejam armazenadas;
 * **Merchant-Initiated Transaction (MIT)**: a transação é iniciada pela loja, após um acordo no qual a pessoa titular do cartão autoriza a loja a armazenar e usar os dados de sua conta para iniciar uma ou mais transações futuras (como pagamentos recorrentes e parcelados e cobranças posteriores praticadas pelo setor de hospitalidade e turismo, por exemplo).
-
+<br/>
 Para indicar o iniciador de transação, é obrigatório enviar o nó `Payment.InitiatedTransactionIndicator`. Este nó tem dois parâmetros, categoria (`Category`) e subcategoria (`Subcategory`); confira a seguir o exemplo do nó na requisição e as tabelas com os valores correspondentes:
 
 #### Requisição
@@ -1550,6 +1550,7 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó `Payment.I
     (...)
    }
 ```
+
 | Parâmetro | Tipo | Tamanho | Obrigatório? | Descrição |
 |---|---|---|---|---|
 |`Payment.InitiatedTransactionIndicator.Category`| string | 2 |Condicional. Obrigatório apenas para bandeira Mastercard. | Categoria do indicador de início da transação. Válido apenas para bandeira Mastercard.<br>Valores possíveis:<br>- “C1”: transação inciada pelo portador do cartão;<br>- “M1”: transação recorrente ou parcelada iniciada pela loja;<br>- “M2”: transação iniciada pela loja.|
