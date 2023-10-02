@@ -3011,10 +3011,10 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <ul>
   <li><strong>Cardholder-Initiated Transaction (CIT)</strong>: a transação é iniciada pela pessoa titular do cartão, que fornece suas credenciais de pagamento e permite que sejam armazenadas;</li>
-  <li><strong>Merchant-Initiated Transaction (MIT)</strong>: a transação é iniciada pela loja, após um acordo no qual a pessoa titular do cartão autoriza a loja a armazenar e usar os dados de sua conta para iniciar uma ou mais transações futuras (como pagamentos recorrentes e parcelados e cobranças posteriores praticadas pelo setor de hospitalidade e turismo, por exemplo).</li>
+  <li><strong>Merchant-Initiated Transaction (MIT)</strong>: a transação é iniciada pela loja, após um acordo no qual a pessoa titular do cartão autoriza a loja a armazenar e usar os dados de sua conta para iniciar uma ou mais transações futuras (como pagamentos recorrentes e parcelados e cobranças posteriores praticadas pelo setor de hospitalidade e turismo, por exemplo).
+<br />
+Para indicar o iniciador de transação, é obrigatório enviar o nó <code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator</code>. Este nó tem dois parâmetros, categoria (<code class="language-plaintext highlighter-rouge">Category</code>) e subcategoria (<code class="language-plaintext highlighter-rouge">Subcategory</code>); confira a seguir o exemplo do nó na requisição e as tabelas com os valores correspondentes:</li>
 </ul>
-
-<p>Para indicar o iniciador de transação, é obrigatório enviar o nó <code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator</code>. Este nó tem dois parâmetros, categoria (<code class="language-plaintext highlighter-rouge">Category</code>) e subcategoria (<code class="language-plaintext highlighter-rouge">Subcategory</code>); confira a seguir o exemplo do nó na requisição e as tabelas com os valores correspondentes:</p>
 
 <h4 id="requisição-4">Requisição</h4>
 
@@ -3037,10 +3037,34 @@ Abaixo especificamos qualquer diferença existente:</p>
     <span class="o">(</span>...<span class="o">)</span>
    <span class="o">}</span>
 </code></pre></div></div>
-<p>| Parâmetro | Tipo | Tamanho | Obrigatório? | Descrição |
-|—|—|—|—|—|
-|<code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Category</code>| string | 2 |Condicional. Obrigatório apenas para bandeira Mastercard. | Categoria do indicador de início da transação. Válido apenas para bandeira Mastercard.<br />Valores possíveis:<br />- “C1”: transação inciada pelo portador do cartão;<br />- “M1”: transação recorrente ou parcelada iniciada pela loja;<br />- “M2”: transação iniciada pela loja.|
-|<code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Subcategory</code>| string | - | Condicional. Obrigatório apenas para bandeira Mastercard. | Subcategoria do indicador. Válido apenas para bandeira Mastercard.<br />Valores possíveis:<br />Se <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator.Category</code> = “C1” ou “M1”<br /><em>CredentialsOnFile</em><br /><em>StandingOrder</em><br /><em>Subscription</em><br /><em>Installment</em><br />Se <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator.Category</code> = “M2”<br /><em>PartialShipment</em><br /><em>RelatedOrDelayedCharge</em><br /><em>NoShow</em><br /><em>Resubmission</em><br />Consulte a tabela com a descrição das subcategorias em <a href="https://developercielo.github.io/manual/cielo-ecommerce#indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard">Indicador de início da transação</a>.|</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parâmetro</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório?</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Category</code></td>
+      <td>string</td>
+      <td>2</td>
+      <td>Condicional. Obrigatório apenas para bandeira Mastercard.</td>
+      <td>Categoria do indicador de início da transação. Válido apenas para bandeira Mastercard.<br />Valores possíveis:<br />- “C1”: transação inciada pelo portador do cartão;<br />- “M1”: transação recorrente ou parcelada iniciada pela loja;<br />- “M2”: transação iniciada pela loja.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Subcategory</code></td>
+      <td>string</td>
+      <td>-</td>
+      <td>Condicional. Obrigatório apenas para bandeira Mastercard.</td>
+      <td>Subcategoria do indicador. Válido apenas para bandeira Mastercard.<br />Valores possíveis:<br />Se <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator.Category</code> = “C1” ou “M1”<br /><em>CredentialsOnFile</em><br /><em>StandingOrder</em><br /><em>Subscription</em><br /><em>Installment</em><br />Se <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator.Category</code> = “M2”<br /><em>PartialShipment</em><br /><em>RelatedOrDelayedCharge</em><br /><em>NoShow</em><br /><em>Resubmission</em><br />Consulte a tabela com a descrição das subcategorias em <a href="https://developercielo.github.io/manual/cielo-ecommerce#indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard">Indicador de início da transação</a>.</td>
+    </tr>
+  </tbody>
+</table>
 
 <h4 id="resposta-4">Resposta</h4>
 
