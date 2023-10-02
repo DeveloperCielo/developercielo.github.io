@@ -1793,13 +1793,13 @@ Abaixo especificamos qualquer diferença existente:</p>
   <p><strong>Débito sem autenticação</strong>: ou “débito sem senha”, só pode ser realizada quando o e-commerce tem autorização do banco emissor para dispensa da autenticação. Caso você tenha essa permissão, envie o campo <code class="language-plaintext highlighter-rouge">Authenticate</code> como “false” na requisição padrão de cartão de débito.</p>
 </blockquote>
 
-<blockquote>
-  <p><strong>Transações de débito Mastercard com credenciais armazenadas</strong>: a bandeira Mastercard exige o envio do <strong>Indicador de Início da Transação</strong> para compras de <strong>cartão de crédito e débito</strong> que usam os dados armazenados de um cartão. O objetivo é indicar se a transação foi iniciada pelo comprador (Cardholder-Initiated Transaction - CIT) ou pela loja (Merchant-Initiated Transaction - MIT). Nesse cenário é obrigatório o envio do nó <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator</code> com os parâmetros <code class="language-plaintext highlighter-rouge">Category</code> e <code class="language-plaintext highlighter-rouge">SubCategory</code> para transações Mastercard, dentro do nó <code class="language-plaintext highlighter-rouge">Payment</code>. Confira a lista de categorias na descrição do parâmetro <code class="language-plaintext highlighter-rouge">Category</code> e a tabela completa de subcategorias em <a href="https://developercielo.github.io/manual/cielo-ecommerce#indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard">Indicador de início da transação Mastercard</a>.</p>
-</blockquote>
-
 <h4 id="criando-uma-transação-de-débito">Criando uma transação de débito</h4>
 
 <p>Para criar uma venda com cartão de débito, chame o método POST conforme o exemplo a seguir. O exemplo contempla o mínimo de campos necessários que devem ser enviados para a autorização.</p>
+
+<blockquote>
+  <p><strong>Transações de débito Mastercard com credenciais armazenadas</strong>: a bandeira Mastercard exige o envio do <strong>Indicador de Início da Transação</strong> para compras de <strong>cartão de crédito e débito</strong> que usam os dados armazenados de um cartão. O objetivo é indicar se a transação foi iniciada pelo comprador (Cardholder-Initiated Transaction - CIT) ou pela loja (Merchant-Initiated Transaction - MIT). Nesse cenário é obrigatório o envio do nó <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator</code> com os parâmetros <code class="language-plaintext highlighter-rouge">Category</code> e <code class="language-plaintext highlighter-rouge">SubCategory</code> para transações Mastercard, dentro do nó <code class="language-plaintext highlighter-rouge">Payment</code>. Confira a lista de categorias na descrição do parâmetro <code class="language-plaintext highlighter-rouge">Category</code> e a tabela completa de subcategorias em <a href="https://developercielo.github.io/manual/cielo-ecommerce#indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard">Indicador de início da transação Mastercard</a>.</p>
+</blockquote>
 
 <blockquote>
   <p>Atenção: Não é possível realizar uma transação com valor (<code class="language-plaintext highlighter-rouge">Amount</code>) 0. Para verificar a validade de um cartão, use o <a href="https://developercielo.github.io/manual/cielo-ecommerce#zero-auth">Zero Auth</a>.</p>
@@ -3013,10 +3013,13 @@ Abaixo especificamos qualquer diferença existente:</p>
   <li><strong>Cardholder-Initiated Transaction (CIT)</strong>: a transação é iniciada pela pessoa titular do cartão, que fornece suas credenciais de pagamento e permite que sejam armazenadas;</li>
   <li><strong>Merchant-Initiated Transaction (MIT)</strong>: a transação é iniciada pela loja, após um acordo no qual a pessoa titular do cartão autoriza a loja a armazenar e usar os dados de sua conta para iniciar uma ou mais transações futuras (como pagamentos recorrentes e parcelados e cobranças posteriores praticadas pelo setor de hospitalidade e turismo, por exemplo).
 <br />
+<br />
 Para indicar o iniciador de transação, é obrigatório enviar o nó <code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator</code>. Este nó tem dois parâmetros, categoria (<code class="language-plaintext highlighter-rouge">Category</code>) e subcategoria (<code class="language-plaintext highlighter-rouge">Subcategory</code>); confira a seguir o exemplo do nó na requisição e as tabelas com os valores correspondentes:</li>
 </ul>
 
 <h4 id="requisição-4">Requisição</h4>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">
      </span><span class="err">(...)</span><span class="w">
@@ -3037,6 +3040,10 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
     <span class="o">(</span>...<span class="o">)</span>
    <span class="o">}</span>
 </code></pre></div></div>
+
+<blockquote>
+  <p>Confira o exemplo de requisição completa em <a href="https://developercielo.github.io/manual/cielo-ecommerce#criando-uma-transa%C3%A7%C3%A3o-de-cr%C3%A9dito">Criando uma transação de crédito</a> ou em <a href="https://developercielo.github.io/manual/cielo-ecommerce#criando-uma-transa%C3%A7%C3%A3o-de-d%C3%A9bito">Criando uma transação de débito</a></p>
+</blockquote>
 
 <table>
   <thead>
@@ -3144,7 +3151,7 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
   </tbody>
 </table>
 
-<p><strong>Categoria M2 - transação iniciada pela loja</strong></p>
+<p><strong>Categoria M2 - transação iniciada pela loja por prática do setor</strong></p>
 
 <p><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Category</code> = “M2”</p>
 
@@ -3170,7 +3177,7 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
     <tr>
       <td><code class="language-plaintext highlighter-rouge">NoShow</code></td>
       <td>Salvar dados do cartão para compras futuras iniciadas pela loja para cobrança de multas.</td>
-      <td>Uma multa cobrada de acordo com a política de cancelamento do estabelecimento. Exemplo: O cancelamento de uma reserva pelo titular do cartão sem aviso prévio adequado ao estabelecimento.</td>
+      <td>Uma multa cobrada de acordo com a política de cancelamento do estabelecimento. Exemplo: o cancelamento de uma reserva pelo titular do cartão sem aviso prévio adequado ao estabelecimento.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Resubmission</code></td>
