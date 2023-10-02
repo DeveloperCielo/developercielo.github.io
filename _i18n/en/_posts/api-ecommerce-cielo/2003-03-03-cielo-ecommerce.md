@@ -1506,11 +1506,48 @@ The Merchant plug-in, known as MPI, is a service that allows you to make the cal
 
 - **External MPI**: used when your e-commerce hires a MPI solution, without Cielo's participation. No matter the 3DS version hired, follow the [Authorization with Authentication guide](https://developercielo.github.io/en/manual/autorizacao-com-autenticacao){:target="\_blank"}.
 
-### Mastercard Transaction Initiator Indicator Tables
+### Mastercard Transaction Initiator Indicator
 
-The following tables should be used for Mastercard credit and debit transactions with stored card data (tokenized cards). The aim is to identify if the transaction was initiated by the cardholder (Cardholder Initiated Transaction - CIT) ou by the merchant (Merchant Initiated Transaction - MIT).
+The following tables should be used for **Mastercard credit and debit** transactions with saved card data (tokenized cards). The aim is to identify if the transaction was initiated by the cardholder or by the merchant:
 
-The Transaction Initiator Indicator must be sent in the node `Payment.InitiatedTransactionIndicator`, within parameters `Category` and `Subcategory`. Please refer to the following tables to know the details:
+* **Cardholder-Initiated Transaction (CIT)**: The transaction is initiated by the cardholder, who provides their payment credentials and agrees with the merchant saving those payment credentials.
+* **Merchant-Initiated Transaction (MIT)**: The transaction is initiated by the merchant, after an agreement in which the cardholder authorizes the merchant to save and use cardholder account data to initiate one or more transactions in the future (such as recurrent payments or installments, and charges commonly applied by the tourism and hospitality sector).
+<br/>
+
+The transaction initiator indicator must be sent in the node `Payment.InitiatedTransactionIndicator`, within parameters `Category` and `Subcategory`. Please refer to the following request example and tables for more information:
+
+#### Request
+
+```json
+   "Payment":{
+     (...)
+    "InitiatedTransactionIndicator": {
+        "Category": "C1",
+        "Subcategory": "Standingorder"
+    },
+    (...)
+   }
+```
+
+```shell
+   "Payment":{
+     (...)
+    "InitiatedTransactionIndicator": {
+        "Category": "C1",
+        "Subcategory": "Standingorder"
+    },
+    (...)
+   }
+```
+
+| Property   | Type   | Size | Required | Description  |
+|---|---|---|---|---|
+|`Payment.InitiatedTransactionIndicator.Category`|string|2|Conditional. Required only for Mastercard.|Transaction Initiator Indicator category. *Valid only for Mastercard*.<br>Possible values:<br>- “C1”: transaction initiated by the cardholder;<br>- “M1”: recurring payment or installment initiated by the merchant<br>- “M2”: transaction initiated by the merchant.|
+|`Payment.InitiatedTransactionIndicator.Subcategory`|string|-|Conditional. Required only for Mastercard.|Transaction Initiator Indicator subcategory. *Valid only for Mastercard*. Please refer to the [Transaction Initiator Indicator](https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator-tables) tables for the full list.|
+
+#### Response
+
+The response will be the default response for the credit or debit transaction, returning the node `Payment.InitiatedTransactionIndicator` as sent in the request.
 
 **Category C1 - transaction initiated by the cardholder**
 
@@ -1547,7 +1584,7 @@ In this category, the transaction is completed after an agreement between mercha
 |`NoShow`| Saves card data for future purchases initiated by the merchant for fine charges. | A fine charged according to the merchant cancellation policy. E.g.: the cardholder cancels a reservation.|
 | `Resubmission` | Saves card data for retrying previously denied transactions.| The previous attempt to submit a transaction was denied, but the issuer response does not prohibit the merchant to retry. E.g.: insufficient funds/response above credit limit.|
 
-> **Important**: Card data is stored as a token.
+> **Important**: Card data is saved as a token.
 
 ## Alelo Cards
 
