@@ -1518,6 +1518,8 @@ The transaction initiator indicator must be sent in the node `Payment.InitiatedT
 
 #### Request
 
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+
 ```json
    "Payment":{
      (...)
@@ -1539,6 +1541,8 @@ The transaction initiator indicator must be sent in the node `Payment.InitiatedT
     (...)
    }
 ```
+
+> For the full request example see [Creating a credit card transaction](https://developercielo.github.io/en/manual/cielo-ecommerce#creating-a-credit-card-transaction) ou em [Creating a debit transaction](https://developercielo.github.io/en/manual/cielo-ecommerce#creating-a-debit-transaction).
 
 | Property   | Type   | Size | Required | Description  |
 |---|---|---|---|---|
