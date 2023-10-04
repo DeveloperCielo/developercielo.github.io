@@ -3606,7 +3606,7 @@ Card On File supports the following brands:
 * **Visa**
 * **Elo**
 
-> **For Card On File transactions with the Mastercard brand** it is necessary to send the indicator node at the beginning of the transaction (`Payment.InitiatedTransactionIndicator`), to inform whether the transaction was initiated by the shopper or by the store. Find out more at [Mastercard Transaction Initiator Indicator Tables](https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator-tables).
+> **For Card On File transactions with the Mastercard brand** it is required to send the indicator node in the request (`Payment.InitiatedTransactionIndicator`), to inform whether the transaction was initiated by the shopper or by the store. Find out more at [Mastercard Transaction Initiator Indicator](https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator).
 
 ## Request
 
@@ -3913,7 +3913,7 @@ Marking a recurrence is important for the security of a recurring transaction, s
 * Send `RecurrentPayment` node in case of scheduled recurrence;
 * For recurring transactions with stored credentials:
   * Send the `CardOnFile.Usage` and `CardOnFile.Reason` fields. *Learn more at [Card On File](https://developercielo.github.io/en/manual/cielo-ecommerce#card-on-file)*;
-  * For **Mastercard cards**, send the transaction initiation indicator node (`Payment.InitiatedTransactionIndicator`) to indicate whether the transaction was initiated by the shopper or the store. Learn more in [Mastercard Transaction Initiator Indicator Tables](https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator-tables).
+  * For **Mastercard cards**, send the transaction initiation indicator node (`Payment.InitiatedTransactionIndicator`) to indicate whether the transaction was initiated by the cardholder or by the merchant. Learn more in [Mastercard Transaction Initiator Indicator](https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator).
 
 ### Creating a Merchant Recurrence
 
