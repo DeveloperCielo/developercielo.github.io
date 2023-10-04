@@ -3640,7 +3640,7 @@ O Card On File suporta as seguintes bandeiras:
 * **Visa**
 * **Elo**
 
-> **Para transações Card On File com a bandeira Mastercard** é necessário enviar o nó de indicador do início da transação (`Payment.InitiatedTransactionIndicator`), para informar se a transação foi iniciada pelo comprador ou pela loja. Saiba mais em [Tabelas do Indicador de Início da Transação Mastercard](https://developercielo.github.io/manual/cielo-ecommerce#tabelas-do-indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard).
+> **Para transações Card On File com a bandeira Mastercard** é necessário enviar o nó de indicador do início da transação (`Payment.InitiatedTransactionIndicator`), para informar se a transação foi iniciada pelo comprador ou pela loja. Saiba mais em [Indicador de Início da Transação Mastercard](https://developercielo.github.io/manual/cielo-ecommerce#indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard).
 
 ## Requisição
 
@@ -3945,7 +3945,7 @@ A marcação de recorrência é importante para a segurança de uma transação 
 * Envie o nó `RecurrentPayment` no caso de recorrência programada;
 * Para transações recorrentes com credenciais armazenadas:
   * Envie os campos `CardOnFile.Usage` e `CardOnFile.Reason`. *Saiba mais em [Card On File](https://developercielo.github.io/manual/cielo-ecommerce#card-on-file)*;
-  * Para **cartões Mastercard**, envie o nó de indicador do início da transação (`Payment.InitiatedTransactionIndicator`), para informar se a transação foi iniciada pelo comprador ou pela loja. Saiba mais em [Tabelas do Indicador de Início da Transação Mastercard](https://developercielo.github.io/manual/cielo-ecommerce#tabelas-do-indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard).
+  * Para **cartões Mastercard**, envie o nó de indicador do início da transação (`Payment.InitiatedTransactionIndicator`), para informar se a transação foi iniciada pelo comprador ou pela loja. Saiba mais em [Indicador de Início da Transação Mastercard](https://developercielo.github.io/manual/cielo-ecommerce#indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard).
 
 ### Criando uma Recorrência Própria
 
