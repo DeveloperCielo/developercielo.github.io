@@ -2303,12 +2303,12 @@ Abaixo, segue um descritivo de atributos do objeto Setttings.</p>
 
 <h2 id="impressão">Impressão</h2>
 
-<p>A Cielo LIO permite que aplicações parceiras utilizem os métodos disponíveis da impressora para imprimir dados importantes ou necessários para o negócio do cliente. Para realizar estas operações, basta utilizar um dos métodos listados abaixo que permite a impressão de uma única linha, uma sequência de linhas, ou imagens</p>
+<p>A Cielo LIO permite que aplicações utilizem o método de impressão por imagem para imprimir dados importantes ou necessários para o negócio do cliente. Para realizar estas ações, basta utilizar o método listado abaixo.</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">PrinterManager</span> <span class="n">printerManager</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PrinterManager</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
 </code></pre></div></div>
 
-<p>Independende da forma de impressão escolhida, você deverá utilizar o seguinte callback como parâmetro do método de para receber os estados relacionados à impressão:</p>
+<p>Você deverá utilizar o seguinte callback como parâmetro de método para receber os estados relacionados à impressão.</p>
 
 <blockquote>
   <p>PrinterListener: Um callback que informa sobre todas as ações tomadas durante o processo de impressão.
@@ -2425,91 +2425,6 @@ As seguintes ações pode ser notificadas:
 <span class="n">alignRight</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="nc">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_TYPEFACE</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span>
 <span class="n">alignRight</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="nc">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_TEXT_SIZE</span><span class="o">,</span> <span class="mi">20</span><span class="o">);</span>
 </code></pre></div></div>
-
-<h3 id="impressão-de-texto-simples">Impressão de texto simples</h3>
-
-<p>Para imprimir textos simples utilize o método <code class="language-plaintext highlighter-rouge">printText()</code> do PrinterManager.
-O método recebe como parâmetro o texto a ser impresso, um mapa de estilo de impressão e um listener para tratar o retorno da impressão.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span> <span class="n">textToPrint</span> <span class="o">=</span> <span class="s">"Texto simples a ser impresso.\n Com múltiplas linhas"</span><span class="o">;</span>
-<span class="n">printerManager</span><span class="o">.</span><span class="na">printText</span><span class="o">(</span><span class="n">textToPrint</span><span class="o">,</span> <span class="n">alignLeft</span><span class="o">,</span> <span class="n">printerListener</span><span class="o">);</span>
-</code></pre></div></div>
-
-<p>Exemplo de impressão de texto simples:
-<img src="https://developercielo.github.io/images/cielo-lio/print-text.png" alt="Impressão texto simples" height="25%" width="25%" /></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Atributo</th>
-      <th>Descrição</th>
-      <th>Domínio</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>text</td>
-      <td>Texto a ser impresso.</td>
-      <td><code class="language-plaintext highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>style</td>
-      <td>Mapa de estilos de impressão</td>
-      <td><code class="language-plaintext highlighter-rouge">Map&lt;String, Int&gt;</code></td>
-    </tr>
-    <tr>
-      <td>printerListener</td>
-      <td>Callback de impressão.</td>
-      <td><code class="language-plaintext highlighter-rouge">cielo.sdk.order.PrinterListener</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="impressão-de-múltiplas-colunas">Impressão de múltiplas colunas</h3>
-
-<p>Para imprimir textos em múltiplas colunas utilize o método <code class="language-plaintext highlighter-rouge">printMultipleColumnText()</code> do PrinterManager.
-O método recebe como parâmetro um array de texts a serem impresso, um array com mapas de estilos de impressão, respectivamente e um listener para tratar o retorno da impressão.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span><span class="o">[]</span> <span class="n">textsToPrint</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">String</span><span class="o">[]</span> <span class="o">{</span> <span class="s">"Texto alinhado à esquerda."</span><span class="o">,</span> <span class="s">"Texto centralizado"</span><span class="o">,</span> <span class="s">"Texto alinhado à direita"</span>  <span class="o">}</span>
-
-<span class="nc">List</span><span class="o">&lt;</span><span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;&gt;</span> <span class="n">stylesMap</span> <span class="o">=</span>  <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
-<span class="n">stylesMap</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">alignLeft</span><span class="o">);</span>
-<span class="n">stylesMap</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">alignCenter</span><span class="o">);</span>
-<span class="n">stylesMap</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">alignRight</span><span class="o">);</span>
-
-<span class="n">printerManager</span><span class="o">.</span><span class="na">printMultipleColumnText</span><span class="o">(</span><span class="n">textsToPrint</span><span class="o">,</span> <span class="n">stylesMap</span><span class="o">,</span> <span class="n">printerListener</span><span class="o">);</span>
-
-</code></pre></div></div>
-
-<p>Resultado final da impressão:
-<img src="https://developercielo.github.io/images/cielo-lio/print-columns.png" alt="Impressão Múltiplas Colunas" height="25%" width="25%" /></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Atributo</th>
-      <th>Descrição</th>
-      <th>Domínio</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>stringArray</td>
-      <td>Lista de textos a serem impressos.</td>
-      <td><code class="language-plaintext highlighter-rouge">String[]</code></td>
-    </tr>
-    <tr>
-      <td>style</td>
-      <td>Lista de mapa de estilos de impressão</td>
-      <td><code class="language-plaintext highlighter-rouge">List&lt;Map&lt;String, Int)&gt;&gt;</code></td>
-    </tr>
-    <tr>
-      <td>printerListener</td>
-      <td>Callback de impressão.</td>
-      <td><code class="language-plaintext highlighter-rouge">cielo.sdk.order.PrinterListener</code></td>
-    </tr>
-  </tbody>
-</table>
 
 <h3 id="impressão-de-imagem">Impressão de imagem</h3>
 
