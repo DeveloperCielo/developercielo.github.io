@@ -6699,7 +6699,7 @@ In addition, you have to send some addictional data in the transaction, to that 
 </ul>
 
 <blockquote>
-  <p><strong>For Card On File transactions with the Mastercard brand</strong> it is necessary to send the indicator node at the beginning of the transaction (<code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator</code>), to inform whether the transaction was initiated by the shopper or by the store. Find out more at <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator-tables">Mastercard Transaction Initiator Indicator Tables</a>.</p>
+  <p><strong>For Card On File transactions with the Mastercard brand</strong> it is required to send the indicator node in the request (<code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator</code>), to inform whether the transaction was initiated by the shopper or by the store. Find out more at <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator">Mastercard Transaction Initiator Indicator</a>.</p>
 </blockquote>
 
 <h2 id="request-18">Request</h2>
@@ -7323,7 +7323,7 @@ In addition, you have to send some addictional data in the transaction, to that 
   <li>For recurring transactions with stored credentials:
     <ul>
       <li>Send the <code class="language-plaintext highlighter-rouge">CardOnFile.Usage</code> and <code class="language-plaintext highlighter-rouge">CardOnFile.Reason</code> fields. <em>Learn more at <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#card-on-file">Card On File</a></em>;</li>
-      <li>For <strong>Mastercard cards</strong>, send the transaction initiation indicator node (<code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator</code>) to indicate whether the transaction was initiated by the shopper or the store. Learn more in <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator-tables">Mastercard Transaction Initiator Indicator Tables</a>.</li>
+      <li>For <strong>Mastercard cards</strong>, send the transaction initiation indicator node (<code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator</code>) to indicate whether the transaction was initiated by the cardholder or by the merchant. Learn more in <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator">Mastercard Transaction Initiator Indicator</a>.</li>
     </ul>
   </li>
 </ul>
