@@ -30,7 +30,7 @@ Acesse o painel **ADMIN VTEX** (https://*nomedaloja*.myvtex.com/admin) e comece 
 
 ### 2. Selecionando o Conector
 
-> Apenas o conector CieloEcommerce receberá manutenção e atualização. [Veja como migrar entre conectores](https://suporte.braspag.com.br/hc/pt-br/articles/18072079824155-Como-fazer-a-migra%C3%A7%C3%A3o-entre-conectores-VTEX-){:target="_blank"}.
+> Apenas o conector CieloEcommerce receberá manutenção e atualização.
 
 <aside class="notice">O número do pedido que é exibido na tela do comprador é registrado na VTEX como informação "orderId" para o conector CieloEcommerce e como "reference" para o conector Braspag. Portanto, preste atenção ao migrar de um conector para o outro.</aside>
 
