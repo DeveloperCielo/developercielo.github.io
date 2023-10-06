@@ -156,6 +156,8 @@ Selecione a Condição de Pagamento desejada e configure conforme o passo a pass
 
 Selecione a Condição de Pagamento desejada e configure conforme o passo a passo em [Condição de Pagamento](https://braspag.github.io//tutorial/integracao-vtex#condi%C3%A7%C3%A3o-de-pagamento).
 
+> Caso o pagamento seja realizado em tempo superior a 60 segundos após a geração do QRCode, o status do pagamento será atualizado na plataforma VTEX a cada três horas.
+
 ### Voucher
 
 Este meio de pagamento deve seguir a seção de [Pagamentos Customizados](https://braspag.github.io//tutorial/integracao-vtex#pagamentos-customizados) para que a opção seja exibida na Condição de Pagamento. Posteriormente, selecione a Condição de Pagamento com o nome escolhido anteriormente e configure conforme o passo a passo em [Condição de Pagamento](https://braspag.github.io//tutorial/integracao-vtex#condi%C3%A7%C3%A3o-de-pagamento).
@@ -186,7 +188,17 @@ Nesta seção configure os dados para Private Label, Ticket e Alelo:
 
 ## 3DS
 
-As credenciais recebidas para utilização da solução devem ser inseridas conforme em [Afiliação de Pagamento](https://braspag.github.io//tutorial/integracao-vtex#afilia%C3%A7%C3%A3o-de-pagamento). Caso não use a solução 3DS, selecione o campo **UseMpi** como "No" em [Preenchendo os Dados Necessários](https://braspag.github.io//tutorial/integracao-vtex#4.-preenchendo-dados-necess%C3%A1rios).
+As credenciais recebidas para utilização da solução devem ser inseridas conforme o tópico [Afiliação de Pagamento](https://braspag.github.io//tutorial/integracao-vtex#afilia%C3%A7%C3%A3o-de-pagamento).
+
+Para utilizar esta solução, é necessário instalar o aplicativo 3DS. Com o usuário logado, acesse a seguinte URL e substitua o *nome_da_loja* pelo nome de sua loja.
+
+<aside class="notice">https://[nome_da_loja].myvetex.com/admin/apps/braspag.braspag-3ds-payment-app@3.0.1/setup/</aside>
+
+Ao concluir a instalação, verifique se o aplicativo aparece em **Aplicativos** > **Meus Aplicativos**:
+
+![3DS]({{ site.baseurl_root }}/images/modulos/vtex/09-3ds.png)
+
+> Caso não use a solução 3DS, selecione o campo **UseMpi** como "No" em [Preenchendo os Dados Necessários](https://braspag.github.io//tutorial/integracao-vtex#4.-preenchendo-dados-necess%C3%A1rios).
 
 ## Split de Pagamentos
 
