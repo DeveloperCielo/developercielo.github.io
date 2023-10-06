@@ -30,35 +30,29 @@ Acesse o painel **ADMIN VTEX** (https://*nomedaloja*.myvtex.com/admin) e comece 
 
 ### 2. Selecionando o Conector
 
-> Apenas o conector CieloEcommerce receberá manutenção e atualização.
+> Apenas o conector CieloEcommerce receberá manutenção e atualização. Não é recomendada a configuração com outros conectores.
 
 <aside class="notice">O número do pedido que é exibido na tela do comprador é registrado na VTEX como informação "orderId" para o conector CieloEcommerce e como "reference" para o conector Braspag. Portanto, preste atenção ao migrar de um conector para o outro.</aside>
 
-Selecione o conector desejado e insira as informações recebidas após a contratação da solução. Os conectores disponíveis são:
-
-* **Braspag**;
-* **BraspagV2**;
-* **CieloV3**;
-* **CieloV4**;
-* **CieloEcommerce**.
+Selecione o conector **CieloEcommerce** e insira as informações conforme recebidas após a contratação da solução.
  
 ![CieloEcommerce]({{ site.baseurl_root }}/images/modulos/vtex/01-cieloecommerce.jpeg)
 
-Veja as diferenças entre conectores:
+Veja as diferenças entre conectores legados e o novo conector **CieloEcommerce**:
 
 |Meios de Pagamento|Braspag|Braspag V2|Cielo V3|Cielo V4|CieloEcommerce|
 |-|-|-|-|-|-|
 |Boleto|**Gateway**:<br>- BancoDoBrasil2<br>- Bradesco2|Não se aplica|**Adquirência**:<br>- BancoDoBrasil2<br>- Bradesco2|Não se aplica|Não se aplica|
-|Boleto Registrado|**Gateway**:<br>- BancoDoBrasil2<br>- Bradesco2|Não se aplica|**Adquirência**:<br>- BancoDoBrasil2<br>- Bradesco2|Não se aplica|**Adquirência**:<br>- Bradesco2<br>- BancoDoBrasil2<br>- BancoDoBrasil3<br>**Gateway**:<br>- Bradesco2<br>- BancoDoBrasil2<br>- BancoDoBrasil3<br> - ItauShopline<br>- Caixa2 <br>- CitiBank2<br>- Santander2|
-|Crédito|**Gateway**:<br>- Banorte<br>- Redecard<br>- Ditef<br>- Amex 2P <br>- PagosOnLine<br>- PayVision<br>- Sitef<br>- GetNet<br>- Sub1 <br>- Credibanco<br>- E-rede2<br>- E-rede<br>- SafraPay| **Gateway**:<br>- Cielo30<br>- Rede2|**Adquirência**:<br> - Cielo|**Adquirência**:<br>- Cielo|**Adquirência**:<br>- Cielo<br> **Gateway**:<br>- Cielo30<br>- Getnet<br>- Rede2 <br>- Safra2<br>- Sub1<br>- Banorte<br>- Credibanco2<br>- Carrefour* <br>- CredSystem* <br>- Credz* <br>- Dmcard*|
-|Débito|**Gateway**:<br>- Cielo3.0<br>- GetNet<br>- Rede2|**Gateway**:<br>- Cielo3.0<br>- Rede2|**Gateway**:<br>- Cielo|**Gateway**:<br>- Cielo|**Adquirência**:<br>- Cielo<br>**Gateway**:<br>- Cielo30<br>- Getnet<br>- Rede2<br>- Safra2|
+|Boleto Registrado|**Gateway**:<br>- BancoDoBrasil2<br>- Bradesco2|Não se aplica|**Adquirência**:<br>- BancoDoBrasil2<br>- Bradesco2|Não se aplica|**Adquirência**:<br>- Bradesco2<br>- BancoDoBrasil2<br>- BancoDoBrasil3<br>**Gateway**:<br>- Bradesco2<br>- BancoDoBrasil2<br>- BancoDoBrasil3<br>- Braspag<br> - ItauShopline<br>- Caixa2 <br>- CitiBank2<br>- Santander2|
+|Crédito|**Gateway**:<br>- Banorte<br>- Redecard<br>- Ditef<br>- Amex 2P <br>- PagosOnLine<br>- PayVision<br>- Sitef<br>- GetNet<br>- Sub1 <br>- Credibanco<br>- E-rede2<br>- E-rede<br>- SafraPay| **Gateway**:<br>- Cielo30<br>- Rede2|**Adquirência**:<br> - Cielo|**Adquirência**:<br>- Cielo|**Adquirência**:<br>- Cielo<br> **Gateway**:<br>- Cielo30<br>- Getnet<br>- Rede2 <br>- Safra2<br>- Sub1<br>- Banorte<br>- Credibanco2<br>- FirstData<br>- GlobalPayment<br>- Stone<br>- Transbank2<br>- Banese* <br> - BrasilCard* <br>- Carrefour* <br>- CredSystem* <br>- Credz* <br>- Dmcard*|
+|Débito|**Gateway**:<br>- Cielo3.0<br>- GetNet<br>- Rede2|**Gateway**:<br>- Cielo3.0<br>- Rede2|**Gateway**:<br>- Cielo|**Gateway**:<br>- Cielo|**Adquirência**:<br>- Cielo<br>**Gateway**:<br>- Cielo30<br>- FirstData<br>- Getnet<br>- GlobalPayment<br>- Rede2<br>- Safra2|
 |Pix|Não se aplica|Não se aplica|Não se aplica|Não se aplica|**Adquirência**:<br>- Bradesco2<br>- Cielo <br>**Gateway**:<br> - Cielo30<br>- Bradesco2|
 |Voucher|Não se aplica|**Gateway**:<br>- Ticket|**Adquirência**:<br>- Alelo|Não se aplica|**Adquirência**:<br> - Alelo<br>**Gateway**:<br>- Ticket<br>- Alelo|
 
 *Bandeira própria
 
 > * A solução **Antifraude Braspag** é oferecida por todos os conectores.<br>
-> * As soluções **3DS 2.0** e **Split de Pagamentos** são oferecidas apenas pelos conectores Braspag V2, Cielo V4 e CieloEcommerce.
+> * As soluções **3DS 2.0** e **Split de Pagamentos** são oferecidas apenas pelo conector CieloEcommerce.
 
 ### 3. Escolhendo o Nome da Afiliação
 
