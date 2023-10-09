@@ -12,7 +12,7 @@ tags:
 
 # Integração VTEX
 
-A Cielo desenvolveu um conector na plataforma de e-commerce VTEX para realização do pagamento através das APIs de pagamento online da Cielo.  A usabilidade da plataforma deve ser consultada no [tutorial da VTEX](https://help.vtex.com/tutorial/){:target="_blank"}. Abaixo reforçaremos as informações necessárias para utilização do conector.
+A Cielo disponibiliza um conector na plataforma de e-commerce VTEX para realização do pagamento através das APIs de pagamento online da Cielo.  A usabilidade da plataforma deve ser consultada no [tutorial da VTEX](https://help.vtex.com/tutorial/){:target="_blank"}. Neste manual, apresentamos as informações necessárias para uso do conector.
 
 # Configuração
 
