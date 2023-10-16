@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-10-16T13:20:00+00:00</updated>
+    <updated>2023-10-16T13:56:50+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -31893,23 +31893,23 @@ You can import them directly into your POSTMAN and have all the examples ready t
 
 &lt;h4 id=&quot;creating-a-credit-card-transaction&quot;&gt;Creating a credit card transaction&lt;/h4&gt;
 
-&lt;p&gt;To create a credit card transaction, you need to send a request using the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;POST&lt;/code&gt; method, as shown. This example covers all the possible fields you can send; check which fields are required in the request property table.&lt;/p&gt;
+&lt;p&gt;To create a credit card transaction, you need to send a request using the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;POST&lt;/code&gt; method, as shown. This example covers all the possible fields you can send; check which fields are required in the request properties table.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;The transaction &lt;strong&gt;capture&lt;/strong&gt; can be &lt;strong&gt;authomatic&lt;/strong&gt; or &lt;strong&gt;posterior&lt;/strong&gt;. For an authomatic capure, send the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Capture&lt;/code&gt; field in the request as “true”. For a posterior capture, send the field as “false” and, later, do the &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#consult-capture-cancel&quot; target=&quot;\_blank&quot;&gt;capture request&lt;/a&gt;.&lt;/p&gt;
+  &lt;p&gt;The transaction &lt;strong&gt;capture&lt;/strong&gt; can be &lt;strong&gt;authomatic&lt;/strong&gt; or &lt;strong&gt;posterior&lt;/strong&gt;. For an authomatic capure, send the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Capture&lt;/code&gt; field in the request as “true”. For a posterior capture, send the field as “false” and then do the &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#queries,-capture-and-cancellation&quot; target=&quot;\_blank&quot;&gt;capture request&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;Warning: It is not possible to carry out a transaction with its value as (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Amount&lt;/code&gt;) 0. To verify if a card is valid, use &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#zero-auth&quot;&gt;Zero Auth&lt;/a&gt;.&lt;/p&gt;
+  &lt;p&gt;Warning: It is not possible to carry out a transaction with its value (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Amount&lt;/code&gt;) as 0. To verify if a card is valid, use &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#zero-auth&quot;&gt;Zero Auth&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;Warning: In the request header, use Content-Type application/json .&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Warning: In the request header, use Content-Type as application/json .&lt;/aside&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Mastercard credit card transactions with stored credentials&lt;/strong&gt;: Mastercard brand requires the Transaction Initiator Indicator for credit and debit card transactions using stored card data. The goal is to indicate if the transaction was initiated by the cardholder (cardholder-initiated transaction) or by the merchant (merchant-initiated transaction). In this scenario, the node &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;InitiatedTransactionIndicator&lt;/code&gt; must be sent with the parameters &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Category&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SubCategory&lt;/code&gt; for Mastercard transactions, within the node &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment&lt;/code&gt;. Please check the complete list of categories in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Category&lt;/code&gt; parameter description and the subcategories tables in &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator&quot;&gt;Transaction Initiator Indicator&lt;/a&gt;.&lt;/p&gt;
+  &lt;p&gt;&lt;strong&gt;Mastercard credit card transactions with stored credentials&lt;/strong&gt;: the Mastercard brand requires the Transaction Initiator Indicator for credit and debit card transactions using stored card data. The goal is to indicate if the transaction was initiated by the cardholder or by the merchant. In this scenario, the node &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;InitiatedTransactionIndicator&lt;/code&gt; must be sent with the parameters &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Category&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SubCategory&lt;/code&gt; for Mastercard transactions, within the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment&lt;/code&gt; node. Please check the complete list of categories in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Category&lt;/code&gt; parameter description and the subcategories tables in &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator-tables&quot;&gt;Transaction Initiator Indicator Tables&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;Please refer to &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#credit-card-with-authentication&quot;&gt;Credit card with authentication&lt;/a&gt; to create an authenticated credit card trnsaction.&lt;/p&gt;
+&lt;p&gt;Please refer to &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#credit-card-with-authentication&quot;&gt;Credit card with authentication&lt;/a&gt; to create an authenticated credit card transaction.&lt;/p&gt;
 
 &lt;h5 id=&quot;request-1&quot;&gt;Request&lt;/h5&gt;
 
@@ -31971,6 +31971,10 @@ You can import them directly into your POSTMAN and have all the examples ready t
         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Usage&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Reason&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Unscheduled&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
       &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;InitiatedTransactionIndicator&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Category&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;C1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Subcategory&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Standingorder&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;    
     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;IsCryptoCurrencyNegotiation&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -32045,7 +32049,11 @@ You can import them directly into your POSTMAN and have all the examples ready t
             &lt;span class=&quot;s2&quot;&gt;&quot;Usage&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;,
             &lt;span class=&quot;s2&quot;&gt;&quot;Reason&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Unscheduled&quot;&lt;/span&gt;
          &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,    
+     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;InitiatedTransactionIndicator&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;s2&quot;&gt;&quot;Category&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;C1&quot;&lt;/span&gt;,
+          &lt;span class=&quot;s2&quot;&gt;&quot;Subcategory&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Standingorder&quot;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,     
      &lt;span class=&quot;s2&quot;&gt;&quot;IsCryptoCurrencyNegotiation&quot;&lt;/span&gt;: &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;,
      &lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;,
      &lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;:15700,
@@ -32094,7 +32102,7 @@ You can import them directly into your POSTMAN and have all the examples ready t
       &lt;td&gt;Guid&lt;/td&gt;
       &lt;td&gt;36&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.&lt;/td&gt;
+      &lt;td&gt;Request identifier, used when the merchant uses different servers for each GET/POST/PUT.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantOrderId&lt;/code&gt;&lt;/td&gt;
@@ -32108,14 +32116,14 @@ You can import them directly into your POSTMAN and have all the examples ready t
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Customer’s name&lt;/td&gt;
+      &lt;td&gt;Customer’s name.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Customer.Status&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;The customer’s registration status on the store. (NEW / EXISTING)&lt;/td&gt;
+      &lt;td&gt;The customer’s registration status on the store. (NEW / EXISTING).&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Customer.Identity&lt;/code&gt;&lt;/td&gt;
@@ -32136,14 +32144,14 @@ You can import them directly into your POSTMAN and have all the examples ready t
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Customer’s e-mail&lt;/td&gt;
+      &lt;td&gt;Customer’s e-mail.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Customer.Birthdate&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Date&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Customer’s birth date&lt;/td&gt;
+      &lt;td&gt;Customer’s birth date.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Customer.Address.Street&lt;/code&gt;&lt;/td&gt;
@@ -32171,7 +32179,7 @@ You can import them directly into your POSTMAN and have all the examples ready t
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;9&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Customer’s Zip Code&lt;/td&gt;
+      &lt;td&gt;Customer’s Zip Code.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Customer.Address.City&lt;/code&gt;&lt;/td&gt;
@@ -32304,11 +32312,11 @@ You can import them directly into your POSTMAN and have all the examples ready t
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;100&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Type of the Payment Method.&lt;/td&gt;
+      &lt;td&gt;Type of the payment method.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Amount&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Núumber&lt;/td&gt;
+      &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
       &lt;td&gt;Order Amount (to be sent in cents).&lt;/td&gt;
@@ -32325,14 +32333,14 @@ You can import them directly into your POSTMAN and have all the examples ready t
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;3&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Country in which the payment will be made&lt;/td&gt;
+      &lt;td&gt;Country in which the payment will be made.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Provider&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
-      &lt;td&gt;Defines the behavior for the payment method/NÃO OBRIGATÓRIO PARA CRÉDITO.&lt;/td&gt;
+      &lt;td&gt;Defines the behavior for the payment method/NOT REQUIRED FOR CREDIT.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.ServiceTaxAmount&lt;/code&gt;&lt;/td&gt;
@@ -32367,7 +32375,7 @@ You can import them directly into your POSTMAN and have all the examples ready t
       &lt;td&gt;Boolean&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
       &lt;td&gt;No (Default false)&lt;/td&gt;
-      &lt;td&gt;Boolean that identifies if the authorization should be done by &lt;strong&gt;Authomatic capture (true)&lt;/strong&gt; or &lt;strong&gt;posterior capture (false)&lt;/strong&gt;.&lt;/td&gt;
+      &lt;td&gt;Boolean that identifies if the authorization should be done by &lt;strong&gt;Authomatic capture (true)&lt;/strong&gt; or &lt;strong&gt;&lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#capture&quot;&gt;posterior capture&lt;/a&gt; (false)&lt;/strong&gt;.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Authenticate&lt;/code&gt;&lt;/td&gt;
@@ -32437,14 +32445,14 @@ You can import them directly into your POSTMAN and have all the examples ready t
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Card brand. Possible values:Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper.&lt;/td&gt;
+      &lt;td&gt;Card brand. Possible values: Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.CreditCard.CardOnFile.Usage&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;First&lt;/strong&gt; if the card was stored and it’s your first use.&lt;br /&gt;&lt;strong&gt;Used&lt;/strong&gt; if the card was stored and has been used for another transaction before.    Get more information on the topic &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#card-on-file&quot; target=&quot;_blank&quot;&gt;Card On File&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;First&lt;/strong&gt; if the card was stored and it’s your first use.&lt;br /&gt;&lt;strong&gt;Used&lt;/strong&gt; if the card was stored and has been used for another transaction before. Find out more about &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#card-on-file&quot;&gt;Card On File&lt;/a&gt;.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.CreditCard.CardOnFile.Reason&lt;/code&gt;&lt;/td&gt;
@@ -32465,7 +32473,7 @@ You can import them directly into your POSTMAN and have all the examples ready t
       &lt;td&gt;string&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Conditional. Required only for Mastercard.&lt;/td&gt;
-      &lt;td&gt;Transaction Initiator Indicator subcategory. &lt;em&gt;Valid only for Mastercard&lt;/em&gt;. Please refer to the &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator&quot;&gt;Transaction Initiator Indicator&lt;/a&gt; tables for the full list.&lt;/td&gt;
+      &lt;td&gt;Transaction Initiator Indicator subcategory. &lt;em&gt;Valid only for Mastercard&lt;/em&gt;. Please refer to the &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator-tables&quot;&gt;Transaction Initiator Indicator&lt;/a&gt; tables for the full list.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -32526,6 +32534,10 @@ You can import them directly into your POSTMAN and have all the examples ready t
         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Usage&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Reason&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Unscheduled&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
       &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;InitiatedTransactionIndicator&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Category&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;C1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Subcategory&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Standingorder&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;    
     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;IsCryptoCurrencyNegotiation&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;TryAutomaticCancellation&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -32619,7 +32631,11 @@ You can import them directly into your POSTMAN and have all the examples ready t
             &lt;span class=&quot;s2&quot;&gt;&quot;Usage&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;,
             &lt;span class=&quot;s2&quot;&gt;&quot;Reason&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Unscheduled&quot;&lt;/span&gt;
          &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,        
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+        &lt;span class=&quot;s2&quot;&gt;&quot;InitiatedTransactionIndicator&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;s2&quot;&gt;&quot;Category&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;C1&quot;&lt;/span&gt;,
+          &lt;span class=&quot;s2&quot;&gt;&quot;Subcategory&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Standingorder&quot;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,        
         &lt;span class=&quot;s2&quot;&gt;&quot;IsCryptoCurrencyNegotiation&quot;&lt;/span&gt;: &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;,
         &lt;span class=&quot;s2&quot;&gt;&quot;TryAutomaticCancellation&quot;&lt;/span&gt;:true,
         &lt;span class=&quot;s2&quot;&gt;&quot;ProofOfSale&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;674532&quot;&lt;/span&gt;,
@@ -32707,7 +32723,7 @@ You can import them directly into your POSTMAN and have all the examples ready t
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Status&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Transaction status.&lt;/td&gt;
+      &lt;td&gt;Transaction status. Check out the complete &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#transactional-status&quot;&gt;Transactional status codes&lt;/a&gt; table.&lt;/td&gt;
       &lt;td&gt;Byte&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
@@ -32743,7 +32759,7 @@ You can import them directly into your POSTMAN and have all the examples ready t
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.CreditCard.PaymentAccountReference&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;PAR (payment account reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the card brand doesn’t send the information the field will not be returned.&lt;/td&gt;
-      &lt;td&gt;Alphanumber&lt;/td&gt;
+      &lt;td&gt;Alphanumeric&lt;/td&gt;
       &lt;td&gt;29&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
     &lt;/tr&gt;

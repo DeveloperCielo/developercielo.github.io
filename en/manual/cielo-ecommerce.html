@@ -912,23 +912,23 @@
 
 <h4 id="creating-a-credit-card-transaction">Creating a credit card transaction</h4>
 
-<p>To create a credit card transaction, you need to send a request using the <code class="language-plaintext highlighter-rouge">POST</code> method, as shown. This example covers all the possible fields you can send; check which fields are required in the request property table.</p>
+<p>To create a credit card transaction, you need to send a request using the <code class="language-plaintext highlighter-rouge">POST</code> method, as shown. This example covers all the possible fields you can send; check which fields are required in the request properties table.</p>
 
 <blockquote>
-  <p>The transaction <strong>capture</strong> can be <strong>authomatic</strong> or <strong>posterior</strong>. For an authomatic capure, send the <code class="language-plaintext highlighter-rouge">Payment.Capture</code> field in the request as “true”. For a posterior capture, send the field as “false” and, later, do the <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#consult-capture-cancel" target="\_blank">capture request</a>.</p>
+  <p>The transaction <strong>capture</strong> can be <strong>authomatic</strong> or <strong>posterior</strong>. For an authomatic capure, send the <code class="language-plaintext highlighter-rouge">Payment.Capture</code> field in the request as “true”. For a posterior capture, send the field as “false” and then do the <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#queries,-capture-and-cancellation" target="\_blank">capture request</a>.</p>
 </blockquote>
 
 <blockquote>
-  <p>Warning: It is not possible to carry out a transaction with its value as (<code class="language-plaintext highlighter-rouge">Amount</code>) 0. To verify if a card is valid, use <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#zero-auth">Zero Auth</a>.</p>
+  <p>Warning: It is not possible to carry out a transaction with its value (<code class="language-plaintext highlighter-rouge">Amount</code>) as 0. To verify if a card is valid, use <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#zero-auth">Zero Auth</a>.</p>
 </blockquote>
 
-<aside class="notice">Warning: In the request header, use Content-Type application/json .</aside>
+<aside class="notice">Warning: In the request header, use Content-Type as application/json .</aside>
 
 <blockquote>
-  <p><strong>Mastercard credit card transactions with stored credentials</strong>: Mastercard brand requires the Transaction Initiator Indicator for credit and debit card transactions using stored card data. The goal is to indicate if the transaction was initiated by the cardholder (cardholder-initiated transaction) or by the merchant (merchant-initiated transaction). In this scenario, the node <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator</code> must be sent with the parameters <code class="language-plaintext highlighter-rouge">Category</code> and <code class="language-plaintext highlighter-rouge">SubCategory</code> for Mastercard transactions, within the node <code class="language-plaintext highlighter-rouge">Payment</code>. Please check the complete list of categories in the <code class="language-plaintext highlighter-rouge">Category</code> parameter description and the subcategories tables in <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator">Transaction Initiator Indicator</a>.</p>
+  <p><strong>Mastercard credit card transactions with stored credentials</strong>: the Mastercard brand requires the Transaction Initiator Indicator for credit and debit card transactions using stored card data. The goal is to indicate if the transaction was initiated by the cardholder or by the merchant. In this scenario, the node <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator</code> must be sent with the parameters <code class="language-plaintext highlighter-rouge">Category</code> and <code class="language-plaintext highlighter-rouge">SubCategory</code> for Mastercard transactions, within the <code class="language-plaintext highlighter-rouge">Payment</code> node. Please check the complete list of categories in the <code class="language-plaintext highlighter-rouge">Category</code> parameter description and the subcategories tables in <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator-tables">Transaction Initiator Indicator Tables</a>.</p>
 </blockquote>
 
-<p>Please refer to <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#credit-card-with-authentication">Credit card with authentication</a> to create an authenticated credit card trnsaction.</p>
+<p>Please refer to <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#credit-card-with-authentication">Credit card with authentication</a> to create an authenticated credit card transaction.</p>
 
 <h5 id="request-1">Request</h5>
 
@@ -990,6 +990,10 @@
         </span><span class="nl">"Usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unscheduled"</span><span class="w">
       </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"InitiatedTransactionIndicator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C1"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Subcategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Standingorder"</span><span class="w">
     </span><span class="p">},</span><span class="w">    
     </span><span class="nl">"IsCryptoCurrencyNegotiation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
@@ -1064,7 +1068,11 @@
             <span class="s2">"Usage"</span>: <span class="s2">"Used"</span>,
             <span class="s2">"Reason"</span>:<span class="s2">"Unscheduled"</span>
          <span class="o">}</span>
-     <span class="o">}</span>,    
+     <span class="o">}</span>,
+      <span class="s2">"InitiatedTransactionIndicator"</span>: <span class="o">{</span>
+          <span class="s2">"Category"</span>: <span class="s2">"C1"</span>,
+          <span class="s2">"Subcategory"</span>: <span class="s2">"Standingorder"</span>
+    <span class="o">}</span>,     
      <span class="s2">"IsCryptoCurrencyNegotiation"</span>: <span class="nb">true</span>,
      <span class="s2">"Type"</span>:<span class="s2">"CreditCard"</span>,
      <span class="s2">"Amount"</span>:15700,
@@ -1113,7 +1121,7 @@
       <td>Guid</td>
       <td>36</td>
       <td>No</td>
-      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.</td>
+      <td>Request identifier, used when the merchant uses different servers for each GET/POST/PUT.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
@@ -1127,14 +1135,14 @@
       <td>Text</td>
       <td>255</td>
       <td>No</td>
-      <td>Customer’s name</td>
+      <td>Customer’s name.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
       <td>Text</td>
       <td>255</td>
       <td>No</td>
-      <td>The customer’s registration status on the store. (NEW / EXISTING)</td>
+      <td>The customer’s registration status on the store. (NEW / EXISTING).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
@@ -1155,14 +1163,14 @@
       <td>Text</td>
       <td>255</td>
       <td>No</td>
-      <td>Customer’s e-mail</td>
+      <td>Customer’s e-mail.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Birthdate</code></td>
       <td>Date</td>
       <td>10</td>
       <td>No</td>
-      <td>Customer’s birth date</td>
+      <td>Customer’s birth date.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
@@ -1190,7 +1198,7 @@
       <td>Text</td>
       <td>9</td>
       <td>No</td>
-      <td>Customer’s Zip Code</td>
+      <td>Customer’s Zip Code.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
@@ -1323,11 +1331,11 @@
       <td>Text</td>
       <td>100</td>
       <td>Yes</td>
-      <td>Type of the Payment Method.</td>
+      <td>Type of the payment method.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
-      <td>Núumber</td>
+      <td>Number</td>
       <td>15</td>
       <td>Yes</td>
       <td>Order Amount (to be sent in cents).</td>
@@ -1344,14 +1352,14 @@
       <td>Text</td>
       <td>3</td>
       <td>No</td>
-      <td>Country in which the payment will be made</td>
+      <td>Country in which the payment will be made.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
       <td>Text</td>
       <td>15</td>
       <td>—</td>
-      <td>Defines the behavior for the payment method/NÃO OBRIGATÓRIO PARA CRÉDITO.</td>
+      <td>Defines the behavior for the payment method/NOT REQUIRED FOR CREDIT.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ServiceTaxAmount</code></td>
@@ -1386,7 +1394,7 @@
       <td>Boolean</td>
       <td>—</td>
       <td>No (Default false)</td>
-      <td>Boolean that identifies if the authorization should be done by <strong>Authomatic capture (true)</strong> or <strong>posterior capture (false)</strong>.</td>
+      <td>Boolean that identifies if the authorization should be done by <strong>Authomatic capture (true)</strong> or <strong><a href="https://developercielo.github.io/en/manual/cielo-ecommerce#capture">posterior capture</a> (false)</strong>.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
@@ -1456,14 +1464,14 @@
       <td>Text</td>
       <td>10</td>
       <td>Yes</td>
-      <td>Card brand. Possible values:Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper.</td>
+      <td>Card brand. Possible values: Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.CardOnFile.Usage</code></td>
       <td>Text</td>
       <td>-</td>
       <td>No</td>
-      <td><strong>First</strong> if the card was stored and it’s your first use.<br /><strong>Used</strong> if the card was stored and has been used for another transaction before.    Get more information on the topic <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#card-on-file" target="_blank">Card On File</a></td>
+      <td><strong>First</strong> if the card was stored and it’s your first use.<br /><strong>Used</strong> if the card was stored and has been used for another transaction before. Find out more about <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#card-on-file">Card On File</a>.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.CardOnFile.Reason</code></td>
@@ -1484,7 +1492,7 @@
       <td>string</td>
       <td>-</td>
       <td>Conditional. Required only for Mastercard.</td>
-      <td>Transaction Initiator Indicator subcategory. <em>Valid only for Mastercard</em>. Please refer to the <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator">Transaction Initiator Indicator</a> tables for the full list.</td>
+      <td>Transaction Initiator Indicator subcategory. <em>Valid only for Mastercard</em>. Please refer to the <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator-tables">Transaction Initiator Indicator</a> tables for the full list.</td>
     </tr>
   </tbody>
 </table>
@@ -1545,6 +1553,10 @@
         </span><span class="nl">"Usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unscheduled"</span><span class="w">
       </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"InitiatedTransactionIndicator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C1"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Subcategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Standingorder"</span><span class="w">
     </span><span class="p">},</span><span class="w">    
     </span><span class="nl">"IsCryptoCurrencyNegotiation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"TryAutomaticCancellation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -1638,7 +1650,11 @@
             <span class="s2">"Usage"</span>: <span class="s2">"Used"</span>,
             <span class="s2">"Reason"</span>:<span class="s2">"Unscheduled"</span>
          <span class="o">}</span>
-        <span class="o">}</span>,        
+        <span class="o">}</span>,
+        <span class="s2">"InitiatedTransactionIndicator"</span>: <span class="o">{</span>
+          <span class="s2">"Category"</span>: <span class="s2">"C1"</span>,
+          <span class="s2">"Subcategory"</span>: <span class="s2">"Standingorder"</span>
+    <span class="o">}</span>,        
         <span class="s2">"IsCryptoCurrencyNegotiation"</span>: <span class="nb">true</span>,
         <span class="s2">"TryAutomaticCancellation"</span>:true,
         <span class="s2">"ProofOfSale"</span>: <span class="s2">"674532"</span>,
@@ -1726,7 +1742,7 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Transaction status.</td>
+      <td>Transaction status. Check out the complete <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#transactional-status">Transactional status codes</a> table.</td>
       <td>Byte</td>
       <td>—</td>
       <td>2</td>
@@ -1762,7 +1778,7 @@
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.PaymentAccountReference</code></td>
       <td>PAR (payment account reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the card brand doesn’t send the information the field will not be returned.</td>
-      <td>Alphanumber</td>
+      <td>Alphanumeric</td>
       <td>29</td>
       <td>—</td>
     </tr>
