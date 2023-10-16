@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-10-09T20:17:56+00:00</updated>
+    <updated>2023-10-16T13:20:00+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -31871,6 +31871,10 @@ You can import them directly into your POSTMAN and have all the examples ready t
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Authentication&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;The authentication process makes it possible to effective a sale, which will pass through the authentication process of the card issuing bank, then providing more security for the sale and transferring the risk of fraud to the bank.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Authorization&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;The authorization (or pre-authorization) is the main operation in the eCommerce, because through it, the sale can be finished. Pre-authorization only sensitizes the customer’s limit, but still does not generate charge for the consumer.&lt;/td&gt;
     &lt;/tr&gt;
@@ -31882,14 +31886,10 @@ You can import them directly into your POSTMAN and have all the examples ready t
       &lt;td&gt;&lt;strong&gt;Cancellation&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;The cancellation is necessary when, for some reason, a sale will not be effected anymore.&lt;/td&gt;
     &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Authentication&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;The authentication process makes it possible to effective a sale, which will pass through the authentication process of the card issuing bank, then providing more security for the sale and transferring the risk of fraud to the bank.&lt;/td&gt;
-    &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;aside class=&quot;warning&quot;&gt;IMPORTANT: The order identification number (MerchantOrderId) does not change, remaining the same throughout the transactional flow. However, an additional number can be generated for the order and used during the transaction. This number will only be different in case of adaptation to the acquirer's rules or in case there are repeated order identification numbers (MerchantOrderId) in less then 24 hours. For reconciliation purposes, use TransactionId.&lt;/aside&gt;
+&lt;aside class=&quot;warning&quot;&gt;IMPORTANT: The order identification number (`MerchantOrderId``) does not change, remaining the same throughout the transactional flow. However, an additional number can be generated for the order and used during the transaction. This number will only be different in case of adaptation to the acquirer's rules or in case there are repeated order identification numbers (`MerchantOrderId`) in less then 24 hours. For reconciliation purposes, use `TransactionId``.&lt;/aside&gt;
 
 &lt;h4 id=&quot;creating-a-credit-card-transaction&quot;&gt;Creating a credit card transaction&lt;/h4&gt;
 

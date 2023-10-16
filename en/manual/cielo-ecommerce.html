@@ -890,6 +890,10 @@
   </thead>
   <tbody>
     <tr>
+      <td><strong>Authentication</strong></td>
+      <td>The authentication process makes it possible to effective a sale, which will pass through the authentication process of the card issuing bank, then providing more security for the sale and transferring the risk of fraud to the bank.</td>
+    </tr>
+    <tr>
       <td><strong>Authorization</strong></td>
       <td>The authorization (or pre-authorization) is the main operation in the eCommerce, because through it, the sale can be finished. Pre-authorization only sensitizes the customer’s limit, but still does not generate charge for the consumer.</td>
     </tr>
@@ -901,14 +905,10 @@
       <td><strong>Cancellation</strong></td>
       <td>The cancellation is necessary when, for some reason, a sale will not be effected anymore.</td>
     </tr>
-    <tr>
-      <td><strong>Authentication</strong></td>
-      <td>The authentication process makes it possible to effective a sale, which will pass through the authentication process of the card issuing bank, then providing more security for the sale and transferring the risk of fraud to the bank.</td>
-    </tr>
   </tbody>
 </table>
 
-<aside class="warning">IMPORTANT: The order identification number (MerchantOrderId) does not change, remaining the same throughout the transactional flow. However, an additional number can be generated for the order and used during the transaction. This number will only be different in case of adaptation to the acquirer's rules or in case there are repeated order identification numbers (MerchantOrderId) in less then 24 hours. For reconciliation purposes, use TransactionId.</aside>
+<aside class="warning">IMPORTANT: The order identification number (`MerchantOrderId``) does not change, remaining the same throughout the transactional flow. However, an additional number can be generated for the order and used during the transaction. This number will only be different in case of adaptation to the acquirer's rules or in case there are repeated order identification numbers (`MerchantOrderId`) in less then 24 hours. For reconciliation purposes, use `TransactionId``.</aside>
 
 <h4 id="creating-a-credit-card-transaction">Creating a credit card transaction</h4>
 
