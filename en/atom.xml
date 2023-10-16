@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-10-16T14:47:01+00:00</updated>
+    <updated>2023-10-16T15:01:12+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -32780,10 +32780,6 @@ You can import them directly into your POSTMAN and have all the examples ready t
 
 &lt;blockquote&gt;
   &lt;p&gt;&lt;strong&gt;Debit without authentication&lt;/strong&gt;: or “debit without password”, can only be done when the e-commerce has the issuing bank’s authorization to dismiss the authentication. In case you have that permission, send the field &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Authenticate&lt;/code&gt; as “false” in the standard request for debit card.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Mastercard debit card transactions with stored credentials&lt;/strong&gt;: Mastercard brand requires the &lt;strong&gt;Transaction Initiator Indicator&lt;/strong&gt; for &lt;strong&gt;credit and debit card transactions&lt;/strong&gt; using stored card data. The goal is to indicate if the transaction was initiated by the cardholder or by the merchant. In this scenario, the node &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;InitiatedTransactionIndicator&lt;/code&gt; must be sent with the parameters &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Category&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SubCategory&lt;/code&gt; for Mastercard transactions, within the node &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment&lt;/code&gt;. Please check the complete list of categories in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Category&lt;/code&gt; parameter description and the subcategories tables in &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator&quot;&gt;Transaction Initiator Indicator Tables&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h4 id=&quot;creating-a-debit-transaction&quot;&gt;Creating a debit transaction&lt;/h4&gt;
