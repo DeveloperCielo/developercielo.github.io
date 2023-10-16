@@ -883,8 +883,6 @@ To integrate the authentication method, check the [3DS 2.0 documentation](https:
 
 > **Debit without authentication**: or “debit without password”, can only be done when the e-commerce has the issuing bank's authorization to dismiss the authentication. In case you have that permission, send the field `Authenticate` as "false" in the standard request for debit card.
 
-> **Mastercard debit card transactions with stored credentials**: Mastercard brand requires the **Transaction Initiator Indicator** for **credit and debit card transactions** using stored card data. The goal is to indicate if the transaction was initiated by the cardholder or by the merchant. In this scenario, the node `InitiatedTransactionIndicator` must be sent with the parameters `Category` and `SubCategory` for Mastercard transactions, within the node `Payment`. Please check the complete list of categories in the `Category` parameter description and the subcategories tables in [Transaction Initiator Indicator Tables](https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator).
-
 #### Creating a debit transaction
 
 To sell with a debit card, you should request using the POST method. The example below shows the minimum necessary fields that should be sent for the authorization.
