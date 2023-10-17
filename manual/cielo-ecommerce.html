@@ -1095,14 +1095,14 @@ Abaixo especificamos qualquer diferença existente:</p>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
       <td>Identificador da loja na Cielo.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>40</td>
       <td>Sim</td>
       <td>Chave pública para autenticação dupla na Cielo.</td>
@@ -1116,154 +1116,154 @@ Abaixo especificamos qualquer diferença existente:</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Não</td>
       <td>Identificador da requisição, usado quando o lojista usa diferentes servidores para cada GET/POST/PUT.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>50</td>
       <td>Sim</td>
       <td>Número de identificação do pedido.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>255</td>
       <td>Não</td>
       <td>Nome do comprador.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>255</td>
       <td>Não</td>
       <td>Status de cadastro do comprador na loja (NEW / EXISTING)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>14</td>
       <td>Não</td>
       <td>Número do RG, CPF ou CNPJ do comprador.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>255</td>
       <td>Não</td>
       <td>Tipo de documento de identificação do comprador (CFP/CNPJ).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>255</td>
       <td>Não</td>
       <td>E-mail do comprador.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Birthdate</code></td>
-      <td>Date</td>
+      <td>data</td>
       <td>10</td>
       <td>Não</td>
       <td>Data de nascimento do comprador.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>255</td>
       <td>Não</td>
       <td>Endereço do comprador.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>15</td>
       <td>Não</td>
       <td>Número do endereço do comprador.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>50</td>
       <td>Não</td>
       <td>Complemento do endereço do comprador</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.ZipCode</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>9</td>
       <td>Não</td>
       <td>CEP do endereço do comprador.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>50</td>
       <td>Não</td>
       <td>Cidade do endereço do comprador.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.State</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>2</td>
       <td>Não</td>
       <td>Estado do endereço do comprador.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Country</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>35</td>
       <td>Não</td>
       <td>País do endereço do comprador.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Street</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>255</td>
       <td>Não</td>
       <td>Endereço do comprador.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>15</td>
       <td>Não</td>
       <td>Número do endereço do comprador.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Complement</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>50</td>
       <td>Não</td>
       <td>Complemento do endereço do comprador.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.ZipCode</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>9</td>
       <td>Não</td>
       <td>CEP do endereço do comprador.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.City</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>50</td>
       <td>Não</td>
       <td>Cidade do endereço do comprador.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.State</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>2</td>
       <td>Não</td>
       <td>Estado do endereço do comprador.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Country</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>35</td>
       <td>Não</td>
       <td>País do endereço do comprador.</td>
@@ -1326,91 +1326,91 @@ Abaixo especificamos qualquer diferença existente:</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>100</td>
       <td>Sim</td>
       <td>Tipo do meio de pagamento.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
-      <td>Número</td>
+      <td>número</td>
       <td>15</td>
       <td>Sim</td>
       <td>Valor do pedido (ser enviado em centavos).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Currency</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>3</td>
       <td>Não</td>
       <td>Moeda na qual o pagamento será feito (BRL).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Country</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>3</td>
       <td>Não</td>
       <td>País na qual o pagamento será feito.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>15</td>
       <td>—</td>
       <td>Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ServiceTaxAmount</code></td>
-      <td>Número</td>
+      <td>número</td>
       <td>15</td>
       <td>Não</td>
       <td>Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>13</td>
       <td>Não</td>
       <td>O complemento do nome da loja que aparecerá na fatura do cartão. Não permite caracteres especiais.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
-      <td>Número</td>
+      <td>número</td>
       <td>2</td>
       <td>Sim</td>
       <td>Número de parcelas. Se a transação for uma recorrência, o número de parcelas será 1. Para transações parceladas, o número de parcelas será sempre maior que 1.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Interest</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>10</td>
       <td>Não</td>
       <td>Tipo de parcelamento - Loja (ByMerchant) ou Cartão (ByIssuer).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
-      <td>Booleano</td>
+      <td>booleano</td>
       <td>—</td>
       <td>Não (Default false)</td>
       <td>Booleano que identifica que a autorização deve ser com <strong>captura automática (“true”)</strong> ou <strong><a href="https://developercielo.github.io/manual/cielo-ecommerce#captura">captura posterior</a> (“false”)</strong>.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
-      <td>Booleano</td>
+      <td>booleano</td>
       <td>—</td>
       <td>Não (Default false)</td>
       <td>Define se o comprador será direcionado ao banco emissor para autenticação do cartão.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Recurrent</code></td>
-      <td>Booleano</td>
+      <td>booleano</td>
       <td>-</td>
       <td>Condicional</td>
       <td>Indica se a transação é do tipo recorrente (“true”) ou não (“false”). O valor “true” não originará uma nova recorrência, apenas permitirá a realização de uma transação sem a necessidade de envio do CVV. Authenticate deve ser “false” quando Recurrent é “true”. Saiba mais sobre <a href="https://developercielo.github.io/manual/cielo-ecommerce#recorr%C3%AAncia">Recorrência</a>.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.IsCryptocurrencyNegotiation</code></td>
-      <td>Booleano</td>
+      <td>booleano</td>
       <td>-</td>
       <td>Não (default false)</td>
       <td>Deve ser enviado com valor “true” caso se trate de uma transação de compra ou venda de Criptomoeda.</td>
@@ -1424,56 +1424,56 @@ Abaixo especificamos qualquer diferença existente:</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.CardNumber</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>19</td>
       <td>Sim</td>
       <td>Número do cartão do comprador.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Holder</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>25</td>
       <td>Não</td>
       <td>Nome do comprador impresso no cartão. Não aceita caracteres especiais ou acentuação.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.ExpirationDate</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>7</td>
       <td>Sim</td>
       <td>Data de validade impressa no cartão. Ex. MM/AAAA.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.SecurityCode</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>4</td>
       <td>Não</td>
       <td>Código de segurança impresso no verso do cartão.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.SaveCard</code></td>
-      <td>Booleano</td>
+      <td>booleano</td>
       <td>—</td>
       <td>Não (Default false)</td>
       <td>Booleano que identifica se o cartão será salvo para gerar o <code class="language-plaintext highlighter-rouge">CardToken</code>. Saiba mais sobre <a href="https://developercielo.github.io/manual/cielo-ecommerce#tokeniza%C3%A7%C3%A3o-de-cart%C3%B5es">Tokenização</a>.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Brand</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>10</td>
       <td>Sim</td>
       <td>Bandeira do cartão. Valores possíveis: Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.CardOnFile.Usage</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>-</td>
       <td>Não</td>
       <td><strong>First</strong> se o cartão foi armazenado e é seu primeiro uso.<br /><strong>Used</strong> se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação. Saiba mais em <a href="https://developercielo.github.io/manual/cielo-ecommerce#card-on-file" target="_blank">Card On File</a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.CardOnFile.Reason</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>-</td>
       <td>Condicional</td>
       <td>Indica o propósito de armazenamento de cartões, caso o campo “Usage” for “Used”.<br /><strong>Recurring</strong> - Compra recorrente programada (ex. assinaturas). Se for transação recorrente, usar <code class="language-plaintext highlighter-rouge">Payment.Recurrent</code> = true (recorrência própria) ou <code class="language-plaintext highlighter-rouge">Recurrent.Payment</code> = true (recorrência programada). <br /><strong>Unscheduled</strong> - Compra recorrente sem agendamento (ex. aplicativos de serviços)<br /><strong>Installments</strong> - Parcelamento através da recorrência. Saiba mais em <a href="https://developercielo.github.io/manual/cielo-ecommerce#card-on-file" target="_blank">Card On File</a></td>
@@ -1691,84 +1691,84 @@ Abaixo especificamos qualquer diferença existente:</p>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProofOfSale</code></td>
       <td>Número da autorização, identico ao NSU.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>6</td>
       <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Tid</code></td>
       <td>Id da transação na adquirente.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>20</td>
       <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
       <td>Código de autorização.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>6</td>
       <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">SoftDescriptor</code></td>
       <td>Texto impresso na fatura bancaria do portador. Não permite caracteres especiais.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>13</td>
       <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
       <td>Número de identificação do pagamento, necessário para futuras operações como Consulta, Captura e Cancelamento.</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ECI</code></td>
       <td>Eletronic Commerce Indicator. Representa o quão segura é uma transação.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>2</td>
       <td>Exemplos: 7</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
       <td>Status da Transação. Veja a tabela completa de <a href="https://developercielo.github.io/manual/cielo-ecommerce#status-transacional">Status transacional</a></td>
-      <td>Byte</td>
+      <td>byte</td>
       <td>—</td>
       <td>2</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
       <td>Código de retorno da Adquirência.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>32</td>
       <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReturnMessage</code></td>
       <td>Mensagem de retorno da Adquirência.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>512</td>
       <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantAdviceCode</code></td>
       <td>Código de retorno da bandeira que define período para retentativa. <em>Válido somente para bandeira Mastercard</em>. Saiba mais <a href="https://developercielo.github.io/manual/cielo-ecommerce#mastercard" target="\_blank">Programa de retentativa das bandeiras para Mastercard</a>.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>2</td>
       <td>Numérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">TryAutomaticCancellation</code></td>
       <td>Caso ocorra algum erro durante a autorização (status Não Finalizada - “0”), a resposta incluirá o campo “TryAutomaticCancellation” como true. Neste caso, a transação será consultada automaticamente, e caso tenha sido autorizada será cancelada automaticamente. Esta funcionalidade deverá estar habilitada para loja. Para habilitar, entre em contato com o nosso suporte técnico.</td>
-      <td>Booleano</td>
+      <td>booleano</td>
       <td>-</td>
       <td>true ou false</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.PaymentAccountReference</code></td>
       <td>O PAR (Payment Account Reference) é o número que associa diferentes tokens a um mesmo cartão. Será retornado pelas bandeiras Master e Visa e repassado para os clientes do e-commerce Cielo. Caso a bandeira não envie a informação o campo não será retornado.Se for pra transação de débito, colocar o campo dentro do nó de <code class="language-plaintext highlighter-rouge">DebitCard</code>.</td>
-      <td>Alfanumérico</td>
+      <td>alfanumérico</td>
       <td>29</td>
       <td>—</td>
     </tr>
