@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-10-16T15:01:12+00:00</updated>
+    <updated>2023-10-17T13:51:32+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -32787,6 +32787,14 @@ You can import them directly into your POSTMAN and have all the examples ready t
 &lt;p&gt;To sell with a debit card, you should request using the POST method. The example below shows the minimum necessary fields that should be sent for the authorization.&lt;/p&gt;
 
 &lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Mastercard debit transactions with stored credentials&lt;/strong&gt;: Mastercard requires the submission of the &lt;strong&gt;Transaction Start Indicator&lt;/strong&gt; for &lt;strong&gt;credit and debit card&lt;/strong&gt; purchases that use a card’s stored data. The objective is to indicate whether the transaction was initiated by the shopper (Cardholder-Initiated Transaction - CIT) or by the e-commerce (Merchant-Initiated Transaction - MIT). In this scenario, it is mandatory to send the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;InitiatedTransactionIndicator&lt;/code&gt; node with the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Category&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SubCategory&lt;/code&gt; parameters for Mastercard transactions, within the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment&lt;/code&gt; node. Check out the list of categories in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Category&lt;/code&gt; parameter description and the full table of subcategories in &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator&quot;&gt;Mastercard Transaction Start Indicator&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Attention: It is not possible to carry out a transaction with an amount (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Amount&lt;/code&gt;) 0. To check the validity of a card, use &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#zero-auth&quot;&gt;Zero Auth&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
   &lt;p&gt;In the standard debit transaction (with authentication), send &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Authenticate&lt;/code&gt; = “true”.&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -32869,14 +32877,14 @@ You can import them directly into your POSTMAN and have all the examples ready t
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Store identifier in API Cielo eCommerce.&lt;/td&gt;
+      &lt;td&gt;Store identifier in API E-commerce Cielo.&lt;/td&gt;
       &lt;td&gt;Guid&lt;/td&gt;
       &lt;td&gt;36&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Public Key for Double Authentication in API Cielo eCommerce.&lt;/td&gt;
+      &lt;td&gt;Public Key for Double Authentication in API E-commerce Cielo.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;40&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
@@ -32890,7 +32898,7 @@ You can import them directly into your POSTMAN and have all the examples ready t
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantOrderId&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Order Identifier Field at the Store.&lt;/td&gt;
+      &lt;td&gt;Order Identifier field at the e-commerce.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;50&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
@@ -32911,14 +32919,14 @@ You can import them directly into your POSTMAN and have all the examples ready t
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Type of the Payment Method.&lt;/td&gt;
+      &lt;td&gt;Type of the payment method.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;100&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Amount&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Order Amount (to be sent in cents).&lt;/td&gt;
+      &lt;td&gt;Order amount (to be sent in cents).&lt;/td&gt;
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
@@ -32981,14 +32989,14 @@ You can import them directly into your POSTMAN and have all the examples ready t
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.InitiatedTransactionIndicator.Category&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Transaction Initiator Indicator category. &lt;em&gt;Valid only for Mastercard&lt;/em&gt;.&lt;br /&gt;Possible values:&lt;br /&gt;- “C1”: transaction initiated by the cardholder;&lt;br /&gt;- “M1”: recurring payment or installment initiated by the merchant&lt;br /&gt;- “M2”: transaction initiated by the merchant.&lt;/td&gt;
+      &lt;td&gt;Transaction start indicator category. Valid only for Mastercard brand.&lt;br /&gt;Possible values:&lt;br /&gt;- “C1”: transaction initiated by the cardholder;&lt;br /&gt;- “M1”: recurring or installment transaction initiated by the store;&lt;br /&gt;- “M2” : transaction initiated by the e-commerce.&lt;/td&gt;
       &lt;td&gt;string&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
       &lt;td&gt;Conditional. Required only for Mastercard.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.InitiatedTransactionIndicator.Subcategory&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Transaction Initiator Indicator subcategory. &lt;em&gt;Valid only for Mastercard&lt;/em&gt;. Please refer to the &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator&quot;&gt;Transaction Initiator Indicator&lt;/a&gt; tables for the full list.&lt;/td&gt;
+      &lt;td&gt;Indicator subcategory. Valid only for Mastercard brand.&lt;br /&gt;Possible values:&lt;br /&gt;If &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;InitiatedTransactionIndicator.Category&lt;/code&gt; = “C1” or “M1”&lt;br /&gt;&lt;em&gt;CredentialsOnFile&lt;/em&gt;&lt;br /&gt;&lt;em&gt;StandingOrder&lt;/em&gt;&lt;br /&gt;&lt;em&gt;Subscription&lt;/em&gt;&lt;br /&gt; &lt;em&gt;Installment&lt;/em&gt;&lt;br /&gt;If &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;InitiatedTransactionIndicator.Category&lt;/code&gt; = “M2”&lt;br /&gt;&lt;em&gt;PartialShipment&lt;/em&gt;&lt;br /&gt;&lt;em&gt;RelatedOrDelayedCharge&lt;/em&gt;&lt;br /&gt;&lt;em&gt;NoShow&lt;/em&gt;&lt;br /&gt;&lt;em&gt;Resubmission&lt;/em&gt;&lt;br /&gt;See the table with the description of subcategories in &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator&quot;&gt;Mastercard transaction start indicator&lt;/a&gt;.&lt;/td&gt;
       &lt;td&gt;string&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Conditional. Required only for Mastercard.&lt;/td&gt;
@@ -33128,21 +33136,21 @@ You can import them directly into your POSTMAN and have all the examples ready t
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AuthenticationUrl&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;URL to where the store should redirect the shopper for the debit flow.&lt;/td&gt;
+      &lt;td&gt;URL to where the e-commerce should redirect the shopper for the debit flow.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;56&lt;/td&gt;
       &lt;td&gt;Authentication URL&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Tid&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Transaction Id on the acquirer.&lt;/td&gt;
+      &lt;td&gt;Transaction Id at the acquirer.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;20&lt;/td&gt;
       &lt;td&gt;Alphanumeric text&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PaymentId&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Payment ID number, needed for future operations like Consulting, Capture and Cancellation.&lt;/td&gt;
+      &lt;td&gt;Payment ID number, needed for future operations like Queries, Capture and Cancellation.&lt;/td&gt;
       &lt;td&gt;Guid&lt;/td&gt;
       &lt;td&gt;36&lt;/td&gt;
       &lt;td&gt;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&lt;/td&gt;
@@ -33152,25 +33160,25 @@ You can import them directly into your POSTMAN and have all the examples ready t
       &lt;td&gt;Return URL for the store. URL where the store will be redirected after the flow.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;1024&lt;/td&gt;
-      &lt;td&gt;http://www.cielo.com.br&lt;/td&gt;
+      &lt;td&gt;http://www.urlecommerce.com.br&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Status&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Transaction status.&lt;/td&gt;
+      &lt;td&gt;Transaction Status. Check out the &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#transactional-status&quot;&gt;Transactional Status codes&lt;/a&gt; table&lt;/td&gt;
       &lt;td&gt;Byte&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
       &lt;td&gt;0&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ReturnCode&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Acquiring return code.&lt;/td&gt;
+      &lt;td&gt;Acquirer return code.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;32&lt;/td&gt;
       &lt;td&gt;Alphanumeric text&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.MerchantAdviceCode&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Card brand’s return code that defines the period for transaction submission retry.&lt;em&gt;Valid only for Mastercard&lt;/em&gt;. See more at &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard&quot;&gt;Mastercard Retry Program&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Card brand’s return code that defines the period for transaction submission retry.&lt;em&gt;Valid only for Mastercard&lt;/em&gt;. See more at &lt;a href=&quot;https://developercielo.github.io/en/tutorial/programa-retentativa-bandeiras#mastercard&quot; target=&quot;\_blank&quot;&gt;Mastercard Retry Program&lt;/a&gt;.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
       &lt;td&gt;Number&lt;/td&gt;

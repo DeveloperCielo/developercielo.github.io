@@ -1806,6 +1806,14 @@
 <p>To sell with a debit card, you should request using the POST method. The example below shows the minimum necessary fields that should be sent for the authorization.</p>
 
 <blockquote>
+  <p><strong>Mastercard debit transactions with stored credentials</strong>: Mastercard requires the submission of the <strong>Transaction Start Indicator</strong> for <strong>credit and debit card</strong> purchases that use a card’s stored data. The objective is to indicate whether the transaction was initiated by the shopper (Cardholder-Initiated Transaction - CIT) or by the e-commerce (Merchant-Initiated Transaction - MIT). In this scenario, it is mandatory to send the <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator</code> node with the <code class="language-plaintext highlighter-rouge">Category</code> and <code class="language-plaintext highlighter-rouge">SubCategory</code> parameters for Mastercard transactions, within the <code class="language-plaintext highlighter-rouge">Payment</code> node. Check out the list of categories in the <code class="language-plaintext highlighter-rouge">Category</code> parameter description and the full table of subcategories in <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator">Mastercard Transaction Start Indicator</a>.</p>
+</blockquote>
+
+<blockquote>
+  <p>Attention: It is not possible to carry out a transaction with an amount (<code class="language-plaintext highlighter-rouge">Amount</code>) 0. To check the validity of a card, use <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#zero-auth">Zero Auth</a>.</p>
+</blockquote>
+
+<blockquote>
   <p>In the standard debit transaction (with authentication), send <code class="language-plaintext highlighter-rouge">Authenticate</code> = “true”.</p>
 </blockquote>
 
@@ -1888,14 +1896,14 @@
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Store identifier in API Cielo eCommerce.</td>
+      <td>Store identifier in API E-commerce Cielo.</td>
       <td>Guid</td>
       <td>36</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Public Key for Double Authentication in API Cielo eCommerce.</td>
+      <td>Public Key for Double Authentication in API E-commerce Cielo.</td>
       <td>Text</td>
       <td>40</td>
       <td>Yes</td>
@@ -1909,7 +1917,7 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
-      <td>Order Identifier Field at the Store.</td>
+      <td>Order Identifier field at the e-commerce.</td>
       <td>Text</td>
       <td>50</td>
       <td>Yes</td>
@@ -1930,14 +1938,14 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>Type of the Payment Method.</td>
+      <td>Type of the payment method.</td>
       <td>Text</td>
       <td>100</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
-      <td>Order Amount (to be sent in cents).</td>
+      <td>Order amount (to be sent in cents).</td>
       <td>Number</td>
       <td>15</td>
       <td>Yes</td>
@@ -2000,14 +2008,14 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Category</code></td>
-      <td>Transaction Initiator Indicator category. <em>Valid only for Mastercard</em>.<br />Possible values:<br />- “C1”: transaction initiated by the cardholder;<br />- “M1”: recurring payment or installment initiated by the merchant<br />- “M2”: transaction initiated by the merchant.</td>
+      <td>Transaction start indicator category. Valid only for Mastercard brand.<br />Possible values:<br />- “C1”: transaction initiated by the cardholder;<br />- “M1”: recurring or installment transaction initiated by the store;<br />- “M2” : transaction initiated by the e-commerce.</td>
       <td>string</td>
       <td>2</td>
       <td>Conditional. Required only for Mastercard.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Subcategory</code></td>
-      <td>Transaction Initiator Indicator subcategory. <em>Valid only for Mastercard</em>. Please refer to the <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator">Transaction Initiator Indicator</a> tables for the full list.</td>
+      <td>Indicator subcategory. Valid only for Mastercard brand.<br />Possible values:<br />If <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator.Category</code> = “C1” or “M1”<br /><em>CredentialsOnFile</em><br /><em>StandingOrder</em><br /><em>Subscription</em><br /> <em>Installment</em><br />If <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator.Category</code> = “M2”<br /><em>PartialShipment</em><br /><em>RelatedOrDelayedCharge</em><br /><em>NoShow</em><br /><em>Resubmission</em><br />See the table with the description of subcategories in <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator">Mastercard transaction start indicator</a>.</td>
       <td>string</td>
       <td>-</td>
       <td>Conditional. Required only for Mastercard.</td>
@@ -2147,21 +2155,21 @@
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AuthenticationUrl</code></td>
-      <td>URL to where the store should redirect the shopper for the debit flow.</td>
+      <td>URL to where the e-commerce should redirect the shopper for the debit flow.</td>
       <td>Text</td>
       <td>56</td>
       <td>Authentication URL</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Tid</code></td>
-      <td>Transaction Id on the acquirer.</td>
+      <td>Transaction Id at the acquirer.</td>
       <td>Text</td>
       <td>20</td>
       <td>Alphanumeric text</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Payment ID number, needed for future operations like Consulting, Capture and Cancellation.</td>
+      <td>Payment ID number, needed for future operations like Queries, Capture and Cancellation.</td>
       <td>Guid</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
@@ -2171,25 +2179,25 @@
       <td>Return URL for the store. URL where the store will be redirected after the flow.</td>
       <td>Text</td>
       <td>1024</td>
-      <td>http://www.cielo.com.br</td>
+      <td>http://www.urlecommerce.com.br</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Transaction status.</td>
+      <td>Transaction Status. Check out the <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#transactional-status">Transactional Status codes</a> table</td>
       <td>Byte</td>
       <td>—</td>
       <td>0</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
-      <td>Acquiring return code.</td>
+      <td>Acquirer return code.</td>
       <td>Text</td>
       <td>32</td>
       <td>Alphanumeric text</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.MerchantAdviceCode</code></td>
-      <td>Card brand’s return code that defines the period for transaction submission retry.<em>Valid only for Mastercard</em>. See more at <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard">Mastercard Retry Program</a></td>
+      <td>Card brand’s return code that defines the period for transaction submission retry.<em>Valid only for Mastercard</em>. See more at <a href="https://developercielo.github.io/en/tutorial/programa-retentativa-bandeiras#mastercard" target="\_blank">Mastercard Retry Program</a>.</td>
       <td>Text</td>
       <td>2</td>
       <td>Number</td>
