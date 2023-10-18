@@ -2214,13 +2214,13 @@
 
 <h3 id="authenticating-a-transaction">Authenticating a transaction</h3>
 
-<p>Cielo offers 3DS 2.0 as a service, which is a transaction authenticating protocol. Authentication is optional for credit cards and required for debit cards, by demand of issuing banks and card brands.</p>
+<p>Cielo offers 3DS 2.0, a transaction authenticating protocol. Authentication is optional for credit cards transactions and required for debit cards transaction, as determined by issuing banks and card brands.</p>
 
 <p>To integrate the authentication to your transactions:</p>
 
 <ol>
   <li><strong>Integrate the 3DS 2.0 script</strong> to your payment page, as instructed on the <a href="https://developercielo.github.io/en/manual/3ds" target="\_blank">3DS guide</a>;</li>
-  <li>In the <strong>transaction request</strong> of credit or debit, <strong>send the aditional node</strong> <code class="language-plaintext highlighter-rouge">ExternalAuthentication</code>, as the following examples.</li>
+  <li>In the credit or debit <strong>transaction request</strong>, <strong>send the aditional node</strong> <code class="language-plaintext highlighter-rouge">ExternalAuthentication</code>, as the following examples.</li>
 </ol>
 
 <aside class="notice">The 3DS 1.0 authentication is being discontinued by the card brands. New integrations should follow the 3DS 2.0 protocol.</aside>

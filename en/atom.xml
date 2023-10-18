@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-10-17T15:48:24+00:00</updated>
+    <updated>2023-10-18T12:52:20+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -33195,13 +33195,13 @@ You can import them directly into your POSTMAN and have all the examples ready t
 
 &lt;h3 id=&quot;authenticating-a-transaction&quot;&gt;Authenticating a transaction&lt;/h3&gt;
 
-&lt;p&gt;Cielo offers 3DS 2.0 as a service, which is a transaction authenticating protocol. Authentication is optional for credit cards and required for debit cards, by demand of issuing banks and card brands.&lt;/p&gt;
+&lt;p&gt;Cielo offers 3DS 2.0, a transaction authenticating protocol. Authentication is optional for credit cards transactions and required for debit cards transaction, as determined by issuing banks and card brands.&lt;/p&gt;
 
 &lt;p&gt;To integrate the authentication to your transactions:&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;&lt;strong&gt;Integrate the 3DS 2.0 script&lt;/strong&gt; to your payment page, as instructed on the &lt;a href=&quot;https://developercielo.github.io/en/manual/3ds&quot; target=&quot;\_blank&quot;&gt;3DS guide&lt;/a&gt;;&lt;/li&gt;
-  &lt;li&gt;In the &lt;strong&gt;transaction request&lt;/strong&gt; of credit or debit, &lt;strong&gt;send the aditional node&lt;/strong&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ExternalAuthentication&lt;/code&gt;, as the following examples.&lt;/li&gt;
+  &lt;li&gt;In the credit or debit &lt;strong&gt;transaction request&lt;/strong&gt;, &lt;strong&gt;send the aditional node&lt;/strong&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ExternalAuthentication&lt;/code&gt;, as the following examples.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;The 3DS 1.0 authentication is being discontinued by the card brands. New integrations should follow the 3DS 2.0 protocol.&lt;/aside&gt;
