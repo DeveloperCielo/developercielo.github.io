@@ -1514,7 +1514,7 @@ curl
 
 #### Debit card with authentication
 
-The debit transaction with authentication is the standard for this payment method. Follow the integration steps at the [3DS guide](https://developercielo.github.io/en/manual/3ds){:target="\_blank"} and send the request as shown in [Creating a debit transaction](https://developercielo.github.io/en/manual/cielo-ecommerce#creating-a-debit-transaction){:target="\_blank"}.
+The debit transaction with authentication is the standard for this payment method. Follow the integration steps at the [3DS guide](https://developercielo.github.io/en/manual/3ds){:target="\_blank"} and send the request as shown in [Creating a debit transaction](https://developercielo.github.io/en/manual/cielo-ecommerce#creating-a-debit-transaction).
 
 #### External MPI
 
