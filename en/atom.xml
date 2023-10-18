@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-10-18T14:46:00+00:00</updated>
+    <updated>2023-10-18T15:08:40+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -33979,7 +33979,7 @@ You can import them directly into your POSTMAN and have all the examples ready t
 
 &lt;h4 id=&quot;debit-card-with-authentication&quot;&gt;Debit card with authentication&lt;/h4&gt;
 
-&lt;p&gt;The debit transaction with authentication is the standard for this payment method. Follow the integration steps at the &lt;a href=&quot;https://developercielo.github.io/en/manual/3ds&quot; target=&quot;\_blank&quot;&gt;3DS guide&lt;/a&gt; and send the request as shown in &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#creating-a-debit-transaction&quot; target=&quot;\_blank&quot;&gt;Creating a debit transaction&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The debit transaction with authentication is the standard for this payment method. Follow the integration steps at the &lt;a href=&quot;https://developercielo.github.io/en/manual/3ds&quot; target=&quot;\_blank&quot;&gt;3DS guide&lt;/a&gt; and send the request as shown in &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#creating-a-debit-transaction&quot;&gt;Creating a debit transaction&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h4 id=&quot;external-mpi&quot;&gt;External MPI&lt;/h4&gt;
 
