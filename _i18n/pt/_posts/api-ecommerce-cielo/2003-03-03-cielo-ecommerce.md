@@ -1871,12 +1871,12 @@ Veja exemplos de envio de requisição e resposta para a geração do QR Code Pi
 
 | PROPRIEDADE             | DESCRIÇÃO                                                      | TIPO   | TAMANHO | OBRIGATÓRIO? |
 | ----------------------- | -------------------------------------------------------------- | ------ | ------- | ------------ |
-| `MerchantOrderId`       | Número de identificação do pedido.                             | Texto  | 50      | Sim          |
-| `Customer.Name`         | Nome do pagador.                                               | Texto  | 255     | Sim          |
-| `Customer.Identity`     | Número do CPF ou CNPJ do cliente.                              | Texto  | 14      | Sim          |
-| `Customer.IdentityType` | Tipo de documento de identificação do comprador (CPF ou CNPJ). | Texto  | 255     | Sim          |
-| `Payment.Type`          | Tipo do meio de pagamento. Neste caso, "Pix".                  | Texto  | -       | Sim          |
-| `Payment.Amount`        | Valor do pedido, em centavos.                                  | Número | 15      | Sim          |
+| `MerchantOrderId`       | Número de identificação do pedido.                             | texto  | 50      | Sim          |
+| `Customer.Name`         | Nome do pagador.                                               | texto  | 255     | Sim          |
+| `Customer.Identity`     | Número do CPF ou CNPJ do cliente.                              | texto  | 14      | Sim          |
+| `Customer.IdentityType` | Tipo de documento de identificação do comprador (CPF ou CNPJ). | texto  | 255     | Sim          |
+| `Payment.Type`          | Tipo do meio de pagamento. Neste caso, "Pix".                  | texto  | -       | Sim          |
+| `Payment.Amount`        | Valor do pedido, em centavos.                                  | número | 15      | Sim          |
 
 #### Resposta
 
@@ -1936,12 +1936,12 @@ Veja exemplos de envio de requisição e resposta para a geração do QR Code Pi
 | ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | -------- | ------------------------------------ |
 | `Payment.PaymentId`             | Campo identificador do pedido.                                                                                                                                                                                  | GUID   | 40       | Texto                                |
 | `Payment.AcquirerTransactionId` | Id da transação no provedor de meio de pagamento.                                                                                                                                                               | GUID   | 36       | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
-| `Payment.ProofOfSale`           | NSU Pix.                                                                                                                                                                                                        | Texto  | 20       | Texto alfanumérico                   |
-| `Payment.QrcodeBase64Image`     | Código em base64 da imagem do QR code.                                                                                                                                                                          | Texto  | -        | Texto                                |
-| `Payment.QrCodeString`          | Texto codificado para o comprador "copiar" e "colar" no campo do internet banking em pagamentos feitos no ambiente mobile.                                                                                      | Texto  | Variável | Texto alfanumérico                   |
-| `Payment.Status`                | Status da transação. Em caso de sucesso, o status inicial é “12” (_Pendente_). Veja a tabela completa de [Status transacional](https://developercielo.github.io/manual/cielo-ecommerce#status-transacional) | Número | -        | 12                                   |
-| `Payment.ReturnCode`            | Código retornado pelo provedor do meio de pagamento.                                                                                                                                                            | Texto  | 32       | 0                                    |
-| `Payment.ReturnMessage`         | Mensagem retornada pelo provedor do meio de pagamento.                                                                                                                                                          | Texto  | 512      | "Pix gerado com sucesso"             |
+| `Payment.ProofOfSale`           | NSU Pix.                                                                                                                                                                                                        | texto  | 20       | Texto alfanumérico                   |
+| `Payment.QrcodeBase64Image`     | Código em base64 da imagem do QR code.                                                                                                                                                                          | texto  | -        | Texto                                |
+| `Payment.QrCodeString`          | Texto codificado para o comprador "copiar" e "colar" no campo do internet banking em pagamentos feitos no ambiente mobile.                                                                                      | texto  | Variável | Texto alfanumérico                   |
+| `Payment.Status`                | Status da transação. Em caso de sucesso, o status inicial é “12” (_Pendente_). Veja a tabela completa de [Status transacional](https://developercielo.github.io/manual/cielo-ecommerce#status-transacional) | número | -        | 12                                   |
+| `Payment.ReturnCode`            | Código retornado pelo provedor do meio de pagamento.                                                                                                                                                            | texto  | 32       | 0                                    |
+| `Payment.ReturnMessage`         | Mensagem retornada pelo provedor do meio de pagamento.                                                                                                                                                          | texto  | 512      | "Pix gerado com sucesso"             |
 
 ### Solicitando uma devolução Pix
 
@@ -1968,10 +1968,10 @@ Caso a sua loja precise cancelar uma transferência Pix, é possível realizar u
 | Propriedade   | Descrição                                                                                                                         | Tipo   | Tamanho | Obrigatório |
 | ------------- | --------------------------------------------------------------------------------------------------------------------------------- | ------ | ------- | ----------- |
 | `MerchantId`  | Identificador da loja na API.                                                                                                     | GUID   | 36      | Sim         |
-| `MerchantKey` | Chave pública para autenticação dupla na API.                                                                                     | Texto  | 40      | Sim         |
+| `MerchantKey` | Chave pública para autenticação dupla na API.                                                                                     | texto  | 40      | Sim         |
 | `RequestId`   | Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.         | GUID   | 36      | Não         |
 | `PaymentId`   | Campo identificador do pedido.                                                                                                    | GUID   | 36      | Sim         |
-| `Amount`      | Valor a ser cancelado/estornado, em centavos. Verifique se a adquirente contratada suporta a operação de cancelamento ou estorno. | Número | 15      | Não         |
+| `Amount`      | Valor a ser cancelado/estornado, em centavos. Verifique se a adquirente contratada suporta a operação de cancelamento ou estorno. | número | 15      | Não         |
 
 #### Resposta
 
@@ -2011,9 +2011,9 @@ Caso a sua loja precise cancelar uma transferência Pix, é possível realizar u
 
 | Propriedade     | Descrição                           | Tipo  | Tamanho | Formato            |
 | --------------- | ----------------------------------- | ----- | ------- | ------------------ |
-| `Status`        | Status da transação.                | Byte  | 2       | Ex.: "1"           |
-| `ReasonCode`    | Código de retorno da adquirência.   | Texto | 32      | Texto alfanumérico |
-| `ReasonMessage` | Mensagem de retorno da adquirência. | Texto | 512     | Texto alfanumérico |
+| `Status`        | Status da transação.                | byte  | 2       | Ex.: "1"           |
+| `ReasonCode`    | Código de retorno da adquirência.   | texto | 32      | Texto alfanumérico |
+| `ReasonMessage` | Mensagem de retorno da adquirência. | texto | 512     | Texto alfanumérico |
 
 ## Boleto
 
