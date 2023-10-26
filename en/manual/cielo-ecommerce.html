@@ -3015,11 +3015,11 @@
 
 <h3 id="mastercard-transaction-initiator-indicator">Mastercard Transaction Initiator Indicator</h3>
 
-<p>The following tables should be used for <strong>Mastercard credit and debit</strong> transactions with saved card data (tokenized cards). The aim is to identify if the transaction was initiated by the cardholder or by the merchant:</p>
+<p>The following tables apply to Mastercard credit and debit transactions with stored credentials. The objective is to identify whether the transaction was initiated by the <strong>cardholder</strong> or by the <strong>e-commerce</strong>:</p>
 
 <ul>
-  <li><strong>Cardholder-Initiated Transaction (CIT)</strong>: The transaction is initiated by the cardholder, who provides their payment credentials and agrees with the merchant saving those payment credentials.</li>
-  <li><strong>Merchant-Initiated Transaction (MIT)</strong>: The transaction is initiated by the merchant, after an agreement in which the cardholder authorizes the merchant to save and use cardholder account data to initiate one or more transactions in the future (such as recurrent payments or installments, and charges commonly applied by the tourism and hospitality sector).
+  <li><strong>Cardholder-Initiated Transaction (CIT)</strong>: the transaction is initiated by the cardholder, who provides their payment credentials and allows them to be stored.</li>
+  <li><strong>Merchant-Initiated Transaction (MIT)</strong>: the transaction is initiated by the merchant, after an agreement in which the cardholder authorizes the merchant to save and use the account data to initiate one or more transactions in the future (such as recurrent payments or installments, and charges commonly applied by the tourism and hospitality sector).
 <br /></li>
 </ul>
 
@@ -3050,7 +3050,7 @@
 </code></pre></div></div>
 
 <blockquote>
-  <p>For the full request example see <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#creating-a-credit-card-transaction">Creating a credit card transaction</a> ou em <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#creating-a-debit-transaction">Creating a debit transaction</a>.</p>
+  <p>For the full request example see <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#creating-a-credit-card-transaction">Creating a credit card transaction</a> or <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#creating-a-debit-transaction">Creating a debit transaction</a>.</p>
 </blockquote>
 
 <table>
@@ -3100,18 +3100,18 @@
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CredentialsOnFile</code></td>
-      <td>Saves card data for future purchases.</td>
+      <td>Saves card credentials for future purchases.</td>
       <td>The shopper initiates the purchase and the merchant asks for the shopper to save card data for future purchases initiated by the cardholder.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">StandingOrder</code></td>
-      <td>Saves card data for recurrent purchases of variable amount and fixed frequency.</td>
+      <td>Saves card credentials for recurrent purchases of variable amount and fixed frequency.</td>
       <td>Initial transaction to store card data for utility bills monthly payments.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Subscription</code></td>
-      <td>Saves card data for recurrent purchases of fixed amount and fixed frequency.</td>
-      <td>Initial transaction to store card data for a monthly subscription (e.g.newspapers and magazines).</td>
+      <td>Saves card credentials for recurrent purchases of fixed amount and fixed frequency.</td>
+      <td>Initial transaction to store card data for a monthly subscription (e.g .newspapers and magazines).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Installment</code></td>
@@ -3125,7 +3125,7 @@
 
 <p><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Category</code> = “M1”</p>
 
-<p>In this category, the transaction is completed after an agreement between merchant and cardholder, in which the cardholder authorizes the merchant to store and use cardholder account data to initiate one or more transactions in the future, according to the subcategory:</p>
+<p>In this category, the transaction is completed after an agreement between merchant and cardholder, in which the cardholder authorizes the merchant to store and use cardholder account credentials to initiate one or more transactions in the future, according to the subcategory:</p>
 
 <table>
   <thead>
@@ -3144,22 +3144,22 @@
     <tr>
       <td><code class="language-plaintext highlighter-rouge">StandingOrder</code></td>
       <td>Saves card data for future purchases initiated by the merchant, with variable amount and fixed frequency.</td>
-      <td>E.g.: utility bills monthy payments.</td>
+      <td>E.g., utility bills monthy payments.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Subscription</code></td>
       <td>Saves card data for future purchases initiated by the merchant, with fixed amount and fixed frequency.</td>
-      <td>E.g.: monthly subscription or fixed monthly service payment.</td>
+      <td>E.g., monthly subscription or fixed monthly service payment.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Installment</code></td>
       <td>Saves card data for future purchases initiated by the merchant, with known amount and defined period.</td>
-      <td>E.g.: the shopper buys a TV for $600 and choses to pay in three $200 installments; in this situation, the first transaction is initiated by the cardholder and the following two transactions are initiated by the merchant.</td>
+      <td>E.g.: the shopper buys a TV for $600 and chooses to pay in three $200 installments; in this situation, the first transaction is initiated by the cardholder and the following two transactions are initiated by the merchant.</td>
     </tr>
   </tbody>
 </table>
 
-<p><strong>Category M2 - transaction initiated by the merchant</strong></p>
+<p><strong>Category M2 - merchant-initiated transaction per industry practice</strong></p>
 
 <p><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Category</code> = “M2”</p>
 
@@ -3168,24 +3168,24 @@
     <tr>
       <th>Indicator subcategory</th>
       <th>Meaning</th>
-      <th>Description/Example</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PartialShipment</code></td>
-      <td>Saves card data for future purchases initiated by the merchant, when the purchased goods will be deliverd in more than one shipping.</td>
+      <td>Saves card data for future purchases initiated by the merchant, when the order will be delivered in more than one shipping.</td>
       <td>Partial shipment may occur when the amount of purchased goods in the e-commerce is not available for shipping in the time of purchase. Each shipping is a separate transaction.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RelatedOrDelayedCharge</code></td>
       <td>Saves card data for future purchases initiated by the merchant for additional expenses.</td>
-      <td>Additional charge after providing initial services and processing the payment. E.g.: hotel minibar fridge charges after cardholder check-out.</td>
+      <td>Additional charge after providing initial services and processing the payment. E.g., hotel minibar fridge charges after cardholder check-out.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">NoShow</code></td>
       <td>Saves card data for future purchases initiated by the merchant for fine charges.</td>
-      <td>A fine charged according to the merchant cancellation policy. E.g.: the cardholder cancels a reservation.</td>
+      <td>A fine charged according to the merchant cancellation policy. E.g.: the cancellation of a reservation by the cardholder without adequate prior notice to the establishment.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Resubmission</code></td>
@@ -3196,7 +3196,7 @@
 </table>
 
 <blockquote>
-  <p><strong>Important</strong>: Card data is saved as a token.</p>
+  <p><strong>Important</strong>: Card data is stored in encrypted form.</p>
 </blockquote>
 
 <h2 id="alelo-cards">Alelo Cards</h2>

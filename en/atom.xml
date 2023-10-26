@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-10-23T13:52:38+00:00</updated>
+    <updated>2023-10-26T14:46:13+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -33996,11 +33996,11 @@ You can import them directly into your POSTMAN and have all the examples ready t
 
 &lt;h3 id=&quot;mastercard-transaction-initiator-indicator&quot;&gt;Mastercard Transaction Initiator Indicator&lt;/h3&gt;
 
-&lt;p&gt;The following tables should be used for &lt;strong&gt;Mastercard credit and debit&lt;/strong&gt; transactions with saved card data (tokenized cards). The aim is to identify if the transaction was initiated by the cardholder or by the merchant:&lt;/p&gt;
+&lt;p&gt;The following tables apply to Mastercard credit and debit transactions with stored credentials. The objective is to identify whether the transaction was initiated by the &lt;strong&gt;cardholder&lt;/strong&gt; or by the &lt;strong&gt;e-commerce&lt;/strong&gt;:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Cardholder-Initiated Transaction (CIT)&lt;/strong&gt;: The transaction is initiated by the cardholder, who provides their payment credentials and agrees with the merchant saving those payment credentials.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Merchant-Initiated Transaction (MIT)&lt;/strong&gt;: The transaction is initiated by the merchant, after an agreement in which the cardholder authorizes the merchant to save and use cardholder account data to initiate one or more transactions in the future (such as recurrent payments or installments, and charges commonly applied by the tourism and hospitality sector).
+  &lt;li&gt;&lt;strong&gt;Cardholder-Initiated Transaction (CIT)&lt;/strong&gt;: the transaction is initiated by the cardholder, who provides their payment credentials and allows them to be stored.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Merchant-Initiated Transaction (MIT)&lt;/strong&gt;: the transaction is initiated by the merchant, after an agreement in which the cardholder authorizes the merchant to save and use the account data to initiate one or more transactions in the future (such as recurrent payments or installments, and charges commonly applied by the tourism and hospitality sector).
 &lt;br /&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -34031,7 +34031,7 @@ You can import them directly into your POSTMAN and have all the examples ready t
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;For the full request example see &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#creating-a-credit-card-transaction&quot;&gt;Creating a credit card transaction&lt;/a&gt; ou em &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#creating-a-debit-transaction&quot;&gt;Creating a debit transaction&lt;/a&gt;.&lt;/p&gt;
+  &lt;p&gt;For the full request example see &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#creating-a-credit-card-transaction&quot;&gt;Creating a credit card transaction&lt;/a&gt; or &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#creating-a-debit-transaction&quot;&gt;Creating a debit transaction&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;table&gt;
@@ -34081,18 +34081,18 @@ You can import them directly into your POSTMAN and have all the examples ready t
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CredentialsOnFile&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Saves card data for future purchases.&lt;/td&gt;
+      &lt;td&gt;Saves card credentials for future purchases.&lt;/td&gt;
       &lt;td&gt;The shopper initiates the purchase and the merchant asks for the shopper to save card data for future purchases initiated by the cardholder.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;StandingOrder&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Saves card data for recurrent purchases of variable amount and fixed frequency.&lt;/td&gt;
+      &lt;td&gt;Saves card credentials for recurrent purchases of variable amount and fixed frequency.&lt;/td&gt;
       &lt;td&gt;Initial transaction to store card data for utility bills monthly payments.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Subscription&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Saves card data for recurrent purchases of fixed amount and fixed frequency.&lt;/td&gt;
-      &lt;td&gt;Initial transaction to store card data for a monthly subscription (e.g.newspapers and magazines).&lt;/td&gt;
+      &lt;td&gt;Saves card credentials for recurrent purchases of fixed amount and fixed frequency.&lt;/td&gt;
+      &lt;td&gt;Initial transaction to store card data for a monthly subscription (e.g .newspapers and magazines).&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Installment&lt;/code&gt;&lt;/td&gt;
@@ -34106,7 +34106,7 @@ You can import them directly into your POSTMAN and have all the examples ready t
 
 &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.InitiatedTransactionIndicator.Category&lt;/code&gt; = “M1”&lt;/p&gt;
 
-&lt;p&gt;In this category, the transaction is completed after an agreement between merchant and cardholder, in which the cardholder authorizes the merchant to store and use cardholder account data to initiate one or more transactions in the future, according to the subcategory:&lt;/p&gt;
+&lt;p&gt;In this category, the transaction is completed after an agreement between merchant and cardholder, in which the cardholder authorizes the merchant to store and use cardholder account credentials to initiate one or more transactions in the future, according to the subcategory:&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -34125,22 +34125,22 @@ You can import them directly into your POSTMAN and have all the examples ready t
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;StandingOrder&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Saves card data for future purchases initiated by the merchant, with variable amount and fixed frequency.&lt;/td&gt;
-      &lt;td&gt;E.g.: utility bills monthy payments.&lt;/td&gt;
+      &lt;td&gt;E.g., utility bills monthy payments.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Subscription&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Saves card data for future purchases initiated by the merchant, with fixed amount and fixed frequency.&lt;/td&gt;
-      &lt;td&gt;E.g.: monthly subscription or fixed monthly service payment.&lt;/td&gt;
+      &lt;td&gt;E.g., monthly subscription or fixed monthly service payment.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Installment&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Saves card data for future purchases initiated by the merchant, with known amount and defined period.&lt;/td&gt;
-      &lt;td&gt;E.g.: the shopper buys a TV for $600 and choses to pay in three $200 installments; in this situation, the first transaction is initiated by the cardholder and the following two transactions are initiated by the merchant.&lt;/td&gt;
+      &lt;td&gt;E.g.: the shopper buys a TV for $600 and chooses to pay in three $200 installments; in this situation, the first transaction is initiated by the cardholder and the following two transactions are initiated by the merchant.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Category M2 - transaction initiated by the merchant&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Category M2 - merchant-initiated transaction per industry practice&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.InitiatedTransactionIndicator.Category&lt;/code&gt; = “M2”&lt;/p&gt;
 
@@ -34149,24 +34149,24 @@ You can import them directly into your POSTMAN and have all the examples ready t
     &lt;tr&gt;
       &lt;th&gt;Indicator subcategory&lt;/th&gt;
       &lt;th&gt;Meaning&lt;/th&gt;
-      &lt;th&gt;Description/Example&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PartialShipment&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Saves card data for future purchases initiated by the merchant, when the purchased goods will be deliverd in more than one shipping.&lt;/td&gt;
+      &lt;td&gt;Saves card data for future purchases initiated by the merchant, when the order will be delivered in more than one shipping.&lt;/td&gt;
       &lt;td&gt;Partial shipment may occur when the amount of purchased goods in the e-commerce is not available for shipping in the time of purchase. Each shipping is a separate transaction.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RelatedOrDelayedCharge&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Saves card data for future purchases initiated by the merchant for additional expenses.&lt;/td&gt;
-      &lt;td&gt;Additional charge after providing initial services and processing the payment. E.g.: hotel minibar fridge charges after cardholder check-out.&lt;/td&gt;
+      &lt;td&gt;Additional charge after providing initial services and processing the payment. E.g., hotel minibar fridge charges after cardholder check-out.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NoShow&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Saves card data for future purchases initiated by the merchant for fine charges.&lt;/td&gt;
-      &lt;td&gt;A fine charged according to the merchant cancellation policy. E.g.: the cardholder cancels a reservation.&lt;/td&gt;
+      &lt;td&gt;A fine charged according to the merchant cancellation policy. E.g.: the cancellation of a reservation by the cardholder without adequate prior notice to the establishment.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Resubmission&lt;/code&gt;&lt;/td&gt;
@@ -34177,7 +34177,7 @@ You can import them directly into your POSTMAN and have all the examples ready t
 &lt;/table&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Important&lt;/strong&gt;: Card data is saved as a token.&lt;/p&gt;
+  &lt;p&gt;&lt;strong&gt;Important&lt;/strong&gt;: Card data is stored in encrypted form.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h2 id=&quot;alelo-cards&quot;&gt;Alelo Cards&lt;/h2&gt;
