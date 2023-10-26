@@ -3201,7 +3201,7 @@
 
 <h2 id="alelo-cards">Alelo Cards</h2>
 
-<p>To create a sale that will use an Alelo card, it’s necessary to make a <strong>POST</strong> to the Payment resource using the technical contract for a <strong>Debit Card</strong> sale.</p>
+<p>To create a sale that will use an Alelo card, use the same request as a <strong>debit card</strong> sale.</p>
 
 <p><strong>NOTE:</strong> In ALELO Card transactions, the following parameters must have static settings.</p>
 
@@ -3278,106 +3278,106 @@
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Store identifier in the Cielo eCommerce API.</td>
-      <td>Guid</td>
+      <td>Merchant identifier in the API E-commerce Cielo</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Public Key for Dual Authentication in the Cielo eCommerce API.</td>
-      <td>Text</td>
+      <td>Public Key for Dual Authentication in the API E-commerce Cielo</td>
+      <td>text</td>
       <td>40</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
       <td>Request identifier, used when the merchant uses different servers for each GET / POST / PUT</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
       <td>Order identification number.</td>
-      <td>Text</td>
+      <td>text</td>
       <td>50</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Shopper Name.</td>
-      <td>Text</td>
-      <td>255</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
-      <td>Shopper registration status at the store (NEW / EXISTING) - Used for fraud analysis.</td>
-      <td>Text</td>
+      <td>Shopper name.</td>
+      <td>text</td>
       <td>255</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
-      <td>Defines whether the shopper will be directed to the issuing bank for card authentication</td>
-      <td>Boolean</td>
+      <td>Defines whether the buyer will be directed to the issuing bank for card authentication. <strong>Possible value: “false”</strong> or not send.</td>
+      <td>boolean</td>
       <td>—</td>
-      <td>No (Defaul false)</td>
+      <td>No (default = “false”)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>Type of Payment Method</td>
-      <td>Text</td>
+      <td>Type of payment method.</td>
+      <td>text</td>
       <td>100</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
-      <td>Order Amount (to be sent in cents).</td>
-      <td>Numeric</td>
+      <td>Order amount (to be sent in cents).</td>
+      <td>number</td>
       <td>15</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ReturnUrl</code></td>
       <td>Merchant return URL.</td>
-      <td>Text</td>
+      <td>text</td>
       <td>1024</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ReturnUrl</code></td>
-      <td>URL where the user will be redirected after payment is completed</td>
-      <td>Text</td>
+      <td>URL where the user will be redirected after payment is completed.</td>
+      <td>text</td>
       <td>1024</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DebitCard.CardNumber</code></td>
-      <td>Shopper’s Card Number.</td>
-      <td>Text</td>
+      <td>Shopper’s card number.</td>
+      <td>text</td>
       <td>19</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DebitCard.Holder</code></td>
       <td>Shopper’s name printed on card.</td>
-      <td>Text</td>
+      <td>text</td>
       <td>25</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DebitCard.ExpirationDate</code></td>
+      <td>Expiration date printed on the card. E.g., MM/YYYY.</td>
+      <td>text</td>
+      <td>7</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DebitCard.SecurityCode</code></td>
       <td>Security code printed on the back of the card.</td>
-      <td>Text</td>
+      <td>text</td>
       <td>4</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DebitCard.Brand</code></td>
       <td>Card brand. Needs to be sent as “Elo”</td>
-      <td>Text</td>
+      <td>text</td>
       <td>10</td>
       <td>Yes</td>
     </tr>
@@ -3488,44 +3488,37 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">AuthenticationUrl</code></td>
-      <td>URL to which the Merchant must redirect the Customer to the Debit flow.</td>
-      <td>Text</td>
-      <td>56</td>
-      <td>Authentication URL</td>
-    </tr>
-    <tr>
       <td><code class="language-plaintext highlighter-rouge">Tid</code></td>
       <td>Transaction ID at the acquirer.</td>
-      <td>Text</td>
+      <td>text</td>
       <td>20</td>
       <td>Alphanumeric text</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Order Identifier field.</td>
-      <td>Guid</td>
+      <td>Order identifier field.</td>
+      <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReturnUrl</code></td>
       <td>Merchant return URL. URL where the shopkeeper will be redirected at the end of the flow.</td>
-      <td>Text</td>
+      <td>text</td>
       <td>1024</td>
-      <td>http://www.urllojista.com.br</td>
+      <td>http://www.urldolojista.com.br</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Transaction Status</td>
-      <td>Byte</td>
+      <td>Transaction Status. View the full <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#transactional-status">Transactional Status</a>table</td>
+      <td>byte</td>
       <td>—</td>
       <td>0</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
-      <td>Acquisition return code.</td>
-      <td>Text</td>
+      <td>Acquirer return code.</td>
+      <td>text</td>
       <td>32</td>
       <td>Alphanumeric text</td>
     </tr>
