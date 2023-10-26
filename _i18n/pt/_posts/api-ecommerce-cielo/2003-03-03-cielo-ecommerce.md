@@ -1670,21 +1670,21 @@ curl
 
 | Propriedade                | Descrição                                                                                                                       | Tipo     | Tamanho | Obrigatório            |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- | ---------------------- |
-| `MerchantId`               | Identificador da loja na API Cielo eCommerce.                                                                                   | Guid     | 36      | Sim                    |
-| `MerchantKey`              | Chave Pública para Autenticação Dupla na API Cielo eCommerce.                                                                   | Texto    | 40      | Sim                    |
-| `RequestId`                | Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT                           | Guid     | 36      | Não                    |
-| `MerchantOrderId`          | Número de identificação do Pedido.                                                                                              | Texto    | 50      | Sim                    |
-| `Customer.Name`            | Nome do Comprador.                                                                                                              | Texto    | 255     | Não                    |
-| `Payment.Authenticate`     | Define se o comprador será direcionado ao Banco emissor para autenticação do cartão. **Valor possível: "false"** ou não enviar. | Booleano | ---     | Não (default ="false") |
-| `Payment.Type`             | Tipo do Meio de Pagamento                                                                                                       | Texto    | 100     | Sim                    |
-| `Payment.Amount`           | Valor do Pedido (ser enviado em centavos).                                                                                      | Número   | 15      | Sim                    |
-| `Payment.ReturnUrl`        | URL de retorno do lojista.                                                                                                      | Texto    | 1024    | Sim                    |
-| `Payment.ReturnUrl`        | URL para onde o usuário será redirecionado após o fim do pagamento                                                              | Texto    | 1024    | Sim                    |
-| `DebitCard.CardNumber`     | Número do cartão do comprador.                                                                                                  | Texto    | 19      | Sim                    |
-| `DebitCard.Holder`         | Nome do comprador impresso no cartão.                                                                                           | Texto    | 25      | Sim                    |
-| `DebitCard.ExpirationDate` | Data de validade impressa no cartão. Ex. MM/AAAA.                                                                               | Texto    | 7       | Sim                    |
-| `DebitCard.SecurityCode`   | Código de segurança impresso no verso do cartão.                                                                                | Texto    | 4       | Sim                    |
-| `DebitCard.Brand`          | Bandeira do cartão. Precisa ser enviada como "ELO".                                                                             | Texto    | 10      | Sim                    |
+| `MerchantId`               | Identificador da loja na API E-commerce Cielo                                                                                   | GUID     | 36      | Sim                    |
+| `MerchantKey`              | Chave Pública para Autenticação Dupla na API Cielo eCommerce.                                                                   | texto    | 40      | Sim                    |
+| `RequestId`                | Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT                           | GUID     | 36      | Não                    |
+| `MerchantOrderId`          | Número de identificação do pedido.                                                                                              | texto    | 50      | Sim                    |
+| `Customer.Name`            | Nome do comprador.                                                                                                              | texto    | 255     | Não                    |
+| `Payment.Authenticate`     | Define se o comprador será direcionado ao Banco emissor para autenticação do cartão. **Valor possível: "false"** ou não enviar. | booleano | ---     | Não (default ="false") |
+| `Payment.Type`             | Tipo do meio de pagamento.                                                                                                       | texto    | 100     | Sim                    |
+| `Payment.Amount`           | Valor do Pedido (ser enviado em centavos).                                                                                      | número   | 15      | Sim                    |
+| `Payment.ReturnUrl`        | URL de retorno do lojista.                                                                                                      | texto    | 1024    | Sim                    |
+| `Payment.ReturnUrl`        | URL para onde o usuário será redirecionado após o fim do pagamento.                                                              | texto    | 1024    | Sim                    |
+| `DebitCard.CardNumber`     | Número do cartão do comprador.                                                                                                  | texto    | 19      | Sim                    |
+| `DebitCard.Holder`         | Nome do comprador impresso no cartão.                                                                                           | texto    | 25      | Sim                    |
+| `DebitCard.ExpirationDate` | Data de validade impressa no cartão. Ex. MM/AAAA.                                                                               | texto    | 7       | Sim                    |
+| `DebitCard.SecurityCode`   | Código de segurança impresso no verso do cartão.                                                                                | texto    | 4       | Sim                    |
+| `DebitCard.Brand`          | Bandeira do cartão. Precisa ser enviada como "ELO".                                                                             | texto    | 10      | Sim                    |
 
 ### Resposta
 
@@ -1782,10 +1782,10 @@ curl
 
 | Propriedade  | Descrição                                                                                   | Tipo  | Tamanho | Formato                              |
 | ------------ | ------------------------------------------------------------------------------------------- | ----- | ------- | ------------------------------------ |
-| `Tid`        | ID da transação na adquirente.                                                              | Texto | 20      | Texto alfanumérico                   |
-| `PaymentId`  | Campo Identificador do Pedido.                                                              | Guid  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
-| `ReturnUrl`  | URL de retorno do lojista. URL para onde o lojista vai ser redirecionado no final do fluxo. | Texto | 1024    | http://www.urllogista.com.br         |
-| `Status`     | Status da TransaçãoVeja a tabela completa de [Status transacional](https://developercielo.github.io/manual/cielo-ecommerce#status-transacional)    | Byte  | ---     | 0  |
+| `Tid`        | ID da transação na adquirente.                                                              | texto | 20      | Texto alfanumérico                   |
+| `PaymentId`  | Campo identificador do pedido.                                                              | GUID  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+| `ReturnUrl`  | URL de retorno do lojista. URL para onde o lojista vai ser redirecionado no final do fluxo. | texto | 1024    | http://www.urldolojista.com.br         |
+| `Status`     | Status da Transação. Veja a tabela completa de [Status transacional](https://developercielo.github.io/manual/cielo-ecommerce#status-transacional)    | byte  | ---     | 0  |
 | `ReturnCode` | Código de retorno da Adquirência.                                                           | Texto | 32      | Texto alfanumérico                   |
 
 ## Pix
