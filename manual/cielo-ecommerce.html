@@ -3270,106 +3270,106 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Identificador da loja na API Cielo eCommerce.</td>
-      <td>Guid</td>
+      <td>Identificador da loja na API E-commerce Cielo</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
       <td>Chave Pública para Autenticação Dupla na API Cielo eCommerce.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>40</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
       <td>Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
-      <td>Número de identificação do Pedido.</td>
-      <td>Texto</td>
+      <td>Número de identificação do pedido.</td>
+      <td>texto</td>
       <td>50</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Nome do Comprador.</td>
-      <td>Texto</td>
+      <td>Nome do comprador.</td>
+      <td>texto</td>
       <td>255</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
       <td>Define se o comprador será direcionado ao Banco emissor para autenticação do cartão. <strong>Valor possível: “false”</strong> ou não enviar.</td>
-      <td>Booleano</td>
+      <td>booleano</td>
       <td>—</td>
       <td>Não (default =”false”)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>Tipo do Meio de Pagamento</td>
-      <td>Texto</td>
+      <td>Tipo do meio de pagamento.</td>
+      <td>texto</td>
       <td>100</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
       <td>Valor do Pedido (ser enviado em centavos).</td>
-      <td>Número</td>
+      <td>número</td>
       <td>15</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ReturnUrl</code></td>
       <td>URL de retorno do lojista.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>1024</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ReturnUrl</code></td>
-      <td>URL para onde o usuário será redirecionado após o fim do pagamento</td>
-      <td>Texto</td>
+      <td>URL para onde o usuário será redirecionado após o fim do pagamento.</td>
+      <td>texto</td>
       <td>1024</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DebitCard.CardNumber</code></td>
       <td>Número do cartão do comprador.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>19</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DebitCard.Holder</code></td>
       <td>Nome do comprador impresso no cartão.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>25</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DebitCard.ExpirationDate</code></td>
       <td>Data de validade impressa no cartão. Ex. MM/AAAA.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>7</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DebitCard.SecurityCode</code></td>
       <td>Código de segurança impresso no verso do cartão.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>4</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DebitCard.Brand</code></td>
       <td>Bandeira do cartão. Precisa ser enviada como “ELO”.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>10</td>
       <td>Sim</td>
     </tr>
@@ -3482,28 +3482,28 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Tid</code></td>
       <td>ID da transação na adquirente.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>20</td>
       <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Campo Identificador do Pedido.</td>
-      <td>Guid</td>
+      <td>Campo identificador do pedido.</td>
+      <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReturnUrl</code></td>
       <td>URL de retorno do lojista. URL para onde o lojista vai ser redirecionado no final do fluxo.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>1024</td>
-      <td>http://www.urllogista.com.br</td>
+      <td>http://www.urldolojista.com.br</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Status da TransaçãoVeja a tabela completa de <a href="https://developercielo.github.io/manual/cielo-ecommerce#status-transacional">Status transacional</a></td>
-      <td>Byte</td>
+      <td>Status da Transação. Veja a tabela completa de <a href="https://developercielo.github.io/manual/cielo-ecommerce#status-transacional">Status transacional</a></td>
+      <td>byte</td>
       <td>—</td>
       <td>0</td>
     </tr>
