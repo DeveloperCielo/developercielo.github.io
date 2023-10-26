@@ -1610,7 +1610,7 @@ In this category, the transaction is completed after an agreement between mercha
 
 ## Alelo Cards
 
-To create a sale that will use an Alelo card, it's necessary to make a **POST** to the Payment resource using the technical contract for a **Debit Card** sale.
+To create a sale that will use an Alelo card, use the same request as a **debit card** sale.
 
 **NOTE:** In ALELO Card transactions, the following parameters must have static settings.
 
@@ -1676,21 +1676,21 @@ curl
 
 | Property                 | Description                                                                                 | Type    | Size | Required          |
 | ------------------------ | ------------------------------------------------------------------------------------------- | ------- | ---- | ----------------- |
-| `MerchantId`             | Store identifier in the Cielo eCommerce API.                                                | Guid    | 36   | Yes               |
-| `MerchantKey`            | Public Key for Dual Authentication in the Cielo eCommerce API.                              | Text    | 40   | Yes               |
-| `RequestId`              | Request identifier, used when the merchant uses different servers for each GET / POST / PUT | Guid    | 36   | No                |
-| `MerchantOrderId`        | Order identification number.                                                                | Text    | 50   | Yes               |
-| `Customer.Name`          | Shopper Name.                                                                               | Text    | 255  | No                |
-| `Customer.Status`        | Shopper registration status at the store (NEW / EXISTING) - Used for fraud analysis.        | Text    | 255  | No                |
-| `Payment.Authenticate`   | Defines whether the shopper will be directed to the issuing bank for card authentication    | Boolean | ---  | No (Defaul false) |
-| `Payment.Type`           | Type of Payment Method                                                                      | Text    | 100  | Yes               |
-| `Payment.Amount`         | Order Amount (to be sent in cents).                                                         | Numeric | 15   | Yes               |
-| `Payment.ReturnUrl`      | Merchant return URL.                                                                        | Text    | 1024 | Yes               |
-| `Payment.ReturnUrl`      | URL where the user will be redirected after payment is completed                            | Text    | 1024 | Yes               |
-| `DebitCard.CardNumber`   | Shopper's Card Number.                                                                      | Text    | 19   | Yes               |
-| `DebitCard.Holder`       | Shopper's name printed on card.                                                             | Text    | 25   | Yes               |
-| `DebitCard.SecurityCode` | Security code printed on the back of the card.                                              | Text    | 4    | Yes               |
-| `DebitCard.Brand`        | Card brand. Needs to be sent as "Elo"                                                       | Text    | 10   | Yes               |
+| `MerchantId`             | Merchant identifier in the API E-commerce Cielo                                                | GUID    | 36   | Yes               |
+| `MerchantKey`            | Public Key for Dual Authentication in the API E-commerce Cielo                              | text    | 40   | Yes               |
+| `RequestId`              | Request identifier, used when the merchant uses different servers for each GET / POST / PUT | GUID    | 36   | No                |
+| `MerchantOrderId`        | Order identification number.                                                                | text    | 50   | Yes               |
+| `Customer.Name`          | Shopper name.                                                                               | text    | 255  | No                |
+| `Payment.Authenticate`   | Defines whether the buyer will be directed to the issuing bank for card authentication. **Possible value: "false"** or not send.    | boolean | ---  | No (default = "false") |
+| `Payment.Type`           | Type of payment method.                                                                      | text    | 100  | Yes               |
+| `Payment.Amount`         | Order amount (to be sent in cents).                                                         | number | 15   | Yes               |
+| `Payment.ReturnUrl`      | Merchant return URL.                                                                        | text    | 1024 | Yes               |
+| `Payment.ReturnUrl`      | URL where the user will be redirected after payment is completed.                            | text    | 1024 | Yes               |
+| `DebitCard.CardNumber`   | Shopper's card number.                                                                      | text    | 19   | Yes               |
+| `DebitCard.Holder`       | Shopper's name printed on card.                                                             | text    | 25   | Yes               |
+| `DebitCard.ExpirationDate` | Expiration date printed on the card. E.g., MM/YYYY.                                                                               | text    | 7       | Yes                   |
+| `DebitCard.SecurityCode` | Security code printed on the back of the card.                                              | text    | 4    | Yes               |
+| `DebitCard.Brand`        | Card brand. Needs to be sent as "Elo"                                                       | text    | 10   | Yes               |
 
 ### Response
 
@@ -1788,12 +1788,11 @@ curl
 
 | Property            | Description                                                                              | Type | Size | Format                               |
 | ------------------- | ---------------------------------------------------------------------------------------- | ---- | ---- | ------------------------------------ |
-| `AuthenticationUrl` | URL to which the Merchant must redirect the Customer to the Debit flow.                  | Text | 56   | Authentication URL                   |
-| `Tid`               | Transaction ID at the acquirer.                                                          | Text | 20   | Alphanumeric text                    |
-| `PaymentId`         | Order Identifier field.                                                                  | Guid | 36   | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
-| `ReturnUrl`         | Merchant return URL. URL where the shopkeeper will be redirected at the end of the flow. | Text | 1024 | http://www.urllojista.com.br         |
-| `Status`            | Transaction Status                                                                       | Byte | ---  | 0                                    |
-| `ReturnCode`        | Acquisition return code.                                                                 | Text | 32   | Alphanumeric text                    |
+| `Tid`               | Transaction ID at the acquirer.                                                          | text | 20   | Alphanumeric text                    |
+| `PaymentId`         | Order identifier field.                                                                  | GUID | 36   | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+| `ReturnUrl`         | Merchant return URL. URL where the shopkeeper will be redirected at the end of the flow. | text | 1024 | http://www.urldolojista.com.br         |
+| `Status`            | Transaction Status. View the full [Transactional Status](https://developercielo.github.io/en/manual/cielo-ecommerce#transactional-status)table                                                                       | byte | ---  | 0                                    |
+| `ReturnCode`        | Acquirer return code.                                                                 | text | 32   | Alphanumeric text                    |
 
 ## Pix
 
