@@ -1800,33 +1800,33 @@ For **Pix**, the transmission for the payment order and the availability of fund
 
 Get to know the cycle of a **Pix** transaction:
 
-| STEPS | RESPONSABILITY | DESCRIPTION                                                                              | TRANSACTION STATUS |
+| SEQUENCE | RESPONSIBLE | DESCRIPTION                                                                              | TRANSACTION STATUS |
 | ----- | -------------- | ---------------------------------------------------------------------------------------- | ------------------ |
-| 1     | Store          | Generating the QR Code.                                                                  | 12 - Pending       |
-| 2     | Shopper        | Paying through the QR Code.                                                              | 2 - Paid           |
-| 3     | Store          | Getting notified of the payment confirmation.                                            | 2 - Paid           |
-| 4     | Store          | Consulting the transaction status.                                                       | 2 - Paid           |
-| 5     | Store          | Releasing the order.                                                                     | 2 - Paid           |
-| 6     | Store          | If it's necessary, requesting the Pix transaction devolution (similar to a card refund). | 2 - Paid           |
-| 7     | Store          | Getting notified of the payment refund.                                                  | 11 - Refunded      |
-| 8     | Store          | Consulting the transaction status.                                                       | 11 - Refunded      |
+| 1     | E-commerce          | Generating the QR code.                                                                  | 12 - Pending       |
+| 2     | Shopper        | Paying through the QR code.                                                              | 2 - Paid           |
+| 3     | E-commerce          | Getting notified of the payment confirmation.                                            | 2 - Paid           |
+| 4     | E-commerce          | Consulting the transaction status.                                                       | 2 - Paid           |
+| 5     | E-commerce          | Releasing the order.                                                                     | 2 - Paid           |
+| 6     | E-commerce          | If it's necessary, requesting the Pix transaction refund (similar to a card refund). | 2 - Paid           |
+| 7     | E-commerce          | Getting notified of the payment refund.                                                  | 11 - Refunded      |
+| 8     | E-commerce          | Consulting the transaction status.                                                       | 11 - Refunded      |
 
 > **WARNING**:
-> - To enable Pix for the Sandbox environment, get in touch with our E-commerce support e-mail: *cieloecommerce@cielo.com.br*;
-> - Before using Pix in production, certify that Pix is allowed in your account. To confirm, you just have to access [portal Cielo](https://www.cielo.com.br/){:target="\_blank"} in the logged in area go to **Meu Cadastro** > **Autorizações** > **PIX**
+> - To enable Pix for the sandbox environment, get in touch with our E-commerce support e-mail: *cieloecommerce@cielo.com.br*;
+> - Before using Pix in production, certify that Pix is allowed in your account. To confirm, you just have to access [Cielo portal](https://www.cielo.com.br/){:target="\_blank"} in the logged in area go to **Meu Cadastro** > **Autorizações** > **PIX**
 > ![Geração do QR Code Pix]({{ site.baseurl_root }}/images/apicieloecommerce/adesao-pix.png)
 
 ### Creating a transaction with Pix QR Code
 
-To generate a Pix QR Code through API E-commerce Cielo, you have to follow these steps.
+To generate a Pix QR code through the API E-commerce Cielo, simply perform the integration according to the following specification.
 
 The required field `Payment.Type` should be sent as "Pix". In the response, the Pix QR Code image _code base64_ will be returned and you should make it available to the shopper.
 
-Check the _transactional flow_ for generating a Pix QR Code:
+Check the **transactional flow** for generating a Pix QR Code:
 
 ![Geração do QR Code Pix]({{ site.baseurl_root }}/images/apicieloecommerce/geracao-qr-code-pix-en.png)
 
-The shopper uses app that can do Pix transactions to read the QR Code and makes the payment. This step has no participation of the store or API E-commerce Cielo, as shown on the flow:
+The shopper then scans the QR code through one of the apps enabled for Pix and makes the payment. At this stage there is no participation from the e-commerce or the Cielo E-commerce API, as shown in the flow:
 
 ![Pagamento Pix]({{ site.baseurl_root }}/images/apicieloecommerce/pagamento-pix-en.png)
 
@@ -1877,12 +1877,12 @@ See the request and response examples for generating Pix QR Code:
 
 | PROPERTY                | DESCRIPTION                         | TYPE   | SIZE | REQUIRED |
 | ----------------------- | ----------------------------------- | ------ | ---- | -------- |
-| `MerchantOrderId`       | Order Id number.                    | Text   | 50   | Yes      |
-| `Customer.Name`         | Shopper name.                       | Text   | 255  | Yes      |
-| `Customer.Identity`     | Shopper's ID number (CPF/CNPJ)      | Text   | 14   | Yes      |
-| `Customer.IdentityType` | Shopper's type of ID (CPF or CNPJ). | Text   | 255  | Yes      |
-| `Payment.Type`          | Payment type. In this case, "Pix".  | Text   | -    | Yes      |
-| `Payment.Amount`        | Payment value amount in cents.      | Number | 15   | Yes      |
+| `MerchantOrderId`       | Order Id number.                    | text   | 50   | Yes      |
+| `Customer.Name`         | Shopper name.                       | text   | 255  | Yes      |
+| `Customer.Identity`     | Shopper's ID number (CPF/CNPJ)      | text   | 14   | Yes      |
+| `Customer.IdentityType` | Shopper's type of ID (CPF or CNPJ). | text   | 255  | Yes      |
+| `Payment.Type`          | Payment type. In this case, "Pix".  | text   | -    | Yes      |
+| `Payment.Amount`        | Payment value amount in cents.      | number | 15   | Yes      |
 
 #### Response
 
@@ -1942,12 +1942,12 @@ See the request and response examples for generating Pix QR Code:
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------ | -------- | ------------------------------------ |
 | `Payment.PaymentId`             | Payment ID number.                                                                                                                                                                                                 | GUID   | 40       | Text                                 |
 | `Payment.AcquirerTransactionId` | Transaction Id for the provider of the payment methods.                                                                                                                                                            | GUID   | 36       | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
-| `Payment.ProofOfSale`           | NSU Pix.                                                                                                                                                                                                           | Texto  | 20       | Alphanumeric Text                    |
-| `Payment.QrcodeBase64Image`     | Base64 code for the QR Code image.                                                                                                                                                                                 | Text   | -        | Text                                 |
-| `Payment.QrCodeString`          | Codified text for the shopper to copy and paste in the internet banking field for mobile payments.                                                                                                                 | Text   | Variable | Alphanumeric Text                    |
-| `Payment.Status`                | Transaction status. In case of success, the inital status is "12" (_Pending_). See the [transaction status list](https://braspag.github.io//en/manual/braspag-pagador#transaction-status-list){:target="\_blank"}. | Number | -        | 12                                   |
-| `Payment.ReturnCode`            | Code returned by the provider of the payment method.                                                                                                                                                               | Text   | 32       | 0                                    |
-| `Payment.ReturnMessage`         | Message returned by the provider of the payment method.                                                                                                                                                            | Text   | 512      | "Pix successfully generated"         |
+| `Payment.ProofOfSale`           | NSU Pix.                                                                                                                                                                                                           | text  | 20       | Alphanumeric Text                    |
+| `Payment.QrcodeBase64Image`     | Base64 code for the QR Code image.                                                                                                                                                                                 | text   | -        | Text                                 |
+| `Payment.QrCodeString`          | Codified text for the shopper to copy and paste in the internet banking field for mobile payments.                                                                                                                 | text   | Variable | Alphanumeric Text                    |
+| `Payment.Status`                | Transaction status. In case of success, the inital status is "12" (_Pending_). See the [transaction status list](https://developercielo.github.io/en/manual/cielo-ecommerce#transactional-status). | number | -        | 12                                   |
+| `Payment.ReturnCode`            | Code returned by the provider of the payment method.                                                                                                                                                               | text   | 32       | 0                                    |
+| `Payment.ReturnMessage`         | Message returned by the provider of the payment method.                                                                                                                                                            | text   | 512      | "Pix successfully generated"         |
 
 ### Requesting Pix refund
 
@@ -1956,7 +1956,7 @@ If your store needs to cancel a pix transaction, it's possible to ask for a **re
 > **Warning:**<br/>
 >
 > - The refund will only happen if there are funds available;<br/>
-> - The deadline for cancellation is 90 days.
+> - The deadline for cancellation is 90 days, as specified by BACEN.
 
 #### Request
 
@@ -1974,10 +1974,10 @@ If your store needs to cancel a pix transaction, it's possible to ask for a **re
 | PROPERTY      | DESCRIPTION                                                                                        | TYPE   | SIZE | REQUIRED |
 | ------------- | -------------------------------------------------------------------------------------------------- | ------ | ---- | -------- |
 | `MerchantId`  | Store identifier in Cielo.                                                                         | GUID   | 36   | Yes      |
-| `MerchantKey` | Public Key for Double Authentication in Cielo.                                                     | Text   | 40   | Yes      |
+| `MerchantKey` | Public key for double authentication at Cielo.                                                     | text   | 40   | Yes      |
 | `RequestId`   | Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.           | GUID   | 36   | No       |
 | `PaymentId`   | Payment ID number.                                                                                 | GUID   | 36   | Yes      |
-| `Amount`      | Amount to be cancelled/refunded in cents. Check if the acquirer supports cancellations or refunds. | Number | 15   | No       |
+| `Amount`      | Amount to be cancelled/refunded in cents. Check if the acquirer supports cancellations or refunds. | number | 15   | No       |
 
 #### Response
 
@@ -2017,9 +2017,9 @@ If your store needs to cancel a pix transaction, it's possible to ask for a **re
 
 | PROPERTY        | DESCRIPTION              | TYPE | SIZE | FORMAT            |
 | --------------- | ------------------------ | ---- | ---- | ----------------- |
-| `Status`        | Transaction status.      | Byte | 2    | Ex.: "1"          |
-| `ReasonCode`    | Acquirer return code.    | Text | 32   | Alphanumeric text |
-| `ReasonMessage` | Acquirer return message. | Text | 512  | Alphanumeric text |
+| `Status`        | Transaction status.      | byte | 2    | E.g., "1"          |
+| `ReasonCode`    | Acquirer return code.    | text | 32   | Alphanumeric text |
+| `ReasonMessage` | Acquirer return message. | text | 512  | Alphanumeric text |
 
 ## Boleto
 
