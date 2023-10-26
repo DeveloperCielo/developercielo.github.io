@@ -3534,8 +3534,8 @@
 <table>
   <thead>
     <tr>
-      <th>STEPS</th>
-      <th>RESPONSABILITY</th>
+      <th>SEQUENCE</th>
+      <th>RESPONSIBLE</th>
       <th>DESCRIPTION</th>
       <th>TRANSACTION STATUS</th>
     </tr>
@@ -3543,49 +3543,49 @@
   <tbody>
     <tr>
       <td>1</td>
-      <td>Store</td>
-      <td>Generating the QR Code.</td>
+      <td>E-commerce</td>
+      <td>Generating the QR code.</td>
       <td>12 - Pending</td>
     </tr>
     <tr>
       <td>2</td>
       <td>Shopper</td>
-      <td>Paying through the QR Code.</td>
+      <td>Paying through the QR code.</td>
       <td>2 - Paid</td>
     </tr>
     <tr>
       <td>3</td>
-      <td>Store</td>
+      <td>E-commerce</td>
       <td>Getting notified of the payment confirmation.</td>
       <td>2 - Paid</td>
     </tr>
     <tr>
       <td>4</td>
-      <td>Store</td>
+      <td>E-commerce</td>
       <td>Consulting the transaction status.</td>
       <td>2 - Paid</td>
     </tr>
     <tr>
       <td>5</td>
-      <td>Store</td>
+      <td>E-commerce</td>
       <td>Releasing the order.</td>
       <td>2 - Paid</td>
     </tr>
     <tr>
       <td>6</td>
-      <td>Store</td>
-      <td>If it’s necessary, requesting the Pix transaction devolution (similar to a card refund).</td>
+      <td>E-commerce</td>
+      <td>If it’s necessary, requesting the Pix transaction refund (similar to a card refund).</td>
       <td>2 - Paid</td>
     </tr>
     <tr>
       <td>7</td>
-      <td>Store</td>
+      <td>E-commerce</td>
       <td>Getting notified of the payment refund.</td>
       <td>11 - Refunded</td>
     </tr>
     <tr>
       <td>8</td>
-      <td>Store</td>
+      <td>E-commerce</td>
       <td>Consulting the transaction status.</td>
       <td>11 - Refunded</td>
     </tr>
@@ -3595,23 +3595,23 @@
 <blockquote>
   <p><strong>WARNING</strong>:</p>
   <ul>
-    <li>To enable Pix for the Sandbox environment, get in touch with our E-commerce support e-mail: <em>cieloecommerce@cielo.com.br</em>;</li>
-    <li>Before using Pix in production, certify that Pix is allowed in your account. To confirm, you just have to access <a href="https://www.cielo.com.br/" target="\_blank">portal Cielo</a> in the logged in area go to <strong>Meu Cadastro</strong> &gt; <strong>Autorizações</strong> &gt; <strong>PIX</strong>
+    <li>To enable Pix for the sandbox environment, get in touch with our E-commerce support e-mail: <em>cieloecommerce@cielo.com.br</em>;</li>
+    <li>Before using Pix in production, certify that Pix is allowed in your account. To confirm, you just have to access <a href="https://www.cielo.com.br/" target="\_blank">Cielo portal</a> in the logged in area go to <strong>Meu Cadastro</strong> &gt; <strong>Autorizações</strong> &gt; <strong>PIX</strong>
 <img src="https://developercielo.github.io/images/apicieloecommerce/adesao-pix.png" alt="Geração do QR Code Pix" /></li>
   </ul>
 </blockquote>
 
 <h3 id="creating-a-transaction-with-pix-qr-code">Creating a transaction with Pix QR Code</h3>
 
-<p>To generate a Pix QR Code through API E-commerce Cielo, you have to follow these steps.</p>
+<p>To generate a Pix QR code through the API E-commerce Cielo, simply perform the integration according to the following specification.</p>
 
 <p>The required field <code class="language-plaintext highlighter-rouge">Payment.Type</code> should be sent as “Pix”. In the response, the Pix QR Code image <em>code base64</em> will be returned and you should make it available to the shopper.</p>
 
-<p>Check the <em>transactional flow</em> for generating a Pix QR Code:</p>
+<p>Check the <strong>transactional flow</strong> for generating a Pix QR Code:</p>
 
 <p><img src="https://developercielo.github.io/images/apicieloecommerce/geracao-qr-code-pix-en.png" alt="Geração do QR Code Pix" /></p>
 
-<p>The shopper uses app that can do Pix transactions to read the QR Code and makes the payment. This step has no participation of the store or API E-commerce Cielo, as shown on the flow:</p>
+<p>The shopper then scans the QR code through one of the apps enabled for Pix and makes the payment. At this stage there is no participation from the e-commerce or the Cielo E-commerce API, as shown in the flow:</p>
 
 <p><img src="https://developercielo.github.io/images/apicieloecommerce/pagamento-pix-en.png" alt="Pagamento Pix" /></p>
 
@@ -3672,42 +3672,42 @@
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
       <td>Order Id number.</td>
-      <td>Text</td>
+      <td>text</td>
       <td>50</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
       <td>Shopper name.</td>
-      <td>Text</td>
+      <td>text</td>
       <td>255</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
       <td>Shopper’s ID number (CPF/CNPJ)</td>
-      <td>Text</td>
+      <td>text</td>
       <td>14</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
       <td>Shopper’s type of ID (CPF or CNPJ).</td>
-      <td>Text</td>
+      <td>text</td>
       <td>255</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
       <td>Payment type. In this case, “Pix”.</td>
-      <td>Text</td>
+      <td>text</td>
       <td>-</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
       <td>Payment value amount in cents.</td>
-      <td>Number</td>
+      <td>number</td>
       <td>15</td>
       <td>Yes</td>
     </tr>
@@ -3794,42 +3794,42 @@
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ProofOfSale</code></td>
       <td>NSU Pix.</td>
-      <td>Texto</td>
+      <td>text</td>
       <td>20</td>
       <td>Alphanumeric Text</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.QrcodeBase64Image</code></td>
       <td>Base64 code for the QR Code image.</td>
-      <td>Text</td>
+      <td>text</td>
       <td>-</td>
       <td>Text</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.QrCodeString</code></td>
       <td>Codified text for the shopper to copy and paste in the internet banking field for mobile payments.</td>
-      <td>Text</td>
+      <td>text</td>
       <td>Variable</td>
       <td>Alphanumeric Text</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Status</code></td>
-      <td>Transaction status. In case of success, the inital status is “12” (<em>Pending</em>). See the <a href="https://braspag.github.io//en/manual/braspag-pagador#transaction-status-list" target="\_blank">transaction status list</a>.</td>
-      <td>Number</td>
+      <td>Transaction status. In case of success, the inital status is “12” (<em>Pending</em>). See the <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#transactional-status">transaction status list</a>.</td>
+      <td>number</td>
       <td>-</td>
       <td>12</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ReturnCode</code></td>
       <td>Code returned by the provider of the payment method.</td>
-      <td>Text</td>
+      <td>text</td>
       <td>32</td>
       <td>0</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ReturnMessage</code></td>
       <td>Message returned by the provider of the payment method.</td>
-      <td>Text</td>
+      <td>text</td>
       <td>512</td>
       <td>“Pix successfully generated”</td>
     </tr>
@@ -3845,7 +3845,7 @@
 
   <ul>
     <li>The refund will only happen if there are funds available;<br /></li>
-    <li>The deadline for cancellation is 90 days.</li>
+    <li>The deadline for cancellation is 90 days, as specified by BACEN.</li>
   </ul>
 </blockquote>
 
@@ -3881,8 +3881,8 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Public Key for Double Authentication in Cielo.</td>
-      <td>Text</td>
+      <td>Public key for double authentication at Cielo.</td>
+      <td>text</td>
       <td>40</td>
       <td>Yes</td>
     </tr>
@@ -3903,7 +3903,7 @@
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Amount</code></td>
       <td>Amount to be cancelled/refunded in cents. Check if the acquirer supports cancellations or refunds.</td>
-      <td>Number</td>
+      <td>number</td>
       <td>15</td>
       <td>No</td>
     </tr>
@@ -3958,21 +3958,21 @@
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
       <td>Transaction status.</td>
-      <td>Byte</td>
+      <td>byte</td>
       <td>2</td>
-      <td>Ex.: “1”</td>
+      <td>E.g., “1”</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReasonCode</code></td>
       <td>Acquirer return code.</td>
-      <td>Text</td>
+      <td>text</td>
       <td>32</td>
       <td>Alphanumeric text</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReasonMessage</code></td>
       <td>Acquirer return message.</td>
-      <td>Text</td>
+      <td>text</td>
       <td>512</td>
       <td>Alphanumeric text</td>
     </tr>

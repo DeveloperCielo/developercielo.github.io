@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-10-26T15:28:50+00:00</updated>
+    <updated>2023-10-26T16:16:25+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -34515,8 +34515,8 @@ You can import them directly into your POSTMAN and have all the examples ready t
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th&gt;STEPS&lt;/th&gt;
-      &lt;th&gt;RESPONSABILITY&lt;/th&gt;
+      &lt;th&gt;SEQUENCE&lt;/th&gt;
+      &lt;th&gt;RESPONSIBLE&lt;/th&gt;
       &lt;th&gt;DESCRIPTION&lt;/th&gt;
       &lt;th&gt;TRANSACTION STATUS&lt;/th&gt;
     &lt;/tr&gt;
@@ -34524,49 +34524,49 @@ You can import them directly into your POSTMAN and have all the examples ready t
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;1&lt;/td&gt;
-      &lt;td&gt;Store&lt;/td&gt;
-      &lt;td&gt;Generating the QR Code.&lt;/td&gt;
+      &lt;td&gt;E-commerce&lt;/td&gt;
+      &lt;td&gt;Generating the QR code.&lt;/td&gt;
       &lt;td&gt;12 - Pending&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;2&lt;/td&gt;
       &lt;td&gt;Shopper&lt;/td&gt;
-      &lt;td&gt;Paying through the QR Code.&lt;/td&gt;
+      &lt;td&gt;Paying through the QR code.&lt;/td&gt;
       &lt;td&gt;2 - Paid&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;3&lt;/td&gt;
-      &lt;td&gt;Store&lt;/td&gt;
+      &lt;td&gt;E-commerce&lt;/td&gt;
       &lt;td&gt;Getting notified of the payment confirmation.&lt;/td&gt;
       &lt;td&gt;2 - Paid&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;4&lt;/td&gt;
-      &lt;td&gt;Store&lt;/td&gt;
+      &lt;td&gt;E-commerce&lt;/td&gt;
       &lt;td&gt;Consulting the transaction status.&lt;/td&gt;
       &lt;td&gt;2 - Paid&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;5&lt;/td&gt;
-      &lt;td&gt;Store&lt;/td&gt;
+      &lt;td&gt;E-commerce&lt;/td&gt;
       &lt;td&gt;Releasing the order.&lt;/td&gt;
       &lt;td&gt;2 - Paid&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;6&lt;/td&gt;
-      &lt;td&gt;Store&lt;/td&gt;
-      &lt;td&gt;If it’s necessary, requesting the Pix transaction devolution (similar to a card refund).&lt;/td&gt;
+      &lt;td&gt;E-commerce&lt;/td&gt;
+      &lt;td&gt;If it’s necessary, requesting the Pix transaction refund (similar to a card refund).&lt;/td&gt;
       &lt;td&gt;2 - Paid&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;7&lt;/td&gt;
-      &lt;td&gt;Store&lt;/td&gt;
+      &lt;td&gt;E-commerce&lt;/td&gt;
       &lt;td&gt;Getting notified of the payment refund.&lt;/td&gt;
       &lt;td&gt;11 - Refunded&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;8&lt;/td&gt;
-      &lt;td&gt;Store&lt;/td&gt;
+      &lt;td&gt;E-commerce&lt;/td&gt;
       &lt;td&gt;Consulting the transaction status.&lt;/td&gt;
       &lt;td&gt;11 - Refunded&lt;/td&gt;
     &lt;/tr&gt;
@@ -34576,23 +34576,23 @@ You can import them directly into your POSTMAN and have all the examples ready t
 &lt;blockquote&gt;
   &lt;p&gt;&lt;strong&gt;WARNING&lt;/strong&gt;:&lt;/p&gt;
   &lt;ul&gt;
-    &lt;li&gt;To enable Pix for the Sandbox environment, get in touch with our E-commerce support e-mail: &lt;em&gt;cieloecommerce@cielo.com.br&lt;/em&gt;;&lt;/li&gt;
-    &lt;li&gt;Before using Pix in production, certify that Pix is allowed in your account. To confirm, you just have to access &lt;a href=&quot;https://www.cielo.com.br/&quot; target=&quot;\_blank&quot;&gt;portal Cielo&lt;/a&gt; in the logged in area go to &lt;strong&gt;Meu Cadastro&lt;/strong&gt; &amp;gt; &lt;strong&gt;Autorizações&lt;/strong&gt; &amp;gt; &lt;strong&gt;PIX&lt;/strong&gt;
+    &lt;li&gt;To enable Pix for the sandbox environment, get in touch with our E-commerce support e-mail: &lt;em&gt;cieloecommerce@cielo.com.br&lt;/em&gt;;&lt;/li&gt;
+    &lt;li&gt;Before using Pix in production, certify that Pix is allowed in your account. To confirm, you just have to access &lt;a href=&quot;https://www.cielo.com.br/&quot; target=&quot;\_blank&quot;&gt;Cielo portal&lt;/a&gt; in the logged in area go to &lt;strong&gt;Meu Cadastro&lt;/strong&gt; &amp;gt; &lt;strong&gt;Autorizações&lt;/strong&gt; &amp;gt; &lt;strong&gt;PIX&lt;/strong&gt;
 &lt;img src=&quot;https://developercielo.github.io/images/apicieloecommerce/adesao-pix.png&quot; alt=&quot;Geração do QR Code Pix&quot; /&gt;&lt;/li&gt;
   &lt;/ul&gt;
 &lt;/blockquote&gt;
 
 &lt;h3 id=&quot;creating-a-transaction-with-pix-qr-code&quot;&gt;Creating a transaction with Pix QR Code&lt;/h3&gt;
 
-&lt;p&gt;To generate a Pix QR Code through API E-commerce Cielo, you have to follow these steps.&lt;/p&gt;
+&lt;p&gt;To generate a Pix QR code through the API E-commerce Cielo, simply perform the integration according to the following specification.&lt;/p&gt;
 
 &lt;p&gt;The required field &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Type&lt;/code&gt; should be sent as “Pix”. In the response, the Pix QR Code image &lt;em&gt;code base64&lt;/em&gt; will be returned and you should make it available to the shopper.&lt;/p&gt;
 
-&lt;p&gt;Check the &lt;em&gt;transactional flow&lt;/em&gt; for generating a Pix QR Code:&lt;/p&gt;
+&lt;p&gt;Check the &lt;strong&gt;transactional flow&lt;/strong&gt; for generating a Pix QR Code:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/apicieloecommerce/geracao-qr-code-pix-en.png&quot; alt=&quot;Geração do QR Code Pix&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;The shopper uses app that can do Pix transactions to read the QR Code and makes the payment. This step has no participation of the store or API E-commerce Cielo, as shown on the flow:&lt;/p&gt;
+&lt;p&gt;The shopper then scans the QR code through one of the apps enabled for Pix and makes the payment. At this stage there is no participation from the e-commerce or the Cielo E-commerce API, as shown in the flow:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/apicieloecommerce/pagamento-pix-en.png&quot; alt=&quot;Pagamento Pix&quot; /&gt;&lt;/p&gt;
 
@@ -34653,42 +34653,42 @@ You can import them directly into your POSTMAN and have all the examples ready t
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantOrderId&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Order Id number.&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;text&lt;/td&gt;
       &lt;td&gt;50&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Customer.Name&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Shopper name.&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Customer.Identity&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Shopper’s ID number (CPF/CNPJ)&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;text&lt;/td&gt;
       &lt;td&gt;14&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Customer.IdentityType&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Shopper’s type of ID (CPF or CNPJ).&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Type&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Payment type. In this case, “Pix”.&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;text&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Amount&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Payment value amount in cents.&lt;/td&gt;
-      &lt;td&gt;Number&lt;/td&gt;
+      &lt;td&gt;number&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
@@ -34775,42 +34775,42 @@ You can import them directly into your POSTMAN and have all the examples ready t
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.ProofOfSale&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;NSU Pix.&lt;/td&gt;
-      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;text&lt;/td&gt;
       &lt;td&gt;20&lt;/td&gt;
       &lt;td&gt;Alphanumeric Text&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.QrcodeBase64Image&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Base64 code for the QR Code image.&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;text&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.QrCodeString&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Codified text for the shopper to copy and paste in the internet banking field for mobile payments.&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;text&lt;/td&gt;
       &lt;td&gt;Variable&lt;/td&gt;
       &lt;td&gt;Alphanumeric Text&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Status&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Transaction status. In case of success, the inital status is “12” (&lt;em&gt;Pending&lt;/em&gt;). See the &lt;a href=&quot;https://braspag.github.io//en/manual/braspag-pagador#transaction-status-list&quot; target=&quot;\_blank&quot;&gt;transaction status list&lt;/a&gt;.&lt;/td&gt;
-      &lt;td&gt;Number&lt;/td&gt;
+      &lt;td&gt;Transaction status. In case of success, the inital status is “12” (&lt;em&gt;Pending&lt;/em&gt;). See the &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#transactional-status&quot;&gt;transaction status list&lt;/a&gt;.&lt;/td&gt;
+      &lt;td&gt;number&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;12&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.ReturnCode&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Code returned by the provider of the payment method.&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;text&lt;/td&gt;
       &lt;td&gt;32&lt;/td&gt;
       &lt;td&gt;0&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.ReturnMessage&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Message returned by the provider of the payment method.&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;text&lt;/td&gt;
       &lt;td&gt;512&lt;/td&gt;
       &lt;td&gt;“Pix successfully generated”&lt;/td&gt;
     &lt;/tr&gt;
@@ -34826,7 +34826,7 @@ You can import them directly into your POSTMAN and have all the examples ready t
 
   &lt;ul&gt;
     &lt;li&gt;The refund will only happen if there are funds available;&lt;br /&gt;&lt;/li&gt;
-    &lt;li&gt;The deadline for cancellation is 90 days.&lt;/li&gt;
+    &lt;li&gt;The deadline for cancellation is 90 days, as specified by BACEN.&lt;/li&gt;
   &lt;/ul&gt;
 &lt;/blockquote&gt;
 
@@ -34862,8 +34862,8 @@ You can import them directly into your POSTMAN and have all the examples ready t
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Public Key for Double Authentication in Cielo.&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;Public key for double authentication at Cielo.&lt;/td&gt;
+      &lt;td&gt;text&lt;/td&gt;
       &lt;td&gt;40&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
@@ -34884,7 +34884,7 @@ You can import them directly into your POSTMAN and have all the examples ready t
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Amount&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Amount to be cancelled/refunded in cents. Check if the acquirer supports cancellations or refunds.&lt;/td&gt;
-      &lt;td&gt;Number&lt;/td&gt;
+      &lt;td&gt;number&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
@@ -34939,21 +34939,21 @@ You can import them directly into your POSTMAN and have all the examples ready t
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Status&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Transaction status.&lt;/td&gt;
-      &lt;td&gt;Byte&lt;/td&gt;
+      &lt;td&gt;byte&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
-      &lt;td&gt;Ex.: “1”&lt;/td&gt;
+      &lt;td&gt;E.g., “1”&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ReasonCode&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Acquirer return code.&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;text&lt;/td&gt;
       &lt;td&gt;32&lt;/td&gt;
       &lt;td&gt;Alphanumeric text&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ReasonMessage&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Acquirer return message.&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;text&lt;/td&gt;
       &lt;td&gt;512&lt;/td&gt;
       &lt;td&gt;Alphanumeric text&lt;/td&gt;
     &lt;/tr&gt;
