@@ -4423,7 +4423,15 @@ curl
 
 ### Identificadores da bandeira
 
-O identificador da bandeira é um código de autenticação para transações recorrentes ou com credenciais armazenadas retornado na resposta da autorização ou na resposta da validação do cartão (Zero Auth).
+O identificador da bandeira é um código de autenticação para transações recorrentes ou com [credenciais armazenadas](https://developercielo.github.io/manual/cielo-ecommerce#card-on-file) retornado na resposta da autorização ou na resposta da validação do cartão ([Zero Auth](https://developercielo.github.io/manual/cielo-ecommerce#zero-auth)).
+
+[Identificador Bandeira]({{ site.baseurl_root }}/images/apicieloecommerce/identificador-bandeira.png)
+
+1. A loja solicita autorização da primeira transação ou validação do cartão ([ZeroAuth](https://developercielo.github.io/manual/cielo-ecommerce#zero-auth));
+2. A API E-Commerce Cielo envia solicitação para adquirente, bandeira e emissor;
+3. A bandeira do cartão aprova a transação e retorna o `IssuerTransactionId`;
+4. A API E-commerce Cielo retorna o `IssuerTransactionId`;
+5. A loja envia o `IssuerTransactionId` da primeira transação ou da transação subsequente.
 
 **Por que usar?**
 
