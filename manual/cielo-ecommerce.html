@@ -8204,7 +8204,17 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
 
 <h3 id="identificadores-da-bandeira">Identificadores da bandeira</h3>
 
-<p>O identificador da bandeira é um código de autenticação para transações recorrentes ou com credenciais armazenadas retornado na resposta da autorização ou na resposta da validação do cartão (Zero Auth).</p>
+<p>O identificador da bandeira é um código de autenticação para transações recorrentes ou com <a href="https://developercielo.github.io/manual/cielo-ecommerce#card-on-file">credenciais armazenadas</a> retornado na resposta da autorização ou na resposta da validação do cartão (<a href="https://developercielo.github.io/manual/cielo-ecommerce#zero-auth">Zero Auth</a>).</p>
+
+<p><a href="https://developercielo.github.io/images/apicieloecommerce/identificador-bandeira.png">Identificador Bandeira</a></p>
+
+<ol>
+  <li>A loja solicita autorização da primeira transação ou validação do cartão (<a href="https://developercielo.github.io/manual/cielo-ecommerce#zero-auth">ZeroAuth</a>);</li>
+  <li>A API E-Commerce Cielo envia solicitação para adquirente, bandeira e emissor;</li>
+  <li>A bandeira do cartão aprova a transação e retorna o <code class="language-plaintext highlighter-rouge">IssuerTransactionId</code>;</li>
+  <li>A API E-commerce Cielo retorna o <code class="language-plaintext highlighter-rouge">IssuerTransactionId</code>;</li>
+  <li>A loja envia o <code class="language-plaintext highlighter-rouge">IssuerTransactionId</code> da primeira transação ou da transação subsequente.</li>
+</ol>
 
 <p><strong>Por que usar?</strong></p>
 
