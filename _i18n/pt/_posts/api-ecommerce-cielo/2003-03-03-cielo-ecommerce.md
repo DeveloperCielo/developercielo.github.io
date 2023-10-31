@@ -4634,7 +4634,7 @@ curl
 
 O identificador da bandeira é um código de autenticação para transações recorrentes ou com [credenciais armazenadas](https://developercielo.github.io/manual/cielo-ecommerce#card-on-file) retornado na resposta da autorização ou na resposta da validação do cartão ([Zero Auth](https://developercielo.github.io/manual/cielo-ecommerce#zero-auth)).
 
-[Identificador Bandeira]({{ site.baseurl_root }}/images/apicieloecommerce/identificador-bandeira.png)
+![Identificador Bandeira]({{ site.baseurl_root }}/images/apicieloecommerce/identificador-bandeira.png)
 
 1. A loja solicita autorização da primeira transação ou validação do cartão ([ZeroAuth](https://developercielo.github.io/manual/cielo-ecommerce#zero-auth));
 2. A API E-Commerce Cielo envia solicitação para adquirente, bandeira e emissor;
