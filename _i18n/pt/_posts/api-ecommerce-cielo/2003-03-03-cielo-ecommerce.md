@@ -4421,83 +4421,6 @@ curl
 | `Interval`           | Intervalo entre as recorrências.                                            | Número   | 10      | <br>Monthly = 1 <BR>Bimonthly = 2<BR>Quarterly = 3<BR>SemiAnnual = 6<BR>Annual = 12<BR> |
 | `AuthorizeNow`       | Booleano para saber se a primeira recorrência já vai ser autorizada ou não. | Booleano | ---     | true                                                                                    |
 
-### Identificadores da bandeira
-
-O identificador da bandeira é um código de autenticação para transações recorrentes ou com [credenciais armazenadas](https://developercielo.github.io/manual/cielo-ecommerce#card-on-file) retornado na resposta da autorização ou na resposta da validação do cartão ([Zero Auth](https://developercielo.github.io/manual/cielo-ecommerce#zero-auth)).
-
-[Identificador Bandeira]({{ site.baseurl_root }}/images/apicieloecommerce/identificador-bandeira.png)
-
-1. A loja solicita autorização da primeira transação ou validação do cartão ([ZeroAuth](https://developercielo.github.io/manual/cielo-ecommerce#zero-auth));
-2. A API E-Commerce Cielo envia solicitação para adquirente, bandeira e emissor;
-3. A bandeira do cartão aprova a transação e retorna o `IssuerTransactionId`;
-4. A API E-commerce Cielo retorna o `IssuerTransactionId`;
-5. A loja envia o `IssuerTransactionId` da primeira transação ou da transação subsequente.
-
-**Por que usar?**
-
-Os identificadores das bandeiras são importantes para garantir uma melhor taxa de aprovação, pois uma vez que a transação atual é relacionada com uma transação anterior, o emissor consegue identificar que já houve uma transação iniciada pelo portador.
-
-Esse identificador retornado na transação mais recente deve ser informado nas transações subsequentes.
-
-**Bandeiras suportadas:**
-
-* Mastercard;
-* Visa;
-* Elo.
-
-**Exemplo de retorno do identificador da bandeira**
-
-O identificador da bandeira é retornado no parâmetro `IssuerTransactionId` na resposta de uma validação de cartão (mais detalhes em [Zero Auth](https://developercielo.github.io/manual/cielo-ecommerce#resposta186)) ou também na resposta da primeira transação iniciada pelo portador, dentro do nó `Payment`.
-
-> **Atenção**: O valor do parâmetro `IssuerTransactionId` pode ser alterado em uma nova autorização ou em uma nova validação de cartão, ou seja, o emissor pode devolver um novo valor dentro do parâmetro `IssuerTransactionId` a cada requisição.
-
-> Para ver os exemplos de requisições completas, vá para [Criando uma transação de crédito](https://developercielo.github.io/manual/cielo-ecommerce#criando-uma-transa%C3%A7%C3%A3o-de-cr%C3%A9dito) ou [Validando um cartão com Zero Auth](https://developercielo.github.io/manual/cielo-ecommerce#zero-auth).
-
-A seguir, veja o exemplo de uma resposta de da transação de cartão de crédito retornando o `IssuerTransactionId`:
-
-```json
-{  
-   "MerchantOrderId":"2014111701",
-   "Payment":{  
-     "Type":"CreditCard",
-     "Amount":15700,
-     "Capture":true,
-     "Recurrent":"true",
-     "IssuerTransactionId": "580027442382078",
-     "Installments" 1,
-     "CreditCard":{  
-         "CardNumber":"1234123412341231",
-         "Holder":"Teste Holder",
-         "ExpirationDate":"12/2030",
-         "SaveCard":"false",
-         "Brand":"Visa",
-         "CardOnFile":{
-            "Usage": "Used",
-            "Reason":"Recurring"
-         }
-     }
-   }
-}
-```
-
-|PROPRIEDADE|TIPO|TAMANHO|OBRIGATÓRIO|DESCRIÇÃO|
-|---|---|---|---|---|
-|`MerchantOrderId`|Texto|50|Sim|Número de identificação do pedido.|
-|`Payment.Type`|Texto|100|Sim|Tipo do meio de pagamento.|
-|`Payment.Amount`|Número|15|Sim|Valor do pedido (ser enviado em centavos).|
-|`Payment.Installments`|Número|2|Sim|Número de parcelas.|
-|`Payment.Capture`|Booleano|—|Não (Default false)|Booleano que identifica que a autorização deve ser com captura automática (“true”) ou captura posterior (“false”).|
-|`Payment.IssuerTransactionId`|Texto|-|Condicional|Identificador utilizado para referenciar transações subsequentes
-|`Payment.Recurrent`|Booleano|-|Não|Indica se a transação é do tipo recorrente (“true”) ou não (“false”). O valor “true” não originará uma nova recorrência, apenas permitirá a realização de uma transação sem a necessidade de envio do CVV. Authenticate deve ser “false” quando Recurrent é “true”.|
-|`CreditCard.CardNumber`|Texto|19|Sim|Número do cartão do comprador.|
-|`CreditCard.Holder`|Texto|25|Não|Nome do comprador impresso no cartão. Não aceita caracteres especiais ou acentuação.|
-|`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impressa no cartão. Ex. MM/AAAA.|
-|`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão.|
-|`CreditCard.SaveCard`|Booleano|—|Não (Default false)|Booleano que identifica se o cartão será salvo para gerar o CardToken.|
-|`CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão. Valores possíveis: Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper.|
-|`CreditCard.CardOnFile.Usage`|Texto|-|Não|First se o cartão foi armazenado e é seu primeiro uso.<br>Used se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação.|
-|`CreditCard.CardOnFile.Reason`|Texto|-|Condicional|Indica o propósito de armazenamento de cartões, caso o campo "Usage" for "Used".<BR>**Recurring** - Compra recorrente programada (ex. assinaturas). Se for transação recorrente, usar `Payment.Recurrent` = true (recorrência própria) ou `Recurrent.Payment` = true (recorrência programada). <br>**Unscheduled** - Compra recorrente sem agendamento (ex. aplicativos de serviços)<br>**Installments** - Parcelamento através da recorrência. Saiba mais em [Card On File](https://developercielo.github.io/manual/cielo-ecommerce#card-on-file)|
-
 ### Agendando uma Recorrência Programada
 
 Para criar uma venda recorrente cuja a primeira recorrência não será autorizada na mesma data com a forma de pagamento cartão de crédito, basta fazer um POST conforme o exemplo.
@@ -4706,6 +4629,83 @@ curl
 | `EndDate`            | Data do fim da recorrência.                                                                     | Texto    | 7       | 12/2030 (MM/YYYY)                                                                       |
 | `Interval`           | Intervalo entre as recorrências.                                                                | Número   | 10      | <br>Monthly = 1 <BR>Bimonthly = 2<BR>Quarterly = 3<BR>SemiAnnual = 6<BR>Annual = 12<BR> |
 | `AuthorizeNow`       | Booleano para saber se a primeira recorrência já vai ser autorizada ou se será apenas agendada. | Booleano | ---     | false                                                                                   |
+
+### Identificadores da bandeira
+
+O identificador da bandeira é um código de autenticação para transações recorrentes ou com [credenciais armazenadas](https://developercielo.github.io/manual/cielo-ecommerce#card-on-file) retornado na resposta da autorização ou na resposta da validação do cartão ([Zero Auth](https://developercielo.github.io/manual/cielo-ecommerce#zero-auth)).
+
+[Identificador Bandeira]({{ site.baseurl_root }}/images/apicieloecommerce/identificador-bandeira.png)
+
+1. A loja solicita autorização da primeira transação ou validação do cartão ([ZeroAuth](https://developercielo.github.io/manual/cielo-ecommerce#zero-auth));
+2. A API E-Commerce Cielo envia solicitação para adquirente, bandeira e emissor;
+3. A bandeira do cartão aprova a transação e retorna o `IssuerTransactionId`;
+4. A API E-commerce Cielo retorna o `IssuerTransactionId`;
+5. A loja envia o `IssuerTransactionId` da primeira transação ou da transação subsequente.
+
+**Por que usar?**
+
+Os identificadores das bandeiras são importantes para garantir uma melhor taxa de aprovação, pois uma vez que a transação atual é relacionada com uma transação anterior, o emissor consegue identificar que já houve uma transação iniciada pelo portador.
+
+Esse identificador retornado na transação mais recente deve ser informado nas transações subsequentes.
+
+**Bandeiras suportadas:**
+
+* Mastercard;
+* Visa;
+* Elo.
+
+**Exemplo de retorno do identificador da bandeira**
+
+O identificador da bandeira é retornado no parâmetro `IssuerTransactionId` na resposta de uma validação de cartão (mais detalhes em [Zero Auth](https://developercielo.github.io/manual/cielo-ecommerce#resposta186)) ou também na resposta da primeira transação iniciada pelo portador, dentro do nó `Payment`.
+
+> **Atenção**: O valor do parâmetro `IssuerTransactionId` pode ser alterado em uma nova autorização ou em uma nova validação de cartão, ou seja, o emissor pode devolver um novo valor dentro do parâmetro `IssuerTransactionId` a cada requisição.
+
+> Para ver os exemplos de requisições completas, vá para [Criando uma transação de crédito](https://developercielo.github.io/manual/cielo-ecommerce#criando-uma-transa%C3%A7%C3%A3o-de-cr%C3%A9dito) ou [Validando um cartão com Zero Auth](https://developercielo.github.io/manual/cielo-ecommerce#zero-auth).
+
+A seguir, veja o exemplo de uma resposta de da transação de cartão de crédito retornando o `IssuerTransactionId`:
+
+```json
+{  
+   "MerchantOrderId":"2014111701",
+   "Payment":{  
+     "Type":"CreditCard",
+     "Amount":15700,
+     "Capture":true,
+     "Recurrent":"true",
+     "IssuerTransactionId": "580027442382078",
+     "Installments" 1,
+     "CreditCard":{  
+         "CardNumber":"1234123412341231",
+         "Holder":"Teste Holder",
+         "ExpirationDate":"12/2030",
+         "SaveCard":"false",
+         "Brand":"Visa",
+         "CardOnFile":{
+            "Usage": "Used",
+            "Reason":"Recurring"
+         }
+     }
+   }
+}
+```
+
+|PROPRIEDADE|TIPO|TAMANHO|OBRIGATÓRIO|DESCRIÇÃO|
+|---|---|---|---|---|
+|`MerchantOrderId`|Texto|50|Sim|Número de identificação do pedido.|
+|`Payment.Type`|Texto|100|Sim|Tipo do meio de pagamento.|
+|`Payment.Amount`|Número|15|Sim|Valor do pedido (ser enviado em centavos).|
+|`Payment.Installments`|Número|2|Sim|Número de parcelas.|
+|`Payment.Capture`|Booleano|—|Não (Default false)|Booleano que identifica que a autorização deve ser com captura automática (“true”) ou captura posterior (“false”).|
+|`Payment.IssuerTransactionId`|Texto|-|Condicional|Identificador utilizado para referenciar transações subsequentes
+|`Payment.Recurrent`|Booleano|-|Não|Indica se a transação é do tipo recorrente (“true”) ou não (“false”). O valor “true” não originará uma nova recorrência, apenas permitirá a realização de uma transação sem a necessidade de envio do CVV. Authenticate deve ser “false” quando Recurrent é “true”.|
+|`CreditCard.CardNumber`|Texto|19|Sim|Número do cartão do comprador.|
+|`CreditCard.Holder`|Texto|25|Não|Nome do comprador impresso no cartão. Não aceita caracteres especiais ou acentuação.|
+|`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impressa no cartão. Ex. MM/AAAA.|
+|`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão.|
+|`CreditCard.SaveCard`|Booleano|—|Não (Default false)|Booleano que identifica se o cartão será salvo para gerar o CardToken.|
+|`CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão. Valores possíveis: Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper.|
+|`CreditCard.CardOnFile.Usage`|Texto|-|Não|First se o cartão foi armazenado e é seu primeiro uso.<br>Used se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação.|
+|`CreditCard.CardOnFile.Reason`|Texto|-|Condicional|Indica o propósito de armazenamento de cartões, caso o campo "Usage" for "Used".<BR>**Recurring** - Compra recorrente programada (ex. assinaturas). Se for transação recorrente, usar `Payment.Recurrent` = true (recorrência própria) ou `Recurrent.Payment` = true (recorrência programada). <br>**Unscheduled** - Compra recorrente sem agendamento (ex. aplicativos de serviços)<br>**Installments** - Parcelamento através da recorrência. Saiba mais em [Card On File](https://developercielo.github.io/manual/cielo-ecommerce#card-on-file)|
 
 ## Modificando Recorrências
 
