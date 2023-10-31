@@ -8202,6 +8202,181 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
   </tbody>
 </table>
 
+<h3 id="identificadores-da-bandeira">Identificadores da bandeira</h3>
+
+<p>O identificador da bandeira é um código de autenticação para transações recorrentes ou com credenciais armazenadas retornado na resposta da autorização ou na resposta da validação do cartão (Zero Auth).</p>
+
+<p><strong>Por que usar?</strong></p>
+
+<p>Os identificadores das bandeiras são importantes para garantir uma melhor taxa de aprovação, pois uma vez que a transação atual é relacionada com uma transação anterior, o emissor consegue identificar que já houve uma transação iniciada pelo portador.</p>
+
+<p>Esse identificador retornado na transação mais recente deve ser informado nas transações subsequentes.</p>
+
+<p><strong>Bandeiras suportadas:</strong></p>
+
+<ul>
+  <li>Mastercard;</li>
+  <li>Visa;</li>
+  <li>Elo.</li>
+</ul>
+
+<p><strong>Exemplo de retorno do identificador da bandeira</strong></p>
+
+<p>O identificador da bandeira é retornado no parâmetro <code class="language-plaintext highlighter-rouge">IssuerTransactionId</code> na resposta de uma validação de cartão (mais detalhes em <a href="https://developercielo.github.io/manual/cielo-ecommerce#resposta186">Zero Auth</a>) ou também na resposta da primeira transação iniciada pelo portador, dentro do nó <code class="language-plaintext highlighter-rouge">Payment</code>.</p>
+
+<blockquote>
+  <p><strong>Atenção</strong>: O valor do parâmetro <code class="language-plaintext highlighter-rouge">IssuerTransactionId</code> pode ser alterado em uma nova autorização ou em uma nova validação de cartão, ou seja, o emissor pode devolver um novo valor dentro do parâmetro <code class="language-plaintext highlighter-rouge">IssuerTransactionId</code> a cada requisição.</p>
+</blockquote>
+
+<blockquote>
+  <p>Para ver os exemplos de requisições completas, vá para <a href="https://developercielo.github.io/manual/cielo-ecommerce#criando-uma-transa%C3%A7%C3%A3o-de-cr%C3%A9dito">Criando uma transação de crédito</a> ou <a href="https://developercielo.github.io/manual/cielo-ecommerce#zero-auth">Validando um cartão com Zero Auth</a>.</p>
+</blockquote>
+
+<p>A seguir, veja o exemplo de uma resposta de da transação de cartão de crédito retornando o <code class="language-plaintext highlighter-rouge">IssuerTransactionId</code>:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
+   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2014111701"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">  
+     </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">15700</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"Capture"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"Recurrent"</span><span class="p">:</span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"IssuerTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"580027442382078"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"Installments"</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"CreditCard"</span><span class="p">:{</span><span class="w">  
+         </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="s2">"1234123412341231"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Holder"</span><span class="p">:</span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"CardOnFile"</span><span class="p">:{</span><span class="w">
+            </span><span class="nl">"Usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Reason"</span><span class="p">:</span><span class="s2">"Recurring"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>OBRIGATÓRIO</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Número de identificação do pedido.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+      <td>Tipo do meio de pagamento.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>Número</td>
+      <td>15</td>
+      <td>Sim</td>
+      <td>Valor do pedido (ser enviado em centavos).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
+      <td>Número</td>
+      <td>2</td>
+      <td>Sim</td>
+      <td>Número de parcelas.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
+      <td>Booleano</td>
+      <td>—</td>
+      <td>Não (Default false)</td>
+      <td>Booleano que identifica que a autorização deve ser com captura automática (“true”) ou captura posterior (“false”).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.IssuerTransactionId</code></td>
+      <td>Texto</td>
+      <td>-</td>
+      <td>Condicional</td>
+      <td>Identificador utilizado para referenciar transações subsequentes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Recurrent</code></td>
+      <td>Booleano</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Indica se a transação é do tipo recorrente (“true”) ou não (“false”). O valor “true” não originará uma nova recorrência, apenas permitirá a realização de uma transação sem a necessidade de envio do CVV. Authenticate deve ser “false” quando Recurrent é “true”.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
+      <td>Texto</td>
+      <td>19</td>
+      <td>Sim</td>
+      <td>Número do cartão do comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.Holder</code></td>
+      <td>Texto</td>
+      <td>25</td>
+      <td>Não</td>
+      <td>Nome do comprador impresso no cartão. Não aceita caracteres especiais ou acentuação.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
+      <td>Texto</td>
+      <td>7</td>
+      <td>Sim</td>
+      <td>Data de validade impressa no cartão. Ex. MM/AAAA.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code></td>
+      <td>Texto</td>
+      <td>4</td>
+      <td>Não</td>
+      <td>Código de segurança impresso no verso do cartão.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.SaveCard</code></td>
+      <td>Booleano</td>
+      <td>—</td>
+      <td>Não (Default false)</td>
+      <td>Booleano que identifica se o cartão será salvo para gerar o CardToken.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Sim</td>
+      <td>Bandeira do cartão. Valores possíveis: Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.CardOnFile.Usage</code></td>
+      <td>Texto</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>First se o cartão foi armazenado e é seu primeiro uso.<br />Used se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.CardOnFile.Reason</code></td>
+      <td>Texto</td>
+      <td>-</td>
+      <td>Condicional</td>
+      <td>Indica o propósito de armazenamento de cartões, caso o campo “Usage” for “Used”.<br /><strong>Recurring</strong> - Compra recorrente programada (ex. assinaturas). Se for transação recorrente, usar <code class="language-plaintext highlighter-rouge">Payment.Recurrent</code> = true (recorrência própria) ou <code class="language-plaintext highlighter-rouge">Recurrent.Payment</code> = true (recorrência programada). <br /><strong>Unscheduled</strong> - Compra recorrente sem agendamento (ex. aplicativos de serviços)<br /><strong>Installments</strong> - Parcelamento através da recorrência. Saiba mais em <a href="https://developercielo.github.io/manual/cielo-ecommerce#card-on-file">Card On File</a></td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="agendando-uma-recorrência-programada">Agendando uma Recorrência Programada</h3>
 
 <p>Para criar uma venda recorrente cuja a primeira recorrência não será autorizada na mesma data com a forma de pagamento cartão de crédito, basta fazer um POST conforme o exemplo.</p>
