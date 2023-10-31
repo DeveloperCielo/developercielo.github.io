@@ -1085,13 +1085,13 @@ Em posse do equipamento, o desenvolvedor deve abrir uma nova solicitação no po
 <p>No <strong>build.gradle</strong> do app, adicionar a dependência dentro da closure <strong>dependencies</strong> conforme abaixo:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dependencies {    
-  implementation 'com.cielo.lio:order-manager:1.5.14'  
+  implementation 'com.cielo.lio:order-manager:1.7.0'  
 }
 </code></pre></div></div>
 
 <p>Após essas configurações realize o build do projeto.</p>
 
-<p>última versão 1.5.14</p>
+<p>última versão 1.7.0</p>
 
 <blockquote>
   <p>A partir da versão 1.17.7-beta do SDK se tornou necessária a permissão de INTERNET na aplicação cliente.
@@ -1773,8 +1773,15 @@ Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:</p>
     <tr>
       <td>FROTAS</td>
     </tr>
+    <tr>
+      <td>PIX</td>
+    </tr>
   </tbody>
 </table>
+
+<blockquote>
+  <p><strong>Atenção:</strong> A utilização do paymentCode referente ao PIX está disponivel para uso na versão 1.7.0 da SDK. Para utilização é necessário que esse meio de pagamento esteja habilitado junto a Cielo.</p>
+</blockquote>
 
 <p>Abaixo, segue um exemplo do fluxo com as telas exibidas informando apenas o OrderId:
 <img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcial.jpg" alt="fluxo parcial" /></p>
@@ -2582,6 +2589,9 @@ O método recebe como parâmetro o <code class="language-plaintext highlighter-r
     </tr>
     <tr>
       <td>FROTAS</td>
+    </tr>
+    <tr>
+      <td>PIX</td>
     </tr>
   </tbody>
 </table>
