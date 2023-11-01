@@ -2985,12 +2985,19 @@ Merchant's MCC in a SDWO transaction should use ABECS (Associação Brasileira d
 
 ### Cash In Transactions
 
-A Cash In transaction is when you add credit to a digital wallet. The merchants that operate this type of transaction should be registered as na E-Wallet along with the card brands and should be registered with one of the following **MCCs**: **6540** ou **6051**.
-In addition, you have to send some addictional data in the transaction, to that the brands can identify this type of transaction. See the specifications below:
+A Cash In transaction is when you add credit to a digital wallet. The merchants that operate this type of transaction should be registered as an E-Wallet with the card brands and should be registered with one of the following **MCCs**:
 
-> In addition to the specific fields of this payment method, for Cash In transactions, it i salso required to send the Soft Descriptor (`Payment.SoftDescriptor`) and the CPF or CNPJ of the shopper (`Customer.Identity` and `Customer.IdentityType`). In case of Cash In, the Soft Descriptor field should be filled in with **name of e-wallet\*name of shopper**. See more details on the request fields table.
+|EC|KEY|MCC|BRANDS|
+|---|---|---|---|
+|2000019700|8c08a0d0f00b73dedd2673a06fa725b0bd8edbf71c4c7dd0614bf408e4d16120|6051/6540/6538/4829|Mastercard|
+|2000019700|8c08a0d0f00b73dedd2673a06fa725b0bd8edbf71c4c7dd0614bf408e4d16120|6051/6540|Visa|
+|2000019853|8c08a0d0f00b73dedd2673a06fa725b0bd8edbf71c4c7dd0614bf408e4d16120|6051|Elo|
 
-**Warning:** The Cash In category is only accepted for the following types and brands: Visa/Mastercard – credit; Elo – debit and credit. Does not work with foreign cards.
+In addition, you have to send some additional data in the transaction so that the brands can identify this type of transaction. See the specifications below:
+
+> In addition to the specific fields of this payment method, for Cash In transactions, it is also required to send the Soft Descriptor (`Payment.SoftDescriptor`) and the CPF or CNPJ of the shopper (`Customer.Identity` and `Customer.IdentityType`). In case of Cash In, the Soft Descriptor field should be filled in with **name of e-wallet\*name of shopper**. See more details on the request fields table.
+
+<aside class="notice">Warning: The Cash In category is only accepted for the following types and brands: Visa/Mastercard – credit; Elo – debit and credit. Does not work with foreign cards.</aside>
 
 #### Request
 
