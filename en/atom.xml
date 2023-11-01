@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-11-01T19:41:03+00:00</updated>
+    <updated>2023-11-01T19:48:37+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -36738,14 +36738,46 @@ You can import them directly into your POSTMAN and have all the examples ready t
 
 &lt;h3 id=&quot;cash-in-transactions&quot;&gt;Cash In Transactions&lt;/h3&gt;
 
-&lt;p&gt;A Cash In transaction is when you add credit to a digital wallet. The merchants that operate this type of transaction should be registered as na E-Wallet along with the card brands and should be registered with one of the following &lt;strong&gt;MCCs&lt;/strong&gt;: &lt;strong&gt;6540&lt;/strong&gt; ou &lt;strong&gt;6051&lt;/strong&gt;.
-In addition, you have to send some addictional data in the transaction, to that the brands can identify this type of transaction. See the specifications below:&lt;/p&gt;
+&lt;p&gt;A Cash In transaction is when you add credit to a digital wallet. The merchants that operate this type of transaction should be registered as an E-Wallet with the card brands and should be registered with one of the following &lt;strong&gt;MCCs&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;EC&lt;/th&gt;
+      &lt;th&gt;KEY&lt;/th&gt;
+      &lt;th&gt;MCC&lt;/th&gt;
+      &lt;th&gt;BRANDS&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2000019700&lt;/td&gt;
+      &lt;td&gt;8c08a0d0f00b73dedd2673a06fa725b0bd8edbf71c4c7dd0614bf408e4d16120&lt;/td&gt;
+      &lt;td&gt;6051/6540/6538/4829&lt;/td&gt;
+      &lt;td&gt;Mastercard&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2000019700&lt;/td&gt;
+      &lt;td&gt;8c08a0d0f00b73dedd2673a06fa725b0bd8edbf71c4c7dd0614bf408e4d16120&lt;/td&gt;
+      &lt;td&gt;6051/6540&lt;/td&gt;
+      &lt;td&gt;Visa&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2000019853&lt;/td&gt;
+      &lt;td&gt;8c08a0d0f00b73dedd2673a06fa725b0bd8edbf71c4c7dd0614bf408e4d16120&lt;/td&gt;
+      &lt;td&gt;6051&lt;/td&gt;
+      &lt;td&gt;Elo&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;In addition, you have to send some additional data in the transaction so that the brands can identify this type of transaction. See the specifications below:&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;In addition to the specific fields of this payment method, for Cash In transactions, it i salso required to send the Soft Descriptor (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.SoftDescriptor&lt;/code&gt;) and the CPF or CNPJ of the shopper (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Customer.Identity&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Customer.IdentityType&lt;/code&gt;). In case of Cash In, the Soft Descriptor field should be filled in with &lt;strong&gt;name of e-wallet*name of shopper&lt;/strong&gt;. See more details on the request fields table.&lt;/p&gt;
+  &lt;p&gt;In addition to the specific fields of this payment method, for Cash In transactions, it is also required to send the Soft Descriptor (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.SoftDescriptor&lt;/code&gt;) and the CPF or CNPJ of the shopper (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Customer.Identity&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Customer.IdentityType&lt;/code&gt;). In case of Cash In, the Soft Descriptor field should be filled in with &lt;strong&gt;name of e-wallet*name of shopper&lt;/strong&gt;. See more details on the request fields table.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;strong&gt;Warning:&lt;/strong&gt; The Cash In category is only accepted for the following types and brands: Visa/Mastercard – credit; Elo – debit and credit. Does not work with foreign cards.&lt;/p&gt;
+&lt;aside class=&quot;notice&quot;&gt;Warning: The Cash In category is only accepted for the following types and brands: Visa/Mastercard – credit; Elo – debit and credit. Does not work with foreign cards.&lt;/aside&gt;
 
 &lt;h4 id=&quot;request-14&quot;&gt;Request&lt;/h4&gt;
 
