@@ -2995,7 +2995,7 @@ Uma transação do tipo Cash In é uma operação de adição de créditos em um
 |---|---|---|---|
 |2000019700|8c08a0d0f00b73dedd2673a06fa725b0bd8edbf71c4c7dd0614bf408e4d16120|6051/6540/6538/4829|Mastercard|
 |2000019700|8c08a0d0f00b73dedd2673a06fa725b0bd8edbf71c4c7dd0614bf408e4d16120|6051/6540|Visa|
-|2000019853|8c08a0d0f00b73dedd2673a06fa725b0bd8edbf71c4c7dd0614bf408e4d16120|6540|Elo|
+|2000019853|8c08a0d0f00b73dedd2673a06fa725b0bd8edbf71c4c7dd0614bf408e4d16120|6051|Elo|
 
 Além disso, precisam enviar alguns dados adicionais na transação, para que as bandeiras possam identificar e diferenciar esse tipo de transação. Veja as especificações:
 
