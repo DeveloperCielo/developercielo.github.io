@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-11-03T11:53:34+00:00</updated>
+    <updated>2023-11-03T12:00:41+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -33193,7 +33193,7 @@ You can import them directly into your POSTMAN and have all the examples ready t
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;authenticating-a-transaction&quot;&gt;Authenticating a transaction&lt;/h3&gt;
+&lt;h3 id=&quot;3d-secure-authentication&quot;&gt;3D Secure Authentication&lt;/h3&gt;
 
 &lt;p&gt;Cielo offers 3DS 2.0, a transaction authenticating protocol. Authentication is optional for credit cards transactions and required for debit cards transaction, as determined by issuing banks and card brands.&lt;/p&gt;
 
