@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-11-03T16:41:03+00:00</updated>
+    <updated>2023-11-03T17:10:55+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -11331,7 +11331,7 @@ The QR Code Cielo payment solution does not currently accept debit payments.&lt;
       &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Prepaid&lt;/td&gt;
+      &lt;td&gt;Prepaid cards&lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bpmpi_giftcard_currency&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Transaction currency code paid with prepaid type card&lt;/td&gt;
       &lt;td&gt;Fixed “BRL”&lt;/td&gt;
@@ -11667,35 +11667,35 @@ The QR Code Cielo payment solution does not currently accept debit payments.&lt;
       &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Merchant&lt;/td&gt;
+      &lt;td&gt;Merchant Defined Data&lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bpmpi_mdd1&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Extra data defined by the merchant&lt;/td&gt;
       &lt;td&gt;Alphanumeric [max 255 positions]&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Merchant&lt;/td&gt;
+      &lt;td&gt;Merchant Defined Data&lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bpmpi_mdd2&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Extra data defined by the merchant&lt;/td&gt;
       &lt;td&gt;Alphanumeric [max 255 positions]&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Merchant&lt;/td&gt;
+      &lt;td&gt;Merchant Defined Data&lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bpmpi_mdd3&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Extra data defined by the merchant&lt;/td&gt;
       &lt;td&gt;Alphanumeric [max 255 positions]&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Merchant&lt;/td&gt;
+      &lt;td&gt;Merchant Defined Data&lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bpmpi_mdd4&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Extra data defined by the merchant&lt;/td&gt;
       &lt;td&gt;Alphanumeric [max 255 positions]&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Merchant&lt;/td&gt;
+      &lt;td&gt;Merchant Defined Data&lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bpmpi_mdd5&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Extra data defined by the merchant&lt;/td&gt;
       &lt;td&gt;Alphanumeric [max 255 positions]&lt;/td&gt;
