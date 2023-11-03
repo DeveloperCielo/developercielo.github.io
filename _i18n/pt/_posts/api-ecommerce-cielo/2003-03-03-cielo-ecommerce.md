@@ -1096,9 +1096,9 @@ curl
 | `Payment.MerchantAdviceCode`                | Código de retorno da bandeira que define período para retentativa. _Válido somente para bandeira Mastercard_. Saiba mais [Programa de retentativa das bandeiras para Mastercard](https://developercielo.github.io/tutorial/programa-retentativa-bandeiras#mastercard){:target="\_blank"}.                                                                                                        | Texto        | 2       | Numérico                             |
 | `Payment.DebitCard.PaymentAccountReference` | O PAR (Payment Account Reference) é o número que associa diferentes tokens a um mesmo cartão. Será retornado pelas bandeiras Master e Visa e repassado para os clientes do e-commerce Cielo. Caso a bandeira não envie a informação o campo não será retornado. Se for pra transação de crédito, colocar o campo dentro do nó de `CreditCard` | Alfanumérico | 29      | -                                    |
 
-### Autenticando uma transação
+### Autenticação 3DS
 
-A Cielo oferece o serviço do 3DS 2.0, um protocolo de autenticação de transações. A autenticação é opcional para transações de cartão de crédito, e obrigatória para cartão de débito, por determinação das bandeiras e emissores.
+A Cielo oferece o serviço do 3DS 2.0, um protocolo de autenticação de transações. A autenticação é opcional para transações de cartão de crédito e obrigatória para cartão de débito, por determinação das bandeiras e emissores.
 
 Para integrar a autenticação às suas transações:
 
