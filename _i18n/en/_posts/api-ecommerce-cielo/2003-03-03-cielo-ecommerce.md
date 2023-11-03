@@ -1102,7 +1102,7 @@ curl
 | `Payment.MerchantAdviceCode`        | Card brand's return code that defines the period for transaction submission retry._Valid only for Mastercard_. See more at [Mastercard Retry Program](https://developercielo.github.io/en/tutorial/programa-retentativa-bandeiras#mastercard){:target="\_blank"}. | Text         | 2    | Number                               |
 | `Payment.DebitCard.PaymentAccountReference` | PAR (payment account reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the card brand doesn’t send the information the field will not be returned. | Alphanumeric | 29   | -                                    |
 
-### Authenticating a transaction
+### 3D Secure Authentication
 
 Cielo offers 3DS 2.0, a transaction authenticating protocol. Authentication is optional for credit cards transactions and required for debit cards transaction, as determined by issuing banks and card brands.
 
