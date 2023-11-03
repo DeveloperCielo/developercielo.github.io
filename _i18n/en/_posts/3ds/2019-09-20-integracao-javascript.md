@@ -176,7 +176,7 @@ Once the class is mapped to it's given field, the script is able to retrieve the
 |Order Description|`bpmpi_transaction_mode`|Identifies the channel from which the transaction originates|M: MOTO<br>R: Varejo<br>S: E-Commerce<br>P: Mobile<br>T: Tablet|No|
 |Order Description|`bpmpi_merchant_url`|Address of the e-commerce's web site|Alphanumeric [max 100 positions] Example: http://www.exemplo.com.br|Yes|
 |Prepaid cards|`bpmpi_giftcard_amount`|The total purchase amount for prepaid gift cards in rounded value|Numeric [max 15 positions],<br> example: R$125,54 = 12554|No|
-|Prepaid|`bpmpi_giftcard_currency`|Transaction currency code paid with prepaid type card|Fixed "BRL"|No|
+|Prepaid cards|`bpmpi_giftcard_currency`|Transaction currency code paid with prepaid type card|Fixed "BRL"|No|
 |Billing Address|`bpmpi_billto_customerid`|Identifies the CPF/CNPJ of customer|Numeric [11 to 14 positions]<br>99999999999999|No|
 |Billing Address|`bpmpi_billto_contactname`|Billing address contact name|Alphanumeric [max 120 positions]|No|
 |Billing Address|`bpmpi_billto_phonenumber`|Billing address phone number|Numeric [max 15 positions], in the format: 5511999999999|No|
@@ -224,11 +224,11 @@ Once the class is mapped to it's given field, the script is able to retrieve the
 |Airlines|`bpmpi_airline_numberofpassengers`|Passenger number|Numeric [3 positions]|No|
 |Airlines|`bpmpi_airline_billto_passportcountry`|Code of the country that emitted the passport (ISO Standard Country Codes)|Text [2 positions]|No|
 |Airlines|`bpmpi_airline_billto_passportnumber`|Passport number|Alphanumeric [40 positions]|No|
-|Merchant|`bpmpi_mdd1`|Extra data defined by the merchant|Alphanumeric [max 255 positions]|No|
-|Merchant|`bpmpi_mdd2`|Extra data defined by the merchant|Alphanumeric [max 255 positions]|No|
-|Merchant|`bpmpi_mdd3`|Extra data defined by the merchant|Alphanumeric [max 255 positions]|No|
-|Merchant|`bpmpi_mdd4`|Extra data defined by the merchant|Alphanumeric [max 255 positions]|No|
-|Merchant|`bpmpi_mdd5`|Extra data defined by the merchant|Alphanumeric [max 255 positions]|No|
+|Merchant Defined Data|`bpmpi_mdd1`|Extra data defined by the merchant|Alphanumeric [max 255 positions]|No|
+|Merchant Defined Data|`bpmpi_mdd2`|Extra data defined by the merchant|Alphanumeric [max 255 positions]|No|
+|Merchant Defined Data|`bpmpi_mdd3`|Extra data defined by the merchant|Alphanumeric [max 255 positions]|No|
+|Merchant Defined Data|`bpmpi_mdd4`|Extra data defined by the merchant|Alphanumeric [max 255 positions]|No|
+|Merchant Defined Data|`bpmpi_mdd5`|Extra data defined by the merchant|Alphanumeric [max 255 positions]|No|
 
 # STEP 4. Implementing authentication request
 
