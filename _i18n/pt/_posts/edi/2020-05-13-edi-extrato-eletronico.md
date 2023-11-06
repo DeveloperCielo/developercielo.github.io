@@ -21,7 +21,7 @@ Visando trazer maior transparência e fluidez na conciliação dos extratos, os 
 
 Abaixo segue o comunicado enviado com os detalhes das alterações, arquivos de teste e documentação complementar para apoiar com a homologação.
 
-[Material versão português](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_PTBR.zip)
+[Material versão português](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_PTBR_Nov.zip.rar)
 
 [Material version english](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_english.zip)
 
@@ -29,7 +29,7 @@ Abaixo segue o comunicado enviado com os detalhes das alterações, arquivos de 
 
 [Arquivos de Teste](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/EDI_Atualizacao_sobre_o_lancamento_V15_PTBR.png)
 
-[Comunicado! Atualização sobre o lançamento do Extrato Eletrônico V15](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/EDI_Atualizacao_sobre_o_lancamento_V15_PTBR.png)
+![Comunicado V15](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/EDI_Atualizacao_sobre_o_lancamento_V15_PTBR.png)
 
 É importante que a homologação da nova estrutura ocorra até a data indicada para não impactar a leitura dos extratos.
 
