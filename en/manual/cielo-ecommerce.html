@@ -8606,6 +8606,196 @@
   </tbody>
 </table>
 
+<h2 id="issuer-transaction-id">Issuer transaction Id</h2>
+
+<p>The <strong>issuer transaction Id</strong> is an authentication code for recurrent or stored credential transactions returned in the authorization or card validation response (<a href="https://developercielo.github.io/en/manual/cielo-ecommerce#zero-auth">Zero Auth</a>).</p>
+
+<p><a href="https://developercielo.github.io/images/apicieloecommerce/identificador-bandeira-en.png">Identificador Bandeira</a></p>
+
+<ol>
+  <li>The merchant sends request for first transaction authorization or card validation (ZeroAuth);</li>
+  <li>Cielo E-Commerce API requests authorization for acquirer, card brand, and issuer;</li>
+  <li>The card brand authorizes transaction or validates card and returns <code class="language-plaintext highlighter-rouge">IssuerTransactionId</code>;</li>
+  <li>Cielo E-Commerce API returns <code class="language-plaintext highlighter-rouge">IssuerTransactionId</code> to the merchant;</li>
+  <li>In the next requests, the merchant sends <code class="language-plaintext highlighter-rouge">IssuerTransactionId</code> obtained from the first or following transactions.</li>
+</ol>
+
+<p><strong>Why sending the issuer transaction Id?</strong></p>
+
+<p>The <strong>issuer transaction Id</strong> is important to improve authorization rates, because when the current transaction is related to the previous one, the issuer is able to identify that there has already been a previous transaction initiated by the cardholder.</p>
+
+<p>The <strong>issuer transaction Id</strong> returned in the last transaction must be informed in the next requests.</p>
+
+<p><strong>Supported card brands:</strong></p>
+
+<ul>
+  <li>Mastercard;</li>
+  <li>Visa;</li>
+  <li>Elo.</li>
+</ul>
+
+<p><strong>Response example</strong></p>
+
+<p>The <code class="language-plaintext highlighter-rouge">IssuerTransactionId</code> is returned:</p>
+
+<ul>
+  <li>After validating a card through <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#zero-auth">ZeroAuth</a> or</li>
+  <li>In the authorization response for a cardholder-initiated transaction, in <code class="language-plaintext highlighter-rouge">Payment</code>.</li>
+</ul>
+
+<blockquote>
+  <p><strong>Notice</strong>: The <code class="language-plaintext highlighter-rouge">IssuerTransactionId</code> value may be different in each response for an authorization or card validation.</p>
+</blockquote>
+
+<blockquote>
+  <p>Please refer to the default request examples in <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#creating-a-credit-card-transaction">Creating a credit card transaction</a> or <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#zero-auth">Validating a card with Zero Auth</a>.</p>
+</blockquote>
+
+<p>See below a response example for a credit card transaction returning the <code class="language-plaintext highlighter-rouge">IssuerTransactionId</code>:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
+   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2014111701"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">  
+     </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">15700</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"Capture"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"Recurrent"</span><span class="p">:</span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"IssuerTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"580027442382078"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"Installments"</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"CreditCard"</span><span class="p">:{</span><span class="w">  
+         </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="s2">"1234123412341231"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Holder"</span><span class="p">:</span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"CardOnFile"</span><span class="p">:{</span><span class="w">
+            </span><span class="nl">"Usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Reason"</span><span class="p">:</span><span class="s2">"Recurring"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPRIERTY</th>
+      <th>TYPE</th>
+      <th>SIZE</th>
+      <th>REQUIRED</th>
+      <th>DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
+      <td>text</td>
+      <td>50</td>
+      <td>Yes</td>
+      <td>Order Id number.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>text</td>
+      <td>100</td>
+      <td>Yes</td>
+      <td>Type of the payment method.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>number</td>
+      <td>15</td>
+      <td>Sim</td>
+      <td>Order Amount (to be sent in cents).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
+      <td>number</td>
+      <td>2</td>
+      <td>Sim</td>
+      <td>Number of installments. If the transaction is a recurrence, the number of installments will be 1. For installment transactions, the number of installments will be greater than 1.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
+      <td>boolean</td>
+      <td>—</td>
+      <td>No (Default false)</td>
+      <td>Boolean that identifies if the authorization should be done by <strong>Authomatic capture (“true”)</strong> or <strong><a href="https://developercielo.github.io/en/manual/cielo-ecommerce#capture">posterior capture</a>(“false”)</strong>.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.IssuerTransactionId</code></td>
+      <td>text</td>
+      <td>-</td>
+      <td>Condicional</td>
+      <td>Issuer authentication identifier for recurring credit and debit transactions. This field must be sent in subsequent transactions of the first transaction in the self-recurrence model. In the programmed recurrence model, Cielo will be responsible for sending the field in subsequent transactions.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Recurrent</code></td>
+      <td>boolean</td>
+      <td>-</td>
+      <td>No</td>
+      <td>Indicates if the transaction is recurring (“true”) or not (“false”). The value “true” won’t originate a new recurrence, it will only allow a transaction without the need to send the security code. <code class="language-plaintext highlighter-rouge">Authenticate</code> should be “false” if <code class="language-plaintext highlighter-rouge">Recurrent</code> is “true”. Find out more about <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#recurring-payments">Recurring Payments</a>.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.CardNumber</code></td>
+      <td>text</td>
+      <td>19</td>
+      <td>Yes</td>
+      <td>Shopper’s card number.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Holder</code></td>
+      <td>text</td>
+      <td>25</td>
+      <td>No</td>
+      <td>Name of the shopper that’s printed on the card. Does not accept special characters.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.ExpirationDate</code></td>
+      <td>text</td>
+      <td>7</td>
+      <td>Yes</td>
+      <td>Expiration date printed on the card. Example: MM/AAAA.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.SecurityCode</code></td>
+      <td>text</td>
+      <td>4</td>
+      <td>No</td>
+      <td>Security code printed on the back of the card.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.SaveCard</code></td>
+      <td>boolean</td>
+      <td>—</td>
+      <td>No (Default false)</td>
+      <td>Boolean that identifies if the card will be saved to generate a <code class="language-plaintext highlighter-rouge">CardToken</code>. Find out more about <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#tokenization-of-cards">Tokenization of Cards</a>.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Brand</code></td>
+      <td>text</td>
+      <td>10</td>
+      <td>Yes</td>
+      <td>Card brand. Possible values: Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.CardOnFile.Usage</code></td>
+      <td>text</td>
+      <td>-</td>
+      <td>No</td>
+      <td><strong>First</strong> if the card was stored and it’s your first use.<br /><strong>Used</strong> if the card was stored and has been used for another transaction before. Find out more about <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#card-on-file">Card On File</a>.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.CardOnFile.Reason</code></td>
+      <td>text</td>
+      <td>-</td>
+      <td>Conditional</td>
+      <td>Indicates the motive for card storage, if the “Usage” field is “Used”. <br /> <strong>Recurring</strong> - Programmed recurring transaction (e.g. Subscriptions). If it is a recurring transaction, use <code class="language-plaintext highlighter-rouge">Payment.Recurrent</code> = true (merchant recurrence) or <code class="language-plaintext highlighter-rouge">Recurrent.Payment</code> = true (scheduled recurrence). <br /> <strong>Unscheduled</strong> - Recurring transaction with no fixed date (e.g. service apps) <br /><strong>Installments</strong> - Installments through recurring transactions. Get more information on the topic <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#card-on-file" target="_blank">Card On File</a></td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="modifying-recurrences">Modifying Recurrences</h2>
 
 <h3 id="modifying-shopper-data">Modifying shopper data</h3>
