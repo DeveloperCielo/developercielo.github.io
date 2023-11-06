@@ -4618,6 +4618,86 @@ curl
 | `Interval`           | Interval between recurrences.                                             | Text    | 10   | <ul><li>Monthly</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul> |
 | `AuthorizeNow`       | Boolean to know if the first recurrence is about to be Authorized or not. | Boolean | ---  | true ou false                                                                                      |
 
+## Issuer transaction Id
+
+The **issuer transaction Id** is an authentication code for recurrent or stored credential transactions returned in the authorization or card validation response ([Zero Auth](https://developercielo.github.io/en/manual/cielo-ecommerce#zero-auth)).
+
+[Identificador Bandeira]({{ site.baseurl_root }}/images/apicieloecommerce/identificador-bandeira-en.png)
+
+1. The merchant sends request for first transaction authorization or card validation (ZeroAuth);
+2. Cielo E-Commerce API requests authorization for acquirer, card brand, and issuer;
+3. The card brand authorizes transaction or validates card and returns `IssuerTransactionId`;
+4. Cielo E-Commerce API returns `IssuerTransactionId` to the merchant;
+5. In the next requests, the merchant sends `IssuerTransactionId` obtained from the first or following transactions.
+
+**Why sending the issuer transaction Id?**
+
+The **issuer transaction Id** is important to improve authorization rates, because when the current transaction is related to the previous one, the issuer is able to identify that there has already been a previous transaction initiated by the cardholder.
+
+The **issuer transaction Id** returned in the last transaction must be informed in the next requests.
+
+**Supported card brands:**
+
+* Mastercard;
+* Visa;
+* Elo.
+
+**Response example**
+
+The `IssuerTransactionId` is returned:
+
+* After validating a card through [ZeroAuth](https://developercielo.github.io/en/manual/cielo-ecommerce#zero-auth) or
+* In the authorization response for a cardholder-initiated transaction, in `Payment`.
+
+> **Notice**: The `IssuerTransactionId` value may be different in each response for an authorization or card validation.
+
+> Please refer to the default request examples in [Creating a credit card transaction](https://developercielo.github.io/en/manual/cielo-ecommerce#creating-a-credit-card-transaction) or [Validating a card with Zero Auth](https://developercielo.github.io/en/manual/cielo-ecommerce#zero-auth).
+
+See below a response example for a credit card transaction returning the `IssuerTransactionId`:
+
+```json
+{  
+   "MerchantOrderId":"2014111701",
+   "Payment":{  
+     "Type":"CreditCard",
+     "Amount":15700,
+     "Capture":true,
+     "Recurrent":"true",
+     "IssuerTransactionId": "580027442382078",
+     "Installments" 1,
+     "CreditCard":{  
+         "CardNumber":"1234123412341231",
+         "Holder":"Teste Holder",
+         "ExpirationDate":"12/2030",
+         "SaveCard":"false",
+         "Brand":"Visa",
+         "CardOnFile":{
+            "Usage": "Used",
+            "Reason":"Recurring"
+         }
+     }
+   }
+}
+```
+
+|PROPRIERTY|TYPE|SIZE|REQUIRED|DESCRIPTION|
+|---|---|---|---|---|
+|`MerchantOrderId`|text|50|Yes|Order Id number.|
+|`Payment.Type`|text|100|Yes|Type of the payment method.|
+|`Payment.Amount`|number|15|Sim|Order Amount (to be sent in cents).|
+|`Payment.Installments`|number|2|Sim|Number of installments. If the transaction is a recurrence, the number of installments will be 1. For installment transactions, the number of installments will be greater than 1.|
+|`Payment.Capture`|boolean|—|No (Default false)|Boolean that identifies if the authorization should be done by **Authomatic capture ("true")** or **[posterior capture](https://developercielo.github.io/en/manual/cielo-ecommerce#capture)("false")**.|
+|`Payment.IssuerTransactionId`|text|-|Condicional|Issuer authentication identifier for recurring credit and debit transactions. This field must be sent in subsequent transactions of the first transaction in the self-recurrence model. In the programmed recurrence model, Cielo will be responsible for sending the field in subsequent transactions.|
+|`Payment.Recurrent`|boolean|-|No|Indicates if the transaction is recurring ("true") or not ("false"). The value "true" won't originate a new recurrence, it will only allow a transaction without the need to send the security code. `Authenticate` should be "false" if `Recurrent` is "true". Find out more about [Recurring Payments](https://developercielo.github.io/en/manual/cielo-ecommerce#recurring-payments).|
+| `Payment.CreditCard.CardNumber`   | text | 19| Yes | Shopper's card number.  |
+| `Payment.CreditCard.Holder`  | text   | 25   | No   | Name of the shopper that's printed on the card. Does not accept special characters.  |
+| `Payment.CreditCard.ExpirationDate`  | text  | 7    | Yes  | Expiration date printed on the card. Example: MM/AAAA.    |
+| `Payment.CreditCard.SecurityCode`    | text    | 4    | No   | Security code printed on the back of the card.    |
+| `Payment.CreditCard.SaveCard`      | boolean      | ---  | No (Default false) | Boolean that identifies if the card will be saved to generate a `CardToken`. Find out more about [Tokenization of Cards](https://developercielo.github.io/en/manual/cielo-ecommerce#tokenization-of-cards).   |
+| `Payment.CreditCard.Brand`              | text         | 10   | Yes                | Card brand. Possible values: Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper.   |
+| `Payment.CreditCard.CardOnFile.Usage`       | text         | -    | No                 | **First** if the card was stored and it's your first use.<br>**Used** if the card was stored and has been used for another transaction before. Find out more about [Card On File](https://developercielo.github.io/en/manual/cielo-ecommerce#card-on-file).      |
+| `Payment.CreditCard.CardOnFile.Reason`        | text         | -    | Conditional        | Indicates the motive for card storage, if the "Usage" field is "Used". <br> **Recurring** - Programmed recurring transaction (e.g. Subscriptions). If it is a recurring transaction, use `Payment.Recurrent` = true (merchant recurrence) or `Recurrent.Payment` = true (scheduled recurrence). <br> **Unscheduled** - Recurring transaction with no fixed date (e.g. service apps) <br>**Installments** - Installments through recurring transactions. Get more information on the topic [Card On File](https://developercielo.github.io/en/manual/cielo-ecommerce#card-on-file){:target="_blank"} |
+
 ## Modifying Recurrences
 
 ### Modifying shopper data
