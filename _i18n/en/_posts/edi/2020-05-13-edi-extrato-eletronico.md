@@ -13,7 +13,7 @@ tags:
 
 # Important
 
-## 11/2023 - V15 - New version of electronic statements - Documentation and test files
+## 16/01/2024 - V15 - New version of electronic statements - Documentation and test files
 
 Aiming to bring greater transparency and fluidity in the conciliation of extracts, our files will have a new structure in their demonstration.
 
@@ -28,6 +28,8 @@ Below is the communication sent with the details of the changes, test files and 
 [ES](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_espanol.zip)
 
 [Arquivos de Teste](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Arquivos_Testes.zip)
+
+[Announcement! Update on the Eletronic Statement V15 release](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/EDI_Atualizacao_sobre_o_lancamento_V15_ENG.png)
 
 It is important that the approval of the new structure takes place by the indicated date so as not to impact the reading of the extracts.
 
