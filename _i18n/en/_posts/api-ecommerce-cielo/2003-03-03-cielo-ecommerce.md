@@ -4622,7 +4622,7 @@ curl
 
 The **issuer transaction Id** is an authentication code for recurrent or stored credential transactions returned in the authorization or card validation response ([Zero Auth](https://developercielo.github.io/en/manual/cielo-ecommerce#zero-auth)).
 
-[Identificador Bandeira]({{ site.baseurl_root }}/images/apicieloecommerce/identificador-bandeira-en.png)
+![Identificador Bandeira]({{ site.baseurl_root }}/images/apicieloecommerce/identificador-bandeira-en.png)
 
 1. The merchant sends request for first transaction authorization or card validation (ZeroAuth);
 2. Cielo E-Commerce API requests authorization for acquirer, card brand, and issuer;
@@ -4649,7 +4649,7 @@ The `IssuerTransactionId` is returned:
 * After validating a card through [ZeroAuth](https://developercielo.github.io/en/manual/cielo-ecommerce#zero-auth) or
 * In the authorization response for a cardholder-initiated transaction, in `Payment`.
 
-> **Notice**: The `IssuerTransactionId` value may be different in each response for an authorization or card validation.
+> **Note**: The `IssuerTransactionId` value may be different in each response for an authorization or card validation.
 
 > Please refer to the default request examples in [Creating a credit card transaction](https://developercielo.github.io/en/manual/cielo-ecommerce#creating-a-credit-card-transaction) or [Validating a card with Zero Auth](https://developercielo.github.io/en/manual/cielo-ecommerce#zero-auth).
 
