@@ -30,7 +30,7 @@ In this guide, you will find information on all operations available on API REST
 
 To perform an operation, combine the base URL of the environment with the URL of the desired operation and send it using the HTTP verb as described in the operation.
 
-> [Download the tutorial]({{ site.baseurl }}/attachment/merchantid-merchantkey-cielo-2023.pdf){:target="\_blank"} to learn how to generate your **MerchantId** and * *MerchantKey** on [Cielo portal](https://www.cielo.com.br/){:target="\_blank"}.
+> [Download the tutorial]({{ site.baseurl }}/attachment/merchantid-merchantkey-cielo-2023.pdf){:target="\_blank"} to learn how to generate your **MerchantId** and **MerchantKey** on [Cielo portal](https://www.cielo.com.br/){:target="\_blank"}.
 
 ## Solution features
 
