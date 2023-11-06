@@ -4409,7 +4409,7 @@ curl
 | `Interval`           | Interval between recurrences.                                             | Text    | 10   | <ul><li>Monthly</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul> |
 | `AuthorizeNow`       | Boolean to know if the first recurrence is about to be Authorized or not. | Boolean | ---  | true ou false                                                                                      |
 
-## Scheduling a Scheduled Recurrence
+### Scheduling a Scheduled Recurrence
 
 To create a recurring sale in which the first recurrence will not be authorized on the same date with the credit card payment method, just make a POST as in the example.
 
@@ -4417,7 +4417,7 @@ To create a recurring sale in which the first recurrence will not be authorized 
 
 Unlike the previous recurrence, this example does not authorize immediately, it schedules a future authorization. To schedule the first transaction in the series of recurrences, send the `AuthorizeNow` parameter as “false” and add the `StartDate` parameter.
 
-### Request
+#### Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -4515,7 +4515,7 @@ curl
 | `Customer.DeliveryAddress.Country`    | Shopper's address country.                                                               | Text | 35   | No       |
 | `Customer.DeliveryAddress.District`   | Shopper's neighborhood.                                                                  | Text | 50   | No       |
 
-### Response
+#### Response
 
 ```json
 {
@@ -4618,7 +4618,7 @@ curl
 | `Interval`           | Interval between recurrences.                                             | Text    | 10   | <ul><li>Monthly</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul> |
 | `AuthorizeNow`       | Boolean to know if the first recurrence is about to be Authorized or not. | Boolean | ---  | true ou false                                                                                      |
 
-## Issuer transaction Id
+### Issuer transaction Id
 
 The **issuer transaction Id** is an authentication code for recurrent or stored credential transactions returned in the authorization or card validation response ([Zero Auth](https://developercielo.github.io/en/manual/cielo-ecommerce#zero-auth)).
 
