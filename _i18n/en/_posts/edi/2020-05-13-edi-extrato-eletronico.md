@@ -21,15 +21,15 @@ Aiming to bring greater transparency and fluidity in the conciliation of extract
 
 Below is the communication sent with the details of the changes, test files and complementary documentation to support the homologation.
 
-[PT-BR](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_PTBR.zip)
+[PT-BR](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_PTBR_Nov.zip.rar)
 
-[EN](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_english.zip)
+[EN](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_english_Nov.zip)
 
-[ES](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_espanol.zip)
+[ES](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_espanol_Nov.zip)
 
 [Arquivos de Teste](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Arquivos_Testes.zip)
 
-[Announcement! Update on the Eletronic Statement V15 release](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/EDI_Atualizacao_sobre_o_lancamento_V15_ENG.png)
+![Announcement](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/EDI_Atualizacao_sobre_o_lancamento_V15_ENG.png)
 
 It is important that the approval of the new structure takes place by the indicated date so as not to impact the reading of the extracts.
 
