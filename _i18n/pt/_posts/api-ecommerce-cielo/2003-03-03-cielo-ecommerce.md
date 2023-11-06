@@ -4696,7 +4696,7 @@ A seguir, veja o exemplo de uma resposta de da transação de cartão de crédit
 |`Payment.Amount`|Número|15|Sim|Valor do pedido (ser enviado em centavos).|
 |`Payment.Installments`|Número|2|Sim|Número de parcelas.|
 |`Payment.Capture`|Booleano|—|Não (Default false)|Booleano que identifica que a autorização deve ser com captura automática (“true”) ou captura posterior (“false”).|
-|`Payment.IssuerTransactionId`|Texto|-|Condicional|Identificador utilizado para referenciar transações subsequentes
+|`Payment.IssuerTransactionId`|Texto|-|Condicional|Identificador de autenticação do emissor para transações de crédito e débito recorrentes. Este campo deve ser enviado nas transações subsequentes da primeira transação no modelo de recorrência própria. Já no modelo de recorrência programada, a Cielo será a responsável por enviar o campo nas transações subsequentes.|
 |`Payment.Recurrent`|Booleano|-|Não|Indica se a transação é do tipo recorrente (“true”) ou não (“false”). O valor “true” não originará uma nova recorrência, apenas permitirá a realização de uma transação sem a necessidade de envio do CVV. Authenticate deve ser “false” quando Recurrent é “true”.|
 |`CreditCard.CardNumber`|Texto|19|Sim|Número do cartão do comprador.|
 |`CreditCard.Holder`|Texto|25|Não|Nome do comprador impresso no cartão. Não aceita caracteres especiais ou acentuação.|
