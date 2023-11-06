@@ -8191,7 +8191,7 @@
   </tbody>
 </table>
 
-<h2 id="scheduling-a-scheduled-recurrence">Scheduling a Scheduled Recurrence</h2>
+<h3 id="scheduling-a-scheduled-recurrence">Scheduling a Scheduled Recurrence</h3>
 
 <p>To create a recurring sale in which the first recurrence will not be authorized on the same date with the credit card payment method, just make a POST as in the example.</p>
 
@@ -8201,7 +8201,7 @@
 
 <p>Unlike the previous recurrence, this example does not authorize immediately, it schedules a future authorization. To schedule the first transaction in the series of recurrences, send the <code class="language-plaintext highlighter-rouge">AuthorizeNow</code> parameter as “false” and add the <code class="language-plaintext highlighter-rouge">StartDate</code> parameter.</p>
 
-<h3 id="request-21">Request</h3>
+<h4 id="request-21">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -8458,7 +8458,7 @@
   </tbody>
 </table>
 
-<h3 id="response-17">Response</h3>
+<h4 id="response-17">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014113245231706"</span><span class="p">,</span><span class="w">
@@ -8606,7 +8606,7 @@
   </tbody>
 </table>
 
-<h2 id="issuer-transaction-id">Issuer transaction Id</h2>
+<h3 id="issuer-transaction-id">Issuer transaction Id</h3>
 
 <p>The <strong>issuer transaction Id</strong> is an authentication code for recurrent or stored credential transactions returned in the authorization or card validation response (<a href="https://developercielo.github.io/en/manual/cielo-ecommerce#zero-auth">Zero Auth</a>).</p>
 
