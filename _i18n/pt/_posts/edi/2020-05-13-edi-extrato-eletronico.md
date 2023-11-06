@@ -13,7 +13,7 @@ tags:
 
 # Importante
 
-## 11/2023 - V15 - Nova versão dos extratos eletrônicos - Documentação e arquivos de teste
+## 16/01/2024 - V15 - Nova versão dos extratos eletrônicos - Documentação e arquivos de teste
 
 Visando trazer maior transparência e fluidez na conciliação dos extratos, os nossos arquivos terão uma nova estrutura em sua demonstração.
 
@@ -27,7 +27,9 @@ Abaixo segue o comunicado enviado com os detalhes das alterações, arquivos de 
 
 [Material versión español](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_espanol.zip)
 
-[Arquivos de Teste](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Arquivos_Testes.zip)
+[Arquivos de Teste](hhttps://desenvolvedores.cielo.com.br/api-portal/sites/default/files/EDI_Atualizacao_sobre_o_lancamento_V15_PTBR.png)
+
+[Comunicado! Atualização sobre o lançamento do Extrato Eletrônico V15](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/EDI_Atualizacao_sobre_o_lancamento_V15_PTBR.png)
 
 É importante que a homologação da nova estrutura ocorra até a data indicada para não impactar a leitura dos extratos.
 
