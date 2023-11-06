@@ -27,7 +27,7 @@ Abaixo segue o comunicado enviado com os detalhes das alterações, arquivos de 
 
 [Material versión español](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_espanol.zip)
 
-[Arquivos de Teste](hhttps://desenvolvedores.cielo.com.br/api-portal/sites/default/files/EDI_Atualizacao_sobre_o_lancamento_V15_PTBR.png)
+[Arquivos de Teste](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/EDI_Atualizacao_sobre_o_lancamento_V15_PTBR.png)
 
 [Comunicado! Atualização sobre o lançamento do Extrato Eletrônico V15](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/EDI_Atualizacao_sobre_o_lancamento_V15_PTBR.png)
 
