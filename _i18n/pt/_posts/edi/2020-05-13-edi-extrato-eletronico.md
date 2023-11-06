@@ -23,9 +23,9 @@ Abaixo segue o comunicado enviado com os detalhes das alterações, arquivos de 
 
 [Material versão português](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_PTBR_Nov.zip.rar)
 
-[Material version english](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_english.zip)
+[Material version english](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_english_Nov.zip)
 
-[Material versión español](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_espanol.zip)
+[Material versión español](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_espanol_Nov.zip)
 
 [Arquivos de Teste](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/EDI_Atualizacao_sobre_o_lancamento_V15_PTBR.png)
 
