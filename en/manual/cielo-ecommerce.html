@@ -3981,10 +3981,10 @@
 
 <h2 id="boleto">Boleto</h2>
 
-<p>To make a Boleto transaction, you first need to hire this service at the bank. After you do that, you need to set it up according to our <a href="https://developercielo.github.io/tutorial/manual-boleto" target="\_blank">Boleto guide</a>.</p>
+<p>To make a Boleto transaction, you first need to hire this service at the bank. Then, configure the boleto payment method according to the guidelines in the <a href="https://developercielo.github.io/tutorial/manual-boleto" target="\_blank">Boletos guide</a>.</p>
 
 <blockquote>
-  <p>Banco do Brasil boletos do not have the automatic conciliation service.</p>
+  <p><strong>Note</strong>: Banco do Brasil boletos do not have the automatic conciliation service.</p>
 </blockquote>
 
 <h3 id="request-8">Request</h3>
@@ -4097,218 +4097,218 @@
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Store identifier in API Cielo eCommerce.</td>
-      <td>Guid</td>
+      <td>Store identifier in API E-commerce Cielo</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Public Key for Double Authentication in API Cielo eCommerce.</td>
-      <td>Text</td>
+      <td>Public key for double authentication in API E-commerce Cielo</td>
+      <td>text</td>
       <td>40</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
       <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
       <td>Order ID number.</td>
-      <td>Text</td>
+      <td>text</td>
       <td>Bradesco: 27<br />Banco do Brasil: 50</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Buyer’s name.</td>
-      <td>Text</td>
+      <td>Shopper’s name.</td>
+      <td>text</td>
       <td>Bradesco: 34<br />Banco do Brasil: 60</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
-      <td>Buyer registration status in store(NEW / EXISTING) - Used by fraud analysis</td>
-      <td>Text</td>
+      <td>Shopper registration status in store(NEW / EXISTING) - Used by fraud analysis</td>
+      <td>text</td>
       <td>255</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.ZipCode</code></td>
-      <td>Buyer’s address zip code.</td>
-      <td>Text</td>
+      <td>Shopper’s address zip code.</td>
+      <td>text</td>
       <td>9</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Country</code></td>
-      <td>Buyer’s address country.</td>
-      <td>Text</td>
+      <td>Shopper’s address country.</td>
+      <td>text</td>
       <td>35</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.State</code></td>
-      <td>Buyer’s address state.</td>
-      <td>Text</td>
+      <td>Shopper’s address state.</td>
+      <td>text</td>
       <td>2</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
-      <td>Buyer’s address city.</td>
-      <td>Text</td>
+      <td>Shopper’s address city.</td>
+      <td>text</td>
       <td>Bradesco: 50<br />Banco do Brasil: 18</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.District</code></td>
-      <td>Buyer’s neighborhood.</td>
-      <td>Text</td>
+      <td>Shopper’s neighborhood.</td>
+      <td>text</td>
       <td>50</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
-      <td>Buyer’s address.</td>
-      <td>Text</td>
+      <td>Shopper’s address.</td>
+      <td>text</td>
       <td>255</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
-      <td>Buyer’s address number.</td>
-      <td>Text</td>
+      <td>Shopper’s address number.</td>
+      <td>text</td>
       <td>15</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Billing.Street</code></td>
+      <td>Shopper’s billing address.</td>
       <td>string</td>
       <td>24</td>
       <td>No</td>
-      <td>Customer’s billing address.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Billing.Number</code></td>
+      <td>Shopper’s billing address number.</td>
       <td>string</td>
       <td>5</td>
       <td>No</td>
-      <td>Customer’s billing address number.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Billing.Complement</code></td>
+      <td>Shopper’s billing address complement.</td>
       <td>string</td>
       <td>14</td>
       <td>No</td>
-      <td>Customer’s billing address complement.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Billing.Neighborhood</code></td>
+      <td>Shopper’s billing address neighborhood.</td>
       <td>string</td>
       <td>15</td>
       <td>No</td>
-      <td>Customer’s billing address neighborhood.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Billing.City</code></td>
+      <td>Shopper’s billing address city.</td>
       <td>string</td>
       <td>20</td>
       <td>No</td>
-      <td>Customer’s billing address city.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Billing.State</code></td>
+      <td>Shopper’s billing address state.</td>
       <td>string</td>
       <td>2</td>
       <td>No</td>
-      <td>Customer’s billing address state.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Billing.Country</code></td>
+      <td>Shopper’s billing address country. More information at <a href="https://www.iso.org/obp/ui" target="\_blank">ISO 2-Digit Alpha Country Code</a></td>
       <td>string</td>
       <td>2</td>
       <td>No</td>
-      <td>Customer’s billing address country. More information at <a href="https://www.iso.org/obp/ui" target="\_blank">ISO 2-Digit Alpha Country Code</a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Billing.ZipCode</code></td>
+      <td>Shopper’s billing address Zip Code.</td>
       <td>string</td>
       <td>9</td>
       <td>No</td>
-      <td>Customer’s billing address Zip Code.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>Type of the Payment Method.</td>
-      <td>Text</td>
+      <td>Type of the payment method.</td>
+      <td>text</td>
       <td>100</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
       <td>Order Amount (to be sent in cents).</td>
-      <td>Number</td>
+      <td>number</td>
       <td>15</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
       <td>Defines behavior of the payment method (see Annex)/NOT REQUIRED FOR CREDIT. Possible values: “Bradesco2”, “BancoDoBrasil2” ou “BancoDoBrasil3” - see <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#additional-rules">Additional Rules</a></td>
-      <td>Text</td>
+      <td>text</td>
       <td>15</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Adress</code></td>
       <td>Transferor’s address.</td>
-      <td>Text</td>
+      <td>text</td>
       <td>255</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.BoletoNumber</code></td>
-      <td>Bank slip number sent by the merchant. Used to count issued bank slips (“OurNumber”).</td>
-      <td>Text</td>
+      <td>Boleto number sent by the merchant. Used to count issued bank slips (“OurNumber”).</td>
+      <td>number</td>
       <td>Bradesco: 11<br />Banco do Brasil: 9</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Assignor</code></td>
       <td>Transferor’s name.</td>
-      <td>Text</td>
+      <td>text</td>
       <td>200</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Demonstrative</code></td>
       <td>Demonstration text.</td>
-      <td>Text</td>
+      <td>text</td>
       <td>450</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ExpirationDate</code></td>
-      <td>Bank slip expiration date.</td>
-      <td>Date</td>
+      <td>Boleto expiration date.</td>
+      <td>date</td>
       <td>10</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Identification</code></td>
       <td>Identification document of the Transferor.</td>
-      <td>Text</td>
+      <td>text</td>
       <td>14</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Instructions</code></td>
-      <td>Bank slip instructions.</td>
-      <td>Text</td>
+      <td>Boleto instructions.</td>
+      <td>text</td>
       <td>450</td>
       <td>No</td>
     </tr>
@@ -4443,78 +4443,78 @@
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Order Identifier Field.</td>
-      <td>Guid</td>
+      <td>Payment identification number, necessary for future operations such as Queries, Capture and Cancellation.</td>
+      <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Instructions</code></td>
-      <td>Bank slip instructions.</td>
-      <td>Text</td>
+      <td>Boleto instructions.</td>
+      <td>text</td>
       <td>450</td>
       <td>e.g.: Accept only until the due date, after that date interest of 1% per day.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ExpirationDate</code></td>
       <td>Expiration date.</td>
-      <td>Text</td>
+      <td>text</td>
       <td>10</td>
       <td>2014-12-25</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Url</code></td>
-      <td>Generated Bank slip Url.</td>
+      <td>Generated Boleto URL.</td>
       <td>string</td>
       <td>256</td>
       <td>e.g.:https://…/pagador/reenvia.asp/8464a692-b4bd-41e7-8003-1611a2b8ef2d</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Number</code></td>
-      <td>“OurNumber” generated.</td>
-      <td>Text</td>
+      <td>“NossoNumero” generated.</td>
+      <td>text</td>
       <td>50</td>
       <td>e.g.: 1000000012-8</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BarCodeNumber</code></td>
       <td>Barcode numerical representation.</td>
-      <td>Text</td>
+      <td>text</td>
       <td>44</td>
       <td>e.g.: 00091628800000157000494250100000001200656560</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DigitableLine</code></td>
       <td>Digitable line.</td>
-      <td>Text</td>
+      <td>text</td>
       <td>256</td>
       <td>e.g.: 00090.49420 50100.000004 12006.565605 1 62880000015700</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Assignor</code></td>
       <td>Transferor’s name.</td>
-      <td>Text</td>
+      <td>text</td>
       <td>256</td>
       <td>e.g.: Test Store</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address</code></td>
       <td>Transferor’s address.</td>
-      <td>Text</td>
+      <td>text</td>
       <td>256</td>
       <td>e.g.: 160 Test Avenue</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Identification</code></td>
       <td>Identification document of the Transferor.</td>
-      <td>Text</td>
+      <td>text</td>
       <td>14</td>
       <td>CPF or CNPJ of the Transferor without the special characters (., /, -)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Transaction Status.</td>
-      <td>Byte</td>
+      <td>Transaction Status. View the full <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#transactional-status">Transactional Status</a> table</td>
+      <td>byte</td>
       <td>—</td>
       <td>1</td>
     </tr>
