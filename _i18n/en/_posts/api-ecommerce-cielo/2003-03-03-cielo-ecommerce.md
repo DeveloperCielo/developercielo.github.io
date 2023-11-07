@@ -2360,13 +2360,13 @@ See below the representation of a standard **transactional flow** after the inte
 
 ## QR Code
 
-### Credit card via QR Code - Sandbox
+### Credit card via QR Code in Sandbox
 
 To test a successful authorization scenario via QR Code, use the card **4551.8700.0000.0183**.
 
 The card verification code and expiration date can be random, but they should follow this format:
 
-- CVV with 3 digits;
+- Code with 3 digits;
 - Date in the _MM/YYYY_ format.
 
 ### Generating a QR Code via API
@@ -2459,27 +2459,29 @@ curl
 
 | PROPERTY               | TYPE    | SIZE | REQUIRED | DESCRIPTION                                                                                                  |
 | ---------------------- | ------- | ---- | -------- | ------------------------------------------------------------------------------------------------------------ |
-| `MerchantId`           | Guid    | 36   | Yes      | Store identifier in Cielo.                                                                                   |
-| `MerchantKey`          | Text    | 40   | Yes      | Public Key for Double Authentication in Cielo.                                                               |
-| `Content-Type`         | Header  | 40   | Yes      | application/json (required).                                                                                 |
-| `RequestId`            | Guid    | 36   | No       | Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.                     |
-| `MerchantOrderId`      | Text    | 50   | Yes      | Order ID number.                                                                                             |
-| `Customer.Name`        | Text    | 255  | No       | Shopper's name                                                                                               |
-| `Payment.Type`         | Text    | 100  | Yes      | Type of payment method. Send **qrcode** for a QR Code transaction.                                           |
-| `Payment.Amount`       | Number  | 15   | Yes      | Order amount (to be sent in cents).                                                                          |
-| `Payment.Installments` | Number  | 2    | Yes      | Number of installments. If the transaction is a recurrence, the number of installments will be 1. For installment transactions, the number of installments will be greater than 1.                                                                                      |
-| `Payment.Capture`      | Boolean | -    | No       | Send as **true** for the capture to be authomatic.                                                           |
-| `Payment.Modality`     | Text    | 10   | No       | Indicates if the payment will be made with credit or debit. Possible values: "Credit" (standard) or "Debit". |
-| `PaymentFacilitator.EstablishmentCode`            | Number       | 11   | Required for facilitators | Facilitator's establishment code. “Facilitator ID” (Registration of the facilitator with the card brands).<br>The code is different depending on the brand, varying even the size of the field:<br>MasterCard –06 digits<br>Visa –08 digits<br>ELO –from 04 to 05 digits<br>Hipercard –06 digits<br>For other brands, like Amex and JCB, the field can be filled in by "0" zeros. |
-| `PaymentFacilitator.SubEstablishment.EstablishmentCode` | Number       | 15   | Required for facilitators | Submerchant establishment code. “Sub-Merchant ID” (Registration of sub-accredited with the facilitator)    |
-| `PaymentFacilitator.SubEstablishment.Identity`          | Number       | 14   | Required for facilitators | Submerchant CNPJ or CPF    |
-| `PaymentFacilitator.SubEstablishment.Mcc`               | Number       | 4    | Required for facilitators | Submerchant MCC.      |
-| `PaymentFacilitator.SubEstablishment.Address`          | Alphanumeric | 22   | Required for facilitators | Submerchant address.   |
-| `PaymentFacilitator.SubEstablishment.City`              | Alphanumeric | 13   | Required for facilitators | Submerchant city.   |
-| `PaymentFacilitator.SubEstablishment.State`             | Alphanumeric | 2    | Required for facilitators | Submerchant state.  |
-| `PaymentFacilitator.SubEstablishment.PostalCode`        | Number       | 9    | Required for facilitators | Submerchant Postcode.  |
-| `PaymentFacilitator.SubEstablishment.CountryCode`       | Number       | 3    | Required for facilitators | Submerchant country code based on ISO 3166.<br>Ex: Brazil's ISO 3166 code is 076. [Complete list online](https://www.iso.org/obp/ui/#search/code/){:target="_blank"}  |
-| `PaymentFacilitator.SubEstablishment.PhoneNumber`       | Number       | 13   | Required for facilitators | Submerchant Phone Number. |
+| `MerchantId`           | GUID    | 36   | Yes      | Store identifier in Cielo.                                                                                   |
+| `MerchantKey`          | text    | 40   | Yes      | Public key for double authentication in Cielo.                                                               |
+| `Content-Type`         | header  | 40   | Yes      | application/json (required).                                                                                 |
+| `RequestId`            | GUID    | 36   | No       | Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.                     |
+| `MerchantOrderId`      | text    | 50   | Yes      | Order ID number.                                                                                             |
+| `Customer.Name`        | text    | 255  | No       | Shopper's name                                                                                               |
+| `Payment.Type`         | text    | 100  | Yes      | Type of payment method. Send **qrcode** for a QR Code transaction.                                           |
+| `Payment.Amount`       | number  | 15   | Yes      | Order amount (to be sent in cents).                                                                          |
+| `Payment.Installments` | number  | 2    | Yes      | Number of installments. If the transaction is a recurrence, the number of installments will be 1. For installment transactions, the number of installments will be greater than 1.                                                                                      |
+| `Payment.Capture`      | boolean | -    | No       | Send as **true** for the capture to be authomatic.                                                           |
+| `Payment.Modality`     | text    | 10   | No       | Indicates if the payment will be made with credit or debit. Possible values: "Credit" (standard) or "Debit". |
+| `PaymentFacilitator.EstablishmentCode`            | text*       | 11   | Required for facilitators | Facilitator's establishment code. “Facilitator ID” (Registration of the facilitator with the card brands).<br>The code is different depending on the brand, varying even the size of the field:<br>MasterCard –06 digits<br>Visa –08 digits<br>ELO –from 04 to 05 digits<br>Hipercard –06 digits<br>For other brands, like Amex and JCB, the field can be filled in by "0" zeros. |
+| `PaymentFacilitator.SubEstablishment.EstablishmentCode` | text*       | 15   | Required for facilitators | Submerchant establishment code. “Sub-Merchant ID” (Registration of sub-accredited with the facilitator)    |
+| `PaymentFacilitator.SubEstablishment.Identity`          | text*      | 14   | Required for facilitators | Submerchant CNPJ or CPF    |
+| `PaymentFacilitator.SubEstablishment.Mcc`               | text*       | 4    | Required for facilitators | Submerchant MCC.      |
+| `PaymentFacilitator.SubEstablishment.Address`          | text* | 22   | Required for facilitators | Submerchant address.   |
+| `PaymentFacilitator.SubEstablishment.City`              | text* | 13   | Required for facilitators | Submerchant city.   |
+| `PaymentFacilitator.SubEstablishment.State`             | text* | 2    | Required for facilitators | Submerchant state.  |
+| `PaymentFacilitator.SubEstablishment.PostalCode`        | text*       | 9    | Required for facilitators | Submerchant Postcode.  |
+| `PaymentFacilitator.SubEstablishment.CountryCode`       | text*       | 3    | Required for facilitators | Submerchant country code based on ISO 3166.<br>Ex: Brazil's ISO 3166 code is 076. [Complete list online](https://www.iso.org/obp/ui/#search/code/){:target="_blank"}  |
+| `PaymentFacilitator.SubEstablishment.PhoneNumber`       | text*       | 13   | Required for facilitators | Submerchant Phone Number. |
+
+*Avoid using accents as they are considered two characters.
 
 #### Response
 
@@ -2588,12 +2590,11 @@ curl
 
 | PROPERTY            | DESCRIPTION                                                                                                                                                                                     | TYPE | SIZE     | FORMAT                               |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | -------- | ------------------------------------ |
-| `QrCodeBase64Image` | QR Code codified in base 64. The image can be shown on the page using a HTML code like this:<br><pre lang="html">&lt;img src=&quot;data:image/png;base64, image_code_in_base_64&quot;&gt;</pre> | Text | variable | Alphanumeric text                    |
-| `PaymentId`         | Payment ID number.                                                                                                                                                                              | Guid | 36       | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
-| `Status`            | Transaction status. For QR code transactions, the initial status is 12 (Pending).                                                                                                               | Byte | ---      | 2                                    |
-
-| `ReturnCode`        | Acquirer return code.                                                                                                                                                                           | Text | 32       | Alphanumeric text                    |
-| `ReturnMessage`     | Acquirer return message.                                                                                                                                                                        | Text | 512      | Alphanumeric text                    |
+| `QrCodeBase64Image` | QR Code codified in base 64. The image can be shown on the page using a HTML code like this:<br><pre lang="html">&lt;img src=&quot;data:image/png;base64, image_code_in_base_64&quot;&gt;</pre> | text | variable | Alphanumeric text                    |
+| `PaymentId`         | Payment identification number, necessary for future operations such as Queries, Capture and Cancellation.                                                                                                                                                                              | GUID | 36       | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+| `Status`            | Transaction status. For QR code transactions, the initial status is 12 (Pending). View the full [Transactional Status](https://developercielo.github.io/en/manual/cielo-ecommerce#transactional-status) table                                                                                                               | byte | ---      | 2                                    |
+| `ReturnCode`        | Acquirer return code.                                                                                                                                                                           | text | 32       | Alphanumeric text                    |
+| `ReturnMessage`     | Acquirer return message.                                                                                                                                                                        | text | 512      | Alphanumeric text                    |
 
 ## Carnê
 
