@@ -4696,14 +4696,14 @@
 
 <h2 id="qr-code">QR Code</h2>
 
-<h3 id="credit-card-via-qr-code---sandbox">Credit card via QR Code - Sandbox</h3>
+<h3 id="credit-card-via-qr-code-in-sandbox">Credit card via QR Code in Sandbox</h3>
 
 <p>To test a successful authorization scenario via QR Code, use the card <strong>4551.8700.0000.0183</strong>.</p>
 
 <p>The card verification code and expiration date can be random, but they should follow this format:</p>
 
 <ul>
-  <li>CVV with 3 digits;</li>
+  <li>Code with 3 digits;</li>
   <li>Date in the <em>MM/YYYY</em> format.</li>
 </ul>
 
@@ -4808,153 +4808,155 @@
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Yes</td>
       <td>Store identifier in Cielo.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Text</td>
+      <td>text</td>
       <td>40</td>
       <td>Yes</td>
-      <td>Public Key for Double Authentication in Cielo.</td>
+      <td>Public key for double authentication in Cielo.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
-      <td>Header</td>
+      <td>header</td>
       <td>40</td>
       <td>Yes</td>
       <td>application/json (required).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>No</td>
       <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
-      <td>Text</td>
+      <td>text</td>
       <td>50</td>
       <td>Yes</td>
       <td>Order ID number.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Text</td>
+      <td>text</td>
       <td>255</td>
       <td>No</td>
       <td>Shopper’s name</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>Text</td>
+      <td>text</td>
       <td>100</td>
       <td>Yes</td>
       <td>Type of payment method. Send <strong>qrcode</strong> for a QR Code transaction.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
-      <td>Number</td>
+      <td>number</td>
       <td>15</td>
       <td>Yes</td>
       <td>Order amount (to be sent in cents).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
-      <td>Number</td>
+      <td>number</td>
       <td>2</td>
       <td>Yes</td>
       <td>Number of installments. If the transaction is a recurrence, the number of installments will be 1. For installment transactions, the number of installments will be greater than 1.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
-      <td>Boolean</td>
+      <td>boolean</td>
       <td>-</td>
       <td>No</td>
       <td>Send as <strong>true</strong> for the capture to be authomatic.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Modality</code></td>
-      <td>Text</td>
+      <td>text</td>
       <td>10</td>
       <td>No</td>
       <td>Indicates if the payment will be made with credit or debit. Possible values: “Credit” (standard) or “Debit”.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentFacilitator.EstablishmentCode</code></td>
-      <td>Number</td>
+      <td>text*</td>
       <td>11</td>
       <td>Required for facilitators</td>
       <td>Facilitator’s establishment code. “Facilitator ID” (Registration of the facilitator with the card brands).<br />The code is different depending on the brand, varying even the size of the field:<br />MasterCard –06 digits<br />Visa –08 digits<br />ELO –from 04 to 05 digits<br />Hipercard –06 digits<br />For other brands, like Amex and JCB, the field can be filled in by “0” zeros.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentFacilitator.SubEstablishment.EstablishmentCode</code></td>
-      <td>Number</td>
+      <td>text*</td>
       <td>15</td>
       <td>Required for facilitators</td>
       <td>Submerchant establishment code. “Sub-Merchant ID” (Registration of sub-accredited with the facilitator)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentFacilitator.SubEstablishment.Identity</code></td>
-      <td>Number</td>
+      <td>text*</td>
       <td>14</td>
       <td>Required for facilitators</td>
       <td>Submerchant CNPJ or CPF</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentFacilitator.SubEstablishment.Mcc</code></td>
-      <td>Number</td>
+      <td>text*</td>
       <td>4</td>
       <td>Required for facilitators</td>
       <td>Submerchant MCC.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentFacilitator.SubEstablishment.Address</code></td>
-      <td>Alphanumeric</td>
+      <td>text*</td>
       <td>22</td>
       <td>Required for facilitators</td>
       <td>Submerchant address.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentFacilitator.SubEstablishment.City</code></td>
-      <td>Alphanumeric</td>
+      <td>text*</td>
       <td>13</td>
       <td>Required for facilitators</td>
       <td>Submerchant city.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentFacilitator.SubEstablishment.State</code></td>
-      <td>Alphanumeric</td>
+      <td>text*</td>
       <td>2</td>
       <td>Required for facilitators</td>
       <td>Submerchant state.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentFacilitator.SubEstablishment.PostalCode</code></td>
-      <td>Number</td>
+      <td>text*</td>
       <td>9</td>
       <td>Required for facilitators</td>
       <td>Submerchant Postcode.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentFacilitator.SubEstablishment.CountryCode</code></td>
-      <td>Number</td>
+      <td>text*</td>
       <td>3</td>
       <td>Required for facilitators</td>
       <td>Submerchant country code based on ISO 3166.<br />Ex: Brazil’s ISO 3166 code is 076. <a href="https://www.iso.org/obp/ui/#search/code/" target="_blank">Complete list online</a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentFacilitator.SubEstablishment.PhoneNumber</code></td>
-      <td>Number</td>
+      <td>text*</td>
       <td>13</td>
       <td>Required for facilitators</td>
       <td>Submerchant Phone Number.</td>
     </tr>
   </tbody>
 </table>
+
+<p>*Avoid using accents as they are considered two characters.</p>
 
 <h4 id="response-9">Response</h4>
 
@@ -5073,40 +5075,35 @@
     <tr>
       <td><code class="language-plaintext highlighter-rouge">QrCodeBase64Image</code></td>
       <td>QR Code codified in base 64. The image can be shown on the page using a HTML code like this:<br />&lt;img src="data:image/png;base64, image_code_in_base_64"&gt;</td>
-      <td>Text</td>
+      <td>text</td>
       <td>variable</td>
       <td>Alphanumeric text</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Payment ID number.</td>
-      <td>Guid</td>
+      <td>Payment identification number, necessary for future operations such as Queries, Capture and Cancellation.</td>
+      <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Transaction status. For QR code transactions, the initial status is 12 (Pending).</td>
-      <td>Byte</td>
+      <td>Transaction status. For QR code transactions, the initial status is 12 (Pending). View the full <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#transactional-status">Transactional Status</a> table</td>
+      <td>byte</td>
       <td>—</td>
       <td>2</td>
     </tr>
-  </tbody>
-</table>
-
-<table>
-  <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
       <td>Acquirer return code.</td>
-      <td>Text</td>
+      <td>text</td>
       <td>32</td>
       <td>Alphanumeric text</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReturnMessage</code></td>
       <td>Acquirer return message.</td>
-      <td>Text</td>
+      <td>text</td>
       <td>512</td>
       <td>Alphanumeric text</td>
     </tr>
