@@ -2453,27 +2453,27 @@ curl
 
 | Propriedade            | Tipo     | Tamanho | Obrigatório | Descrição                                                                                               |
 | ---------------------- | -------- | ------- | ----------- | ------------------------------------------------------------------------------------------------------- |
-| `MerchantId`           | Guid     | 36      | Sim         | Identificador da loja na Cielo.                                                                         |
-| `MerchantKey`          | Texto    | 40      | Sim         | Chave Publica para Autenticação Dupla na Cielo.                                                         |
-| `Content-Type`         | Header   | 40      | Sim         | application/json (obrigatório o envio deste).                                                           |
-| `RequestId`            | Guid     | 36      | Não         | Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.  |
-| `MerchantOrderId`      | Texto    | 50      | Sim         | Numero de identificação do Pedido.                                                                      |
-| `Customer.Name`        | Texto    | 255     | Não         | Nome do Comprador.                                                                                      |
-| `Payment.Type`         | Texto    | 100     | Sim         | Tipo do Meio de Pagamento. Enviar **qrcode** para uma transação de QRCode.                              |
-| `Payment.Amount`       | Número   | 15      | Sim         | Valor do Pedido (ser enviado em centavos).                                                              |
-| `Payment.Installments` | Número   | 2       | Sim         | Número de parcelas. Se a transação for uma recorrência, o número de parcelas será 1. Para transações parceladas, o número de parcelas será sempre maior que 1.                                                                                     |
-| `Payment.Capture`      | Booleano | -       | Não         | Enviar **true** para uma trasação de captura automática.                                                |
-| `Payment.Modality`     | Texto    | 10      | Não         | Indica se o pagamento será feito com crédito ou débito. Valores possíveis: "Credit" (padrão) ou "Debit" |
-|`Payment.PaymentFacilitator.EstablishmentCode`                  | Texto* | 11      | Obrigatório para facilitadores | Código do estabelecimento do Facilitador. "Facilitator ID” (Cadastro do facilitador com as bandeiras)<br>O código é diferente por bandeira, podendo variar inclusive o tamanho do campo:<br>Bandeira Mastercard –06 dígitos<br>Bandeira Visa –08 dígitos<br>Bandeira ELO –de 04 à 05 dígitos<br>Bandeira Hipercard –06 dígitos<br>Para demais bandeiras, como Amex e JCB, o campo pode ser preenchido com “0” zeros. |
-| `Payment.PaymentFacilitator.SubEstablishment.EstablishmentCode` | Texto* | 15      | Obrigatório para facilitadores | Código do estabelecimento do sub Merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador)  |
+| `MerchantId`           | GUID     | 36      | Sim         | Identificador da loja na Cielo.                                                                         |
+| `MerchantKey`          | texto    | 40      | Sim         | Chave pública para autenticação dupla na Cielo.                                                         |
+| `Content-Type`         | header   | 40      | Sim         | application/json (obrigatório o envio deste).                                                           |
+| `RequestId`            | GUID     | 36      | Não         | Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.  |
+| `MerchantOrderId`      | texto    | 50      | Sim         | Numero de identificação do Pedido.                                                                      |
+| `Customer.Name`        | texto    | 255     | Não         | Nome do comprador.                                                                                      |
+| `Payment.Type`         | texto    | 100     | Sim         | Tipo do meio de pagamento. Enviar **qrcode** para uma transação de QRCode.                              |
+| `Payment.Amount`       | número   | 15      | Sim         | Valor do pedido (ser enviado em centavos).                                                              |
+| `Payment.Installments` | número   | 2       | Sim         | Número de parcelas. Se a transação for uma recorrência, o número de parcelas será 1. Para transações parceladas, o número de parcelas será sempre maior que 1.                                                                                     |
+| `Payment.Capture`      | booleano | -       | Não         | Enviar **true** para uma trasação de captura automática.                                                |
+| `Payment.Modality`     | texto    | 10      | Não         | Indica se o pagamento será feito com crédito ou débito. Valores possíveis: "Credit" (padrão) ou "Debit" |
+|`Payment.PaymentFacilitator.EstablishmentCode`                  | texto* | 11      | Obrigatório para facilitadores | Código do estabelecimento do Facilitador. "Facilitator ID” (Cadastro do facilitador com as bandeiras)<br>O código é diferente por bandeira, podendo variar inclusive o tamanho do campo:<br>Bandeira Mastercard –06 dígitos<br>Bandeira Visa –08 dígitos<br>Bandeira ELO –de 04 à 05 dígitos<br>Bandeira Hipercard –06 dígitos<br>Para demais bandeiras, como Amex e JCB, o campo pode ser preenchido com “0” zeros. |
+| `Payment.PaymentFacilitator.SubEstablishment.EstablishmentCode` | texto* | 15      | Obrigatório para facilitadores | Código do estabelecimento do sub Merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador)  |
 | `Payment.PaymentFacilitator.SubEstablishment.Identity`          | Texto* | 14      | Obrigatório para facilitadores | CNPJ ou CPF do sub-merchant.  |
-| `Payment.PaymentFacilitator.SubEstablishment.Mcc`               | Texto* | 4       | Obrigatório para facilitadores | MCC do sub Merchant.    |
-| `Payment.PaymentFacilitator.SubEstablishment.Address`           | Texto* | 22      | Obrigatório para facilitadores | Endereço do sub Merchant.    |
-| `Payment.PaymentFacilitator.SubEstablishment.City`              | Texto* | 13      | Obrigatório para facilitadores | Cidade do sub Merchant.     |
+| `Payment.PaymentFacilitator.SubEstablishment.Mcc`               | texto* | 4       | Obrigatório para facilitadores | MCC do sub Merchant.    |
+| `Payment.PaymentFacilitator.SubEstablishment.Address`           | texto* | 22      | Obrigatório para facilitadores | Endereço do sub Merchant.    |
+| `Payment.PaymentFacilitator.SubEstablishment.City`              | texto* | 13      | Obrigatório para facilitadores | Cidade do sub Merchant.     |
 | `Payment.PaymentFacilitator.SubEstablishment.State`             | Texto* | 2       | Obrigatório para facilitadores | Estado do sub Merchant.    |
-| `Payment.PaymentFacilitator.SubEstablishment.PostalCode`        | Texto* | 9       | Obrigatório para facilitadores | Código postal do sub Merchant.  |
-| `Payment.PaymentFacilitator.SubEstablishment.CountryCode`       | Texto* | 3       | Obrigatório para facilitadores | Código país do sub-merchant com base no ISO 3166<br>Ex: código ISO 3166 do Brasil é o 076. [Lista completa online](https://www.iso.org/obp/ui/#search/code/).   |
-| `Payment.PaymentFacilitator.SubEstablishment.PhoneNumber`       | Texto* | 13      | Obrigatório para facilitadores | Número de telefone do sub Merchant. |
+| `Payment.PaymentFacilitator.SubEstablishment.PostalCode`        | texto* | 9       | Obrigatório para facilitadores | Código postal do sub Merchant.  |
+| `Payment.PaymentFacilitator.SubEstablishment.CountryCode`       | texto* | 3       | Obrigatório para facilitadores | Código país do sub-merchant com base no ISO 3166<br>Ex: código ISO 3166 do Brasil é o 076. [Lista completa online](https://www.iso.org/obp/ui/#search/code/).   |
+| `Payment.PaymentFacilitator.SubEstablishment.PhoneNumber`       | texto* | 13      | Obrigatório para facilitadores | Número de telefone do sub Merchant. |
 
 *Evite utilizar acentos pois eles são considerados como dois caracteres.
 
@@ -2584,11 +2584,11 @@ curl
 
 | Propriedade         | Descrição                                                                                                                                                                                                                         | Tipo  | Tamanho  | Formato                              |
 | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- | -------- | ------------------------------------ |
-| `QrCodeBase64Image` | QRCode codificado na base 64. Por exemplo, a imagem poderá ser apresentada na página utilizando o código HTML como este:<br><pre lang="html">&lt;img src=&quot;data:image/png;base64, código_da_imagem_na_base_64&quot;&gt;</pre> | Texto | variável | Texto alfanumérico                   |
-| `PaymentId`         | Número de identificação do pagamento, necessário para futuras operações como Consulta, Captura e Cancelamento.                                                                                                                    | Guid  | 36       | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
-| `Status`            | Status da Transação. No caso de uma transação de geração de QRCode de pagamento, o status inicial é 12 (Pending).  Veja a tabela completa de [Status transacional](https://developercielo.github.io/manual/cielo-ecommerce#status-transacional) | Byte  | ---      | 2           |
-| `ReturnCode`        | Código de retorno da Adquirência.                                                                                                                                                                                                 | Texto | 32       | Texto alfanumérico                   |
-| `ReturnMessage`     | Mensagem de retorno da Adquirência.                                                                                                                                                                                               | Texto | 512      | Texto alfanumérico                   |
+| `QrCodeBase64Image` | QRCode codificado na base 64. Por exemplo, a imagem poderá ser apresentada na página utilizando o código HTML como este:<br><pre lang="html">&lt;img src=&quot;data:image/png;base64, código_da_imagem_na_base_64&quot;&gt;</pre> | texto | variável | Texto alfanumérico                   |
+| `PaymentId`         | Número de identificação do pagamento, necessário para futuras operações como Consulta, Captura e Cancelamento.                                                                                                                    | GUID  | 36       | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+| `Status`            | Status da Transação. No caso de uma transação de geração de QRCode de pagamento, o status inicial é 12 (Pending).  Veja a tabela completa de [Status transacional](https://developercielo.github.io/manual/cielo-ecommerce#status-transacional) | byte  | ---      | 2           |
+| `ReturnCode`        | Código de retorno da Adquirência.                                                                                                                                                                                                 | texto | 32       | Texto alfanumérico                   |
+| `ReturnMessage`     | Mensagem de retorno da Adquirência.                                                                                                                                                                                               | texto | 512      | Texto alfanumérico                   |
 
 ## Carnê
 
