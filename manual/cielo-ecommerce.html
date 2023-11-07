@@ -5221,7 +5221,7 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
       <td><code class="language-plaintext highlighter-rouge">QuasiCash</code></td>
       <td>Identifica uma transação de quase cash.</td>
       <td>“true” ou “false”</td>
-      <td>Booleano</td>
+      <td>booleano</td>
       <td>-</td>
       <td>Não</td>
     </tr>
@@ -5322,77 +5322,77 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.EstablishmentCode</code></td>
-      <td>Texto*</td>
+      <td>text*</td>
       <td>11</td>
       <td>Obrigatório para facilitadores</td>
       <td>Código do estabelecimento do Facilitador. “Facilitator ID” (Cadastro do facilitador com as bandeiras)<br />O código é diferente por bandeira, podendo variar inclusive o tamanho do campo:<br />Bandeira Mastercard –06 dígitos<br />Bandeira Visa –08 dígitos<br />Bandeira ELO –de 04 à 05 dígitos<br />Bandeira Hipercard –06 dígitos<br />Para demais bandeiras, como Amex e JCB, o campo pode ser preenchido com “0” zeros.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.EstablishmentCode</code></td>
-      <td>Texto*</td>
+      <td>texto*</td>
       <td>15</td>
       <td>Obrigatório para facilitadores</td>
       <td>Código do estabelecimento do sub Merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.Identity</code></td>
-      <td>Texto*</td>
+      <td>texto*</td>
       <td>14</td>
       <td>Obrigatório para facilitadores</td>
       <td>CNPJ ou CPF do sub-merchant.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.Mcc</code></td>
-      <td>Texto*</td>
+      <td>texto*</td>
       <td>4</td>
       <td>Obrigatório para facilitadores</td>
       <td>MCC do sub Merchant.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.Address</code></td>
-      <td>Texto*</td>
+      <td>texto*</td>
       <td>22</td>
       <td>Obrigatório para facilitadores</td>
       <td>Endereço do sub Merchant.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.City</code></td>
-      <td>Texto*</td>
+      <td>texto*</td>
       <td>13</td>
       <td>Obrigatório para facilitadores</td>
       <td>Cidade do sub Merchant.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.State</code></td>
-      <td>Texto*</td>
+      <td>texto*</td>
       <td>2</td>
       <td>Obrigatório para facilitadores</td>
       <td>Estado do sub Merchant.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.PostalCode</code></td>
-      <td>Texto*</td>
+      <td>texto*</td>
       <td>9</td>
       <td>Obrigatório para facilitadores</td>
       <td>Código postal do sub Merchant.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.CountryCode</code></td>
-      <td>Texto*</td>
+      <td>texto*</td>
       <td>3</td>
       <td>Obrigatório para facilitadores</td>
       <td>Código país do sub-merchant com base no ISO 3166<br />Ex: código ISO 3166 do Brasil é o 076. <a href="https://www.iso.org/obp/ui/#search/code/">Lista completa online</a>.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.PhoneNumber</code></td>
-      <td>Texto*</td>
+      <td>texto*</td>
       <td>13</td>
       <td>Obrigatório para facilitadores</td>
       <td>Número de telefone do sub Merchant.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Softdescriptor</code></td>
-      <td>Texto*</td>
+      <td>texto*</td>
       <td>13</td>
       <td>Obrigatório para facilitadores</td>
       <td>Texto impresso na fatura bancaria comprador. Deve ser preenchido de acordo com os dados do sub Merchant.</td>
@@ -5511,77 +5511,77 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.EstablishmentCode</code></td>
-      <td>Texto*</td>
+      <td>texto*</td>
       <td>11</td>
       <td>Obrigatório para facilitadores</td>
       <td>Código do estabelecimento do Facilitador. “Facilitator ID” (Cadastro do facilitador com as bandeiras)<br />O código é diferente por bandeira, podendo variar inclusive o tamanho do campo:<br />Bandeira Mastercard –06 dígitos<br />Bandeira Visa –08 dígitos<br />Bandeira ELO –de 04 à 05 dígitos<br />Bandeira Hipercard –06 dígitos<br />Para demais bandeiras, como Amex e JCB, o campo pode ser preenchido com “0” zeros.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.EstablishmentCode</code></td>
-      <td>Texto*</td>
+      <td>texto*</td>
       <td>15</td>
       <td>Obrigatório para facilitadores</td>
       <td>Código do estabelecimento do sub Merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.Identity</code></td>
-      <td>Texto*</td>
+      <td>texto*</td>
       <td>14</td>
       <td>Obrigatório para facilitadores</td>
       <td>CNPJ ou CPF do sub-merchant.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.Mcc</code></td>
-      <td>Texto*</td>
+      <td>texto*</td>
       <td>4</td>
       <td>Obrigatório para facilitadores</td>
       <td>MCC do sub Merchant.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.Address</code></td>
-      <td>Texto*</td>
+      <td>texto*</td>
       <td>22</td>
       <td>Obrigatório para facilitadores</td>
       <td>Endereço do sub Merchant.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.City</code></td>
-      <td>Texto*</td>
+      <td>texto*</td>
       <td>13</td>
       <td>Obrigatório para facilitadores</td>
       <td>Cidade do sub Merchant.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.State</code></td>
-      <td>Texto*</td>
+      <td>texto*</td>
       <td>2</td>
       <td>Obrigatório para facilitadores</td>
       <td>Estado do sub Merchant.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.PostalCode</code></td>
-      <td>Texto*</td>
+      <td>texto*</td>
       <td>9</td>
       <td>Obrigatório para facilitadores</td>
       <td>Código postal do sub Merchant.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.CountryCode</code></td>
-      <td>Texto*</td>
+      <td>texto*</td>
       <td>3</td>
       <td>Obrigatório para facilitadores</td>
       <td>Código país do sub-merchant com base no ISO 3166.<br />Ex: código ISO 3166 do Brasil é o 076. <a href="https://www.iso.org/obp/ui/#search/code/">Lista completa online</a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.PhoneNumber</code></td>
-      <td>Texto*</td>
+      <td>texto*</td>
       <td>13</td>
       <td>Obrigatório para facilitadores</td>
       <td>Número de telefone do sub Merchant.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Softdescriptor</code></td>
-      <td>Texto*</td>
+      <td>texto*</td>
       <td>13</td>
       <td>Obrigatório para facilitadores</td>
       <td>Texto impresso na fatura bancaria comprador. Deve ser preenchido de acordo com os dados do sub Merchant.</td>
@@ -5643,15 +5643,15 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
   </thead>
   <tbody>
     <tr>
-      <td>IsCustomerBillPaymentService</td>
-      <td>Boolean</td>
+      <td><code class="language-plaintext highlighter-rouge">IsCustomerBillPaymentService</code></td>
+      <td>boolean</td>
       <td>—</td>
       <td>Não</td>
       <td>True ou false. Indica se é uma transação CBPS (Serviço de Pagamento de Contas para Consumidores)</td>
     </tr>
     <tr>
-      <td>Wallet.AdditionalData.Mcc</td>
-      <td>String (numérico)</td>
+      <td><code class="language-plaintext highlighter-rouge">Wallet.AdditionalData.Mcc</code></td>
+      <td>string (numérico)</td>
       <td>4</td>
       <td>Sim, para transações de CBPS</td>
       <td>MCC do estabelecimento (EC) permitido para transações de CBPS</td>
@@ -5719,35 +5719,35 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Wallet.PlatformOperator</code></td>
-      <td>String (texto)</td>
+      <td>string (texto)</td>
       <td>3</td>
       <td>Sim</td>
       <td>Sigla da carteira que está cadastrada aqui na Cielo como carteira digital (verificar sua sigla com seu gestor comercial)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Wallet.AdditionalData.Mcc</code></td>
-      <td>String (numérico)</td>
+      <td>string (numérico)</td>
       <td>4</td>
       <td>Sim</td>
       <td>MCC do varejista subjacente (pra transações de compra); MCC da carteira digital (para transações de abastecimento de crédito na carteira caso aplicável – no qual é necessária a marcação de cash in também vista nessa sessão)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>14</td>
       <td>Sim, se o portador for pessoa jurídica (CNPJ)</td>
       <td>Número do CPF ou CNPJ do comprador.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>255</td>
       <td>Sim, se o portador for pessoa jurídica (CNPJ)</td>
       <td>Tipo de documento de identificação do comprador (CPF/CNPJ).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">SoftDescriptor</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>13</td>
       <td>Sim</td>
       <td>Texto que será impresso na fatura bancária do portador.<br /> Não permite caracteres especiais.<br />Necessário preencher com <strong>Nome da carteira*nome do lojista</strong>.</td>
@@ -5841,28 +5841,28 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Wallet.PlatformOperator</code></td>
-      <td>String (texto)</td>
+      <td>string (texto)</td>
       <td>3</td>
       <td>Sim, para transações de Cash In</td>
       <td>Sigla da carteira que está cadastrada aqui na Cielo como carteira digital (verificar sua sigla com seu gestor comercial)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Wallet.AdditionalData.CashIn</code></td>
-      <td>String (texto)</td>
+      <td>string (texto)</td>
       <td>-</td>
       <td>Sim, para transações de Cash In</td>
       <td>Enviar como “True” se for uma transação de Cash In</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Wallet.AdditionalData.Mcc</code></td>
-      <td>String (numérico)</td>
+      <td>string (numérico)</td>
       <td>4</td>
       <td>Sim, para transações de Cash In</td>
       <td>MCC do varejista subjacente (para transações de compra); MCC da carteira digital (para transações de abastecimento de crédito na carteira caso aplicável - no qual é necessária a marcação de cash in também vista nessa sessão)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>14</td>
       <td>Sim, para transações de Cash In</td>
       <td>Número do CPF ou CNPJ do comprador.</td>
@@ -5876,7 +5876,7 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">SoftDescriptor</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>13</td>
       <td>Sim, para transações de Cash In</td>
       <td>Texto que será impresso na fatura bancária do portador.<br /> Não permite caracteres especiais.<br />Necessário preencher com <strong>Nome da carteira*nome do portador</strong>.</td>
