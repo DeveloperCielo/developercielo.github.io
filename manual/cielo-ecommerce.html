@@ -4800,91 +4800,91 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
       <td>Identificador da loja na Cielo.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>40</td>
       <td>Sim</td>
-      <td>Chave Publica para Autenticação Dupla na Cielo.</td>
+      <td>Chave pública para autenticação dupla na Cielo.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
-      <td>Header</td>
+      <td>header</td>
       <td>40</td>
       <td>Sim</td>
       <td>application/json (obrigatório o envio deste).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Não</td>
       <td>Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>50</td>
       <td>Sim</td>
       <td>Numero de identificação do Pedido.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>255</td>
       <td>Não</td>
-      <td>Nome do Comprador.</td>
+      <td>Nome do comprador.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>100</td>
       <td>Sim</td>
-      <td>Tipo do Meio de Pagamento. Enviar <strong>qrcode</strong> para uma transação de QRCode.</td>
+      <td>Tipo do meio de pagamento. Enviar <strong>qrcode</strong> para uma transação de QRCode.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
-      <td>Número</td>
+      <td>número</td>
       <td>15</td>
       <td>Sim</td>
-      <td>Valor do Pedido (ser enviado em centavos).</td>
+      <td>Valor do pedido (ser enviado em centavos).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
-      <td>Número</td>
+      <td>número</td>
       <td>2</td>
       <td>Sim</td>
       <td>Número de parcelas. Se a transação for uma recorrência, o número de parcelas será 1. Para transações parceladas, o número de parcelas será sempre maior que 1.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
-      <td>Booleano</td>
+      <td>booleano</td>
       <td>-</td>
       <td>Não</td>
       <td>Enviar <strong>true</strong> para uma trasação de captura automática.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Modality</code></td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>10</td>
       <td>Não</td>
       <td>Indica se o pagamento será feito com crédito ou débito. Valores possíveis: “Credit” (padrão) ou “Debit”</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.EstablishmentCode</code></td>
-      <td>Texto*</td>
+      <td>texto*</td>
       <td>11</td>
       <td>Obrigatório para facilitadores</td>
       <td>Código do estabelecimento do Facilitador. “Facilitator ID” (Cadastro do facilitador com as bandeiras)<br />O código é diferente por bandeira, podendo variar inclusive o tamanho do campo:<br />Bandeira Mastercard –06 dígitos<br />Bandeira Visa –08 dígitos<br />Bandeira ELO –de 04 à 05 dígitos<br />Bandeira Hipercard –06 dígitos<br />Para demais bandeiras, como Amex e JCB, o campo pode ser preenchido com “0” zeros.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.EstablishmentCode</code></td>
-      <td>Texto*</td>
+      <td>texto*</td>
       <td>15</td>
       <td>Obrigatório para facilitadores</td>
       <td>Código do estabelecimento do sub Merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador)</td>
@@ -4898,21 +4898,21 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.Mcc</code></td>
-      <td>Texto*</td>
+      <td>texto*</td>
       <td>4</td>
       <td>Obrigatório para facilitadores</td>
       <td>MCC do sub Merchant.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.Address</code></td>
-      <td>Texto*</td>
+      <td>texto*</td>
       <td>22</td>
       <td>Obrigatório para facilitadores</td>
       <td>Endereço do sub Merchant.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.City</code></td>
-      <td>Texto*</td>
+      <td>texto*</td>
       <td>13</td>
       <td>Obrigatório para facilitadores</td>
       <td>Cidade do sub Merchant.</td>
@@ -4926,21 +4926,21 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.PostalCode</code></td>
-      <td>Texto*</td>
+      <td>texto*</td>
       <td>9</td>
       <td>Obrigatório para facilitadores</td>
       <td>Código postal do sub Merchant.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.CountryCode</code></td>
-      <td>Texto*</td>
+      <td>texto*</td>
       <td>3</td>
       <td>Obrigatório para facilitadores</td>
       <td>Código país do sub-merchant com base no ISO 3166<br />Ex: código ISO 3166 do Brasil é o 076. <a href="https://www.iso.org/obp/ui/#search/code/">Lista completa online</a>.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.PhoneNumber</code></td>
-      <td>Texto*</td>
+      <td>texto*</td>
       <td>13</td>
       <td>Obrigatório para facilitadores</td>
       <td>Número de telefone do sub Merchant.</td>
@@ -5067,35 +5067,35 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
     <tr>
       <td><code class="language-plaintext highlighter-rouge">QrCodeBase64Image</code></td>
       <td>QRCode codificado na base 64. Por exemplo, a imagem poderá ser apresentada na página utilizando o código HTML como este:<br />&lt;img src="data:image/png;base64, código_da_imagem_na_base_64"&gt;</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>variável</td>
       <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
       <td>Número de identificação do pagamento, necessário para futuras operações como Consulta, Captura e Cancelamento.</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
       <td>Status da Transação. No caso de uma transação de geração de QRCode de pagamento, o status inicial é 12 (Pending).  Veja a tabela completa de <a href="https://developercielo.github.io/manual/cielo-ecommerce#status-transacional">Status transacional</a></td>
-      <td>Byte</td>
+      <td>byte</td>
       <td>—</td>
       <td>2</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
       <td>Código de retorno da Adquirência.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>32</td>
       <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReturnMessage</code></td>
       <td>Mensagem de retorno da Adquirência.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>512</td>
       <td>Texto alfanumérico</td>
     </tr>
