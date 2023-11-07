@@ -4660,13 +4660,17 @@
 
 <h2 id="e-wallet">E-wallet</h2>
 
-<p>E-wallets are electronic safes (repositories) of cards and payment data for the physical and e-commerce customers. Digital wallets allow a customer to register their payment details, making the purchase process more convenient and secure.</p>
+<p><strong>What are e-wallets?</strong></p>
 
-<aside class="warning">To use wallets in the API E-commerce Cielo, the merchant must have the wallets integrated in his checkout.</aside>
+<p><em>E-wallets</em>, or digital wallets, are repositories of cards and payment data for online consumers. E-wallets allow a consumer to register their payment details in the wallet, making the purchasing process more convenient and secure.</p>
 
-<p>Contact the provider of your choice for further information on how to contract the service.</p>
+<blockquote>
+  <p>To use e-wallets in the API E-commerce Cielo, the merchant must have the <strong>e-wallets integrated into their checkout</strong>.</p>
+</blockquote>
 
-<h3 id="available-e-wallets">Available E-wallets</h3>
+<p>Contact the provider of your choice for further information on how to hire the service.</p>
+
+<h3 id="available-e-wallets">Available e-wallets</h3>
 
 <p>API E-commerce Cielo supports the following digital wallets:</p>
 
@@ -4677,11 +4681,14 @@
 </ul>
 
 <aside class="warning">When the “Wallet” node is sent in the request, the “CreditCard” node becomes optional.</aside>
+
 <aside class="warning">When the "Wallet" node is sent in the request, for the debit card it is necessary to send the "DebitCard" node containing the "ReturnUrl".</aside>
+
+<aside class="notice">Attention: Due to the need to use ephemeral keys to carry out credit operations, Recurrence is not available for e-wallet transactions. </aside>
 
 <h3 id="e-wallet-integration">E-wallet Integration</h3>
 
-<p>Please refer to the <a href="https://developercielo.github.io/en/manual/e-wallets-ecommercecielo-en" target="\_blank">E-Wallets documentation</a> to get details about integrating this payment method.</p>
+<p>Please refer to the <a href="https://developercielo.github.io/en/manual/e-wallets-ecommercecielo-en" target="\_blank">E-Wallets documentation</a> to get details about integrating this payment method to your checkout page.</p>
 
 <p>See below the representation of a standard <strong>transactional flow</strong> after the integration of an e-wallet:</p>
 

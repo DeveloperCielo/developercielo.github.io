@@ -4089,218 +4089,218 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Identificador da loja na API Cielo eCommerce.</td>
-      <td>Guid</td>
+      <td>Identificador da loja na API Cielo E-commerce.</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Chave Publica para Autenticação Dupla na API Cielo eCommerce.</td>
-      <td>Texto</td>
+      <td>Chave pública para autenticação dupla na API Cielo E-commerce.</td>
+      <td>texto</td>
       <td>40</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
       <td>Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
       <td>Numero de identificação do Pedido.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>Bradesco: 27<br />Banco do Brasil: 50</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Nome do Comprador.</td>
-      <td>Texto</td>
+      <td>Nome do comprador.</td>
+      <td>texto</td>
       <td>Bradesco: 34<br />Banco do Brasil: 60</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
       <td>Status de cadastro do comprador na loja(NEW / EXISTING) - Utilizado pela análise de fraude</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>255</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.ZipCode</code></td>
-      <td>CEP do endereço do Comprador.</td>
-      <td>Texto</td>
+      <td>CEP do endereço do comprador.</td>
+      <td>texto</td>
       <td>9</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Country</code></td>
-      <td>Pais do endereço do Comprador.</td>
-      <td>Texto</td>
+      <td>País do endereço do comprador.</td>
+      <td>texto</td>
       <td>35</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.State</code></td>
-      <td>Estado do endereço do Comprador.</td>
-      <td>Texto</td>
+      <td>Estado do endereço do comprador.</td>
+      <td>texto</td>
       <td>2</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
-      <td>Cidade do endereço do Comprador.</td>
-      <td>Texto</td>
+      <td>Cidade do endereço do comprador.</td>
+      <td>texto</td>
       <td>Bradesco: 50<br />Banco do Brasil: 18</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.District</code></td>
-      <td>Bairro do Comprador.</td>
-      <td>Texto</td>
+      <td>Bairro do comprador.</td>
+      <td>texto</td>
       <td>50</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
-      <td>Endereço do Comprador.</td>
-      <td>Texto</td>
+      <td>Endereço do comprador.</td>
+      <td>texto</td>
       <td>255</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
-      <td>Número do endereço do Comprador.</td>
-      <td>Texto</td>
+      <td>Número do endereço do comprador.</td>
+      <td>texto</td>
       <td>15</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Billing.Street</code></td>
-      <td>Logradouro do endereço de cobrança</td>
+      <td>Logradouro do endereço de cobrança.</td>
       <td>string</td>
       <td>24</td>
-      <td>não</td>
+      <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Billing.Number</code></td>
-      <td>Número do endereço de cobrança</td>
+      <td>Número do endereço de cobrança.</td>
       <td>string</td>
       <td>5</td>
-      <td>não</td>
+      <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Billing.Complement</code></td>
       <td>Complemento do endereço de cobrança</td>
       <td>string</td>
       <td>14</td>
-      <td>não</td>
+      <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Billing.Neighborhood</code></td>
-      <td>Bairro do endereço de cobrança</td>
+      <td>Bairro do endereço de cobrança.</td>
       <td>string</td>
       <td>15</td>
-      <td>não</td>
+      <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Billing.City</code></td>
-      <td>Cidade do endereço de cobranças</td>
-      <td>tring</td>
+      <td>Cidade do endereço de cobrança.</td>
+      <td>string</td>
       <td>20</td>
-      <td>não</td>
+      <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Billing.State</code></td>
-      <td>Estado do endereço de cobrança</td>
+      <td>Estado do endereço de cobrança.</td>
       <td>string</td>
       <td>2</td>
-      <td>não</td>
+      <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Billing.Country</code></td>
       <td>País do endereço de cobrança. Mais informações em <a href="https://www.iso.org/obp/ui" target="\_blank">ISO 2-Digit Alpha Country Code</a></td>
       <td>string</td>
       <td>2</td>
-      <td>não</td>
+      <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Billing.ZipCode</code></td>
       <td>Código postal do endereço de cobrança</td>
       <td>string</td>
       <td>9</td>
-      <td>não</td>
+      <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>Tipo do Meio de Pagamento.</td>
-      <td>Texto</td>
+      <td>Tipo do meio de pagamento.</td>
+      <td>texto</td>
       <td>100</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
       <td>Valor do Pedido (ser enviado em centavos).</td>
-      <td>Número</td>
+      <td>número</td>
       <td>15</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
       <td>Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO. Valores possíveis: “Bradesco2”, “BancoDoBrasil2” ou “BancoDoBrasil3”</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>15</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Address</code></td>
       <td>Endereço do Cedente.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>255</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.BoletoNumber</code></td>
       <td>Número do Boleto enviado pelo lojista. Usado para contar boletos emitidos (“NossoNumero”).</td>
-      <td>Número</td>
+      <td>número</td>
       <td>Bradesco: 11<br />Banco do Brasil: 9</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Assignor</code></td>
       <td>Nome do Cedente.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>200</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Demonstrative</code></td>
       <td>Texto de Demonstrativo.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>255</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ExpirationDate</code></td>
       <td>Data de expiração do Boleto. Ex. 2020-12-31</td>
-      <td>Date</td>
+      <td>date</td>
       <td>10</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Identification</code></td>
       <td>Documento de identificação do Cedente.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>14</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Instructions</code></td>
       <td>Instruções do Boleto.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>255</td>
       <td>Não</td>
     </tr>
@@ -4436,27 +4436,27 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
       <td>Número de identificação do pagamento, necessário para futuras operações como Consulta, Captura e Cancelamento.</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Instructions</code></td>
       <td>Instruções do Boleto.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>255</td>
       <td>Ex: Aceitar somente até a data de vencimento, após essa data juros de 1% dia.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ExpirationDate</code></td>
       <td>Data de expiração.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>10</td>
       <td>2014-12-25</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Url</code></td>
-      <td>Url do Boleto gerado.</td>
+      <td>URL do Boleto gerado.</td>
       <td>string</td>
       <td>256</td>
       <td>Ex:https://…/pagador/reenvia.asp/8464a692-b4bd-41e7-8003-1611a2b8ef2d</td>
@@ -4464,49 +4464,49 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Number</code></td>
       <td>“NossoNumero” gerado.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>50</td>
       <td>Ex: 1000000012-8</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BarCodeNumber</code></td>
       <td>Representação numérica do código de barras.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>44</td>
       <td>Ex: 00091628800000157000494250100000001200656560</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DigitableLine</code></td>
       <td>Linha digitável.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>256</td>
       <td>Ex: 00090.49420 50100.000004 12006.565605 1 62880000015700</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Assignor</code></td>
       <td>Nome do Cedente.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>256</td>
       <td>Ex: Loja Teste</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address</code></td>
       <td>Endereço do Cedente.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>256</td>
       <td>Ex: Av. Teste, 160</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Identification</code></td>
       <td>Documento de identificação do Cedente.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>14</td>
       <td>CPF ou CNPJ do Cedente sem os caracteres especiais (., /, -)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
       <td>Status da Transação. Veja a tabela completa de <a href="https://developercielo.github.io/manual/cielo-ecommerce#status-transacional">Status transacional</a></td>
-      <td>Byte</td>
+      <td>byte</td>
       <td>—</td>
       <td>1</td>
     </tr>
