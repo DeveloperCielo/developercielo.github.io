@@ -2602,9 +2602,9 @@ curl
 
 > Carnê is a payment method available for MasterCard, Visa and Elo.
 
-This payment method can be used by merchats who **issue their own booklets and Private Label card invoices**. It allows the **separation of sales** related to **product purchases and payment for services**, making it easier to report values to Tax Authorities.
+This payment method can be used by merchants who **issue their own carnês and Private Label card invoices**. It allows the **separation of sales** related to **product purchases and payment for services**, making it easier to report values to Tax Authorities.
 
-Like any other debit transaction on our E-commerce, the carnê transactions need to be authenticated via the 3DS 2.0 protocol. Find more information about the authentication protocol on the [**3DS 2.0 guide**](https://developercielo.github.io/en/manual/3ds){:target="\_blank"}.
+As in any other debit transaction on our E-commerce, the carnê transactions need to be authenticated via the 3DS 2.0 protocol. Find more information about the authentication protocol on the [**3DS 2.0 guide**](https://developercielo.github.io/en/manual/3ds){:target="\_blank"}.
 
 ### Request
 
@@ -2646,7 +2646,7 @@ Like any other debit transaction on our E-commerce, the carnê transactions need
 
 | Property                     | Type    | Size | Required           | Description                                                                            |
 | ---------------------------- | ------- | ---- | ------------------ | -------------------------------------------------------------------------------------- |
-| `Payment.IsCarneTransaction` | Boolean | ---  | No (default false) | Must be sent with a value of “true” in the case of a Carnê service payment transaction |
+| `Payment.IsCarneTransaction` | boolean | ---  | No (default false) | Must be sent with a value of “true” in the case of a Carnê service payment transaction. |
 
 ## Specific Implementations
 
