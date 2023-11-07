@@ -2640,7 +2640,7 @@ Como qualquer transação de débito no e-commerce, as transações de carnê pr
 
 | Propriedade                  | Tipo     | Tamanho | Obrigatório         | Descrição                                                                                              |
 | ---------------------------- | -------- | ------- | ------------------- | ------------------------------------------------------------------------------------------------------ |
-| `Payment.IsCarneTransaction` | Booleano | ---     | Não (default false) | Deve ser enviado com valor “true” caso se trate de uma transação de pagamento de serviço do tipo Carnê |
+| `Payment.IsCarneTransaction` | booleano | ---     | Não (default false) | Deve ser enviado com valor “true” caso se trate de uma transação de pagamento de serviço do tipo Carnê. |
 
 ## Implementações específicas
 
