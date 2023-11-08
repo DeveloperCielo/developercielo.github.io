@@ -17,19 +17,19 @@ tags:
 
 Aiming to bring greater transparency and fluidity in the conciliation of extracts, our files will have a new structure in their demonstration.
 
-> This change is expected to be implemented in Nov/23.
+> This change is expected to be implemented in 01/16/2024
 
 Below is the communication sent with the details of the changes, test files and complementary documentation to support the homologation.
 
-[PT-BR](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_PTBR_Nov.zip.rar)
+[PT-BR](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_PT-BR_Nov.zip)
 
 [EN](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_english_Nov.zip)
 
-[ES](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_espanol_Nov.zip)
+[ES](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_espanolNov.zip)
 
 [Arquivos de Teste](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Arquivos_Testes.zip)
 
-![Announcement](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/EDI_Atualizacao_sobre_o_lancamento_V15_ENG.png)
+![Announcement](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Important_Electronic_StatementV15.JPG)
 
 It is important that the approval of the new structure takes place by the indicated date so as not to impact the reading of the extracts.
 
