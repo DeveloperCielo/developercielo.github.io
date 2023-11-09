@@ -262,6 +262,8 @@ Os status de cartão de débito são:
 
 O meio de pagamento Pix está disponível para estabelecimentos do tipo CNPJ por meio de dois provedores, Cielo ou Bradesco.
 
+> Para habilitar o Pix Bradesco, entre em contato com o suporte.
+
 **Habilitando o Pix no portal Cielo**
 
 Para usar o **Pix**, o seu **cadastro deve estar habilitado com o meio de pagamento Pix**. Para confirmar a habilitação, acesse o [portal Cielo](https://www.cielo.com.br/){:target="_blank"} e clique em **Meu Cadastro** > **Autorizações** > **Pix**.
@@ -1013,11 +1015,11 @@ Caso uma das transações da recorrência não seja autorizada, o Checkout Cielo
 
 ## Alterando dados da Recorrência
 
-A API do Checkout permite a desativação da recorrência. Além disso, no **site Cielo** é possível alterar:
+Para alterar dados da recorrência, acesse o **site Cielo**, onde é possível alterar:
 
 * **Ativação**: uma recorrência pode ser ativada ou cancelada;
 * **Intervalo**: é possivel modificar o intervalo de execução;
-* **Dia de ocorrência**: é possivel modificar o dia de execução da transação recorrente.
+* **Dia da recorrência**: é possivel modificar o dia de execução da transação recorrente.
 <br/>
 Acesse o [Tutorial do Backoffice Checkout Cielo](https://developercielo.github.io/tutorial/checkout-tutoriais) para mais informações.
 
