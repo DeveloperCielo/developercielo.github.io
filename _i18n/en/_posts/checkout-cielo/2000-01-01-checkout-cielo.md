@@ -1491,30 +1491,6 @@ This screen shows the date that the 1st recurrence transaction was authorized an
 
 **WARNING:** Only the 1st transaction is subjected to anti-fraud analysis
 
-## Cancellation of Recurrence in Checkout Cielo
-
-Recurrence cancellation occurs within Checkout Cielo's Backoffice, also on the "ORDERS" tab. Just:
-
-1. Access a recurrence transaction (marked with the “Recurring” symbol)
-2. Enter Details (the “+” symbol)
-
-![Recurrence order]({{ site.baseurl }}/images/checkout-cancelar-recorrencia.png)
-
-![Recurrence cancellation]({{ site.baseurl }}/images/Checkout/pedidoreccance.png)
-
-Recurrence detail screen
-
-In the above screen, there are two Cancel options by buttons:
-
-- **Cancel** – Cancels the transaction, without canceling future recurrence transactions.
-- **Cancel Recurrence** - Cancels the scheduling of future transactions, ending the recurrence. It does not cancel the current transaction or those that have already occurred. These need to be canceled manually.
-
-**WARNING:**
-
-- The Recurrence occurs only for Credit Cards and for products like “SERVICE” and “DIGITAL GOODS”.
-- Recurrence is initiated at the time of AUTHORIZATION, NOT AT THE CAPTURE. If the recurrence does not have a date to be finalized, it will automatically repeat itself until it is manually canceled.
-- Your Cielo affiliation must be enabled to transact without CVV or In recurrence, otherwise all recurring transactions will be declined.
-
 ## Recurrence Edition
 
 Checkout Cielo allows the merchant to modify 3 recurrence data:
