@@ -1256,33 +1256,12 @@
   </tbody>
 </table>
 
-<hr />
-<p>layout: manual
-title: 3. Authorization with Authentication
-description: Technical Integration Manual 3DS 2.0
-search: true
-translated: true
-categories: manual
-sort_order: 5
-tags:</p>
-<ul>
-  <li>
-    <ol>
-      <li>3DS 2.0 Authentication
-language_tabs:
-  json: JSON
-  shell: cURL
-—</li>
-    </ol>
-  </li>
-</ul>
-
-<h1 id="authorization-with-authentication-api-30">Authorization with Authentication (API 3.0)</h1>
+<h1 id="authorization-with-authentication">Authorization with Authentication</h1>
 
 <p>After authentication is completed, submit to the authorization procedure, sending the authentication data in the model of quot;external authentication" (node <strong>ExternalAuthentication</strong> ).
 This procedure is also valid for establishments that performed authentication outside Cielo (External MPI).</p>
 
-<p>See example below, describing the sending of Cielo 3.0 API authorization request authentication data:</p>
+<p>See example below, describing the Cielo E-commerce API authorization request authentication data:</p>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales</span></aside>
 
@@ -1408,11 +1387,11 @@ This procedure is also valid for establishments that performed authentication ou
 
 <p>See <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#response" target="_blank">Cielo E-commerce API</a> for the response.</p>
 
-<h1 id="authorization-for-data-only-transactions-api-30">Authorization for Data Only Transactions (API 3.0)</h1>
+<h1 id="authorization-for-data-only-transactions">Authorization for Data Only Transactions</h1>
 
 <p>After the authentication step in Data Only model is completed (field <code class="language-plaintext highlighter-rouge">bpmpi_auth_notifyonly</code> set as “true”), the transaction undergoes the authorization process by sending the authentication data in the “external authentication” model (node <code class="language-plaintext highlighter-rouge">ExternalAuthentication</code>).</p>
 
-<p>See example below, describing the submission of authentication data from the Pagador API authorization request, using POST:</p>
+<p>See example below, describing the submission of authentication data from the Cielo E-commerce API authorization request, using POST:</p>
 
 <h3 id="request-2">Request</h3>
 
