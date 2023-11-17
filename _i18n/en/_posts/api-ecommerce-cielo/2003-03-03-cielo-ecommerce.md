@@ -1522,7 +1522,7 @@ The Merchant plug-in, known as MPI, is a service that allows you to make the cal
 
 * **Internal MPI**: it is a service already integrated to 3DS Cielo, there is no need to integrate or hire.
 
-* **External MPI**: used when your e-commerce hires a MPI solution, without Cielo's participation. No matter the 3DS version hired, follow the [Authorization with Authentication guide](https://developercielo.github.io/en/manual/autorizacao-com-autenticacao){:target="\_blank"}.
+* **External MPI**: used when your e-commerce hires a MPI solution, without Cielo's participation. No matter the 3DS version hired, follow the [Authorization with Authentication guide](https://developercielo.github.io/en/manual/3ds#authorization-with-authentication){:target="\_blank"}.
 
 ### Mastercard Transaction Initiator Indicator
 
