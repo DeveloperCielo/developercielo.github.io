@@ -33,7 +33,7 @@ Below is the communication sent with the details of the changes, test files and 
 
 It is important that the approval of the new structure takes place by the indicated date so as not to impact the reading of the extracts.
 
-> Important! The current version of the extracts will no longer be supported and generated from Jan/24
+> Important! The current version of the extracts will no longer be supported and generated from Apr/24
 
 # Change History
 
