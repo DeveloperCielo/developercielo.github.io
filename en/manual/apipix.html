@@ -137,6 +137,418 @@
             <div class="post"><h1 id="introduction">Introduction</h1>
 
 <p>Development of the Pix API (Application Programming Interface) by Cielo as payment service provider and transactional account provider and direct participant of Pix, considering the standards defined by the Central Bank of Brazil (“Central Bank”) in the Pix Regulation and other related documents.</p>
+
+<p>The Pix API is an application programming interface standardized by the Central Bank to enable the end user to automate the interaction with the Pix participant that provides payment services.</p>
+
+<p>The Pix API includes the necessary functionalities to enable the receipt of charges in business cases focused on immediate payments, such as points of sale in physical stores and e-commerce solutions.</p>
+
+<p>The Cielo API’s responsibility is to generate a QR Code for payments via Pix, following the security standards required by the Central Bank and identifying some information during the transaction: date and time of the transaction, name of the person carrying out the transaction, as well as the name of the recipient and the amount involved.</p>
+
+<h2 id="main-audience">Main audience</h2>
+
+<p>Customers who have TEF, LIO Integrated and E-commerce capture solutions and wish to transact Pix through these capture solutions.</p>
+
+<ul>
+  <li><strong>TEF</strong> (Electronic Funds Transfer): TEF solutions integrate the establishment’s commercial automation with the Cielo system, enabling sales with cards through magnetic stripe readers and chip readers.</li>
+  <li><strong>Lio Integrated:</strong> is an open platform that allows the integration of all your store management systems.
+For those who already have a complete management system, it allows for much simpler and faster integration.
+For those who do not work with a management system, Cielo LIO delivers payment reports, product catalogue, barcode reader, among other exclusive benefits.</li>
+  <li><strong>E-commerce:</strong> transfer of information over the internet for online payment, with hundreds of resources. A more complete digital solution.
+Your business is always available, Anti-fraud shielding, more conversion, simple, modular and flexible, Data intelligence.</li>
+</ul>
+
+<h2 id="what-is-pix">What is Pix?</h2>
+
+<p>Pix is ​​the payment method created by the Central Bank in which resources are transferred between accounts in a few seconds, at any time or day.
+Pix is ​​a new way of selling in a <strong>instant, secure</strong> and <strong>simple</strong> way through Cielo solutions.</p>
+
+<h2 id="how-does-receiving-pix-work-at-cielo">How does receiving Pix work at Cielo?</h2>
+
+<p>To use Pix, Cielo customers can choose the Pix Account option they prefer, being <strong>Simplified Management</strong> or <strong>Free Movement Management</strong>.</p>
+
+<ul>
+  <li>
+    <p><strong>Simplified Management:</strong> the balance is automatically transferred to the bank account registered at the commercial establishment. In addition, it is possible to access the Pix statement and information about operations.</p>
+  </li>
+  <li>
+    <p><strong>Free Movement Management:</strong> the customer has access to all Pix functions, through the Cielo Gestão App. Additionally, the balance can be used for transfers and payments via Pix. In this option, the balance of sales made with Pix <strong>is not transferred automatically.</strong></p>
+  </li>
+</ul>
+
+<p>Important: all customers enabled for Pix Cielo, as well as new customers, will have the <strong>Simplified Management</strong> option automatically activated. If desired, Cielo customers can change this option at any time.</p>
+
+<p>If the Cielo customer opts for <strong>Free Movement Management</strong>, the automatic transfer functionality will be deactivated.</p>
+
+<p><strong>The Pix API includes the necessary features to enable:</strong></p>
+
+<p>Receiving charges in business cases focused on immediate payments, such as points of sale in physical stores and e-commerce solutions;</p>
+
+<h1 id="we-are-making-the-apis-available">We are making the APIs available</h1>
+
+<ul>
+  <li>
+    <p><strong>1. Billing API:</strong> Available for generation of QR Code by the receiving user, to be used once, initiating instant payment.
+At this point we will make the dynamic QR Code available with immediate payment.
+Deadline for the qrcode to expire (60min).</p>
+  </li>
+  <li>
+    <p><strong>two. Conciliation API:</strong> Available for generating reports (Optional for the customer).</p>
+  </li>
+  <li>
+    <p><strong>3. Returns API:</strong> Available to return transactions.
+Always individual, identifying the transaction to be returned.
+Represents a request to return a Pix made, whose funds are already available in the receiving user’s transactional account.</p>
+  </li>
+</ul>
+
+<p><strong>The Cielo-Pix-v1 API works as follows:</strong> The automation/Front-end software used by the receiving user (EC) will access the Cielo-Pix-v1 API and, with the data received as an API response, will present a Dynamic QR Code on a device so that the paying user can read the QR Code through their mobile device to make the payment.</p>
+
+<h1 id="pix-api-context">Pix API context</h1>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/fluxopix.png" alt="Fluxo PIX" /></p>
+
+<p>The Pix API is the component of the arrangement that aims to enable the paying or receiving user, in the P2B64 or B2B65 context, to automate the interaction with their payment service provider (PSP), in order to carry out or receive transactions within the scope of the arrangement Pix.</p>
+
+<p>In this context, this version of the Pix API seeks to automate the receiving user’s interaction with their payment service provider (PSP), in order to generate charges and confirm receipt of payment of these charges through Pix.</p>
+
+<p>In the <strong>figure above</strong>, you can see possible integration paths for the receiving user’s systems with the API
+PSP Pix.</p>
+
+<p>The receiving user will be able, via the Pix API:</p>
+
+<ul>
+  <li><strong>i.</strong> Generate charges that can be paid via QR Code by your customers;</li>
+  <li><strong>ii.</strong> Change billing details;</li>
+  <li><strong>iii.</strong> Check payment settlement through Pix received;</li>
+  <li><strong>iv.</strong> Carry out payment reconciliation in an easy manner;</li>
+  <li><strong>v.</strong> Support the refund process, which can be triggered depending, for example, on the return of a purchase.</li>
+</ul>
+
+<p>The general aspects relating to the Pix API are detailed below.</p>
+
+<h1 id="general-concepts">General concepts</h1>
+
+<p>For the purposes of this document, related expressions and terms are defined as follows:</p>
+
+<ul>
+  <li><strong>I - client_ID:</strong> Pix API access component that identifies a user’s client software element. To access the API, it is necessary to use, for example, the Client_ID and a secret, both provided by the user’s PSP during the registration process. There may be more than one client software element in the user’s infrastructure and, therefore, for a user there may be more than one client_ID.</li>
+  <li><strong>II - Scopes:</strong> define the authorizations associated with each of the API services. In turn, Client_IDs have access to one or more scopes, which will define which services can be accessed by each Client_ID;</li>
+  <li><strong>III – Payload JSON:</strong> content retrieved from the call to the URL, read from the dynamic QR Code and representing a charge;</li>
+  <li><strong>IV - Paying PSP:</strong> Pix participant in which the paying user has a transactional account;</li>
+  <li><strong>V – Receiving PSP:</strong> Pix participant in which the receiving user has a transactional account that will be used to receive Pix. The Receiving PSP that wants to provide its customers with an automated integration solution with the Pix arrangement must do so through the Pix API, following the business and technical specifications defined by the Central Bank of Brazil in this document and in the other documents provided in the section two.</li>
+  <li><strong>VI - transactionId (txid):</strong> transaction identifier, from the perspective of the receiving user. This number is generated by the receiving user and passed on to the receiving PSP in the Pix API call, when the charge is created, in order to uniquely identify that charge66. Thus, txid is used by the receiving user, in their processes of reconciling payments received through Pix. In the case of charges created through the Pix API, the receiving PSP must ensure that the txid is unique for a given receiving user (CPF/CNPJ).</li>
+  <li><strong>VII - paying user:</strong> the one who pays a charge through Pix and has their transactional account debited.</li>
+  <li><strong>VIII - receiving user:</strong> natural or legal person who wishes to receive charges – for immediate or due payments – through Pix and uses the Pix API to automate their processes for generating these charges and for reconciling payments received through Pix.</li>
+  <li><strong>IX – withdrawal service facilitator (FSS):</strong> Pix participant who is classified as a transactional account provider and is authorized to operate by the Central Bank of Brazil on an optional basis, will provide the withdrawal service directly , or through a withdrawal agent, upon establishment of a contractual relationship for this purpose.</li>
+  <li><strong>X – Key:</strong> The mandatory key field determines the Pix key registered with the Central Bank that will be used for the charge, identifying the receiving user, as well as the details of the transactional account to which the charge must be linked .</li>
+</ul>
+
+<h1 id="pix-api-features">Pix API features</h1>
+
+<h2 id="entity-definitions">Entity definitions</h2>
+
+<p>The Pix API is structured around some business entities, which group sets of attributes, as defined below:</p>
+
+<p><strong>I - Billing (/cob):</strong> represents each of the charges generated through the Pix API, in order to allow the paying user to make an identified payment to the receiving user. Billing is characterized by a set of information that is used for the paying user to make a payment through Pix, generally as a result of a commercial agreement between the paying user and the receiving user, without being confused with the Pix payment itself. . The billing model used is for immediate payment.</p>
+
+<p>Billing states:</p>
+
+<ul>
+  <li>a) <strong>ACTIVE:</strong> indicates that the charge has been generated and ready to be paid;</li>
+  <li>b) <strong>COMPLETED::</strong> indicates that the charge has already been paid and, therefore, cannot accept another payment67;</li>
+  <li>c) <strong>REMOVED_BY_RECEIVER_USER:</strong> indicates that the receiving user requested the removal of the charge; It is</li>
+  <li>d) <strong>REMOVED_BY_PSP:</strong> indicates that the Receiving PSP requested the removal of the charge.</li>
+</ul>
+
+<p><strong>II - Pix (/pix):</strong> represents a payment received through the Pix payment arrangement.</p>
+
+<p><strong>III - Return:</strong> represents a request to return a Pix made, the funds of which are already available in the receiving user’s transactional account.</p>
+
+<p>Return status:</p>
+
+<ul>
+  <li>a) <strong>IN_PROCESSING:</strong> indicates that the return was requested, but is still being processed in the SPI;</li>
+  <li>b) <strong>RETURNED:</strong> indicates that the return was settled by SPI; It is</li>
+  <li>c) <strong>NOT_PERFORMED:</strong> indicates that the refund cannot be made due to an error during settlement (example: insufficient balance).</li>
+</ul>
+
+<h2 id="cardinality-between-entities">Cardinality between entities</h2>
+
+<ul>
+  <li>I - A <strong>Charge</strong> can be associated with one or more <strong>Pix</strong> (same txid);</li>
+  <li>II - A <strong>Pix</strong> can be associated with a single <strong>Charge</strong>. <strong>Pix</strong>, however, can exist independently of the existence of a <strong>Charge</strong>;</li>
+  <li>III - A <strong>Pix</strong> can have one or more <strong>Returns</strong> associated with it. A <strong>Return</strong> is always associated with a <strong>Pix</strong>.</li>
+  <li>IV – A <strong>Charge</strong> can only be associated with one <strong>PayloadLocation</strong> and, at any given time, the PayloadLocation can only be associated with one charge.</li>
+</ul>
+
+<h2 id="transactionid-lifecycle-txid">TransactionID lifecycle (txid)</h2>
+
+<p>There are two usage situations for the TransactionId (txid) field, which involve different rules for filling it out, as discussed below.</p>
+
+<h3 id="txid-in-the-context-of-collections">txid in the context of Collections:</h3>
+
+<p>Charges for immediate or due payments created through the Pix API are uniquely identified using a txid. The txid can be sent by the receiving user when the charge is generated, and cannot be repeated between different charges, in order to guarantee the correct reconciliation of payments. Alternatively, in the case of charges for immediate payment, it is possible for the receiving user to delegate the generation of the txid to their PSP.</p>
+
+<p>Once a charge is requested to be created through the Pix API, the Receiving PSP must ensure that there is no repetition of the txid for the same receiving user, whether sent by the user or generated by the PSP itself. Therefore, the set of CNPJ or CPF and txid must be unique for a given PSP.</p>
+
+<p>The txid must be a minimum of 26 characters and a maximum of 35 characters in length. The characters accepted in this context are: A-Z, a-z, 0-9.</p>
+
+<h2 id="feature-groups">Feature groups</h2>
+
+<h3 id="features-and-respective-endpoints">Features and respective endpoints</h3>
+
+<p>The Pix API functionalities, in the current version, are defined in six groups:</p>
+
+<p>I – Collection Management with immediate payment (Cob), which deals with the life cycle of the Billing entity:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Creation and update of billing</td>
+      <td>PUT/cob/{txid}</td>
+    </tr>
+    <tr>
+      <td>Creating a charge without passing txid</td>
+      <td>POST/cob</td>
+    </tr>
+    <tr>
+      <td>Query a charge</td>
+      <td>GET/cob/{txid}</td>
+    </tr>
+    <tr>
+      <td>Charge list query</td>
+      <td>GET/cob</td>
+    </tr>
+    <tr>
+      <td>Changing a charge</td>
+      <td>PATCH/cob/{txid}</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>II – Management of Pix Received (Pix), which deals with the life cycle of Pix and Return entities:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Return request</td>
+      <td>PUT/pix/{e2eid}/devolucao/{id}</td>
+    </tr>
+    <tr>
+      <td>Return query</td>
+      <td>GET/pix/{e2eid}/devolucao/{id}</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="use-cases">Use cases</h1>
+
+<p>The objective of this section is to provide examples of how the Pix API can be used to automate interactions between receiving users and their respective PSPs in transactions associated with Pix. These use cases are NOT intended to exhaust the ways of using or functions made available by the Pix API.</p>
+
+<h2 id="immediate-payment-at-the-time-of-purchase-with-dynamic-qr-code">Immediate payment (at the time of purchase) with Dynamic QR Code</h2>
+
+<p><strong>Application:</strong> Merchants with medium or high sales volumes. Online commerce.</p>
+
+<p><strong>1.</strong> The paying user, when making the purchase, informs that they wish to pay with Pix;</p>
+
+<p><strong>2.</strong> The automation software used by the receiving user accesses the Pix API to create a charge and, with the data received in response, generates a Dynamic QR Code, which is displayed on any display device:</p>
+
+<ul>
+  <li>The. in an in-person purchase, typically a screen near the cashier or even a POS;</li>
+  <li>B. for online purchases, on the device used by the payer.</li>
+</ul>
+
+<p>Service invoked: PUT /cob/{txid}  All data necessary to create the billing payload must be entered, according to the detailed specification. Alternatively, if the receiving user does not want to identify the immediate charge with their own {txid} number, they can choose to use the POST /cob method.</p>
+
+<p><strong>3.</strong> The paying user then reads the QR Code with their PSP App and makes the payment;</p>
+
+<p><strong>4.</strong> The receiving user, in an automated way, through a new query to the Pix API, checks whether the payment was made:
+Service invoked: GET /cob/{txid};</p>
+
+<p><strong>5.</strong> The receiving user releases the products to the paying user or, in the case of online purchases, confirms receipt of payment. Alternatively, step 4 can be performed using webhooks configured in the corresponding service. In this case, the receiving user would be informed by the Receiving PSP of the credit of a Pix associated with a txid in their transactional account.</p>
+
+<h2 id="make-a-return">Make a return</h2>
+
+<p>Application: various (product returns, billing error, product unavailability in stock, etc.)
+Premise:
+When the buyer and seller agree, it will be possible to carry out the return process for a Pix transaction. This process must be initiated by the seller, that is, by the person who received the Pix transaction.
+It is important to pay attention to the deadlines (in accordance with Central Bank regulations).</p>
+
+<ul>
+  <li>For Pix Withdraw or Pix Change: the return must be completed within a maximum period of up to 1 hour after completing the transaction.</li>
+  <li>For transfers, sales and other transactions with Pix: up to 90 days after completion of the transaction.</li>
+</ul>
+
+<p><strong>Important:</strong> the return is available exclusively to customers who have free movement of the account and must be carried out through the Cielo Gestão App or, if the customer has one, through the means of capture via the Central Bank Pix API (TEF, LIO Integrada or E-commerce) or via API 3.0 (E-commerce).
+Customers who choose automatic transfer will not be able to complete the return operation due to lack of balance in their account. To access the promotion, you must change your profile to Free Movement.</p>
+
+<p>The paying user requests the receiving user, via some suitable means of communication, to return all or part of a payment made;</p>
+
+<p>The receiving user agrees and identifies the original payment made by Pix. There are two possible situations:</p>
+
+<p>A. When Pix is ​​associated with a Charge:</p>
+
+<ul>
+  <li>Service invoked: GET /cob/{txid}  As a result, a Billing entity will be received that contains a list of the Pix received, each with its identification (EndToEndId).</li>
+</ul>
+
+<p>B. When Pix is ​​not associated with a Charge. In this case, it is necessary to know, by other means, the EndToEndId of the original Pix. Alternatively, it can be a broad query, bringing a list of Pix received.</p>
+
+<ul>
+  <li>Service invoked: GET /pix/  Parameters can be entered to limit the query temporally (start and “end” parameters can be used). Furthermore, you can limit the search to a specific paying user, using the payer’s CNPJ/CPF.</li>
+</ul>
+
+<p>The receiving user’s automation software activates the Pix API to perform the return.</p>
+
+<ul>
+  <li>
+    <p>Service invoked: PUT /pix/{e2eid}/devolucao/{id}  In this case, “id” is a code generated by the receiving user’s system that identifies the return associated with the original Pix. Please note that a Pix can have several returns associated with it, as long as the amount of the returns does not exceed the value of the original Pix. The “id” must be unique per EndToEndID Pix.
+The receiving user’s automation software triggers the Pix API to check whether the return has been settled:</p>
+  </li>
+  <li>
+    <p>Service invoked: GET /pix/{e2eid}/devolucao/{id}
+The paying user receives a Pix with the agreed return value.</p>
+  </li>
+</ul>
+
+<h2 id="membership-day">Membership Day</h2>
+
+<p>The subscription journey is understood as the process through which a receiving user begins to use the services of a specific PSP. From the Pix API point of view, this process must include providing access credentials (Client_IDs and passwords) and certificates to the receiving user.</p>
+
+<p>In the subscription process, the Client_ID provided by the PSP must have a set of scopes that will determine the functionalities to which the Receiving User will have access. The authorization criteria in the scopes are the responsibility of the PSP, which can create different criteria depending on the characteristics of the Receiving User.</p>
+
+<p>In this way, it is possible, for example, that certain functionalities are only accessible by users who meet additional security requirements stipulated by each PSP.</p>
+
+<h1 id="credential-request-for-developmentintegration">Credential request for development/integration</h1>
+
+<p>To use the PIX API, requests must be executed using the respective credentials from the <strong>Approval</strong> and <strong>Production</strong> environments.</p>
+
+<h2 id="environment-description">Environment description:</h2>
+
+<p><strong>Production:</strong> is the transactional environment integrated into Cielo’s environment. The operations carried out in this environment are real and cannot be undone.</p>
+
+<p><strong>Approval:</strong> is the environment intended for testing. Operations are performed in a real, but non-productive, environment.</p>
+
+<h2 id="homologation">Homologation</h2>
+
+<p>Credentials for the approval environment are requested directly on our <a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/myapps/new">Developers Portal</a></p>
+
+<p>Simply select the APIs below:</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/api_pix_myapps.png" alt="API_PIX_My_Apps" /></p>
+
+<p>After creation, you will be able to view your client_id and client_secret, access: <a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/myapps/new">My Credentials</a></p>
+
+<h2 id="production">Production</h2>
+
+<p><strong>Production:</strong> For partners to access Cielo’s customer data, customers need to provide the “keys” to the partner.</p>
+
+<p><strong>And how does the credential creation flow work in production?</strong></p>
+
+<p><strong>Important:</strong> New credentials must be generated for each commercial establishment.</p>
+
+<p><strong>1st:</strong> On the Cielo website, the Cielo customer accesses the [My Account] portal (https://minhaconta2.cielo.com.br/minha-conta/home) and clicks on My Registration.</p>
+
+<p><strong>2nd:</strong> In the Authorizations tab, click on Pix.</p>
+
+<p><strong>3rd:</strong> To create credentials, select the New access option.</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/PIX_Cielo_02.png" alt="IMG_PIX_02" /></p>
+
+<p><strong>4th:</strong> Then, click on Create credential.</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/PIX_Cielo_03.png" alt="IMG_PIX_03" /></p>
+
+<p><strong>5th:</strong> Select the partner.</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/PIX_Cielo_04.png" alt="IMG_PIX_04" /></p>
+
+<p><strong>6th:</strong> And click Create.</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/PIX_Cielo_05.png" alt="IMG_PIX_05" /></p>
+
+<p><strong>7th:</strong> Accept the terms of use and check the box.</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/PIX_Cielo_06.png" alt="IMG_PIX_06" /></p>
+
+<p><strong>8th:</strong> And then click the Authenticate and continue button.</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/PIX_Cielo_07.png" alt="IMG_PIX_07" /></p>
+
+<p><strong>9th:</strong> Insert the security token.</p>
+
+<p><strong>Important:</strong> token activation must be carried out through Cielo Gestão.</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/PIX_Cielo_08.png" alt="IMG_PIX_08" /></p>
+
+<p><strong>10th:</strong> Ready! Credential created successfully.</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/PIX_Cielo_09.png" alt="IMG_PIX_09" /></p>
+
+<p><strong>After this step, the customer will be able to copy the Customer ID, Client Secret and Transactional Key to perform onboarding on the partner portal.</strong></p>
+
+<p><strong>Important:</strong> Credentials need to be copied/downloaded within 3 minutes. Otherwise, you will need to generate a new credential.</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/PIX_Cielo_10.png" alt="IMG_PIX_10" /></p>
+
+<h1 id="pix-api-technical-specification">Pix API: Technical Specification</h1>
+
+<h2 id="protocols-and-technologies">Protocols and technologies</h2>
+
+<p>The Pix API will adopt the following protocols and technologies:</p>
+
+<p>API Definition: The Pix API is detailed in the OpenAPI 3.077 format.
+Format: The data format used is JSON.
+Protocol: the receiving user’s automation interacts with the API using web services based on REST over HTTPS.</p>
+
+<h2 id="security">Security</h2>
+
+<p>PSPs must develop and implement the API following good security practices, meeting the mandatory requirements below and the recommendations detailed in this section.</p>
+
+<h2 id="mandatory-security-requirements">Mandatory security requirements</h2>
+
+<p>The PSP must comply with the following requirements:</p>
+
+<ol>
+  <li>The customer registration/onboarding process for access to the API must be carried out in an environment logged into the PSP, and must include a secure channel for sending credentials to the user, in order to allow traceability of the actions performed.</li>
+  <li>The API must support multiple authorization levels or roles, segregating functionalities according to profiles (OAuth scopes) of client users.</li>
+  <li>The PSP must implement technology that ensures the high availability of the API.</li>
+  <li>The API must guarantee the confidentiality and integrity of user information and transactions, both in transit and at rest.</li>
+  <li>The PSP must maintain audit logs of API access for a minimum period of 1 year.</li>
+  <li>The access credential used in authentication (Client_ID) must be linked to the CNPJ or CPF of the receiving user and must allow access to resources only from transactional accounts held by the associated CNPJ or CPF.</li>
+</ol>
+
+<h2 id="security-1">Security</h2>
+
+<p>They must be observed to develop and implement the API following good security practices, meeting the mandatory requirements below.</p>
+
+<p>Mandatory security requirements:</p>
+
+<ol>
+  <li>The connection to the API must be encrypted using the TLS protocol version 1.2 or higher, only allowing cipher suites that meet the forward secrecy requirement.</li>
+  <li>The PSP must implement the OAuth 2.0 framework (RFC 6749) with mutual TLS (mTLS – RFC 8705) for API authentication, according to the specifications below:</li>
+</ol>
+
+<p>A. Digital certificates for API clients may be issued by the PSP itself or by external CAs, as defined by each PSP. Certificates self-signed by the client should not be accepted.
+B. Each PSP must have its own Authorization Server and Resource Server associated with the Pix API, and both must implement mutual TLS.
+w. The PSP Authorization Server must implement the technique for linking the client certificate to the issued access tokens (“Client Certificate-Bound Access Tokens”), according to section 3 of RFC 8705.
+d. The PSP Resource Server must confirm that the thumbprint of the certificate associated with the access token presented by the client is the same as that used in TLS (proof-of-possession) authentication.
+It is. The OAuth flow to be used is the “Client Credentials Flow”.
+f. OAuth scopes will be defined in the Pix API Open API 3.0 specification and will allow different authorization profiles to be associated with the client software.</p>
+
+<ol>
+  <li>The customer registration/onboarding process for access to the API must be carried out in an environment logged into the PSP, and must include a secure channel for sending credentials to the user, in order to allow traceability of the actions performed.</li>
+  <li>The API must support multiple authorization levels or roles, segregating functionalities according to profiles (OAuth scopes) of client users.</li>
+  <li>The PSP must implement technology that ensures the high availability of the API.</li>
+  <li>The API must guarantee the confidentiality and integrity of user information and transactions, both in transit and at rest.</li>
+  <li>The PSP must maintain audit logs of API access for a minimum period of 1 year.</li>
+  <li>The access credential used in authentication (Client_ID) must be linked to the CNPJ or CPF of the receiving user and must allow access to resources only from transactional accounts held by the associated CNPJ or CPF.</li>
+  <li>For the webhooks functionality, notifications from the receiving PSP to the receiving user will travel using an mTLS channel.</li>
+</ol>
+
+<p>The. It is recommended that the certificates used for mutual authentication in the webhook’s TLS channel are the same as those used in the Pix API. In any case, there is no objection to the use of other certificates, subject to agreement between the PSP and the receiving user.</p>
+
+<p>The BC understands that PSPs will be able to adopt the technologies and security solutions for the API that they deem most appropriate, as long as the mandatory security requirements are met and, whenever possible, the recommendations described above, also paying attention to the elements listed in the topics Next.</p>
 </div>
 
 
