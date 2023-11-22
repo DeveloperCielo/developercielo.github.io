@@ -442,7 +442,7 @@ To create a credit card transaction, you need to send a request using the `POST`
 
 <aside class="notice"><strong>Warning:</strong> In the request header, use Content-Type as application/json .</aside>
 
-> **Mastercard credit card transactions with stored credentials**: the Mastercard brand requires the Transaction Initiator Indicator for credit and debit card transactions using stored card data. The goal is to indicate if the transaction was initiated by the cardholder or by the merchant. In this scenario, the node `InitiatedTransactionIndicator` must be sent with the parameters `Category` and `SubCategory` for Mastercard transactions, within the `Payment` node. Please check the complete list of categories in the `Category` parameter description and the subcategories tables in [Transaction Initiator Indicator Tables](https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator-tables).
+> **Mastercard credit card transactions with stored credentials**: the Mastercard brand requires the Transaction Initiator Indicator for credit and debit card transactions using stored card data. The goal is to indicate if the transaction was initiated by the cardholder or by the merchant. In this scenario, the node `InitiatedTransactionIndicator` must be sent with the parameters `Category` and `SubCategory` for Mastercard transactions, within the `Payment` node. Please check the complete list of categories in the `Category` parameter description and the subcategories tables in [Transaction Indicator Tables](https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator-tables).
 
 Please refer to [Credit card with authentication](https://developercielo.github.io/en/manual/cielo-ecommerce#credit-card-with-authentication) to create an authenticated credit card transaction.
 
@@ -887,7 +887,7 @@ To integrate the authentication method, check the [3DS 2.0 documentation](https:
 
 To sell with a debit card, you should request using the POST method. The example below shows the minimum necessary fields that should be sent for the authorization.
 
-> **Mastercard debit transactions with stored credentials**: Mastercard requires the submission of the **Transaction Start Indicator** for **credit and debit card** purchases that use a card's stored data. The objective is to indicate whether the transaction was initiated by the shopper (Cardholder-Initiated Transaction - CIT) or by the e-commerce (Merchant-Initiated Transaction - MIT). In this scenario, it is mandatory to send the `InitiatedTransactionIndicator` node with the `Category` and `SubCategory` parameters for Mastercard transactions, within the `Payment` node. Check out the list of categories in the `Category` parameter description and the full table of subcategories in [Mastercard Transaction Start Indicator](https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator).
+> **Mastercard debit transactions with stored credentials**: Mastercard requires the submission of the **Transaction Initiator Indicator** for **credit and debit card** purchases that use a card's stored data. The objective is to indicate whether the transaction was initiated by the shopper (Cardholder-Initiated Transaction - CIT) or by the e-commerce (Merchant-Initiated Transaction - MIT). In this scenario, it is mandatory to send the `InitiatedTransactionIndicator` node with the `Category` and `SubCategory` parameters for Mastercard transactions, within the `Payment` node. Check out the list of categories in the `Category` parameter description and the full table of subcategories in [Mastercard Transaction Initiator](https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator).
 
 > <strong>Attention:</strong> It is not possible to carry out a transaction with an amount (`Amount`) 0. To check the validity of a card, use [Zero Auth](https://developercielo.github.io/en/manual/cielo-ecommerce#zero-auth).
 
@@ -1524,7 +1524,7 @@ The Merchant plug-in, known as MPI, is a service that allows you to make the cal
 
 * **External MPI**: used when your e-commerce hires a MPI solution, without Cielo's participation. No matter the 3DS version hired, follow the [Authorization with Authentication guide](https://developercielo.github.io/en/manual/3ds#authorization-with-authentication){:target="\_blank"}.
 
-### Mastercard Transaction Initiator Indicator
+### Mastercard Transaction Initiator
 
 The following tables apply to Mastercard credit and debit transactions with stored credentials. The objective is to identify whether the transaction was initiated by the **cardholder** or by the **e-commerce**:
 
