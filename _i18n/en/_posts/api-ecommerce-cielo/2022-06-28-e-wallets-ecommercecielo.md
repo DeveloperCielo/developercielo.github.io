@@ -38,6 +38,8 @@ API E-commerce Cielo supports the following digital wallets:
 > [ApplePay](https://www.apple.com/br/apple-pay/){:target="\_blank"}<br>
 > [SamsungPay](https://www.samsung.com.br/services/pay/){:target="\_blank"}
 
+<aside class="warning">Warning: For Visa transactions, the SDWO e-wallet should be located in the same country in which the seller receives their payment.</aside>
+
 ## E-wallet Integration
 
 See below the representation of a standard **transactional flow** in the integration of an e-wallet:
