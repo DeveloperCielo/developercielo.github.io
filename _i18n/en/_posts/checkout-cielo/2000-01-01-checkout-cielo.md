@@ -41,50 +41,18 @@ The great advantage of Checkout Cielo is the range of services aggregated in a s
 | **Transactional reports**                      | Within the Cielo website, you can generate transactional reports that facilitate the administration of your sales:<br>Recurrence Report<br>Shoppers Report<br>Sales Statement<br>Sales Report                                                 |
 | **BIN Query**                | BIN Query is a card data search service, whether credit or debit, which identifies the characteristics of the card based on the first digits: brand, type, nationality, whether it is a corporate card, issuer and whether it is a pre-paid card.                                                 |
 
-## Checkout Cielo Means of payment
+## Payment methods accepted at Cielo Checkout
 
-The current version of Checkout Cielo supports the following payment methods:
+The current version of Checkout Cielo supports the following payment methods and card brands:
 
-| Issuer           | Credit card cash payment | Installment credit Store | Debit | Voucher |
-| ---------------- | ------------------------ | ------------------------ | ----- | ------- |
-| Visa             | Yes                      | Yes                      | Yes   | No      |
-| MasterCard       | Yes                      | Yes                      | Yes   | No      |
-| American Express | Yes                      | Yes                      | No    | No      |
-| Elo              | Yes                      | Yes                      | Yes\* | No      |
-| Diners Club      | Yes                      | Yes                      | No    | No      |
-| Discover         | Yes                      | No                       | No    | No      |
-| JCB              | Yes                      | Yes                      | No    | No      |
-| Aura             | Yes                      | Yes                      | No    | No      |
-| Hipercard        | Yes                      | Yes                      | No    | No      |
+|PAYMENT METHOD|BRANDS AND PROVIDERS|
+|---|---|
+|Credit card|Visa, Mastercard, American Express, Elo, Diners Club, Discover, JCB and Hipercard|
+|Debit card|Visa, Mastercard and Elo|
+|Pix|Cielo, Bradesco and Banco do Brasil|
+|Registered boleto|Bradesco and Banco do Brasil|
 
-**NOTE**: Checkout Cielo maximum limit of installments is 12X.
-
-<aside class="notice">* Emergency Aid Only Caixa Econômica Federal (Corona Voucher).</aside>
-
-**Debit card**
-
-| Issuer     | Bank                                                                                                                                                                  |
-| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Visa       | Bradesco<br>Banco do Brasil<br>HSBC<br>Santander<br>Itaú<br>BRB<br>Safra<br>Banco da Amazônia<br>Sicredi<br>Banco do Espirito Santo<br>Banco do Nordeste<br>Mercantil |
-| Mastercard | Banco do Brasil<br>Santander<br>Itaú<br>BRB<br>Sicredi<br>Bancoob<br>CitiBank                                                                                         |
-| Elo\*      | Caixa Ecônomica Federal                                                                                                                                               |
-
-<aside class="notice">* Emergency Aid Only Caixa Econômica Federal (Corona Voucher).</aside>
-
-**Bank slip**
-
-| Bank            | Type           |
-| --------------- | -------------- |
-| Bradesco        | Not registered |
-| Bradesco        | SPS registered |
-| Banco do Brasil | Registered     |
-
-**Online Debit**
-
-| Bank            |
-| --------------- |
-| Bradesco        |
-| Banco do Brasil |
+> **Note**: Checkout Cielo maximum limit of installments is 12 installments.
 
 ## Prerequisites for Integration
 
