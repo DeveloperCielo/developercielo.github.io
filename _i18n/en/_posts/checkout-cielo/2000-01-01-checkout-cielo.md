@@ -54,44 +54,120 @@ The current version of Checkout Cielo supports the following payment methods and
 
 > **Note**: Checkout Cielo maximum limit of installments is 12 installments.
 
-## Prerequisites for Integration
+## Prerequisites for integration
 
-Checkout Cielo has a list of basic requirements to make the integration process successful.
-Below we list points that must be ready before integration:
+Checkout Cielo has a list of basic requirements for the integration process to be successful. Here are the points that must be ready before integration:
 
-1. The store register must be **active** with Cielo, having at least one type of **payment PLAN** linked to the account.
+1. The store's registration must be **active** with Cielo;
+2. A **timeout** needs to be defined in HTTP requests to Cielo. We recommend 30 seconds;
+3. The Root certificate of the certifying entity (CA) of our Web Service must be registered. See the section [Extended Validation Certificate](#extended-validation-certificate) for more information.
+4. We recommend using the Chrome and Edge browsers for the web and Safari, Chrome and Samsung Internet for mobile, always in their most up-to-date versions.
 
-2. A suitable **timeout** must be defined in the HTTP requests with Cielo; we recommend 30 seconds.
+## API Checkout Cielo flow
 
-3. The Root certificate of the certifying entity (CA) of our Web Service must be registered in the Truststore to be used. Because our certifier is widely accepted in the market, it is likely that it is already registered in the Truststore of the operating system itself. See the section [Extended Validation Certificate](#extended-validation-certificate) for more information.
+In the API Checkout Cielo, the merchant sends a request to create the checkout screen and the API returns a URL to access the checkout page, called `CheckoutUrl`.
+Check out more details about how the API works in the following flow:
 
-4. The Checkout works efficiently only in supported browsers:
+![Fluxo Geral Checkout Inglês]({{ site.baseurl_root }}/images/checkout/checkout-images/checkout-fluxo-en.jpg)
 
-| Browser           | Version          |
-| ----------------- | ---------------- |
-| Chrome            | V40.0 or later   |
-| FireFox           | V34.0.5 or later |
-| Internet Explorer | 10 or higher     |
-| Safari (MAC/iOS)  | 7 or later       |
-| Opera             | V26 or later     |
+1. The shopper chooses the products in the store integrated into Checkout Cielo and clicks on **Buy**;
+2. The merchant sends the checkout page creation request to the Cielo Checkout API;
+3. The API Checkout Cielo returns the `CheckoutUrl`, which is the URL of the checkout page created based on the data sent by the merchant (such as shopper, product, delivery data and others);
+4. The store redirects the buyer to the URL returned by Cielo (checkout page). The screen shown is part of the Cielo secure payment environment;
+5. The shopper chooses the payment method, type of shipping and delivery address on the checkout page;
+6. Checkout Cielo redirects the shopper to the Return URL chosen by the merchant (if the merchant has configured a Return URL on the Cielo website);
+7. The merchant will be notified about the status of the transaction (if the store has configured a notification URL on the Cielo website);
+8. The store processes the purchase order using the notification data and, if the transaction is authorized, releases the order.
 
-**NOTE**: For buyers and merchants to get the best experience from Checkout Cielo, we recommend downloading the latest version of the browsers mentioned above.
+> **Important**: Cielo Checkout does not notify shoppers about the status of their purchase. Cielo Checkout only notifies the merchant when there is a change in the payment status, thus allowing the merchant to decide when and how to inform its shopper about the delivery time and shipping process. To receive notifications, you must configure at least one type of notification URL in **[Merchant Settings](https://developercielo.github.io/manual/checkout-cielo#merchant-settings).**
 
-Check out this [**web site**](http://browsehappy.com/) to view the latest versions of browsers.
+## Endpoints
 
-**Note:** old browsers may deny access to Checkout Cielo and some features will not work as intended. Newer browsers also offer better encryption and privacy features.
+The endpoints for integration with Cielo Checkout are presented in the following table:
 
-If a feature still does not work as expected:
+|API| URL | DESCRIPTION|
+|---|---|---|
+|**API Checkout Cielo** | https://cieloecommerce.cielo.com.br/api/public/v1/orders/| Creation of the checkout page.|
+|**Cielo OAUTH2 Server** | https://cieloecommerce.cielo.com.br/api/public/v2/token | Authentication for querying, capturing and canceling transactions (creating `access_token`).|
+|**Transactional Control API** | https://cieloecommerce.cielo.com.br/api/public/v2/ | Querying, capturing and canceling transactions.|
 
-- Try using another browser as a temporary solution for the problem.
-- If you use Internet Explorer, try disabling compatibility mode.
+> **Important**: The Checkout API does not have a sandbox, but you can create test checkout pages by activating Test Mode on the Cielo website.
 
-If you have tried these solutions but still experience problems, please contact us at [Cielo Support](#cielo-support) and provide the following information:
+## Cielo OAUTH Authentication
 
-- A general explanation of the problem.
-- The browser and version being used.
-- The operating system and version used on the computer.
-- A screenshot of the problem.
+Cielo OAUTH is an authentication process for Cielo APIs related to e-commerce. Cielo OAUTH uses the **[OAUTH2](https://oauth.net/2/){:target="_blank"}** protocol for security. In it, it is necessary to first obtain an access token using your credentials and then send it to the Transactional Control API.
+
+> Authentication is only required for query, capture and cancellation operations.
+
+To use Cielo OAUTH, the following credentials are required:
+
+| PROPERTY    | DESCRIPTION                                                             | TYPE   |
+| -------------- | --------------------------------------------------------------------- | ------ |
+| `ClientId`     | Key identifier provided by CIELO                              | GUID   |
+| `ClientSecret` | Key that validates the ClientID. Provided by Cielo along with `ClientID` | string |
+
+> To generate the `ClientID` and `ClientSecret`, see the Obtaining Credentials topic, below.
+
+### Obtaining credentials
+
+To obtain the `ClientId` and `ClientSecret` credentials, follow the steps below:
+
+1. After receiving the establishment number (EC) with authorization for Checkout, access the [Cielo website](https://minhaconta2.cielo.com.br/login/){:target="_blank"} and login;
+2. Go to **Ecommerce** > **Checkout** > **Configurações** > **Dados Cadastrais**;
+3. In the **Contato técnico** section, fill in the contact details of the person responsible for receiving the store's keys. *ATTENTION: only enter the details of the person who can actually have access to your store's keys, which are confidential information for each establishment*;
+4. Click on **Gerar Credenciais de Acesso às APIs**;
+5. The technical contact will receive an email with credentials.
+
+### Obtaining the access token
+
+To gain access to Cielo services that use **Cielo Oauth**, you will need to obtain an access token, following the steps below:
+
+1. Concatenate the `ClientId` and `ClientSecret`, `**ClientId:ClientSecret**`;
+2. Encode the result in **Base64**;
+3. Send the token creation request using the HTTP POST method.
+
+**Example of Concatenation**
+
+| Field                     | Format                                                                                          |
+| ------------------------- | ------------------------------------------------------------------------------------------------ |
+| **ClientId**              | b521b6b2-b9b4-4a30-881d-3b63dece0006                                                             |
+| **ClientSecret**          | 08Qkje79NwWRx5BdgNJsIkBuITt5cIVO                                                                 |
+| **ClientId:ClientSecret** | _b521b6b2-b9b4-4a30-881d-3b63dece0006:08Qkje79NwWRx5BdgNJsIkBuITt5cIVO_                          |
+| **Base64**                | _YjUyMWI2YjItYjliNC00YTMwLTg4MWQtM2I2M2RlY2UwMDA2OiAwOFFramU3OU53V1J4NUJkZ05Kc0lrQnVJVHQ1Y0lWTw_ |
+
+### Request
+
+The request must be sent only in the header.
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/token</span></aside>
+
+```json
+x-www-form-urlencoded
+--header "Authorization: Basic {base64}"  
+--header "Content-Type: application/x-www-form-urlencoded"  
+grant_type=client_credentials
+```
+
+### Response
+
+The response will return the `access_token`, which must be used in Transactional Control API requests, for query, capture and cancellation operations.
+
+```json
+{
+  "access_token":
+    "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6Ik1ldUNoZWNrb3V0IE1hc3RlciBLZXkiLCJjbGllbnRfaWQiOiJjODlmZGasdasdasdmUyLTRlNzctODA2YS02ZDc1Y2QzOTdkYWMiLCJzY29wZXMiOiJ7XCJTY29wZVwiOlwiQ2hlY2tvdXRBcGlcIixcIkNsYWltc1wiOltdfSIsInJvbGUiOiJasdasdasd291dEFwaSIsImlzc47I6Imh0dHBzOi8vYXV0aGhvbasdasdnJhc3BhZy5jb20uYnIiLCJhdWQiOiJVVlF4Y1VBMmNTSjFma1EzSVVFbk9pSTNkbTl0ZmasdsadQjVKVVV1UVdnPSIsImV4cCI6MTQ5Nzk5NjY3NywibmJmIjoxNDk3OTEwMjc3fQ.ozj4xnH9PA3dji-ARPSbI7Nakn9dw5I8w6myBRkF-uA",
+  "token_type": "bearer",
+  "expires_in": 1199
+}
+```
+
+| PROPERTY    | DESCRIPTION                                                 | TYPE   |
+| -------------- | --------------------------------------------------------- | ------ |
+| `Access_token` | Used to access API services                 | string |
+| `Token_type`   | It will always be of the `bearer` type                              | text  |
+| `Expires_in`   | Token validity in seconds. Approximately 20 minutes. | int    |
+
+> The returned token (`access_token`) must be used in every query, capture and cancellation request as an authorization key. The `access_token` has a validity of 20 minutes (1200 seconds) and it is necessary to generate a new token every time the validity expires.
 
 # Extended Validation Certificate
 
