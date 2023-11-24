@@ -39,6 +39,8 @@ API Cielo E-commerce possui suporte para as seguintes carteiras digitais:
 > [ApplePay](https://www.apple.com/br/apple-pay/){:target="\_blank"}<br>
 > [SamsungPay](https://www.samsung.com.br/services/pay/){:target="\_blank"}
 
+<aside class="warning">Atenção: Para a bandeira Visa, a carteira digital SDWO deve estar localizada no mesmo país que o varejista que recebe o pagamento da carteira digital.</aside>
+
 ## Integração da E-Wallet
 
 Veja abaixo a representação de um **fluxo transacional** padrão na integração de uma e-wallet:
