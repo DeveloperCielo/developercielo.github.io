@@ -241,78 +241,215 @@
   <p><strong>Note</strong>: Checkout Cielo maximum limit of installments is 12 installments.</p>
 </blockquote>
 
-<h2 id="prerequisites-for-integration">Prerequisites for Integration</h2>
+<h2 id="prerequisites-for-integration">Prerequisites for integration</h2>
 
-<p>Checkout Cielo has a list of basic requirements to make the integration process successful.
-Below we list points that must be ready before integration:</p>
+<p>Checkout Cielo has a list of basic requirements for the integration process to be successful. Here are the points that must be ready before integration:</p>
 
 <ol>
-  <li>
-    <p>The store register must be <strong>active</strong> with Cielo, having at least one type of <strong>payment PLAN</strong> linked to the account.</p>
-  </li>
-  <li>
-    <p>A suitable <strong>timeout</strong> must be defined in the HTTP requests with Cielo; we recommend 30 seconds.</p>
-  </li>
-  <li>
-    <p>The Root certificate of the certifying entity (CA) of our Web Service must be registered in the Truststore to be used. Because our certifier is widely accepted in the market, it is likely that it is already registered in the Truststore of the operating system itself. See the section <a href="#extended-validation-certificate">Extended Validation Certificate</a> for more information.</p>
-  </li>
-  <li>
-    <p>The Checkout works efficiently only in supported browsers:</p>
-  </li>
+  <li>The store’s registration must be <strong>active</strong> with Cielo;</li>
+  <li>A <strong>timeout</strong> needs to be defined in HTTP requests to Cielo. We recommend 30 seconds;</li>
+  <li>The Root certificate of the certifying entity (CA) of our Web Service must be registered. See the section <a href="#extended-validation-certificate">Extended Validation Certificate</a> for more information.</li>
+  <li>We recommend using the Chrome and Edge browsers for the web and Safari, Chrome and Samsung Internet for mobile, always in their most up-to-date versions.</li>
 </ol>
+
+<h2 id="api-checkout-cielo-flow">API Checkout Cielo flow</h2>
+
+<p>In the API Checkout Cielo, the merchant sends a request to create the checkout screen and the API returns a URL to access the checkout page, called <code class="language-plaintext highlighter-rouge">CheckoutUrl</code>.
+Check out more details about how the API works in the following flow:</p>
+
+<p><img src="https://developercielo.github.io/images/checkout/checkout-images/checkout-fluxo-en.jpg" alt="Fluxo Geral Checkout Inglês" /></p>
+
+<ol>
+  <li>The shopper chooses the products in the store integrated into Checkout Cielo and clicks on <strong>Buy</strong>;</li>
+  <li>The merchant sends the checkout page creation request to the Cielo Checkout API;</li>
+  <li>The API Checkout Cielo returns the <code class="language-plaintext highlighter-rouge">CheckoutUrl</code>, which is the URL of the checkout page created based on the data sent by the merchant (such as shopper, product, delivery data and others);</li>
+  <li>The store redirects the buyer to the URL returned by Cielo (checkout page). The screen shown is part of the Cielo secure payment environment;</li>
+  <li>The shopper chooses the payment method, type of shipping and delivery address on the checkout page;</li>
+  <li>Checkout Cielo redirects the shopper to the Return URL chosen by the merchant (if the merchant has configured a Return URL on the Cielo website);</li>
+  <li>The merchant will be notified about the status of the transaction (if the store has configured a notification URL on the Cielo website);</li>
+  <li>The store processes the purchase order using the notification data and, if the transaction is authorized, releases the order.</li>
+</ol>
+
+<blockquote>
+  <p><strong>Important</strong>: Cielo Checkout does not notify shoppers about the status of their purchase. Cielo Checkout only notifies the merchant when there is a change in the payment status, thus allowing the merchant to decide when and how to inform its shopper about the delivery time and shipping process. To receive notifications, you must configure at least one type of notification URL in <strong><a href="https://developercielo.github.io/manual/checkout-cielo#merchant-settings">Merchant Settings</a>.</strong></p>
+</blockquote>
+
+<h2 id="endpoints">Endpoints</h2>
+
+<p>The endpoints for integration with Cielo Checkout are presented in the following table:</p>
 
 <table>
   <thead>
     <tr>
-      <th>Browser</th>
-      <th>Version</th>
+      <th>API</th>
+      <th>URL</th>
+      <th>DESCRIPTION</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Chrome</td>
-      <td>V40.0 or later</td>
+      <td><strong>API Checkout Cielo</strong></td>
+      <td>https://cieloecommerce.cielo.com.br/api/public/v1/orders/</td>
+      <td>Creation of the checkout page.</td>
     </tr>
     <tr>
-      <td>FireFox</td>
-      <td>V34.0.5 or later</td>
+      <td><strong>Cielo OAUTH2 Server</strong></td>
+      <td>https://cieloecommerce.cielo.com.br/api/public/v2/token</td>
+      <td>Authentication for querying, capturing and canceling transactions (creating <code class="language-plaintext highlighter-rouge">access_token</code>).</td>
     </tr>
     <tr>
-      <td>Internet Explorer</td>
-      <td>10 or higher</td>
-    </tr>
-    <tr>
-      <td>Safari (MAC/iOS)</td>
-      <td>7 or later</td>
-    </tr>
-    <tr>
-      <td>Opera</td>
-      <td>V26 or later</td>
+      <td><strong>Transactional Control API</strong></td>
+      <td>https://cieloecommerce.cielo.com.br/api/public/v2/</td>
+      <td>Querying, capturing and canceling transactions.</td>
     </tr>
   </tbody>
 </table>
 
-<p><strong>NOTE</strong>: For buyers and merchants to get the best experience from Checkout Cielo, we recommend downloading the latest version of the browsers mentioned above.</p>
+<blockquote>
+  <p><strong>Important</strong>: The Checkout API does not have a sandbox, but you can create test checkout pages by activating Test Mode on the Cielo website.</p>
+</blockquote>
 
-<p>Check out this <a href="http://browsehappy.com/"><strong>web site</strong></a> to view the latest versions of browsers.</p>
+<h2 id="cielo-oauth-authentication">Cielo OAUTH Authentication</h2>
 
-<p><strong>Note:</strong> old browsers may deny access to Checkout Cielo and some features will not work as intended. Newer browsers also offer better encryption and privacy features.</p>
+<p>Cielo OAUTH is an authentication process for Cielo APIs related to e-commerce. Cielo OAUTH uses the <strong><a href="https://oauth.net/2/" target="_blank">OAUTH2</a></strong> protocol for security. In it, it is necessary to first obtain an access token using your credentials and then send it to the Transactional Control API.</p>
 
-<p>If a feature still does not work as expected:</p>
+<blockquote>
+  <p>Authentication is only required for query, capture and cancellation operations.</p>
+</blockquote>
 
-<ul>
-  <li>Try using another browser as a temporary solution for the problem.</li>
-  <li>If you use Internet Explorer, try disabling compatibility mode.</li>
-</ul>
+<p>To use Cielo OAUTH, the following credentials are required:</p>
 
-<p>If you have tried these solutions but still experience problems, please contact us at <a href="#cielo-support">Cielo Support</a> and provide the following information:</p>
+<table>
+  <thead>
+    <tr>
+      <th>PROPERTY</th>
+      <th>DESCRIPTION</th>
+      <th>TYPE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ClientId</code></td>
+      <td>Key identifier provided by CIELO</td>
+      <td>GUID</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ClientSecret</code></td>
+      <td>Key that validates the ClientID. Provided by Cielo along with <code class="language-plaintext highlighter-rouge">ClientID</code></td>
+      <td>string</td>
+    </tr>
+  </tbody>
+</table>
 
-<ul>
-  <li>A general explanation of the problem.</li>
-  <li>The browser and version being used.</li>
-  <li>The operating system and version used on the computer.</li>
-  <li>A screenshot of the problem.</li>
-</ul>
+<blockquote>
+  <p>To generate the <code class="language-plaintext highlighter-rouge">ClientID</code> and <code class="language-plaintext highlighter-rouge">ClientSecret</code>, see the Obtaining Credentials topic, below.</p>
+</blockquote>
+
+<h3 id="obtaining-credentials">Obtaining credentials</h3>
+
+<p>To obtain the <code class="language-plaintext highlighter-rouge">ClientId</code> and <code class="language-plaintext highlighter-rouge">ClientSecret</code> credentials, follow the steps below:</p>
+
+<ol>
+  <li>After receiving the establishment number (EC) with authorization for Checkout, access the <a href="https://minhaconta2.cielo.com.br/login/" target="_blank">Cielo website</a> and login;</li>
+  <li>Go to <strong>Ecommerce</strong> &gt; <strong>Checkout</strong> &gt; <strong>Configurações</strong> &gt; <strong>Dados Cadastrais</strong>;</li>
+  <li>In the <strong>Contato técnico</strong> section, fill in the contact details of the person responsible for receiving the store’s keys. <em>ATTENTION: only enter the details of the person who can actually have access to your store’s keys, which are confidential information for each establishment</em>;</li>
+  <li>Click on <strong>Gerar Credenciais de Acesso às APIs</strong>;</li>
+  <li>The technical contact will receive an email with credentials.</li>
+</ol>
+
+<h3 id="obtaining-the-access-token">Obtaining the access token</h3>
+
+<p>To gain access to Cielo services that use <strong>Cielo Oauth</strong>, you will need to obtain an access token, following the steps below:</p>
+
+<ol>
+  <li>Concatenate the <code class="language-plaintext highlighter-rouge">ClientId</code> and <code class="language-plaintext highlighter-rouge">ClientSecret</code>, <code class="language-plaintext highlighter-rouge">**ClientId:ClientSecret**</code>;</li>
+  <li>Encode the result in <strong>Base64</strong>;</li>
+  <li>Send the token creation request using the HTTP POST method.</li>
+</ol>
+
+<p><strong>Example of Concatenation</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Format</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>ClientId</strong></td>
+      <td>b521b6b2-b9b4-4a30-881d-3b63dece0006</td>
+    </tr>
+    <tr>
+      <td><strong>ClientSecret</strong></td>
+      <td>08Qkje79NwWRx5BdgNJsIkBuITt5cIVO</td>
+    </tr>
+    <tr>
+      <td><strong>ClientId:ClientSecret</strong></td>
+      <td><em>b521b6b2-b9b4-4a30-881d-3b63dece0006:08Qkje79NwWRx5BdgNJsIkBuITt5cIVO</em></td>
+    </tr>
+    <tr>
+      <td><strong>Base64</strong></td>
+      <td><em>YjUyMWI2YjItYjliNC00YTMwLTg4MWQtM2I2M2RlY2UwMDA2OiAwOFFramU3OU53V1J4NUJkZ05Kc0lrQnVJVHQ1Y0lWTw</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="request">Request</h3>
+
+<p>The request must be sent only in the header.</p>
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/token</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">x-www-form-urlencoded</span><span class="w">
+</span><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Basic {base64}"</span><span class="w">  
+</span><span class="err">--header</span><span class="w"> </span><span class="s2">"Content-Type: application/x-www-form-urlencoded"</span><span class="w">  
+</span><span class="err">grant_type=client_credentials</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="response">Response</h3>
+
+<p>The response will return the <code class="language-plaintext highlighter-rouge">access_token</code>, which must be used in Transactional Control API requests, for query, capture and cancellation operations.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w">
+    </span><span class="s2">"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6Ik1ldUNoZWNrb3V0IE1hc3RlciBLZXkiLCJjbGllbnRfaWQiOiJjODlmZGasdasdasdmUyLTRlNzctODA2YS02ZDc1Y2QzOTdkYWMiLCJzY29wZXMiOiJ7XCJTY29wZVwiOlwiQ2hlY2tvdXRBcGlcIixcIkNsYWltc1wiOltdfSIsInJvbGUiOiJasdasdasd291dEFwaSIsImlzc47I6Imh0dHBzOi8vYXV0aGhvbasdasdnJhc3BhZy5jb20uYnIiLCJhdWQiOiJVVlF4Y1VBMmNTSjFma1EzSVVFbk9pSTNkbTl0ZmasdsadQjVKVVV1UVdnPSIsImV4cCI6MTQ5Nzk5NjY3NywibmJmIjoxNDk3OTEwMjc3fQ.ozj4xnH9PA3dji-ARPSbI7Nakn9dw5I8w6myBRkF-uA"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bearer"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">1199</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPERTY</th>
+      <th>DESCRIPTION</th>
+      <th>TYPE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Access_token</code></td>
+      <td>Used to access API services</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Token_type</code></td>
+      <td>It will always be of the <code class="language-plaintext highlighter-rouge">bearer</code> type</td>
+      <td>text</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Expires_in</code></td>
+      <td>Token validity in seconds. Approximately 20 minutes.</td>
+      <td>int</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>The returned token (<code class="language-plaintext highlighter-rouge">access_token</code>) must be used in every query, capture and cancellation request as an authorization key. The <code class="language-plaintext highlighter-rouge">access_token</code> has a validity of 20 minutes (1200 seconds) and it is necessary to generate a new token every time the validity expires.</p>
+</blockquote>
 
 <h1 id="extended-validation-certificate">Extended Validation Certificate</h1>
 
@@ -709,7 +846,7 @@ These data are separated into the following “main nodes”:</p>
 
 <p><strong>IMPORTANT</strong>: A call to the API Checkout <strong>DOES NOT CREATE A TRANSACTION</strong>. The returned Link is just a “preorder” indicating that a transactional screen is ready to be used. The Transaction is created only when the buyer clicks on “FINALIZE”</p>
 
-<h3 id="request">Request</h3>
+<h3 id="request-1">Request</h3>
 
 <p>Endpoint is the URL to where requests with the cart data will be sent. All requests must be sent using the HTTP POST method, for the endpoint:</p>
 
