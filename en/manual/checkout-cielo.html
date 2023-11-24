@@ -144,14 +144,28 @@
                 </div>
             </div>
 
-            <div class="post"><h1 id="about-checkout-cielo">About Checkout Cielo</h1>
+            <div class="post"><p>This manual will guide the developer in integrating with the <strong>Checkout Cielo API</strong>. By integrating the Checkout API, you will be able to:</p>
 
-<p>Checkout Cielo is a solution that aggregates multiple payment processing services in which the consumer is directed to a secure online payment page from Cielo.
-The Cielo payments page provides a high level of confidence, following PCI security standards.</p>
+<ul>
+  <li>Configure your store and customize your payment page;</li>
+  <li>Create a payment page via API;</li>
+  <li>Query, capture and cancel transactions via API;</li>
+  <li>Receive payment notifications.</li>
+</ul>
+
+<blockquote>
+  <p>Not a developer? You can use Checkout via the Cielo website or the Cielo Gestão app. Find out more <a href="https://developercielo.github.io/tutorial/tutorial-checkout-link" target="_blank">in this tutorial</a>.</p>
+</blockquote>
+
+<h1 id="about-checkout-cielo">About Checkout Cielo</h1>
+
+<p>Checkout Cielo is recommended for websites with shopping carts, that is, when the consumer browses the website and chooses one or more products to purchase. When finalizing the purchase, the consumer is redirected to a secure Cielo online payment page.</p>
+
+<p>Checkout Cielo is a solution that brings together several payment processing services and generates a payments page that provides a high level of trust, following PCI security standards.</p>
 
 <p>The great advantage of Checkout Cielo is the range of services aggregated in a secure transactional screen with only one technical integration via the API REST.</p>
 
-<p>Checkout has the following Features:</p>
+<p><strong>Checkout has the following features:</strong></p>
 
 <table>
   <thead>
@@ -162,54 +176,35 @@ The Cielo payments page provides a high level of confidence, following PCI secur
   </thead>
   <tbody>
     <tr>
-      <td><strong>Transactional screen</strong></td>
+      <td><strong>Payment page</strong></td>
       <td>Checkout Cielo has its own transactional screen, with an optimized layout, shortening the steps to pay for your transactions.</td>
     </tr>
     <tr>
-      <td><strong>Buyer Registration</strong></td>
-      <td>The Checkout Cielo has the ability to save cards and payment data from buyers, allowing for future purchases that the data already are filled at the transactional screen</td>
-    </tr>
-    <tr>
-      <td><strong>1-click buy</strong></td>
-      <td>With the registered buyer, Checkout allows the purchase to be completed quickly, using the buyer’s preferred payment and address data</td>
-    </tr>
-    <tr>
       <td><strong>Recurrence</strong></td>
-      <td>Checkout Cielo has the Scheduled Recurrence available in the API Cielo Ecommerce. <br /> The merchant just needs to define that a transaction must be repeated, that Checkout will run it again within the defined range</td>
+      <td>Cielo Checkout has Scheduled Recurrence. All the store needs to do is define that a transaction must be repeated, and Checkout will execute it again at the defined interval.</td>
     </tr>
     <tr>
-      <td><strong>Anti fraud</strong></td>
-      <td>Checkout already has an integration with CyberSource Anti Fraud, enabling analysis of credit transactions without additional integration</td>
+      <td><strong>Fraud analysis</strong></td>
+      <td>Checkout provides fraud analysis of credit transactions without additional integration.</td>
     </tr>
     <tr>
-      <td><strong>Payment Methods</strong></td>
-      <td>Checkout Cielo has a wide range of payment means: <br /> <strong>Credit cards</strong> <br /> <strong>Debit card</strong><br /><strong>Online Debit</strong><br /><strong>Bradesco e Banco do Brasil boleto</strong><br /><strong>Pix</strong></td>
-    </tr>
-    <tr>
-      <td><strong>Simplified Backoffice</strong></td>
-      <td>Checkout Cielo Backoffice has a simplified and dynamic layout that allows a fast and comfortable browsing so that the Merchant can follow the sales without difficulty</td>
+      <td><strong>Various payment methods</strong></td>
+      <td>Checkout Cielo has a wide range of payment methods:<br />Credit cards<br />Debit card<br />Boleto Bradesco and Banco do Brasil<br />Pix Cielo, Bradesco and Banco do Brasil</td>
     </tr>
     <tr>
       <td><strong>Integration with Button and QR Code</strong></td>
-      <td>Without technical integration or programming, Checkout provides an integration that makes it possible to create an order generator link with only onde product registration inside the Backoffice Checkout.</td>
-    </tr>
-    <tr>
-      <td><strong>Integration with E-commerce Platforms</strong></td>
-      <td>. It has integration with Terra Virtual Store and other platforms, already present in the main e-commerce platforms of the Brazilian market</td>
+      <td>Without technical integration or programming, Checkout provides an integration that makes it possible to create a button to access the transactional screen. See more at <a href="https://developercielo.github.io/tutorial/tutorial-checkout-link" target="_blank">Checkout Tutorial</a></td>
     </tr>
     <tr>
       <td><strong>Transactional reports</strong></td>
-      <td>Within Backoffice, it is possible to generate transactional reports that make it easy to manage your sales: <br /> <strong>Recurrence Report</strong> <br /> <strong>Buyer Report</strong><br /><strong>Sales statement</strong><br /><strong>Sales report</strong></td>
+      <td>Within the Cielo website, you can generate transactional reports that facilitate the administration of your sales:<br />Recurrence Report<br />Shoppers Report<br />Sales Statement<br />Sales Report</td>
+    </tr>
+    <tr>
+      <td><strong>BIN Query</strong></td>
+      <td>BIN Query is a card data search service, whether credit or debit, which identifies the characteristics of the card based on the first digits: brand, type, nationality, whether it is a corporate card, issuer and whether it is a pre-paid card.</td>
     </tr>
   </tbody>
 </table>
-
-<p>Checkout Cielo is a solution indicated for:</p>
-
-<ul>
-  <li><strong>Websites with Shopping carts</strong>: when there is a “shopping cart” to be sent, i.e. in case the consumer browse the website and choose 1 or more products in order to finalize the purchase.</li>
-  <li><strong>Sales via Social networks</strong>: With the ability to generate a link or QR Code to take the buyer to the transactional screen, Checkout is indicated to make sales via social networks in a simplified way, without the need of technical integration.</li>
-</ul>
 
 <h2 id="checkout-cielo-means-of-payment">Checkout Cielo Means of payment</h2>
 
