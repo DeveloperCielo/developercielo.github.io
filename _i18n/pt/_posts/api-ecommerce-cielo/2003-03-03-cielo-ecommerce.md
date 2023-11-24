@@ -2945,9 +2945,11 @@ No caso de transações de e-commerce de uma SDWO com cartão de crédito ou dé
 
 Para efetuar testes, é necessário apenas seguir as orientações do menu [Sandbox e ferramentas](https://developercielo.github.io/manual/cielo-ecommerce#sandbox-e-ferramentas)
 
-Para enviar o MCC do varejista na transação de SDWO, a orientação do mercado é utilizar a tabela da ABECS (Associação Brasileira das Empresas de cartões de crédito e Serviços) que realiza o de-para de CNAEs para os MCCS de toda a indústria. Essa tabela é atualizada constantemente e está disponível online no site da Abecs no seguinte link: [ABECS](https://www.abecs.org.br/consulta-mcc-individual)
+Para enviar o MCC do varejista na transação de SDWO, a orientação do mercado é utilizar a tabela da ABECS (Associação Brasileira das Empresas de cartões de crédito e Serviços) que realiza o de-para de CNAEs para os MCCS de toda a indústria. Essa tabela é atualizada constantemente e está disponível online no site da ABECS no seguinte link: [ABECS](https://www.abecs.org.br/consulta-mcc-individual)
 
 **Importante:** A marcação de SDWO é apenas aceita para as seguintes modalidades e bandeiras: Visa/Elo- crédito e débito; Mastercard - apenas crédito. Aceita cartões estrangeiros.
+
+<aside class="warning">Atenção: Para a bandeira Visa, a carteira digital SDWO deve estar localizada no mesmo país que o varejista que recebe o pagamento da carteira digital.</aside>
 
 #### Requisição
 
