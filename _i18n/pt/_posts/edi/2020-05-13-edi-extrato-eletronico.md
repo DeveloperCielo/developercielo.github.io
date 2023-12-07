@@ -21,11 +21,11 @@ Visando trazer maior transparência e fluidez na conciliação dos extratos, os 
 
 Abaixo segue o comunicado enviado com os detalhes das alterações, arquivos de teste e documentação complementar para apoiar com a homologação.
 
-[Material versão português](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_PT-BR_Nov.zip)
+[Material versão português](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_15.4.pdf)
 
-[Material version english](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_english_Nov.zip)
+[Material version english](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Eletronic_Statement_-_Manual_-_Version_15.4.pdf)
 
-[Material versión español](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_espanolNov.zip)
+[Material versión español](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extracto_Electronico_-_Manual_-_Version_15.4.pdf)
 
 [Arquivos de Teste](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Arquivos_Testes.zip)
 
@@ -41,9 +41,9 @@ Abaixo segue o comunicado enviado com os detalhes das alterações, arquivos de 
 
 > Aqui você encontra as documentações referentes a versão produtiva do Extrato EDI, atualizada em: 06/09/2023
 
-[Manual versão português](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO-Versao-14-v3pixDCC.pdf)
+[Manual versão português](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_14_v4prepago_Amex.pdf)
 
-[Manual versão inglês](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO-English-Version-14-v3pixDCC.pdf)
+[Manual versão inglês](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Electronic_Statement_-_English_-_Version_14_v4prepago_Amex.pdf)
 
 ## 01/09/2023 - V14 - Inclusão de novos campos Pix (CIELO16) - Documentação e arquivos de teste
 
@@ -584,7 +584,7 @@ Com isso, deverá ser feita uma chamada de PUT /edi no qual, irá fazer a duplic
 
 <aside class="warning"><b> Observação: Caso do retorno do GET /merchantgroup (1ºPASSO) seja "available" significa que esse merchant está disponível para registro, com isso, é necessário fazer a chamada de POST /registers.</b></aside>
 
-# Tipos de Extrato Eletrônico
+# V14 - Tipos de Extrato Eletrônico
 
 ## Tabela A - Tipos de Arquivo
 
