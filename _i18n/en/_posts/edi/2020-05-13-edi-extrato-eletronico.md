@@ -21,11 +21,11 @@ Aiming to bring greater transparency and fluidity in the conciliation of extract
 
 Below is the communication sent with the details of the changes, test files and complementary documentation to support the homologation.
 
-[PT-BR](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_PT-BR_Nov.zip)
+[PT-BR](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_15.4.pdf)
 
-[EN](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_english_Nov.zip)
+[EN](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Eletronic_Statement_-_Manual_-_Version_15.4.pdf)
 
-[ES](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_espanolNov.zip)
+[ES](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extracto_Electronico_-_Manual_-_Version_15.4.pdf)
 
 [Arquivos de Teste](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Arquivos_Testes.zip)
 
@@ -41,9 +41,9 @@ It is important that the approval of the new structure takes place by the indica
 
 > Here you will find the documentation relating to the productive version of the EDI Statement, updated on: 09/06/2023
 
-[Manual Portuguese version](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO-Versao-14-v3pixDCC.pdf)
+[Manual Portuguese version](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_14_v4prepago_Amex.pdf)
 
-[Manual English version](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO-English-Version-14-v3pixDCC.pdf)
+[Manual English version](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Electronic_Statement_-_English_-_Version_14_v4prepago_Amex.pdf)
 
 > Note: the updates below will be available from June 7, 2021.
 
@@ -533,7 +533,7 @@ Performs the list of customers below the informed access_token. The filter can b
 | `businessName`      | Legal business name                                               |        |      |          |
 | `status`            | Branch is available ou unavailable                                |        |      |          |
 
-# Types Of Electronic Statements
+# V14 - Types Of Electronic Statements
 
 ## Table A - File Types
 
