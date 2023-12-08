@@ -422,7 +422,7 @@ Cielo Checkout considers 5 kinds of products: Physical material, Digital, Servic
 
 <h2 id="store-configurations-tab">Store configurations Tab</h2>
 
-<p>In this page it is possible to perform configurations in different mechanisms within Cielo Checkout. This area is divided in 4 different parts: Display, Payments, Anti fraud, Courier freight and services.</p>
+<p>In this page it is possible to perform configurations in different mechanisms within Cielo Checkout. This area is divided in 4 different parts: Display, Payments, Anti fraud, Correios freight and services.</p>
 
 <h3 id="display">Display</h3>
 
@@ -655,9 +655,11 @@ It will be up to the retailer the manual order capture.</aside>
 
 <p><img src="https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-status-antifraude.png" alt="Anti fraud status" /></p>
 
-<h3 id="courier-freight-and-services">Courier Freight and Services</h3>
+<h3 id="correios-freight-and-services">Correios Freight and Services</h3>
 
-<p>In this area you can configure the available freight options in your Store. On the Information section about Freight, there’s an explanation more detailed about the kinds of available freights on the Cielo Checkout. There’s also on the Courier freight area, a freight calculator for queries (this calculator displays the freight value of each kind of freight registered for a given weight and locality)</p>
+<aside class="warning">Correios (post office) shipping service currently unavailable. If a request with this shipping option is sent, you will receive a return with error 400 and the message: "The shipping service by post is unavailable." If you use the service on your payment links or checkout pages, change the shipping type to the other available options.</aside>
+
+<p>In this area you can configure the available freight options in your Store. On the Information section about Freight, there’s an explanation more detailed about the kinds of available freights on the Cielo Checkout. There’s also on the Correios freight area, a freight calculator for queries (this calculator displays the freight value of each kind of freight registered for a given weight and locality)</p>
 
 <p><img src="https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-frete-correios.png" alt="Courier Freight" /></p>
 
@@ -812,21 +814,21 @@ This kind of integration is is performed via the register of a set of items to b
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Freight</code></td>
-      <td>Choose between one of the Freight options (Courier, Withdraw at the store, Free).</td>
+      <td>Choose between one of the Freight options (Correios*, Withdraw at the store, Free).</td>
       <td>n/a</td>
       <td>n/a</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Origin Zip Code</code></td>
-      <td>This field only appears to the Courier Freight kind, must be filled with the zip code where the merchandise will depart from for freight calculus purpose.</td>
+      <td>This field only appears to the Correios* Freight kind, must be filled with the zip code where the merchandise will depart from for freight calculus purpose.</td>
       <td>9</td>
       <td>9</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Weight (kg)</code></td>
-      <td>This field only appears to the Courier Freight kind, and it must be filled with the product weight in Kg for freight calculus purpose.</td>
+      <td>This field only appears to the Correios* Freight kind, and it must be filled with the product weight in Kg for freight calculus purpose.</td>
       <td>n/a</td>
       <td>n/a</td>
       <td>Yes</td>
@@ -861,6 +863,8 @@ This kind of integration is is performed via the register of a set of items to b
     </tr>
   </tbody>
 </table>
+
+<aside class="warning">Correios (post office) shipping service currently unavailable. If a request with this shipping option is sent, you will receive a return with error 400 and the message: "The shipping service by post is unavailable." If you use the service on your payment links or checkout pages, change the shipping type to the other available options.</aside>
 
 <p><strong>Adding the button to your page, you’ll have to copy the button HTML code created and include it on your website’s HTML, as the example below.</strong></p>
 
