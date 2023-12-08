@@ -546,7 +546,7 @@ Endpoint is the URL to where requests with the cart data will be sent. All reque
 | `Cart.Items.Quantity`      | Numeric      | Yes         | 9    | Item quantity in cart.                                                                    |                                                                           |
 | `Cart.Items.Type`          | Alphanumeric | Yes         | 255  | Item type in cart: <br>`Asset`<br>`Digital`<br>`Service`<br>`Payment`                     |                                                                           |
 | `Cart.Items.Sku`           | Alphanumeric | Optional    | 32   | Item Sku in cart.                                                                         |                                                                           |
-| `Cart.Items.Weight`        | Numeric      | Conditional | 9    | Weight in grams of item in cart.                                                          | Required in case of Shipping.Type is "Post office".                       |
+| `Cart.Items.Weight`        | Numeric      | Conditional | 9    | Weight in grams of item in cart.                                                          | Required in case of Shipping.Type is "Correios" (post office)*.                       |
 | `Payment.BoletoDiscount`   | Numeric      | Conditional | 3    | Discount, in percentage, for payments to be performed with bank slip.                     |                                                                           |
 | `Payment.DebitDiscount`    | Numeric      | Conditional | 3    | Discount, in percentage, for payments to be perfomed with online debit.                   |                                                                           |
 | `FirstInstallmentDiscount` | Numeric      | Conditional | 3    | Discount, in percentage, for payments to be performed with credit card cash payment.      |                                                                           |
@@ -557,6 +557,8 @@ Endpoint is the URL to where requests with the cart data will be sent. All reque
 | `Customer.Phone`           | Numeric      | Conditional | 11   | Buyer's phone number.                                                                     | Not required in API, but mandatory in the transactional screen            |
 | `Options.AntifraudEnabled` | Boolean      | Conditional | n/a  | Enable or not the fraud analysis for the order: true or false.                            |                                                                           |
 | `Options.ReturnUrl`        | Strin        | Conditional | 255  | Sets to which url the buyer will be sent after completing the purchase.                   | A fixed URL can be registered in Backoffice Checkout                      |
+
+<aside class="warning">*Correios (post office) shipping service currently unavailable. If a request with this shipping option is sent, you will receive a return with error 400 and the message: "The shipping service by post is unavailable." If you use the service on your payment links or checkout pages, change the shipping type to the other available options.</aside>
 
 ### Responses
 
@@ -682,6 +684,8 @@ Below, how the effect of the discount is displayed in the Cart:
 
 #### Types of "Freight"
 
+<aside class="warning">Correios (post office) shipping service currently unavailable. If a request with this shipping option is sent, you will receive a return with error 400 and the message: "The shipping service by post is unavailable." If you use the service on your payment links or checkout pages, change the shipping type to the other available options.</aside>
+
 Checkout Cielo has different types of freight.
 
 | Field                   | Description                                                                                                                                                                                                                                                                |
@@ -690,7 +694,7 @@ Checkout Cielo has different types of freight.
 | `Free`                  | Do not perform freight calculation and displays on the transactional screen "Free Shipping"                                                                                                                                                                                |
 | `WithoutShippingPickUp` | Considered "Withdrawal at the store"                                                                                                                                                                                                                                       |
 | `WithoutShipping`       | No freight charge (applicable for digital products and services).                                                                                                                                                                                                          |
-| `Post office`           | Uses the post office API to perform the cost calculation. The value of the calculation will depend on the used contract (Chosen in the Backoffice of the checkout) and on the type of integration for calculation: **Shipping with Volume** or **Shipping without Volume** |
+| `Correios`           | Uses the post office API to perform the cost calculation. The value of the calculation will depend on the used contract (Chosen in the Backoffice of the checkout) and on the type of integration for calculation: **Shipping with Volume** or **Shipping without Volume** |
 
 Below, how each option is demonstrated on the transactional screen
 
@@ -700,9 +704,9 @@ Below, how each option is demonstrated on the transactional screen
 | `Free`                  | ![Free]({{ site.baseurl }}/images/Checkout/free.png)                                   |
 | `WithoutShippingPickUp` | ![WithoutShippingPickUp]({{ site.baseurl }}/images/Checkout/withoutshippingpickup.png) |
 | `WithoutShipping`       | ![WithoutShipping]({{ site.baseurl }}/images/Checkout/withoutshippingpickup.png)       |
-| `Post office`           | ![Post office]({{ site.baseurl }}/images/Checkout/correios.png)                        |
+| `Correios`           | ![Post office]({{ site.baseurl }}/images/Checkout/correios.png)                        |
 
-**NOTE:** The options for multiple freights in the category `Post office` should be selected within the Backoffice Cielo.
+**NOTE:** The options for multiple freights in the category `Correios` should be selected within the Backoffice Cielo.
 
 The nodes that compound the freight information below:
 
@@ -710,8 +714,8 @@ The nodes that compound the freight information below:
 
 | Field                    | Type         | Required    | Size | Description                                                                                                | Conditional                                    |
 | ------------------------ | ------------ | ----------- | ---- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
-| `Shipping.Type`          | Alphanumeric | Yes         | 255  | Freight type: <br>`Post office`<br>`FixedAmount`<br>`Free`<br>`WithoutShippingPickUp`<br>`WithoutShipping` |                                                |
-| `Shipping.SourceZipCode` | Numeric      | Conditional | 8    | Shopping cart origin zip code.                                                                             | Obrigatório caso Shipping.Type for "Correios". |
+| `Shipping.Type`          | Alphanumeric | Yes         | 255  | Freight type: <br>`Correios`<br>`FixedAmount`<br>`Free`<br>`WithoutShippingPickUp`<br>`WithoutShipping` |                                                |
+| `Shipping.SourceZipCode` | Numeric      | Conditional | 8    | Shopping cart origin zip code.                                                                             | Required if `Shipping.Type` is "Correios". |
 | `Shipping.TargetZipCode` | Numeric      | Optional    | 8    | Buyer's delivery address zip code.                                                                         |                                                |
 
 **Shipping.Address** - Delivery address information. **Not required in API contract, but mandatory on transactional screen**. We suggest this data to be sent, if it has already been collected within the store environment.
@@ -825,12 +829,14 @@ Below the list of items that must be registered for the button creation:
 | `Title`              | Product Title                                                                                                                                                 | 1            | 50           | Yes      |
 | `Description`        | Product description                                                                                                                                           | 1            | 255          | Yes      |
 | `Price`              | Order total value **in cents** (e.g.: R$1,00 =100).                                                                                                           | 11           | 14           | Yes      |
-| `Freight`            | Choose from one of the Freight options (Post Office, Fixed Freight, Free Shipping, Store Pickup, No Charge).                                                  | n/a          | n/a          | Yes      |
-| `Zip Code of Origin` | This field only appears for Post Office Freight type, must be filled with the Zip Code from where the goods will be shipped for freight calculation purposes. | 9            | 9            | Yes      |
-| `Weight(kg)`         | This field only appears for Post Office Freight type, must be filled with the product weight in kg for freight calculation purposes                           | n/a          | n/a          | Yes      |
+| `Freight`            | Choose from one of the Freight options (Correios*, Fixed Freight, Free Shipping, Store Pickup, No Charge).                                                  | n/a          | n/a          | Yes      |
+| `Zip Code of Origin` | This field only appears for Correios* Freight type, must be filled with the Zip Code from where the goods will be shipped for freight calculation purposes. | 9            | 9            | Yes      |
+| `Weight(kg)`         | This field only appears for Correios Freight type, must be filled with the product weight in kg for freight calculation purposes                           | n/a          | n/a          | Yes      |
 | `Cost of Freight`    | This field only appears for Fixed Freight freight type, and must be filled with the amount that the merchant specifies for their products.                    | n/a          | n/a          | Yes      |
 | `Shipping method`    | This field only appears for Product Type equal to Physical Material and Type of Freight equal to Fixed Freight.                                               | n/a          | n/a          | Yes      |
 | `URL`                | This field only appears for Product Type equal to Digital.                                                                                                    | n/a          | n/a          | Yes      |
+
+<aside class="warning">Correios (post office) shipping service currently unavailable. If a request with this shipping option is sent, you will receive a return with error 400 and the message: "The shipping service by post is unavailable." If you use the service on your payment links or checkout pages, change the shipping type to the other available options.</aside>
 
 ### Example of Button
 
@@ -1309,6 +1315,8 @@ Checkout allows only one type of `Bank slip` or `Online Debit` per merchant, so 
 | 3     | Free shipping                                    |
 | 4     | Withdraw in store                                |
 | 5     | No freight charge (digital services or products) |
+
+<aside class="warning">Correios (post office) shipping service currently unavailable. If a request with this shipping option is sent, you will receive a return with error 400 and the message: "The shipping service by post is unavailable." If you use the service on your payment links or checkout pages, change the shipping type to the other available options.</aside>
 
 # Checkout Cielo installments
 
