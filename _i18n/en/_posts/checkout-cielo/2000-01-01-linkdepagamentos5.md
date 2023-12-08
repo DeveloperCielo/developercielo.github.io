@@ -157,6 +157,8 @@ When accessing your store's settings, look for the Antifraude and automatic capt
 
 ### 6. Configure Correios shipping options
 
+<aside class="warning">Correios (post office) shipping service currently unavailable. If a request with this shipping option is sent, you will receive a return with error 400 and the message: "The shipping service by post is unavailable." If you use the service on your payment links or checkout pages, change the shipping type to the other available options.</aside>
+
 If your store works with the delivery of **physical products** (those that need shipping), enter your Correios login and password and select the desired services, such as the types of Sedex and PAC.
 
 If your store works with digital materials, services or payments, that is, sales that do not require shipping, skip this step.
@@ -380,6 +382,8 @@ Header: `Authorization:` `Bearer {access_token}`
 > Inside `description` you can use the pipe character `|` if you need to break the line when presenting the description on the payment link screen.
 
 **Shipping data**
+
+<aside class="warning">Correios (post office) shipping service currently unavailable. If a request with this shipping option is sent, you will receive a return with error 400 and the message: "The shipping service by post is unavailable." If you use the service on your payment links or checkout pages, change the shipping type to the other available options.</aside>
 
 The data that must be filled in regarding shipping are in the `shipping` node.
 
@@ -883,6 +887,8 @@ In queries, the card brand is returned in the `Payment.Brand` field and is fille
 |3|Free shipping|
 |4|Pick up at hand/store|
 |5|No shipping charge (digital services or products)|
+
+<aside class="warning">Correios (post office) shipping service currently unavailable. If a request with this shipping option is sent, you will receive a return with error 400 and the message: "The shipping service by post is unavailable." If you use the service on your payment links or checkout pages, change the shipping type to the other available options.</aside>
 
 ## Status change notification
 
