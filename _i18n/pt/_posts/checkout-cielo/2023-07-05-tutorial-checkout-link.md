@@ -332,6 +332,8 @@ Você pode visualizar o status do antifraude acessando o detalhe da compra, na a
 
 #### Frete de Correios & Serviços
 
+<aside class="warning">Serviço de frete Correios indisponível no momento. Caso uma requisição com essa opção de frete seja enviada, você receberá um retorno com erro 400 e a mensagem: "O serviço de frete por correios está indisponível." Caso utilize o serviço em seus links de pagamento ou páginas de checkout, altere o tipo de frete para as outras opções disponíveis.</aside>
+
 Nesta área você configura as opções de frete disponíveis em sua Loja. Na seção Informações sobre Frete há uma explicação mais detalhada sobre os tipos de fretes disponíveis no Checkout e no Link de Pagamento.
 
 Na área de fretes de Correios há uma calculadora de frete para consultas (essa calculadora dá o valor de frete de cada tipo de frete cadastrado para um determinado peso e localidade).
@@ -427,6 +429,8 @@ Saiba mais sobre os itens que podem ser cadastrados para a criação do link na 
 *Envio obrigatório caso o tipo de produto seja **material físico**.
 
 **Envio obrigatório caso a transação seja recorrente.
+
+
 
 **2. Após preencher os campos e gerar um link, aparecerá uma tela de resumo com os detalhes do link de pagamento, assim como as opções de compartilhamento por *link, botão ou QRCode***:
 
