@@ -222,7 +222,7 @@ In this page it is possible to make contact regarding Operational, technical and
 
 ## Store configurations Tab
 
-In this page it is possible to perform configurations in different mechanisms within Cielo Checkout. This area is divided in 4 different parts: Display, Payments, Anti fraud, Courier freight and services.
+In this page it is possible to perform configurations in different mechanisms within Cielo Checkout. This area is divided in 4 different parts: Display, Payments, Anti fraud, Correios freight and services.
 
 ### Display
 
@@ -356,9 +356,11 @@ You can view the anti-fraud status by going to the purchase detail in the Orders
 
 ![Anti fraud status]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/checkout-status-antifraude.png)
 
-### Courier Freight and Services
+### Correios Freight and Services
 
-In this area you can configure the available freight options in your Store. On the Information section about Freight, there's an explanation more detailed about the kinds of available freights on the Cielo Checkout. There's also on the Courier freight area, a freight calculator for queries (this calculator displays the freight value of each kind of freight registered for a given weight and locality)
+<aside class="warning">Correios (post office) shipping service currently unavailable. If a request with this shipping option is sent, you will receive a return with error 400 and the message: "The shipping service by post is unavailable." If you use the service on your payment links or checkout pages, change the shipping type to the other available options.</aside>
+
+In this area you can configure the available freight options in your Store. On the Information section about Freight, there's an explanation more detailed about the kinds of available freights on the Cielo Checkout. There's also on the Correios freight area, a freight calculator for queries (this calculator displays the freight value of each kind of freight registered for a given weight and locality)
 
 ![Courier Freight]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/checkout-frete-correios.png)
 
@@ -430,13 +432,15 @@ Below the listing of items that must be registered for the button creation:
 | `Title`           | Product title                                                                                                                                              | 1            | 50           | Yes       |
 | `Description`     | Product Description                                                                                                                                        | 1            | 255          | Yes       |
 | `Price`           | Total order value **in cents** (example: R$1,00 =100).                                                                                                     | 11           | 14           | Yes       |
-| `Freight`         | Choose between one of the Freight options (Courier, Withdraw at the store, Free).                                                                          | n/a          | n/a          | Yes       |
-| `Origin Zip Code` | This field only appears to the Courier Freight kind, must be filled with the zip code where the merchandise will depart from for freight calculus purpose. | 9            | 9            | Yes       |
-| `Weight (kg)`     | This field only appears to the Courier Freight kind, and it must be filled with the product weight in Kg for freight calculus purpose.                     | n/a          | n/a          | Yes       |
+| `Freight`         | Choose between one of the Freight options (Correios*, Withdraw at the store, Free).                                                                          | n/a          | n/a          | Yes       |
+| `Origin Zip Code` | This field only appears to the Correios* Freight kind, must be filled with the zip code where the merchandise will depart from for freight calculus purpose. | 9            | 9            | Yes       |
+| `Weight (kg)`     | This field only appears to the Correios* Freight kind, and it must be filled with the product weight in Kg for freight calculus purpose.                     | n/a          | n/a          | Yes       |
 | `Freight Cost`    | This field only appears to the Fix Freight, and should be filled with the cost that the retailer specifies for his products.                               | n/a          | n/a          | Yes       |
 | `Shipping method` | Esse campo só aparece para Tipo Produto igual a Material Físico e Tipo de Frete igual a Frete Fixo.                                                        | n/a          | n/a          | Yes       |
 | `URL`             | This field only appears to the Kind of Product like the Digital.                                                                                           | n/a          | n/a          | Yes       |
 | `Amount`          | Sets the maximum amount of orders that the Button is able to generate. If not set, the button will be able to generate an infinite number of products.     | n/a          | n/a          | No        |
+
+<aside class="warning">Correios (post office) shipping service currently unavailable. If a request with this shipping option is sent, you will receive a return with error 400 and the message: "The shipping service by post is unavailable." If you use the service on your payment links or checkout pages, change the shipping type to the other available options.</aside>
 
 **Adding the button to your page, you'll have to copy the button HTML code created and include it on your website's HTML, as the example below.**
 
