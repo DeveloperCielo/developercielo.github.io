@@ -459,7 +459,7 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
 
 <ol>
   <li>Solicitar o <a href="https://developercielo.github.io/manual/checkout-cielo#habilitando-o-n%C2%BA-de-estabelecimento-(ec)-para-o-checkout">nº de estabelecimento (EC)</a> para o Checkout Cielo;</li>
-  <li>Definir as <a href="https://developercielo.github.io/manual/checkout-cielo#configurando-a-sua-loja">configurações da loja</a> (personalização da página, escolha dos meios de pagamento e contrato com os Correios, se houver);</li>
+  <li>Definir as <a href="https://developercielo.github.io/manual/checkout-cielo#configurando-a-sua-loja">configurações da loja</a> (personalização da página, escolha dos meios de pagamento e contrato com os Correios*, se houver);</li>
   <li>Configurar uma <a href="https://developercielo.github.io/manual/checkout-cielo#4.-configure-as-urls-de-retorno,-notifica%C3%A7%C3%A3o-e-mudan%C3%A7a-de-status-da-sua-loja">URL de notificação e de mudança de status</a> para a sua loja;</li>
   <li>Instalar o <a href="https://developercielo.github.io/manual/checkout-cielo#certificado-extended-validation">certificado Extended Validation</a>;</li>
   <li>Enviar a primeira requisição de <a href="https://developercielo.github.io/manual/checkout-cielo#criando-a-p%C3%A1gina-de-pagamento">criação de página de pagamento</a>;</li>
@@ -467,6 +467,8 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
   <li>Se a transação mudar de status, você receberá uma <a href="https://developercielo.github.io/manual/checkout-cielo#notifica%C3%A7%C3%A3o-de-mudan%C3%A7a-de-status">notificação* de mudança de status</a>;</li>
   <li>Para efetuar testes, use o <a href="https://developercielo.github.io/manual/checkout-cielo#modo-teste">Modo de Teste do Checkout Cielo</a>.</li>
 </ol>
+
+<p>*Indisponível por tempo indeterminado.</p>
 
 <p>*Desde que tenha configurado a URL de notificação.</p>
 
@@ -796,6 +798,8 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
 <p>Você pode visualizar o status do Antifraude acessando os detalhes da compra, na aba <strong>Pedidos</strong> e clicando em <strong>+</strong>.</p>
 
 <h3 id="6-configure-as-opções-de-frete-dos-correios">6. Configure as opções de frete dos Correios</h3>
+
+<aside class="warning">Serviço de frete Correios indisponível no momento. Caso uma requisição com essa opção de frete seja enviada, você receberá um retorno com erro 400 e a mensagem: "O serviço de frete por correios está indisponível." Caso utilize o serviço em seus links de pagamento ou páginas de checkout, altere o tipo de frete para as outras opções disponíveis.</aside>
 
 <p>Se a sua loja trabalha com a entrega de <strong>produtos físicos</strong> (aqueles que precisam de frete) usando os Correios, informe seu login e senha dos Correios e selecione os serviços desejados, como os tipos de Sedex e PAC.</p>
 
@@ -1179,7 +1183,6 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
       <th>TIPO</th>
       <th>TAMANHO</th>
       <th>OBRIGATÓRIO?</th>
-      <th> </th>
     </tr>
   </thead>
   <tbody>
@@ -1189,7 +1192,6 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
       <td>alfanumérico</td>
       <td>64</td>
       <td>Não</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">SoftDescriptor</code></td>
@@ -1197,7 +1199,6 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
       <td>alfanumérico</td>
       <td>13</td>
       <td>Não</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Cart.Discount.Type</code></td>
@@ -1205,7 +1206,6 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
       <td>alfanumérico</td>
       <td>255</td>
       <td>Condicional</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Cart.Discount.Value</code></td>
@@ -1213,7 +1213,6 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
       <td>número</td>
       <td>18</td>
       <td>Condicional</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Cart.Items.Name</code></td>
@@ -1221,7 +1220,6 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
       <td>alfanumérico</td>
       <td>128</td>
       <td>Sim</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Cart.Items.Description</code></td>
@@ -1229,7 +1227,6 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
       <td>alfanumérico</td>
       <td>256</td>
       <td>Não</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Cart.Items.UnitPrice</code></td>
@@ -1237,7 +1234,6 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
       <td>número</td>
       <td>18</td>
       <td>Sim</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Cart.Items.Quantity</code></td>
@@ -1245,7 +1241,6 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
       <td>número</td>
       <td>9</td>
       <td>Sim</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Cart.Items.Type</code></td>
@@ -1253,7 +1248,6 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
       <td>alfanumérico</td>
       <td>255</td>
       <td>Sim</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Cart.Items.Sku</code></td>
@@ -1261,15 +1255,13 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
       <td>alfanumérico</td>
       <td>32</td>
       <td>Não</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Cart.Items.Weight</code></td>
       <td>Peso do produto.</td>
       <td>número</td>
       <td>9</td>
-      <td>Necessário caso <code class="language-plaintext highlighter-rouge">Shipping.Type</code> for “Correios”.</td>
-      <td>Condicional</td>
+      <td>Necessário caso <code class="language-plaintext highlighter-rouge">Shipping.Type</code> for “Correios”**.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.BoletoDiscount</code></td>
@@ -1277,7 +1269,6 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
       <td>número</td>
       <td>3</td>
       <td>Não</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">FirstInstallmentDiscount</code></td>
@@ -1285,7 +1276,6 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
       <td>número</td>
       <td>3</td>
       <td>Não</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MaxNumberOfInstallments</code></td>
@@ -1293,7 +1283,6 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
       <td>número</td>
       <td>2</td>
       <td>Não</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
@@ -1301,7 +1290,6 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
       <td>número</td>
       <td>14</td>
       <td>Não</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.FullName</code></td>
@@ -1309,7 +1297,6 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
       <td>alfanumérico</td>
       <td>288</td>
       <td>Não</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
@@ -1317,7 +1304,6 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
       <td>alfanumérico</td>
       <td>64</td>
       <td>Não</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Phone</code></td>
@@ -1325,7 +1311,6 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
       <td>número</td>
       <td>11</td>
       <td>Não</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Options.ReturnUrl</code></td>
@@ -1333,7 +1318,6 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
       <td>string</td>
       <td>255</td>
       <td>Não</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Shipping.Type</code></td>
@@ -1341,15 +1325,13 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
       <td>alfanumérico</td>
       <td>255</td>
       <td>Sim</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Shipping.SourceZipCode</code></td>
-      <td>CEP de origem do carrinho de compras. Obrigatório caso <code class="language-plaintext highlighter-rouge">Shipping.Type</code> seja “Correios”.</td>
+      <td>CEP de origem do carrinho de compras. Obrigatório caso <code class="language-plaintext highlighter-rouge">Shipping.Type</code> seja “Correios”**.</td>
       <td>número</td>
       <td>8</td>
       <td>Condicional</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Shipping.TargetZipCode</code></td>
@@ -1357,7 +1339,6 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
       <td>número</td>
       <td>8</td>
       <td>Não</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Shipping.Address.Street</code></td>
@@ -1365,7 +1346,6 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
       <td>alfanumérico</td>
       <td>256</td>
       <td>Não*</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Shipping.Address.Number</code></td>
@@ -1373,7 +1353,6 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
       <td>alfanumérico</td>
       <td>8</td>
       <td>Não*</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Shipping.Address.Complement</code></td>
@@ -1381,7 +1360,6 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
       <td>alfanumérico</td>
       <td>14</td>
       <td>Não</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Shipping.Address.District</code></td>
@@ -1389,7 +1367,6 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
       <td>alfanumérico</td>
       <td>64</td>
       <td>Não*</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Shipping.Address.City</code></td>
@@ -1397,7 +1374,6 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
       <td>alfanumérico</td>
       <td>64</td>
       <td>Não*</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Shipping.Address.State</code></td>
@@ -1405,7 +1381,6 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
       <td>alfanumérico</td>
       <td>2</td>
       <td>Não*</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Shipping.Services.Name</code></td>
@@ -1413,7 +1388,6 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
       <td>alfanumérico</td>
       <td>128</td>
       <td>Sim</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Shipping.Services.Price</code></td>
@@ -1421,7 +1395,6 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
       <td>número</td>
       <td>18</td>
       <td>Sim</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Shipping.Services.Deadline</code></td>
@@ -1429,23 +1402,20 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
       <td>número</td>
       <td>9</td>
       <td>Não</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Shipping.Package</code></td>
-      <td>Tipo de pacote:<br />“Box”: caixa<br />“Rol”: cilindro ou envelope. Saiba mais em <a href="#### Cálculo do frete dos Correios">Cálculo do frete dos Correios</a></td>
+      <td>Tipo de pacote:<br />“Box”: caixa<br />“Rol”: cilindro ou envelope. Saiba mais em <a href="#### Cálculo do frete dos Correios">Cálculo do frete dos Correios</a>**</td>
       <td>alfanumérico</td>
       <td>Inteiro</td>
       <td>Sim</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Shipping.Length</code></td>
-      <td>Comprimento do pacote. Saiba mais em <a href="#### Cálculo do frete dos Correios">Cálculo do frete dos Correios</a>.</td>
+      <td>Comprimento do pacote. Saiba mais em <a href="#### Cálculo do frete dos Correios">Cálculo do frete dos Correios</a>**.</td>
       <td>número</td>
       <td>Inteiro</td>
       <td>Sim</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Shipping.Height</code></td>
@@ -1453,30 +1423,26 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
       <td>número</td>
       <td>Inteiro</td>
       <td>Condicional</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Shipping.Width</code></td>
-      <td>Largura do pacote. Obrigatório caso <code class="language-plaintext highlighter-rouge">Shipping.Package</code> seja “Box” ou “Envelope”.Saiba mais em <a href="#### Cálculo do frete dos Correios">Cálculo do frete dos Correios</a>.</td>
+      <td>Largura do pacote. Obrigatório caso <code class="language-plaintext highlighter-rouge">Shipping.Package</code> seja “Box” ou “Envelope”.Saiba mais em <a href="#### Cálculo do frete dos Correios">Cálculo do frete dos Correios</a>**.</td>
       <td>número</td>
       <td>Inteiro</td>
       <td>Condicional</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Shipping.Diameter</code></td>
-      <td>Diâmetro do pacote.Obrigatório caso <code class="language-plaintext highlighter-rouge">Shipping.Package</code> como “Rol”.Saiba mais em <a href="#### Cálculo do frete dos Correios">Cálculo do frete dos Correios</a>.</td>
+      <td>Diâmetro do pacote.Obrigatório caso <code class="language-plaintext highlighter-rouge">Shipping.Package</code> como “Rol”.Saiba mais em <a href="#### Cálculo do frete dos Correios">Cálculo do frete dos Correios</a>**.</td>
       <td>número</td>
       <td>Inteiro</td>
       <td>Condicional</td>
-      <td> </td>
     </tr>
   </tbody>
 </table>
 
-<ul>
-  <li>Não é obrigatório, mas recomendamos enviar.</li>
-</ul>
+<p>*Não é obrigatório, mas recomendamos enviar.</p>
+<aside class="warning">**Serviço de frete Correios indisponível no momento. Caso uma requisição com essa opção de frete seja enviada, você receberá um retorno com erro 400 e a mensagem: "O serviço de frete por correios está indisponível." Caso utilize o serviço em seus links de pagamento ou páginas de checkout, altere o tipo de frete para as outras opções disponíveis.</aside>
 
 <blockquote>
   <p>Veja mais informações sobre o nó <code class="language-plaintext highlighter-rouge">Shipping</code> em <a href="https://developercielo.github.io/manual/checkout-cielo#definindo-o-frete">Definindo o frete</a>.</p>
@@ -1734,6 +1700,8 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
 
 <h2 id="definindo-o-frete">Definindo o frete</h2>
 
+<aside class="warning">Serviço de frete Correios indisponível no momento. Caso uma requisição com essa opção de frete seja enviada, você receberá um retorno com erro 400 e a mensagem: "O serviço de frete por correios está indisponível." Caso utilize o serviço em seus links de pagamento ou páginas de checkout, altere o tipo de frete para as outras opções disponíveis.</aside>
+
 <p>O Checkout Cielo permite definir cinco opções de frete no parâmetro <code class="language-plaintext highlighter-rouge">Shipping.Type</code>.</p>
 
 <table>
@@ -1920,6 +1888,8 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
 </table>
 
 <h3 id="cálculo-do-frete-dos-correios">Cálculo do frete dos Correios</h3>
+
+<aside class="warning">Serviço de frete Correios indisponível no momento. Caso uma requisição com essa opção de frete seja enviada, você receberá um retorno com erro 400 e a mensagem: "O serviço de frete por correios está indisponível." Caso utilize o serviço em seus links de pagamento ou páginas de checkout, altere o tipo de frete para as outras opções disponíveis.</aside>
 
 <p>O cálculo do frete é feito pela API dos Correios e pode ser de dois tipos:</p>
 
@@ -2891,6 +2861,8 @@ Acesse o <a href="https://developercielo.github.io/tutorial/checkout-tutoriais">
 </table>
 
 <h4 id="shipping_type">Shipping_type</h4>
+
+<aside class="warning">Serviço de frete Correios indisponível no momento. Caso uma requisição com essa opção de frete seja enviada, você receberá um retorno com erro 400 e a mensagem: "O serviço de frete por correios está indisponível." Caso utilize o serviço em seus links de pagamento ou páginas de checkout, altere o tipo de frete para as outras opções disponíveis.</aside>
 
 <table>
   <thead>
