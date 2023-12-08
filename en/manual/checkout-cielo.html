@@ -1053,7 +1053,7 @@ These data are separated into the following “main nodes”:</p>
       <td>Conditional</td>
       <td>9</td>
       <td>Weight in grams of item in cart.</td>
-      <td>Required in case of Shipping.Type is “Post office”.</td>
+      <td>Required in case of Shipping.Type is “Correios” (post office)*.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.BoletoDiscount</code></td>
@@ -1137,6 +1137,8 @@ These data are separated into the following “main nodes”:</p>
     </tr>
   </tbody>
 </table>
+
+<aside class="warning">*Correios (post office) shipping service currently unavailable. If a request with this shipping option is sent, you will receive a return with error 400 and the message: "The shipping service by post is unavailable." If you use the service on your payment links or checkout pages, change the shipping type to the other available options.</aside>
 
 <h3 id="responses">Responses</h3>
 
@@ -1412,6 +1414,8 @@ The discounts available at Checkout Cielo are:</p>
 
 <h4 id="types-of-freight">Types of “Freight”</h4>
 
+<aside class="warning">Correios (post office) shipping service currently unavailable. If a request with this shipping option is sent, you will receive a return with error 400 and the message: "The shipping service by post is unavailable." If you use the service on your payment links or checkout pages, change the shipping type to the other available options.</aside>
+
 <p>Checkout Cielo has different types of freight.</p>
 
 <table>
@@ -1439,7 +1443,7 @@ The discounts available at Checkout Cielo are:</p>
       <td>No freight charge (applicable for digital products and services).</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Post office</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Correios</code></td>
       <td>Uses the post office API to perform the cost calculation. The value of the calculation will depend on the used contract (Chosen in the Backoffice of the checkout) and on the type of integration for calculation: <strong>Shipping with Volume</strong> or <strong>Shipping without Volume</strong></td>
     </tr>
   </tbody>
@@ -1472,13 +1476,13 @@ The discounts available at Checkout Cielo are:</p>
       <td><img src="https://developercielo.github.io/en/images/Checkout/withoutshippingpickup.png" alt="WithoutShipping" /></td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Post office</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Correios</code></td>
       <td><img src="https://developercielo.github.io/en/images/Checkout/correios.png" alt="Post office" /></td>
     </tr>
   </tbody>
 </table>
 
-<p><strong>NOTE:</strong> The options for multiple freights in the category <code class="language-plaintext highlighter-rouge">Post office</code> should be selected within the Backoffice Cielo.</p>
+<p><strong>NOTE:</strong> The options for multiple freights in the category <code class="language-plaintext highlighter-rouge">Correios</code> should be selected within the Backoffice Cielo.</p>
 
 <p>The nodes that compound the freight information below:</p>
 
@@ -1503,7 +1507,7 @@ The discounts available at Checkout Cielo are:</p>
       <td>Alphanumeric</td>
       <td>Yes</td>
       <td>255</td>
-      <td>Freight type: <br /><code class="language-plaintext highlighter-rouge">Post office</code><br /><code class="language-plaintext highlighter-rouge">FixedAmount</code><br /><code class="language-plaintext highlighter-rouge">Free</code><br /><code class="language-plaintext highlighter-rouge">WithoutShippingPickUp</code><br /><code class="language-plaintext highlighter-rouge">WithoutShipping</code></td>
+      <td>Freight type: <br /><code class="language-plaintext highlighter-rouge">Correios</code><br /><code class="language-plaintext highlighter-rouge">FixedAmount</code><br /><code class="language-plaintext highlighter-rouge">Free</code><br /><code class="language-plaintext highlighter-rouge">WithoutShippingPickUp</code><br /><code class="language-plaintext highlighter-rouge">WithoutShipping</code></td>
       <td> </td>
     </tr>
     <tr>
@@ -1512,7 +1516,7 @@ The discounts available at Checkout Cielo are:</p>
       <td>Conditional</td>
       <td>8</td>
       <td>Shopping cart origin zip code.</td>
-      <td>Obrigatório caso Shipping.Type for “Correios”.</td>
+      <td>Required if <code class="language-plaintext highlighter-rouge">Shipping.Type</code> is “Correios”.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Shipping.TargetZipCode</code></td>
@@ -1856,21 +1860,21 @@ This type of integration is accomplished through the registration of a set of it
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Freight</code></td>
-      <td>Choose from one of the Freight options (Post Office, Fixed Freight, Free Shipping, Store Pickup, No Charge).</td>
+      <td>Choose from one of the Freight options (Correios*, Fixed Freight, Free Shipping, Store Pickup, No Charge).</td>
       <td>n/a</td>
       <td>n/a</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Zip Code of Origin</code></td>
-      <td>This field only appears for Post Office Freight type, must be filled with the Zip Code from where the goods will be shipped for freight calculation purposes.</td>
+      <td>This field only appears for Correios* Freight type, must be filled with the Zip Code from where the goods will be shipped for freight calculation purposes.</td>
       <td>9</td>
       <td>9</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Weight(kg)</code></td>
-      <td>This field only appears for Post Office Freight type, must be filled with the product weight in kg for freight calculation purposes</td>
+      <td>This field only appears for Correios Freight type, must be filled with the product weight in kg for freight calculation purposes</td>
       <td>n/a</td>
       <td>n/a</td>
       <td>Yes</td>
@@ -1898,6 +1902,8 @@ This type of integration is accomplished through the registration of a set of it
     </tr>
   </tbody>
 </table>
+
+<aside class="warning">Correios (post office) shipping service currently unavailable. If a request with this shipping option is sent, you will receive a return with error 400 and the message: "The shipping service by post is unavailable." If you use the service on your payment links or checkout pages, change the shipping type to the other available options.</aside>
 
 <h3 id="example-of-button">Example of Button</h3>
 
@@ -2960,6 +2966,8 @@ Below are described all the returned fields, as well as their definitions and si
     </tr>
   </tbody>
 </table>
+
+<aside class="warning">Correios (post office) shipping service currently unavailable. If a request with this shipping option is sent, you will receive a return with error 400 and the message: "The shipping service by post is unavailable." If you use the service on your payment links or checkout pages, change the shipping type to the other available options.</aside>
 
 <h1 id="checkout-cielo-installments">Checkout Cielo installments</h1>
 
