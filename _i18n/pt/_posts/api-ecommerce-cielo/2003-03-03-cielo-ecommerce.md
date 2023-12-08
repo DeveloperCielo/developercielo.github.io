@@ -6382,7 +6382,7 @@ Veja o exemplo do conteúdo do Post de Notificação:
 {
   "RecurrentPaymentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "PaymentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "ChangeType": "2"
+  "ChangeType": 2
 }
 ```
 
@@ -6392,7 +6392,7 @@ curl
 {
    "RecurrentPaymentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
    "PaymentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-   "ChangeType": "2"
+   "ChangeType": 2
 }
 ```
 
