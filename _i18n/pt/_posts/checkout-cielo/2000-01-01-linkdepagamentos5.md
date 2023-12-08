@@ -87,6 +87,8 @@ Para iniciar a sua integração com a API do Link de Pagamento, você vai precis
 8. Se a transação mudar de status, você receberá uma [notificação](https://developercielo.github.io/manual/linkdepagamentos5#notifica%C3%A7%C3%B5es-da-transa%C3%A7%C3%A3o)* de mudança de status;
 9. Para efetuar testes, use o [Modo de Teste](https://developercielo.github.io/manual/linkdepagamentos5#modo-teste) do Link de Pagamento.
 
+<aside class="warning">Serviço de frete Correios indisponível no momento. Caso uma requisição com essa opção de frete seja enviada, você receberá um retorno com erro 400 e a mensagem: "O serviço de frete por correios está indisponível." Caso utilize o serviço em seus links de pagamento ou páginas de checkout, altere o tipo de frete para as outras opções disponíveis.</aside>
+
 *_Desde que tenha configurado a URL de notificação._
 
 # Configurações da loja
@@ -156,6 +158,8 @@ Ao acessar as configurações da sua loja, procure a sessão Antifraude e captur
 ![Configuração de captura e Antifraude]({{ site.baseurl_root }}/images/checkout/superlink/superlink-captura-e-antifraude.png)
 
 ### 6. Configure as opções de frete dos Correios
+
+<aside class="warning">Serviço de frete Correios indisponível no momento. Caso uma requisição com essa opção de frete seja enviada, você receberá um retorno com erro 400 e a mensagem: "O serviço de frete por correios está indisponível." Caso utilize o serviço em seus links de pagamento ou páginas de checkout, altere o tipo de frete para as outras opções disponíveis.</aside>
 
 Se a sua loja trabalha com a entrega de **produtos físicos** (aqueles que precisam de frete), informe seu login e senha dos Correios e selecione os serviços desejados, como os tipos de Sedex e PAC.
 
@@ -381,6 +385,8 @@ Header: `Authorization:` `Bearer {access_token}`
 > Dentro de `description` você pode usar o caracter pipe `|` caso precise quebrar a linha ao apresentar a descrição na tela do link de pagamento.
 
 **Dados do Frete**
+
+<aside class="warning">Serviço de frete Correios indisponível no momento. Caso uma requisição com essa opção de frete seja enviada, você receberá um retorno com erro 400 e a mensagem: "O serviço de frete por correios está indisponível." Caso utilize o serviço em seus links de pagamento ou páginas de checkout, altere o tipo de frete para as outras opções disponíveis.</aside>
 
 Os dados que devem ser preenchidos com relação à frete estão no nó `shipping`.
 
@@ -884,6 +890,8 @@ Nas consultas a bandeira do cartão é retornada no campo `Payment.Brand` e vem 
 |3|Frete grátis|
 |4|Retirar em mãos/loja|
 |5|Sem cobrança de frete (serviços ou produtos digitais)|
+
+<aside class="warning">Serviço de frete Correios indisponível no momento. Caso uma requisição com essa opção de frete seja enviada, você receberá um retorno com erro 400 e a mensagem: "O serviço de frete por correios está indisponível." Caso utilize o serviço em seus links de pagamento ou páginas de checkout, altere o tipo de frete para as outras opções disponíveis.</aside>
 
 ## Notificação de mudança de status
 
