@@ -176,13 +176,15 @@ A resposta retornará o `access_token`, que deverá ser usado nas requisições 
 Para iniciar a sua integração com a API do Checkout Cielo, você vai precisar:
 
 1. Solicitar o [nº de estabelecimento (EC)](https://developercielo.github.io/manual/checkout-cielo#habilitando-o-n%C2%BA-de-estabelecimento-(ec)-para-o-checkout) para o Checkout Cielo;
-2. Definir as [configurações da loja](https://developercielo.github.io/manual/checkout-cielo#configurando-a-sua-loja) (personalização da página, escolha dos meios de pagamento e contrato com os Correios, se houver);
+2. Definir as [configurações da loja](https://developercielo.github.io/manual/checkout-cielo#configurando-a-sua-loja) (personalização da página, escolha dos meios de pagamento e contrato com os Correios*, se houver);
 3. Configurar uma [URL de notificação e de mudança de status](https://developercielo.github.io/manual/checkout-cielo#4.-configure-as-urls-de-retorno,-notifica%C3%A7%C3%A3o-e-mudan%C3%A7a-de-status-da-sua-loja) para a sua loja;
 4. Instalar o [certificado Extended Validation](https://developercielo.github.io/manual/checkout-cielo#certificado-extended-validation);
 5. Enviar a primeira requisição de [criação de página de pagamento](https://developercielo.github.io/manual/checkout-cielo#criando-a-p%C3%A1gina-de-pagamento);
 6. Quando houver uma tentativa de pagamento no Checkout Cielo, você receberá uma [notificação*](https://developercielo.github.io/manual/checkout-cielo#notifica%C3%A7%C3%B5es-da-transa%C3%A7%C3%A3o) com todos os dados preenchidos na página de pagamento;
 7. Se a transação mudar de status, você receberá uma [notificação* de mudança de status](https://developercielo.github.io/manual/checkout-cielo#notifica%C3%A7%C3%A3o-de-mudan%C3%A7a-de-status);
 8. Para efetuar testes, use o [Modo de Teste do Checkout Cielo](https://developercielo.github.io/manual/checkout-cielo#modo-teste).
+
+*Indisponível por tempo indeterminado.
 
 *Desde que tenha configurado a URL de notificação.
 
@@ -354,6 +356,8 @@ No site Cielo, a análise será apresentada em **Detalhes do Pedido**:
 Você pode visualizar o status do Antifraude acessando os detalhes da compra, na aba **Pedidos** e clicando em **+**.
 
 ### 6. Configure as opções de frete dos Correios
+
+<aside class="warning">Serviço de frete Correios indisponível no momento. Caso uma requisição com essa opção de frete seja enviada, você receberá um retorno com erro 400 e a mensagem: "O serviço de frete por correios está indisponível." Caso utilize o serviço em seus links de pagamento ou páginas de checkout, altere o tipo de frete para as outras opções disponíveis.</aside>
 
 Se a sua loja trabalha com a entrega de **produtos físicos** (aqueles que precisam de frete) usando os Correios, informe seu login e senha dos Correios e selecione os serviços desejados, como os tipos de Sedex e PAC.
 
@@ -668,7 +672,7 @@ Todas as requisições enviadas para a Cielo deverão ser autenticadas pela loja
 |`Cart.Items.Quantity`|Quantidade do item no carrinho. Exemplo: 1.|número|9|Sim|
 |`Cart.Items.Type`|Tipo do item no carrinho.<br>Ex.:<br>Asset<br>Digital<br>Service<br>Payment|alfanumérico|255|Sim|
 |`Cart.Items.Sku`|Identificador do produto.|alfanumérico|32|Não|
-|`Cart.Items.Weight`|Peso do produto.|número|9|Necessário caso `Shipping.Type` for “Correios”.|Condicional|
+|`Cart.Items.Weight`|Peso do produto.|número|9|Necessário caso `Shipping.Type` for “Correios”**.|
 |`Payment.BoletoDiscount`|Desconto, em porcentagem, para pagamentos a serem realizados com boleto.|número|3|Não|
 |`FirstInstallmentDiscount`|Desconto, em porcentagem, para pagamentos à vista no cartão de crédito.|número|3|Não|
 |`MaxNumberOfInstallments`|Define número máximo de parcelas apresentadas na página de pagamento.|número|2|Não|
@@ -678,7 +682,7 @@ Todas as requisições enviadas para a Cielo deverão ser autenticadas pela loja
 |`Customer.Phone`|Telefone do comprador. Se enviado, esse valor já vem preenchido na tela do Checkout Cielo. *Não obrigatório na API, mas obrigatório na tela transacional*.|número|11|Não|
 |`Options.ReturnUrl`|URL fixa definida pela loja que pode ser registrada no backoffice Checkout. Após finalizar o pagamento, o comprador pode ser redirecionado para uma página definida web pela loja.|string|255|Não|
 |`Shipping.Type`|Tipo do frete:<br>Correios<br>FixedAmount<br>Free<br>WithoutShippingPickUp<br>WithoutShipping|alfanumérico|255|Sim|
-|`Shipping.SourceZipCode`|CEP de origem do carrinho de compras. Obrigatório caso `Shipping.Type` seja “Correios”.|número|8|Condicional|
+|`Shipping.SourceZipCode`|CEP de origem do carrinho de compras. Obrigatório caso `Shipping.Type` seja “Correios”**.|número|8|Condicional|
 |`Shipping.TargetZipCode`|CEP do endereço de entrega do comprador.|número|8|Não|
 |`Shipping.Address.Street`|Rua, avenida, travessa, etc, do endereço de entrega do comprador.|alfanumérico|256|Não*|
 |`Shipping.Address.Number`|Número do endereço de entrega do comprador.|alfanumérico|8|Não*|
@@ -689,13 +693,14 @@ Todas as requisições enviadas para a Cielo deverão ser autenticadas pela loja
 |`Shipping.Services.Name`|Nome do serviço de frete.|alfanumérico|128|Sim|
 |`Shipping.Services.Price`|Preço do serviço de frete em centavos. Ex: R$ 1,00 = 100.|número|18|Sim|
 |`Shipping.Services.Deadline`|Prazo de entrega (em dias).|número|9|Não|
-|`Shipping.Package`|Tipo de pacote:<br>"Box": caixa<br>"Rol": cilindro ou envelope. Saiba mais em [Cálculo do frete dos Correios](#### Cálculo do frete dos Correios)|alfanumérico|Inteiro|Sim|
-|`Shipping.Length`|Comprimento do pacote. Saiba mais em [Cálculo do frete dos Correios](#### Cálculo do frete dos Correios).|número|Inteiro|Sim|
+|`Shipping.Package`|Tipo de pacote:<br>"Box": caixa<br>"Rol": cilindro ou envelope. Saiba mais em [Cálculo do frete dos Correios](#### Cálculo do frete dos Correios)**|alfanumérico|Inteiro|Sim|
+|`Shipping.Length`|Comprimento do pacote. Saiba mais em [Cálculo do frete dos Correios](#### Cálculo do frete dos Correios)**.|número|Inteiro|Sim|
 |`Shipping.Height`|Altura do pacote enviado. Obrigatório caso `Shipping.Package` como "Box"|número|Inteiro|Condicional|
-|`Shipping.Width`|Largura do pacote. Obrigatório caso `Shipping.Package` seja "Box" ou "Envelope".Saiba mais em [Cálculo do frete dos Correios](#### Cálculo do frete dos Correios).|número|Inteiro|Condicional|
-|`Shipping.Diameter`|Diâmetro do pacote.Obrigatório caso `Shipping.Package` como "Rol".Saiba mais em [Cálculo do frete dos Correios](#### Cálculo do frete dos Correios).|número|Inteiro|Condicional|
+|`Shipping.Width`|Largura do pacote. Obrigatório caso `Shipping.Package` seja "Box" ou "Envelope".Saiba mais em [Cálculo do frete dos Correios](#### Cálculo do frete dos Correios)**.|número|Inteiro|Condicional|
+|`Shipping.Diameter`|Diâmetro do pacote.Obrigatório caso `Shipping.Package` como "Rol".Saiba mais em [Cálculo do frete dos Correios](#### Cálculo do frete dos Correios)**.|número|Inteiro|Condicional|
 
-* Não é obrigatório, mas recomendamos enviar.
+*Não é obrigatório, mas recomendamos enviar.
+<aside class="warning">**Serviço de frete Correios indisponível no momento. Caso uma requisição com essa opção de frete seja enviada, você receberá um retorno com erro 400 e a mensagem: "O serviço de frete por correios está indisponível." Caso utilize o serviço em seus links de pagamento ou páginas de checkout, altere o tipo de frete para as outras opções disponíveis.</aside>
 
 > Veja mais informações sobre o nó `Shipping` em [Definindo o frete](https://developercielo.github.io/manual/checkout-cielo#definindo-o-frete).
 
@@ -817,6 +822,8 @@ Para enviar um desconto sobre o **boleto e/ou cartão de crédito à vista** env
 
 ## Definindo o frete
 
+<aside class="warning">Serviço de frete Correios indisponível no momento. Caso uma requisição com essa opção de frete seja enviada, você receberá um retorno com erro 400 e a mensagem: "O serviço de frete por correios está indisponível." Caso utilize o serviço em seus links de pagamento ou páginas de checkout, altere o tipo de frete para as outras opções disponíveis.</aside>
+
 O Checkout Cielo permite definir cinco opções de frete no parâmetro `Shipping.Type`.
 
 |TIPO DE FRETE|VALOR DO PARÂMETRO `Shipping.Type`|DESCRIÇÃO|
@@ -861,6 +868,8 @@ Confira os nós que formam as informações de frete abaixo:
 |`Shipping.Services.Deadline`|Prazo de entrega (em dias).|número|9|Não|
 
 ### Cálculo do frete dos Correios
+
+<aside class="warning">Serviço de frete Correios indisponível no momento. Caso uma requisição com essa opção de frete seja enviada, você receberá um retorno com erro 400 e a mensagem: "O serviço de frete por correios está indisponível." Caso utilize o serviço em seus links de pagamento ou páginas de checkout, altere o tipo de frete para as outras opções disponíveis.</aside>
 
 O cálculo do frete é feito pela API dos Correios e pode ser de dois tipos:
 
@@ -1276,6 +1285,8 @@ Nas Consultas, a bandeira do cartão é retornada no campo `Payment.Brand` e vem
 |2|Bradesco|
 
 #### Shipping_type
+
+<aside class="warning">Serviço de frete Correios indisponível no momento. Caso uma requisição com essa opção de frete seja enviada, você receberá um retorno com erro 400 e a mensagem: "O serviço de frete por correios está indisponível." Caso utilize o serviço em seus links de pagamento ou páginas de checkout, altere o tipo de frete para as outras opções disponíveis.</aside>
 
 |VALOR|DESCRIÇÃO|
 |---|---|
