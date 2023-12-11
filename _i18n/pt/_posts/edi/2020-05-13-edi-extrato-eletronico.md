@@ -1052,6 +1052,7 @@ Quando um valor a crédito estiver em processo de compensação com um valor a d
 | 269    | Pré-pago Elo Carnê                     |
 | 270    | Pré-pago Elo Crédito                   |
 | 271    | Pré-pago Elo Débito                    |
+| 282    | Pré-pago Amex Crédito                  |
 | 314    | Ourocard Agro débito                   |
 | 315    | Ourocard Agro custeio                  |
 | 316    | Ourocard Agro investimento             |
