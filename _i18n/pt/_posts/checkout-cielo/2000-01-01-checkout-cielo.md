@@ -217,7 +217,7 @@ Se não desejar que seu cliente final receba um e-mail de finalização do pedid
 
 ### 3. Defina os meios de pagamento desejados
 
-Selecione os meios de pagamento que gostaria de disponibilizar aos seus clientes. Para cartão de crédito, escolha também a quantidade máxima de parcelas permitidas. Depois, clique em Salvar.
+Selecione os meios de pagamento que gostaria de disponibilizar aos seus clientes. Para cartão de crédito, escolha também a quantidade máxima de parcelas permitidas. Depois, clique em **Salvar**.
 
 ![Meios de Pagamento Ativos]({{ site.baseurl_root }}/images/checkout/superlink/superlink-meios-de-pagamento.png)
 
@@ -227,7 +227,7 @@ Selecione os meios de pagamento que gostaria de disponibilizar aos seus clientes
 
 #### Cartão de crédito
 
-O Checkout Cielo permite a utilização de Cartões de Crédito das principais bandeiras nacionais e internacionais. Esse meio de pagamento é liberado automaticamente junto a afiliação de Cielo, podendo ser utilizado inicialmente com a integração Checkout.
+O Checkout Cielo permite a utilização de cartões de crédito das principais bandeiras nacionais e internacionais. Esse meio de pagamento é liberado automaticamente junto a afiliação da Cielo, podendo ser utilizado inicialmente com a integração Checkout.
 
 Transações de cartão de crédito serão incluídas no Backoffice Cielo Checkout como PENDENTE, AUTORIZADO, PAGO, NEGADO, EXPIRADO OU CHARGEBACK dependendo do resultado da autorização junto ao banco.
 
@@ -241,9 +241,9 @@ Os status de cartão de crédito são:
 |4|Expirado|Ocorre caso a transação não seja capturada em até 15 dias após a autorização. Nessa situação a transação é perdida.|
 |8|Chargeback|Status não automático. Caso o lojista seja notificado de chargeback, ele pode marcar esta transação como perdida. Este Status é apenas uma marcação, não afetando processos de pagamento.|
 
-As transações de cartão de crédito precisam ser capturadas de forma automática ou manual - depende do que escolher no passo [5. Configure a captura e Antifraude](https://developercielo.github.io/manual/checkout-cielo#5.-configure-a-captura-e-antifraude). 
+As transações de cartão de crédito precisam ser capturadas de forma **automática ou manual** - depende do que escolher no passo [5. Configure a captura e Antifraude](https://developercielo.github.io/manual/checkout-cielo#5.-configure-a-captura-e-antifraude). 
 
-> **Atenção**
+> **Atenção**<br>
 > **Cartões Internacionais**: O Checkout Cielo aceita cartões emitidos fora do Brasil, entretanto esses cartões não possuem a capacidade de pagar vendas parceladas. Essa é uma limitação imposta pelo banco emissor.
 
 #### Cartão de débito
@@ -282,7 +282,7 @@ Caso o Pix não esteja habilitado em seu cadastro, será apresentada a tela de a
 
 #### Boleto
 
-O Checkout Cielo permite a utilização de Boletos do Bradesco e Banco do Brasil. Para disponibilizar o boleto como meio de pagamento, solicite habilitação ao Suporte E-commerce.
+O Checkout Cielo permite a utilização de boletos do Bradesco e Banco do Brasil. Para disponibilizar o boleto como meio de pagamento, solicite habilitação ao Suporte E-commerce.
 
 A quantidade de parcelas escolhida por meio de pagamento deve ser a mesma que consta em seu cadastro da Cielo. Consulte o Suporte E-commerce em caso de dúvidas.
 
@@ -316,11 +316,13 @@ Você deverá preencher as URLs de retorno, notificação e mudança de status. 
 
 ### 5. Configure a captura e Antifraude
 
-Uma transação de cartão de crédito é enviada para a autorização da Cielo (adquirente) e, em seguida, será submetida à análise de fraude. Em seguida, de acordo com o resultado da análise de fraude, a transação poderá ser capturada automaticamente ou manualmente.
+Uma transação de **cartão de crédito** é enviada para a autorização da Cielo (adquirente) e, em seguida, será submetida à análise de fraude. Em seguida, de acordo com o resultado da análise de fraude, a transação poderá ser capturada automaticamente ou manualmente.
 
 ![Análise de risco]({{ site.baseurl_root }}/images/checkout/checkout-images/checkout-fluxo-captura-af.png)
 
-Ao acessar as configurações da sua loja, procure a sessão Antifraude e captura automática. Selecione a opção desejada:
+Ao acessar as configurações da sua loja, procure a sessão **Antifraude e captura automática**. Selecione a opção desejada:
+
+![Configuração de captura e Antifraude]({{ site.baseurl_root }}/images/checkout/superlink/superlink-captura-e-antifraude.png)
 
 |Opção de captura|Descrição|
 |---|---|
@@ -329,8 +331,6 @@ Ao acessar as configurações da sua loja, procure a sessão Antifraude e captur
 |*Somente fazer captura Automática das transações de Baixo Risco no Antifraude*|Toda transação de cartão de crédito (autorizada) de baixo risco será capturada automaticamente – as transações de médio risco ficarão aguardando a captura manual.|
 
 > Se a análise de fraude classificar a transação como Alto Risco ela será cancelada automaticamente. Não será possível fazer a captura manual.
-
-![Configuração de captura e Antifraude]({{ site.baseurl_root }}/images/checkout/superlink/superlink-captura-e-antifraude.png)
 
 **Análise de Fraude**
 
@@ -359,13 +359,13 @@ Você pode visualizar o status do Antifraude acessando os detalhes da compra, na
 
 <aside class="warning">Serviço de frete Correios indisponível no momento. Caso uma requisição com essa opção de frete seja enviada, você receberá um retorno com erro 400 e a mensagem: "O serviço de frete por correios está indisponível." Caso utilize o serviço em seus links de pagamento ou páginas de checkout, altere o tipo de frete para as outras opções disponíveis.</aside>
 
+![Configuração do Frete Correios]({{ site.baseurl_root }}/images/checkout/superlink/superlink-configuracao-frete-correios.png)
+
 Se a sua loja trabalha com a entrega de **produtos físicos** (aqueles que precisam de frete) usando os Correios, informe seu login e senha dos Correios e selecione os serviços desejados, como os tipos de Sedex e PAC.
 
-Se a sua loja trabalha com materiais digitais, serviços ou pagamentos, ou seja, vendas que não precisam de frete, pule esta etapa.
+Se a sua loja trabalha com materiais digitais, serviços ou pagamentos, ou seja, vendas que não precisam de frete, *pule esta etapa*.
 
 > Também é possível usar outros serviços de frete contratados pela loja. Nesse caso, envie o nó `Shipping.Services` na criação da página de pagamento. Saiba mais em [Definindo o frete](https://developercielo.github.io/manual/checkout-cielo#definindo-o-frete)
-
-![Configuração do Frete Correios]({{ site.baseurl_root }}/images/checkout/superlink/superlink-configuracao-frete-correios.png)
 
 ### Configurações padrão
 
