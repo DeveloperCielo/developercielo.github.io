@@ -414,9 +414,9 @@ Saiba mais sobre os itens que podem ser cadastrados para a criação do link na 
 | `Nome do produto`          | Nome do Produto   | Sim         |
 | `Descrição`       | Descrição do Produto  | Sim         |
 | `Preço`           | Valor total do pedido **em reais**. |  Sim         |
-| `Frete`           | Escolher dentre uma das opções de frete (*Correios, Frete Fixo* ou *Frete Grátis*).  | Condicional*         |
-| `CEP de Origem`   | Esse campo só aparece para o frete tipo Correios, deve ser preenchido com o CEP de onde vai partir a mercadoria para fins de cálculo de frete. | Condicional*         |
-| `Peso(kg)`        | Esse campo só aparece para o frete tipo Correios, deve ser preenchido com o peso do produto em kg para fins de cálculo de frete                 | Condicional*         |
+| `Frete`           | Escolher dentre uma das opções de frete (*Correios\***, Frete Fixo* ou *Frete Grátis*).  | Condicional*         |
+| `CEP de Origem`   | Esse campo só aparece para o frete tipo Correios\***, deve ser preenchido com o CEP de onde vai partir a mercadoria para fins de cálculo de frete. | Condicional*         |
+| `Peso(kg)`        | Esse campo só aparece para o frete tipo Correios\***, deve ser preenchido com o peso do produto em kg para fins de cálculo de frete                 | Condicional*         |
 | `Valor do Frete`  | Esse campo só aparece para o frete tipo Frete Fixo, e deve ser preenchido com o valor que o lojista especificar para seus produtos.   | Condicional*         |
 | `Nome do frete utilizado` | Esse campo só aparece para Tipo Produto igual a Material Físico e Tipo de Frete igual a Frete Fixo.    | Condicional*         |
 | `Quantidade`      | Define a quantidade maxima de pedidos que o Botão pode gerar. Se não definido, o botão poderá gerar um numero infinito de pedidos      | Não         |
@@ -430,7 +430,7 @@ Saiba mais sobre os itens que podem ser cadastrados para a criação do link na 
 
 **Envio obrigatório caso a transação seja recorrente.
 
-
+***Indisponível por tempo indeterminado.
 
 **2. Após preencher os campos e gerar um link, aparecerá uma tela de resumo com os detalhes do link de pagamento, assim como as opções de compartilhamento por *link, botão ou QRCode***:
 
