@@ -78,18 +78,18 @@ No Link de Pagamento você pode vender seus produtos e serviços pelos principai
 Para iniciar a sua integração com a API do Link de Pagamento, você vai precisar:
 
 1. Solicitar o [nº de estabelecimento (EC) para o Link de Pagamento](https://developercielo.github.io/manual/linkdepagamentos5#configura%C3%A7%C3%B5es-da-loja)
-2. Definir as [configurações da loja](https://developercielo.github.io/manual/linkdepagamentos5#configura%C3%A7%C3%B5es-da-loja) (personalização da página, escolha dos meios de pagamento e contrato com os Correios, se houver);
+2. Definir as [configurações da loja](https://developercielo.github.io/manual/linkdepagamentos5#configura%C3%A7%C3%B5es-da-loja) (personalização da página, escolha dos meios de pagamento e contrato com os Correios*, se houver);
 3. Configurar uma [URL de notificação e de mudança de status](https://developercielo.github.io/manual/linkdepagamentos5#configura%C3%A7%C3%B5es-da-loja) para a sua loja;
 4. Obter as [credenciais de acesso à API](https://developercielo.github.io/manual/linkdepagamentos5#autentica%C3%A7%C3%A3o-cielo-oauth) (`ClientId` e `Client Secret`);
 5. Solicitar um token de acesso via API usando as [credenciais](https://developercielo.github.io/manual/linkdepagamentos5#autentica%C3%A7%C3%A3o-cielo-oauth);
 6. Com o token, [criar um link de pagamento](https://developercielo.github.io/manual/linkdepagamentos5#criar-link);
-7. Quando houver uma tentativa de pagamento no link, você receberá uma [notificação](https://developercielo.github.io/manual/linkdepagamentos5#notifica%C3%A7%C3%B5es-da-transa%C3%A7%C3%A3o)* com todos os dados preenchidos no checkout;
-8. Se a transação mudar de status, você receberá uma [notificação](https://developercielo.github.io/manual/linkdepagamentos5#notifica%C3%A7%C3%B5es-da-transa%C3%A7%C3%A3o)* de mudança de status;
+7. Quando houver uma tentativa de pagamento no link, você receberá uma [notificação](https://developercielo.github.io/manual/linkdepagamentos5#notifica%C3%A7%C3%B5es-da-transa%C3%A7%C3%A3o)** com todos os dados preenchidos no checkout;
+8. Se a transação mudar de status, você receberá uma [notificação](https://developercielo.github.io/manual/linkdepagamentos5#notifica%C3%A7%C3%B5es-da-transa%C3%A7%C3%A3o)** de mudança de status;
 9. Para efetuar testes, use o [Modo de Teste](https://developercielo.github.io/manual/linkdepagamentos5#modo-teste) do Link de Pagamento.
 
-<aside class="warning">Serviço de frete Correios indisponível no momento. Caso uma requisição com essa opção de frete seja enviada, você receberá um retorno com erro 400 e a mensagem: "O serviço de frete por correios está indisponível." Caso utilize o serviço em seus links de pagamento ou páginas de checkout, altere o tipo de frete para as outras opções disponíveis.</aside>
+*Indisponível por tempo indeterminado.
 
-*_Desde que tenha configurado a URL de notificação._
+**Desde que tenha configurado a URL de notificação._
 
 # Configurações da loja
 
