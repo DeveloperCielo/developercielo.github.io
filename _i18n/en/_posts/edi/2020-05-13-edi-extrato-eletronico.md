@@ -889,6 +889,7 @@ When a credit amount is being offset against a debit amount, both will be sent i
 |269|Pré-pago Elo Carnê |
 |270|Pré-pago Elo Crédito |
 |271|Pré-pago Elo Débito |
+|282|Prepaid Amex Credit  |
 |314|Ourocard Agro Debit |
 |315|Ourocard Agro Costing |
 |316|Ourocard Agro Investment |
