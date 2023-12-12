@@ -180,13 +180,13 @@ Para iniciar a sua integração com a API do Checkout Cielo, você vai precisar:
 3. Configurar uma [URL de notificação e de mudança de status](https://developercielo.github.io/manual/checkout-cielo#4.-configure-as-urls-de-retorno,-notifica%C3%A7%C3%A3o-e-mudan%C3%A7a-de-status-da-sua-loja) para a sua loja;
 4. Instalar o [certificado Extended Validation](https://developercielo.github.io/manual/checkout-cielo#certificado-extended-validation);
 5. Enviar a primeira requisição de [criação de página de pagamento](https://developercielo.github.io/manual/checkout-cielo#criando-a-p%C3%A1gina-de-pagamento);
-6. Quando houver uma tentativa de pagamento no Checkout Cielo, você receberá uma [notificação*](https://developercielo.github.io/manual/checkout-cielo#notifica%C3%A7%C3%B5es-da-transa%C3%A7%C3%A3o) com todos os dados preenchidos na página de pagamento;
-7. Se a transação mudar de status, você receberá uma [notificação* de mudança de status](https://developercielo.github.io/manual/checkout-cielo#notifica%C3%A7%C3%A3o-de-mudan%C3%A7a-de-status);
+6. Quando houver uma tentativa de pagamento no Checkout Cielo, você receberá uma [notificação**](https://developercielo.github.io/manual/checkout-cielo#notifica%C3%A7%C3%B5es-da-transa%C3%A7%C3%A3o) com todos os dados preenchidos na página de pagamento;
+7. Se a transação mudar de status, você receberá uma [notificação** de mudança de status](https://developercielo.github.io/manual/checkout-cielo#notifica%C3%A7%C3%A3o-de-mudan%C3%A7a-de-status);
 8. Para efetuar testes, use o [Modo de Teste do Checkout Cielo](https://developercielo.github.io/manual/checkout-cielo#modo-teste).
 
 *Indisponível por tempo indeterminado.
 
-*Desde que tenha configurado a URL de notificação.
+**Desde que tenha configurado a URL de notificação.
 
 # Configurações da loja
 
