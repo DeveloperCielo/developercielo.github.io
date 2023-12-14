@@ -169,6 +169,21 @@ The response will return the `access_token`, which must be used in Transactional
 
 > The returned token (`access_token`) must be used in every query, capture and cancellation request as an authorization key. The `access_token` has a validity of 20 minutes (1200 seconds) and it is necessary to generate a new token every time the validity expires.
 
+# Quick start
+
+To start your integration with the API Cielo Checkout, you will need:
+
+1. Request the [establishment code] for Checkout Cielo;
+2. Define [merchant settings] (customization of the page, choice of payment methods and contract with the Post Office, if applicable);
+3. Configure a [notification and status change URL] for your store;
+4. Install the [Extended Validation certificate];
+5. Send the first request for [payment page creation];
+6. When there is a payment attempt at Checkout Cielo, you will receive a [notification*] with all data filled in on the payment page;
+7. If the transaction changes status, you will receive a [status change notification*];
+8. To carry out tests, use [Checkout Cielo Test Mode].
+
+*If you have configured the notification URL.
+
 # Extended Validation Certificate
 
 ## What is SSL Certificate?
