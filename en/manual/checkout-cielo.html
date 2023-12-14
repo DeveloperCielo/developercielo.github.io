@@ -451,6 +451,23 @@ Check out more details about how the API works in the following flow:</p>
   <p>The returned token (<code class="language-plaintext highlighter-rouge">access_token</code>) must be used in every query, capture and cancellation request as an authorization key. The <code class="language-plaintext highlighter-rouge">access_token</code> has a validity of 20 minutes (1200 seconds) and it is necessary to generate a new token every time the validity expires.</p>
 </blockquote>
 
+<h1 id="quick-start">Quick start</h1>
+
+<p>To start your integration with the API Cielo Checkout, you will need:</p>
+
+<ol>
+  <li>Request the [establishment code] for Checkout Cielo;</li>
+  <li>Define [merchant settings] (customization of the page, choice of payment methods and contract with the Post Office, if applicable);</li>
+  <li>Configure a [notification and status change URL] for your store;</li>
+  <li>Install the [Extended Validation certificate];</li>
+  <li>Send the first request for [payment page creation];</li>
+  <li>When there is a payment attempt at Checkout Cielo, you will receive a [notification*] with all data filled in on the payment page;</li>
+  <li>If the transaction changes status, you will receive a [status change notification*];</li>
+  <li>To carry out tests, use [Checkout Cielo Test Mode].</li>
+</ol>
+
+<p>*If you have configured the notification URL.</p>
+
 <h1 id="extended-validation-certificate">Extended Validation Certificate</h1>
 
 <h2 id="what-is-ssl-certificate">What is SSL Certificate?</h2>
