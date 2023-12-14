@@ -114,14 +114,14 @@ To criteria to enable the Banco do Brasil Boleto option are::
 
 To request the Branco do Brasil Boleto, you’ll have to:
 
-1. Contact the bank/agency and perform the boleto solicitation without wallet 18 register. This step involves contract signature with the Bank.
+1. Contact the bank/agency and perform the boleto solicitation without wallet 17 register. This step involves contract signature with the Bank.
 2. Forward an e-mail to Cielo e-Commerce [cieloecommerce@cielo.com.br](mailto:cieloecommerce@cielo.com.br) with the following data:
 
 - **Agency**: 0000
 - **Current Account**: 00000-0
 - **Agreement**: 0000000
 - **Expiration** (counted in days):
-- **Wallet**: 18 - WITHOUT REGISTER
+- **Wallet**: 17 - WITHOUT REGISTER
 
 <aside class="notice">**Boleto expiration** – In case the boleto expires in a non-business day, like Saturday, it will be valid until the next business day</aside>
 
