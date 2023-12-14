@@ -6398,7 +6398,9 @@ https://apiquerysandbox.cieloecommerce.cielo.com.br/1/cardBin/420020
 
 Zero Auth is the correct way to validate cards according to the recommendations of brands and banks. Before the creation of Zero Auth, stores used to create low-value transactions, such as one real or one dollar, and then cancel them; It is important to know that this practice is now penalized by the brands.
 
-> **Attention:** In the event of transactions with a value different from *zero* and less than *one dollar*, followed by cancellation of the transaction, the brands will apply fees to Cielo, which will be passed on to the establishments that are in non-compliance. Mastercard, for example, is charging a fee of R$0.21 cents per transaction.
+> **Notice**:<br>
+> * In the event of transactions with an amount *different from zero* and *less than one dollar*, followed by cancellation of the transaction, the brands will apply fees to Cielo, which will be passed on to the establishments that are non-compliant. Mastercard, for example, is charging a fee of R$0.21 per transaction.<br>
+> * Zero Auth transactions are subject to the rules established in Card Brands Retry Program. Fees may be charged due to excessive attempts. Please refer to [Card Brands Retry Program](https://developercielo.github.io/en/tutorial/programa-retentativa-bandeiras){:target="_blank"} for details.
 
 **Zero Auth** validates **open or tokenized cards** (sending the `CardToken` created in the API E-commerce Cielo).
 
