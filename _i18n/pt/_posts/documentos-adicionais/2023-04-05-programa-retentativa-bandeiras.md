@@ -15,7 +15,7 @@ tags:
 
 Quando uma pessoa tenta fazer uma compra com cartão na sua loja, a transação pode ser negada devido a uma série de fatores. As **tentativas seguintes de concluir a transação** usando o mesmo cartão é o que chamamos de **retentativa**.
 
-> Importante: As transações de compra com cartão (presente e não presente) e [Zero Auth](https://developercielo.github.io/manual/cielo-ecommerce#zero-auth){:target="_blank"}(validação do cartão) estão sujeitas às regras das bandeiras para retentativas.
+> **Importante**: As transações de compra com cartão (presente e não presente) e [Zero Auth](https://developercielo.github.io/manual/cielo-ecommerce#zero-auth){:target="_blank"} (validação do cartão) estão sujeitas às regras das bandeiras para retentativas.
 
 **O que mudou?**
 
