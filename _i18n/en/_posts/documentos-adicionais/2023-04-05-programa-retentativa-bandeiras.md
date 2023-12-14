@@ -15,7 +15,7 @@ tags:
 
 When a shopper tries to make a card purchase at your business, a transaction can be declined due to a number of factors. The next attempts to complete the transaction using the same card is called retrying.
 
-> Card transactions (both card present or not-present) and [Zero Auth](https://developercielo.github.io/en/manual/cielo-ecommerce#zero-auth){:target="_blank"} (card validation) are also subject to the card brand rules for retrying.
+> **Important**: Card transactions (both card present or not-present) and [Zero Auth](https://developercielo.github.io/en/manual/cielo-ecommerce#zero-auth){:target="_blank"} (card validation) are also subject to the card brand rules for retrying.
 
 **What has changed?**
 
