@@ -11960,7 +11960,11 @@ Essas informações permitem tomar ações no momento do pagamento para melhorar
 <p>O Zero Auth é a forma correta de validar cartões de acordo com as recomendações das bandeiras e bancos. Antes da criação do Zero Auth, as lojas costumavam criar transações de valores baixos, como um real ou um dólar, e fazer o cancelamento em seguida; é importante saber que essa prática hoje é penalizada pelas bandeiras.</p>
 
 <blockquote>
-  <p><strong>Atenção:</strong> Na ocorrência de transações com valor diferente de <em>zero</em> e inferior a <em>um dólar</em>, seguidas do cancelamento da transação, as bandeiras aplicarão tarifas à Cielo, que serão repassadas aos estabelecimentos que estiverem em inconformidade. A bandeira Mastercard por exemplo, está cobrando uma tarifa no valor de R$ 0,21 centavos por transação.</p>
+  <p><strong>Atenção</strong>:<br /></p>
+  <ul>
+    <li>Na ocorrência de transações com valor <em>diferente de zero</em> e <em>inferior a um dólar</em>, seguidas do cancelamento da transação, as bandeiras aplicarão tarifas à Cielo, que serão repassadas aos estabelecimentos que estiverem em inconformidade. A bandeira Mastercard por exemplo, está cobrando uma tarifa no valor de R$ 0,21 centavos por transação.<br /></li>
+    <li>As transações Zero Auth também estão sujeitas as regras definidas nos programas de retentativas das bandeiras. O excesso de tentativas pode implicar em tarifas. Leia mais em <a href="https://developercielo.github.io/tutorial/programa-retentativa-bandeiras" target="_blank">Programa de Retentativa das Bandeiras</a>.</li>
+  </ul>
 </blockquote>
 
 <p>O <strong>ZeroAuth</strong> faz a validação de <strong>cartões abertos ou tokenizados</strong> (envio do <code class="language-plaintext highlighter-rouge">CardToken</code> criado na API Cielo E-commerce).</p>
