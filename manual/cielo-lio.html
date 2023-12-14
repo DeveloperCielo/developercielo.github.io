@@ -4868,6 +4868,266 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
 <ul>
   <li><a href="https://devcielo.zendesk.com/hc/pt-br#suporte">Entre em contato conosco</a> para solicitar o desbloqueio, informando o número do EC e o endereço do serviço, caso haja alteração.</li>
 </ul>
+
+<h1 id="faq">FAQ</h1>
+
+<h2 id="integrações">Integrações</h2>
+
+<h3 id="integração-local-1">Integração Local</h3>
+
+<p>Essa é a integração de APP embarcado na LIO, utilizando os seus recursos: Pagamento, impressão e cancelamento. O seu Aplicativo instalado na LIO, se integra com o módulo de pedidos e pagamentos da Cielo LIO através do Cielo LIO Order Manager SDK.</p>
+
+<p>É possível desenvolver utilizando Java e Kotlin e se integrar a nossa SDK e também utilizando linguagens hibridas com Deep Link, segue abaixo as respectivas documentações:</p>
+
+<p>Documentação Integração Local Nativa:
+https://developercielo.github.io/manual/cielo-lio#integra%C3%A7%C3%A3o-local</p>
+
+<h4 id="existe-algum-aplicativo-de-exemplo-disponível">Existe algum aplicativo de exemplo disponível?</h4>
+
+<p>Disponibilizamos no GitHub um aplicativo Sample de forma que o desenvolvedor consiga ver como funciona as chamadas para utilização do SDK. 
+Download do aplicativo Sample: https://github.com/DeveloperCielo/LIO-SDK-Sample-Integracao-Local.</p>
+
+<h4 id="É-necessário-colocar-todos-os-itens-do-pedido-na-order">É necessário colocar todos os itens do pedido na order?</h4>
+
+<p>A Cielo LIO funciona com o conceito de Pedido (Order). Assim, o procedimento deve ser sempre o exemplificado no SDK:
+1 - Criar uma ordem com status draft
+2 - Adicionar itens à ordem
+3 - Preparar a ordem para pagamento (place order)
+4 - Executar o checkout.
+Se você tem uma variedade de produtos, é interessante criar itens separados para status de relatório na Cielo LIO do lojista.</p>
+
+<h3 id="integração-remota-1">Integração Remota</h3>
+
+<p>Na Integração Remota você utiliza o seu PDV(Sistema Desktop ou Web) para gerar os pedidos e enviar para a Cielo LIO efetuar o recebimento
+ 
+Documentação Integração Remota:
+https://developercielo.github.io/manual/cielo-lio#integra%C3%A7%C3%A3o-remota</p>
+
+<h4 id="preciso-me-cadastrar-para-realizar-testes">Preciso me cadastrar para realizar testes?</h4>
+
+<p>Sim, é fundamental o cadastro no portal para que você possa obter os tokens de acesso e testar as suas aplicações.</p>
+
+<h3 id="integração-híbrida-1">Integração Híbrida</h3>
+
+<p>O processo de integração híbrida é um pouco diferente da integração com o SDK (Integração Local). Para parceiros que não estão integrando com a linguagem nativa Java ou Kotlin a integração hibrida via deep link é uma opção.</p>
+
+<p>Documentação Integração Hibrida: 
+https://developercielo.github.io/manual/cielo-lio#integra%C3%A7%C3%A3o-h%C3%ADbrida</p>
+
+<h4 id="o-que-eu-preciso-para-colocar-a-integração-em-produção">O que eu preciso para colocar a integração em produção?</h4>
+
+<p>Se você já realizou todos os testes em Sandbox e deseja enviar pedidos para a Cielo LIO, entre em contato  conosco por meio de um ticket, preenchendo os dados necessários para receber os tokens de produção.</p>
+
+<p>Acesse o link: https://devcielo.zendesk.com/hc/pt-br/requests/new?ticket_form_id=526108</p>
+
+<h4 id="preciso-de-uma-máquina-cielo-lio-para-realizar-os-testes-de-integração-local">Preciso de uma máquina Cielo LIO para realizar os testes de integração local?</h4>
+
+<p>Não é necessário ter uma máquina Cielo LIO para realizar os testes.</p>
+
+<p>A Cielo disponibiliza um aplicativo que simula o ambiente da Cielo LIO em qualquer dispositivo Android, permitindo que o desenvolvedor realize os testes nos métodos do SDK e faça o debug da sua aplicação durante o desenvolvimento e a integração com o Cielo LIO Order Manager SDK, sem a necessidade de possuir um hardware da Cielo LIO.</p>
+
+<p>Download do Emulador: https://s3-sa-east-1.amazonaws.com/cielo-lio-store/apps/lio-emulator/1.1.0/lio-emulator.apk</p>
+
+<h4 id="preciso-me-cadastrar-para-realizar-testes-1">Preciso me cadastrar para realizar testes?</h4>
+
+<p>Sim, é fundamental o cadastro no portal para que você possa obter os tokens de acesso e testar as suas aplicações.</p>
+
+<h3 id="pix">PIX</h3>
+
+<h4 id="como-habilitar-o-pagamento-pix">Como habilitar o pagamento PIX?</h4>
+
+<p>Para que seja possível efetivar um pagamento utilizando a forma de pagamento PIX, é necessário que o estabelecimento tenha esse tipo de pagamento habilitado.</p>
+
+<p>Siga as instruções através desse <a href="https://developercielo.github.io/manual/cielo-lio#habilitando-pagamento-pix">link</a>. 
+Após essa habilitação via Site Cielo o estabelecimento estará apto a trabalhar com a modalidade PIX.</p>
+
+<h2 id="duvidas-gerais-cielo-lio">Duvidas Gerais Cielo LIO</h2>
+
+<h3 id="como-posso-adquirir-um-equipamento-lio-para-desenvolvimento-">Como posso adquirir um equipamento LIO para desenvolvimento ?</h3>
+
+<p>Os desenvolvedores que desejam obter uma Cielo LIO, deverão seguir os passos abaixo:</p>
+
+<ul>
+  <li>Criar uma conta no Portal dos Desenvolvedores e fazer a solicitação do equipamento através da abertura do ticket;</li>
+  <li>Aguardar o recebimento da Cielo LIO;</li>
+  <li>Em posse do equipamento, o desenvolvedor deve abrir uma nova solicitação no portal dos desenvolvedores para requisitar a habilitação de sua LIO de Dev.</li>
+  <li>Todos os aplicativos publicados pelo desenvolvedor no Dev Console que estejam com status diferente de bloqueado poderão ser baixados em sua LIO de Dev.</li>
+</ul>
+
+<p><a href="https://devcielo.zendesk.com/hc/pt-br">Clique Aqui</a> para solicitar sua LIO.</p>
+
+<h3 id="se-meu-aplicativo-já-funciona-na-cielo-lio-v2-ele-vai-funcionar-também-na-cielo-lio-on">Se meu aplicativo já funciona na Cielo LIO v2, ele vai funcionar também na Cielo LIO On?</h3>
+
+<p>Sim, se você já tem um aplicativo rodando na Cielo LIO V2, ele também funcionará na Cielo LIO On.</p>
+
+<h3 id="como-faço-para-integrar-com-a-cielo-lio">Como faço para integrar com a Cielo LIO?</h3>
+
+<p>Construimos um portal dedicado aos desenvolvedores para facilitar a integração da sua solução com a Lio -&gt; http://desenvolvedores.cielo.com.br
+Nesse portal você pode:</p>
+
+<ul>
+  <li>Acessar documentação completa das APIs;</li>
+  <li>Utilizar os SDK´s para tornar a integração mais ágil;</li>
+  <li>Criar suas contas para receber as chaves (tokens) de acesso;</li>
+  <li>Realizar os testes e desenvolvimentos para se integrarem com a Cielo: usando emulador ou sandbox.</li>
+</ul>
+
+<h3 id="posso-utilizar-impressoras-para-conectar-na-cielo-lio">Posso utilizar impressoras para conectar na Cielo LIO?</h3>
+
+<p>Sim.
+Impressoras com conexão via Bluetooth podem ser usadas pelo aplicativo do parceiro que está rodando na Cielo LIO para realizar a impressão de algum comprovante ou recibo necessário para a operação do negócio do parceiro/cliente.</p>
+
+<p>Já existem parceiros que estão utilizando impressoras Bluetooth das marcas Zebra, Datex, Leopardo e outras para se integrar com a Cielo LIO!
+Todos os protocolos de comunicação e pareamento ficam sob responsabilidade do aplicativo do parceiro.</p>
+
+<h3 id="quais-são-as-formas-de-comunicação-da-cielo-lio">Quais são as formas de comunicação da Cielo LIO?</h3>
+
+<p>A Cielo LIO possui entrada para um SIM Card que permite realizar a comunicação via rede móvel 4G. Com fall-back para 3G e 2G e GPRS respectivamente.
+Além disso, ela possui como tecnologia de comunicação o Wi-Fi.</p>
+
+<h3 id="quais-são-as-conexões-disponíveis-na-cielo-lio">Quais são as conexões disponíveis na Cielo LIO?</h3>
+
+<p>As entradas USB da Cielo LIO são utilizadas única e exclusivamente para realizar o carregamento na bateria do aparelho.
+O Bluetooth da Cielo LIO pode ser utilizado para realizar a comunicação e a troca de informações com dispositivos externos.</p>
+
+<h3 id="caso-necessite-trocar-a-máquina-lio-o-catálogo-cadastrado-migra-automaticamente-para-a-nova-máquina-recebida">Caso necessite trocar a máquina LIO, o catálogo cadastrado migra automaticamente para a nova máquina recebida?</h3>
+
+<p>Não migra. Para que o catálogo fique na nuvem, o cliente precisará de um aplicativo que tenha essa funcionalidade.</p>
+
+<h3 id="como-faço-para-atualizarbaixar-aplicativos-na-lio">Como faço para atualizar/baixar aplicativos na LIO?</h3>
+
+<p>A Cielo Lio precisa estar conectada a internet 4G ou WI-FI</p>
+
+<p>Com sua LIO em mãos siga as orientações abaixo:
+1 - Clique na aba “Ajuda”;
+2 - Clique na opção “Minha LIO”;
+3 - Clique na opção “Buscar Atualizações”;</p>
+
+<h3 id="como-faço-para-criar-uma-conta-no-site-da-cielo">Como faço para criar uma conta no site da Cielo?</h3>
+
+<p>Basta acessar o site Cielo http://www.cielo.com.br.</p>
+
+<p>No canto superior direito,</p>
+
+<p>1 - Clique em “Acessar minha conta”;
+2 - Clique em “Cadastre-se”;
+3 - Clique em “Criar cadastro” Informe os dados requisitados.</p>
+
+<h3 id="minha-lio-não-está-baixando-um-app">Minha LIO não está baixando um app</h3>
+
+<p>Verificar se sua LIO está com bateria acima de 50% e com 4G ou WI-FI. Se estiver com todos os requisitos citados acima e mesmo assim o app não baixou abra um chamado no portal dos desenvolvedores.</p>
+
+<h2 id="dev-console---cielo-storeloja-publica-x-loja-privada">Dev Console - Cielo Store(Loja Publica) X Loja Privada</h2>
+
+<h3 id="fiz-meu-cadastro-o-que-devo-fazer-agora">Fiz meu cadastro! O que devo fazer agora?</h3>
+
+<p>O desenvolvedor deverá escolher o tipo de Loja que deseja disponibilizar seu app.</p>
+
+<p><strong>Aplicativo de Loja Pública</strong>
+Os aplicativos públicos são indicados para aqueles desenvolvedores e parceiros que desejam disponibilizar e escalar sua aplicação e permitir o download na Cielo LIO distribuídos nos estabelecimentos comerciais no Brasil via Vitrine da Cielo Store.</p>
+
+<p><strong>Aplicativo Privado na Loja Privada</strong>
+Os aplicativos privados são indicados para desenvolvedores que querem permitir a distribuição de soluções personalizadas para um cliente específico.
+É necessário solicitar a criação da Loja Privada para então ser possível fazer o upload de um aplicativo de Loja Privada no Dev Console. 
+A partir da Loja Privada criada, o desenvolvedor poderá publicar seu aplicativo no Dev Console selecionando sua loja, esta ação é essencial para realizar a distribuição de aplicativos privados. https://devcielo.zendesk.com/hc/pt-br para solicitar a criação da Loja Privada.</p>
+
+<h3 id="quais-são-os-browsersnavegadores-recomendados-para-upload-de-aplicativo-na-cielo-store">Quais são os Browsers/Navegadores recomendados para Upload de aplicativo na Cielo Store?</h3>
+
+<p>Recomendamos utilizar o Google Chrome ou Mozilla Firefox preferencialmente para realizar o upload de aplicativos na Cielo Store.</p>
+
+<h3 id="como-faço-para-me-cadastrar-como-um-ec-na-cielo">Como faço para me cadastrar como um EC na Cielo?</h3>
+
+<p>Após a aprovação da certificação do aplicativo, quando você envia-lo para produção no Dev Console, haverá um formulário que deverá ser preenchido e automaticamente você se tornará um EC.</p>
+
+<h3 id="como-posso-liberar-o-meu-aplicativo-desenvolvido-aos-clientes-loja-privada">Como posso liberar o meu aplicativo desenvolvido aos clientes Loja Privada?</h3>
+
+<p>Após o aplicativo passar pela etapa de certificação e ser aprovado pelo time especialista interno da Cielo, o próprio desenvolvedor será notificado e deverá promover o app para produção sendo assim todos os EC’s que tiverem associados a loja privada irão receber o aplicativo. Clique Aqui para solicitar a criação da Loja Privada e tirar suas dúvidas de como fazer a associação de um EC a uma loja privada.</p>
+
+<h3 id="como-posso-liberar-o-meu-aplicativo-desenvolvido-aos-clientes-loja-publica">Como posso liberar o meu aplicativo desenvolvido aos clientes Loja Publica?</h3>
+
+<p>Após o aplicativo passar pela etapa de certificação e ser aprovado pelo time especialista interno da Cielo, o próprio desenvolvedor será notificado e deverá promover o app para produção, sendo assim o mesmo ficará disponível na Loja Cielo Store para seus clientes.</p>
+
+<h3 id="preciso-ser-cadastrado-na-cielo-para-receber-o-pagamento-dos-aplicativos">Preciso ser cadastrado na Cielo para receber o pagamento dos aplicativos?</h3>
+
+<p>Sim, é necessário ter uma conta no site Cielo o pagamento é realizado em agenda financeira, precisa se cadastrar para ter um estabelecimento comercial (EC). Basta acessar o site Cielo http://www.cielo.com.br.</p>
+
+<p>1 - No canto superior direito, clique em “Acessar minha conta;
+2 - Clique em “Cadastre-se”;
+3 - Clique em “Criar cadastro” Informe os dados requisitados.</p>
+
+<h3 id="o-que-eu-preciso-para-colocar-meu-aplicativo-em-produção">O que eu preciso para colocar meu aplicativo em produção?</h3>
+
+<p>Se seu aplicativo já foi certificado, você deve promovê-lo em Produção no Dev Console. 
+Dev Console &gt; Selecionar App &gt; Selecionar Versão Certificada &gt; Clicar em “Enviar para Produção”.</p>
+
+<h3 id="como-recebo-o-pagamento-dos-aplicativos">Como recebo o pagamento dos aplicativos?</h3>
+
+<p>O pagamento será feito em agenda financeira. É necessário ter uma conta no site Cielo. Caso não tenha, acesse o site Cielo http://www.cielo.com.br.</p>
+
+<p>1 - No canto superior direito, clique em “Acessar minha conta”;
+2 - Clique em “Cadastre-se”;
+3 - Clique em “Criar cadastro” Informe os dados requisitados.</p>
+
+<h3 id="tenho-algum-custo-para-colocar-meu-aplicativo-na-cielo-store">Tenho algum custo para colocar meu aplicativo na Cielo Store?</h3>
+
+<p>Não! A integração com a Cielo LIO é gratuita.</p>
+
+<h3 id="o-que-é-a-cielo-store-loja-publica">O que é a Cielo Store (Loja Publica)?</h3>
+
+<p>Toda vez que você precisa acessar o app do Banco ou daquela loja preferida ou de entrega de comida, você acessa a loja de aplicativos (Play Store ou App Store) do seu celular e realiza o download desse app, certo?</p>
+
+<p>O mesmo acontece com a Cielo LIO. Através da Cielo STORE, os estabelecimentos comerciais podem escolher entre os mais de 50 apps disponíveis o aplicativo que melhor atende suas necessidades, seja unificar sistemas, realizar gestão de vendas, time e estoque etc. em um único clique.</p>
+
+<h3 id="quais-as-etapas-existentes-para-publicar-meu-aplicativo">Quais as etapas existentes para publicar meu aplicativo?</h3>
+
+<p><strong>1 - Etapa de desenvolvimento</strong></p>
+
+<p>Após passar pelo upload de um novo aplicativo ou nova versão, o aplicativo fica automaticamente com o status “Em Desenvolvimento”. Nesse estágio o desenvolvedor consegue realizar testes do seu aplicativo em uma Cielo LIO e caso precise fazer alguma correção, basta publicar uma nova versão do aplicativo pelo Dev Console e então atualizar na Cielo LIO.</p>
+
+<p><strong>2 - Etapa de Certificação</strong>
+Uma vez concluído os testes, o desenvolvedor envia o aplicativo para Certificação. Nessa etapa o time de Certificação da Cielo entra em ação e irá validar o fluxo de funcionamento do aplicativo de acordo com a sessão Critérios de Certificação de Aplicativos deste documento.</p>
+
+<p><strong>3 - Etapa de Produção</strong>
+Assim que o aplicativo for aprovado na certificação, o desenvolvedor poderá promover para produção.</p>
+
+<h3 id="como-faço-para-mudar-o-nome-do-meu-aplicativo">Como faço para mudar o nome do meu aplicativo?</h3>
+
+<p>Não é possível alterar o nome de um aplicativo. Caso seja necessário, é preciso criar um novo aplicativo com package name diferente e seguir o processo normal de upload de aplicativo na Cielo Store.</p>
+
+<h3 id="É-possível-editar-as-informações-do-meu-aplicativo-já-publicado-na-cielo-store">É possível editar as informações do meu aplicativo já publicado na Cielo Store?</h3>
+
+<p>Sim, é possível. Basta alterar as informações dentro do formulário no Dev Console, submeter uma nova versão e encaminhá-la para Certificação. Após o APP ser certificado e aprovado, é necessário promover o APP para produção e sendo assim o APP fica atualizado e disponível na Cielo Store.</p>
+
+<h3 id="como-faço-para-baixar-aplicativos-na-cielo-lio">Como faço para baixar aplicativos na Cielo LIO?</h3>
+
+<p>Com sua LIO em mãos siga as orientações abaixo:</p>
+
+<p>1 - Clique na aba “Ajuda”;
+2 - Clique na opção “Minha LIO”;
+3 - Clique na opção “Buscar Atualizações”.</p>
+
+<p><strong>Vale lembrar que sua LIO precisa está dentro dos requisitos bateria acima de 50% e com 4G ou WI-FI estável. A partir desse momento todos os aplicativos disponibilizados para essa LIO serão baixados e instalados na e ficarão visíveis na aba Apps.</strong></p>
+
+<h3 id="qual-a-diferença-entre-loja-pública-e-loja-privada">Qual a diferença entre Loja Pública e Loja Privada?</h3>
+
+<p>Na Loja Pública, o aplicativo ficará disponível na Cielo Store para todos os clientes que possuem LIO. O cliente deverá escolher o aplicativo que deseja contratar e fazer o download. 
+O modelo de Loja Privada a distribuição do aplicativo é feita pelo desenvolvedor. O aplicativo é instalado somente para o EC que está cadastrado em uma loja especifica. O aplicativo que está na Loja Privada não estará disponível na Loja Pública.</p>
+
+<h3 id="o-que-é-a-loja-privada">O que é a Loja Privada?</h3>
+
+<p>É uma solução desenvolvida para quem precisa de um sistema de gestão integrado personalizado. Integrando com a LIO ON você pode ter acesso a todas as informações em um lugar só, consegue fazer um gerenciamento de vendas, controle de estoque, fluxo de caixa, emissão de nota fiscal e muito mais. Para saber quais apps temos entre em contato conosco!</p>
+
+<h3 id="como-faço-para-cancelar-a-assinatura-do-aplicativo">Como faço para cancelar a assinatura do aplicativo?</h3>
+
+<p>1 - Clique na opção Apps;
+2 - Selecione Cielo Store;
+3 - Escolha o aplicativo;
+4 - Clique em desinstalar;
+5 - Preencha com usuário e senha criados no site Cielo.</p>
+
+<h3 id="como-um-aplicativo-da-loja-pública-é-cobrado">Como um aplicativo da loja pública é cobrado?</h3>
+
+<p>Os aplicativos são cobrados mensalmente diretamente na agenda financeira do EC que contratou o aplicativo.</p>
 </div>
 
 
