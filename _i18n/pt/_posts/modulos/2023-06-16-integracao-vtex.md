@@ -192,7 +192,7 @@ As credenciais recebidas para utilização da solução devem ser inseridas conf
 
 Para utilizar esta solução, é necessário instalar o aplicativo 3DS. Com o usuário logado, acesse a seguinte URL e substitua o *nome_da_loja* pelo nome de sua loja.
 
-<aside class="notice">https://[nome_da_loja].myvetex.com/admin/apps/braspag.braspag-3ds-payment-app@3.0.1/setup/</aside>
+<aside class="notice">https://[nome_da_loja].myvtex.com/admin/apps/braspag.braspag-3ds-payment-app@3.0.1/setup/</aside>
 
 Ao concluir a instalação, verifique se o aplicativo aparece em **Aplicativos** > **Meus Aplicativos**:
 
