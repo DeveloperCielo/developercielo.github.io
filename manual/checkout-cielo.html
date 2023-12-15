@@ -2568,77 +2568,7 @@ Acesse o <a href="https://developercielo.github.io/tutorial/checkout-tutoriais">
 
 <h4 id="payment_status">Payment_status</h4>
 
-<p>O Checkout possui status próprios, diferente do site Cielo ou da API E-commerce Cielo. Veja a seguir a lista completa.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>VALOR</th>
-      <th>STATUS DA TRANSAÇÃO</th>
-      <th>TRANSACTION STATUS</th>
-      <th>MEIOS DE PAGAMENTO</th>
-      <th>DESCRIÇÃO</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td>Pendente</td>
-      <td>Pending</td>
-      <td>Para todos os meios de pagamento</td>
-      <td>Indica que o pagamento ainda está sendo processado; OBS: Boleto - Indica que o boleto não teve o status alterado pelo lojista</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Pago</td>
-      <td>Paid</td>
-      <td>Para todos os meios de pagamento</td>
-      <td>Transação capturada e o dinheiro será depositado em conta.</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>Negado</td>
-      <td>Denied</td>
-      <td>Somente para Cartão Crédito</td>
-      <td>Transação não autorizada pelo responsável do meio de pagamento</td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>Expirado</td>
-      <td>Expired</td>
-      <td>Cartões de Crédito e Boleto</td>
-      <td>Transação deixa de ser válida para captura - <strong>15 dias após a autorização</strong></td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td>Cancelado</td>
-      <td>Voided</td>
-      <td>Para cartões de crédito</td>
-      <td>Transação foi cancelada pelo lojista</td>
-    </tr>
-    <tr>
-      <td>6</td>
-      <td>Não Finalizado</td>
-      <td>NotFinalized</td>
-      <td>Todos os meios de pagamento</td>
-      <td>Pagamento esperando Status - Pode indicar erro ou falha de processamento. Entre em contato com o Suporte Cielo</td>
-    </tr>
-    <tr>
-      <td>7</td>
-      <td>Autorizado</td>
-      <td>Authorized</td>
-      <td>Somente para Cartão de Crédito</td>
-      <td>Transação autorizada pelo emissor do cartão. Deve ser capturada para que o dinheiro seja depositado em conta</td>
-    </tr>
-    <tr>
-      <td>8</td>
-      <td>Chargeback</td>
-      <td>Chargeback</td>
-      <td>somente para Cartão de Crédito</td>
-      <td>Transação cancelada pelo consumidor junto ao emissor do cartão. O Dinheiro não será depositado em conta.</td>
-    </tr>
-  </tbody>
-</table>
+<p>O Checkout possui status próprios, diferente do site Cielo ou da API E-commerce Cielo. Veja a lista completa em <a href="https://developercielo.github.io/manual/checkout-cielo#payment_status85">Payment_status</a>.</p>
 
 <blockquote>
   <p><strong>Observação</strong>: Para consultas de pedido, o campo <code class="language-plaintext highlighter-rouge">payment.status</code> será retornado no formato texto, sempre em inglês (coluna Transaction Status).</p>
