@@ -238,7 +238,7 @@ As transações de cartão de crédito precisam ser capturadas de forma **autom�
 
 #### Cartão de débito
 
-O Checkout Cielo permite a utilização de cartões de débito MasterCard, Visa e Elo. Esse meio de pagamento é liberado automaticamente junto a afiliação de Cielo, podendo ser utilizado inicialmente com a integração Checkout.
+O Checkout Cielo permite a utilização de cartões de débito Mastercard, Visa e Elo. Esse meio de pagamento é liberado automaticamente junto a afiliação de Cielo, podendo ser utilizado inicialmente com a integração Checkout.
 
 Transações de cartão de débito serão incluídas no site Cielo como **Pago**, **Não Autorizado** ou **Não Finalizado**, dependendo do resultado da autorização junto ao banco.
 
