@@ -229,17 +229,7 @@ Selecione os meios de pagamento que gostaria de disponibilizar aos seus clientes
 
 O Checkout Cielo permite a utilização de cartões de crédito das principais bandeiras nacionais e internacionais. Esse meio de pagamento é liberado automaticamente junto a afiliação da Cielo, podendo ser utilizado inicialmente com a integração Checkout.
 
-Transações de cartão de crédito serão incluídas no Backoffice Cielo Checkout como PENDENTE, AUTORIZADO, PAGO, NEGADO, EXPIRADO OU CHARGEBACK dependendo do resultado da autorização junto ao banco.
-
-Os status de cartão de crédito são:
-
-|VALOR|STATUS|DESCRIÇÃO|
-|---|---|---|
-|1|Pendente|Status original. A transação está ocorrendo, esperando resposta do processo de autorização.|
-|7|Autorizado / Negado| Resultado do processo de autorização.<br>*Autorizado*: crédito foi reservado para a compra<br>*Negado*: cartão não autorizado pelo emissor a continuar a transação.|
-|2|Pago|Ocorre após a captura. Indica que o crédito reservado no cartão será depositado na conta do lojista.|
-|4|Expirado|Ocorre caso a transação não seja capturada em até 15 dias após a autorização. Nessa situação a transação é perdida.|
-|8|Chargeback|Status não automático. Caso o lojista seja notificado de chargeback, ele pode marcar esta transação como perdida. Este Status é apenas uma marcação, não afetando processos de pagamento.|
+Transações de cartão de crédito serão incluídas no Backoffice Cielo Checkout como PENDENTE, AUTORIZADO, PAGO, NEGADO, EXPIRADO OU CHARGEBACK dependendo do resultado da autorização junto ao banco. Veja os possíveis status de transações de cartão de crédito na tabela [Payment_status](https://developercielo.github.io/manual/checkout-cielo#payment_status85).
 
 As transações de cartão de crédito precisam ser capturadas de forma **automática ou manual** - depende do que escolher no passo [5. Configure a captura e Antifraude](https://developercielo.github.io/manual/checkout-cielo#5.-configure-a-captura-e-antifraude). 
 
