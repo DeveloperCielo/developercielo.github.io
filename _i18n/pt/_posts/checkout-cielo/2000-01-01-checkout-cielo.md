@@ -1206,18 +1206,7 @@ Tanto na notificação via POST ou via JSON, o conteúdo dos dados retornados é
 
 #### Payment_status
 
-O Checkout possui status próprios, diferente do site Cielo ou da API E-commerce Cielo. Veja a seguir a lista completa.
-
-|VALOR|STATUS DA TRANSAÇÃO|TRANSACTION STATUS|MEIOS DE PAGAMENTO|DESCRIÇÃO|
-|---|---|---|---|---|
-|1|Pendente|Pending|Para todos os meios de pagamento|Indica que o pagamento ainda está sendo processado; OBS: Boleto - Indica que o boleto não teve o status alterado pelo lojista|
-|2|Pago|Paid|Para todos os meios de pagamento|Transação capturada e o dinheiro será depositado em conta.|
-|3|Negado|Denied|Somente para Cartão Crédito|Transação não autorizada pelo responsável do meio de pagamento|
-|4|Expirado|Expired|Cartões de Crédito e Boleto|Transação deixa de ser válida para captura - **15 dias após a autorização**|
-|5|Cancelado|Voided|Para cartões de crédito|Transação foi cancelada pelo lojista
-|6|Não Finalizado|NotFinalized|Todos os meios de pagamento|Pagamento esperando Status - Pode indicar erro ou falha de processamento. Entre em contato com o Suporte Cielo|
-|7|Autorizado|Authorized|Somente para Cartão de Crédito|Transação autorizada pelo emissor do cartão. Deve ser capturada para que o dinheiro seja depositado em conta|
-|8|Chargeback|Chargeback|somente para Cartão de Crédito|Transação cancelada pelo consumidor junto ao emissor do cartão. O Dinheiro não será depositado em conta.|
+O Checkout possui status próprios, diferente do site Cielo ou da API E-commerce Cielo. Veja a lista completa em [Payment_status](https://developercielo.github.io/manual/checkout-cielo#payment_status85).
 
 > **Observação**: Para consultas de pedido, o campo `payment.status` será retornado no formato texto, sempre em inglês (coluna Transaction Status).
 
