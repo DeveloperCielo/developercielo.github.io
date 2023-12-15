@@ -114,16 +114,16 @@ Os critérios para habilitar a opção de Boleto Banco do Brasil são:
 
 Para solicitar o Boleto Banco do Brasil, você precisa:
 
-1. Contatar o banco/agência e fazer a solicitação de boleto sem registro carteira 17. Esse passo envolve assinatura de contrato com o Banco
-2. Encaminhar um e-mail para Cielo e-Commerce [cieloecommerce@cielo.com.br](mailto:cieloecommerce@cielo.com.br) com os seguintes dados:
+1. Contatar o banco/agência e fazer a solicitação de boleto com registro carteira 17. Esse passo envolve assinatura de contrato com o banco
+2. Encaminhar um e-mail para Cielo E-commerce [cieloecommerce@cielo.com.br](mailto:cieloecommerce@cielo.com.br) com os seguintes dados:
 
 - **Agência**: 0000
 - **Conta Corrente**: 00000-0
 - **Convênio**: 0000000
 - **Vencimento** (contado em dias):
-- **Carteira**: 17 - SEM REGISTRO
+- **Carteira**: 17 - COM REGISTRO
 
-<aside class="notice">**Validade do Boleto** – Caso o boleto expire em um dia não útil, como sábado, ele será válido até o próximo dia útil</aside>
+<aside class="notice">**Validade do boleto**: Caso o boleto expire em um dia não útil, como sábado, ele será válido até o próximo dia útil.</aside>
 
 # Débito online
 
