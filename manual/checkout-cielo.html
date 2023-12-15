@@ -517,46 +517,7 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
 
 <p>O Checkout Cielo permite a utilização de cartões de crédito das principais bandeiras nacionais e internacionais. Esse meio de pagamento é liberado automaticamente junto a afiliação da Cielo, podendo ser utilizado inicialmente com a integração Checkout.</p>
 
-<p>Transações de cartão de crédito serão incluídas no Backoffice Cielo Checkout como PENDENTE, AUTORIZADO, PAGO, NEGADO, EXPIRADO OU CHARGEBACK dependendo do resultado da autorização junto ao banco.</p>
-
-<p>Os status de cartão de crédito são:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>VALOR</th>
-      <th>STATUS</th>
-      <th>DESCRIÇÃO</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td>Pendente</td>
-      <td>Status original. A transação está ocorrendo, esperando resposta do processo de autorização.</td>
-    </tr>
-    <tr>
-      <td>7</td>
-      <td>Autorizado / Negado</td>
-      <td>Resultado do processo de autorização.<br /><em>Autorizado</em>: crédito foi reservado para a compra<br /><em>Negado</em>: cartão não autorizado pelo emissor a continuar a transação.</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Pago</td>
-      <td>Ocorre após a captura. Indica que o crédito reservado no cartão será depositado na conta do lojista.</td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>Expirado</td>
-      <td>Ocorre caso a transação não seja capturada em até 15 dias após a autorização. Nessa situação a transação é perdida.</td>
-    </tr>
-    <tr>
-      <td>8</td>
-      <td>Chargeback</td>
-      <td>Status não automático. Caso o lojista seja notificado de chargeback, ele pode marcar esta transação como perdida. Este Status é apenas uma marcação, não afetando processos de pagamento.</td>
-    </tr>
-  </tbody>
-</table>
+<p>Transações de cartão de crédito serão incluídas no Backoffice Cielo Checkout como PENDENTE, AUTORIZADO, PAGO, NEGADO, EXPIRADO OU CHARGEBACK dependendo do resultado da autorização junto ao banco. Veja os possíveis status de transações de cartão de crédito na tabela <a href="https://developercielo.github.io/manual/checkout-cielo#payment_status85">Payment_status</a>.</p>
 
 <p>As transações de cartão de crédito precisam ser capturadas de forma <strong>automática ou manual</strong> - depende do que escolher no passo <a href="https://developercielo.github.io/manual/checkout-cielo#5.-configure-a-captura-e-antifraude">5. Configure a captura e Antifraude</a>.</p>
 
