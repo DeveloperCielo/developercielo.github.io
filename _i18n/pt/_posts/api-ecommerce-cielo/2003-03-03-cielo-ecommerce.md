@@ -1523,7 +1523,7 @@ O Merchant plug-in, conhecido por MPI, é um serviço que permite a realização
 As tabelas a seguir se aplicam para transações de crédito e débito Mastercard com credenciais armazenadas. O objetivo é identificar se a transação foi iniciada pelo **titular do cartão** ou pela **loja**:
 
 * **Cardholder-Initiated Transaction (CIT)**: a transação é iniciada pela pessoa titular do cartão, que fornece suas credenciais de pagamento e permite que sejam armazenadas;
-* **Merchant-Initiated Transaction (MIT)**: a transação é iniciada pela loja, após um acordo no qual a pessoa titular do cartão autoriza a loja a armazenar e usar os dados de sua conta para iniciar uma ou mais transações futuras (como pagamentos recorrentes e parcelados e cobranças posteriores praticadas pelo setor de hospitalidade e turismo, por exemplo).
+* **Merchant-Initiated Transaction (MIT)**: a transação é iniciada pela loja, após um acordo no qual a pessoa titular do cartão autoriza a loja a armazenar e usar os dados de sua conta para iniciar uma ou mais transações futuras (como pagamentos recorrentes, pagamentos parcelados e cobranças posteriores, como as praticadas pelo setor de hospitalidade e turismo, por exemplo).
 <br/>
 <br/>
 Para indicar o iniciador de transação, é obrigatório enviar o nó `Payment.InitiatedTransactionIndicator`. Este nó tem dois parâmetros, categoria (`Category`) e subcategoria (`Subcategory`); confira a seguir o exemplo do nó na requisição e as tabelas com os valores correspondentes:
@@ -1563,42 +1563,38 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó `Payment.I
 
 #### Resposta
 
-A resposta será o padrão da transação de crédito ou débito com o retorno do nó inserido na requisição.
+A resposta será o padrão da transação de crédito ou débito com o retorno do mesmo nó inserido na requisição.
 
-**Categoria C1 - transação iniciada pelo portador do cartão**
+#### Tabelas do indicador de início da transação Mastercard
 
-`Payment.InitiatedTransactionIndicator.Category` = "C1"
+##### Categorias CIT e MIT
 
-|Subcategoria do indicador|Significado|Descrição|
+As categorias (C1, M1 ou M2) devem ser informadas no parâmetro `Payment.InitiatedTransactionIndicator.Category`.
+
+|Categoria| Quem iniciou a transação | Descrição|
 |---|---|---|
-|`CredentialsOnFile`| Salvar dados do cartão para compras futuras.| O consumidor inicia uma compra e a loja solicita ao consumidor que salve os dados do cartão para futuras compras iniciadas pelo titular do cartão. |
-|`StandingOrder`| Salvar dados do cartão para compras recorrentes de valor variável e frequência fixa.  | Transação inicial para armazenar os dados do cartão para um pagamento mensal de serviços públicos.  |
-|`Subscription` |  Salvar dados do cartão para compras recorrentes de valor e frequência fixos. |  Transação inicial para armazenar os dados do cartão para uma assinatura mensal (exemplo: jornais e revistas). |
-|`Installment` | Salvar dados do cartão para compra parcelada | Transação inicial para armazenar os dados do cartão para uma compra a ser paga por meio de pagamentos parcelados. |
+|`C1` | Transação iniciada pelo portador do cartão (CIT).| A transação é iniciada pela pessoa titular do cartão, que fornece os dados do cartão e permite o armazenamento ou usa os dados do cartão armazenado previamente. A subcategoria indica a finalidade da compra/armazenamento do cartão.|
+|`M1`| Transação iniciada pela loja (MIT). | A loja já tem os dados do cartão do comprador armazenados de forma criptografada (com o consentimento do titular do cartão) e a autorização para iniciar uma ou mais transações futuras de compras recorrentes ou parceladas.|
+|`M2`| Transação iniciada pela loja (MIT). | A loja já tem os dados do cartão do comprador armazenados de forma criptografada (com o consentimento do titular do cartão) e a autorização para iniciar uma ou mais transações futuras, relacionadas a remessa parcial, cobranças atrasadas/adicionais, multas por *no-show* e retentativas.|
 
-**Categoria M1 - transação recorrente ou parcelada iniciada pela loja**
+##### Subcategorias CIT e MIT
 
-`Payment.InitiatedTransactionIndicator.Category` = "M1"
+As subcategorias devem ser informadas no parâmetro `Payment.InitiatedTransactionIndicator.Subcategory`.
 
-Nessa categoria, a transação é feita após um acordo com um acordo entre um titular de cartão e a loja, pelo qual o titular do cartão autoriza a loja a armazenar e usar os dados da conta do titular do cartão para iniciar uma ou mais transações futuras, conforme a subcategoria:
-
-|Subcategoria do indicador|Significado|Descrição|
-|---|---|---|
-|`CredentialsOnFile`| Salvar dados do cartão para compras futuras iniciadas pela loja, com valor fixou ou variável e sem intervalo fixo ou data programada.  | Exemplo: o consumidor concorda em permitir que uma concessionária inicie transações de cobrança de pedágio quando o saldo na conta do consumidor estiver abaixo de uma quantia estabelecida (auto recarga). |
-|`StandingOrder` | Salvar dados do cartão para compras futuras iniciadas pela loja, com valor variável e intervalo fixo.  | Exemplo: pagamentos mensais de serviços públicos.  |
-|`Subscription`| Salvar dados do cartão para compras futuras iniciadas pela loja, com valor e intervalo fixos.  | Exemplo: assinatura mensal ou pagamento de serviço mensal fixo. |
-|`Installment` | Salvar dados do cartão para compras futuras iniciadas pela loja, com valor conhecido e período definido.  | Exemplo: o consumidor compra uma televisão por R$2000,00 e faz o pagamento em quatro parcelas iguais de R$500,00; nesse cenário, a primeira transação é iniciada pelo titular do cartão e as três transações restantes são iniciadas pela loja. |
-
-**Categoria M2 - transação iniciada pela loja por prática do setor**
-
-`Payment.InitiatedTransactionIndicator.Category` = "M2"
-
-|Subcategoria do indicador|Significado|Descrição|
-|---|---|---|
-| `PartialShipment` | Salvar dados do cartão para compras futuras iniciadas pela loja, quando a compra será dividida em mais de uma remessa de entrega.  | Ocorre quando uma quantidade acordada de mercadorias encomendadas por e-commerce não está disponível para envio no momento da compra. Cada remessa é uma transação separada.  |
-|`RelatedOrDelayedCharge` | Salvar dados do cartão para compras futuras iniciadas pela loja para despesas adicionais.  |  Uma cobrança adicional da conta após a prestação dos serviços iniciais e o processamento do pagamento. Exemplo: cobrança do frigobar do hotel após o titular do cartão fazer check-out do hotel.  |
-|`NoShow`| Salvar dados do cartão para compras futuras iniciadas pela loja para cobrança de multas.  | Uma multa cobrada de acordo com a política de cancelamento do estabelecimento. Exemplo: o cancelamento de uma reserva pelo titular do cartão sem aviso prévio adequado ao estabelecimento.  | 
-| `Resubmission` | Salvar dados do cartão para retentativa de transações negadas anteriormente.  | A tentativa anterior de obter autorização para uma transação foi recusada, mas a resposta do emissor não proíbe a loja de tentar novamente mais tarde. Exemplo: fundos insuficientes/resposta acima do limite de crédito. |
+|Categoria do indicador|Subcategoria do indicador|Significado|Exemplo|
+|---|---|---|---|
+| C1 |`CredentialsOnFile`| É uma transação iniciada pelo comprador (CIT), na qual o comprador autoriza a loja a salvar dados do cartão para compras futuras, ou na qual usa dados de cartão previamente armazenados pela loja.| Quando o titular do cartão inicia uma compra e a loja solicita autorização para salvar os dados do cartão para futuras compras iniciadas pelo titular do cartão, como *compra com um clique*. |
+| C1 |`StandingOrder`| É uma transação iniciada pelo comprador (CIT), na qual o comprador autoriza a loja a salvar dados do cartão para pagamentos futuros de valor variável e frequência fixa.  | Quando é uma transação inicial para armazenar os dados do cartão para um pagamento mensal de serviços públicos.  |
+| C1 |`Subscription` |  É uma transação iniciada pelo comprador (CIT), na qual o comprador autoriza a loja a salvar dados do cartão para compras recorrentes de valor e frequência fixos. |  Quando é uma transação inicial para armazenar os dados do cartão para uma assinatura mensal, como jornais, revistas e cursos. |
+| C1 |`Installment` |  É uma transação iniciada pelo comprador (CIT), na qual o comprador inicia a transação da primeira parcela e autoriza a loja a salvar dados do cartão para pagamento das parcelas seguintes.| Quando é uma transação inicial para armazenar os dados do cartão para uma compra a ser paga por meios de pagamentos parcelados. |
+| M1 |`CredentialsOnFile`| São transações iniciadas pela loja (MIT), de valor fixo ou variável e sem intervalo fixo ou data programada. | Quando o consumidor permite que uma concessionária inicie transações de cobrança de pedágio quando o saldo em sua conta estiver abaixo de uma quantia estabelecida (auto recarga). |
+| M1 |`StandingOrder` | São transações iniciadas pela loja (MIT), de valor variável e intervalo fixo.|Pagamentos mensais de serviços públicos.|
+| M1 |`Subscription`| São transações iniciadas pela loja (MIT), de valor e intervalo fixos.  | Assinatura mensal ou pagamento de serviço mensal fixo. |
+| M1 |`Installment` | São transações iniciadas pela loja (MIT), de valor conhecido e período definido.  | Quando o consumidor compra uma televisão por R$2000,00 e faz o pagamento em quatro parcelas iguais de R$500,00; nesse cenário, a primeira transação é iniciada pelo titular do cartão (CIT) e as três transações restantes são iniciadas pela loja (MIT). |
+| M2 | `PartialShipment` | São transações iniciadas pela loja (MIT) quando a compra será dividida em mais de uma remessa de entrega.  | Quando uma quantidade acordada de mercadorias encomendadas por e-commerce não está disponível para envio no momento da compra - cada remessa é uma transação separada.  |
+| M2 |`RelatedOrDelayedCharge` | São transações iniciadas pela loja (MIT) para despesas adicionais, ou seja, é uma cobrança adicional da conta após a prestação dos serviços iniciais e o processamento do pagamento. | Quando um hotel faz uma cobrança do frigobar do após o titular do cartão fazer check-out do hotel.  |
+| M2 |`NoShow`| São transações iniciadas pela loja (MIT) para cobrar multas de acordo com a política de cancelamento do estabelecimento.  | Quando o comprador cancela uma reserva sem aviso prévio adequado ao estabelecimento. |
+| M2 | `Resubmission` | São transações iniciadas pela loja (MIT) como retentativa de transações negadas anteriormente, ou seja, quando a tentativa anterior de obter autorização para uma transação foi recusada, mas a resposta do emissor não proíbe a loja de tentar novamente mais tarde. |Quando o retorno do emissor/bandeira indica fundos insuficientes/resposta acima do limite de crédito. |
 
 > **Atenção**: Os dados do cartão são armazenados de forma criptografada.
 
