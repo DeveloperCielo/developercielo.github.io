@@ -3011,7 +3011,7 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <ul>
   <li><strong>Cardholder-Initiated Transaction (CIT)</strong>: a transação é iniciada pela pessoa titular do cartão, que fornece suas credenciais de pagamento e permite que sejam armazenadas;</li>
-  <li><strong>Merchant-Initiated Transaction (MIT)</strong>: a transação é iniciada pela loja, após um acordo no qual a pessoa titular do cartão autoriza a loja a armazenar e usar os dados de sua conta para iniciar uma ou mais transações futuras (como pagamentos recorrentes e parcelados e cobranças posteriores praticadas pelo setor de hospitalidade e turismo, por exemplo).
+  <li><strong>Merchant-Initiated Transaction (MIT)</strong>: a transação é iniciada pela loja, após um acordo no qual a pessoa titular do cartão autoriza a loja a armazenar e usar os dados de sua conta para iniciar uma ou mais transações futuras (como pagamentos recorrentes, pagamentos parcelados e cobranças posteriores, como as praticadas pelo setor de hospitalidade e turismo, por exemplo).
 <br />
 <br />
 Para indicar o iniciador de transação, é obrigatório enviar o nó <code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator</code>. Este nó tem dois parâmetros, categoria (<code class="language-plaintext highlighter-rouge">Category</code>) e subcategoria (<code class="language-plaintext highlighter-rouge">Subcategory</code>); confira a seguir o exemplo do nó na requisição e as tabelas com os valores correspondentes:</li>
@@ -3075,114 +3075,126 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
 
 <h4 id="resposta-4">Resposta</h4>
 
-<p>A resposta será o padrão da transação de crédito ou débito com o retorno do nó inserido na requisição.</p>
+<p>A resposta será o padrão da transação de crédito ou débito com o retorno do mesmo nó inserido na requisição.</p>
 
-<p><strong>Categoria C1 - transação iniciada pelo portador do cartão</strong></p>
+<h4 id="tabelas-do-indicador-de-início-da-transação-mastercard">Tabelas do indicador de início da transação Mastercard</h4>
 
-<p><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Category</code> = “C1”</p>
+<h5 id="categorias-cit-e-mit">Categorias CIT e MIT</h5>
+
+<p>As categorias (C1, M1 ou M2) devem ser informadas no parâmetro <code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Category</code>.</p>
 
 <table>
   <thead>
     <tr>
-      <th>Subcategoria do indicador</th>
-      <th>Significado</th>
+      <th>Categoria</th>
+      <th>Quem iniciou a transação</th>
       <th>Descrição</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">CredentialsOnFile</code></td>
-      <td>Salvar dados do cartão para compras futuras.</td>
-      <td>O consumidor inicia uma compra e a loja solicita ao consumidor que salve os dados do cartão para futuras compras iniciadas pelo titular do cartão.</td>
+      <td><code class="language-plaintext highlighter-rouge">C1</code></td>
+      <td>Transação iniciada pelo portador do cartão (CIT).</td>
+      <td>A transação é iniciada pela pessoa titular do cartão, que fornece os dados do cartão e permite o armazenamento ou usa os dados do cartão armazenado previamente. A subcategoria indica a finalidade da compra/armazenamento do cartão.</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">StandingOrder</code></td>
-      <td>Salvar dados do cartão para compras recorrentes de valor variável e frequência fixa.</td>
-      <td>Transação inicial para armazenar os dados do cartão para um pagamento mensal de serviços públicos.</td>
+      <td><code class="language-plaintext highlighter-rouge">M1</code></td>
+      <td>Transação iniciada pela loja (MIT).</td>
+      <td>A loja já tem os dados do cartão do comprador armazenados de forma criptografada (com o consentimento do titular do cartão) e a autorização para iniciar uma ou mais transações futuras de compras recorrentes ou parceladas.</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Subscription</code></td>
-      <td>Salvar dados do cartão para compras recorrentes de valor e frequência fixos.</td>
-      <td>Transação inicial para armazenar os dados do cartão para uma assinatura mensal (exemplo: jornais e revistas).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Installment</code></td>
-      <td>Salvar dados do cartão para compra parcelada</td>
-      <td>Transação inicial para armazenar os dados do cartão para uma compra a ser paga por meio de pagamentos parcelados.</td>
+      <td><code class="language-plaintext highlighter-rouge">M2</code></td>
+      <td>Transação iniciada pela loja (MIT).</td>
+      <td>A loja já tem os dados do cartão do comprador armazenados de forma criptografada (com o consentimento do titular do cartão) e a autorização para iniciar uma ou mais transações futuras, relacionadas a remessa parcial, cobranças atrasadas/adicionais, multas por <em>no-show</em> e retentativas.</td>
     </tr>
   </tbody>
 </table>
 
-<p><strong>Categoria M1 - transação recorrente ou parcelada iniciada pela loja</strong></p>
+<h5 id="subcategorias-cit-e-mit">Subcategorias CIT e MIT</h5>
 
-<p><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Category</code> = “M1”</p>
-
-<p>Nessa categoria, a transação é feita após um acordo com um acordo entre um titular de cartão e a loja, pelo qual o titular do cartão autoriza a loja a armazenar e usar os dados da conta do titular do cartão para iniciar uma ou mais transações futuras, conforme a subcategoria:</p>
+<p>As subcategorias devem ser informadas no parâmetro <code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Subcategory</code>.</p>
 
 <table>
   <thead>
     <tr>
+      <th>Categoria do indicador</th>
       <th>Subcategoria do indicador</th>
       <th>Significado</th>
-      <th>Descrição</th>
+      <th>Exemplo</th>
     </tr>
   </thead>
   <tbody>
     <tr>
+      <td>C1</td>
       <td><code class="language-plaintext highlighter-rouge">CredentialsOnFile</code></td>
-      <td>Salvar dados do cartão para compras futuras iniciadas pela loja, com valor fixou ou variável e sem intervalo fixo ou data programada.</td>
-      <td>Exemplo: o consumidor concorda em permitir que uma concessionária inicie transações de cobrança de pedágio quando o saldo na conta do consumidor estiver abaixo de uma quantia estabelecida (auto recarga).</td>
+      <td>É uma transação iniciada pelo comprador (CIT), na qual o comprador autoriza a loja a salvar dados do cartão para compras futuras, ou na qual usa dados de cartão previamente armazenados pela loja.</td>
+      <td>Quando o titular do cartão inicia uma compra e a loja solicita autorização para salvar os dados do cartão para futuras compras iniciadas pelo titular do cartão, como <em>compra com um clique</em>.</td>
     </tr>
     <tr>
+      <td>C1</td>
       <td><code class="language-plaintext highlighter-rouge">StandingOrder</code></td>
-      <td>Salvar dados do cartão para compras futuras iniciadas pela loja, com valor variável e intervalo fixo.</td>
-      <td>Exemplo: pagamentos mensais de serviços públicos.</td>
+      <td>É uma transação iniciada pelo comprador (CIT), na qual o comprador autoriza a loja a salvar dados do cartão para pagamentos futuros de valor variável e frequência fixa.</td>
+      <td>Quando é uma transação inicial para armazenar os dados do cartão para um pagamento mensal de serviços públicos.</td>
     </tr>
     <tr>
+      <td>C1</td>
       <td><code class="language-plaintext highlighter-rouge">Subscription</code></td>
-      <td>Salvar dados do cartão para compras futuras iniciadas pela loja, com valor e intervalo fixos.</td>
-      <td>Exemplo: assinatura mensal ou pagamento de serviço mensal fixo.</td>
+      <td>É uma transação iniciada pelo comprador (CIT), na qual o comprador autoriza a loja a salvar dados do cartão para compras recorrentes de valor e frequência fixos.</td>
+      <td>Quando é uma transação inicial para armazenar os dados do cartão para uma assinatura mensal, como jornais, revistas e cursos.</td>
     </tr>
     <tr>
+      <td>C1</td>
       <td><code class="language-plaintext highlighter-rouge">Installment</code></td>
-      <td>Salvar dados do cartão para compras futuras iniciadas pela loja, com valor conhecido e período definido.</td>
-      <td>Exemplo: o consumidor compra uma televisão por R$2000,00 e faz o pagamento em quatro parcelas iguais de R$500,00; nesse cenário, a primeira transação é iniciada pelo titular do cartão e as três transações restantes são iniciadas pela loja.</td>
+      <td>É uma transação iniciada pelo comprador (CIT), na qual o comprador inicia a transação da primeira parcela e autoriza a loja a salvar dados do cartão para pagamento das parcelas seguintes.</td>
+      <td>Quando é uma transação inicial para armazenar os dados do cartão para uma compra a ser paga por meios de pagamentos parcelados.</td>
     </tr>
-  </tbody>
-</table>
-
-<p><strong>Categoria M2 - transação iniciada pela loja por prática do setor</strong></p>
-
-<p><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Category</code> = “M2”</p>
-
-<table>
-  <thead>
     <tr>
-      <th>Subcategoria do indicador</th>
-      <th>Significado</th>
-      <th>Descrição</th>
+      <td>M1</td>
+      <td><code class="language-plaintext highlighter-rouge">CredentialsOnFile</code></td>
+      <td>São transações iniciadas pela loja (MIT), de valor fixo ou variável e sem intervalo fixo ou data programada.</td>
+      <td>Quando o consumidor permite que uma concessionária inicie transações de cobrança de pedágio quando o saldo em sua conta estiver abaixo de uma quantia estabelecida (auto recarga).</td>
     </tr>
-  </thead>
-  <tbody>
     <tr>
+      <td>M1</td>
+      <td><code class="language-plaintext highlighter-rouge">StandingOrder</code></td>
+      <td>São transações iniciadas pela loja (MIT), de valor variável e intervalo fixo.</td>
+      <td>Pagamentos mensais de serviços públicos.</td>
+    </tr>
+    <tr>
+      <td>M1</td>
+      <td><code class="language-plaintext highlighter-rouge">Subscription</code></td>
+      <td>São transações iniciadas pela loja (MIT), de valor e intervalo fixos.</td>
+      <td>Assinatura mensal ou pagamento de serviço mensal fixo.</td>
+    </tr>
+    <tr>
+      <td>M1</td>
+      <td><code class="language-plaintext highlighter-rouge">Installment</code></td>
+      <td>São transações iniciadas pela loja (MIT), de valor conhecido e período definido.</td>
+      <td>Quando o consumidor compra uma televisão por R$2000,00 e faz o pagamento em quatro parcelas iguais de R$500,00; nesse cenário, a primeira transação é iniciada pelo titular do cartão (CIT) e as três transações restantes são iniciadas pela loja (MIT).</td>
+    </tr>
+    <tr>
+      <td>M2</td>
       <td><code class="language-plaintext highlighter-rouge">PartialShipment</code></td>
-      <td>Salvar dados do cartão para compras futuras iniciadas pela loja, quando a compra será dividida em mais de uma remessa de entrega.</td>
-      <td>Ocorre quando uma quantidade acordada de mercadorias encomendadas por e-commerce não está disponível para envio no momento da compra. Cada remessa é uma transação separada.</td>
+      <td>São transações iniciadas pela loja (MIT) quando a compra será dividida em mais de uma remessa de entrega.</td>
+      <td>Quando uma quantidade acordada de mercadorias encomendadas por e-commerce não está disponível para envio no momento da compra - cada remessa é uma transação separada.</td>
     </tr>
     <tr>
+      <td>M2</td>
       <td><code class="language-plaintext highlighter-rouge">RelatedOrDelayedCharge</code></td>
-      <td>Salvar dados do cartão para compras futuras iniciadas pela loja para despesas adicionais.</td>
-      <td>Uma cobrança adicional da conta após a prestação dos serviços iniciais e o processamento do pagamento. Exemplo: cobrança do frigobar do hotel após o titular do cartão fazer check-out do hotel.</td>
+      <td>São transações iniciadas pela loja (MIT) para despesas adicionais, ou seja, é uma cobrança adicional da conta após a prestação dos serviços iniciais e o processamento do pagamento.</td>
+      <td>Quando um hotel faz uma cobrança do frigobar do após o titular do cartão fazer check-out do hotel.</td>
     </tr>
     <tr>
+      <td>M2</td>
       <td><code class="language-plaintext highlighter-rouge">NoShow</code></td>
-      <td>Salvar dados do cartão para compras futuras iniciadas pela loja para cobrança de multas.</td>
-      <td>Uma multa cobrada de acordo com a política de cancelamento do estabelecimento. Exemplo: o cancelamento de uma reserva pelo titular do cartão sem aviso prévio adequado ao estabelecimento.</td>
+      <td>São transações iniciadas pela loja (MIT) para cobrar multas de acordo com a política de cancelamento do estabelecimento.</td>
+      <td>Quando o comprador cancela uma reserva sem aviso prévio adequado ao estabelecimento.</td>
     </tr>
     <tr>
+      <td>M2</td>
       <td><code class="language-plaintext highlighter-rouge">Resubmission</code></td>
-      <td>Salvar dados do cartão para retentativa de transações negadas anteriormente.</td>
-      <td>A tentativa anterior de obter autorização para uma transação foi recusada, mas a resposta do emissor não proíbe a loja de tentar novamente mais tarde. Exemplo: fundos insuficientes/resposta acima do limite de crédito.</td>
+      <td>São transações iniciadas pela loja (MIT) como retentativa de transações negadas anteriormente, ou seja, quando a tentativa anterior de obter autorização para uma transação foi recusada, mas a resposta do emissor não proíbe a loja de tentar novamente mais tarde.</td>
+      <td>Quando o retorno do emissor/bandeira indica fundos insuficientes/resposta acima do limite de crédito.</td>
     </tr>
   </tbody>
 </table>
