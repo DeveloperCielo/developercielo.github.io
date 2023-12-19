@@ -299,9 +299,9 @@ This is the `EphemeralPublicKey` format to be sent to API E-commerce Cielo:
 | `AdditionalData.CaptureCode`        | Code informed by **Masterpass** to the merchant.                                                                                                                                       | Text | --      | 3                                                                                                                    |
 | `AdditionalData.Signature`          | Token returned by wallet. Must be submitted in **GooglePay** integrations.                                                                                                             | Text | --      | See table [Signature](https://developercielo.github.io/manual/e-wallets-ecommercecielo#signature)                   |
 
-### Zero Auth
+## Zero Auth
 
-Zero Auth allows the merchant to check whether a card is valid for making a purchase before the order is finalized. Zero Auth simulates an authorization without affecting the credit limit or alerting the cardholder about the test. Please refer to [Zero Auth](https://developercielo.github.io/en/manual/cielo-ecommerce#zero-auth){:target="_blank"} for further information.
+Zero Auth allows the merchant to check whether a card is valid for making a purchase before the order is completed. Zero Auth simulates an authorization without affecting the credit limit or alerting the cardholder about the test. Please refer to [Zero Auth](https://developercielo.github.io/en/manual/cielo-ecommerce#zero-auth){:target="_blank"} for further information.
 
 # Integration examples
 
