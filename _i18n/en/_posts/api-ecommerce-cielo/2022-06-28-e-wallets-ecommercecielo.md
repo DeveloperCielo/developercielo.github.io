@@ -116,7 +116,7 @@ See below the representation of a standard **transactional flow** in the integra
 | `Payment.Amount`                           | Order amount in cents.                                                                                                                                                           | Number | 15      | Yes                     |
 | `Payment.Installments`                     | Number of installments.                                                                                                                                                                     | Number | 2       | Yes                     |
 |`Payment.Capture`|Indicates whether the authorization will use automatic capture (“true”) or not (“false”). If "false", a capture request must be sent - please, check with the acquirer if pre-authorization is available. |Boolean| - |No (default “false”)|
-| `Wallet.Type`                              | Wallet type: "ApplePay" / "SamsungPay" / "GooglePay" / "Masterpass".                                                                                              | Text  | --      | Yes                     |
+| `Wallet.Type`                              | Wallet type: "ApplePay" / "SamsungPay" / "GooglePay".                                                                                              | Text  | --      | Yes                     |
 | `Wallet.WalletKey`                         | Cryptographic key that identifies stores in wallets. Consult the table [WalletKey](https://developercielo.github.io/manual/e-wallets-ecommercecielo#walletkey) for more information. | Text  | --      | Yes                     |
 | `Wallet.AdditionalData.EphemeralPublicKey` | Token returned by wallet. Must be submitted in **ApplePay** integrations.                                                                                                              | Text  | --      | Yes                     |
 | `Wallet.AdditionalData.CaptureCode`        | Code informed by **Masterpass** to the merchant.                                                                                                                                        | Text  | --      | Yes                     |
@@ -298,6 +298,10 @@ This is the `EphemeralPublicKey` format to be sent to API E-commerce Cielo:
 | `AdditionalData.EphemeralPublicKey` | Token returned by the wallet. Must be submitted in **ApplePay** integrations.                                                                                                              | Text | --      | See table [EphemeralPublicKey](https://developercielo.github.io/manual/e-wallets-ecommercecielo#ephemeralpublickey) |
 | `AdditionalData.CaptureCode`        | Code informed by **Masterpass** to the merchant.                                                                                                                                       | Text | --      | 3                                                                                                                    |
 | `AdditionalData.Signature`          | Token returned by wallet. Must be submitted in **GooglePay** integrations.                                                                                                             | Text | --      | See table [Signature](https://developercielo.github.io/manual/e-wallets-ecommercecielo#signature)                   |
+
+### Zero Auth
+
+Zero Auth allows the merchant to check whether a card is valid for making a purchase before the order is finalized. Zero Auth simulates an authorization without affecting the credit limit or alerting the cardholder about the test. Please refer to [Zero Auth](https://developercielo.github.io/en/manual/cielo-ecommerce#zero-auth){:target="_blank"} for further information.
 
 # Integration examples
 
