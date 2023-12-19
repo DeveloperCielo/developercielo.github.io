@@ -6441,7 +6441,7 @@ You should send open card data: number, holder, expiration date, security code a
 }
 ```
 
-| Field              | Description                                                                                                                                                                                                              | Type      | Contact Us | Required       |
+| Field              | Description                                                                                                                                                                                                              | Type      | Size | Required       |
 |--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|------------|----------------|
 | `CardType`         | Defines the type of card used: <br> <br> *CreditCard* <br> *DebitCard* <br> <br> If not sent, CreditCard is the default.    | Text      | 255        | Yes            |
 | `CardNumber`       | Card Number     | Text      | 16         | Yes            |
