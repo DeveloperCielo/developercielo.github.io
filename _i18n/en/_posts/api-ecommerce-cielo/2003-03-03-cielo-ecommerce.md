@@ -6394,9 +6394,9 @@ https://apiquerysandbox.cieloecommerce.cielo.com.br/1/cardBin/420020
 
 **Zero Auth** is a Cielo tool that allows you to check whether a card is valid for making a purchase before the order is finalized. Zero Auth simulates an authorization without affecting the credit limit or alerting the cardholder about the test.
 
-> Zero Auth does not inform the limit or characteristics of the card or the holder, it only simulates a Cielo authorization.
+> Zero Auth does not return the card available limit or card/cardholder characteristics. Zero Auth only simulates a Cielo authorization.
 
-Zero Auth is the correct way to validate cards according to the recommendations of brands and banks. Before the creation of Zero Auth, stores used to create low-value transactions, such as one real or one dollar, and then cancel them; It is important to know that this practice is now penalized by the brands.
+Zero Auth is the correct way to validate cards according to the recommendations of brands and banks. Before the creation of Zero Auth, stores used to create low-value transactions, such as one real or one dollar, and then cancel them; it is important to know that this practice is now penalized by the card brands.
 
 > **Notice**:<br>
 > * In the event of transactions with an amount *different from zero* and *less than one dollar*, followed by cancellation of the transaction, the brands will apply fees to Cielo, which will be passed on to the establishments that are non-compliant. Mastercard, for example, is charging a fee of R$0.21 per transaction.<br>
@@ -6410,19 +6410,21 @@ Zero Auth supports **Visa, Master** and **Elo** for both credit and debit cards.
 
 If other brands are sent, there will be an error with the return "**57-Invalid Brand**".
 
-<aside class="warning">Contact Cielo Support Team to enable Zero Auth.</aside>
+<aside class="warning">Contact Cielo Support team to enable Zero Auth.</aside>
 
 ## Integration
 
-To perform a Zero Auth query, the merchant must send a `POST` request to the API E-commerce Cielo, simulating a transaction.
+To perform a Zero Auth validation, the merchant must send a `POST` request to the API E-commerce Cielo, simulating a transaction.
 
-### Request
+Validating an open card requires a different technical contract than validating a tokenized card or an e-wallet. Check out each example request in the following topics:
+
+### Open card
+
+You should send open card data: number, holder, expiration date, security code and brand, along with other parameters as seen below.
+
+#### Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/zeroauth</span></aside>
-
-Validating an open card requires a different technical contract than validating a tokenized card. Check out the example requests:
-
-#### Open card
 
 ``` json
 {
@@ -6441,16 +6443,146 @@ Validating an open card requires a different technical contract than validating 
 
 | Field              | Description                                                                                                                                                                                                              | Type      | Contact Us | Required       |
 |--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|------------|----------------|
-| `CardType`         | Defines the type of card used: <br> <br> *CreditCard* <br> *DebitCard* <br> <br> If not sent, CreditCard as default                                                                                                      | Text      | 255        | Yes            |
-| `CardNumber`       | Card Number                                                                                                                                                                                                              | Text      | 16         | Yes            |
-| `Holder`           | Buyer's name, printed on the card.                                                                                                                                                                                       | Text      | 25         | Yes            |
-| `ExpirationDate`   | Expiration date.                                                                                                                                                                                                         | Text      | 7          | Yes            |
-| `SecurityCode`     | Card Security code .                                                                                                                                                                                                     | Text      | 4          | Yes            |
-| `SaveCard`         | Defines if the card must be tokenized. Find out more about [Tokenization of Cards](https://developercielo.github.io/en/manual/cielo-ecommerce#tokenization-of-cards).                                                                                                                                                                                    | Boolean   | ---        | Yes            |
-| `Brand`            | Card Brand:<br> Visa <br> Master <br> ELO                                                                                                                                                                                    | Text      | 10         | Yes            |
-| `CardToken`        | Card Token 3.0                                                                                                                                                                                                           | GUID      | 36         | Conditional    |
-| `Usage`            | **First** if the credentials have been stored and they will be used for the first time.<br>**Used** if the credentials have been stored and they were previously used.                                                   | Text   | ---     | No         |
-| `Reason`           | Indicates the purpose of storing cards, if the "Usage" field is "Used".<BR>**Recurring** - Scheduled recurring purchase (eg subscriptions). If it is a recurring transaction, use `Payment.Recurrent` = true (merchant recurrence) or `Recurrent.Payment` = true (scheduled recurrence).<br>**Unscheduled** - Recurring purchase without scheduling (eg service applications)<br>**Installments** - Installment through recurrence<br>.| Text   | ---     | Conditional |
+| `CardType`         | Defines the type of card used: <br> <br> *CreditCard* <br> *DebitCard* <br> <br> If not sent, CreditCard is the default.    | Text      | 255        | Yes            |
+| `CardNumber`       | Card Number     | Text      | 16         | Yes            |
+| `Holder`           | Cardholder's name, printed on the card.      | Text      | 25         | Yes            |
+| `ExpirationDate`   | Expiration date.   | Text      | 7          | Yes            |
+| `SecurityCode`     | Card Security code.  | Text      | 4          | Yes            |
+| `SaveCard`         | Defines if the card must be tokenized. Find out more about [Tokenization of Cards](https://developercielo.github.io/en/manual/cielo-ecommerce#tokenization-of-cards). | Boolean   | ---        | Yes            |
+| `Brand`            | Card brand:<br> Visa <br> Master <br> ELO    | Text      | 10         | Yes            |
+| `CardToken`        | Card Token in API E-commerce Cielo.    | GUID      | 36         | Conditional    |
+| `CardOnFile.Usage`            | **First** if the credentials have been stored and they will be used for the first time.<br>**Used** if the credentials have been stored and they were previously used.                                                   | Text   | ---     | No         |
+| `CardOnFile.Reason`           | Indicates the purpose of storing cards, if the "Usage" field is "Used".<BR>**Recurring** - Scheduled recurring purchase (eg subscriptions). If it is a recurring transaction, use `Payment.Recurrent` = true (merchant recurrence) or `Recurrent.Payment` = true (scheduled recurrence).<br>**Unscheduled** - Recurring purchase without scheduling (eg service applications)<br>**Installments** - Installment through recurrence<br>.| Text   | ---     | Conditional |
+
+### Tokenized card
+
+If the card is tokenized, you should send the `CardToken`.
+
+#### Request
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/zeroauth</span></aside>
+
+``` json
+{
+  "CardToken":"23712c39-bb08-4030-86b3-490a223a8cc9",
+  "SaveCard":"false",
+  "Brand":"Visa"
+}
+```
+
+| Field              | Description                                                                                                               | Type      | Size | Required       |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------|-----------|------------|----------|
+| `Brand`            | Card Brand: Visa <br> Master <br> ELO                                                                                     | Text      | 10         | not |
+| `CardToken`        | Tokenized Card 3.0                                                                                                        | GUID      | 36         | yes |
+
+### E-wallet
+
+In order to validate an e-wallet with Zero Auth, the merchant is required to have one of the [available e-wallets](https://developercielo.github.io/en/manual/cielo-ecommerce#available-e-wallets) integrated.
+
+#### Request
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/2/zeroauth</span></aside>
+
+``` json
+{
+    "Card": {
+       "CardType": "CreditCard",
+       "CardNumber": "4532154371691902",
+       "Holder": "Joao da Silva",
+      "ExpirationDate": "MM/YYYY",
+       "SecurityCode": "333",
+       "Brand": "Visa",
+       "CardOnFile": {
+           "Usage": "First",
+           "Reason": "Recurring"
+       }
+   },
+    "Wallet": {
+       "Type": "ApplePay",
+       "Cavv": "AM1mbqehL24XAAa0J04CAoABFA==",
+       "Eci": 7
+}
+}
+```
+
+| Field              | Description    | Type      | Contact Us | Required       |
+|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|------------|----------------|
+| `CardType`         | Defines the type of card used: <br> <br> *CreditCard* <br> *DebitCard* <br> <br> If not sent, CreditCard is the default.    | Text      | 255        | Yes            |
+| `CardNumber`       | Card Number     | Text      | 16         | Yes            |
+| `Holder`           | Cardholder's name, printed on the card.      | Text      | 25         | Yes            |
+| `ExpirationDate`   | Expiration date.   | Text      | 7          | Yes            |
+| `SecurityCode`     | Card Security code.  | Text      | 4          | Yes            |
+| `SaveCard`         | Defines if the card must be tokenized. Find out more about [Tokenization of Cards](https://developercielo.github.io/en/manual/cielo-ecommerce#tokenization-of-cards). | Boolean   | ---        | Yes            |
+| `Brand`            | Card brand:<br> Visa <br> Master <br> ELO    | Text      | 10         | Yes            |
+| `CardToken`        | Card Token in API E-commerce Cielo.    | GUID      | 36         | Conditional    |
+| `CardOnFile.Usage`            | **First** if the credentials have been stored and they will be used for the first time.<br>**Used** if the credentials have been stored and they were previously used.                                                   | Text   | ---     | No         |
+| `CardOnFile.Reason`           | Indicates the purpose of storing cards, if the "Usage" field is "Used".<BR>**Recurring** - Scheduled recurring purchase (eg subscriptions). If it is a recurring transaction, use `Payment.Recurrent` = true (merchant recurrence) or `Recurrent.Payment` = true (scheduled recurrence).<br>**Unscheduled** - Recurring purchase without scheduling (eg service applications)<br>**Installments** - Installment through recurrence<br>.| Text   | ---     | Conditional |
+|`Wallet.Type`| Wallet type: “ApplePay” / “SamsungPay” / “GooglePay”. | Text | 15 | Yes |
+|`Wallet.Cavv` |Validation field returned by the e-wallet and used as authorization basis. |Text | 255 | Yes |
+|`Wallet.Eci` |Electronic Commerce Indicator. Represents how secure a transaction is. The merchant should consider the ECI to decide whether or not to capture a transaction.|Text| 2 | Yes|
+
+### Response
+
+The response always returns whether the card can currently be authorized. This information only means that the _card is valid for transactioning_, but does not indicate that a certain value will be authorized.
+
+The fields returned in the response depend on the validation result. The following table presents all possible fields; after the table, check out the examples for each type of response.
+
+> If the response is negative, do not submit for authorization, submit only if the response code is positive.
+
+| Field                 | Description                                                                        | Type      | Size |
+| --------------------- | ------------------------------- -------------------------------------------------- | --------- | : -------: |
+| `Valid`               | Card Status: <br> **True ** - Valid Card <BR> **False** - Invalid Card             | Boolean   | ---        |
+| `ReturnCode`          | Return code                                                                        | Text      | 2          |
+| `ReturnMessage`       | Return message                                                                     | Text      | 255        |
+| `IssuerTransactionId` | Issuer authentication identifier for recurring credit transactions. This field must be sent in subsequent transactions of the first transaction in the self-recurrence model. In the programmed recurrence model, Cielo will be responsible for sending the field in subsequent transactions. | Text   | 15      |
+
+#### POSITIVE - Valid Card
+
+``` json
+{
+  "Valid": true,
+  "ReturnCode": "00",
+  "ReturnMessage": "Transacao autorizada",
+  "IssuerTransactionId": "580027442382078"
+}
+```
+
+> See [Return codes](https://developercielo.github.io/en/manual/cielo-ecommerce#api-codes){:target="_blank"} to see the return codes descriptions. 
+> The return code **00 represents success in Zero Auth**, the other codes are defined according to the next topics.
+
+#### NEGATIVE - Invalid Card
+
+``` json
+{
+       "Valid": false,
+       "ReturnCode": "57",
+       "ReturnMessage": "Autorizacao negada",
+       "IssuerTransactionId": "580027442382078"
+}
+```
+
+#### NEGATIVE - Invalid Card - Brand not Supported
+
+``` json
+  {    
+      "Code": 57,     
+      "Message": "Bandeira inválida"   
+  }
+```
+
+#### NEGATIVE - Registration Restriction
+
+``` json
+  {    
+      "Code": 389,     
+      "Message": "Restrição Cadastral"   
+  }
+```
+
+If there is an error in Zero Auth flow and it is not possible to validate the card, Zero Auth will return the following errors:
+
+* *500 – Internal Server Error*
+* *400 – Bad Request*
 
 #### Tokenized cards
 
