@@ -12149,10 +12149,10 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
 <p><strong>Zero Auth</strong> is a Cielo tool that allows you to check whether a card is valid for making a purchase before the order is finalized. Zero Auth simulates an authorization without affecting the credit limit or alerting the cardholder about the test.</p>
 
 <blockquote>
-  <p>Zero Auth does not inform the limit or characteristics of the card or the holder, it only simulates a Cielo authorization.</p>
+  <p>Zero Auth does not return the card available limit or card/cardholder characteristics. Zero Auth only simulates a Cielo authorization.</p>
 </blockquote>
 
-<p>Zero Auth is the correct way to validate cards according to the recommendations of brands and banks. Before the creation of Zero Auth, stores used to create low-value transactions, such as one real or one dollar, and then cancel them; It is important to know that this practice is now penalized by the brands.</p>
+<p>Zero Auth is the correct way to validate cards according to the recommendations of brands and banks. Before the creation of Zero Auth, stores used to create low-value transactions, such as one real or one dollar, and then cancel them; it is important to know that this practice is now penalized by the card brands.</p>
 
 <blockquote>
   <p><strong>Notice</strong>:<br /></p>
@@ -12170,19 +12170,21 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
 
 <p>If other brands are sent, there will be an error with the return “<strong>57-Invalid Brand</strong>”.</p>
 
-<aside class="warning">Contact Cielo Support Team to enable Zero Auth.</aside>
+<aside class="warning">Contact Cielo Support team to enable Zero Auth.</aside>
 
 <h2 id="integration-1">Integration</h2>
 
-<p>To perform a Zero Auth query, the merchant must send a <code class="language-plaintext highlighter-rouge">POST</code> request to the API E-commerce Cielo, simulating a transaction.</p>
+<p>To perform a Zero Auth validation, the merchant must send a <code class="language-plaintext highlighter-rouge">POST</code> request to the API E-commerce Cielo, simulating a transaction.</p>
 
-<h3 id="request-39">Request</h3>
+<p>Validating an open card requires a different technical contract than validating a tokenized card or an e-wallet. Check out each example request in the following topics:</p>
+
+<h3 id="open-card">Open card</h3>
+
+<p>You should send open card data: number, holder, expiration date, security code and brand, along with other parameters as seen below.</p>
+
+<h4 id="request-39">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/zeroauth</span></aside>
-
-<p>Validating an open card requires a different technical contract than validating a tokenized card. Check out the example requests:</p>
-
-<h4 id="open-card">Open card</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="s2">"1234123412341231"</span><span class="p">,</span><span class="w">
@@ -12211,7 +12213,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CardType</code></td>
-      <td>Defines the type of card used: <br /> <br /> <em>CreditCard</em> <br /> <em>DebitCard</em> <br /> <br /> If not sent, CreditCard as default</td>
+      <td>Defines the type of card used: <br /> <br /> <em>CreditCard</em> <br /> <em>DebitCard</em> <br /> <br /> If not sent, CreditCard is the default.</td>
       <td>Text</td>
       <td>255</td>
       <td>Yes</td>
@@ -12225,7 +12227,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Holder</code></td>
-      <td>Buyer’s name, printed on the card.</td>
+      <td>Cardholder’s name, printed on the card.</td>
       <td>Text</td>
       <td>25</td>
       <td>Yes</td>
@@ -12239,7 +12241,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">SecurityCode</code></td>
-      <td>Card Security code .</td>
+      <td>Card Security code.</td>
       <td>Text</td>
       <td>4</td>
       <td>Yes</td>
@@ -12253,27 +12255,27 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Brand</code></td>
-      <td>Card Brand:<br /> Visa <br /> Master <br /> ELO</td>
+      <td>Card brand:<br /> Visa <br /> Master <br /> ELO</td>
       <td>Text</td>
       <td>10</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CardToken</code></td>
-      <td>Card Token 3.0</td>
+      <td>Card Token in API E-commerce Cielo.</td>
       <td>GUID</td>
       <td>36</td>
       <td>Conditional</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Usage</code></td>
+      <td><code class="language-plaintext highlighter-rouge">CardOnFile.Usage</code></td>
       <td><strong>First</strong> if the credentials have been stored and they will be used for the first time.<br /><strong>Used</strong> if the credentials have been stored and they were previously used.</td>
       <td>Text</td>
       <td>—</td>
       <td>No</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Reason</code></td>
+      <td><code class="language-plaintext highlighter-rouge">CardOnFile.Reason</code></td>
       <td>Indicates the purpose of storing cards, if the “Usage” field is “Used”.<br /><strong>Recurring</strong> - Scheduled recurring purchase (eg subscriptions). If it is a recurring transaction, use <code class="language-plaintext highlighter-rouge">Payment.Recurrent</code> = true (merchant recurrence) or <code class="language-plaintext highlighter-rouge">Recurrent.Payment</code> = true (scheduled recurrence).<br /><strong>Unscheduled</strong> - Recurring purchase without scheduling (eg service applications)<br /><strong>Installments</strong> - Installment through recurrence<br />.</td>
       <td>Text</td>
       <td>—</td>
@@ -12281,6 +12283,278 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
     </tr>
   </tbody>
 </table>
+
+<h3 id="tokenized-card">Tokenized card</h3>
+
+<p>If the card is tokenized, you should send the <code class="language-plaintext highlighter-rouge">CardToken</code>.</p>
+
+<h4 id="request-40">Request</h4>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/zeroauth</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"CardToken"</span><span class="p">:</span><span class="s2">"23712c39-bb08-4030-86b3-490a223a8cc9"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Brand</code></td>
+      <td>Card Brand: Visa <br /> Master <br /> ELO</td>
+      <td>Text</td>
+      <td>10</td>
+      <td>not</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CardToken</code></td>
+      <td>Tokenized Card 3.0</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="e-wallet-1">E-wallet</h3>
+
+<p>In order to validate an e-wallet with Zero Auth, the merchant is required to have one of the <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#available-e-wallets">available e-wallets</a> integrated.</p>
+
+<h4 id="request-41">Request</h4>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/2/zeroauth</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"Card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="nl">"CardType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4532154371691902"</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joao da Silva"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MM/YYYY"</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"333"</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"CardOnFile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+           </span><span class="nl">"Usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"First"</span><span class="p">,</span><span class="w">
+           </span><span class="nl">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Recurring"</span><span class="w">
+       </span><span class="p">}</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ApplePay"</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"Cavv"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AM1mbqehL24XAAa0J04CAoABFA=="</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"Eci"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Contact Us</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CardType</code></td>
+      <td>Defines the type of card used: <br /> <br /> <em>CreditCard</em> <br /> <em>DebitCard</em> <br /> <br /> If not sent, CreditCard is the default.</td>
+      <td>Text</td>
+      <td>255</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CardNumber</code></td>
+      <td>Card Number</td>
+      <td>Text</td>
+      <td>16</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Holder</code></td>
+      <td>Cardholder’s name, printed on the card.</td>
+      <td>Text</td>
+      <td>25</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ExpirationDate</code></td>
+      <td>Expiration date.</td>
+      <td>Text</td>
+      <td>7</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SecurityCode</code></td>
+      <td>Card Security code.</td>
+      <td>Text</td>
+      <td>4</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SaveCard</code></td>
+      <td>Defines if the card must be tokenized. Find out more about <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#tokenization-of-cards">Tokenization of Cards</a>.</td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Brand</code></td>
+      <td>Card brand:<br /> Visa <br /> Master <br /> ELO</td>
+      <td>Text</td>
+      <td>10</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CardToken</code></td>
+      <td>Card Token in API E-commerce Cielo.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Conditional</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CardOnFile.Usage</code></td>
+      <td><strong>First</strong> if the credentials have been stored and they will be used for the first time.<br /><strong>Used</strong> if the credentials have been stored and they were previously used.</td>
+      <td>Text</td>
+      <td>—</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CardOnFile.Reason</code></td>
+      <td>Indicates the purpose of storing cards, if the “Usage” field is “Used”.<br /><strong>Recurring</strong> - Scheduled recurring purchase (eg subscriptions). If it is a recurring transaction, use <code class="language-plaintext highlighter-rouge">Payment.Recurrent</code> = true (merchant recurrence) or <code class="language-plaintext highlighter-rouge">Recurrent.Payment</code> = true (scheduled recurrence).<br /><strong>Unscheduled</strong> - Recurring purchase without scheduling (eg service applications)<br /><strong>Installments</strong> - Installment through recurrence<br />.</td>
+      <td>Text</td>
+      <td>—</td>
+      <td>Conditional</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Wallet.Type</code></td>
+      <td>Wallet type: “ApplePay” / “SamsungPay” / “GooglePay”.</td>
+      <td>Text</td>
+      <td>15</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Wallet.Cavv</code></td>
+      <td>Validation field returned by the e-wallet and used as authorization basis.</td>
+      <td>Text</td>
+      <td>255</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Wallet.Eci</code></td>
+      <td>Electronic Commerce Indicator. Represents how secure a transaction is. The merchant should consider the ECI to decide whether or not to capture a transaction.</td>
+      <td>Text</td>
+      <td>2</td>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-35">Response</h3>
+
+<p>The response always returns whether the card can currently be authorized. This information only means that the <em>card is valid for transactioning</em>, but does not indicate that a certain value will be authorized.</p>
+
+<p>The fields returned in the response depend on the validation result. The following table presents all possible fields; after the table, check out the examples for each type of response.</p>
+
+<blockquote>
+  <p>If the response is negative, do not submit for authorization, submit only if the response code is positive.</p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Valid</code></td>
+      <td>Card Status: <br /> <strong>True ** - Valid Card <br /> **False</strong> - Invalid Card</td>
+      <td>Boolean</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
+      <td>Return code</td>
+      <td>Text</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReturnMessage</code></td>
+      <td>Return message</td>
+      <td>Text</td>
+      <td>255</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">IssuerTransactionId</code></td>
+      <td>Issuer authentication identifier for recurring credit transactions. This field must be sent in subsequent transactions of the first transaction in the self-recurrence model. In the programmed recurrence model, Cielo will be responsible for sending the field in subsequent transactions.</td>
+      <td>Text</td>
+      <td>15</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="positive---valid-card">POSITIVE - Valid Card</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"Valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transacao autorizada"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"IssuerTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"580027442382078"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<blockquote>
+  <p>See <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#api-codes" target="_blank">Return codes</a> to see the return codes descriptions. 
+The return code <strong>00 represents success in Zero Auth</strong>, the other codes are defined according to the next topics.</p>
+</blockquote>
+
+<h4 id="negative---invalid-card">NEGATIVE - Invalid Card</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+       </span><span class="nl">"Valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57"</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Autorizacao negada"</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"IssuerTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"580027442382078"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h4 id="negative---invalid-card---brand-not-supported">NEGATIVE - Invalid Card - Brand not Supported</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="p">{</span><span class="w">    
+      </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="mi">57</span><span class="p">,</span><span class="w">     
+      </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bandeira inválida"</span><span class="w">   
+  </span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h4 id="negative---registration-restriction">NEGATIVE - Registration Restriction</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="p">{</span><span class="w">    
+      </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="mi">389</span><span class="p">,</span><span class="w">     
+      </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Restrição Cadastral"</span><span class="w">   
+  </span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>If there is an error in Zero Auth flow and it is not possible to validate the card, Zero Auth will return the following errors:</p>
+
+<ul>
+  <li><em>500 – Internal Server Error</em></li>
+  <li><em>400 – Bad Request</em></li>
+</ul>
 
 <h4 id="tokenized-cards">Tokenized cards</h4>
 
@@ -12319,7 +12593,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
   </tbody>
 </table>
 
-<h3 id="response-35">Response</h3>
+<h3 id="response-36">Response</h3>
 
 <p>The response always returns whether the card can currently be authorized. This information only means that the <em>card is valid for transactioning</em>, but does not indicate that a certain value will be authorized.</p>
 
@@ -12366,7 +12640,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
   </tbody>
 </table>
 
-<h4 id="positive---valid-card">POSITIVE - Valid Card</h4>
+<h4 id="positive---valid-card-1">POSITIVE - Valid Card</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -12381,7 +12655,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
 The return code <strong>00 represents success in Zero Auth</strong>, the other codes are defined according to the documentation to follow.</p>
 </blockquote>
 
-<h4 id="negative---invalid-card">NEGATIVE - Invalid Card</h4>
+<h4 id="negative---invalid-card-1">NEGATIVE - Invalid Card</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
        </span><span class="nl">"Valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -12391,7 +12665,7 @@ The return code <strong>00 represents success in Zero Auth</strong>, the other c
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h4 id="negative---invalid-card---brand-not-supported">NEGATIVE - Invalid Card - Brand not Supported</h4>
+<h4 id="negative---invalid-card---brand-not-supported-1">NEGATIVE - Invalid Card - Brand not Supported</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="p">{</span><span class="w">    
       </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="mi">57</span><span class="p">,</span><span class="w">     
@@ -12399,7 +12673,7 @@ The return code <strong>00 represents success in Zero Auth</strong>, the other c
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h4 id="negative---registration-restriction">NEGATIVE - Registration Restriction</h4>
+<h4 id="negative---registration-restriction-1">NEGATIVE - Registration Restriction</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="p">{</span><span class="w">    
       </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="mi">389</span><span class="p">,</span><span class="w">     
@@ -12899,7 +13173,7 @@ The return code <strong>00 represents success in Zero Auth</strong>, the other c
 
 <p>Example: https://transaction.cieloecommerce.cielo.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000</p>
 
-<h3 id="request-40">Request</h3>
+<h3 id="request-42">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v1/accesstoken?merchantid={mid_loja}</span></aside>
 
@@ -12931,7 +13205,7 @@ The return code <strong>00 represents success in Zero Auth</strong>, the other c
   </tbody>
 </table>
 
-<h3 id="response-36">Response</h3>
+<h3 id="response-37">Response</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
