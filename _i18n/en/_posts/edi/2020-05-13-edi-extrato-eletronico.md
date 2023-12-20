@@ -21,11 +21,11 @@ Aiming to bring greater transparency and fluidity in the conciliation of extract
 
 Below is the communication sent with the details of the changes, test files and complementary documentation to support the homologation.
 
-[PT-BR](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_15.4.pdf)
+[PT-BR](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_PT-BR_Dez.zip)
 
-[EN](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Eletronic_Statement_-_Manual_-_Version_15.4.pdf)
+[EN](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_english_Dez.zip)
 
-[ES](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extracto_Electronico_-_Manual_-_Version_15.4.pdf)
+[ES](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_espanol_Dez.zip)
 
 [Arquivos de Teste](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Arquivos_Testes.zip)
 
