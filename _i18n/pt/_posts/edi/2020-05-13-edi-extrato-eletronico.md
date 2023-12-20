@@ -21,11 +21,11 @@ Visando trazer maior transparência e fluidez na conciliação dos extratos, os 
 
 Abaixo segue o comunicado enviado com os detalhes das alterações, arquivos de teste e documentação complementar para apoiar com a homologação.
 
-[Material versão português](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_15.4.pdf)
+[Material versão português](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_PT-BR_Dez.zip)
 
-[Material version english](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Eletronic_Statement_-_Manual_-_Version_15.4.pdf)
+[Material version english](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_english_Dez.zip)
 
-[Material versión español](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extracto_Electronico_-_Manual_-_Version_15.4.pdf)
+[Material versión español](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_espanol_Dez.zip)
 
 [Arquivos de Teste](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Arquivos_Testes.zip)
 
