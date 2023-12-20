@@ -1822,8 +1822,8 @@ Caso a sua loja precise cancelar uma transferência Pix, é possível realizar u
 | Propriedade     | Descrição                           | Tipo  | Tamanho | Formato            |
 | --------------- | ----------------------------------- | ----- | ------- | ------------------ |
 | `Status`        | Status da transação.                | byte  | 2       | Ex.: "1"           |
-| `ReasonCode`    | Código de retorno da adquirência.   | texto | 32      | Texto alfanumérico |
-| `ReasonMessage` | Mensagem de retorno da adquirência. | texto | 512     | Texto alfanumérico |
+| `ReasonCode`    | Código que indica sucesso ou erro no fluxo da operação solicitada. Saiba mais em [Códigos de Erros da API](https://developercielo.github.io/manual/cielo-ecommerce#c%C3%B3digos-de-erros-da-api). | texto | 32      | Texto alfanumérico |
+| `ReasonMessage` | Mensagem que indica sucesso ou erro no fluxo da operação solicitada. Saiba mais em [Códigos de Erros da API](https://developercielo.github.io/manual/cielo-ecommerce#c%C3%B3digos-de-erros-da-api). | texto | 512     | Texto alfanumérico |
 
 ## Boleto
 
