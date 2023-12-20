@@ -169,7 +169,7 @@ The response will return the `access_token`, which must be used in Transactional
 
 > The returned token (`access_token`) must be used in every query, capture and cancellation request as an authorization key. The `access_token` has a validity of 20 minutes (1200 seconds) and it is necessary to generate a new token every time the validity expires.
 
-# Quick start
+# Get started
 
 To start your integration with the API Cielo Checkout, you will need:
 
@@ -183,6 +183,160 @@ To start your integration with the API Cielo Checkout, you will need:
 8. To carry out tests, use Checkout Cielo Test Mode.
 
 *If you have configured the notification URL.
+
+# Merchant Settings
+
+Before setting up, you need to enable Cielo Checkout for your store.
+
+## Enabling the establishment number (EC) for Checkout
+
+* **If you are not yet a Cielo customer or if you only use the POS terminal**, access the [Cielo website](https://www.cielo.com.br/){:target="_blank"} to activate the establishment code (EC) for Checkout;
+* **If you are already a Cielo E-commerce customer**, contact your commercial manager or Cielo Support.
+
+## Setting up your store
+
+**Access store settings on the Cielo website**
+
+Go to the [Cielo website](https://minhaconta2.cielo.com.br/login/){:target="_blank"} and log in. Access **E-commerce** > **Checkout** > **Configurações** > **Configurações da loja**.
+
+### 1. Customize the appearance of the payment page
+
+Insert the image of your store's logo and choose a background color. Click on **Salvar**.
+
+![Aparência da Página de Pagemento]({{ site.baseurl_root }}/images/checkout/superlink/superlink-aparencia-pagina-pagamento.png)
+
+### 2. Configure the checkout email for the shopper
+
+If you do not want your end customer to receive an order completion email after payment, disable this option. Then click on **Salvar**.
+
+![E-mail de finalização para o comprador]({{ site.baseurl_root }}/images/checkout/superlink/superlink-email-finalizacao.png)
+
+### 3. Define the desired payment methods
+
+Select the payment methods you would like to make available to your customers. For credit cards, choose the maximum number of installments allowed. Then click **Salvar**.
+
+![Meios de Pagamento Ativos]({{ site.baseurl_root }}/images/checkout/superlink/superlink-meios-de-pagamento.png)
+
+<aside class="notice">These settings apply to all payment pages created by your store.</aside>
+
+> The number of installments available for payment must be the same as that shown in your Cielo registration. Consult E-commerce Support if you have any questions.
+
+#### Credit card
+
+Checkout Cielo allows the use of credit cards from the main national and international brands. This payment method is automatically available with the Cielo affiliation and can initially be used with the Checkout integration.
+
+Credit card transactions will be included in the Cielo Checkout Backoffice as PENDING, AUTHORIZED, PAID, DENIED, EXPIRED OR CHARGEBACK depending on the result of the authorization with the bank. See possible credit card transaction statuses in the [Payment_status](https://developercielo.github.io/manual/checkout-cielo#payment_status85) table.
+
+Credit card transactions need to be captured automatically or manually - it depends on what you choose on step [5. Configure capture and Antifraude].
+
+> **International Cards**: Checkout Cielo accepts cards issued outside Brazil, however these cards do not have the ability to pay in installments. This is a limitation imposed by the issuing bank.
+
+#### Debit card
+
+Checkout Cielo allows the use of Mastercard, Visa and Elo debit cards. This payment method is automatically available with the Cielo affiliation and can initially be used with the Checkout integration.
+
+Debit card transactions will be included on the Cielo website as **Pago** (paid), **Não Autorizado** (not authorized) or **Não Finalizado** (not finalized), depending on the result of authorization with the bank. See possible debit card transaction statuses in the [Payment_status](https://developercielo.github.io/manual/checkout-cielo#payment_status85) table.
+
+#### Pix
+
+The Pix payment method is available for CNPJ-type establishments through two providers, Cielo or Bradesco.
+
+> To enable Pix Bradesco, contact support.
+
+**Enabling Pix on the Cielo website**
+
+To use **Pix**, your **registration must be enabled with the Pix** payment method. To confirm your qualification, access the [Cielo portal](https://www.cielo.com.br/){:target="_blank"} and click on **Meu Cadastro** > **Autorizações** > **Pix**.
+
+If Pix is not enabled in your registration, the adhesion screen will be displayed if your establishment (EC) is eligible; After completing the Pix adhesion process, it will be possible to use Pix at Cielo Checkout.
+
+![Adesão ao Pix]({{ site.baseurl_root }}/images/apicieloecommerce/adesao-pix.png)
+
+See possible Pix transaction statuses in the [Payment_status](https://developercielo.github.io/manual/checkout-cielo#payment_status85) table.
+
+#### Boleto
+
+Checkout Cielo allows the use of Boletos from Bradesco and Banco do Brasil. To make boleto available as a payment method, request authorization from E-commerce Support.
+
+The number of installments chosen for payment must be the same as that shown in your Cielo registration. Consult E-commerce support if you have any questions.
+
+Boleto transactions will be included on the Cielo website as **Não Finalizado** (not finalized) or **Pago** (paid). Unlike other payment methods, boleto does not have a status update. The store must access the Backoffice Cielo website and modify the boleto status manually.
+
+See possible boleto transaction statuses in the [Payment_status](https://developercielo.github.io/manual/checkout-cielo#payment_status85) table.
+
+#### QR Code Pay
+
+The [QR Code Pay Cielo](https://www.cielo.com.br/qrcode/?gad=1&gclid=EAIaIQobChMIp9qVhvLZ_wIVKTHUAR0Akws8EAAYASAAEgIVjfD_BwE&gclsrc=aw.ds){:target="_blank"} allows payment through any digital wallet. When the shopper selects the QR Code Pay on the Checkout Cielo payment page and clicks **Finalizar compra** (finalize purchase), Checkout presents a QR Code to be scanned by the shopper using the digital wallet of their choice.
+
+See possible QR Code Pau transaction statuses in the [Payment_status](https://developercielo.github.io/manual/checkout-cielo#payment_status85) table.
+
+### 4. Configure your store's return, notification, and status change URLs
+
+You will need to fill in the return, notification and status change URLs. URLs must be created and defined by the store. Then click **Salvar**.
+
+![URLs de Notificação]({{ site.baseurl_root }}/images/checkout/superlink/superlink-urls-notificacao.png)
+
+* **Return URL**: after completing payment, the shopper can be redirected to a web page defined by the store. No data is exchanged or sent to this URL and its configuration is optional;
+* **[Notification URL](https://developercielo.github.io/manual/checkout-cielo#notifica%C3%A7%C3%A3o-de-finaliza%C3%A7%C3%A3o-da-transa%C3%A7%C3%A3o)**: corresponds to the transaction completion notification. It is the URL through which your store will receive notification with all cart data when the transaction is completed;
+* **[Status Change URL](https://developercielo.github.io/manual/checkout-cielo#notifica%C3%A7%C3%A3o-de-mudan%C3%A7a-de-status)**: corresponds to status change notification. It is the URL through which your store will receive the notification when an order has its status changed. The status change notification does not contain cart data, only order identification data.
+
+### 5. Configure capture and Antifraude
+
+A credit card transaction is sent to Cielo (acquirer) for authorization and will then be subjected to fraud analysis. Then, according to the fraud analysis result, the transaction can be captured automatically or manually.
+
+![Análise de risco]({{ site.baseurl_root }}/images/checkout/checkout-images/checkout-fluxo-captura-af.png)
+
+When accessing your store settings, look for the Antifraude and automatic capture section. Select the desired option:
+
+|Capture options|Definition|Description|
+|---|---|---|
+|*Nunca fazer a Captura Automática*|Never do Automatic Capture|For every authorized credit card transaction, the store will be required to manually capture the transaction (capture request).|
+|*Sempre fazer Captura Automática*|Always do Automatic Capture|Every authorized low or medium risk credit card transaction will be automatically captured.|
+|*Somente fazer captura Automática das transações de Baixo Risco no Antifraude*|Only automatically capture Low Risk transactions in Antifraude|Every low-risk (authorized) credit card transaction will be captured automatically – medium-risk transactions will wait for manual capture.|
+
+> If the fraud analysis classifies the transaction as High Risk, it will be automatically canceled. Manual capture will not be possible.
+
+![Configuração de captura e Antifraude]({{ site.baseurl_root }}/images/checkout/superlink/superlink-captura-e-antifraude.png)
+
+**Authorized** credit transactions will be sent for fraud analysis. All transactions classified as high risk will be automatically cancelled, without exception.
+
+|ANTIFRAUDE STATUS|DESCRIPTION|
+|---|---|---|
+|`Baixo Risco`| Low risk of being a fraudulent transaction.|
+|`Médio Risco`| Medium risk of being a fraudulent transaction.|
+|`Alto Risco`| High risk of being a fraudulent transaction.|
+|`Não finalizado`|The query could not be finalized.|
+
+On the Cielo website, the analysis will be presented in **Detalhes do Pedido**:
+
+![Análise de risco]({{ site.baseurl_root }}/images/checkout-cielo-analise-risco.png)
+
+You can view the Antifraude status by accessing the purchase details, in the **Pedidos** tab and clicking **+**.
+
+### 6. Configure Correios shipping options
+
+<aside class="warning">Correios shipping service is currently unavailable. If a request with this shipping option is sent, you will receive a return with error 400 and the message: "The shipping service by post is unavailable." If you use the service on your payment links or checkout pages, change the shipping type to the other available options.</aside>
+
+If your store works with the delivery of **physical products** (those that require shipping) using Correios, enter your Correios login and password and select the desired services, such as Sedex and PAC types.
+
+If your store works with digital materials, services or payments, that is, sales that do not require shipping, skip this step.
+
+> It is also possible to use other shipping services contracted by the store. In this case, submit the `Shipping.Services` node when creating the payment page. Find out more at [Defining shipping](https://developercielo.github.io/manual/checkout-cielo#definindo-o-frete).
+
+![Configuração do Frete Correios]({{ site.baseurl_root }}/images/checkout/superlink/superlink-configuracao-frete-correios.png)
+
+### Default settings
+
+If you do not fill in the store settings, Checkout will consider the following pattern:
+
+* The option to send an email to the shopper will be activated;
+* The option to accept international cards will be activated;
+* The minimum installment amount will be R$5.00;
+* Credit and debit payment methods will have 12 installments enabled (if your Cielo registration allows it);
+* The debit payment method will be enabled;
+* The QR Code Crédito payment method will have one installment enabled;
+* Boleto will not have a minimum value or defined discount (zero);
+* The **Always do Automatic Capture** option will only be enabled for transactions that are not considered high risk;
+* The Correios shipping login will be disabled.
 
 # Extended Validation Certificate
 
