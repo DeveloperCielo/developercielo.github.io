@@ -7104,7 +7104,7 @@ The Brazilian Association of Credit Card and Services Companies (ABECS) establis
 
 Codes returned in case of error, identifying the reason for the error and its respective messages.
 
-|Code|Message|Description|
+|ReturnCode|ReturnMessage|Description|
 |---|---|---|
 |0|Internal error|Sent data exceeds field size|
 |100|RequestId is required|Sent field is empty or invalid|
@@ -7246,7 +7246,7 @@ Codes returned in case of error, identifying the reason for the error and its re
 |322|Zero Dollar Auth is not enabled|Zero Dollar not linked to the merchant's registration|
 |323|Bin Query is not enabled|Bins query not linked to the merchant's registration|
 
-### Return Reason Codes
+### Reason Code and Reason Message
 
 |Reason Code|Reason Message|
 |---|---|
