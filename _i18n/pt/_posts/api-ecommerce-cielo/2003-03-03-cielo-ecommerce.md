@@ -6967,7 +6967,7 @@ A Associação Brasileira das Empresas de Cartão de Crédito e Serviços (ABECS
 
 Códigos retornados em caso de erro, identificando o motivo do erro e suas respectivas mensagens.
 
-| Código | Mensagem                                                                                                       | Descrição                                                                                     |
+| ReturnCode | ReturnMessage                                                                                                       | Descrição                                                                                     |
 | ------ | -------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --- |
 | 0      | Internal error                                                                                                 | Dado enviado excede o tamanho do campo                                                        |
 | 100    | RequestId is required                                                                                          | Campo enviado está vazio ou inválido                                                          |
