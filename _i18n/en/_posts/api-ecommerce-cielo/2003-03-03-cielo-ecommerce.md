@@ -6486,19 +6486,19 @@ In order to validate an e-wallet with Zero Auth, the merchant is required to hav
        "CardType": "CreditCard",
        "CardNumber": "4532154371691902",
        "Holder": "Joao da Silva",
-      "ExpirationDate": "MM/YYYY",
+       "ExpirationDate": "MM/YYYY",
        "SecurityCode": "333",
        "Brand": "Visa",
        "CardOnFile": {
            "Usage": "First",
            "Reason": "Recurring"
        }
-   },
+    },
     "Wallet": {
        "Type": "ApplePay",
        "Cavv": "AM1mbqehL24XAAa0J04CAoABFA==",
        "Eci": 7
-}
+    }
 }
 ```
 
