@@ -1526,10 +1526,11 @@ The Merchant plug-in, known as MPI, is a service that allows you to make the cal
 
 ### Mastercard Transaction Initiator
 
-The following tables apply to Mastercard credit and debit transactions with stored credentials. The objective is to identify whether the transaction was initiated by the **cardholder** or by the **e-commerce**:
+The following tables apply to **Mastercard credit and debit** transactions with **stored credentials**. The objective is to identify whether the transaction was initiated by the **cardholder** or by the **merchant**:
 
 * **Cardholder-Initiated Transaction (CIT)**: the transaction is initiated by the cardholder, who provides their payment credentials and allows them to be stored.
 * **Merchant-Initiated Transaction (MIT)**: the transaction is initiated by the merchant, after an agreement in which the cardholder authorizes the merchant to save and use the account data to initiate one or more transactions in the future (such as recurrent payments or installments, and charges commonly applied by the tourism and hospitality sector).
+<br/>
 <br/>
 
 The transaction initiator indicator must be sent in the node `Payment.InitiatedTransactionIndicator`, within parameters `Category` and `Subcategory`. Please refer to the following request example and tables for more information:
@@ -1571,42 +1572,38 @@ The transaction initiator indicator must be sent in the node `Payment.InitiatedT
 
 The response will be the default response for the credit or debit transaction, returning the node `Payment.InitiatedTransactionIndicator` as sent in the request.
 
-**Category C1 - transaction initiated by the cardholder**
+#### Mastercard transaction initiator tables
 
-`Payment.InitiatedTransactionIndicator.Category` = "C1"
+##### CIT and MIT categories
 
-|Indicator subcategory|Meaning|Description/Example|
+The categories (C1, M1 or M2) must be sent in parameter `Payment.InitiatedTransactionIndicator.Category`.
+
+|Category| Transaction initiator | Description|
 |---|---|---|
-|`CredentialsOnFile`| Saves card credentials for future purchases. | The shopper initiates the purchase and the merchant asks for the shopper to save card data for future purchases initiated by the cardholder.|
-|`StandingOrder`| Saves card credentials for recurrent purchases of variable amount and fixed frequency. | Initial transaction to store card data for utility bills monthly payments.|
-|`Subscription` | Saves card credentials for recurrent purchases of fixed amount and fixed frequency.|Initial transaction to store card data for a monthly subscription (e.g .newspapers and magazines).|
-|`Installment` | Saves card data for installment buying. | Initial transaction to store card data for installment buying |
+|`C1` | Cardholder-initiated transaction (CIT).| The transaction is initiated by the cardholder. The cardholder provides card data and agrees with the merchant storing payment credentials or makes a purchase using previously stored payment credentials. The subcategory will indicate the reason for the purchase or for storing card data.|
+|`M1`| Merchant-initiated transaction (MIT). | The merchant has stored the payment credentials in the past (tokenized and with cardholder consent) and is authorized to initiate one or more transactions in the future for recurrent payments or installments.|
+|`M2`| Merchant-initiated transaction (MIT). | The merchant has stored the payment credentials in the past (tokenized and with cardholder consent) and is authorized to initiate one or more transactions in the future in order to charge for partial deliveries, related/delayed expenses, *no-show* fees and retry/resubmission.|
 
-**Category M1 - recurring payment or installment initiated by the merchant**
+##### CIT and MIT subcategories
 
-`Payment.InitiatedTransactionIndicator.Category` = "M1"
+The subcategories must be sent in parameter `Payment.InitiatedTransactionIndicator.Subcategory`.
 
-In this category, the transaction is completed after an agreement between merchant and cardholder, in which the cardholder authorizes the merchant to store and use cardholder account credentials to initiate one or more transactions in the future, according to the subcategory:
+| Initiator category |Initiator subcategory|Meaning|Example|
+|---|---|---|---|
+| `C1` |`CredentialsOnFile`| Cardholder-initiated transaction in which the cardholder provides card data and agrees with the merchant storing payment credentials or makes a purchase using previously stored payment credentials.| The cardholder initiates the purchase and the merchant is authorized to save card data for future purchases initiated by the cardholder, such as *one-click-buy*.|
+| `C1` |`StandingOrder`| Cardholder-initiated transaction in which the cardholder provides card data and agrees with the merchant storing payment credentials for future payments of fixed amount and variable frequency. | Initial transaction to store card data for utility bills monthly payments.|
+| `C1` |`Subscription` | Cardholder-initiated transaction in which the cardholder provides card data and agrees with the merchant storing payment credentials for recurrent payments of fixed amount and frequency.|Initial transaction to store card data for a monthly subscription (e.g .newspapers and magazines).|
+| `C1` |`Installment` | Cardholder-initiated transaction in which the cardholder initiates the first installment and authorizes the merchant to save card data for the next installments.| Initial transaction to store card data for installment buying |
+| `M1` |`CredentialsOnFile`| Merchant-initiated unscheduled transaction of fixed or variable amount. |When the cardholder agrees with transactions for toll charges when the balance in their account is below a certain amount (auto-recharge).|
+| `M1` |`StandingOrder` | Merchant-initiated transaction of variable amount and fixed frequency. |Utility bills monthy payments.|
+| `M1` |`Subscription`| Merchant-initiated transaction of fixed amount and fixed frequency. | Monthly subscription or fixed monthly service payment.|
+| `M1` |`Installment` | Merchant-initiated transaction of known amount and defined period. | If a shopper buys a TV for $600 and chooses to pay in three $200 installments; in this situation, the first transaction is initiated by the cardholder and the following two transactions are initiated by the merchant.|
+| `M2` | `PartialShipment` | Merchant-initiated transaction when the order will be delivered in more than one shipping. | Partial shipment may occur when the amount of purchased goods in the e-commerce is not available for shipping in the time of purchase. Each shipping is a separate transaction.|
+| `M2` |`RelatedOrDelayedCharge` | Merchant-initiated transaction for additional expenses, i.e., additional charges after providing initial services and processing the payment. | A hotel minibar fridge charges after cardholder check-out.|
+| `M2` |`NoShow`| Merchant-initiated transaction for *no-show* charges according to the merchant cancellation policy. | The cancellation of a reservation by the cardholder without adequate prior notice to the merchant.|
+| `M2` | `Resubmission` | Merchant-initiated transaction for retrying previously denied transactions.| The previous attempt to submit a transaction was denied, but the issuer response does not prohibit the merchant to retry, such as insufficient funds/response above credit limit.|
 
-|Indicator subcategory|Meaning|Description/Example|
-|---|---|---|
-|`CredentialsOnFile`| Saves card data for future purchases initiated by the merchant, with fixed or variable amount and no fixed interval or scheduled date|E.g.: the shopper agrees with transactions for toll charges when the balance in their account is below a certain amount (auto-recharge)|
-|`StandingOrder` | Saves card data for future purchases initiated by the merchant, with variable amount and fixed frequency. | E.g., utility bills monthy payments.|
-|`Subscription`| Saves card data for future purchases initiated by the merchant, with fixed amount and fixed frequency. | E.g., monthly subscription or fixed monthly service payment.|
-|`Installment` | Saves card data for future purchases initiated by the merchant, with known amount and defined period. | E.g.: the shopper buys a TV for $600 and chooses to pay in three $200 installments; in this situation, the first transaction is initiated by the cardholder and the following two transactions are initiated by the merchant.|
-
-**Category M2 - merchant-initiated transaction per industry practice**
-
-`Payment.InitiatedTransactionIndicator.Category` = "M2"
-
-|Indicator subcategory|Meaning|Description|
-|---|---|---|
-| `PartialShipment` | Saves card data for future purchases initiated by the merchant, when the order will be delivered in more than one shipping. | Partial shipment may occur when the amount of purchased goods in the e-commerce is not available for shipping in the time of purchase. Each shipping is a separate transaction.|
-|`RelatedOrDelayedCharge` | Saves card data for future purchases initiated by the merchant for additional expenses. | Additional charge after providing initial services and processing the payment. E.g., hotel minibar fridge charges after cardholder check-out.|
-|`NoShow`| Saves card data for future purchases initiated by the merchant for fine charges. | A fine charged according to the merchant cancellation policy. E.g.: the cancellation of a reservation by the cardholder without adequate prior notice to the establishment.|
-| `Resubmission` | Saves card data for retrying previously denied transactions.| The previous attempt to submit a transaction was denied, but the issuer response does not prohibit the merchant to retry. E.g.: insufficient funds/response above credit limit.|
-
-> **Important**: Card data is stored in encrypted form.
+> **Important**: Card data is stored in encrypted format.
 
 ## Pix
 
