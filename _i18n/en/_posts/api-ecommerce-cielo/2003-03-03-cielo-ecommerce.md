@@ -1829,8 +1829,8 @@ If your store needs to cancel a pix transaction, it's possible to ask for a **re
 | PROPERTY        | DESCRIPTION              | TYPE | SIZE | FORMAT            |
 | --------------- | ------------------------ | ---- | ---- | ----------------- |
 | `Status`        | Transaction status.      | byte | 2    | E.g., "1"          |
-| `ReasonCode`    | Acquirer return code.    | text | 32   | Alphanumeric text |
-| `ReasonMessage` | Acquirer return message. | text | 512  | Alphanumeric text |
+| `ReasonCode`    | Indicates success or error in the requested operation. See more at [API Error Codes](https://developercielo.github.io/en/manual/cielo-ecommerce#api-error-codes).    | text | 32   | Alphanumeric text |
+| `ReasonMessage` | Corresponding messa ge for the `ReasonCode`. Saiba mais em [Códigos de Erros da API](https://developercielo.github.io/en/manual/cielo-ecommerce#api-error-codes). | text | 512  | Alphanumeric text |
 
 ## Boleto
 
