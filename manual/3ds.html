@@ -250,12 +250,10 @@
   <li>Cielo;</li>
   <li>Rede;</li>
   <li>Getnet;</li>
-  <li>Banorte.</li>
-</ul>
-
-<p>As <strong>bandeiras</strong> disponíveis para autenticação via 3DS 2.0 são:</p>
-
-<ul>
+  <li>
+    <p>Banorte.
+As <strong>bandeiras</strong> disponíveis para autenticação via 3DS 2.0 são:</p>
+  </li>
   <li>Visa;</li>
   <li>Mastercard;</li>
   <li>Elo.</li>
@@ -295,9 +293,9 @@ Além das bandeiras, o emissor do cartão também precisa processar o protocolo 
 
 <h2 id="1-criando-o-token-de-acesso">1. Criando o token de acesso</h2>
 
-<p>Obtenha o valor do <em>Authorization</em> concatenando o valor do “ClientID”, sinal de dois-pontos (“:”) e “ClientSecret”. Exemplo:</p>
+<p>Obtenha o valor do <em>Authorization</em> concatenando o valor do “ClientID”, sinal de dois-pontos (“:”) e “ClientSecret”.</p>
 
-<p>Ex. dba3a8db-fa54-40e0-8bab-7bfb9b6f2e2e:D/ilRsfoqHlSUChwAMnlyKdDNd7FMsM7cU/vo02REag</p>
+<p>Ex: <strong>dba3a8db-fa54-40e0-8bab-7bfb9b6f2e2e:D/ilRsfoqHlSUChwAMnlyKdDNd7FMsM7cU/vo02REag</strong></p>
 
 <p>Em seguida, codifique o resultado na base 64. Esse código alfanumérico será utilizado na requisição do access token:</p>
 
@@ -433,7 +431,7 @@ Além das bandeiras, o emissor do cartão também precisa processar o protocolo 
 
 <aside class="warning">Quanto maior a quantidade de campos parametrizados, é maior a chance de ter uma autenticação transparente, pois o emissor terá maior subsídio para a análise de risco.</aside>
 
-<aside class="notice">O caracter **#** indicado no campo deve ser substituído pelo número que representa o índice do item. Exemplo: `bpmpi_item_1_productName` representa o nome do item **1** do carrinho</aside>
+<p>O caracter <strong>#</strong> indicado no campo deve ser substituído pelo número que representa o índice do item. Exemplo: <code class="language-plaintext highlighter-rouge">bpmpi_item_1_productName</code> representa o nome do item <strong>1</strong> do carrinho</p>
 
 <table>
   <thead>
@@ -1258,7 +1256,7 @@ Além das bandeiras, o emissor do cartão também precisa processar o protocolo 
 
 <p>Após a conclusão da autenticação do portador do cartão, a loja deve submeter a transação ao processo de autorização, enviando os dados de autenticação no modelo de “autenticação externa” (nó <code class="language-plaintext highlighter-rouge">ExternalAuthentication</code>), tanto para 3DS Server interno quanto para 3DS Server externo.</p>
 
-<p>Veja a seguir um exemplo de requisição de autorização à API do Pagador:</p>
+<p>Veja a seguir um exemplo de requisição de autorização à API 3.0:</p>
 
 <h2 id="requisição-1">Requisição</h2>
 
@@ -1409,7 +1407,7 @@ Além das bandeiras, o emissor do cartão também precisa processar o protocolo 
 
 <p>Após a conclusão da autenticação do portador do cartão no modelo Data Only (com o campo <code class="language-plaintext highlighter-rouge">bpmpi_auth_notifyonly</code> como “true”), a loja deve submeter a transação ao processo de autorização, enviando os dados de autenticação no modelo de “autenticação externa” (nó <code class="language-plaintext highlighter-rouge">ExternalAuthentication</code>), tanto para 3DS Server interno quanto para 3DS Server externo.</p>
 
-<p>Veja a seguir um exemplo de requisição de autorização à API do Pagador:</p>
+<p>Veja a seguir um exemplo de requisição de autorização à API 3.0:</p>
 
 <h2 id="requisição-2">Requisição</h2>
 
