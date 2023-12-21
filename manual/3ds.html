@@ -423,7 +423,7 @@ Além das bandeiras, o emissor do cartão também precisa processar o protocolo 
   </tbody>
 </table>
 
-<h1 id="2-mapeando-as-classes">2. Mapeando as classes</h1>
+<h2 id="2-mapeando-as-classes">2. Mapeando as classes</h2>
 
 <p>A solução disponibiliza dezenas de classes que devem ser mapeadas em seu código HTML.</p>
 
@@ -1021,7 +1021,7 @@ Além das bandeiras, o emissor do cartão também precisa processar o protocolo 
   </tbody>
 </table>
 
-<h1 id="3-implementando-o-script">3. Implementando o script</h1>
+<h2 id="3-implementando-o-script">3. Implementando o script</h2>
 
 <p>Neste passo, implemente o <em>script</em> e faça o mapeamento de <em>classes</em> responsáveis pela comunicação com as plataformas de autenticação das bandeiras e emissor. Siga o exemplo a seguir, que demonstra a implementação básica. Recomenda-se que o trecho seja colocado no final do código HTML de seu checkout:</p>
 
@@ -1033,7 +1033,7 @@ Além das bandeiras, o emissor do cartão também precisa processar o protocolo 
 
 <p><img src="https://developercielo.github.io/images/exemplo-html.jpg" alt="Fluxo 3DS 2.0" /></p>
 
-<h2 id="descrição-dos-eventos">Descrição dos eventos</h2>
+<h3 id="descrição-dos-eventos">Descrição dos eventos</h3>
 
 <p>Os eventos são ações que o script toma como resposta para acompanhamento do processo de autenticação, mas não indicam se a transação foi autenticada com sucesso.</p>
 
@@ -1080,7 +1080,7 @@ Além das bandeiras, o emissor do cartão também precisa processar o protocolo 
   </tbody>
 </table>
 
-<h2 id="descrição-dos-parâmetros-de-entrada">Descrição dos parâmetros de entrada</h2>
+<h3 id="descrição-dos-parâmetros-de-entrada">Descrição dos parâmetros de entrada</h3>
 
 <table>
   <thead>
@@ -1109,7 +1109,7 @@ Além das bandeiras, o emissor do cartão também precisa processar o protocolo 
 <br /> O arquivo JavaScript deve ser salvo no servidor onde está a aplicação da loja. Para baixar o arquivo, acesse <a href="https://bit.ly/2CSOp2n" target="_blank">https://bit.ly/2CSOp2n</a>.</p>
 </blockquote>
 
-<h2 id="descrição-das-saídas">Descrição das saídas</h2>
+<h3 id="descrição-das-saídas">Descrição das saídas</h3>
 
 <table>
   <thead>
@@ -1166,7 +1166,7 @@ Além das bandeiras, o emissor do cartão também precisa processar o protocolo 
   </tbody>
 </table>
 
-<h2 id="exemplo-de-retorno-do-script">Exemplo de retorno do script</h2>
+<h3 id="exemplo-de-retorno-do-script">Exemplo de retorno do script</h3>
 
 <p><strong>Exemplo de evento <code class="language-plaintext highlighter-rouge">OnSuccess</code></strong></p>
 
@@ -1192,7 +1192,7 @@ Além das bandeiras, o emissor do cartão também precisa processar o protocolo 
 
 <p>Confira os valores possíveis de <code class="language-plaintext highlighter-rouge">ReturnCodes</code> na tabela <a href="https://developercielo.github.io/manual/3ds#lista-de-return-codes">Lista de Return Codes</a>.</p>
 
-<h2 id="tabela-de-eci">Tabela de ECI</h2>
+<h3 id="tabela-de-eci">Tabela de ECI</h3>
 
 <p>O <strong>ECI</strong> (Electronic Commerce Indicator) é um código retornado pelas bandeiras e <strong>indica o resultado da autenticação 3DS</strong> do portador do cartão junto ao emissor ou bandeira.</p>
 
@@ -1246,7 +1246,7 @@ Além das bandeiras, o emissor do cartão também precisa processar o protocolo 
   </tbody>
 </table>
 
-<h1 id="4-implementando-chamada-ao-evento-de-autenticação">4. Implementando chamada ao evento de autenticação</h1>
+<h2 id="4-implementando-chamada-ao-evento-de-autenticação">4. Implementando chamada ao evento de autenticação</h2>
 
 <p>O evento <code class="language-plaintext highlighter-rouge">**bpmpi_Authenticate()**</code> deve ser chamado no momento de finalização do checkout (finalização da compra). Vide exemplo abaixo:</p>
 
@@ -1399,7 +1399,7 @@ Além das bandeiras, o emissor do cartão também precisa processar o protocolo 
   </tbody>
 </table>
 
-<h3 id="resposta">Resposta</h3>
+<h2 id="resposta">Resposta</h2>
 
 <p>Consulte o <a href="https://developercielo.github.io/manual/cielo-ecommerce#resposta" target="_blank">Manual da API E-commerce 3.0</a> para exemplos detalhados de resposta de autorização com autenticação.</p>
 
@@ -1518,7 +1518,7 @@ Além das bandeiras, o emissor do cartão também precisa processar o protocolo 
   </tbody>
 </table>
 
-<h3 id="resposta-1">Resposta</h3>
+<h2 id="resposta-1">Resposta</h2>
 
 <p>Consulte o <a href="https://developercielo.github.io/manual/cielo-ecommerce#resposta" target="_blank">Manual da API E-commerce 3.0</a> para exemplos detalhados de resposta de autorização com autenticação.</p>
 
