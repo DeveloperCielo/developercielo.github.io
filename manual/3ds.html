@@ -161,7 +161,7 @@
 <p>Para realizar a autenticação, a loja precisa enviar os dados do comprador para a bandeira por meio de um serviço intermediário, o 3DS Server, que faz a comunicação com a bandeira. É possível usar um 3DS Server externo ou o 3DS Server Cielo</p>
 
 <blockquote>
-  <p>Se sua loja usa um 3DS Server externo à Cielo para autenticação de cartões, você deve infomar o <code class="language-plaintext highlighter-rouge">Cavv</code> retornado pelo seu 3DS Server na requisição de autorização do Gateway. Para mais informações, pule para a etapa de [#Autorização com Autenticação].</p>
+  <p>Se sua loja usa um 3DS Server externo à Cielo para autenticação de cartões, você deve infomar o <code class="language-plaintext highlighter-rouge">Cavv</code> retornado pelo seu 3DS Server na requisição de autorização do Gateway. Para mais informações, pule para a etapa de <a href="https://developercielo.github.io/manual/3ds#autoriza%C3%A7%C3%A3o-com-autentica%C3%A7%C3%A3o">Autorização com Autenticação</a>.</p>
 </blockquote>
 
 <p><strong>Principais benefícios:</strong></p>
@@ -219,8 +219,8 @@
 <p>O processo de autorização de cartão autenticada via 3D Secure 2 ocorre em duas etapas:</p>
 
 <ol>
-  <li><strong>Etapa de autenticação</strong>: por meio do protocolo 3DS, a bandeira ou o emissor autentica que o comprador é de fato o titular do cartão. O protocolo é integrado ao e-commerce por meio de um script em JavaScript, que retorna o resultado da autenticação e <strong>alguns parâmetros</strong> que devem ser enviados na autorização. Saiba mais em [Integração do script];</li>
-  <li><strong>Etapa de autorização</strong>: a loja submete a transação para autorização, informando os parâmetros retornados pelo script na etapa de autenticação. Saiba mais em [Autorização com Autenticação].</li>
+  <li><strong>Etapa de autenticação</strong>: por meio do protocolo 3DS, a bandeira ou o emissor autentica que o comprador é de fato o titular do cartão. O protocolo é integrado ao e-commerce por meio de um script em JavaScript, que retorna o resultado da autenticação e <strong>alguns parâmetros</strong> que devem ser enviados na autorização. Saiba mais em <a href="https://developercielo.github.io/manual/3ds#integra%C3%A7%C3%A3o-do-script">Integração do script</a>;</li>
+  <li><strong>Etapa de autorização</strong>: a loja submete a transação para autorização, informando os parâmetros retornados pelo script na etapa de autenticação. Saiba mais em <a href="https://developercielo.github.io/manual/3ds#autoriza%C3%A7%C3%A3o-com-autentica%C3%A7%C3%A3o">Autorização com Autenticação</a>.</li>
 </ol>
 
 <p>O fluxo a seguir descreve as etapas de autenticação em alto nível:</p>
@@ -274,7 +274,7 @@ Além das bandeiras, o emissor do cartão também precisa processar o protocolo 
 
 <p>O Data Only é um campo opcional que poderá ser utilizado exclusivamente para cartões Mastercard. Para esses casos, <strong>o ECI será sempre 4</strong>.</p>
 
-<p>Para usar o Data Only, na [Integração do script] parametrize o campo <code class="language-plaintext highlighter-rouge">bpmpi_auth_notifyonly</code> descrito no item <strong>Etapa de Autenticação – passo 3 – Mapeamento de classes</strong>. No modelo Data Only, os campos adicionais do 3DS 2.0 são mapeados da mesma forma, e enviados para a Mastercard, porém, sem solicitar a autenticação.</p>
+<p>Para usar o Data Only, na <a href="https://developercielo.github.io/manual/3ds#integra%C3%A7%C3%A3o-do-script">Integração do script</a> parametrize o campo <code class="language-plaintext highlighter-rouge">bpmpi_auth_notifyonly</code> descrito no item <strong>Etapa de Autenticação – passo 3 – Mapeamento de classes</strong>. No modelo Data Only, os campos adicionais do 3DS 2.0 são mapeados da mesma forma, e enviados para a Mastercard, porém, sem solicitar a autenticação.</p>
 
 <p>O benefício do uso do Data Only é enriquecer o banco de dados da bandeira, que passará a receber mais informações sobre os portadores de cada lojista. Esse campo busca aprimorar a autenticação silenciosa e o índice de aprovação da transação.</p>
 
@@ -1194,7 +1194,7 @@ Além das bandeiras, o emissor do cartão também precisa processar o protocolo 
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Confira os valores possíveis de <code class="language-plaintext highlighter-rouge">ReturnCodes</code> na tabela [## Lista de Return Codes].</p>
+<p>Confira os valores possíveis de <code class="language-plaintext highlighter-rouge">ReturnCodes</code> na tabela <a href="https://developercielo.github.io/manual/3ds#lista-de-return-codes">Lista de Return Codes</a>.</p>
 
 <h2 id="tabela-de-eci">Tabela de ECI</h2>
 
