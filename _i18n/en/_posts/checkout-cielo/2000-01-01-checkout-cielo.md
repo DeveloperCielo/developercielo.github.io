@@ -342,9 +342,9 @@ If you do not fill in the store settings, Checkout will consider the following p
 
 ## What is SSL Certificate?
 
-The SSL Certificate for web server offers authenticity and integrity of web site data, giving customers of virtual stores the guarantee that they are actually accessing the web site they want, not a fraudster web site.
+The SSL Certificate for web server offers authenticity and integrity of website data, giving e-commerce customers the guarantee that they are actually accessing the website they want, not a fraudster website.
 
-Specialized companies are responsible for domain validating and, depending on the type of certificate, they are also responsible for the validation of the entity that owns the domain.
+Specialized companies are responsible for validating the domain and, depending on the type of certificate, they are also responsible for the validation of the entity that owns the domain.
 
 ### Internet Explorer
 
@@ -360,13 +360,13 @@ Specialized companies are responsible for domain validating and, depending on th
 
 ## What is EV SSL Certificate?
 
-The EV Certificate has been recently released on market and ensures a higher level of security for virtual stores customers.
+The EV Certificate has been recently released on market and ensures a higher level of security for e-commerce customers.
 
 It is a certificate of greater confidence and when https is accessed the address bar will turn green, giving more reliability for site visitors.
 
 ## How to install the Extended Validation Certificate on the Store server?
 
-Just install the following three files in the server Trustedstore. Cielo does not offer support to the installation of the Certificate. If you are unsure about how to install the EV Certificate, then you should contact your server vendor support.
+Simply install the following three files into the server's Trustedstore. Cielo does not offer support for installing the Certificate. If you are not sure how to install the EV Certificate, you should contact your server supplier's support.
 
 - [Root Certificate]({{ site.baseurl }}/attachment/Root.cer)
 - [Intermediate certificate]({{ site.baseurl }}/attachment/Intermediario.cer)
@@ -376,17 +376,17 @@ Just install the following three files in the server Trustedstore. Cielo does no
 
 ### Installation on the Virtual Store Server
 
-The step-by-step of the EV Certificate installation must contact your server vendor support.
+The step-by-step of the EV Certificate installation must done in contact with your server vendor support.
 
 <aside class="warning">Cielo does not offer support for the installation of the Certificate.</aside>
 
 ### Client Access to Virtual Store
 
-Normally, the browser automatically updates the Certificate. If it does not and the client contacts, the following steps must be informed:
+Usually, the browser automatically updates the Certificate. If it does not and the client calls for help, the following steps must be informed:
 
 #### Step 1
 
-Save the three files below into a new folder, or into a folder that can be easily remembered, as it will be used later:
+Save the three files below into a new folder, or into a folder that can be easily located, as it will be used later:
 
 - [Root Certificate]({{ site.baseurl }}/attachment/Root.cer)
 - [Intermediate certificate]({{ site.baseurl }}/attachment/Intermediario.cer)
@@ -434,7 +434,7 @@ In Firefox “Servers Tab”, click on “Import”
 
 #### Step 5
 
-In Chrome and Internet Explorer “Certificate Import Wizard”, click on “Search”, look for the folder where the files are and select the file “cieloecommerce.cielo.com.br.crt, click on “Open” and then “Next”.
+In Chrome and Internet Explorer “Certificate Import Wizard”, click on “Search”, look for the folder where the files are and select the file “cieloecommerce.cielo.com.br.crt", click on “Open” and then “Next”.
 
 ![Install IE and GC]({{ site.baseurl }}/images/certificado-instalar-ie-gc-5.jpg)
 
