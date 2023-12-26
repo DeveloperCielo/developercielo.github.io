@@ -302,6 +302,10 @@ Formato de `Signature` que deve ser repassado à API Cielo E-commerce:
 | `AdditionalData.CaptureCode`        | Código informado pela **Masterpass** ao lojista.                                                                                                                                       | Texto | --      | 3                                                                                                                    |
 | `AdditionalData.Signature`          | Token retornado pela wallet. Deve ser enviado em Integrações: "GooglePay".                                                                                                             | Texto | --      | Ver tabela [Signature](https://developercielo.github.io/manual/e-wallets-ecommercecielo#signature)                   |
 
+## Zero Auth
+
+O **Zero Auth** é uma ferramenta da Cielo que permite verificar se um cartão está válido para realizar uma compra antes que o pedido seja finalizado. O Zero Auth simula uma autorização sem afetar o limite de crédito ou alertar o portador do cartão sobre o teste. Para mais informações, visite o [Manual da API E-Commerce Cielo - Zero Auth](https://developercielo.github.io/manual/'?json#e-wallets187){:target="\_blank"}. 
+
 # Exemplos de Integração
 
 A seguir, veja alguns exemplos de integração com as principais e-wallets disponíveis no mercado.
