@@ -21,15 +21,13 @@ Visando trazer maior transparência e fluidez na conciliação dos extratos, os 
 
 Abaixo segue o comunicado enviado com os detalhes das alterações, arquivos de teste e documentação complementar para apoiar com a homologação.
 
-[Material versão português](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_PT-BR_Dez.zip)
+[Material versão português](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_PT-BR_Dez_2.zip)
 
-[Material version english](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_english_Dez.zip)
+[Material version english](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_english_Dez_2.zip)
 
-[Material versión español](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_espanol_Dez.zip)
+[Material versión español](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_espanol_Dez_2.zip)
 
 [Arquivos de Teste](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Arquivos_Testes.zip)
-
-![Comunicado V15](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Comunicado_Extrato_EletronicoV15_.JPG)
 
 É importante que a homologação da nova estrutura ocorra até a data indicada para não impactar a leitura dos extratos.
 
