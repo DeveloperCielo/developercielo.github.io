@@ -11989,17 +11989,17 @@ Essas informações permitem tomar ações no momento do pagamento para melhorar
 
 <aside class="warning">Para habilitar o Zero Auth, entre em contato com a equipe de suporte da Cielo.</aside>
 
-<h2 id="integração-1">Integração</h2>
+<p><strong>Integração</strong></p>
 
-<p>Para realizar a consulta ao Zero Auth, o lojista deverá enviar uma requisição <code class="language-plaintext highlighter-rouge">POST</code> para a API Cielo Ecommerce, simulando uma transação.</p>
+<p>Para realizar a consulta ao Zero Auth, a loja deverá enviar uma requisição <code class="language-plaintext highlighter-rouge">POST</code> para a API Cielo E-commerce, simulando uma transação.</p>
+
+<p>A validação de um cartão aberto necessita de um contrato técnico diferente da validação de um cartão tokenizado ou de e-wallet. Confira os exemplos de requisição a seguir:</p>
+
+<h2 id="cartão-aberto">Cartão aberto</h2>
 
 <h3 id="requisição-37">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/zeroauth</span></aside>
-
-<p>A validação de um cartão aberto necessita de um contrato técnico diferente da validação de um cartão tokenizado. Confira os exemplos de requisição a seguir:</p>
-
-<h4 id="cartão-aberto">Cartão aberto</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234123412341231"</span><span class="p">,</span><span class="w">
@@ -12020,7 +12020,7 @@ Essas informações permitem tomar ações no momento do pagamento para melhorar
 <table>
   <thead>
     <tr>
-      <th>Paramêtro</th>
+      <th>Parâmetro</th>
       <th>Descrição</th>
       <th>Tipo</th>
       <th>Tamanho</th>
@@ -12101,7 +12101,11 @@ Essas informações permitem tomar ações no momento do pagamento para melhorar
   </tbody>
 </table>
 
-<h4 id="cartão-tokenizado">Cartão tokenizado</h4>
+<h2 id="cartão-tokenizado">Cartão tokenizado</h2>
+
+<h3 id="requisição-38">Requisição</h3>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/zeroauth</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"CardToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23712c39-bb08-4030-86b3-490a223a8cc9"</span><span class="p">,</span><span class="w">
@@ -12115,7 +12119,7 @@ Essas informações permitem tomar ações no momento do pagamento para melhorar
 <table>
   <thead>
     <tr>
-      <th>Paramêtro</th>
+      <th>Parâmetro</th>
       <th>Descrição</th>
       <th>Tipo</th>
       <th>Tamanho</th>
@@ -12140,7 +12144,127 @@ Essas informações permitem tomar ações no momento do pagamento para melhorar
   </tbody>
 </table>
 
-<h3 id="resposta-35">Resposta</h3>
+<h2 id="e-wallets-1">E-wallets</h2>
+
+<p>Para validar uma e-wallet com o Zero Auth, é necessário que a loja tenha integração com uma das <a href="https://developercielo.github.io/manual/cielo-ecommerce#e-wallets-dispon%C3%ADveis">e-wallets disponíveis</a>.</p>
+
+<h3 id="requisição-39">Requisição</h3>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/2/zeroauth</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"Card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="nl">"CardType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4532154371691902"</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joao da Silva"</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MM/YYYY"</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"333"</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"CardOnFile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+           </span><span class="nl">"Usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"First"</span><span class="p">,</span><span class="w">
+           </span><span class="nl">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Recurring"</span><span class="w">
+       </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ApplePay"</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"Cavv"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AM1mbqehL24XAAa0J04CAoABFA=="</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"Eci"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parâmetro</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th style="text-align: center">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CardType</code></td>
+      <td><em>Creditcard ou DebitCard</em></td>
+      <td>Texto</td>
+      <td>255</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CardNumber</code></td>
+      <td>Número do Cartão do Comprador</td>
+      <td>Texto</td>
+      <td>16</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Holder</code></td>
+      <td>Nome do Comprador impresso no cartão.</td>
+      <td>Texto</td>
+      <td>25</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ExpirationDate</code></td>
+      <td>Data de e validade impresso no cartão.</td>
+      <td>Texto</td>
+      <td>7</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SecurityCode</code></td>
+      <td>Código de segurança impresso no verso do cartão.</td>
+      <td>Texto</td>
+      <td>4</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Brand</code></td>
+      <td>Bandeira do cartão: <br />Visa<br />Master<br />Elo</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CardOnFile.Usage</code></td>
+      <td><strong>First</strong> se o cartão foi armazenado e é seu primeiro uso.<br /><strong>Used</strong> se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação.</td>
+      <td>Texto</td>
+      <td>—</td>
+      <td style="text-align: center">Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CardOnFileReason</code></td>
+      <td>Indica o propósito de armazenamento de cartões, caso o campo “Usage” for “Used”.<br /><strong>Recurring</strong> - Compra recorrente programada (ex. assinaturas). Se for transação recorrente, usar <code class="language-plaintext highlighter-rouge">Payment.Recurrent</code> = true (recorrência própria) ou <code class="language-plaintext highlighter-rouge">Recurrent.Payment</code> = true (recorrência programada).<br /><strong>Unscheduled</strong> - Compra recorrente sem agendamento (ex. aplicativos de serviços)<br /><strong>Installments</strong> - Parcelamento através da recorrência<br /><a href="https://developercielo.github.io/faq/faq-api-3-0#pagamento-com-credenciais-armazenadas">Veja Mais</a>.</td>
+      <td>Texto</td>
+      <td>—</td>
+      <td style="text-align: center">Condicional</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Wallet.Type</code></td>
+      <td>Tipo da e-wallet: “ApplePay” / “SamsungPay” / “GooglePay”.</td>
+      <td>Texto</td>
+      <td>15</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Wallet.Cavv</code></td>
+      <td>Campo de validação retornado pela e-wallet como base de autorização.</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Wallet.Eci</code></td>
+      <td>Electronic Commerce Indicator. Representa o quão segura é uma transação.A loja deve considerar o ECI na tomada de decisão de enviar ou não uma transação para autorização/captura.</td>
+      <td>Texto</td>
+      <td>2</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="resposta-35">Resposta</h2>
 
 <p>A resposta sempre retorna se o cartão pode ser autorizado no momento. Essa informação apenas significa que o <em>cartão está válido para transacionar</em>, mas não indica que um determinado valor será autorizado.</p>
 
@@ -12153,7 +12277,7 @@ Essas informações permitem tomar ações no momento do pagamento para melhorar
 <table>
   <thead>
     <tr>
-      <th>Paramêtro</th>
+      <th>Parâmetro</th>
       <th>Descrição</th>
       <th>Tipo</th>
       <th>Tamanho</th>
@@ -12235,10 +12359,6 @@ O código de retorno <strong>00 representa sucesso no Zero Auth</strong>, os dem
   <li><em>400 – Bad Request</em></li>
 </ul>
 
-<blockquote>
-  <p>O excesso de tentativas negativas pode implicar em multas. Leia mais em <a href="https://developercielo.github.io/tutorial/programa-retentativa-bandeiras" target="\_blank">Programa de Retentativa das Bandeiras</a>.</p>
-</blockquote>
-
 <h1 id="silent-order-post">Silent Order Post</h1>
 
 <p>Com o Silent Order Post, os dados de pagamentos são trafegados de forma segura, mantendo o controle total sobre a experiência de checkout.</p>
@@ -12284,7 +12404,7 @@ proteger os dados do titular do cartão.</p>
   <li>A loja, por meio do seu servidor, envia a requisição de autorização com o token e os demais campos obrigatórios para uma transação.</li>
 </ol>
 
-<h2 id="integração-2">Integração</h2>
+<h2 id="integração-1">Integração</h2>
 
 <h3 id="passo-1-obtendo-dos-tokens-de-acesso">Passo 1. Obtendo dos tokens de acesso</h3>
 
@@ -12723,7 +12843,7 @@ proteger os dados do titular do cartão.</p>
 
 <p>Exemplo: https://transaction.cieloecommerce.cielo.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000</p>
 
-<h3 id="requisição-38">Requisição</h3>
+<h3 id="requisição-40">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v1/accesstoken?merchantid={mid_loja}</span></aside>
 
