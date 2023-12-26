@@ -6326,17 +6326,17 @@ Caso outras bandeiras sejam enviadas, haverá um erro com o retorno "**57-Bandei
 
 <aside class="warning">Para habilitar o Zero Auth, entre em contato com a equipe de suporte da Cielo.</aside>
 
-## Integração
+**Integração**
 
-Para realizar a consulta ao Zero Auth, o lojista deverá enviar uma requisição `POST` para a API Cielo Ecommerce, simulando uma transação.
+Para realizar a consulta ao Zero Auth, a loja deverá enviar uma requisição `POST` para a API Cielo E-commerce, simulando uma transação.
+
+A validação de um cartão aberto necessita de um contrato técnico diferente da validação de um cartão tokenizado ou de e-wallet. Confira os exemplos de requisição a seguir:
+
+## Cartão aberto
 
 ### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/zeroauth</span></aside>
-
-A validação de um cartão aberto necessita de um contrato técnico diferente da validação de um cartão tokenizado. Confira os exemplos de requisição a seguir:
-
-#### Cartão aberto
 
 ```json
 {
@@ -6355,7 +6355,7 @@ A validação de um cartão aberto necessita de um contrato técnico diferente d
 
 A seguir, a listagem de campos da Requisição:
 
-| Paramêtro        | Descrição                                                                                                                                                                                                                                                                                                                                                                                                 | Tipo    | Tamanho | Obrigatório |
+| Parâmetro        | Descrição    | Tipo    | Tamanho | Obrigatório |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ------- | :---------: |
 | `CardType`       | _Creditcard ou DebitCard_                                                                                                                                                                                                                                                                                                                                                                                 | Texto   | 255     |     Sim     |
 | `CardNumber`     | Número do Cartão do Comprador                                                                                                                                                                                                                                                                                                                                                                             | Texto   | 16      |     Sim     |
@@ -6368,7 +6368,11 @@ A seguir, a listagem de campos da Requisição:
 | `Usage`          | **First** se o cartão foi armazenado e é seu primeiro uso.<br>**Used** se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação.                                                                                                                                                                                                                                                | Texto   | ---     |     Não     |
 | `Reason`         | Indica o propósito de armazenamento de cartões, caso o campo "Usage" for "Used".<BR>**Recurring** - Compra recorrente programada (ex. assinaturas). Se for transação recorrente, usar `Payment.Recurrent` = true (recorrência própria) ou `Recurrent.Payment` = true (recorrência programada).<br>**Unscheduled** - Compra recorrente sem agendamento (ex. aplicativos de serviços)<br>**Installments** - Parcelamento através da recorrência<br>[Veja Mais](https://developercielo.github.io/faq/faq-api-3-0#pagamento-com-credenciais-armazenadas). | Texto   | ---     | Condicional |
 
-#### Cartão tokenizado
+## Cartão tokenizado
+
+### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/zeroauth</span></aside>
 
 ```json
 {
@@ -6380,20 +6384,64 @@ A seguir, a listagem de campos da Requisição:
 
 A seguir, a listagem de campos da Requisição:
 
-| Paramêtro   | Descrição                                      | Tipo  | Tamanho | Obrigatório |
+| Parâmetro    | Descrição                                      | Tipo  | Tamanho | Obrigatório |
 | ----------- | ---------------------------------------------- | ----- | ------- | :---------: |
 | `Brand`     | Bandeira do cartão: <br><br>Visa<br>Master<br> | Texto | 10      |     não     |
 | `CardToken` | Token do cartão na 3.0                         | GUID  | 36      | Condicional |
 
-### Resposta
+## E-wallets
 
-A resposta sempre retorna se o cartão pode ser autorizado no momento. Essa informação apenas significa que o _cartão está válido para transacionar_, mas não indica que um determinado valor será autorizado.
+Para validar uma e-wallet com o Zero Auth, é necessário que a loja tenha integração com uma das [e-wallets disponíveis](https://developercielo.github.io/manual/cielo-ecommerce#e-wallets-dispon%C3%ADveis).
+
+### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/2/zeroauth</span></aside>
+
+``` json
+{
+    "Card": {
+       "CardType": "CreditCard",
+       "CardNumber": "4532154371691902",
+       "Holder": "Joao da Silva",
+       "ExpirationDate": "MM/YYYY",
+       "SecurityCode": "333",
+       "Brand": "Visa",
+       "CardOnFile": {
+           "Usage": "First",
+           "Reason": "Recurring"
+       }
+    },
+    "Wallet": {
+       "Type": "ApplePay",
+       "Cavv": "AM1mbqehL24XAAa0J04CAoABFA==",
+       "Eci": 7
+    }
+}
+```
+
+| Parâmetro        | Descrição    | Tipo    | Tamanho | Obrigatório |
+| ---------------- | ---------- | ------- | ------- | :---------: |
+| `CardType`       | _Creditcard ou DebitCard_   | Texto   | 255     |     Sim     |
+| `CardNumber`     | Número do Cartão do Comprador   | Texto   | 16      |     Sim     |
+| `Holder`         | Nome do Comprador impresso no cartão.    | Texto   | 25      |     Sim     |
+| `ExpirationDate` | Data de e validade impresso no cartão.     | Texto   | 7       |     Sim     |
+| `SecurityCode`   | Código de segurança impresso no verso do cartão.    | Texto   | 4       |     Sim     |
+| `Brand`          | Bandeira do cartão: <br><br>Visa<br>Master<br>Elo      | Texto   | 10      |     Sim     |
+| `CardOnFile.Usage`          | **First** se o cartão foi armazenado e é seu primeiro uso.<br>**Used** se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação.    | Texto   | ---     |     Não     |
+| `CardOnFileReason`         | Indica o propósito de armazenamento de cartões, caso o campo "Usage" for "Used".<BR>**Recurring** - Compra recorrente programada (ex. assinaturas). Se for transação recorrente, usar `Payment.Recurrent` = true (recorrência própria) ou `Recurrent.Payment` = true (recorrência programada).<br>**Unscheduled** - Compra recorrente sem agendamento (ex. aplicativos de serviços)<br>**Installments** - Parcelamento através da recorrência<br>[Veja Mais](https://developercielo.github.io/faq/faq-api-3-0#pagamento-com-credenciais-armazenadas). | Texto   | ---     | Condicional |
+|`Wallet.Type`| Tipo da e-wallet: “ApplePay” / “SamsungPay” / “GooglePay”. | Texto | 15 | Sim |
+|`Wallet.Cavv` | Campo de validação retornado pela e-wallet como base de autorização. |Texto | 255 | Sim |
+|`Wallet.Eci` |Electronic Commerce Indicator. Representa o quão segura é uma transação.A loja deve considerar o ECI na tomada de decisão de enviar ou não uma transação para autorização/captura.|Texto| 2 | Sim |
+
+## Resposta
+
+A resposta sempre retorna se o cartão pode ser autorizado no momento. Essa informação apenas significa que o *cartão está válido para transacionar*, mas não indica que um determinado valor será autorizado.
 
 Os campos retornados na resposta dependem do resultado da validação. A tabela a seguir apresenta todos os campos possíveis; depois da tabela, confira os exemplos de cada tipo de resposta.
 
 > Se a resposta for negativa, não submeter para autorização, submeter apenas se o código da resposta for positivo.
 
-| Paramêtro             | Descrição                                                                                                                                                                                                                                                                                                          | Tipo    | Tamanho |
+| Parâmetro             | Descrição                                                                                                                                                                                                                                                                                                          | Tipo    | Tamanho |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- | ------- |
 | `Valid`               | Situação do cartão:<br> **True** – Cartão válido<BR>**False** – Cartão Inválido                                                                                                                                                                                                                                    | Boolean | ---     |
 | `ReturnCode`          | Código de retorno                                                                                                                                                                                                                                                                                                  | Texto   | 2       |
@@ -6447,8 +6495,6 @@ Caso ocorra algum erro no fluxo e não seja possível validar o cartão, o servi
 
 - _500 – Internal Server Error_
 - _400 – Bad Request_
-
-> O excesso de tentativas negativas pode implicar em multas. Leia mais em [Programa de Retentativa das Bandeiras](https://developercielo.github.io/tutorial/programa-retentativa-bandeiras){:target="\_blank"}.
 
 # Silent Order Post
 
