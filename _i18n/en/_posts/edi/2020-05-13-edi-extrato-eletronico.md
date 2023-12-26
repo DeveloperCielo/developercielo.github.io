@@ -21,15 +21,13 @@ Aiming to bring greater transparency and fluidity in the conciliation of extract
 
 Below is the communication sent with the details of the changes, test files and complementary documentation to support the homologation.
 
-[PT-BR](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_PT-BR_Dez.zip)
+[PT-BR](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_PT-BR_Dez_2.zip)
 
-[EN](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_english_Dez.zip)
+[EN](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_english_Dez_2.zip)
 
-[ES](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_espanol_Dez.zip)
+[ES](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_espanol_Dez_2.zip)
 
 [Arquivos de Teste](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Arquivos_Testes.zip)
-
-![Announcement](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Important_Electronic_StatementV15.JPG)
 
 It is important that the approval of the new structure takes place by the indicated date so as not to impact the reading of the extracts.
 
