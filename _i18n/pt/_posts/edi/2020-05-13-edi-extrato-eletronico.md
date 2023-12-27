@@ -33,6 +33,8 @@ Abaixo segue o comunicado enviado com os detalhes das alterações, arquivos de 
 
 > Importante! A versão atual dos extratos não terá mais suporte e geração a partir de Abr/24.
 
+![Atualizacao](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/20231222_atualizacoes_V15_PT.JPG)
+
 # Histórico de Alterações
 
 ## Versão Produtiva
