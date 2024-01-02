@@ -154,7 +154,7 @@
 
 <p>Entre em contato com o provedor de sua preferência para maiores informações sobre como contratar o serviço.</p>
 
-<h2 id="e-wallets-disponíveis">E-Wallets Disponíveis</h2>
+<h1 id="e-wallets-disponíveis">E-Wallets Disponíveis</h1>
 
 <p>API Cielo E-commerce possui suporte para as seguintes carteiras digitais:</p>
 
@@ -175,7 +175,7 @@ Para saber as bandeiras de cartão aceitas, visite o site de cada carteira:<br /
 <a href="https://www.samsung.com.br/services/pay/" target="\_blank">SamsungPay</a></p>
 </blockquote>
 
-<h2 id="integração-da-e-wallet">Integração da E-Wallet</h2>
+<h1 id="integração-da-e-wallet">Integração da E-Wallet</h1>
 
 <p>A requisição de autorização com o meio de pagamento e-wallet pode acontecer de duas formas:</p>
 
@@ -184,7 +184,7 @@ Para saber as bandeiras de cartão aceitas, visite o site de cada carteira:<br /
   <li><strong>Autorização com cartão descriptografado</strong>: a requisição contém o nó <code class="language-plaintext highlighter-rouge">Wallet</code> e a própria loja descriptografa os dados do cartão e submete os dados de forma aberta na autorização. Esse tipo de integração é indicado para estabelecimentos com certificação PCI DSS.</li>
 </ol>
 
-<h3 id="cartão-criptografado">Cartão criptografado</h3>
+<h2 id="cartão-criptografado">Cartão criptografado</h2>
 
 <p>Veja abaixo a representação de um <strong>fluxo transacional</strong> padrão na integração de uma e-wallet com cartão criptografado:</p>
 
@@ -192,7 +192,7 @@ Para saber as bandeiras de cartão aceitas, visite o site de cada carteira:<br /
 
 <p>A seguir, um exemplo de requisição padrão para integração da e-wallet com cartão criptografado:</p>
 
-<h4 id="requisição">Requisição</h4>
+<h3 id="requisição">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -362,7 +362,7 @@ Para saber as bandeiras de cartão aceitas, visite o site de cada carteira:<br /
   </tbody>
 </table>
 
-<h5 id="walletkey">WalletKey</h5>
+<h4 id="walletkey">WalletKey</h4>
 
 <p>WalletKey é o identificador utilizado pela Cielo para descriptografar payloads retornados pela wallet.</p>
 
@@ -395,7 +395,7 @@ Para saber as bandeiras de cartão aceitas, visite o site de cada carteira:<br /
   </tbody>
 </table>
 
-<h5 id="ephemeralpublickey">EphemeralPublicKey</h5>
+<h4 id="ephemeralpublickey">EphemeralPublicKey</h4>
 
 <p>Formato de <code class="language-plaintext highlighter-rouge">EphemeralPublicKey</code> que deve ser repassado à API Cielo E-commerce:</p>
 
@@ -414,7 +414,7 @@ Para saber as bandeiras de cartão aceitas, visite o site de cada carteira:<br /
   </tbody>
 </table>
 
-<h5 id="signature">Signature</h5>
+<h4 id="signature">Signature</h4>
 
 <p>Formato de <code class="language-plaintext highlighter-rouge">Signature</code> que deve ser repassado à API Cielo E-commerce:</p>
 
@@ -433,7 +433,7 @@ Para saber as bandeiras de cartão aceitas, visite o site de cada carteira:<br /
   </tbody>
 </table>
 
-<h4 id="resposta">Resposta</h4>
+<h3 id="resposta">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
@@ -674,11 +674,11 @@ Para saber as bandeiras de cartão aceitas, visite o site de cada carteira:<br /
   </tbody>
 </table>
 
-<h3 id="cartão-descriptografado">Cartão descriptografado</h3>
+<h2 id="cartão-descriptografado">Cartão descriptografado</h2>
 
 <p>A autorização com cartão descriptografado acontece quando a própria loja descriptografa o payload recebido da wallet e envia por conta própria para a API Cielo E-commerce para processamento e autorização. Nesse cenário, envie para autorização o modelo de requisição a seguir:</p>
 
-<h4 id="requisição-1">Requisição</h4>
+<h3 id="requisição-1">Requisição</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--</span><span class="w"> </span><span class="err">Envio</span><span class="w"> </span><span class="err">de</span><span class="w"> </span><span class="err">cartão</span><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -835,7 +835,7 @@ Para saber as bandeiras de cartão aceitas, visite o site de cada carteira:<br /
   </tbody>
 </table>
 
-<h4 id="resposta-1">Resposta</h4>
+<h3 id="resposta-1">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
@@ -993,7 +993,7 @@ Para saber as bandeiras de cartão aceitas, visite o site de cada carteira:<br /
   </tbody>
 </table>
 
-<h2 id="zero-auth">Zero Auth</h2>
+<h1 id="zero-auth">Zero Auth</h1>
 
 <p>O <strong>Zero Auth</strong> é uma ferramenta da Cielo que permite verificar se um cartão está válido para realizar uma compra antes que o pedido seja finalizado. O Zero Auth simula uma autorização sem afetar o limite de crédito ou alertar o portador do cartão sobre o teste. Para mais informações, visite o <a href="https://developercielo.github.io/manual/'?json#e-wallets187" target="\_blank">Manual da API E-Commerce Cielo - Zero Auth</a>.</p>
 
