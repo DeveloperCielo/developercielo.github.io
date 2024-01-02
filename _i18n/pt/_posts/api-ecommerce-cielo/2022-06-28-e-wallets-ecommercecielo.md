@@ -446,7 +446,7 @@ O **Zero Auth** é uma ferramenta da Cielo que permite verificar se um cartão e
 
 A seguir, veja alguns exemplos de integração com as principais e-wallets disponíveis no mercado. Os exemplos contemplam o cenário de envio do cartão criptografado, ou seja quando é necessário submeter a `WalletKey` e outros identificadores de token na autorização.
 
-> Se a sua loja envia a requisição de autorização de e-wallet com dados descriptografados, vá para [Cartão descriptografado].
+> Se a sua loja envia a requisição de autorização de e-wallet com dados descriptografados, vá para [Cartão descriptografado](https://developercielo.github.io/manual/e-wallets-ecommercecielo#cart%C3%A3o-descriptografado).
 
 # Apple Pay ™
 
@@ -462,7 +462,7 @@ Para utilização do Apple Pay, é necessário que a loja já esteja cadastrada 
 4. Contratar a Cielo 3.0 como adquirência;
 5. Integrar com a [API E-commerce Cielo](https://developercielo.github.io/manual/cielo-ecommerce).
 
-**Atenção**: A integração a seguir deve ser feita por lojas que enviam dados de cartão de forma criptografada. Se a sua loja envia a requisição de autorização de e-wallet com dados descriptografados, vá para [Cartão descriptografado].
+**Atenção**: A integração a seguir deve ser feita por lojas que enviam dados de cartão de forma criptografada. Se a sua loja envia a requisição de autorização de e-wallet com dados descriptografados, vá para [Cartão descriptografado](https://developercielo.github.io/manual/e-wallets-ecommercecielo#cart%C3%A3o-descriptografado).
 
 ## ETAPA 1 - Configuração do Merchant Identifier
 
@@ -712,7 +712,7 @@ Guarde os dados `signedMessage` e `signature`, que serão requisitados na autori
 
 A autorização com o token do Google Pay acontece da mesma forma que a autorização padrão de um cartão de crédito. Porém, ao invés de se fornecer os dados do cartão abertamente, deverá ser fornecido o token recebido pelo Google Pay, conforme o exemplo a seguir:
 
-> **Atenção**: A integração a seguir deve ser feita por lojas que enviam dados de cartão de forma criptografada. Se a sua loja envia a requisição de autorização de e-wallet com dados descriptografados, vá para [Cartão descriptografado].
+> **Atenção**: A integração a seguir deve ser feita por lojas que enviam dados de cartão de forma criptografada. Se a sua loja envia a requisição de autorização de e-wallet com dados descriptografados, vá para [Cartão descriptografado](https://developercielo.github.io/manual/e-wallets-ecommercecielo#cart%C3%A3o-descriptografado).
 
 ### Requisição
 
@@ -777,7 +777,7 @@ Abaixo segue o pré-requisito para utilizar o Samsung Pay e também um exemplo d
 
 <aside class="warning">É necessário que a loja já possua cadastro e integração Samsung Pay, caso contrário não será possível a integração com a API.</aside>
 
-> **Atenção**: A integração a seguir deve ser feita por lojas que enviam dados de cartão de forma criptografada. Se a sua loja envia a requisição de autorização de e-wallet com dados descriptografados, vá para [Cartão descriptografado].
+> **Atenção**: A integração a seguir deve ser feita por lojas que enviam dados de cartão de forma criptografada. Se a sua loja envia a requisição de autorização de e-wallet com dados descriptografados, vá para [Cartão descriptografado](https://developercielo.github.io/manual/e-wallets-ecommercecielo#cart%C3%A3o-descriptografado).
 
 ## Requisição
 
