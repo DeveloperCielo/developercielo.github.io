@@ -1687,6 +1687,16 @@ Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:</p>
                     <span class="o">.</span><span class="na">paymentCode</span><span class="o">(</span><span class="nc">PaymentCode</span><span class="o">.</span><span class="na">CREDITO_PARCELADO_LOJA</span><span class="o">)</span> <span class="cm">/* Opcional */</span>
                     <span class="o">.</span><span class="na">build</span><span class="o">();</span>
 </code></pre></div></div>
+<p>Exemplo utilizando o paymentCode PIX</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">CheckoutRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CheckoutRequest</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+                    <span class="o">.</span><span class="na">orderId</span><span class="o">(</span><span class="n">order</span><span class="o">.</span><span class="na">getId</span><span class="o">())</span> <span class="cm">/* Obrigatório */</span>
+                    <span class="o">.</span><span class="na">amount</span><span class="o">(</span><span class="mi">123456789</span><span class="o">)</span> <span class="cm">/* Opcional */</span>
+                    <span class="o">.</span><span class="na">ec</span><span class="o">(</span><span class="s">"999999999999999"</span><span class="o">)</span> <span class="cm">/* Opcional (precisa estar habilitado na LIO) */</span>
+                    <span class="o">.</span><span class="na">email</span><span class="o">(</span><span class="n">teste</span><span class="nd">@email</span><span class="o">.</span><span class="na">com</span><span class="o">)</span> <span class="cm">/* Opcional */</span>
+                    <span class="o">.</span><span class="na">paymentCode</span><span class="o">(</span><span class="nc">PaymentCode</span><span class="o">.</span><span class="na">PIX</span><span class="o">)</span> <span class="cm">/* Opcional */</span>
+                    <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+</code></pre></div></div>
 
 <blockquote>
   <p><strong>Atenção:</strong> Os dados dos parâmetros EC e EMAIL são apenas exemplos e não deve ser utilizado em sua chamada. Para a utilização do EC na chamada, é necessário uma pré habilitação junto a Cielo, para o recebimento com MULTI-EC.</p>
