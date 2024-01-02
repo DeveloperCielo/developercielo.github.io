@@ -441,7 +441,7 @@ Zero Auth allows the merchant to check whether a card is valid for making a purc
 
 In this topic, we present integration examples with the main e-wallets available on the market. The examples comprehend the scenario for encrypted cards, in which `WalletKey` and other token identifiers are required in the authorization.
 
-> If the merchant will send the authorization request with decrypted card data, please refer to [Decrypted card].
+> If the merchant will send the authorization request with decrypted card data, please refer to [Decrypted card](https://developercielo.github.io/en/manual/e-wallets-ecommercecielo#decrypted-card).
 
 # Apple Pay ™
 
@@ -457,7 +457,7 @@ In order to use Apple Pay, your store must be previously registered in the Apple
 4. Hire Cielo 3.0 as the acquirer;
 5. Integrate with [API E-commerce Cielo](https://developercielo.github.io/en/manual/cielo-ecommerce).
 
-> **Notice**: The following integration should be used when sending encrypted card data. If the merchant sends the authorization request with decrypted card data, please refer to [Decrypted card].
+> **Notice**: The following integration should be used when sending encrypted card data. If the merchant sends the authorization request with decrypted card data, please refer to [Decrypted card](https://developercielo.github.io/en/manual/e-wallets-ecommercecielo#decrypted-card).
 
 ## PART 1: Configuring the Merchant Identifier
 
@@ -705,7 +705,7 @@ Save the `signedMessage` and `signature` data, which will be required for author
 
 Authorization with the Google Pay token happens in the same way as standard credit card authorization. However, instead of providing card details openly, the token received by Google Pay must be provided, as shown in the example:
 
-> **Notice**: The following integration should be used when sending encrypted card data. If the merchant sends the authorization request with decrypted card data, please refer to [Decrypted card].
+> **Notice**: The following integration should be used when sending encrypted card data. If the merchant sends the authorization request with decrypted card data, please refer to [Decrypted card](https://developercielo.github.io/en/manual/e-wallets-ecommercecielo#decrypted-card).
 
 ### Request
 
@@ -768,7 +768,7 @@ Below is the prerequisite for using Samsung Pay and also an example of a request
 
 <aside class="warning">The store must already have Samsung Pay registration and integration, otherwise it will not be possible to integrate with the API.</aside>
 
-> **Notice**: The following integration should be used when sending encrypted card data. If the merchant sends the authorization request with decrypted card data, please refer to [Decrypted card].
+> **Notice**: The following integration should be used when sending encrypted card data. If the merchant sends the authorization request with decrypted card data, please refer to [Decrypted card](https://developercielo.github.io/en/manual/e-wallets-ecommercecielo#decrypted-card).
 
 ## Request
 
