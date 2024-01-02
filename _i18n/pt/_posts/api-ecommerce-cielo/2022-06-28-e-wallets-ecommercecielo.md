@@ -22,7 +22,7 @@ E-wallets são cofres (repositórios) de cartões e dados de pagamento destinado
 
 Entre em contato com o provedor de sua preferência para maiores informações sobre como contratar o serviço.
 
-## E-Wallets Disponíveis
+# E-Wallets Disponíveis
 
 API Cielo E-commerce possui suporte para as seguintes carteiras digitais:
 
@@ -39,14 +39,14 @@ API Cielo E-commerce possui suporte para as seguintes carteiras digitais:
 > [ApplePay](https://www.apple.com/br/apple-pay/){:target="\_blank"}<br>
 > [SamsungPay](https://www.samsung.com.br/services/pay/){:target="\_blank"}
 
-## Integração da E-Wallet
+# Integração da E-Wallet
 
 A requisição de autorização com o meio de pagamento e-wallet pode acontecer de duas formas:
 
 1. **Autorização com cartão criptografado**: a requisição contém o nó `Wallet`, o campo `WalletKey` (usado pela Cielo para descriptografar os dados das e-wallets) e tokens adicionais de acordo com cada e-wallet. Esse tipo de integração é indicado para estabelecimentos que não possuem certificação PCI DSS;
 2. **Autorização com cartão descriptografado**: a requisição contém o nó `Wallet` e a própria loja descriptografa os dados do cartão e submete os dados de forma aberta na autorização. Esse tipo de integração é indicado para estabelecimentos com certificação PCI DSS.
 
-### Cartão criptografado
+## Cartão criptografado
 
 Veja abaixo a representação de um **fluxo transacional** padrão na integração de uma e-wallet com cartão criptografado:
 
@@ -54,7 +54,7 @@ Veja abaixo a representação de um **fluxo transacional** padrão na integraç�
 
 A seguir, um exemplo de requisição padrão para integração da e-wallet com cartão criptografado:
 
-#### Requisição
+### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -131,7 +131,7 @@ A seguir, um exemplo de requisição padrão para integração da e-wallet com c
 | `Wallet.AdditionalData.EphemeralPublicKey` | Token retornado pela wallet. Deve ser enviado em integrações **ApplePay**.                                                                                                              | Texto  | --      | Sim                     |
 | `Wallet.AdditionalData.Signature`          | Token retornado pela wallet. Deve ser enviado em integrações **GooglePay**.                                                                                                             | Texto  | --      | Sim                     |
 
-##### WalletKey
+#### WalletKey
 
 WalletKey é o identificador utilizado pela Cielo para descriptografar payloads retornados pela wallet.
 
@@ -143,7 +143,7 @@ Os formatos de `WalletKey` que devem ser repassados à API Cielo E-commerce são
 | *Samsung Pay*  | eyJhbGciOiJSU0ExXzUiLCJraWQiOiIvam1iMU9PL2hHdFRVSWxHNFpxY2VYclVEbmFOUFV1ZUR5M2FWeHBzYXVRPS<br>IsInR5cCI6IkpPU0UiLCJjaGFubmVsU2VjdXJpdHlDb250ZXh0IjoiUlNBX1BLSSIsImVuYyI6IkExMjhHQ00ifQ.cCsGbqgFdzVb1jhXNR<br>--gApzoXH-fdafddfa-Bo_utsmDN_DuGm69Kk2_nh6txa7ML9PCI59LFfOMniAf7ZwoZUBDCY7Oh8kx3wsZ0kxNBwfy<br>LBCMEYzET0qcIYxePezQpkNcaZ4oogmdNSpYY-KbZGMcWpo1DKhWphDVp0lZcLxA6Q25K78e5AtarR5whN4HUAkurQ.CFjWpHkAVoLCG8q0.NcsTuauebemJXmos_mLMTyLhEHL-<br>p5Wv6J88WkgzyjAt_DW7laiPMYw2sqRXkOiMJLwhifRzbSp8ZgJBM25IX05dKKSS4XfFjJQQjOBHw6PYtEF5pUDMLHML3jcddCrX07abfef_DuP41PqOQYsjwesLZ8XsRj-<br>R0TH4diOZ_GQop8_oawjRIo9eJr9Wbtho0h8kAzHYpfuhamOPT718EaGAY6SSrR7t6nBkzGNkrKAmHkC7aRwe.AbZG53wRqgF0XRG3wUK_UQ|   |
 | *Google Pay*  | {"encryptedMessage":"0mXBb94Cy9JZhMuwtrBhMjXb8pDslrNsN5KhcEqnowOINqJgjXHD36KcCuzpQQ4cDAe64ZLmk2N3UBGXsN9hMMyeMakXlidVmteE<br>+QMaNZIor048oJqlUIFPD54B/ic8zCdqq3xnefUmyKQe0I03x57TcEA9xAT/E4x3rYfyqLFUAEtu2lT0GwTdwgrsT8pKoTldHIgP+wVNTjrKvJrB4xM/Bhn6JfcSmOzFyI6w37<br>mBU71/TK761nYOSxt7z1bNWSLZ4b8xBu1dlRgen2BSlqdafuQjV3UZjr6ubSvaJ8NiCh5FD/X013kAwLuLALMS2uAFS9j8cZ6R6zNIi13fK6Fe4ACbFTHw<br>LzSNZjQiaRDb6MlMnY8/amncPIOXzpirb5ScIz8EZUL05xd+3YWVTVfpqgFo1eaaS+wZdUyRG0QEgOsr6eLBoH8d5lfV9Rx6XdioorUuT7s1Yqc0OJZO<br>+fhBt6X0izE9hBGTexdZyg\\u003d\\u003d","ephemeralPublicKey":"BMdwrkJeEgCOtLevYsN3MbdP8xbOItXiTejoB6vXy0Kn0ZM10jy4Aasd6jTSxtoxo<br>TpFydLhj5kzoOhbw2OzZu0\\u003d","tag":"yAQIjWZ0VuCC7SWyYwc4eXOzpSUKhZduF9ip0Ji+Gj8\\u003d"}  |
 
-##### EphemeralPublicKey
+#### EphemeralPublicKey
 
 Formato de `EphemeralPublicKey` que deve ser repassado à API Cielo E-commerce:
 
@@ -151,7 +151,7 @@ Formato de `EphemeralPublicKey` que deve ser repassado à API Cielo E-commerce:
 | ----------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | **Apple Pay** | MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEoedz1NqI6hs9hEO6dBsnn0X0xp5/DKj3gXirjEqxNIJ8JyhGxVB3ITd0E+6uG4W6Evt+kugG8gOhCBrdUU6JwQ== |
 
-##### Signature
+#### Signature
 
 Formato de `Signature` que deve ser repassado à API Cielo E-commerce:
 
@@ -159,7 +159,7 @@ Formato de `Signature` que deve ser repassado à API Cielo E-commerce:
 | ------------ | ----------------------------------------------------------------------------------------------------- |
 | **Google Pay** | MEUCIQCGQLOmwxe5eFMSuTcr4EcwSZu35fB0KlCWcVop6ZxxhgIgbdtNHThSlynOopfxMIxkDs0cLh2NFh5es+J5uDmaViA\u003d |
 
-#### Resposta
+### Resposta
 
 ```json
 {
@@ -307,11 +307,11 @@ Formato de `Signature` que deve ser repassado à API Cielo E-commerce:
 | `AdditionalData.CaptureCode`        | Código informado pela **Masterpass** ao lojista.                                                                                                                                       | Texto | --      | 3                                                                                                                    |
 | `AdditionalData.Signature`          | Token retornado pela wallet. Deve ser enviado em Integrações: "GooglePay".                                                                                                             | Texto | --      | Ver tabela [Signature](https://developercielo.github.io/manual/e-wallets-ecommercecielo#signature)                   |
 
-### Cartão descriptografado
+## Cartão descriptografado
 
 A autorização com cartão descriptografado acontece quando a própria loja descriptografa o payload recebido da wallet e envia por conta própria para a API Cielo E-commerce para processamento e autorização. Nesse cenário, envie para autorização o modelo de requisição a seguir:
 
-#### Requisição
+### Requisição
 
 ```json
 -- Envio de cartão
@@ -362,7 +362,7 @@ A autorização com cartão descriptografado acontece quando a própria loja des
 | `Wallet.Eci`              | Texto  | 3       | Sim         | O ECI (Eletronic Commerce Indicator) representa o quão segura é uma transação. Esse valor deve ser levado em consideração pelo lojista para decidir sobre a captura da transação. |
 | `Wallet.Cavv`             | Texto  | 255     | Sim         | Campo de validação retornado pela Wallet e utilizado como base de autorização                                                                                                     |
 
-#### Resposta
+### Resposta
 
 ```json
 {
@@ -438,7 +438,7 @@ A autorização com cartão descriptografado acontece quando a própria loja des
 | `Walletkey`                  | Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações                              | Texto | 255     | Ver tabela `WalletKey`               |
 | `AdditionalData.capturecode` | Código informado pela `MasterPass` ao lojista                                                                                  | Texto | 255     | 3                                    |
 
-## Zero Auth
+# Zero Auth
 
 O **Zero Auth** é uma ferramenta da Cielo que permite verificar se um cartão está válido para realizar uma compra antes que o pedido seja finalizado. O Zero Auth simula uma autorização sem afetar o limite de crédito ou alertar o portador do cartão sobre o teste. Para mais informações, visite o [Manual da API E-Commerce Cielo - Zero Auth](https://developercielo.github.io/manual/'?json#e-wallets187){:target="\_blank"}.
 
