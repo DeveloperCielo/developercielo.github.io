@@ -460,7 +460,7 @@ Para utilização do Apple Pay, é necessário que a loja já esteja cadastrada 
 4. Contratar a Cielo 3.0 como adquirência;
 5. Integrar com a [API E-commerce Cielo](https://developercielo.github.io/manual/cielo-ecommerce).
 
-**Atenção**: A integração a seguir deve ser feita por lojas que enviam dados de cartão de forma criptografada. Se a sua loja envia a requisição de autorização de e-wallet com dados descriptografados, vá para [Cartão descriptografado](https://developercielo.github.io/manual/e-wallets-ecommercecielo#cart%C3%A3o-descriptografado).
+> **Atenção**: A integração a seguir deve ser feita por lojas que enviam dados de cartão de forma criptografada. Se a sua loja envia a requisição de autorização de e-wallet com dados descriptografados, vá para [Cartão descriptografado](https://developercielo.github.io/manual/e-wallets-ecommercecielo#cart%C3%A3o-descriptografado).
 
 ## ETAPA 1 - Configuração do Merchant Identifier
 
