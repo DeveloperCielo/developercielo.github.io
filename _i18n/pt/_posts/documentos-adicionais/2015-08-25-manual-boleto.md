@@ -123,16 +123,16 @@ O Lojista precisará informar ao suporte Cielo os sequintes dados:
 
 | Dados                       | Descrição                              | Formato    | OBS                                                                                                     |
 | --------------------------- | -------------------------------------- | ---------- | ------------------------------------------------------------------------------------------------------- |
-| **Agência**                 | Código agência                         | 4 Dígitos  | com ou sem Hifen                                                                                        |
-| **Conta:**                  | Conta corrente                         | 7 Dígitos  | com Hifen                                                                                               |
+| **Agência**                 | Código agência                         | 5 dígitos  | com ou sem hífen                                                                                        |
+| **Conta:**                  | Conta corrente                         | 7 dígitos  | com hífen                                                                                               |
 | **Carteira:**               | **Não é necessário boleto Registrado** | 2 dígitos  | N/A                                                                                                     |
-| **Conciliação**             | Número do convênio de cobrança         | 7 Dígitos  | Informado dentro [Painel do Bradesco](https://meiosdepagamentobradesco.com.br/gerenciadorapi/login.jsp) |
-| **Convênio**                | Convênio de comércio eletrônico        | 6 Dígitos  | Valida com o banco se é necessario Preenchimento para a carteira                                        |
-| **Nosso Numero**            | Contador incremental                   | 5 Dígitos  | **Opcional** - Numero de controle que a cada emissão dp boleto aumenta em +1                            |
-| **Vencimento**              | Prazo de validade do boleto            | 6 Dígitos  | é o valor padrão, se nenhum outro valor for enviado via API                                             |
-| **Assinatura de Afiliação** | Chave de segurança do **Bradesco**     | 50 Dígitos | Informado dentro [Painel do Bradesco](https://meiosdepagamentobradesco.com.br/gerenciadorapi/login.jsp) |
+| **Conciliação**             | Número do convênio de cobrança         | 7 dígitos  | Informado dentro [Painel do Bradesco](https://meiosdepagamentobradesco.com.br/gerenciadorapi/login.jsp) |
+| **Convênio**                | Convênio de comércio eletrônico        | 6 dígitos  | Validar com o banco se é necessario preenchimento para a carteira                                        |
+| **Nosso Numero**            | Contador incremental                   | 5 dígitos  | **Opcional** - Número de controle que a cada emissão dp boleto aumenta em +1                            |
+| **Vencimento**              | Prazo de validade do boleto            | 6 dígitos  | É o valor padrão, se nenhum outro valor for enviado via API                                             |
+| **Assinatura de Afiliação** | Chave de segurança do **Bradesco**     | 50 dígitos | Informado dentro do [Painel do Bradesco](https://meiosdepagamentobradesco.com.br/gerenciadorapi/login.jsp) |
 
-Serão necessarias as credenciais do Bradesco:
+Serão necessárias as credenciais do Bradesco:
 
 > Essas credenciais são usadas para que a Cielo possa consultar o status do Boleto.
 
