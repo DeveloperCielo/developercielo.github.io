@@ -16,7 +16,7 @@ language_tabs:
 
 # E-Wallet (carteira digital)
 
-E-wallets são cofres (repositórios) de cartões e dados de pagamento destinados a consumidores do e-commerce e do mundo físico. As carteiras digitais permitem que um consumidor realize o cadastro de seus dados de pagamento tornando o processo de compra mais conveniente e seguro.
+**E-wallets** são cofres (repositórios) de cartões e dados de pagamento destinados a consumidores do e-commerce e do mundo físico. As carteiras digitais permitem que um consumidor realize o cadastro de seus dados de pagamento tornando o processo de compra mais conveniente e seguro.
 
 <aside class="warning">Para utilizar carteiras na API E-commerce Cielo, o lojista deverá possuir as carteiras integradas em seu checkout.</aside>
 
