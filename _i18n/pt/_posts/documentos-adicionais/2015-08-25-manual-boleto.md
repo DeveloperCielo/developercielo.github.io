@@ -124,10 +124,10 @@ O Lojista precisará informar ao suporte Cielo os sequintes dados:
 
 | Dados                       | Descrição                              | Formato    | OBS                                                                                                     |
 | --------------------------- | -------------------------------------- | ---------- | ------------------------------------------------------------------------------------------------------- |
-| **Agência**                 | Código agência                         | 5 dígitos  | com ou sem hífen                                                                                        |
+| **Agência**                 | Código agência                         | 4 dígitos  | com ou sem hífen                                                                                        |
 | **Conta:**                  | Conta corrente                         | 7 dígitos  | com hífen                                                                                               |
 | **Carteira:**               | **Não é necessário boleto Registrado** | 2 dígitos  | N/A                                                                                                     |
-| **Conciliação**             | Número do convênio de cobrança         | 7 dígitos  | Informado dentro [Painel do Bradesco](https://meiosdepagamentobradesco.com.br/gerenciadorapi/login.jsp) |
+| **Conciliação**             | Número do convênio de cobrança         | 7 dígitos  | Informado dentro do [Painel do Bradesco](https://meiosdepagamentobradesco.com.br/gerenciadorapi/login.jsp) |
 | **Convênio**                | Convênio de comércio eletrônico        | 6 dígitos  | Validar com o banco se é necessario preenchimento para a carteira                                        |
 | **Nosso Numero**            | Contador incremental                   | 5 dígitos  | **Opcional** - Número de controle que a cada emissão dp boleto aumenta em +1                            |
 | **Vencimento**              | Prazo de validade do boleto            | 6 dígitos  | É o valor padrão, se nenhum outro valor for enviado via API                                             |
@@ -219,16 +219,16 @@ O Lojista precisará informar ao suporte Cielo os sequintes dados:
 
 | Dados            | Descrição                              | Formato    | OBS                                                                                                               |
 | ---------------- | -------------------------------------- | ---------- | ----------------------------------------------------------------------------------------------------------------- |
-| **Agência**      | Código agência                         | 4 Dígitos  | Hifen Obrigátório - Não pode haver espaços antes ou depois d agência                                              |
-| **Conta:**       | Conta corrente                         | 7 Dígitos  | Hifen Obrigátório                                                                                                 |
+| **Agência**      | Código agência                         | 5 Dígitos  | Hífen obrigátório - não pode haver espaços antes ou depois da agência                                              |
+| **Conta:**       | Conta corrente                         | 7 Dígitos  | Hífen obrigátório                                                                                                 |
 | **Carteira:**    | **Não é necessário boleto Registrado** | 2 dígitos  | N/A                                                                                                               |
-| **Conciliação**  | Número do convênio de cobrança         | 7 Dígitos  | inserir o _Convênio de cobrança_ fornecido pelo banco                                                             |
-| **Convênio**     | Convênio de comércio eletrônico        | 6 Dígitos  | inserir o _Convênio de Comercio Eletrônico_ fornecido pelo banco                                                  |
+| **Conciliação**  | Número do convênio de cobrança         | 7 Dígitos  | Inserir o _Convênio de cobrança_ fornecido pelo banco                                                             |
+| **Convênio**     | Convênio de comércio eletrônico        | 6 Dígitos  | Inserir o _Convênio de Comercio Eletrônico_ fornecido pelo banco                                                  |
 | **Nosso Numero** | Contador incremental                   | 5 Dígitos  | Inserir "10000" - A cada emissão de boleto esse numero aumenta em +1                                              |
-| **Vencimento**   | Prazo de validade do boleto            | 6 Dígitos  | é o valor padrão, se nenhum outro valor for enviado via API                                                       |
-| **Instruções**   | Informações exibidas no boleto         | 50 Dígitos | Somente numeros e letras de A-Z, não pode haver caractéres especiais ou mais de um espaçamento entre cada palavra |
+| **Vencimento**   | Prazo de validade do boleto            | 6 Dígitos  | É o valor padrão, se nenhum outro valor for enviado via API                                                       |
+| **Instruções**   | Informações exibidas no boleto         | 50 Dígitos | Somente números e letras de A-Z, não pode haver caracteres especiais ou mais de um espaçamento entre cada palavra |
 
-> _OBS_: A loja deverá obrigatóriamente enviar no contrato da API os dados (nome do comprador, CPF e endereço completo).
+> _OBS_: A loja deverá obrigatoriamente enviar no contrato da API os dados (nome do comprador, CPF e endereço completo).
 
 ## Conciliação de boletos
 
