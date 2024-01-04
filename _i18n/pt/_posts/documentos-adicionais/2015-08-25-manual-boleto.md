@@ -97,7 +97,7 @@ Em cada um dos três Paramêtros a seguir, preencher com o Parâmetro de Comunic
 
 <aside class="notice"><strong>Obs:</strong> Não podem existir espaços ou quebras de texto nos parâmetros expostos acima.</aside>
 
-Clique no botão "**Gravar todas as configurações realizadas**"
+Clique em "**Gravar todas as configurações realizadas**"
 
 #### Configurando credenciais
 
