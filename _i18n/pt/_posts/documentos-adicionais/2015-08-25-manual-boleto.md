@@ -55,7 +55,7 @@ Datas estabelecidas pela Febraban (Federação Brasileira de Bancos) para que **
 
 ### Ambiente Bradesco
 
-O lojista precisará realizar configurações dentro do ambiente bancario para que a geração
+O lojista precisará realizar configurações dentro do ambiente bancário.
 
 #### Painel de controle
 
