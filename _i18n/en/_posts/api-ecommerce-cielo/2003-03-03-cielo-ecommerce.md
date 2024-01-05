@@ -5284,7 +5284,7 @@ Card Brands and Issuers that are already with Renova Fácil enabled:
 
 ### Searching for a transaction via PaymentId
 
-To get details on a credit card transaction via PaymentId, follow the request example below.
+To get details on a sale via PaymentId, follow the request example below.
 
 <aside class="notice">Only transactions made within the last three months are eligible for queries.</aside>
 
@@ -5465,6 +5465,7 @@ curl
 |`Payment.VoidedAmount`|Canceled/refunded amount, in cents.|Number|15|10000|
 |`Payment.VoidedDate`|Date of cancellation/chargeback.|Text|19|AAAA-MM-DD HH:mm:SS|
 |`Payment.Provider`|Defines behavior of the means of payment (see files attached)/NOT MANDATORY FOR CREDIT.|Text|15|-|
+|`Payment.EndToEndId` | Número de identificação único de uma transação Pix. | Text | 50 | Text alphanumeric |
 |`CreditCard.CardNumber`|Shopper's Card Number|Text|19|-|
 |`CreditCard.Holder`|Shopper's name printed on card|Text|25|-|
 |`CreditCard.ExpirationDate`|Expiration date printed on card.|Text|7|-|
@@ -5474,7 +5475,7 @@ curl
 
 ### Searching for a transaction via TId
 
-To get details on a credit card transaction using the TId number, follow the request example..
+To get details on transaction using the TId number, follow the request example..
 
 <aside class="notice">Only transactions made within the last three months are eligible for queries.</aside>
 
@@ -5656,6 +5657,7 @@ curl
 |`Payment.VoidedAmount`|Canceled/refunded amount, in cents.|Number|15|10000|
 |`Payment.VoidedDate`|Date of cancellation/chargeback.|Text|19|AAAA-MM-DD HH:mm:SS|
 |`Payment.Provider`|Defines behavior of the means of payment (see files attached)/NOT MANDATORY FOR CREDIT.|Text|15|-|
+|`Payment.EndToEndId` | Número de identificação único de uma transação Pix. | Text | 50 | Text alphanumeric |
 |`CreditCard.CardNumber`|Shopper's Card Number|Text|19|-|
 |`CreditCard.Holder`|Shopper's name printed on card|Text|25|-|
 |`CreditCard.ExpirationDate`|Expiration date printed on card.|Text|7|-|
