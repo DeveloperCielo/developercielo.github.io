@@ -10004,7 +10004,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
 
 <h3 id="searching-for-a-transaction-via-paymentid">Searching for a transaction via PaymentId</h3>
 
-<p>To get details on a credit card transaction via PaymentId, follow the request example below.</p>
+<p>To get details on a sale via PaymentId, follow the request example below.</p>
 
 <aside class="notice">Only transactions made within the last three months are eligible for queries.</aside>
 
@@ -10328,6 +10328,13 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
       <td>-</td>
     </tr>
     <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.EndToEndId</code></td>
+      <td>Número de identificação único de uma transação Pix.</td>
+      <td>Text</td>
+      <td>50</td>
+      <td>Text alphanumeric</td>
+    </tr>
+    <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
       <td>Shopper’s Card Number</td>
       <td>Text</td>
@@ -10374,7 +10381,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
 
 <h3 id="searching-for-a-transaction-via-tid">Searching for a transaction via TId</h3>
 
-<p>To get details on a credit card transaction using the TId number, follow the request example..</p>
+<p>To get details on transaction using the TId number, follow the request example..</p>
 
 <aside class="notice">Only transactions made within the last three months are eligible for queries.</aside>
 
@@ -10703,6 +10710,13 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
       <td>Text</td>
       <td>15</td>
       <td>-</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.EndToEndId</code></td>
+      <td>Número de identificação único de uma transação Pix.</td>
+      <td>Text</td>
+      <td>50</td>
+      <td>Text alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
