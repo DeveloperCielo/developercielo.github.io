@@ -5465,7 +5465,7 @@ curl
 |`Payment.VoidedAmount`|Canceled/refunded amount, in cents.|Number|15|10000|
 |`Payment.VoidedDate`|Date of cancellation/chargeback.|Text|19|AAAA-MM-DD HH:mm:SS|
 |`Payment.Provider`|Defines behavior of the means of payment (see files attached)/NOT MANDATORY FOR CREDIT.|Text|15|-|
-|`Payment.EndToEndId` | Número de identificação único de uma transação Pix. | Text | 50 | Text alphanumeric |
+|`Payment.EndToEndId` | Identification number for a Pix transaction. | Text | 50 | Text alphanumeric |
 |`CreditCard.CardNumber`|Shopper's Card Number|Text|19|-|
 |`CreditCard.Holder`|Shopper's name printed on card|Text|25|-|
 |`CreditCard.ExpirationDate`|Expiration date printed on card.|Text|7|-|
@@ -5657,7 +5657,7 @@ curl
 |`Payment.VoidedAmount`|Canceled/refunded amount, in cents.|Number|15|10000|
 |`Payment.VoidedDate`|Date of cancellation/chargeback.|Text|19|AAAA-MM-DD HH:mm:SS|
 |`Payment.Provider`|Defines behavior of the means of payment (see files attached)/NOT MANDATORY FOR CREDIT.|Text|15|-|
-|`Payment.EndToEndId` | Número de identificação único de uma transação Pix. | Text | 50 | Text alphanumeric |
+|`Payment.EndToEndId` | Identification number for a Pix transaction. | Text | 50 | Text alphanumeric |
 |`CreditCard.CardNumber`|Shopper's Card Number|Text|19|-|
 |`CreditCard.Holder`|Shopper's name printed on card|Text|25|-|
 |`CreditCard.ExpirationDate`|Expiration date printed on card.|Text|7|-|
