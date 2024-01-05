@@ -134,7 +134,1517 @@
                 </div>
             </div>
 
-            <div class="post">
+            <div class="post"><h1 id="introdução">Introdução</h1>
+
+<h2 id="objetivo">Objetivo</h2>
+
+<p>Esse manual foi feito para garantir uma <strong>melhor</strong>** integração <strong>a você, cliente Cielo, na <em>** API **</em></strong> de **<em>** Chargeback**</em>.</p>
+
+<p>Através dela, você pode <strong>aceitar</strong> ou <strong>recusar</strong> contestações, além de consultar contestações pendentes e tratadas, ciclo de vida e todas as informações importantes no processo de <em>contestação</em>.</p>
+
+<h1 id="integração-na-api">Integração na API</h1>
+
+<h2 id="fluxo-para-integração-com-api-de-chargeback">Fluxo para integração com API de Chargeback</h2>
+
+<p><img src="RackMultipart20240105-1-lmnp52_html_82aa0a14a7ff9ea4.png" alt="" /></p>
+
+<h2 id="integração-com-api-de-chargeback">Integração com API de Chargeback</h2>
+
+<ol>
+  <li>Enviar para caixa <strong>Technical Support Chargeback</strong> (<a href="mailto:techsupportchargeback@cielo.com.br">techsupportchargeback@cielo.com.br</a>) o número do estabelecimento matriz (EC que representa a raiz de CNPJ) da companhia.</li>
+  <li>Obs. 1: Todos os estabelecimentos para a API de Chargeback estarão abaixo desse estabelecimento, isso não afeta nenhum outro fluxo da Cielo.</li>
+  <li>
+    <p>Obs. 2: Caso você tenha mais de uma raiz de CNPJ, enviar todas elas.</p>
+  </li>
+  <li>Efetuar o pré-cadastro no Portal de Desenvolvedores.</li>
+  <li>Link para acesso ao Portal dos Desenvolvedores: <a href="https://cielomulesoft.my.site.com/desenvolvedores/s/login/">cielomulesoft.my.site.com/desenvolvedores/s/login/</a>
+    - Deve ser criado apenas um único login por cliente.</li>
+  <li>Clicar em “Sign Up” e cadastrar Nome, Sobrenome e E-mail.</li>
+  <li>Após esse cadastro, enviar um e-mail para a caixa de <strong>Technical Support Chargeback</strong> informando os dados cadastrados.
+    - Obs.: esse cadastro é necessário para obter acesso ao Client_ID e Client_Secret dos ambientes de Sandbox e Produção.</li>
+</ol>
+
+<p><img src="RackMultipart20240105-1-lmnp52_html_d99122eda5182bab.gif" alt="Shape1" /> <img src="RackMultipart20240105-1-lmnp52_html_71b1003f3da457aa.png" alt="" /></p>
+
+<p><img src="RackMultipart20240105-1-lmnp52_html_2781ad1d84a11497.png" alt="" /></p>
+
+<ol>
+  <li>Criação de uma chave pública e privada para criptografia</li>
+  <li>
+    <p>É necessário gerar o arquivo da chave pública no formato <strong>.csr</strong>.
+    - <strong>Dica</strong> : as chaves podem ser geradas via ferramenta openssl.
+    - <strong>Exemplo</strong> : openssl req -out nome_chave_publica.csr -new -newkey rsa:2048 -nodes - keyout chave_privada.key
+    - Gerar o.csr da chave pública conforme padrão abaixo:</p>
+  </li>
+  <li>
+    <p><strong>emailAddress</strong> \</p>
+  </li>
+  <li>
+    <p><strong>Common Name (CN)</strong> \</p>
+  </li>
+  <li>
+    <p><strong>Organizational Unit (OU)</strong> \</p>
+  </li>
+  <li>
+    <p><strong>Organization (O)</strong> \</p>
+  </li>
+  <li>
+    <p><strong>Locality (L)</strong> \</p>
+  </li>
+  <li>
+    <p><strong>State (ST)</strong> \</p>
+  </li>
+  <li><strong>Country (C)</strong> \</li>
+</ol>
+
+<ul>
+  <li>Exemplo de preenchimento:</li>
+</ul>
+
+<p>emailAddress: <a href="mailto:adm@cliente1.com.br"><strong>adm@cliente1.com.br</strong></a></p>
+
+<p>Common Name (CN): <strong>Cliente 1</strong></p>
+
+<p>Organizational Unit (OU): <strong>Cielo – chargeback</strong></p>
+
+<p>Organization (O): <strong>Cliente 1</strong></p>
+
+<p>Locality (L): <strong>Campinas</strong></p>
+
+<p>State (ST): <strong>Sao Paulo</strong></p>
+
+<p>Country (C): <strong>BR</strong></p>
+
+<ol>
+  <li>Compactar o arquivo .csr contendo a chave pública em um o arquivo .zip e enviar para a caixa de <strong>Technical Support Chargeback</strong> para realizar assinatura.</li>
+  <li>Aguardar retorno do time Cielo com o certificado MTLS assinado.</li>
+</ol>
+
+<p><img src="RackMultipart20240105-1-lmnp52_html_f9ddc71b7b6144cc.gif" alt="Shape2" /> <strong>Toda chamada para nosso serviço deve ser passada com a chave MLTS assinada.</strong></p>
+
+<ol>
+  <li>Acessar o Portal dos Desenvolvedores e efetuar o cadastro definitivo.</li>
+  <li>Após o cadastro definitivo, fazer o login no Portal dos Desenvolvedores e coletar as chaves disponíveis do ambiente desejado.</li>
+  <li>Link para acesso ao Portal dos Desenvolvedores: <a href="https://cielomulesoft.my.site.com/desenvolvedores/s/login/">cielomulesoft.my.site.com/desenvolvedores/s/login/</a></li>
+  <li>_ <strong>Obs.: Para realizar o login, é necessário autenticação do MFA.</strong> _</li>
+</ol>
+
+<p><strong>Ao finalizar esse processo, você está liberado para acessar o Sandbox da API de Chargeback e iniciar os testes conosco</strong><strong>!</strong></p>
+
+<ol>
+  <li>Liberação de acesso para os endpoints da Cielo:</li>
+  <li>Sandbox: apihml-internet.cielo.com.br/cielo-chargeback-sys-sandbox/</li>
+  <li>Produção: api-internet.cielo.com.br/cielo-chargeback-sys-external/</li>
+</ol>
+
+<h1 id="instruções-para-uso-do-sandbox">Instruções para uso do Sandbox</h1>
+
+<p>Para utilizar o sandbox, passe os cenários abaixo para simular retornos de sucesso (código iniciando com 1) ou erro (código iniciando com 9).</p>
+
+<p><em>Obs.: Caso sejam informados dados diferentes do cenário abaixo, os serviços irão retornar sucesso na requisição.</em></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Nome do serviço</th>
+      <th>Número do estabelecimento</th>
+      <th>IdCase</th>
+      <th>IdChargeback</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>103</td>
+      <td>Consulta de contestação pendentes e tratadas</td>
+      <td>2222222222</td>
+      <td>4000000</td>
+      <td>40000</td>
+    </tr>
+    <tr>
+      <td>901</td>
+      <td>1111111111</td>
+      <td>3000000</td>
+      <td>30000</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>101</td>
+      <td>Acate de contestação</td>
+      <td>2222222222</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>40000</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>901</td>
+      <td>1111111111</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>30000</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>102</td>
+      <td>Recusa de contestação</td>
+      <td>2222222222</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>20000</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>901</td>
+      <td>1111111111</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>10000</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>104</td>
+      <td>Consulta de documento</td>
+      <td>2222222222</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>20000</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>901</td>
+      <td>1111111111</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>10000</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>901</td>
+      <td>Pesquisa do ciclo de vida</td>
+      <td>1111111111</td>
+      <td>3000000</td>
+      <td>30000</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Proposta de validação para prosseguirmos com a integração em Produção:</p>
+
+<ul>
+  <li>Validar sucesso (código 103) no serviço de Consulta de contestação pendente</li>
+  <li>Validar falha (código 901) no serviço de Consulta de contestação pendente</li>
+  <li>Validar sucesso (código 103) no serviço de Consulta de contestação tratada</li>
+  <li>Validar falha (código 901) no serviço de Consulta de contestação tratada</li>
+  <li>Validar sucesso (código 101) no serviço de Acate de contestação</li>
+  <li>Validar falha (código 901) no serviço de Acate de contestação</li>
+  <li>Validar sucesso (código 102) no serviço de Recusa de contestação</li>
+  <li>Validar falha (código 901) no serviço de Recusa de contestação</li>
+  <li>Validar sucesso (código 104) no serviço de Consulta de documento</li>
+  <li>Validar falha (código 901) no serviço de Consulta de documento</li>
+  <li>Validar falha (código 901) no serviço de Pesquisa do ciclo de vida</li>
+</ul>
+
+<h1 id="utilização">Utilização</h1>
+
+<h2 id="obtenção-do-token">Obtenção do Token</h2>
+
+<p>Para fazer a chamada, é preciso obter um token utilizando seu client_id e client_secret. Confira um exemplo de requisição:</p>
+
+<p>Sandbox:</p>
+
+<p><img src="RackMultipart20240105-1-lmnp52_html_ccae19c47e75701.gif" alt="Shape3" /></p>
+
+<p>curl –location –request POST</p>
+
+<p>https://apihml-internet.cielo.com.br/cielo-security-sys-web-hml/oauth/v2/MulesoftHML/protocol/openid-connect/token’ \</p>
+
+<p>–header ‘Content-Type: application/x-www-form-urlencoded’ \</p>
+
+<p>–data-urlencode ‘client_id={ <strong>clientId</strong> }’ \</p>
+
+<p>–data-urlencode ‘client_secret={ <strong>secret</strong> }’ \</p>
+
+<p>–data-urlencode ‘grant_type=client_credentials’</p>
+
+<p>Produção:</p>
+
+<p><img src="RackMultipart20240105-1-lmnp52_html_e06225160f369d0.gif" alt="Shape4" /></p>
+
+<p>curl –location –request POST</p>
+
+<p>https://api-internet.cielo.com.br/cielo-security-sys-web/oauth/v2/MulesoftPRD/protocol/openid-connect/token’ \</p>
+
+<p>–header ‘Content-Type: application/x-www-form-urlencoded’ \</p>
+
+<p>–data-urlencode ‘client_id={ <strong>clientId</strong> }’ \</p>
+
+<p>–data-urlencode ‘client_secret={ <strong>secret</strong> }’ \</p>
+
+<p>–data-urlencode ‘grant_type=client_credentials’</p>
+
+<p>Extraia o campo access_token do retorno da requisição e passe como header em Authorization:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>KEY</strong></th>
+      <th><strong>VALUE</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Authorization</td>
+      <td>Bearer {access­_token}</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="serviços-da-api">Serviços da API</h1>
+
+<h2 id="fluxo-de-tratamento-de-contestações-pendentes">Fluxo de tratamento de contestações pendentes</h2>
+
+<p>Com a API de Chargeback, você consegue tratar suas contestações a partir de dois serviços: o de aceite e o de recusa. Veja como o fluxo funciona:</p>
+
+<p><img src="RackMultipart20240105-1-lmnp52_html_9e0d05899f85cc43.png" alt="" /></p>
+
+<h2 id="fluxo-de-tratamento-de-contestações-tratadas">Fluxo de tratamento de contestações tratadas</h2>
+
+<p>Depois da tratativa, você pode acompanhar todo o processo consultando o ciclo de vida da disputa. E caso tenha recusado a contestação, você também pode consultar o documento de defesa anexado. Além disso, é possível realizar chamadas obtendo o código e descrição das razões e suas respectivas classificações.</p>
+
+<h2 id="lista-dos-serviços-disponíveis">Lista dos serviços disponíveis</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Descrição</th>
+      <th>Path</th>
+      <th>Método HTTP</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Consulta de contestação pendentes e tratadas</td>
+      <td>v1/chargeback/{status}</td>
+      <td>POST</td>
+    </tr>
+    <tr>
+      <td>Pesquisa do ciclo de vida</td>
+      <td>/v1/chargeback/lifecycle/{idCase}</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>Aceite de contestação</td>
+      <td>/v1/chargeback/accept</td>
+      <td>PUT</td>
+    </tr>
+    <tr>
+      <td>Recusa de contestação</td>
+      <td>/v1/chargeback/refuse</td>
+      <td>PUT</td>
+    </tr>
+    <tr>
+      <td>Pesquisa da razão</td>
+      <td>/v1/chargeback/Reason/{idBandeira}</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>Consulta de documento</td>
+      <td>/v1/chargeback/DocumentSupport/</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>Lista de documentos do emissor</td>
+      <td>/v1/chargeback/ListIssuerDocuments/{establishmentNumber}/{idChargeback}</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>Download do documento do emissor</td>
+      <td>/v1/chargeback/DocumentIssuer/{establishmentNumber}/{idDocumento}</td>
+      <td>GET</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="detalhamento-dos-serviços">Detalhamento dos serviços</h1>
+
+<h2 id="consulta-de-contestações-pendentes-ou-tratadas">Consulta de contestações pendentes ou tratadas</h2>
+
+<p>Com esse serviço, você consegue filtrar contestações para visualizar ou tratar por diversos parâmetros, como período, número do EC, entre outros.</p>
+
+<p><img src="RackMultipart20240105-1-lmnp52_html_aedcbf410149d98e.gif" alt="Shape5" /></p>
+
+<p>{ <strong>endpoint</strong> }/v1/chargeback/{status}?page={page}&amp;pageSize={pageSize}</p>
+
+<p>Endpoint da Requisição:</p>
+
+<p>Parâmetros e Path Variables:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Status</td>
+      <td>Indica o status desejado, conforme domínios da tabela status</td>
+      <td>Variável</td>
+    </tr>
+    <tr>
+      <td>Page</td>
+      <td>Número da página desejada, considerando que <strong>0</strong> é a primeira</td>
+      <td>Parâmetro de query</td>
+    </tr>
+    <tr>
+      <td>pageSize</td>
+      <td>Tamanho de registros que retornam na página, considerando que o limite é <strong>200</strong></td>
+      <td>Parâmetro de query</td>
+    </tr>
+    <tr>
+      <td>orderBy</td>
+      <td>Campo de ordenação da pesquisa</td>
+      <td>receptionDate ou treatmentDeadline</td>
+    </tr>
+    <tr>
+      <td>Order</td>
+      <td>Forma de ordenação da pesquisa</td>
+      <td>asc ou desc</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Corpo da requisição:</p>
+
+<p>| {“startNotificationPeriod”: “2022-01-01”,”endNotificationPeriod”: “2022-01-01”,”cardAssociationCode”: null,”process”:null,”reason”: null,”establishmentNumber”: [“2012457511”], “mainCustomer”: “”, “hierarchyType”: 4,”idCase”: null,”tid”: null,”nsu”: null,} |
+| — |</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+      <th>Conteúdo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>startNotificationPeriod*</td>
+      <td>Data inicial da notificação</td>
+      <td>Texto, formato yyyy-MM-dd</td>
+    </tr>
+    <tr>
+      <td>endNotificationPeriod*</td>
+      <td>Data final da notificação</td>
+      <td>Texto, formato yyyy-MM-dd</td>
+    </tr>
+    <tr>
+      <td>cardAssociationCode</td>
+      <td>Bandeira do cartão</td>
+      <td>Texto, somente numérico</td>
+    </tr>
+    <tr>
+      <td>process</td>
+      <td>Tipo de processo</td>
+      <td>Lista, texto</td>
+    </tr>
+    <tr>
+      <td>reason</td>
+      <td>Id da Razão (ver serviço de consulta da razão)</td>
+      <td>Lista, texto</td>
+    </tr>
+    <tr>
+      <td>establishmentNumber*</td>
+      <td>Número do Estabelecimento Comercial</td>
+      <td>Lista, numérico</td>
+    </tr>
+    <tr>
+      <td>mainCustomer</td>
+      <td>Número do Estabelecimento Matriz</td>
+      <td>Lista, numérico</td>
+    </tr>
+    <tr>
+      <td>hierarchyType</td>
+      <td>Tipo de hierarquia</td>
+      <td>Numérico</td>
+    </tr>
+    <tr>
+      <td>idCase</td>
+      <td>Id do case do chargeback</td>
+      <td>Numérico</td>
+    </tr>
+    <tr>
+      <td>tid</td>
+      <td>Número TID</td>
+      <td>Numérico</td>
+    </tr>
+    <tr>
+      <td>nsu</td>
+      <td>Número serial único</td>
+      <td>Texto</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><em>*Obrigatório para status DONE.</em></p>
+
+<p>Domínios</p>
+
+<p>Status</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>DONE</td>
+      <td>Tratada</td>
+    </tr>
+    <tr>
+      <td>PENDING</td>
+      <td>Pendente</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>CardAssociationCode</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Nome da bandeira</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Visa</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Mastercard</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>American Express</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Elo</td>
+    </tr>
+    <tr>
+      <td>40</td>
+      <td>Hipercard</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Processo</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>1º Chargeback</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Cobrança amigável</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2º Chargeback</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Pré compliance</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>Arbitragem</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>Compliance</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Tipo de hierarquia</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Raiz de CNPJ</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Matriz de pagamento</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Todos os tipos de hierarquia (fortemente recomendável para clientes integrados na API)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Retorno da requisição (pendentes e tratadas respectivamente):</p>
+
+<p>| <img src="RackMultipart20240105-1-lmnp52_html_36129ce0a2850ee8.gif" alt="" /> <img src="RackMultipart20240105-1-lmnp52_html_1e32d4f0af7ca320.gif" alt="" /> |
+| — |</p>
+
+<p>Status de retorno:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>Ok</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>Requisição inválida</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Sem permissão</td>
+    </tr>
+    <tr>
+      <td>412</td>
+      <td>Pré-condições inválidas</td>
+    </tr>
+    <tr>
+      <td>500</td>
+      <td>Erro interno</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="pesquisa-de-ciclo-de-vida">Pesquisa de ciclo de vida</h2>
+
+<p>Esse serviço permite consultar o ciclo de vida de uma contestação tratada, isto é, as ações ocorridas na contestação após a tratativa.</p>
+
+<p>Endpoint da Requisição:</p>
+
+<p><img src="RackMultipart20240105-1-lmnp52_html_800872675fd5e863.gif" alt="Shape6" /></p>
+
+<p>{ <strong>endpoint</strong> }/v1/chargeback/lifecycle/{idCase}</p>
+
+<p>Parâmetros e Path Variables:</p>
+
+<p>| <img src="RackMultipart20240105-1-lmnp52_html_e7ca2b9ed231f9bc.gif" alt="" /> |
+| — |</p>
+
+<p>Retorno da requisição:</p>
+
+<p>| <img src="RackMultipart20240105-1-lmnp52_html_b8cee4c83c8d2ed2.gif" alt="" /> |
+| — |</p>
+
+<p>Status de retorno:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>Ok</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>Requisição inválida</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Sem permissão</td>
+    </tr>
+    <tr>
+      <td>412</td>
+      <td>Pré-condições inválidas</td>
+    </tr>
+    <tr>
+      <td>500</td>
+      <td>Erro interno</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li><strong>Status Ciclo de Vida</strong>
+    <ul>
+      <li>Intermediários:
+        <ul>
+          <li>Em análise com o Cliente</li>
+          <li>Em análise com o Emissor</li>
+          <li>Em análise com a Cielo</li>
+        </ul>
+      </li>
+      <li>Finais:
+        <ul>
+          <li>A favor do Estabelecimento</li>
+          <li>A favor do Emissor</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="aceite-de-contestação">Aceite de contestação</h2>
+
+<p>Serviço de realização do aceite de uma contestação, considerando a venda como inválida e concordando com o estorno pela credenciadora, a Cielo.</p>
+
+<p>Endpoint da Requisição:</p>
+
+<p><img src="RackMultipart20240105-1-lmnp52_html_4de7ed450183a407.gif" alt="Shape7" /></p>
+
+<p>{ <strong>endpoint</strong> }/v1/chargeback/accept</p>
+
+<p>Parâmetros e Path Variables:</p>
+
+<p>| <img src="RackMultipart20240105-1-lmnp52_html_f191bc1f8f0c45e7.gif" alt="" /> |
+| — |</p>
+
+<p><em>*Todos os campos são obrigatórios.</em></p>
+
+<p>Retorno da requisição:</p>
+
+<p>| <img src="RackMultipart20240105-1-lmnp52_html_6fbec1e9d046086c.gif" alt="" /> |
+| — |</p>
+
+<p>Status de retorno:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>Ok</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>Requisição inválida</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Sem permissão</td>
+    </tr>
+    <tr>
+      <td>412</td>
+      <td>Pré-condições inválidas</td>
+    </tr>
+    <tr>
+      <td>500</td>
+      <td>Erro interno</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="recusa-de-contestação">Recusa de contestação</h2>
+
+<p>Com esse serviço, você pode se defender de uma contestação apresentando uma evidência na forma de imagem ou documento, além de um breve texto justificando a posição.</p>
+
+<p>Endpoint da Requisição:</p>
+
+<p><img src="RackMultipart20240105-1-lmnp52_html_800872675fd5e863.gif" alt="Shape8" /></p>
+
+<p>{ <strong>endpoint</strong> }/v1/chargeback/refuse</p>
+
+<p>Parâmetros e Path Variables:</p>
+
+<p>| <img src="RackMultipart20240105-1-lmnp52_html_673a3e76ece5d9ad.gif" alt="" /> |
+| — |</p>
+
+<p>*<em>Todos os campos são obrigatórios.</em></p>
+
+<p>Retorno da requisição:</p>
+
+<p>| <img src="RackMultipart20240105-1-lmnp52_html_6240ecc334eca282.gif" alt="" /> |
+| — |</p>
+
+<p>Status de retorno:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>Ok</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>Requisição inválida</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Sem permissão</td>
+    </tr>
+    <tr>
+      <td>412</td>
+      <td>Pré-condições inválidas</td>
+    </tr>
+    <tr>
+      <td>500</td>
+      <td>Erro interno</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="pesquisa-de-razão">Pesquisa de razão</h2>
+
+<p>Serviço que provê a lista de todas as razões, por cada bandeira, para ser utilizada no filtro do serviço “ <strong>Consulta de contestação pendentes e tratadas”</strong>.</p>
+
+<p>Endpoint da Requisição:</p>
+
+<p><img src="RackMultipart20240105-1-lmnp52_html_b3706b3a71948116.gif" alt="Shape9" /></p>
+
+<p>{ <strong>endpoint</strong> }/api/v1/chargeback/Reason/{idBandeira}</p>
+
+<p>Parâmetros e Path Variables:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>idBandeira</td>
+      <td>Indica a bandeira desejada, conforme tabela abaixo</td>
+      <td>Variável</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Nome</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Visa</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Mastercard</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Amex</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Elo</td>
+    </tr>
+    <tr>
+      <td>40</td>
+      <td>Hipercard</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Retorno da requisição:</p>
+
+<p>| <img src="RackMultipart20240105-1-lmnp52_html_ca215cfbe1e9f24e.gif" alt="" /> |
+| — |</p>
+
+<h2 id="consulta-de-documento">Consulta de documento</h2>
+
+<p>No caso de recusa da contestação, esse serviço retorna o documento de defesa anexado para consulta.</p>
+
+<p><img src="RackMultipart20240105-1-lmnp52_html_8bc871ec7b6d2f5e.gif" alt="Shape10" /></p>
+
+<p>{ <strong>endpoint</strong> }v1/chargeback/DocumentSupport/{establishmentNumber}/{idChargeback}</p>
+
+<p>Endpoint da Requisição:</p>
+
+<p>Parâmetros e Path Variables:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>establishmentNumber*</td>
+      <td>Número do estabelecimento comercial</td>
+      <td>Variável</td>
+    </tr>
+    <tr>
+      <td>idChargeback*</td>
+      <td>Id do chargeback</td>
+      <td>Variável</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>*<em>Todos os campos são obrigatórios.</em></p>
+
+<p>Retorno da requisição:</p>
+
+<p>| <img src="RackMultipart20240105-1-lmnp52_html_4294c5acdd2dd198.gif" alt="" /> |
+| — |</p>
+
+<h2 id="lista-de-documentos-do-emissor">Lista de documentos do emissor</h2>
+
+<p>Esse serviço retorna os nomes e os códigos dos documentos enviados pelo emissor para apoio na tratativa de contestação.</p>
+
+<p><em>Obs.: É necessário primeiro listar o documento, para após isso, realizar o download.</em></p>
+
+<p><img src="RackMultipart20240105-1-lmnp52_html_8bc871ec7b6d2f5e.gif" alt="Shape11" /></p>
+
+<p>{ <strong>endpoint</strong> }/api/v1/chargeback/ListIssuerDocuments/{establishmentNumber}/{idChargeback}</p>
+
+<p>Endpoint da Requisição:</p>
+
+<p>Parâmetros e Path Variables:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>establishmentNumber*</td>
+      <td>Número do estabelecimento comercial</td>
+      <td>Variável</td>
+    </tr>
+    <tr>
+      <td>idChargeback*</td>
+      <td>Id do chargeback</td>
+      <td>Variável</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>*<em>Todos os campos são obrigatórios.</em></p>
+
+<p>Retorno da requisição:</p>
+
+<p>| <img src="RackMultipart20240105-1-lmnp52_html_6c95ca40585a06a1.gif" alt="" /> |
+| — |</p>
+
+<h2 id="download-de-documentos-do-emissor">Download de documentos do emissor</h2>
+
+<p>Este serviço disponibiliza o documento enviado pelo emissor para download.</p>
+
+<p><img src="RackMultipart20240105-1-lmnp52_html_8bc871ec7b6d2f5e.gif" alt="Shape12" /></p>
+
+<p>{ <strong>endpoint</strong> }/api/v1/chargeback/DocumentIssuer/{establishmentNumber}/{idDocumento}</p>
+
+<p>Endpoint da Requisição:</p>
+
+<p>Parâmetros e Path Variables:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>establishmentNumber*</td>
+      <td>Número do estabelecimento comercial</td>
+      <td>Variável</td>
+    </tr>
+    <tr>
+      <td>idDocumento*</td>
+      <td>Número do documento obtido através do serviço “Lista de documentos do emissor”</td>
+      <td>Variável</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>*<em>Todos os campos são obrigatórios.</em></p>
+
+<p>Retorno da requisição:</p>
+
+<p>| <img src="RackMultipart20240105-1-lmnp52_html_1a0ba8debff29d8a.gif" alt="" /> |
+| — |</p>
+
+<h1 id="tabela-de-descrição-de-campos">Tabela de descrição de campos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome do campo</th>
+      <th>Descrição do campo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>action</td>
+      <td>Descrição da ação dada para o chargeback</td>
+    </tr>
+    <tr>
+      <td>actionDate</td>
+      <td>Data da ação dada</td>
+    </tr>
+    <tr>
+      <td>actionTakenCode</td>
+      <td>Código da ação dada para o Chargeback</td>
+    </tr>
+    <tr>
+      <td>authorization</td>
+      <td>Código de autorização</td>
+    </tr>
+    <tr>
+      <td>cardAssociation</td>
+      <td>Código da bandeira</td>
+    </tr>
+    <tr>
+      <td>cardAssociationName</td>
+      <td>Nome da bandeira</td>
+    </tr>
+    <tr>
+      <td>cdReason</td>
+      <td>Código da razão</td>
+    </tr>
+    <tr>
+      <td>chargebackMessage</td>
+      <td>Mensagem do chargeback</td>
+    </tr>
+    <tr>
+      <td>code</td>
+      <td>Código da mensagem de status</td>
+    </tr>
+    <tr>
+      <td>codigo</td>
+      <td>Indica se o arquivo foi trafegado com sucesso</td>
+    </tr>
+    <tr>
+      <td>currency</td>
+      <td>Moeda da contestação</td>
+    </tr>
+    <tr>
+      <td>dateInclusion</td>
+      <td>Data da inclusão</td>
+    </tr>
+    <tr>
+      <td>dcReason</td>
+      <td>Descrição da razão</td>
+    </tr>
+    <tr>
+      <td>establishmentName</td>
+      <td>Nome do estabelecimento comercial</td>
+    </tr>
+    <tr>
+      <td>establishmentNumber</td>
+      <td>Número de estabelecimentos específicos</td>
+    </tr>
+    <tr>
+      <td>mainCustomer</td>
+      <td>Número do estabelecimento matriz</td>
+    </tr>
+    <tr>
+      <td>file</td>
+      <td>Arquivo base64</td>
+    </tr>
+    <tr>
+      <td>nameFile</td>
+      <td>Nome do arquivo</td>
+    </tr>
+    <tr>
+      <td>hierarchyType</td>
+      <td>Código para identificar o tipo de hierarquia</td>
+    </tr>
+    <tr>
+      <td>idCase</td>
+      <td>Identificador do case</td>
+    </tr>
+    <tr>
+      <td>idChargeback</td>
+      <td>Identificador da contestação</td>
+    </tr>
+    <tr>
+      <td>idDocumento</td>
+      <td>Identificador do documento do emissor</td>
+    </tr>
+    <tr>
+      <td>issuerSenderCode</td>
+      <td>Código do emissor</td>
+    </tr>
+    <tr>
+      <td>issuerSenderDescription</td>
+      <td>Descrição do emissor</td>
+    </tr>
+    <tr>
+      <td>mensagem</td>
+      <td>Mensagem do status do tráfego do arquivo</td>
+    </tr>
+    <tr>
+      <td>message</td>
+      <td>Mensagem de retorno da requisição</td>
+    </tr>
+    <tr>
+      <td>nameFile</td>
+      <td>Nome do arquivo</td>
+    </tr>
+    <tr>
+      <td>nsu</td>
+      <td>Número serial único</td>
+    </tr>
+    <tr>
+      <td>process</td>
+      <td>Código do processo</td>
+    </tr>
+    <tr>
+      <td>productCode</td>
+      <td>Código do produto</td>
+    </tr>
+    <tr>
+      <td>productDescription</td>
+      <td>Descrição do produto</td>
+    </tr>
+    <tr>
+      <td>rapidDisputeResolution</td>
+      <td>Indicador de resolução rápida de disputas</td>
+    </tr>
+    <tr>
+      <td>reasonCode</td>
+      <td>Código da razão</td>
+    </tr>
+    <tr>
+      <td>reasonDescription</td>
+      <td>Descrição da razão</td>
+    </tr>
+    <tr>
+      <td>reasonMessage</td>
+      <td>Mensagem da razão</td>
+    </tr>
+    <tr>
+      <td>reasonToRefuse</td>
+      <td>Texto contendo o motivo da recusa</td>
+    </tr>
+    <tr>
+      <td>receptionDate</td>
+      <td>Data de recepção da contestação</td>
+    </tr>
+    <tr>
+      <td>referenceNumber</td>
+      <td>Número de referência</td>
+    </tr>
+    <tr>
+      <td>remainingDaysToTreat</td>
+      <td>Dias pendentes para tratamento</td>
+    </tr>
+    <tr>
+      <td>replyDate</td>
+      <td>Data do tratamento</td>
+    </tr>
+    <tr>
+      <td>ro</td>
+      <td>Número RO</td>
+    </tr>
+    <tr>
+      <td>terminal</td>
+      <td>Número do terminal</td>
+    </tr>
+    <tr>
+      <td>tid</td>
+      <td>Número TID</td>
+    </tr>
+    <tr>
+      <td>tpReason</td>
+      <td>Tipo da razão</td>
+    </tr>
+    <tr>
+      <td>transactionAmount</td>
+      <td>Valor da transação da contestação</td>
+    </tr>
+    <tr>
+      <td>transactionDate</td>
+      <td>Data da transação da contestação</td>
+    </tr>
+    <tr>
+      <td>treatmentDeadline</td>
+      <td>Data limite de tratamento</td>
+    </tr>
+    <tr>
+      <td>truncatedCard</td>
+      <td>Número de cartão truncado</td>
+    </tr>
+    <tr>
+      <td>userName</td>
+      <td>E-mail do responsável pela tratativa</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="tabela-dos-status-de-retorno">Tabela dos status de retorno</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>101</td>
+      <td>Chargeback acatado com sucesso!</td>
+    </tr>
+    <tr>
+      <td>102</td>
+      <td>Chargeback recusado com sucesso!</td>
+    </tr>
+    <tr>
+      <td>103</td>
+      <td>Não há registros a serem exibidos a partir da busca realizada.</td>
+    </tr>
+    <tr>
+      <td>104</td>
+      <td>Download do documento de apoio realizado com sucesso!</td>
+    </tr>
+    <tr>
+      <td>105</td>
+      <td>Download realizado com sucesso do documento do emissor!</td>
+    </tr>
+    <tr>
+      <td>138</td>
+      <td>Limite máximo de itens por página deve ser até 200 registros.</td>
+    </tr>
+    <tr>
+      <td>901</td>
+      <td>Não foi possível concluir a requisição. Tente mais tarde!</td>
+    </tr>
+    <tr>
+      <td>902</td>
+      <td>Não foi possível concluir a requisição. Case informado não condiz com o número do estabelecimento!</td>
+    </tr>
+    <tr>
+      <td>903</td>
+      <td>Anexar a documentação dentro do padrão estabelecido, nos formatos .TIF, .TIFF, .PDF e .JPEG, contendo 8 MB de tamanho e até 10 páginas.</td>
+    </tr>
+    <tr>
+      <td>904</td>
+      <td>Necessário adicionar um documento para recusar.</td>
+    </tr>
+    <tr>
+      <td>905</td>
+      <td>Motivo de rejeição ultrapassou o limite de 100 caracteres.</td>
+    </tr>
+    <tr>
+      <td>906</td>
+      <td>O limite de período para a consulta é de 180 dias.</td>
+    </tr>
+    <tr>
+      <td>907</td>
+      <td>O campo período de notificação aceita somente caracteres numéricos e no formato AAAA-MM-DD.</td>
+    </tr>
+    <tr>
+      <td>908</td>
+      <td>Necessário informar a bandeira para buscar por razão.</td>
+    </tr>
+    <tr>
+      <td>909</td>
+      <td>Obrigatório o preenchimento do campo “número do estabelecimento” ou informar o número da matriz</td>
+    </tr>
+    <tr>
+      <td>910</td>
+      <td>O campo “número do estabelecimento” aceita somente caracteres numéricos.</td>
+    </tr>
+    <tr>
+      <td>911</td>
+      <td>O campo “número do case” aceita somente caracteres numéricos.</td>
+    </tr>
+    <tr>
+      <td>912</td>
+      <td>O campo “bandeira” aceita somente caracteres numéricos.</td>
+    </tr>
+    <tr>
+      <td>913</td>
+      <td>O campo “mensagem de chargeback” é preenchido apenas nas razões de fraude.</td>
+    </tr>
+    <tr>
+      <td>914</td>
+      <td>O campo “TID” é alfanumérico, portanto, não aceita caracteres especiais.</td>
+    </tr>
+    <tr>
+      <td>915</td>
+      <td>O campo “TID” deve conter até 20 caracteres.</td>
+    </tr>
+    <tr>
+      <td>916</td>
+      <td>O campo “page” deve ser maior ou igual a 0.</td>
+    </tr>
+    <tr>
+      <td>917</td>
+      <td>O campo “pageSize” deve ser igual ou maior que 1.</td>
+    </tr>
+    <tr>
+      <td>918</td>
+      <td>Não foi possível conectar à base de dados.</td>
+    </tr>
+    <tr>
+      <td>919</td>
+      <td>O campo “status” é obrigatório.</td>
+    </tr>
+    <tr>
+      <td>920</td>
+      <td>O campo “período de notificação” é obrigatório.</td>
+    </tr>
+    <tr>
+      <td>921</td>
+      <td>O campo “data inicial do período de notificação” é obrigatório.</td>
+    </tr>
+    <tr>
+      <td>922</td>
+      <td>O campo “data final do período de notificação” é obrigatório.</td>
+    </tr>
+    <tr>
+      <td>923</td>
+      <td>A data inicial do período de notificação deve ser menor que data final.</td>
+    </tr>
+    <tr>
+      <td>924</td>
+      <td>O campo “processo” aceita somente caracteres numéricos.</td>
+    </tr>
+    <tr>
+      <td>925</td>
+      <td>O campo “razão” aceita somente caracteres numéricos.</td>
+    </tr>
+    <tr>
+      <td>926</td>
+      <td>O campo “id do chargeback” é obrigatório.</td>
+    </tr>
+    <tr>
+      <td>927</td>
+      <td>Não foi possível concluir a requisição. Case informado não possui documentação de apoio atrelada!</td>
+    </tr>
+    <tr>
+      <td>928</td>
+      <td>O campo “id do chargeback” aceita somente caracteres numéricos.</td>
+    </tr>
+    <tr>
+      <td>929</td>
+      <td>Não foi possível concluir a requisição. O nome do documento deve ser o número do case!</td>
+    </tr>
+    <tr>
+      <td>930</td>
+      <td>O campo “motivo de recusa” é obrigatório.</td>
+    </tr>
+    <tr>
+      <td>931</td>
+      <td>Não foi possível concluir a requisição. Chargeback já tratado anteriormente!</td>
+    </tr>
+    <tr>
+      <td>932</td>
+      <td>O campo “idBandeira” não é válido.</td>
+    </tr>
+    <tr>
+      <td>933</td>
+      <td>O campo “Orderby” não é válido.</td>
+    </tr>
+    <tr>
+      <td>934</td>
+      <td>O campo “Order” não é válido.</td>
+    </tr>
+    <tr>
+      <td>935</td>
+      <td>O campo “NSU” aceita somente caracteres numéricos.</td>
+    </tr>
+    <tr>
+      <td>936</td>
+      <td>O campo “número da matriz” aceita somente caracteres numéricos.</td>
+    </tr>
+    <tr>
+      <td>938</td>
+      <td>Não foi possível concluir a requisição. Case informado não possui documentação do emissor atrelado!</td>
+    </tr>
+    <tr>
+      <td>939</td>
+      <td>O campo id do documento aceita somente caracteres numéricos</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="dúvidas-frequentes">Dúvidas frequentes</h1>
+
+<ol>
+  <li><strong>O que é uma contestação?</strong></li>
+</ol>
+
+<p>É quando o titular do cartão identifica algum problema na transação, como suspeita de fraude ou desacordo com o lojista. Então, ele entra em contato com o Banco Emissor do cartão para relatar o ocorrido e é iniciado o processo de disputa. Além de contestação, esse processo também é chamado de Chargeback. E todo o fluxo de disputa é regulamentado pelas bandeiras dos cartões, que determinam as regras de disputa, como quem ganha e quem perde, por exemplo.</p>
+
+<ol>
+  <li><strong>Como eu posso me defender dessas contestações?</strong></li>
+</ol>
+
+<p>Quando uma compra é contestada, você tem 2 opções:</p>
+
+<ul>
+  <li>Aceitar e permitir o estorno do valor da venda;</li>
+  <li>Se defender e evitar que o valor seja estornado.</li>
+</ul>
+
+<p>Suas ações durante o processo de chargeback são chamadas de tratativas. A tratativa pode ser realizada dentro do App Cielo Gestão, Site Cielo ou através da API de Chargeback Cielo, que é o tema deste documento.</p>
+
+<ol>
+  <li><strong>Para dar início ao processo de integração com API de Chargeback, quais informações devo passar e para quem devo solicitar o cadastro?</strong></li>
+</ol>
+
+<p>Seguir o passo a passo descrito no item Integração com API de Chargeback.</p>
+
+<ol>
+  <li><strong>Caso eu esteja integrado com a API da Braspag, posso migrar para API de Chargeback da Cielo?</strong></li>
+</ol>
+
+<p>Sim, nós recomendamos que essa migração ocorra, justamente porque a API de Chargeback da Cielo oferece benefícios em relação a API da Braspag. Entre eles, podemos listar:</p>
+
+<ul>
+  <li>Um aumento de prazo no tratamento das contestações em 3 dias. Ou seja, a API Braspag tem 7 dias e a Cielo 10 dias.</li>
+  <li>Um leque maior de formatos de documentos aceitos. A API Braspag aceita apenas .tiff, enquanto a Cielo aceita pdf e jpeg também.</li>
+  <li>A consulta do status da contestação (serviço ciclo de vida), dando maior visibilidade e capacidade de gestão das contestações tratadas.</li>
+  <li>A consulta do documento adicionado na defesa (serviço consulta de documento).</li>
+  <li>A consulta do documento enviado pelo Emissor.</li>
+</ul>
+
+<p>Para realizar a migração, solicite ao seu Gerente de Negócios o descadastramento da API da Braspag e a integração com a API de Chargeback Cielo. Durante o período de integração com API de Chargeback Cielo (desde o momento do descadastro da API Braspag até o momento da integração com a nova API), você deverá administrar seus chargebacks pelo Site Cielo.</p>
+
+<ol>
+  <li><strong>Como consultar uma contestação na API?</strong></li>
+</ol>
+
+<p>No serviço Consulta de contestações pendentes ou tratadas, você consegue visualizar tanto as contestações que estão pendentes (status PENDING) quanto as que já foram tratadas (status DONE).</p>
+
+<p>Para visualizar as contestações que estão pendentes de tratamento, basta informar o número do estabelecimento que deseja consultar, e para as já tratadas, você também deve especificar um período.</p>
+
+<ol>
+  <li><strong>Posso realizar uma consulta para todos os estabelecimentos abaixo da minha matriz?</strong></li>
+</ol>
+
+<p>Sim, nós recomendamos que você consulte sempre pelo seu estabelecimento matriz, pois dessa forma você visualiza todas as contestações dos demais estabelecimentos abaixo daquela matriz selecionada. Na API, o número do estabelecimento individual que recebeu a contestação é representado pelo campo establishmentNumber e o número do estabelecimento matriz é o mainCustomer. Então, no serviço de consulta, você só precisa preencher o campo mainCustomer, assim você vai obter todas as contestações abaixo da sua hierarquia de Raiz de CNPJ. Caso queira visualizar as contestações abaixo de um outro tipo de hierarquia, como por exemplo um Grupo de Pagamento, você deverá preencher também o campo hierarchyType para especificar o tipo de matriz a ser consultada.</p>
+
+<ol>
+  <li><strong>Como realizar uma tratativa na API?</strong></li>
+</ol>
+
+<p>No serviço Aceite de contestação, você realiza o aceite informando o número do estabelecimento que recebeu a contestação e o ID do Chargeback.</p>
+
+<p>No serviço Recusa de contestação, você realiza a recusa informando, além do número do estabelecimento que recebeu a contestação e do ID do Chargeback, uma breve descrição da razão de recusa (máximo 100 caracteres) e um documento que comprove que a venda foi legítima, isto é, que foi feita pela pessoa titular do cartão ou com o consentimento dela e que ambos cumpriram suas obrigações no momento da compra.</p>
+
+<ol>
+  <li><strong>Enviei a documentação solicitada, como saber qual o status do meu caso. Eu ganhei ou perdi esta contestação?</strong></li>
+</ol>
+
+<p>Você pode consultar o andamento da sua contestação no serviço Pesquisa Ciclo de Vida da API, informando o número do case que deseja visualizar.</p>
+
+<ol>
+  <li><strong>Com que frequência devo consultar as contestações?</strong></li>
+</ol>
+
+<p>As bandeiras atualizam as contestações uma vez por dia, por isso, você pode verificar suas contestações diariamente.</p>
+
+<h1 id="mais-informações">Mais informações</h1>
+
+<p>Para mais informações, acesse as páginas:</p>
+
+<p>Cielo no Blog:</p>
+
+<p><a href="https://blog.cielo.com.br/dicas-e-historias-de-sucesso/o-que-e-chargeback/">/blog.cielo.com.br/dicas-e-historias-de-sucesso/o-que-e-chargeback/</a></p>
+
+<h1 id="contato-para-dúvidas">Contato para dúvidas</h1>
+
+<p>E-mail para suporte técnico:</p>
+
+<p><a href="mailto:techsupportchargeback@cielo.com.br">techsupportchargeback@cielo.com.br</a></p>
+
+<p>Caso precise de alguma ajuda, você pode entrar em contato diretamente com seu Gerente de Negócios, que estará pronto para te atender da melhor forma!</p>
+
+<p>Conte com a gente!</p>
 </div>
 
 
