@@ -813,6 +813,77 @@ Check out more details about how the API works in the following flow:</p>
 
 <p>Repeat the same procedure for the 3 sent files.</p>
 
+<h1 id="test-mode">Test Mode</h1>
+
+<p>Because it is a non-financial call, the Checkout API does not have a sandbox to test the creation of payment pages. Payment pages must be created by registrating on production. Enrollment can be done through the Cielo website or through a request from the establishment’s commercial manager.</p>
+
+<p>Financial tests can be performed by activating test mode in your store settings.</p>
+
+<h2 id="activating-test-mode">Activating Test Mode</h2>
+
+<p>Test mode can be activated in the <strong>Configurações</strong> tab, by enabling the <strong>Modo Teste</strong> checkbox. Test mode will only start when the selection is saved.</p>
+
+<p><img src="https://developercielo.github.io/images/checkout/superlink/superlink-modotesteativo.png" alt="Modo Teste Ativo selecionado" /></p>
+
+<p>After saving, a red stripe will be displayed at the top of the screen. It will be displayed on all Checkout screens.</p>
+
+<p>This stripe indicates that your store is now operating in a test environment, that is, every transaction carried out in this mode will be considered a test.</p>
+
+<p><img src="https://developercielo.github.io/images/checkout/superlink/superlink-modoteste-tarjavermelha.png" alt="Modo Teste Ativo Tarja Vermelha" /></p>
+
+<h2 id="test-transactions">Test transactions</h2>
+
+<p>All transactions carried out in test mode will be displayed as normal transactions in the <strong>Pedidos</strong> tab, however, they will be marked as test transactions and will not be counted together with transactions carried out outside the test environment.</p>
+
+<p><img src="https://developercielo.github.io/images/checkout/superlink/superlink-transacoes-modoteste.png" alt="Lista de Transações no Modo Teste" /></p>
+
+<p>These transactions will have the test symbol differentiating them from your other transactions. They can be captured or canceled using the same procedures as real transactions.</p>
+
+<blockquote>
+  <p><strong>IMPORTANT</strong>:<br /></p>
+  <ul>
+    <li>When releasing your store to make sales to your customers, make sure that <strong>Test Mode is disabled</strong>;<br /></li>
+    <li>Transactions carried out in Test Mode can be completed normally, but will not be deducted from the customer’s card and cannot be transferred to the standard sales environment.</li>
+  </ul>
+</blockquote>
+
+<h2 id="how-to-make-transactions-in-test-mode">How to make transactions in test mode</h2>
+
+<p>After activating test mode, transactions occur normally. The creation of the payment page can be done using the same parameters as the production environment, however, the payment methods to be used will be simulated means.</p>
+
+<p>To carry out test transactions with different payment methods, follow the following rules:</p>
+
+<h3 id="credit-or-debit-card">Credit or debit card</h3>
+
+<p>To test credit or debit cards, it is necessary to use a card that follows the <em>Luhn algorithm</em> and which the final number corresponds to the desired card authorization status (see details in the table below).</p>
+
+<p><strong>Credit or debit card authorization status</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>DESIRED TRANSACTION STATUS</th>
+      <th>CARD NUMBERS FOR PERFORMING TESTS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Authorized</td>
+      <td>Cards ending with 0 to 4.<br />E.g.:<br />XXXXXXXXXXXXXXX0<br />XXXXXXXXXXXXXXX1<br />XXXXXXXXXXXXXXX2<br />XXXXXXXXXXXXXXX3<br />XXXXXXXXXXXXXXX4</td>
+    </tr>
+    <tr>
+      <td>Not Authorized</td>
+      <td>Cards ending with 5 to 9.<br />E.g.:<br />XXXXXXXXXXXXXXX5<br />XXXXXXXXXXXXXXX6<br />XXXXXXXXXXXXXXX7<br />XXXXXXXXXXXXXXX8<br />XXXXXXXXXXXXXXX9</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Example</strong>: 5404434242930100 = <strong>Authorized</strong></p>
+
+<h3 id="boleto-1">Boleto</h3>
+
+<p>To test boleto transactions, carry out the purchase process normally without any changes to the procedure. The boleto generated in test mode will always be a simulated boleto.</p>
+
 <h1 id="integrating-checkout-cielo">Integrating Checkout Cielo</h1>
 
 <p>This documentation describes all the features of the API Checkout Cielo integration, technical parameters and especially the examples of codes to facilitate their development.</p>
@@ -867,7 +938,7 @@ See the flow below:</p>
 
 <p>Checkout Cielo test mode is a tool that allows to test the integration of your web site with the platform. With the test mode, you can perform transactions as you evolve with integration, and you can simulate scenarios to test different means of payment.</p>
 
-<h3 id="activating-test-mode">Activating test mode</h3>
+<h3 id="activating-test-mode-1">Activating test mode</h3>
 
 <p>The test mode can be activated in the <strong>Settings</strong> tab, where there is a checkbox that, when checked, enable the Checkout Cielo test mode. The test mode will only start when the selection is saved.</p>
 
