@@ -1444,6 +1444,7 @@ Below are described all the returned fields, as well as their definitions and si
 | `customer_email`               | Customer e-mail. If sent, this value is already filled in the CHECKOUT CIELO screen                      | Alphanumeric | 64           |
 | `customer_phone`               | Customer phone number. If sent, this value is already filled in the CHECKOUT CIELO screen                | Numeric      | 11           |
 | `discount_amount`              | Discount amount provided (sent only if there was a discount)                                             | Numeric      | 10           |
+|`first_installment_discount`|Discount, in percentage, for payments by credit card.| Whole number from 1 to 100| 3|
 | `shipping_type`                | Freight mode                                                                                             | Numeric      | 1            |
 | `shipping_name`                | Freight name                                                                                             | Alphanumeric | 128          |
 | `shipping_price`               | Value of the freight service, in cents (e.g.: R$ 10,00 = 1000)                                           | Numeric      | 10           |
