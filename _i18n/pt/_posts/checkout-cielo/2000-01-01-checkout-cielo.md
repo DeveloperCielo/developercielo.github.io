@@ -1163,6 +1163,7 @@ Tanto na notificação via POST ou via JSON, o conteúdo dos dados retornados é
 |`customer_email`|E-mail do consumidor. Se enviado, esse valor já vem preenchido na tela do Checkout Cielo|Alfanumérico|64|
 |`customer_phone`|Telefone do consumidor. Se enviado, esse valor já vem preenchido na tela do Checkout Cielo|Número|11|
 |`discount_amount`|Valor do desconto fornecido (enviado somente se houver desconto)|Número|10|
+|`first_installment_discount`|Desconto, em porcentagem, para pagamentos à vista no cartão de crédito.|Número inteiro de 1 a 100|3|
 |`shipping_type`|Modalidade de frete|Número|1|
 |`shipping_name`|Nome do frete|Alfanumérico|128|
 |`shipping_price`|Valor do serviço de frete, em centavos (ex: R$ 10,00 = 1000)|Número|10|
