@@ -14,85 +14,109 @@ tags:
 
 # Tokenização de Bandeira – Regra Visa
 
-**Do que se trata essa nova regra da bandeira Visa?** A bandeira Visa, a partir de agosto/22, irá começar a cobrar 0,05% sobre o valor de toda transação online que não for tokenizada, ou seja, sobre toda transação que for enviada para a bandeira com o cartão aberto (PAN) não tokenizado.
+**O que é essa nova regra?**
 
-Abaixo explicamos um pouco do que é a tokenização de bandeira, benefícios, e quais opções a Cielo oferece para os clientes poderem se adequar ao mandate.
+Com o objetivo de aumentar a segurança online por meio da adoção do token de bandeira (network token), a Visa irá começar a cobrar de forma incremental 0,05% sobre o valor de toda transação online aprovada com o cartão aberto (PAN) a partir de fevereiro de 2024.
 
-**O que é a tokenização de bandeira e quais os benefícios?** Algumas bandeiras possuem uma solução de tokenização que oferece o armazenamento de cartões em cofres na própria bandeira, de forma criptografada. Essa tokenização de bandeira tem o intuito de melhorar a segurança e qualidade das informações de cartão trafegadas, o
-que acarreta possíveis aumentos na conversão de aprovação pelos bancos emissores. Veja todos os benefícios:
+A seguir, explicamos um pouco do que é a tokenização de bandeira, benefícios e quais opções a Cielo oferece para que os clientes possam se adequar à nova regra.
 
-**Maior segurança:** Além da criação de um código (token ou DPAN) para substituir a informação do cartão, as bandeiras também emitem os criptogramas, que funcionam como uma senha ou assinatura da bandeira, única para aquele cartão naquele estabelecimento.
+**O que é a tokenização de bandeira e quais os benefícios?**
 
-**Atualização automática de cartões:** Quando um novo cartão é emitido no lugar do cartão anterior, ou quando a data de expiração de um cartão muda, os bancos enviam essas informações para a base da bandeira, e a bandeira automaticamente atualiza os tokens com as novas informações. Ou seja, não tem necessidade de nenhuma ação por parte do estabelecimento.
+Algumas bandeiras possuem uma solução de tokenização que oferece o armazenamento de cartões em cofres na própria bandeira, de forma criptografada. Esse serviço tem o intuito de melhorar a segurança e qualidade das informações de cartão trafegadas, o que acarreta possíveis aumentos na performance de aprovação pelos bancos emissores. Veja todos os benefícios:
 
-**Maior conversão de aprovação:** Por conta da maior segurança com os tokens das bandeiras, os bancos emissores se sentem mais seguros em aprovar as transações.Além disso, com os dados de cartão atualizados automaticamente, mais vendas que poderiam ser negadas por dados de cartão desatualizados podem ser aprovadas
+* **Maior segurança:** além da criação de um código (token ou DPAN) para substituir a informação do cartão aberto (PAN), as bandeiras também emitem os criptogramas, que funcionam como uma senha ou assinatura da bandeira, única para aquele cartão naquele estabelecimento;
+* **Atualização automática de cartões:** quando um novo cartão é emitido no lugar do cartão anterior, ou quando a data de expiração de um cartão muda, os bancos enviam essas informações para a base da bandeira, e a bandeira automaticamente atualiza os tokens com as novas informações. Ou seja, não há necessidade de nenhuma ação por parte do estabelecimento - dependendo da bandeira pode haver custos relacionados à atualização do token;
+* **Maior performance de aprovação:** por conta da maior segurança no processo e com os dados de cartão sempre atualizados, os tokens de bandeira tendem a aumentar a chance de aprovação das transações.
 
 ## Quais são as opções para adequação à regra?
 
-A Cielo oferece as opções abaixo para que se preparem e evitem as cobranças da bandeira. Confira abaixo:
+A Cielo oferece as opções abaixo para que a loja se prepare e evite as cobranças da bandeira. Confira a seguir:
 
-### Opção 1 – Tokenizador Cielo
+### Opção 1: Tokenização Transparente Cielo
 
-Com o objetivo de reduzir esse impacto financeiro para nossos clientes, a Cielo desenvolveu uma solução interna que irá tokenizar todas as transações elegíveis automaticamente.
+Com o objetivo de reduzir esse impacto financeiro para nossos clientes, a Cielo desenvolveu uma solução própria que irá tokenizar todas as transações elegíveis automaticamente.
 
-**Como funciona?** A Cielo irá tokenizar todas as transações elegíveis de forma transparente.Quando uma transação online for recebida em nossa API com o cartão aberto (PAN), a Cielo irá criar um token para aquele cartão. Dessa forma, a transação será recebida pela bandeira Visa já com o token, evitando a cobrança da taxa de 0,05%.
+> **Produtos Elegíveis**: API E-commerce Cielo, API 1.5 (legado), Link de Pagamento e Checkout Cielo.
 
-**O token ficará armazenado nos sistemas da Cielo?** Sim, a Cielo vai armazenar esse token de bandeira em seu sistema, para que na próxima transação não seja necessário gerar um novo token para o mesmo cartão.
+**Como funciona?**
 
-**Quais transações são elegíveis?** Uma vez que hoje no mercado ainda existam cartões com BINs (primeiros 6 dígitos do cartão) não tokenizáveis, não será possível atendermos 100% das transações Visa. A Visa informou para a Cielo que aproximadamente 95% dos BINs Visa são elegíveis, e que haverá incidência de cobrança sobre os 5% não elegíveis. Sendo que, a Cielo irá repassar esses custos de operações com BINSs não elegíveis ao cliente.
+Quando uma transação online com o cartão aberto (PAN) for recebida em nossa API, a Cielo irá criar um token para aquele cartão. Dessa forma, a transação será recebida pela bandeira Visa já com o token, evitando a cobrança da taxa de 0,05%.
 
-**Produtos Elegíveis:** API E-commerce Cielo, API 1.5, Link de Pagamento e Checkout Cielo.
+**O token ficará armazenado nos sistemas da Cielo?**
 
-**Preciso fazer alguma modificação na integração ou solicitar a funcionalidade para a Cielo?** Não. A Cielo fará a ativação na data determinada, para você e todos os clientes, semcustos adicionais.
+Sim, na Tokenização Transparente Cielo o token de bandeira será armazenado no sistema da Cielo, para que na próxima transação não seja necessário gerar um novo token para o mesmo cartão.
 
-**Quando a Cielo irá ligar essa solução para todos os clientes?** Está previsto para que a comecemos a subir para uma parte dos clientes após a primeira quinzena de julho/22, e que até 31/07/2022 a Cielo já tenha ligado essa solução para todos os clientes da base. Essa solução funcionará por tempo indeterminado.
+**Quais transações são elegíveis?**
 
-**Qual o impacto dessa solução para clientes que já utilizam a tokenização de bandeira?** Caso você já esteja usando a tokenização de bandeira, a Cielo irá verificar que a transação já foi tokenizada com a bandeira Visa, e não será necessário criar um novo token pra essa transação/cartão.
+Uma vez que hoje no mercado ainda existem cartões com BINs (primeiros 6 a 8 dígitos do cartão) não elegíveis ao token, não será possível atendermos 100% das transações Visa. Segundo a bandeira, aproximadamente 90% dos BINs Visa já são elegíveis.
 
-<aside class="notice">No momento da tokenização com a Visa, caso haja algum problema sistêmico ou timeout da bandeira ou do emissor, não sendo possível que a Cielo consiga tokenizar o cartão para seguir com a transação, a Cielo irá enviar a transação para autorização sem o token, para evitar que haja perda de vendas. Por conta disso, poderá existir a incidência do custo por parte da Visa sobre essa transação enviada sem o token, no mesmo formato ao aplicado para bins não elegíveis, sendo que, a Cielo irá repassar esse custo ao cliente, como comentado anteriormente.</aside>
+**Quais são os custos envolvidos na solução?**
 
-Se preferir, você também pode optar por outras opções para fazer a gestão do token de bandeira por conta própria. Vamos conhecer melhor essas opções a seguir.
+Neste momento a Cielo não irá cobrar pela solução, de forma a propiciar a experiência da tokenização para nossos clientes e mitigar o custo da taxa de 0,05% sobre o valor da transação. Futuramente este tema poderá ser reavaliado.
 
-<aside class="warning"><strong>IMPORTANTE:</strong> As próximas duas opções se encontram disponíveis somente para clientes API E-commerce Cielo e API 1.5. Para clientes Super Link e Checkout, está disponível somente a primeira opção: Tokenizador Cielo.</aside>
+**Preciso fazer alguma modificação na integração ou solicitar a funcionalidade para a Cielo?**
 
-### Opção 2 - Integração Facilitada
+Não, para a tokenização transparente não há necessidade de nenhuma integração adicional para o cliente Cielo. A solução foi habilitada em fases iniciadas em setembro de 2023 todos os nossos clientes.
 
-Nessa opção, o seu estabelecimento se integra com a funcionalidade de tokenização convencional da Cielo, que também cria um token de bandeira. Dessa forma, os estabelecimentos sempre terão um único token para aquele cartão, mas a Cielo terá os tokens e criptogramas das bandeiras armazenados de forma segura.
+**Qual o impacto dessa solução para clientes que já utilizam a tokenização de bandeira?**
 
-**Bandeiras Disponíveis:** Visa
+Caso você já esteja usando a tokenização de bandeira, a Cielo irá identificar que a transação já foi tokenizada com a bandeira Visa, e irá seguir para autorização com os dados já fornecidos.
 
-**Produtos Elegíveis:** API E-commerce Cielo e API 1.5.
+**O que acontece em caso de indisponibilidade do token?**
 
-**Como obter essa funcionalidade:** Entre em contato com a gente pelo e-mail: cieloecommerce@cielo.com.br e solicite a habilitação.
+Em caso de *timeout* ou indisponibilidade da bandeira ou do emissor que impeça o provisionamento do token/criptograma para o cartão, a Cielo irá enviar a transação para autorização com o número do cartão (PAN), a fim de evitar perda de vendas para nossos clientes.
 
-**Quais transações são elegíveis?** Uma vez que hoje no mercado ainda existam cartões com BINs (primeiros 6 dígitos do cartão) não tokenizáveis, não será possível atendermos 100% das transações Visa. A Visa informou para a Cielo que aproximadamente 95% dos BINs Visa são elegíveis, e que haverá incidência de cobrança sobre os 5% não elegíveis. Portanto, a Cielo irá repassar esse custo ao cliente.
+Se preferir, você também pode optar por outras opções para fazer a gestão do token de bandeira por conta própria, caso use a API E-commerce Cielo. Vamos conhecer melhor essas opções a seguir.
 
-**Essa solução tem custo adicional?** A solução não tem custos adicionais para clientes API E-commerce Cielo ou API 1.5, basta entrar em contato para solicitar a habilitação.
+### Opção 2: Integração Facilitada
 
-> **Para saber mais sobre a Integração Facilitada** [Clique aqui](https://developercielo.github.io/manual/cielo-ecommerce#tokeniza%C3%A7%C3%A3o-de-
-> bandeira)
+Nessa opção, o seu estabelecimento se integra com a funcionalidade de tokenização convencional da Cielo, que cria um token de bandeira. Dessa forma, os estabelecimentos sempre terão um único token para aquele cartão, mas a Cielo terá os tokens e criptogramas das bandeiras armazenados de forma segura e com uma integração única.
 
-### Opção 3 - Integração por fora
+> **Bandeiras Disponíveis:** Visa
+
+> **Produtos Elegíveis:** API E-commerce Cielo.
+
+**Como obter essa funcionalidade:**
+
+Entre em contato com a gente pelo e-mail: cieloecommerce@cielo.com.br e solicite a habilitação.
+
+**Quais transações são elegíveis?**
+
+Uma vez que hoje no mercado ainda existam cartões com BINs (primeiros 6 a 8 dígitos do cartão) não elegíveis ao token, não será possível atendermos 100% das transações Visa. Segundo a bandeira, aproximadamente 90% dos BINs Visa já são elegíveis.
+
+**Essa solução tem custo adicional?**
+
+A solução não tem custos adicionais para clientes API E-commerce Cielo, basta entrar em contato para solicitar a habilitação.
+
+> **Saiba mais sobre a Integração Facilitada em [Tokenização de bandeira](https://developercielo.github.io/manual/cielo-ecommerce#tokeniza%C3%A7%C3%A3o-de-bandeira){:target="_blank"}**
+
+### Opção 3: integração externa
 
 Se o seu estabelecimento usa um gateway ou outro parceiro que já oferece a solução de token de bandeira, você pode realizar a integração para que a bandeira receba os dados do token.
 
-**Bandeiras Disponíveis:** Visa, Master e Elo (para a Integração por Fora, a Cielo está preparada para receber os dados de Token das três bandeiras, mas é necessário avaliar se a bandeira oferece o produto).
+> **Bandeiras Disponíveis:** Visa, Master e Elo.<br>
+> *Para a integração externa, a Cielo está preparada para receber os dados de token das três bandeiras, mas é necessário avaliar se a bandeira oferece o produto*.
 
-**Produtos Elegíveis:** API E-commerce Cielo e API 1.5.
+> **Produtos Elegíveis:** 
+API E-commerce Cielo e API 1.5 (legado).
 
-**Como obter essa funcionalidade:** É necessário realizar a habilitação junto ao seu parceiro, e garantir que este esteja integrado com nossa API para enviar os campos necessários.
+**Como obter essa funcionalidade?**
 
-**Quais transações são elegíveis?** Uma vez que hoje no mercado ainda existam cartões com BINs (primeiros 6 dígitos do cartão) não tokenizáveis, não será possível atendermos 100% das transações Visa. A Visa informou para a Cielo que aproximadamente 95% dos BINs Visa são elegíveis, e que haverá incidência de cobrança sobre os 5% não elegíveis. Portanto, a Cielo irá repassar esse custo ao cliente.
+É necessário realizar a habilitação junto ao seu parceiro, e garantir que este esteja integrado com nossa API para enviar os campos necessários.
 
-**Essa solução tem custo adicional?** A solução não tem custos adicionais para clientes API E-commerce Cielo ou API 1.5, basta entrar em contato para solicitar a habilitação junto ao seu parceiro.
+**Quais transações são elegíveis?**
 
-> **Para saber mais sobre a Integração por fora**, [Clique aqui](https://developercielo.github.io/manual/cielo-ecommerce#tokeniza%C3%A7%C3%A3o-de-bandeira)
+Uma vez que hoje no mercado ainda existam cartões com BINs (primeiros 6 a 8 dígitos do cartão) não elegíveis ao token, não será possível atendermos 100% das transações Visa. Segundo a bandeira, aproximadamente 90% dos BINs Visa já são elegíveis
 
-# Dúvidas ?
+**Essa solução tem custo adicional?**
 
-Caso tenha dúvidas sobre as soluções de tokenização, envie um e-mail para: **cieloecommerce@cielo.com.br**
+A solução não tem custos adicionais para clientes API E-commerce Cielo ou API 1.5 (legado), basta entrar em contato para solicitar a habilitação junto ao seu parceiro.
 
-Ou, se preferir, entre em contato com a gente pela Central de atendimento:
+# Dúvidas?
 
-Capitais e regiões metropolitanas: (11) 4002 9700
-Demais localidades: 0800 570 1700
+Caso tenha dúvidas, envie um e-mail para: cieloecommerce@cielo.com.br
+
+Ou, se preferir, entre em contato com a gente pela Central de Atendimento:
+
+* Capitais e regiões metropolitanas: (11) 4002-5472
+* Demais localidades: 0800 570 8472
