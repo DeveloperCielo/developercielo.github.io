@@ -147,33 +147,23 @@ Para fazer a chamada, é preciso obter um token utilizando seu client\_id e clie
 
 **Sandbox:**
 
-```
+```java
 curl --location --request POST
-
 https://apihml-internet.cielo.com.br/cielo-security-sys-web-hml/oauth/v2/MulesoftHML/protocol/openid-connect/token' \
-
 --header 'Content-Type: application/x-www-form-urlencoded' \
-
 --data-urlencode 'client\_id={ **clientId** }' \
-
 --data-urlencode 'client\_secret={ **secret** }' \
-
 --data-urlencode 'grant\_type=client\_credentials'
 ```
 
-
 **Produção:**
 
-```curl --location --request POST
-
+```java
+curl --location --request POST
 https://api-internet.cielo.com.br/cielo-security-sys-web/oauth/v2/MulesoftPRD/protocol/openid-connect/token' \
-
 --header 'Content-Type: application/x-www-form-urlencoded' \
-
 --data-urlencode 'client\_id={ **clientId** }' \
-
 --data-urlencode 'client\_secret={ **secret** }' \
-
 --data-urlencode 'grant\_type=client\_credentials'
 ```
 
@@ -217,7 +207,7 @@ Com esse serviço, você consegue filtrar contestações para visualizar ou trat
 
 **Endpoint da Requisição:**
 
-```
+```java
 {endpoint}/v1/chargeback/{status}?page={page}&pageSize={pageSize}
 ```
 
@@ -234,7 +224,7 @@ Com esse serviço, você consegue filtrar contestações para visualizar ou trat
 
 **Corpo da requisição:**
 
-```
+```json
 {
     "startNotificationPeriod": "2022-01-01",
     "endNotificationPeriod": "2022-01-01",
@@ -308,7 +298,7 @@ _\*Obrigatório para status DONE._
 
  - Exemplo de requisição do status pendente:
 
- ```
+ ```json
  {
     "content": [
         {
@@ -350,7 +340,7 @@ _\*Obrigatório para status DONE._
  ```   
  - Exemplo de requisição do status tratado:  
  
- ```
+ ```json
  [
   {
     "treatmentDeadline": "2022-10-14",
@@ -413,13 +403,13 @@ Esse serviço permite consultar o ciclo de vida de uma contestação tratada, is
 
 **Endpoint da Requisição:**
 
-```
+```java
 {endpoint}/v1/chargeback/lifecycle/{idCase}
 ```  
 
 **Parâmetros e Path Variables:**
 
-```
+```json
 {
     "code": "string",
     "message": "string",
@@ -434,7 +424,7 @@ Esse serviço permite consultar o ciclo de vida de uma contestação tratada, is
 
 **Retorno da requisição:**
 
-```
+```json
 [
     {
     "code": "string",
@@ -468,13 +458,13 @@ Serviço de realização do aceite de uma contestação, considerando a venda co
 
 **Endpoint da Requisição:**
 
-```
+```java
 {endpoint}/v1/chargeback/accept
 ```  
 
 **Parâmetros e Path Variables:**
 
-```
+```json
 {
     "updateChargeback": [
     {
@@ -494,7 +484,7 @@ _*Todos os campos são obrigatórios._
 
 **Retorno da requisição:**
 
-```
+```json
  [
     {
     "establishmentNumber": "string",
@@ -527,13 +517,13 @@ Com esse serviço, você pode se defender de uma contestação apresentando uma 
 
 **Endpoint da Requisição:**
 
-```
+```java
 {endpoint}/v1/chargeback/refuse
 ```
 
 **Parâmetros e Path Variables:**
 
-```
+```json
 {
     "establishmentNumber": " string ",
     "idChargeback": " string",
@@ -547,7 +537,7 @@ Com esse serviço, você pode se defender de uma contestação apresentando uma 
 
 **Retorno da requisição:**
 
-```
+```json
 {
    "code":"string",
    "message":"string"
@@ -570,7 +560,7 @@ Serviço que provê a lista de todas as razões, por cada bandeira, para ser uti
 
 **Endpoint da Requisição:**
 
-```
+```java
 {endpoint}/api/v1/chargeback/Reason/{idBandeira}
 ```  
 
@@ -590,7 +580,7 @@ Serviço que provê a lista de todas as razões, por cada bandeira, para ser uti
 
 **Retorno da requisição:**
 
-```
+```json
 {
     "cdReason": "string",
     "dcReason": "string",
@@ -619,7 +609,7 @@ No caso de recusa da contestação, esse serviço retorna o documento de defesa 
 
 **Retorno da requisição:**
 
-```
+```json
 [
   {
   "dateInclusion": "2023-01-20",
@@ -641,7 +631,7 @@ _Obs.: É necessário primeiro listar o documento, para após isso, realizar o d
 
 **Endpoint da Requisição:**
 
-```
+```java
 {endpoint}/api/v1/chargeback/ListIssuerDocuments/{establishmentNumber}/{idChargeback}
 ```
 
@@ -656,7 +646,7 @@ _Obs.: É necessário primeiro listar o documento, para após isso, realizar o d
 
 **Retorno da requisição:**
 
-```
+```json
 [
     {
         "idDocumento": 1571,
@@ -671,7 +661,7 @@ Este serviço disponibiliza o documento enviado pelo emissor para download.
 
 **Endpoint da Requisição:**
 
-```
+```java
 {endpoint}/api/v1/chargeback/DocumentIssuer/{establishmentNumber}/{idDocumento}
 ```
 
@@ -686,7 +676,7 @@ Este serviço disponibiliza o documento enviado pelo emissor para download.
 
 **Retorno da requisição:**
 
-```
+```json
 {
     "dateInclusion": "2023-06-07",
     "nameFile": "string",
