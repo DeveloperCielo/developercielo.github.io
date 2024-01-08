@@ -5740,12 +5740,12 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
     </blockquote>
   </li>
   <li>
-    <p><strong>Integração por fora:</strong> se o estabelecimento usa um gateway ou outro parceiro que já oferece a solução de token de bandeira, a Cielo possui os campos para que sejam enviadas as informações do token na transação, para que no processamento a bandeira receba os dados do token. Veja mais detalhes na requisição a seguir.
+    <p><strong>Integração externa:</strong> se o estabelecimento usa um gateway ou outro parceiro que já oferece a solução de token de bandeira, a Cielo possui os campos para que sejam enviadas as informações do token na transação, para que no processamento a bandeira receba os dados do token. Veja mais detalhes na requisição a seguir.
 <strong>Bandeiras disponíveis:</strong> Visa, Master e Elo.</p>
   </li>
 </ul>
 
-<p>Confira os campos a serem enviados na transação caso a opção escolhida seja a <strong>integração por fora</strong>:</p>
+<p>Confira os campos a serem enviados na transação caso a opção escolhida seja a <strong>integração externa</strong>:</p>
 
 <h3 id="requisição-15">Requisição</h3>
 
@@ -5887,7 +5887,7 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
       <td>Texto</td>
       <td>28</td>
       <td>Condicional*</td>
-      <td>Criptograma gerado pela bandeira. Deve ser enviado caso a tokenização seja feita na bandeira (integração por fora).</td>
+      <td>Criptograma gerado pela bandeira. Deve ser enviado caso a tokenização seja feita na bandeira (integração externa).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.ExpirationDate</code></td>
@@ -5920,7 +5920,7 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
   </tbody>
 </table>
 
-<p><em>*Deve ser enviado caso a tokenização seja feita na bandeira (integração por fora).</em></p>
+<p><em>*Deve ser enviado caso a tokenização seja feita na bandeira (integração externa).</em></p>
 
 <h3 id="resposta-11">Resposta</h3>
 
