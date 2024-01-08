@@ -10,114 +10,122 @@ tags:
   - 1. API E-commerce
 ---
 
+# API de Chargeback
+
 # Introdução
 
 ## Objetivo
 
-Esse manual foi feito para garantir uma **melhor**** integração **a você, cliente Cielo, na _** API **_** de **_** Chargeback**_.
+Esse manual foi feito para garantir uma **melhor integração**  a você, cliente Cielo, na ***API de Chargeback***.
 
-Através dela, você pode **aceitar** ou **recusar** contestações, além de consultar contestações pendentes e tratadas, ciclo de vida e todas as informações importantes no processo de _contestação_.
+Através dela, você pode **aceitar** ou **recusar** contestações, além de consultar contestações pendentes e tratadas, ciclo de vida e todas as informações importantes no processo de *contestação*.
 
 # Integração na API
 
 ## Fluxo para integração com API de Chargeback
 
-![](RackMultipart20240105-1-lmnp52_html_82aa0a14a7ff9ea4.png)
+![Fluxo Integracao API Chargeback](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/FluxoIntegracaoAPIChargeback.png)
 
 ## Integração com API de Chargeback
 
-1. Enviar para caixa **Technical Support Chargeback** ([techsupportchargeback@cielo.com.br](mailto:techsupportchargeback@cielo.com.br)) o número do estabelecimento matriz (EC que representa a raiz de CNPJ) da companhia.
-  1. Obs. 1: Todos os estabelecimentos para a API de Chargeback estarão abaixo desse estabelecimento, isso não afeta nenhum outro fluxo da Cielo.
-  2. Obs. 2: Caso você tenha mais de uma raiz de CNPJ, enviar todas elas.
+1. Enviar para caixa [Technical Support Chargeback](mailto:techsupportchargeback@cielo.com.br) o número do estabelecimento matriz (EC que representa a raiz de CNPJ) da companhia.
+  a. Obs. 1: Todos os estabelecimentos para a API de Chargeback estarão abaixo desse estabelecimento, isso não afeta nenhum outro fluxo da Cielo.
+  b. Obs. 2: Caso você tenha mais de uma raiz de CNPJ, enviar todas elas.
 
-1. Efetuar o pré-cadastro no Portal de Desenvolvedores.
-  1. Link para acesso ao Portal dos Desenvolvedores: [cielomulesoft.my.site.com/desenvolvedores/s/login/](https://cielomulesoft.my.site.com/desenvolvedores/s/login/)
+2. Efetuar o pré-cadastro no Portal de Desenvolvedores.
+  a. Link para acesso ao [Portal dos Desenvolvedores](https://cielomulesoft.my.site.com/desenvolvedores/s/login/).
     - Deve ser criado apenas um único login por cliente.
-  2. Clicar em "Sign Up" e cadastrar Nome, Sobrenome e E-mail.
-  3. Após esse cadastro, enviar um e-mail para a caixa de **Technical Support Chargeback** informando os dados cadastrados.
-    - Obs.: esse cadastro é necessário para obter acesso ao Client\_ID e Client\_Secret dos ambientes de Sandbox e Produção.
+  b. Clicar em "Sign Up" e cadastrar Nome, Sobrenome e E-mail.
+  c. Após esse cadastro, enviar um e-mail para a caixa de **Technical Support Chargeback** informando os dados cadastrados.
+    - Obs.: esse cadastro é necessário para obter acesso ao Client_ID e Client_Secret dos ambientes de Sandbox e Produção.
 
-![Shape1](RackMultipart20240105-1-lmnp52_html_d99122eda5182bab.gif) ![](RackMultipart20240105-1-lmnp52_html_71b1003f3da457aa.png)
+![Charceback_1](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Chargeback_1.png)
 
-![](RackMultipart20240105-1-lmnp52_html_2781ad1d84a11497.png)
+![Charceback_2](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Chargeback_2.png)
 
-1. Criação de uma chave pública e privada para criptografia
-  1. É necessário gerar o arquivo da chave pública no formato **.csr**.
-    - **Dica** : as chaves podem ser geradas via ferramenta openssl.
-    - **Exemplo** : openssl req -out nome\_chave\_publica.csr -new -newkey rsa:2048 -nodes - keyout chave\_privada.key
+3. Criação de uma chave pública e privada para criptografia
+
+   a. É necessário gerar o arquivo da chave pública no formato **.csr**.
+    > **Dica** : as chaves podem ser geradas via ferramenta openssl.
+    > **Exemplo** : openssl req -out nome_chave_publica.csr -new -newkey rsa:2048 -nodes - keyout chave_privada.key
+
     - Gerar o.csr da chave pública conforme padrão abaixo:
 
-1. **emailAddress** \<informar o mesmo e-mail cadastrado no Portal dos Desenvolvedores\>
+        1. **emailAddress** \<informar o mesmo e-mail cadastrado no Portal dos Desenvolvedores\>
 
-2. **Common Name (CN)** \<nome da empresa\>
+        2. **Common Name (CN)** \<nome da empresa\>
 
-3. **Organizational Unit (OU)** \<deve ser cadastrado como "Cielo – chargeback"\>
+        3. **Organizational Unit (OU)** \<deve ser cadastrado como "Cielo – chargeback"\>
 
-4. **Organization (O)** \<nome da empresa\>
+        4. **Organization (O)** \<nome da empresa\>
 
-5. **Locality (L)** \<cidade\>
+        5. **Locality (L)** \<cidade\>
 
-6. **State (ST)** \<estado\>
+        6. **State (ST)** \<estado\>
 
-7. **Country (C)** \<BR\>
+        7. **Country (C)** \<BR\>
 
-- Exemplo de preenchimento:
 
-emailAddress: [**adm@cliente1.com.br**](mailto:adm@cliente1.com.br)
+        - **Exemplo de preenchimento:**
 
-Common Name (CN): **Cliente 1**
+          emailAddress: [**adm@cliente1.com.br**](mailto:adm@cliente1.com.br)
 
-Organizational Unit (OU): **Cielo – chargeback**
+          Common Name (CN): **Cliente 1**
 
-Organization (O): **Cliente 1**
+          Organizational Unit (OU): **Cielo – chargeback**
 
-Locality (L): **Campinas**
+          Organization (O): **Cliente 1**
 
-State (ST): **Sao Paulo**
+          Locality (L): **Campinas**
 
-Country (C): **BR**
+          State (ST): **Sao Paulo**
 
-  1. Compactar o arquivo .csr contendo a chave pública em um o arquivo .zip e enviar para a caixa de **Technical Support Chargeback** para realizar assinatura.
-  2. Aguardar retorno do time Cielo com o certificado MTLS assinado.
+          Country (C): **BR**
 
-![Shape2](RackMultipart20240105-1-lmnp52_html_f9ddc71b7b6144cc.gif) **Toda chamada para nosso serviço deve ser passada com a chave MLTS assinada.**
+        b. Compactar o arquivo .csr contendo a chave pública em um o arquivo .zip e enviar para a caixa de **Technical Support Chargeback** para realizar assinatura.
 
-1. Acessar o Portal dos Desenvolvedores e efetuar o cadastro definitivo.
-  1. Após o cadastro definitivo, fazer o login no Portal dos Desenvolvedores e coletar as chaves disponíveis do ambiente desejado.
-  2. Link para acesso ao Portal dos Desenvolvedores: [cielomulesoft.my.site.com/desenvolvedores/s/login/](https://cielomulesoft.my.site.com/desenvolvedores/s/login/)
-  3. _ **Obs.: Para realizar o login, é necessário autenticação do MFA.** _
+        c. Aguardar retorno do time Cielo com o certificado MTLS assinado.
 
-**Ao finalizar esse processo, você está liberado para acessar o Sandbox da API de Chargeback e iniciar os testes conosco****!**
+ > **Toda chamada para nosso serviço deve ser passada com a chave MLTS assinada.**
 
-1. Liberação de acesso para os endpoints da Cielo:
-  1. Sandbox: apihml-internet.cielo.com.br/cielo-chargeback-sys-sandbox/
-  2. Produção: api-internet.cielo.com.br/cielo-chargeback-sys-external/
+4. Acessar o Portal dos Desenvolvedores e efetuar o cadastro definitivo.
+
+    a. Após o cadastro definitivo, fazer o login no Portal dos Desenvolvedores e coletar as chaves disponíveis do ambiente desejado.
+
+    b. Link para acesso ao [Portal dos Desenvolvedores](https://cielomulesoft.my.site.com/desenvolvedores/s/login/).
+
+    c. ***Obs.: Para realizar o login, é necessário autenticação do MFA.***
+
+
+**Ao finalizar esse processo, você está liberado para acessar o Sandbox da API de Chargeback e iniciar os testes conosco!**
+
+5. Liberação de acesso para os endpoints da Cielo:
+
+    a. Sandbox: apihml-internet.cielo.com.br/cielo-chargeback-sys-sandbox/
+
+    b. Produção: api-internet.cielo.com.br/cielo-chargeback-sys-external/
+
 
 # Instruções para uso do Sandbox
 
 Para utilizar o sandbox, passe os cenários abaixo para simular retornos de sucesso (código iniciando com 1) ou erro (código iniciando com 9).
 
-_Obs.: Caso sejam informados dados diferentes do cenário abaixo, os serviços irão retornar sucesso na requisição._
+*Obs.: Caso sejam informados dados diferentes do cenário abaixo, os serviços irão retornar sucesso na requisição.*
 
-| Código | Nome do serviço | Número do estabelecimento | IdCase | IdChargeback |
-| --- | --- | --- | --- | --- |
-| 103 | Consulta de contestação pendentes e tratadas | 2222222222 | 4000000 | 40000 |
-| 901 | 1111111111 | 3000000 | 30000 |
-| 101 | Acate de contestação | 2222222222 |
- | 40000 |
-| 901 | 1111111111 |
- | 30000 |
-| 102 | Recusa de contestação | 2222222222 |
- | 20000 |
-| 901 | 1111111111 |
- | 10000 |
-| 104 | Consulta de documento | 2222222222 |
- | 20000 |
-| 901 | 1111111111 |
- | 10000 |
-| 901 | Pesquisa do ciclo de vida | 1111111111 | 3000000 | 30000 |
+| Código | Nome do serviço                                 | Número do estabelecimento | IdCase  | IdChargeback |
+| ------ | ----------------------------------------------- | ------------------------- | ------- | ------------ |
+| 103    | Consulta de contestação pendentes e tratadas    | 2222222222                | 4000000 | 40000        |
+| 901    | Consulta de contestação pendentes e tratadas    | 1111111111                | 3000000 | 30000        |
+| 101    | Acate de contestação                            | 2222222222                |         | 40000        |
+| 901    | Acate de contestação                            | 1111111111                |         | 30000        |
+| 102    | Recusa de contestação                           | 2222222222                |         | 20000        |
+| 901    | Recusa de contestação                           | 1111111111                |         | 10000        |
+| 104    | Consulta de documento                           | 2222222222                |         | 20000        |
+| 901    | Consulta de documento                           | 1111111111                |         | 10000        |
+| 901    | Pesquisa do ciclo de vida                       | 1111111111                | 3000000 | 30000        |  
 
-Proposta de validação para prosseguirmos com a integração em Produção:
+
+ Proposta de validação para prosseguirmos com a integração em Produção:
 
 - Validar sucesso (código 103) no serviço de Consulta de contestação pendente
 - Validar falha (código 901) no serviço de Consulta de contestação pendente
@@ -137,10 +145,9 @@ Proposta de validação para prosseguirmos com a integração em Produção:
 
 Para fazer a chamada, é preciso obter um token utilizando seu client\_id e client\_secret. Confira um exemplo de requisição:
 
-Sandbox:
+**Sandbox:**
 
-![Shape3](RackMultipart20240105-1-lmnp52_html_ccae19c47e75701.gif)
-
+```
 curl --location --request POST
 
 https://apihml-internet.cielo.com.br/cielo-security-sys-web-hml/oauth/v2/MulesoftHML/protocol/openid-connect/token' \
@@ -152,12 +159,12 @@ https://apihml-internet.cielo.com.br/cielo-security-sys-web-hml/oauth/v2/Mulesof
 --data-urlencode 'client\_secret={ **secret** }' \
 
 --data-urlencode 'grant\_type=client\_credentials'
+```
 
-Produção:
 
-![Shape4](RackMultipart20240105-1-lmnp52_html_e06225160f369d0.gif)
+**Produção:**
 
-curl --location --request POST
+```curl --location --request POST
 
 https://api-internet.cielo.com.br/cielo-security-sys-web/oauth/v2/MulesoftPRD/protocol/openid-connect/token' \
 
@@ -168,8 +175,9 @@ https://api-internet.cielo.com.br/cielo-security-sys-web/oauth/v2/MulesoftPRD/pr
 --data-urlencode 'client\_secret={ **secret** }' \
 
 --data-urlencode 'grant\_type=client\_credentials'
+```
 
-Extraia o campo access\_token do retorno da requisição e passe como header em Authorization:
+Extraia o campo access_token do retorno da requisição e passe como header em Authorization:
 
 | **KEY** | **VALUE** |
 | --- | --- |
@@ -181,7 +189,7 @@ Extraia o campo access\_token do retorno da requisição e passe como header em 
 
 Com a API de Chargeback, você consegue tratar suas contestações a partir de dois serviços: o de aceite e o de recusa. Veja como o fluxo funciona:
 
-![](RackMultipart20240105-1-lmnp52_html_9e0d05899f85cc43.png)
+![Fluxo Chargeback](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/FluxoChargeback.png)
 
 ## Fluxo de tratamento de contestações tratadas
 
@@ -204,15 +212,16 @@ Depois da tratativa, você pode acompanhar todo o processo consultando o ciclo d
 
 ## Consulta de contestações pendentes ou tratadas
 
-Com esse serviço, você consegue filtrar contestações para visualizar ou tratar por diversos parâmetros, como período, número do EC, entre outros.
+Com esse serviço, você consegue filtrar contestações para visualizar ou tratar por diversos parâmetros, como período, número do EC, entre outros. 
 
-![Shape5](RackMultipart20240105-1-lmnp52_html_aedcbf410149d98e.gif)
 
-{ **endpoint** }/v1/chargeback/{status}?page={page}&pageSize={pageSize}
+**Endpoint da Requisição:**
 
-Endpoint da Requisição:
+```
+{endpoint}/v1/chargeback/{status}?page={page}&pageSize={pageSize}
+```
 
-Parâmetros e Path Variables:
+**Parâmetros e Path Variables:**
 
 | Nome | Descrição | Tipo |
 | --- | --- | --- |
@@ -222,10 +231,24 @@ Parâmetros e Path Variables:
 | orderBy | Campo de ordenação da pesquisa | receptionDate ou treatmentDeadline |
 | Order | Forma de ordenação da pesquisa | asc ou desc |
 
-Corpo da requisição:
 
-| {"startNotificationPeriod": "2022-01-01","endNotificationPeriod": "2022-01-01","cardAssociationCode": null,"process":null,"reason": null,"establishmentNumber": ["2012457511"], "mainCustomer": "", "hierarchyType": 4,"idCase": null,"tid": null,"nsu": null,} |
-| --- |
+**Corpo da requisição:**
+
+```
+{
+    "startNotificationPeriod": "2022-01-01",
+    "endNotificationPeriod": "2022-01-01",
+    "cardAssociationCode": null,
+    "process":null,
+    "reason": null,
+    "establishmentNumber": ["2012457511"],
+    “mainCustomer”: “”,
+    “hierarchyType”: 4,
+    "idCase": null,
+    "tid": null,
+    "nsu": null,
+}
+```   
 
 | Campo | Descrição | Conteúdo |
 | --- | --- | --- |
@@ -243,214 +266,372 @@ Corpo da requisição:
 
 _\*Obrigatório para status DONE._
 
-Domínios
+### Domínios
 
-Status
+**Status**
 
-| Código | Descrição |
-| --- | --- |
-| DONE | Tratada |
-| PENDING | Pendente |
+| Código  | Descrição |
+| ------- | --------- |
+| DONE    | Tratada   |
+| PENDING | Pendente  |
 
-CardAssociationCode
+**CardAssociationCode**
 
 | Código | Nome da bandeira |
-| --- | --- |
-| 1 | Visa |
-| 2 | Mastercard |
-| 3 | American Express |
-| 7 | Elo |
-| 40 | Hipercard |
+| ------ | ---------------- |
+| 1      | Visa             |
+| 2      | Mastercard       |
+| 3      | American Express |
+| 7      | Elo              |
+| 40     | Hipercard        |
 
-Processo
+**Processo**
+
+| Código | Descrição         |
+| ------ | ----------------- |
+| 1      | 1º Chargeback     |
+| 2      | Cobrança amigável |
+| 3      | 2º Chargeback     |
+| 13     | Pré compliance    |
+| 15     | Arbitragem        |
+| 16     | Compliance        |  
+
+**Tipo de hierarquia**
 
 | Código | Descrição |
-| --- | --- |
-| 1 | 1º Chargeback |
-| 2 | Cobrança amigável |
-| 3 | 2º Chargeback |
-| 13 | Pré compliance |
-| 15 | Arbitragem |
-| 16 | Compliance |
+| ------ | --------- |
+| 1      | Raiz de CNPJ |
+| 2      | Matriz de pagamento |
+| 4      | Todos os tipos de hierarquia (fortemente recomendável para clientes integrados na API) |
 
-Tipo de hierarquia
+**Retorno da requisição (pendentes e tratadas respectivamente):**
 
-| Código | Descrição |
-| --- | --- |
-| 1 | Raiz de CNPJ |
-| 2 | Matriz de pagamento |
-| 4 | Todos os tipos de hierarquia (fortemente recomendável para clientes integrados na API) |
+ - Exemplo de requisição do status pendente:
 
-Retorno da requisição (pendentes e tratadas respectivamente):
-
-| ![](RackMultipart20240105-1-lmnp52_html_36129ce0a2850ee8.gif) ![](RackMultipart20240105-1-lmnp52_html_1e32d4f0af7ca320.gif) |
-| --- |
+ ```
+ {
+    "content": [
+        {
+            "treatmentDeadline": "2023-09-27",
+            "idCase": 5434398,
+            "idChargeback": 58410,
+            "establishmentNumber": 2012457538,
+            "process": "PRIMEIRO_CHARGEBACK",
+            "lifecycle": {},
+            "transactionAmount": 211,
+            "transactionDetails": {
+                "transactionDate": "2023-09-13",
+                "authorization": "588557",
+                "cardAssociation": 1,
+                "cardAssociationName": "VISA",
+                "productCode": 43,
+                "productDescription": "VISA PARCELADO LOJA",
+                "issuerSenderCode": "0237",
+                "issuerSenderDescription": "BRADESCO S/A",
+                "truncatedCard": "409603******0034",
+                "currency": "REAL",
+                "referenceNumber": "24487683256432000000944",
+                "nsu": 344221,
+                "ro": "4230913",
+                "terminal": "00068773",
+                "establishmentName": "LEITE EM PO SA"
+            },
+    "chargebackDetails": {
+                "reasonCode": "105",
+                "reasonDescription": "Chargeback Credito",
+                "tpReason": 1,
+                "receptionDate": "2023-09-26",
+                "rapidDisputeResolution": "false"
+            },
+            "remainingDaysToTreat": 1
+        }
+    ]
+ }
+ ```   
+ - Exemplo de requisição do status tratado:  
+ 
+ ```
+ [
+  {
+    "treatmentDeadline": "2022-10-14",
+    "idCase": 0,
+    "idChargeback": 0,
+    "establishmentNumber": 0,
+    "process": "PRIMEIRO_CHARGEBACK",
+    "remainingDaysToTreat": 3,
+    "lifecycle": {
+      "action": "string",
+      "actionDate": "2022-10-14"
+    },
+    "transactionAmount": 0,
+    "actionTakenCode": "ACATAR",
+    "transactionDetails": {
+      "transactionDate": "2022-10-14",
+      "authorization": "string",
+      "cardAssociation": 1
+      "cardAssociationName": "Mastercard",   
+      "productCode": 0,
+      "productDescription": "string",
+      "issuerSenderCode": "string",
+      "issuerSenderDescription": "string",
+      "truncatedCard": "string",
+      "currency": "REAL",
+      "referenceNumber": "string",
+      "ro": "string",
+      "terminal": "string",
+      "tid": "string",
+      "establishmentName": "string"
+    },
+    "chargebackDetails": {
+      "reasonCode": "104",
+      "reasonDescription": "Outras Fraudes - Cartao Ausente",
+      "tpReason": 1,
+      "reasonMessage": "CMD CHARGEBACK TC15",
+      "chargebackMessage": "CMD CHARGEBACK TC15",
+      "receptionDate": "2023-09-14",
+      "replyDate": "2023-09-15",
+      "rapidDisputeResolution": "false"
+            },
+    "remainingDaysToTreat": 1
+        }
+    ]
+ ```   
 
 Status de retorno:
 
 | Status | Descrição |
-| --- | --- |
-| 200 | Ok |
-| 400 | Requisição inválida |
-| 403 | Sem permissão |
-| 412 | Pré-condições inválidas |
-| 500 | Erro interno |
+| ------ | --------- |
+| 200    | Ok        |
+| 400    | Requisição inválida |
+| 403    | Sem permissão |
+| 412    | Pré-condições inválidas |
+| 500    | Erro interno |
 
 ## Pesquisa de ciclo de vida
 
 Esse serviço permite consultar o ciclo de vida de uma contestação tratada, isto é, as ações ocorridas na contestação após a tratativa.
 
-Endpoint da Requisição:
+**Endpoint da Requisição:**
 
-![Shape6](RackMultipart20240105-1-lmnp52_html_800872675fd5e863.gif)
+```
+{endpoint}/v1/chargeback/lifecycle/{idCase}
+```  
 
-{ **endpoint** }/v1/chargeback/lifecycle/{idCase}
+**Parâmetros e Path Variables:**
 
-Parâmetros e Path Variables:
+```
+{
+    "code": "string",
+    "message": "string",
+    "details": [
+    {
+    "code": "string",
+    "message": "string"
+    }
+  ]
+}
+```  
 
-| ![](RackMultipart20240105-1-lmnp52_html_e7ca2b9ed231f9bc.gif) |
-| --- |
+**Retorno da requisição:**
 
-Retorno da requisição:
+```
+[
+    {
+    "code": "string",
+    "message": "string",
+    }
+]
+```  
 
-| ![](RackMultipart20240105-1-lmnp52_html_b8cee4c83c8d2ed2.gif) |
-| --- |
-
-Status de retorno:
+**Status de retorno:**
 
 | Status | Descrição |
-| --- | --- |
-| 200 | Ok |
-| 400 | Requisição inválida |
-| 403 | Sem permissão |
-| 412 | Pré-condições inválidas |
-| 500 | Erro interno |
+| ------ | --------- |
+| 200    | Ok        |
+| 400    | Requisição inválida |
+| 403    | Sem permissão |
+| 412    | Pré-condições inválidas |
+| 500    | Erro interno |
 
 - **Status Ciclo de Vida**
   - Intermediários:
-    - Em análise com o Cliente
-    - Em análise com o Emissor
-    - Em análise com a Cielo
+      - Em análise com o Cliente
+      - Em análise com o Emissor
+      - Em análise com a Cielo
   - Finais:
-    - A favor do Estabelecimento
-    - A favor do Emissor
+      - A favor do Estabelecimento
+      - A favor do Emissor
 
 ## Aceite de contestação
 
-Serviço de realização do aceite de uma contestação, considerando a venda como inválida e concordando com o estorno pela credenciadora, a Cielo.
+Serviço de realização do aceite de uma contestação, considerando a venda como inválida e concordando com o estorno pela credenciadora, a Cielo. 
 
-Endpoint da Requisição:
+**Endpoint da Requisição:**
 
-![Shape7](RackMultipart20240105-1-lmnp52_html_4de7ed450183a407.gif)
+```
+{endpoint}/v1/chargeback/accept
+```  
 
-{ **endpoint** }/v1/chargeback/accept
+**Parâmetros e Path Variables:**
 
-Parâmetros e Path Variables:
+```
+{
+    "updateChargeback": [
+    {
+    "establishmentNumber": " string ",
+    "idChargeback": " string "
+    },
+     {
+    "establishmentNumber": " string ",
+    "idChargeback": " string "
+    }
+  ],
+    "userName": "user"
+}
+```  
 
-| ![](RackMultipart20240105-1-lmnp52_html_f191bc1f8f0c45e7.gif) |
-| --- |
+_*Todos os campos são obrigatórios._
 
-_\*Todos os campos são obrigatórios._
+**Retorno da requisição:**
 
-Retorno da requisição:
+```
+ [
+    {
+    "establishmentNumber": "string",
+    "idChargeback": "string",
+    "code": "string",
+    "message": "string"
+   },
+   {
+    "establishmentNumber": "string",
+    "idChargeback": "string",
+    "code": "string",
+    "message": "string"
+    }
+]
+```
 
-| ![](RackMultipart20240105-1-lmnp52_html_6fbec1e9d046086c.gif) |
-| --- |
-
-Status de retorno:
+**Status de retorno:**
 
 | Status | Descrição |
-| --- | --- |
-| 200 | Ok |
-| 400 | Requisição inválida |
-| 403 | Sem permissão |
-| 412 | Pré-condições inválidas |
-| 500 | Erro interno |
+| ------ | --------- |
+| 200    | Ok        |
+| 400    | Requisição inválida |
+| 403    | Sem permissão |
+| 412    | Pré-condições inválidas |
+| 500    | Erro interno |
 
 ## Recusa de contestação
 
 Com esse serviço, você pode se defender de uma contestação apresentando uma evidência na forma de imagem ou documento, além de um breve texto justificando a posição.
 
-Endpoint da Requisição:
+**Endpoint da Requisição:**
 
-![Shape8](RackMultipart20240105-1-lmnp52_html_800872675fd5e863.gif)
+```
+{endpoint}/v1/chargeback/refuse
+```
 
-{ **endpoint** }/v1/chargeback/refuse
+**Parâmetros e Path Variables:**
 
-Parâmetros e Path Variables:
+```
+{
+    "establishmentNumber": " string ",
+    "idChargeback": " string",
+    "reasonToRefuse": " string ",
+     “file”: “multipart/form-data”,
+     “userName”: “user”
+}
+```   
 
-| ![](RackMultipart20240105-1-lmnp52_html_673a3e76ece5d9ad.gif) |
-| --- |
+*_Todos os campos são obrigatórios._
 
-\*_Todos os campos são obrigatórios._
+**Retorno da requisição:**
 
-Retorno da requisição:
+```
+{
+   "code":"string",
+   "message":"string"
+}
+```
 
-| ![](RackMultipart20240105-1-lmnp52_html_6240ecc334eca282.gif) |
-| --- |
-
-Status de retorno:
+**Status de retorno:**  
 
 | Status | Descrição |
-| --- | --- |
-| 200 | Ok |
-| 400 | Requisição inválida |
-| 403 | Sem permissão |
-| 412 | Pré-condições inválidas |
-| 500 | Erro interno |
+| ------ | --------- |
+| 200    | Ok        |
+| 400    | Requisição inválida |
+| 403    | Sem permissão |
+| 412    | Pré-condições inválidas |
+| 500    | Erro interno |
 
 ## Pesquisa de razão
 
-Serviço que provê a lista de todas as razões, por cada bandeira, para ser utilizada no filtro do serviço " **Consulta de contestação pendentes e tratadas"**.
+Serviço que provê a lista de todas as razões, por cada bandeira, para ser utilizada no filtro do serviço "**Consulta de contestação pendentes e tratadas**".
 
-Endpoint da Requisição:
+**Endpoint da Requisição:**
 
-![Shape9](RackMultipart20240105-1-lmnp52_html_b3706b3a71948116.gif)
+```
+{endpoint}/api/v1/chargeback/Reason/{idBandeira}
+```  
 
-{ **endpoint** }/api/v1/chargeback/Reason/{idBandeira}
-
-Parâmetros e Path Variables:
+**Parâmetros e Path Variables:**
 
 | Nome | Descrição | Tipo |
-| --- | --- | --- |
+| ---- | --------- | ---- |
 | idBandeira | Indica a bandeira desejada, conforme tabela abaixo | Variável |
 
 | Código | Nome |
-| --- | --- |
-| 1 | Visa |
-| 2 | Mastercard |
-| 3 | Amex |
-| 7 | Elo |
-| 40 | Hipercard |
+| ------ | ---- |
+| 1      | Visa |
+| 2      | Mastercard |
+| 3      | Amex |
+| 7      | Elo |
+| 40     | Hipercard |
 
-Retorno da requisição:
+**Retorno da requisição:**
 
-| ![](RackMultipart20240105-1-lmnp52_html_ca215cfbe1e9f24e.gif) |
-| --- |
+```
+{
+    "cdReason": "string",
+    "dcReason": "string",
+     “tpReason”: “string”
+}
+```
 
 ## Consulta de documento
 
 No caso de recusa da contestação, esse serviço retorna o documento de defesa anexado para consulta.
 
-![Shape10](RackMultipart20240105-1-lmnp52_html_8bc871ec7b6d2f5e.gif)
+**Endpoint da Requisição:**
 
-{ **endpoint** }v1/chargeback/DocumentSupport/{establishmentNumber}/{idChargeback}
+```
+{endpoint}v1/chargeback/DocumentSupport/{establishmentNumber}/{idChargeback}
+```
 
-Endpoint da Requisição:
-
-Parâmetros e Path Variables:
+**Parâmetros e Path Variables:**
 
 | Nome | Descrição | Tipo |
-| --- | --- | --- |
-| establishmentNumber\* | Número do estabelecimento comercial | Variável |
-| idChargeback\* | Id do chargeback | Variável |
+| ---- | --------- | ---- |
+| establishmentNumber* | Número do estabelecimento comercial | Variável |
+| idChargeback* | Id do chargeback | Variável |
 
-\*_Todos os campos são obrigatórios._
+*_Todos os campos são obrigatórios._
 
-Retorno da requisição:
+**Retorno da requisição:**
 
-| ![](RackMultipart20240105-1-lmnp52_html_4294c5acdd2dd198.gif) |
-| --- |
+```
+[
+  {
+  "dateInclusion": "2023-01-20",
+  "nameFile": "string",
+  "codigo": 0,
+  "mensagem": "string",
+  "file": [
+      "string"
+    ]
+  }
+]
+```
 
 ## Lista de documentos do emissor
 
@@ -458,54 +639,67 @@ Esse serviço retorna os nomes e os códigos dos documentos enviados pelo emisso
 
 _Obs.: É necessário primeiro listar o documento, para após isso, realizar o download._
 
-![Shape11](RackMultipart20240105-1-lmnp52_html_8bc871ec7b6d2f5e.gif)
+**Endpoint da Requisição:**
 
-{ **endpoint** }/api/v1/chargeback/ListIssuerDocuments/{establishmentNumber}/{idChargeback}
+```
+{endpoint}/api/v1/chargeback/ListIssuerDocuments/{establishmentNumber}/{idChargeback}
+```
 
-Endpoint da Requisição:
-
-Parâmetros e Path Variables:
+**Parâmetros e Path Variables:**
 
 | Nome | Descrição | Tipo |
-| --- | --- | --- |
-| establishmentNumber\* | Número do estabelecimento comercial | Variável |
-| idChargeback\* | Id do chargeback | Variável |
+| ---- | --------- | ---- |
+| establishmentNumber* | Número do estabelecimento comercial | Variável |
+| idChargeback* | Id do chargeback | Variável |
 
-\*_Todos os campos são obrigatórios._
+*_Todos os campos são obrigatórios._
 
-Retorno da requisição:
+**Retorno da requisição:**
 
-| ![](RackMultipart20240105-1-lmnp52_html_6c95ca40585a06a1.gif) |
-| --- |
+```
+[
+    {
+        "idDocumento": 1571,
+        "nameFile": "5219062.tif"
+    }
+]
+```
 
 ## Download de documentos do emissor
 
 Este serviço disponibiliza o documento enviado pelo emissor para download.
 
-![Shape12](RackMultipart20240105-1-lmnp52_html_8bc871ec7b6d2f5e.gif)
+**Endpoint da Requisição:**
 
-{ **endpoint** }/api/v1/chargeback/DocumentIssuer/{establishmentNumber}/{idDocumento}
+```
+{endpoint}/api/v1/chargeback/DocumentIssuer/{establishmentNumber}/{idDocumento}
+```
 
-Endpoint da Requisição:
-
-Parâmetros e Path Variables:
+**Parâmetros e Path Variables:**
 
 | Nome | Descrição | Tipo |
-| --- | --- | --- |
-| establishmentNumber\* | Número do estabelecimento comercial | Variável |
-| idDocumento\* | Número do documento obtido através do serviço "Lista de documentos do emissor" | Variável |
+| ---- | --------- | ---- |
+| establishmentNumber* | Número do estabelecimento comercial | Variável |
+| idDocumento* | Número do documento obtido através do serviço "Lista de documentos do emissor" | Variável |
 
-\*_Todos os campos são obrigatórios._
+*_Todos os campos são obrigatórios._
 
-Retorno da requisição:
+**Retorno da requisição:**
 
-| ![](RackMultipart20240105-1-lmnp52_html_1a0ba8debff29d8a.gif) |
-| --- |
+```
+{
+    "dateInclusion": "2023-06-07",
+    "nameFile": "string",
+    "codigo": 0,
+    "mensagem": "string!",
+    "file": "string”
+}
+```
 
 # Tabela de descrição de campos
 
 | Nome do campo | Descrição do campo |
-| --- | --- |
+| ------------- | ------------------ |
 | action | Descrição da ação dada para o chargeback |
 | actionDate | Data da ação dada |
 | actionTakenCode | Código da ação dada para o Chargeback |
@@ -559,7 +753,7 @@ Retorno da requisição:
 # Tabela dos status de retorno
 
 | Código | Descrição |
-| --- | --- |
+| ------ | --------- |
 | 101 | Chargeback acatado com sucesso! |
 | 102 | Chargeback recusado com sucesso! |
 | 103 | Não há registros a serem exibidos a partir da busca realizada. |
@@ -611,7 +805,7 @@ Retorno da requisição:
 
 É quando o titular do cartão identifica algum problema na transação, como suspeita de fraude ou desacordo com o lojista. Então, ele entra em contato com o Banco Emissor do cartão para relatar o ocorrido e é iniciado o processo de disputa. Além de contestação, esse processo também é chamado de Chargeback. E todo o fluxo de disputa é regulamentado pelas bandeiras dos cartões, que determinam as regras de disputa, como quem ganha e quem perde, por exemplo.
 
-1. **Como eu posso me defender dessas contestações?**
+2. **Como eu posso me defender dessas contestações?**
 
 Quando uma compra é contestada, você tem 2 opções:
 
@@ -620,11 +814,11 @@ Quando uma compra é contestada, você tem 2 opções:
 
 Suas ações durante o processo de chargeback são chamadas de tratativas. A tratativa pode ser realizada dentro do App Cielo Gestão, Site Cielo ou através da API de Chargeback Cielo, que é o tema deste documento.
 
-1.   **Para dar início ao processo de integração com API de Chargeback, quais informações devo passar e para quem devo solicitar o cadastro?**
+3.   **Para dar início ao processo de integração com API de Chargeback, quais informações devo passar e para quem devo solicitar o cadastro?**
 
 Seguir o passo a passo descrito no item Integração com API de Chargeback.
 
-1. **Caso eu esteja integrado com a API da Braspag, posso migrar para API de Chargeback da Cielo?**
+4. **Caso eu esteja integrado com a API da Braspag, posso migrar para API de Chargeback da Cielo?**
 
 Sim, nós recomendamos que essa migração ocorra, justamente porque a API de Chargeback da Cielo oferece benefícios em relação a API da Braspag. Entre eles, podemos listar:
 
@@ -636,27 +830,27 @@ Sim, nós recomendamos que essa migração ocorra, justamente porque a API de Ch
 
 Para realizar a migração, solicite ao seu Gerente de Negócios o descadastramento da API da Braspag e a integração com a API de Chargeback Cielo. Durante o período de integração com API de Chargeback Cielo (desde o momento do descadastro da API Braspag até o momento da integração com a nova API), você deverá administrar seus chargebacks pelo Site Cielo.
 
-1. **Como consultar uma contestação na API?**
+5. **Como consultar uma contestação na API?**
 
 No serviço Consulta de contestações pendentes ou tratadas, você consegue visualizar tanto as contestações que estão pendentes (status PENDING) quanto as que já foram tratadas (status DONE).
 
 Para visualizar as contestações que estão pendentes de tratamento, basta informar o número do estabelecimento que deseja consultar, e para as já tratadas, você também deve especificar um período.
 
-1. **Posso realizar uma consulta para todos os estabelecimentos abaixo da minha matriz?**
+6. **Posso realizar uma consulta para todos os estabelecimentos abaixo da minha matriz?**
 
 Sim, nós recomendamos que você consulte sempre pelo seu estabelecimento matriz, pois dessa forma você visualiza todas as contestações dos demais estabelecimentos abaixo daquela matriz selecionada. Na API, o número do estabelecimento individual que recebeu a contestação é representado pelo campo establishmentNumber e o número do estabelecimento matriz é o mainCustomer. Então, no serviço de consulta, você só precisa preencher o campo mainCustomer, assim você vai obter todas as contestações abaixo da sua hierarquia de Raiz de CNPJ. Caso queira visualizar as contestações abaixo de um outro tipo de hierarquia, como por exemplo um Grupo de Pagamento, você deverá preencher também o campo hierarchyType para especificar o tipo de matriz a ser consultada.
 
-1. **Como realizar uma tratativa na API?**
+7. **Como realizar uma tratativa na API?**
 
 No serviço Aceite de contestação, você realiza o aceite informando o número do estabelecimento que recebeu a contestação e o ID do Chargeback.
 
 No serviço Recusa de contestação, você realiza a recusa informando, além do número do estabelecimento que recebeu a contestação e do ID do Chargeback, uma breve descrição da razão de recusa (máximo 100 caracteres) e um documento que comprove que a venda foi legítima, isto é, que foi feita pela pessoa titular do cartão ou com o consentimento dela e que ambos cumpriram suas obrigações no momento da compra.
 
-1. **Enviei a documentação solicitada, como saber qual o status do meu caso. Eu ganhei ou perdi esta contestação?**
+8. **Enviei a documentação solicitada, como saber qual o status do meu caso. Eu ganhei ou perdi esta contestação?**
 
 Você pode consultar o andamento da sua contestação no serviço Pesquisa Ciclo de Vida da API, informando o número do case que deseja visualizar.
 
-1. **Com que frequência devo consultar as contestações?**
+9. **Com que frequência devo consultar as contestações?**
 
 As bandeiras atualizam as contestações uma vez por dia, por isso, você pode verificar suas contestações diariamente.
 
@@ -664,16 +858,12 @@ As bandeiras atualizam as contestações uma vez por dia, por isso, você pode v
 
 Para mais informações, acesse as páginas:
 
-Cielo no Blog:
-
-[/blog.cielo.com.br/dicas-e-historias-de-sucesso/o-que-e-chargeback/](https://blog.cielo.com.br/dicas-e-historias-de-sucesso/o-que-e-chargeback/)
+[Cielo no Blog.](https://blog.cielo.com.br/dicas-e-historias-de-sucesso/o-que-e-chargeback/)
 
 # Contato para dúvidas
 
-E-mail para suporte técnico:
+[E-mail para suporte técnico.](techsupportchargeback@cielo.com.br)
 
-[techsupportchargeback@cielo.com.br](mailto:techsupportchargeback@cielo.com.br)
-
-Caso precise de alguma ajuda, você pode entrar em contato diretamente com seu Gerente de Negócios, que estará pronto para te atender da melhor forma!
+Caso precise de alguma ajuda, você pode entrar em contato diretamente com seu Gerente de Negócios, que estará pronto para te atender da melhor forma!  
 
 Conte com a gente!
