@@ -375,531 +375,927 @@
 
 <p><strong>Sandbox:</strong></p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl --location --request POST
-
-https://apihml-internet.cielo.com.br/cielo-security-sys-web-hml/oauth/v2/MulesoftHML/protocol/openid-connect/token' \
-
---header 'Content-Type: application/x-www-form-urlencoded' \
-
---data-urlencode 'client\_id={ **clientId** }' \
-
---data-urlencode 'client\_secret={ **secret** }' \
-
---data-urlencode 'grant\_type=client\_credentials'
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">curl</span> <span class="o">--</span><span class="n">location</span> <span class="o">--</span><span class="n">request</span> <span class="no">POST</span>
+<span class="nl">https:</span><span class="c1">//apihml-internet.cielo.com.br/cielo-security-sys-web-hml/oauth/v2/MulesoftHML/protocol/openid-connect/token' \</span>
+<span class="o">--</span><span class="n">header</span> <span class="err">'</span><span class="nc">Content</span><span class="o">-</span><span class="nl">Type:</span> <span class="n">application</span><span class="o">/</span><span class="n">x</span><span class="o">-</span><span class="n">www</span><span class="o">-</span><span class="n">form</span><span class="o">-</span><span class="n">urlencoded</span><span class="err">'</span> <span class="err">\</span>
+<span class="o">--</span><span class="n">data</span><span class="o">-</span><span class="n">urlencode</span> <span class="err">'</span><span class="n">client</span><span class="err">\</span><span class="n">_id</span><span class="o">={</span> <span class="o">**</span><span class="n">clientId</span><span class="o">**</span> <span class="o">}</span><span class="err">'</span> <span class="err">\</span>
+<span class="o">--</span><span class="n">data</span><span class="o">-</span><span class="n">urlencode</span> <span class="err">'</span><span class="n">client</span><span class="err">\</span><span class="n">_secret</span><span class="o">={</span> <span class="o">**</span><span class="n">secret</span><span class="o">**</span> <span class="o">}</span><span class="err">'</span> <span class="err">\</span>
+<span class="o">--</span><span class="n">data</span><span class="o">-</span><span class="n">urlencode</span> <span class="err">'</span><span class="n">grant</span><span class="err">\</span><span class="n">_type</span><span class="o">=</span><span class="n">client</span><span class="err">\</span><span class="n">_credentials</span><span class="err">'</span>
 </code></pre></div></div>
 
 <p><strong>Produção:</strong></p>
 
-<p>```curl –location –request POST</p>
-
-<p>https://api-internet.cielo.com.br/cielo-security-sys-web/oauth/v2/MulesoftPRD/protocol/openid-connect/token’ \</p>
-
-<p>–header ‘Content-Type: application/x-www-form-urlencoded’ \</p>
-
-<p>–data-urlencode ‘client_id={ <strong>clientId</strong> }’ \</p>
-
-<p>–data-urlencode ‘client_secret={ <strong>secret</strong> }’ \</p>
-
-<p>–data-urlencode ‘grant_type=client_credentials’</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-Extraia o campo access_token do retorno da requisição e passe como header em Authorization:
-
-| **KEY** | **VALUE** |
-| --- | --- |
-| Authorization | Bearer {access­\_token} |
-
-# Serviços da API
-
-## Fluxo de tratamento de contestações pendentes
-
-Com a API de Chargeback, você consegue tratar suas contestações a partir de dois serviços: o de aceite e o de recusa. Veja como o fluxo funciona:
-
-![Fluxo Chargeback](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/FluxoChargeback.png)
-
-## Fluxo de tratamento de contestações tratadas
-
-Depois da tratativa, você pode acompanhar todo o processo consultando o ciclo de vida da disputa. E caso tenha recusado a contestação, você também pode consultar o documento de defesa anexado. Além disso, é possível realizar chamadas obtendo o código e descrição das razões e suas respectivas classificações.
-
-## Lista dos serviços disponíveis
-
-| Descrição | Path | Método HTTP |
-| --- | --- | --- |
-| Consulta de contestação pendentes e tratadas | v1/chargeback/{status} | POST |
-| Pesquisa do ciclo de vida | /v1/chargeback/lifecycle/{idCase} | GET |
-| Aceite de contestação | /v1/chargeback/accept | PUT |
-| Recusa de contestação | /v1/chargeback/refuse | PUT |
-| Pesquisa da razão | /v1/chargeback/Reason/{idBandeira} | GET |
-| Consulta de documento | /v1/chargeback/DocumentSupport/ | GET |
-| Lista de documentos do emissor | /v1/chargeback/ListIssuerDocuments/{establishmentNumber}/{idChargeback} | GET |
-| Download do documento do emissor | /v1/chargeback/DocumentIssuer/{establishmentNumber}/{idDocumento} | GET |
-
-# Detalhamento dos serviços
-
-## Consulta de contestações pendentes ou tratadas
-
-Com esse serviço, você consegue filtrar contestações para visualizar ou tratar por diversos parâmetros, como período, número do EC, entre outros. 
-
-
-**Endpoint da Requisição:**
-
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">curl</span> <span class="o">--</span><span class="n">location</span> <span class="o">--</span><span class="n">request</span> <span class="no">POST</span>
+<span class="nl">https:</span><span class="c1">//api-internet.cielo.com.br/cielo-security-sys-web/oauth/v2/MulesoftPRD/protocol/openid-connect/token' \</span>
+<span class="o">--</span><span class="n">header</span> <span class="err">'</span><span class="nc">Content</span><span class="o">-</span><span class="nl">Type:</span> <span class="n">application</span><span class="o">/</span><span class="n">x</span><span class="o">-</span><span class="n">www</span><span class="o">-</span><span class="n">form</span><span class="o">-</span><span class="n">urlencoded</span><span class="err">'</span> <span class="err">\</span>
+<span class="o">--</span><span class="n">data</span><span class="o">-</span><span class="n">urlencode</span> <span class="err">'</span><span class="n">client</span><span class="err">\</span><span class="n">_id</span><span class="o">={</span> <span class="o">**</span><span class="n">clientId</span><span class="o">**</span> <span class="o">}</span><span class="err">'</span> <span class="err">\</span>
+<span class="o">--</span><span class="n">data</span><span class="o">-</span><span class="n">urlencode</span> <span class="err">'</span><span class="n">client</span><span class="err">\</span><span class="n">_secret</span><span class="o">={</span> <span class="o">**</span><span class="n">secret</span><span class="o">**</span> <span class="o">}</span><span class="err">'</span> <span class="err">\</span>
+<span class="o">--</span><span class="n">data</span><span class="o">-</span><span class="n">urlencode</span> <span class="err">'</span><span class="n">grant</span><span class="err">\</span><span class="n">_type</span><span class="o">=</span><span class="n">client</span><span class="err">\</span><span class="n">_credentials</span><span class="err">'</span>
 </code></pre></div></div>
-<p>{endpoint}/v1/chargeback/{status}?page={page}&amp;pageSize={pageSize}</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-**Parâmetros e Path Variables:**
 
-| Nome | Descrição | Tipo |
-| --- | --- | --- |
-| Status | Indica o status desejado, conforme domínios da tabela status | Variável |
-| Page | Número da página desejada, considerando que **0** é a primeira | Parâmetro de query |
-| pageSize | Tamanho de registros que retornam na página, considerando que o limite é **200** | Parâmetro de query |
-| orderBy | Campo de ordenação da pesquisa | receptionDate ou treatmentDeadline |
-| Order | Forma de ordenação da pesquisa | asc ou desc |
+<p>Extraia o campo access_token do retorno da requisição e passe como header em Authorization:</p>
 
+<table>
+  <thead>
+    <tr>
+      <th><strong>KEY</strong></th>
+      <th><strong>VALUE</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Authorization</td>
+      <td>Bearer {access­_token}</td>
+    </tr>
+  </tbody>
+</table>
 
-**Corpo da requisição:**
+<h1 id="serviços-da-api">Serviços da API</h1>
 
+<h2 id="fluxo-de-tratamento-de-contestações-pendentes">Fluxo de tratamento de contestações pendentes</h2>
+
+<p>Com a API de Chargeback, você consegue tratar suas contestações a partir de dois serviços: o de aceite e o de recusa. Veja como o fluxo funciona:</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/FluxoChargeback.png" alt="Fluxo Chargeback" /></p>
+
+<h2 id="fluxo-de-tratamento-de-contestações-tratadas">Fluxo de tratamento de contestações tratadas</h2>
+
+<p>Depois da tratativa, você pode acompanhar todo o processo consultando o ciclo de vida da disputa. E caso tenha recusado a contestação, você também pode consultar o documento de defesa anexado. Além disso, é possível realizar chamadas obtendo o código e descrição das razões e suas respectivas classificações.</p>
+
+<h2 id="lista-dos-serviços-disponíveis">Lista dos serviços disponíveis</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Descrição</th>
+      <th>Path</th>
+      <th>Método HTTP</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Consulta de contestação pendentes e tratadas</td>
+      <td>v1/chargeback/{status}</td>
+      <td>POST</td>
+    </tr>
+    <tr>
+      <td>Pesquisa do ciclo de vida</td>
+      <td>/v1/chargeback/lifecycle/{idCase}</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>Aceite de contestação</td>
+      <td>/v1/chargeback/accept</td>
+      <td>PUT</td>
+    </tr>
+    <tr>
+      <td>Recusa de contestação</td>
+      <td>/v1/chargeback/refuse</td>
+      <td>PUT</td>
+    </tr>
+    <tr>
+      <td>Pesquisa da razão</td>
+      <td>/v1/chargeback/Reason/{idBandeira}</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>Consulta de documento</td>
+      <td>/v1/chargeback/DocumentSupport/</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>Lista de documentos do emissor</td>
+      <td>/v1/chargeback/ListIssuerDocuments/{establishmentNumber}/{idChargeback}</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>Download do documento do emissor</td>
+      <td>/v1/chargeback/DocumentIssuer/{establishmentNumber}/{idDocumento}</td>
+      <td>GET</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="detalhamento-dos-serviços">Detalhamento dos serviços</h1>
+
+<h2 id="consulta-de-contestações-pendentes-ou-tratadas">Consulta de contestações pendentes ou tratadas</h2>
+
+<p>Com esse serviço, você consegue filtrar contestações para visualizar ou tratar por diversos parâmetros, como período, número do EC, entre outros.</p>
+
+<p><strong>Endpoint da Requisição:</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">{</span><span class="n">endpoint</span><span class="o">}/</span><span class="n">v1</span><span class="o">/</span><span class="n">chargeback</span><span class="o">/{</span><span class="n">status</span><span class="o">}?</span><span class="n">page</span><span class="o">={</span><span class="n">page</span><span class="o">}&amp;</span><span class="n">pageSize</span><span class="o">={</span><span class="n">pageSize</span><span class="o">}</span>
 </code></pre></div></div>
-<p>{
-    “startNotificationPeriod”: “2022-01-01”,
-    “endNotificationPeriod”: “2022-01-01”,
-    “cardAssociationCode”: null,
-    “process”:null,
-    “reason”: null,
-    “establishmentNumber”: [“2012457511”],
-    “mainCustomer”: “”,
-    “hierarchyType”: 4,
-    “idCase”: null,
-    “tid”: null,
-    “nsu”: null,
-}</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-| Campo | Descrição | Conteúdo |
-| --- | --- | --- |
-| startNotificationPeriod\* | Data inicial da notificação | Texto, formato yyyy-MM-dd |
-| endNotificationPeriod\* | Data final da notificação | Texto, formato yyyy-MM-dd |
-| cardAssociationCode | Bandeira do cartão | Texto, somente numérico |
-| process | Tipo de processo | Lista, texto |
-| reason | Id da Razão (ver serviço de consulta da razão) | Lista, texto |
-| establishmentNumber\* | Número do Estabelecimento Comercial | Lista, numérico |
-| mainCustomer | Número do Estabelecimento Matriz | Lista, numérico |
-| hierarchyType | Tipo de hierarquia | Numérico |
-| idCase | Id do case do chargeback | Numérico |
-| tid | Número TID | Numérico |
-| nsu | Número serial único | Texto |
 
-_\*Obrigatório para status DONE._
+<p><strong>Parâmetros e Path Variables:</strong></p>
 
-### Domínios
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Status</td>
+      <td>Indica o status desejado, conforme domínios da tabela status</td>
+      <td>Variável</td>
+    </tr>
+    <tr>
+      <td>Page</td>
+      <td>Número da página desejada, considerando que <strong>0</strong> é a primeira</td>
+      <td>Parâmetro de query</td>
+    </tr>
+    <tr>
+      <td>pageSize</td>
+      <td>Tamanho de registros que retornam na página, considerando que o limite é <strong>200</strong></td>
+      <td>Parâmetro de query</td>
+    </tr>
+    <tr>
+      <td>orderBy</td>
+      <td>Campo de ordenação da pesquisa</td>
+      <td>receptionDate ou treatmentDeadline</td>
+    </tr>
+    <tr>
+      <td>Order</td>
+      <td>Forma de ordenação da pesquisa</td>
+      <td>asc ou desc</td>
+    </tr>
+  </tbody>
+</table>
 
-**Status**
+<p><strong>Corpo da requisição:</strong></p>
 
-| Código  | Descrição |
-| ------- | --------- |
-| DONE    | Tratada   |
-| PENDING | Pendente  |
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"startNotificationPeriod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-01"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"endNotificationPeriod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-01"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"cardAssociationCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"process"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"reason"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"establishmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"2012457511"</span><span class="p">],</span><span class="w">
+    </span><span class="err">“mainCustomer”:</span><span class="w"> </span><span class="err">“”</span><span class="p">,</span><span class="w">
+    </span><span class="err">“hierarchyType”:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"idCase"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tid"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"nsu"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
-**CardAssociationCode**
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+      <th>Conteúdo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>startNotificationPeriod*</td>
+      <td>Data inicial da notificação</td>
+      <td>Texto, formato yyyy-MM-dd</td>
+    </tr>
+    <tr>
+      <td>endNotificationPeriod*</td>
+      <td>Data final da notificação</td>
+      <td>Texto, formato yyyy-MM-dd</td>
+    </tr>
+    <tr>
+      <td>cardAssociationCode</td>
+      <td>Bandeira do cartão</td>
+      <td>Texto, somente numérico</td>
+    </tr>
+    <tr>
+      <td>process</td>
+      <td>Tipo de processo</td>
+      <td>Lista, texto</td>
+    </tr>
+    <tr>
+      <td>reason</td>
+      <td>Id da Razão (ver serviço de consulta da razão)</td>
+      <td>Lista, texto</td>
+    </tr>
+    <tr>
+      <td>establishmentNumber*</td>
+      <td>Número do Estabelecimento Comercial</td>
+      <td>Lista, numérico</td>
+    </tr>
+    <tr>
+      <td>mainCustomer</td>
+      <td>Número do Estabelecimento Matriz</td>
+      <td>Lista, numérico</td>
+    </tr>
+    <tr>
+      <td>hierarchyType</td>
+      <td>Tipo de hierarquia</td>
+      <td>Numérico</td>
+    </tr>
+    <tr>
+      <td>idCase</td>
+      <td>Id do case do chargeback</td>
+      <td>Numérico</td>
+    </tr>
+    <tr>
+      <td>tid</td>
+      <td>Número TID</td>
+      <td>Numérico</td>
+    </tr>
+    <tr>
+      <td>nsu</td>
+      <td>Número serial único</td>
+      <td>Texto</td>
+    </tr>
+  </tbody>
+</table>
 
-| Código | Nome da bandeira |
-| ------ | ---------------- |
-| 1      | Visa             |
-| 2      | Mastercard       |
-| 3      | American Express |
-| 7      | Elo              |
-| 40     | Hipercard        |
+<p><em>*Obrigatório para status DONE.</em></p>
 
-**Processo**
+<h3 id="domínios">Domínios</h3>
 
-| Código | Descrição         |
-| ------ | ----------------- |
-| 1      | 1º Chargeback     |
-| 2      | Cobrança amigável |
-| 3      | 2º Chargeback     |
-| 13     | Pré compliance    |
-| 15     | Arbitragem        |
-| 16     | Compliance        |  
+<p><strong>Status</strong></p>
 
-**Tipo de hierarquia**
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>DONE</td>
+      <td>Tratada</td>
+    </tr>
+    <tr>
+      <td>PENDING</td>
+      <td>Pendente</td>
+    </tr>
+  </tbody>
+</table>
 
-| Código | Descrição |
-| ------ | --------- |
-| 1      | Raiz de CNPJ |
-| 2      | Matriz de pagamento |
-| 4      | Todos os tipos de hierarquia (fortemente recomendável para clientes integrados na API) |
+<p><strong>CardAssociationCode</strong></p>
 
-**Retorno da requisição (pendentes e tratadas respectivamente):**
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Nome da bandeira</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Visa</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Mastercard</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>American Express</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Elo</td>
+    </tr>
+    <tr>
+      <td>40</td>
+      <td>Hipercard</td>
+    </tr>
+  </tbody>
+</table>
 
- - Exemplo de requisição do status pendente:
+<p><strong>Processo</strong></p>
 
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>1º Chargeback</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Cobrança amigável</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2º Chargeback</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Pré compliance</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>Arbitragem</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>Compliance</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Tipo de hierarquia</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Raiz de CNPJ</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Matriz de pagamento</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Todos os tipos de hierarquia (fortemente recomendável para clientes integrados na API)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Retorno da requisição (pendentes e tratadas respectivamente):</strong></p>
+
+<ul>
+  <li>Exemplo de requisição do status pendente:</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"treatmentDeadline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-09-27"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"idCase"</span><span class="p">:</span><span class="w"> </span><span class="mi">5434398</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"idChargeback"</span><span class="p">:</span><span class="w"> </span><span class="mi">58410</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"establishmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">2012457538</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"process"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PRIMEIRO_CHARGEBACK"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"lifecycle"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+            </span><span class="nl">"transactionAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">211</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"transactionDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"transactionDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-09-13"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"authorization"</span><span class="p">:</span><span class="w"> </span><span class="s2">"588557"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"cardAssociation"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"cardAssociationName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VISA"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"productCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">43</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"productDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VISA PARCELADO LOJA"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"issuerSenderCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0237"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"issuerSenderDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRADESCO S/A"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"truncatedCard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"409603******0034"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REAL"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"referenceNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24487683256432000000944"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"nsu"</span><span class="p">:</span><span class="w"> </span><span class="mi">344221</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"ro"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4230913"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"terminal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00068773"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"establishmentName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LEITE EM PO SA"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"chargebackDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"reasonCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"105"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"reasonDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chargeback Credito"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"tpReason"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"receptionDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-09-26"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"rapidDisputeResolution"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"remainingDaysToTreat"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+ </span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<ul>
+  <li>Exemplo de requisição do status tratado:</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"treatmentDeadline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-10-14"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"idCase"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"idChargeback"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"establishmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"process"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PRIMEIRO_CHARGEBACK"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"remainingDaysToTreat"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"lifecycle"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"actionDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-10-14"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"transactionAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"actionTakenCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACATAR"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"transactionDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"transactionDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-10-14"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"authorization"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"cardAssociation"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+      </span><span class="nl">"cardAssociationName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mastercard"</span><span class="p">,</span><span class="w">   
+      </span><span class="nl">"productCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"productDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"issuerSenderCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"issuerSenderDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"truncatedCard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REAL"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"referenceNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ro"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"terminal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"establishmentName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"chargebackDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"reasonCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"104"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"reasonDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Outras Fraudes - Cartao Ausente"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tpReason"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"reasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CMD CHARGEBACK TC15"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"chargebackMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CMD CHARGEBACK TC15"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"receptionDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-09-14"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"replyDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-09-15"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"rapidDisputeResolution"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"remainingDaysToTreat"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Status de retorno:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>Ok</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>Requisição inválida</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Sem permissão</td>
+    </tr>
+    <tr>
+      <td>412</td>
+      <td>Pré-condições inválidas</td>
+    </tr>
+    <tr>
+      <td>500</td>
+      <td>Erro interno</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="pesquisa-de-ciclo-de-vida">Pesquisa de ciclo de vida</h2>
+
+<p>Esse serviço permite consultar o ciclo de vida de uma contestação tratada, isto é, as ações ocorridas na contestação após a tratativa.</p>
+
+<p><strong>Endpoint da Requisição:</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">{</span><span class="n">endpoint</span><span class="o">}/</span><span class="n">v1</span><span class="o">/</span><span class="n">chargeback</span><span class="o">/</span><span class="n">lifecycle</span><span class="o">/{</span><span class="n">idCase</span><span class="o">}</span>
 </code></pre></div></div>
-<p>{
-    “content”: [
-        {
-            “treatmentDeadline”: “2023-09-27”,
-            “idCase”: 5434398,
-            “idChargeback”: 58410,
-            “establishmentNumber”: 2012457538,
-            “process”: “PRIMEIRO_CHARGEBACK”,
-            “lifecycle”: {},
-            “transactionAmount”: 211,
-            “transactionDetails”: {
-                “transactionDate”: “2023-09-13”,
-                “authorization”: “588557”,
-                “cardAssociation”: 1,
-                “cardAssociationName”: “VISA”,
-                “productCode”: 43,
-                “productDescription”: “VISA PARCELADO LOJA”,
-                “issuerSenderCode”: “0237”,
-                “issuerSenderDescription”: “BRADESCO S/A”,
-                “truncatedCard”: “409603<strong>**</strong>0034”,
-                “currency”: “REAL”,
-                “referenceNumber”: “24487683256432000000944”,
-                “nsu”: 344221,
-                “ro”: “4230913”,
-                “terminal”: “00068773”,
-                “establishmentName”: “LEITE EM PO SA”
-            },
-    “chargebackDetails”: {
-                “reasonCode”: “105”,
-                “reasonDescription”: “Chargeback Credito”,
-                “tpReason”: 1,
-                “receptionDate”: “2023-09-26”,
-                “rapidDisputeResolution”: “false”
-            },
-            “remainingDaysToTreat”: 1
-        }
-    ]
- }</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> - Exemplo de requisição do status tratado:  
- 
+
+<p><strong>Parâmetros e Path Variables:</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Retorno da requisição:</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Status de retorno:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>Ok</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>Requisição inválida</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Sem permissão</td>
+    </tr>
+    <tr>
+      <td>412</td>
+      <td>Pré-condições inválidas</td>
+    </tr>
+    <tr>
+      <td>500</td>
+      <td>Erro interno</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li><strong>Status Ciclo de Vida</strong>
+    <ul>
+      <li>Intermediários:
+        <ul>
+          <li>Em análise com o Cliente</li>
+          <li>Em análise com o Emissor</li>
+          <li>Em análise com a Cielo</li>
+        </ul>
+      </li>
+      <li>Finais:
+        <ul>
+          <li>A favor do Estabelecimento</li>
+          <li>A favor do Emissor</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="aceite-de-contestação">Aceite de contestação</h2>
+
+<p>Serviço de realização do aceite de uma contestação, considerando a venda como inválida e concordando com o estorno pela credenciadora, a Cielo.</p>
+
+<p><strong>Endpoint da Requisição:</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">{</span><span class="n">endpoint</span><span class="o">}/</span><span class="n">v1</span><span class="o">/</span><span class="n">chargeback</span><span class="o">/</span><span class="n">accept</span>
 </code></pre></div></div>
-<p>[
-  {
-    “treatmentDeadline”: “2022-10-14”,
-    “idCase”: 0,
-    “idChargeback”: 0,
-    “establishmentNumber”: 0,
-    “process”: “PRIMEIRO_CHARGEBACK”,
-    “remainingDaysToTreat”: 3,
-    “lifecycle”: {
-      “action”: “string”,
-      “actionDate”: “2022-10-14”
-    },
-    “transactionAmount”: 0,
-    “actionTakenCode”: “ACATAR”,
-    “transactionDetails”: {
-      “transactionDate”: “2022-10-14”,
-      “authorization”: “string”,
-      “cardAssociation”: 1
-      “cardAssociationName”: “Mastercard”, <br />
-      “productCode”: 0,
-      “productDescription”: “string”,
-      “issuerSenderCode”: “string”,
-      “issuerSenderDescription”: “string”,
-      “truncatedCard”: “string”,
-      “currency”: “REAL”,
-      “referenceNumber”: “string”,
-      “ro”: “string”,
-      “terminal”: “string”,
-      “tid”: “string”,
-      “establishmentName”: “string”
-    },
-    “chargebackDetails”: {
-      “reasonCode”: “104”,
-      “reasonDescription”: “Outras Fraudes - Cartao Ausente”,
-      “tpReason”: 1,
-      “reasonMessage”: “CMD CHARGEBACK TC15”,
-      “chargebackMessage”: “CMD CHARGEBACK TC15”,
-      “receptionDate”: “2023-09-14”,
-      “replyDate”: “2023-09-15”,
-      “rapidDisputeResolution”: “false”
-            },
-    “remainingDaysToTreat”: 1
-        }
-    ]</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-Status de retorno:
 
-| Status | Descrição |
-| ------ | --------- |
-| 200    | Ok        |
-| 400    | Requisição inválida |
-| 403    | Sem permissão |
-| 412    | Pré-condições inválidas |
-| 500    | Erro interno |
+<p><strong>Parâmetros e Path Variables:</strong></p>
 
-## Pesquisa de ciclo de vida
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"updateChargeback"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"establishmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">" string "</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"idChargeback"</span><span class="p">:</span><span class="w"> </span><span class="s2">" string "</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+     </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"establishmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">" string "</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"idChargeback"</span><span class="p">:</span><span class="w"> </span><span class="s2">" string "</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"userName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
-Esse serviço permite consultar o ciclo de vida de uma contestação tratada, isto é, as ações ocorridas na contestação após a tratativa.
+<p><em>*Todos os campos são obrigatórios.</em></p>
 
-**Endpoint da Requisição:**
+<p><strong>Retorno da requisição:</strong></p>
 
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"establishmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"idChargeback"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"establishmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"idChargeback"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Status de retorno:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>Ok</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>Requisição inválida</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Sem permissão</td>
+    </tr>
+    <tr>
+      <td>412</td>
+      <td>Pré-condições inválidas</td>
+    </tr>
+    <tr>
+      <td>500</td>
+      <td>Erro interno</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="recusa-de-contestação">Recusa de contestação</h2>
+
+<p>Com esse serviço, você pode se defender de uma contestação apresentando uma evidência na forma de imagem ou documento, além de um breve texto justificando a posição.</p>
+
+<p><strong>Endpoint da Requisição:</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">{</span><span class="n">endpoint</span><span class="o">}/</span><span class="n">v1</span><span class="o">/</span><span class="n">chargeback</span><span class="o">/</span><span class="n">refuse</span>
 </code></pre></div></div>
-<p>{endpoint}/v1/chargeback/lifecycle/{idCase}</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-**Parâmetros e Path Variables:**
 
+<p><strong>Parâmetros e Path Variables:</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"establishmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">" string "</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"idChargeback"</span><span class="p">:</span><span class="w"> </span><span class="s2">" string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"reasonToRefuse"</span><span class="p">:</span><span class="w"> </span><span class="s2">" string "</span><span class="p">,</span><span class="w">
+     </span><span class="err">“file”:</span><span class="w"> </span><span class="err">“multipart/form-data”</span><span class="p">,</span><span class="w">
+     </span><span class="err">“userName”:</span><span class="w"> </span><span class="err">“user”</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>*<em>Todos os campos são obrigatórios.</em></p>
+
+<p><strong>Retorno da requisição:</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"code"</span><span class="p">:</span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"message"</span><span class="p">:</span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Status de retorno:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>Ok</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>Requisição inválida</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Sem permissão</td>
+    </tr>
+    <tr>
+      <td>412</td>
+      <td>Pré-condições inválidas</td>
+    </tr>
+    <tr>
+      <td>500</td>
+      <td>Erro interno</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="pesquisa-de-razão">Pesquisa de razão</h2>
+
+<p>Serviço que provê a lista de todas as razões, por cada bandeira, para ser utilizada no filtro do serviço “<strong>Consulta de contestação pendentes e tratadas</strong>”.</p>
+
+<p><strong>Endpoint da Requisição:</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">{</span><span class="n">endpoint</span><span class="o">}/</span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">chargeback</span><span class="o">/</span><span class="nc">Reason</span><span class="o">/{</span><span class="n">idBandeira</span><span class="o">}</span>
 </code></pre></div></div>
-<p>{
-    “code”: “string”,
-    “message”: “string”,
-    “details”: [
-    {
-    “code”: “string”,
-    “message”: “string”
-    }
-  ]
-}</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-**Retorno da requisição:**
 
+<p><strong>Parâmetros e Path Variables:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>idBandeira</td>
+      <td>Indica a bandeira desejada, conforme tabela abaixo</td>
+      <td>Variável</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Nome</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Visa</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Mastercard</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Amex</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Elo</td>
+    </tr>
+    <tr>
+      <td>40</td>
+      <td>Hipercard</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Retorno da requisição:</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"cdReason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"dcReason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+     </span><span class="err">“tpReason”:</span><span class="w"> </span><span class="err">“string”</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="consulta-de-documento">Consulta de documento</h2>
+
+<p>No caso de recusa da contestação, esse serviço retorna o documento de defesa anexado para consulta.</p>
+
+<p><strong>Endpoint da Requisição:</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{endpoint}v1/chargeback/DocumentSupport/{establishmentNumber}/{idChargeback}
 </code></pre></div></div>
-<p>[
-    {
-    “code”: “string”,
-    “message”: “string”,
-    }
-]</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-**Status de retorno:**
 
-| Status | Descrição |
-| ------ | --------- |
-| 200    | Ok        |
-| 400    | Requisição inválida |
-| 403    | Sem permissão |
-| 412    | Pré-condições inválidas |
-| 500    | Erro interno |
+<p><strong>Parâmetros e Path Variables:</strong></p>
 
-- **Status Ciclo de Vida**
-  - Intermediários:
-      - Em análise com o Cliente
-      - Em análise com o Emissor
-      - Em análise com a Cielo
-  - Finais:
-      - A favor do Estabelecimento
-      - A favor do Emissor
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>establishmentNumber*</td>
+      <td>Número do estabelecimento comercial</td>
+      <td>Variável</td>
+    </tr>
+    <tr>
+      <td>idChargeback*</td>
+      <td>Id do chargeback</td>
+      <td>Variável</td>
+    </tr>
+  </tbody>
+</table>
 
-## Aceite de contestação
+<p>*<em>Todos os campos são obrigatórios.</em></p>
 
-Serviço de realização do aceite de uma contestação, considerando a venda como inválida e concordando com o estorno pela credenciadora, a Cielo. 
+<p><strong>Retorno da requisição:</strong></p>
 
-**Endpoint da Requisição:**
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+  </span><span class="nl">"dateInclusion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-01-20"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"nameFile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"codigo"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"mensagem"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"file"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"string"</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
 
+<h2 id="lista-de-documentos-do-emissor">Lista de documentos do emissor</h2>
+
+<p>Esse serviço retorna os nomes e os códigos dos documentos enviados pelo emissor para apoio na tratativa de contestação.</p>
+
+<p><em>Obs.: É necessário primeiro listar o documento, para após isso, realizar o download.</em></p>
+
+<p><strong>Endpoint da Requisição:</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">{</span><span class="n">endpoint</span><span class="o">}/</span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">chargeback</span><span class="o">/</span><span class="nc">ListIssuerDocuments</span><span class="o">/{</span><span class="n">establishmentNumber</span><span class="o">}/{</span><span class="n">idChargeback</span><span class="o">}</span>
 </code></pre></div></div>
-<p>{endpoint}/v1/chargeback/accept</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-**Parâmetros e Path Variables:**
 
+<p><strong>Parâmetros e Path Variables:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>establishmentNumber*</td>
+      <td>Número do estabelecimento comercial</td>
+      <td>Variável</td>
+    </tr>
+    <tr>
+      <td>idChargeback*</td>
+      <td>Id do chargeback</td>
+      <td>Variável</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>*<em>Todos os campos são obrigatórios.</em></p>
+
+<p><strong>Retorno da requisição:</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"idDocumento"</span><span class="p">:</span><span class="w"> </span><span class="mi">1571</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"nameFile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5219062.tif"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="download-de-documentos-do-emissor">Download de documentos do emissor</h2>
+
+<p>Este serviço disponibiliza o documento enviado pelo emissor para download.</p>
+
+<p><strong>Endpoint da Requisição:</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">{</span><span class="n">endpoint</span><span class="o">}/</span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">chargeback</span><span class="o">/</span><span class="nc">DocumentIssuer</span><span class="o">/{</span><span class="n">establishmentNumber</span><span class="o">}/{</span><span class="n">idDocumento</span><span class="o">}</span>
 </code></pre></div></div>
-<p>{
-    “updateChargeback”: [
-    {
-    “establishmentNumber”: “ string “,
-    “idChargeback”: “ string “
-    },
-     {
-    “establishmentNumber”: “ string “,
-    “idChargeback”: “ string “
-    }
-  ],
-    “userName”: “user”
-}</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-_*Todos os campos são obrigatórios._
 
-**Retorno da requisição:**
+<p><strong>Parâmetros e Path Variables:</strong></p>
 
-</code></pre></div></div>
-<p>[
-    {
-    “establishmentNumber”: “string”,
-    “idChargeback”: “string”,
-    “code”: “string”,
-    “message”: “string”
-   },
-   {
-    “establishmentNumber”: “string”,
-    “idChargeback”: “string”,
-    “code”: “string”,
-    “message”: “string”
-    }
-]</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-**Status de retorno:**
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>establishmentNumber*</td>
+      <td>Número do estabelecimento comercial</td>
+      <td>Variável</td>
+    </tr>
+    <tr>
+      <td>idDocumento*</td>
+      <td>Número do documento obtido através do serviço “Lista de documentos do emissor”</td>
+      <td>Variável</td>
+    </tr>
+  </tbody>
+</table>
 
-| Status | Descrição |
-| ------ | --------- |
-| 200    | Ok        |
-| 400    | Requisição inválida |
-| 403    | Sem permissão |
-| 412    | Pré-condições inválidas |
-| 500    | Erro interno |
+<p>*<em>Todos os campos são obrigatórios.</em></p>
 
-## Recusa de contestação
+<p><strong>Retorno da requisição:</strong></p>
 
-Com esse serviço, você pode se defender de uma contestação apresentando uma evidência na forma de imagem ou documento, além de um breve texto justificando a posição.
-
-**Endpoint da Requisição:**
-
-</code></pre></div></div>
-<p>{endpoint}/v1/chargeback/refuse</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-**Parâmetros e Path Variables:**
-
-</code></pre></div></div>
-<p>{
-    “establishmentNumber”: “ string “,
-    “idChargeback”: “ string”,
-    “reasonToRefuse”: “ string “,
-     “file”: “multipart/form-data”,
-     “userName”: “user”
-}</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-*_Todos os campos são obrigatórios._
-
-**Retorno da requisição:**
-
-</code></pre></div></div>
-<p>{
-   “code”:”string”,
-   “message”:”string”
-}</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-**Status de retorno:**  
-
-| Status | Descrição |
-| ------ | --------- |
-| 200    | Ok        |
-| 400    | Requisição inválida |
-| 403    | Sem permissão |
-| 412    | Pré-condições inválidas |
-| 500    | Erro interno |
-
-## Pesquisa de razão
-
-Serviço que provê a lista de todas as razões, por cada bandeira, para ser utilizada no filtro do serviço "**Consulta de contestação pendentes e tratadas**".
-
-**Endpoint da Requisição:**
-
-</code></pre></div></div>
-<p>{endpoint}/api/v1/chargeback/Reason/{idBandeira}</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-**Parâmetros e Path Variables:**
-
-| Nome | Descrição | Tipo |
-| ---- | --------- | ---- |
-| idBandeira | Indica a bandeira desejada, conforme tabela abaixo | Variável |
-
-| Código | Nome |
-| ------ | ---- |
-| 1      | Visa |
-| 2      | Mastercard |
-| 3      | Amex |
-| 7      | Elo |
-| 40     | Hipercard |
-
-**Retorno da requisição:**
-
-</code></pre></div></div>
-<p>{
-    “cdReason”: “string”,
-    “dcReason”: “string”,
-     “tpReason”: “string”
-}</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-## Consulta de documento
-
-No caso de recusa da contestação, esse serviço retorna o documento de defesa anexado para consulta.
-
-**Endpoint da Requisição:**
-
-</code></pre></div></div>
-<p>{endpoint}v1/chargeback/DocumentSupport/{establishmentNumber}/{idChargeback}</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-**Parâmetros e Path Variables:**
-
-| Nome | Descrição | Tipo |
-| ---- | --------- | ---- |
-| establishmentNumber* | Número do estabelecimento comercial | Variável |
-| idChargeback* | Id do chargeback | Variável |
-
-*_Todos os campos são obrigatórios._
-
-**Retorno da requisição:**
-
-</code></pre></div></div>
-<p>[
-  {
-  “dateInclusion”: “2023-01-20”,
-  “nameFile”: “string”,
-  “codigo”: 0,
-  “mensagem”: “string”,
-  “file”: [
-      “string”
-    ]
-  }
-]</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-## Lista de documentos do emissor
-
-Esse serviço retorna os nomes e os códigos dos documentos enviados pelo emissor para apoio na tratativa de contestação.
-
-_Obs.: É necessário primeiro listar o documento, para após isso, realizar o download._
-
-**Endpoint da Requisição:**
-
-</code></pre></div></div>
-<p>{endpoint}/api/v1/chargeback/ListIssuerDocuments/{establishmentNumber}/{idChargeback}</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-**Parâmetros e Path Variables:**
-
-| Nome | Descrição | Tipo |
-| ---- | --------- | ---- |
-| establishmentNumber* | Número do estabelecimento comercial | Variável |
-| idChargeback* | Id do chargeback | Variável |
-
-*_Todos os campos são obrigatórios._
-
-**Retorno da requisição:**
-
-</code></pre></div></div>
-<p>[
-    {
-        “idDocumento”: 1571,
-        “nameFile”: “5219062.tif”
-    }
-]</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-## Download de documentos do emissor
-
-Este serviço disponibiliza o documento enviado pelo emissor para download.
-
-**Endpoint da Requisição:**
-
-</code></pre></div></div>
-<p>{endpoint}/api/v1/chargeback/DocumentIssuer/{establishmentNumber}/{idDocumento}</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-**Parâmetros e Path Variables:**
-
-| Nome | Descrição | Tipo |
-| ---- | --------- | ---- |
-| establishmentNumber* | Número do estabelecimento comercial | Variável |
-| idDocumento* | Número do documento obtido através do serviço "Lista de documentos do emissor" | Variável |
-
-*_Todos os campos são obrigatórios._
-
-**Retorno da requisição:**
-
-</code></pre></div></div>
-<p>{
-    “dateInclusion”: “2023-06-07”,
-    “nameFile”: “string”,
-    “codigo”: 0,
-    “mensagem”: “string!”,
-    “file”: “string”
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"dateInclusion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-06-07"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"nameFile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"codigo"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"mensagem"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string!"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string”
 }
-```</p>
+</span></code></pre></div></div>
 
 <h1 id="tabela-de-descrição-de-campos">Tabela de descrição de campos</h1>
 
