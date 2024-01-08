@@ -2962,10 +2962,10 @@ A Cielo fornece esse serviço para os clientes de duas formas:
 
     > Para obter essa funcionalidade, entre em contato com nosso canal de suporte ecommerce solicitando a habilitação: **cieloecommerce@cielo.com.br**
 
-* **Integração por fora:** se o estabelecimento usa um gateway ou outro parceiro que já oferece a solução de token de bandeira, a Cielo possui os campos para que sejam enviadas as informações do token na transação, para que no processamento a bandeira receba os dados do token. Veja mais detalhes na requisição a seguir.
+* **Integração externa:** se o estabelecimento usa um gateway ou outro parceiro que já oferece a solução de token de bandeira, a Cielo possui os campos para que sejam enviadas as informações do token na transação, para que no processamento a bandeira receba os dados do token. Veja mais detalhes na requisição a seguir.
   **Bandeiras disponíveis:** Visa, Master e Elo.
 
-Confira os campos a serem enviados na transação caso a opção escolhida seja a **integração por fora**:
+Confira os campos a serem enviados na transação caso a opção escolhida seja a **integração externa**:
 
 ### Requisição
 
@@ -3083,13 +3083,13 @@ curl
 | ----------------------------------- | -------- | ------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | `Payment.CreditCard.CardNumber`     | Texto    | 19      | Sim                 | Token gerado pela bandeira (DPAN). A indicação de que o `CardNumber` deve ser preenchido com o DPAN para caso de tokenização de bandeira. |
 | `Payment.CreditCard.Holder`         | Texto    | 25      | Não                 | Nome do Comprador impresso no cartão.                                                                                                     |
-| `Payment.CreditCard.Cryptogram`     | Texto    | 28      | Condicional*           | Criptograma gerado pela bandeira. Deve ser enviado caso a tokenização seja feita na bandeira (integração por fora).  |
+| `Payment.CreditCard.Cryptogram`     | Texto    | 28      | Condicional*           | Criptograma gerado pela bandeira. Deve ser enviado caso a tokenização seja feita na bandeira (integração externa).  |
 | `Payment.CreditCard.ExpirationDate` | Texto    | 7       | Sim                 | Data de validade do token gerado pela bandeira.                                                                                           |
 | `Payment.CreditCard.SecurityCode`   | Texto    | 4       | Não                 | Código de segurança impresso no verso do cartão - Ver Anexo.                                                                              |
 | `Payment.CreditCard.SaveCard`       | Booleano | ---     | Não (Default false) | Booleano que identifica se o cartão será salvo para gerar o CardToken. Saiba mais sobre [Tokenização](https://developercielo.github.io/manual/cielo-ecommerce#tokeniza%C3%A7%C3%A3o-de-cart%C3%B5es).                                                                    |
 | `Payment.CreditCard.Brand`          | Texto    | 10      | Sim                 | Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).                                     |
 
-**Deve ser enviado caso a tokenização seja feita na bandeira (integração por fora).*
+**Deve ser enviado caso a tokenização seja feita na bandeira (integração externa).*
 
 ### Resposta
 
