@@ -179,7 +179,7 @@ Extraia o campo access_token do retorno da requisição e passe como header em A
 
 Com a API de Chargeback, você consegue tratar suas contestações a partir de dois serviços: o de aceite e o de recusa. Veja como o fluxo funciona:
 
-![Fluxo Chargeback]({{ site.baseurl_root }}/bblob/docs/images/api-chargeback/FluxoTratamentoContestacoesPendentes.png)
+![Fluxo Chargeback]({{ site.baseurl_root }}/blob/docs/images/api-chargeback/FluxoTratamentoContestacoesPendentes.png)
 
 ## Fluxo de tratamento de contestações tratadas
 
