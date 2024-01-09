@@ -56,7 +56,7 @@ Neste momento a Cielo não irá cobrar pela solução, de forma a propiciar a ex
 
 **Preciso fazer alguma modificação na integração ou solicitar a funcionalidade para a Cielo?**
 
-Não, para a tokenização transparente não há necessidade de nenhuma integração adicional para o cliente Cielo. A solução foi habilitada em fases iniciadas em setembro de 2023 todos os nossos clientes.
+Não, para a tokenização transparente não há necessidade de nenhuma integração adicional para o cliente Cielo. A solução foi habilitada em fases iniciadas em setembro de 2023 para todos os nossos clientes.
 
 **Qual o impacto dessa solução para clientes que já utilizam a tokenização de bandeira?**
 
