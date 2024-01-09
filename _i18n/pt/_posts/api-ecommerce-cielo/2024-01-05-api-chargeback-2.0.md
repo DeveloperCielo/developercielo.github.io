@@ -24,7 +24,7 @@ Através dela, você pode **aceitar** ou **recusar** contestações, além de co
 
 ## Fluxo para integração com API de Chargeback
 
-![Fluxo Integracao API Chargeback](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/FluxoIntegracaoAPIChargeback.png)
+![Fluxo Integracao API Chargeback]({{ site.baseurl_root }}/blob/docs/images/api-chargeback/FluxoIntegracaoAPIChargeback.png)
 
 ## Integração com API de Chargeback
 
@@ -39,9 +39,9 @@ Através dela, você pode **aceitar** ou **recusar** contestações, além de co
   c. Após esse cadastro, enviar um e-mail para a caixa de **Technical Support Chargeback** informando os dados cadastrados.
     - Obs.: esse cadastro é necessário para obter acesso ao Client_ID e Client_Secret dos ambientes de Sandbox e Produção.
 
-![Charceback_1](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Chargeback_1.png)
+![Charceback_1]({{ site.baseurl_root }}/blob/docs/images/api-chargeback/Chargeback_1.png)
 
-![Charceback_2](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Chargeback_2.png)
+![Charceback_2]({{ site.baseurl_root }}/blob/docs/images/api-chargeback/Chargeback_2.png)
 
 3. Criação de uma chave pública e privada para criptografia
 
@@ -179,7 +179,7 @@ Extraia o campo access_token do retorno da requisição e passe como header em A
 
 Com a API de Chargeback, você consegue tratar suas contestações a partir de dois serviços: o de aceite e o de recusa. Veja como o fluxo funciona:
 
-![Fluxo Chargeback](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/FluxoChargeback.png)
+![Fluxo Chargeback]({{ site.baseurl_root }}/bblob/docs/images/api-chargeback/FluxoTratamentoContestacoesPendentes.png)
 
 ## Fluxo de tratamento de contestações tratadas
 
