@@ -2410,6 +2410,212 @@ Assim que possuir a instância da Order, utilize o método abaixo passando os pa
 
 </code></pre></div></div>
 
+<h2 id="cashless">Cashless</h2>
+
+<p>A Cielo LIO oferece a solução de pagamento cashless via integração, suportamos no momento os cartões Mifare 1k. A solução se encontra disponível a partir da versão do SDK 1.8.1, realize o update.</p>
+
+<p>Informação importante, para consumir o serviço é necessário adicionar no arquivo de manifesto do seu aplicativo a permissão:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="nl">android:</span><span class="n">name</span><span class="o">=</span><span class="s">"cielo.lio.permission.CASHLESS"</span><span class="o">/&gt;</span>
+</code></pre></div></div>
+
+<h3 id="mifare">Mifare</h3>
+
+<p>Os cartões Mifare armazenam dados em uma pequena antena integrada, permitindo que eles se comuniquem com os leitores quando estão em proximidade. Referente a capacidade de armazenamento, hoje damos suporte aos cartões Mifare 1k, sua memória está organizada em blocos e setores, onde cada bloco possui uma capacidade de armazenamento de 16 bytes de dados, cada setor é composto por 4 blocos, totalizando 64 bytes de dados.</p>
+
+<p>Para começar a utilizar a tecnologia é necessário instanciar a classe Mifare do nosso SDK, como parâmetro esta classe necessita do contexto da aplicação cliente, conforme abaixo.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Mifare</span> <span class="n">mifare</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Mifare</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>O constructor do Mifare tem 1 parâmetro:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>ATRIBUTO</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Contexto</td>
+      <td>O contexto da aplicação</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Callback das operações da classe Mifare</strong></p>
+
+<p>Os métodos da classe Mifare necessitam de um parâmetro de callback, através do objeto de callback retornamos para o integrador o resultado da operação.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">MifareCallback</span> <span class="n">mifareCallback</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MifareCallback</span><span class="o">()</span> <span class="o">{</span>
+  <span class="nd">@override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onComplete</span><span class="o">(</span><span class="nc">MifareResponse</span> <span class="n">mifareResponse</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">//Através do objeto mifareResponse o integrador tem o resultado da operação</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>A classe MifareResponse contém o resultado da operação, a partir dela é possível saber se ocorreu sucesso ou falha.</p>
+
+<p><strong>MifareResponse</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>ATRIBUTO</th>
+      <th>DESCRIÇÃO</th>
+      <th>DOMÍNIO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Result</td>
+      <td>R00 significa sucesso,qualquer outro valor significa falha.</td>
+      <td><code class="language-plaintext highlighter-rouge">String</code></td>
+    </tr>
+    <tr>
+      <td>Detail</td>
+      <td>Mensagem de retorno.</td>
+      <td><code class="language-plaintext highlighter-rouge">String</code></td>
+    </tr>
+    <tr>
+      <td>Data</td>
+      <td>Em caso de operação deleitura, o parâmetro retornao que foi lido do cartão, paraoutras operações o retorno é nulo.</td>
+      <td><code class="language-plaintext highlighter-rouge">ByteArray</code></td>
+    </tr>
+    <tr>
+      <td>IsSuccesfull</td>
+      <td>Indica se a operação foi sucesso.</td>
+      <td><code class="language-plaintext highlighter-rouge">Boolean</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Métodos disponíveis na classe Mifare</strong></p>
+
+<p>A classe Mifare disponibiliza todos os métodos necessários para implementar a solução cashless no seu aplicativo.</p>
+
+<p>Grande parte dos métodos necessita como parâmetro da classe MifareRequest, esta é responsável pelas informações necessárias durante na operação.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">MifareRequest</span> <span class="n">mifareRequest</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MifareRequest</span><span class="o">(</span><span class="n">sector</span><span class="o">,</span> <span class="n">block</span><span class="o">,</span> <span class="n">data</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span> <span class="n">keyType</span><span class="o">,</span> <span class="n">key</span><span class="o">,</span> <span class="n">destinationBlock</span><span class="o">)</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>ATRIBUTO</th>
+      <th>DESCRIÇÃO</th>
+      <th>DOMÍNIO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>sector</td>
+      <td>O setor de cartões inicia do zero.</td>
+      <td><code class="language-plaintext highlighter-rouge">Byte</code></td>
+    </tr>
+    <tr>
+      <td>block</td>
+      <td>O bloco no setor, inica do zero.</td>
+      <td><code class="language-plaintext highlighter-rouge">Byte</code></td>
+    </tr>
+    <tr>
+      <td>data</td>
+      <td>Os dados a serem inseridos no bloco</td>
+      <td><code class="language-plaintext highlighter-rouge">ByteArray</code></td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td>O valor para incrementar ou decrementar</td>
+      <td><code class="language-plaintext highlighter-rouge">Byte</code></td>
+    </tr>
+    <tr>
+      <td>keyType</td>
+      <td>O tipo de chave para autenticar no setor (A ou B)</td>
+      <td><code class="language-plaintext highlighter-rouge">Char</code></td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>A chave para autenticar no setor.</td>
+      <td><code class="language-plaintext highlighter-rouge">ByteArray</code></td>
+    </tr>
+    <tr>
+      <td>destinationBlock</td>
+      <td>O bloco para backup ou restaurar</td>
+      <td><code class="language-plaintext highlighter-rouge">Byte</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Detect</strong></p>
+
+<p>O método detect é o responsável por ligar a antena e esperar pela aproximação do cartão. Possui como parâmetro o <code class="language-plaintext highlighter-rouge">MifareCallback</code> que apresentamos anteriormente, com o resultado da operação.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mifare</span><span class="o">.</span><span class="na">detect</span><span class="o">(</span><span class="n">mifareCallback</span><span class="o">)</span>
+</code></pre></div></div>
+
+<p><strong>Authenticate</strong></p>
+
+<p>O método responsável por autenticar-se no setor, para que possa operar no mesmo. No objeto <code class="language-plaintext highlighter-rouge">mifareRequest</code> é importante que tenha as informações de setor, chave e tipo de chave (<code class="language-plaintext highlighter-rouge">sector</code>,<code class="language-plaintext highlighter-rouge">key</code>, <code class="language-plaintext highlighter-rouge">keyType</code>).</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mifare</span><span class="o">.</span><span class="na">authenticate</span><span class="o">(</span><span class="n">mifareRequest</span><span class="o">,</span> <span class="n">mifareCallback</span><span class="o">)</span>
+</code></pre></div></div>
+
+<p><strong>ReadData</strong></p>
+
+<p>Após realizar a autenticação no respectivo setor, é possível realizar a leitura dos blocos através deste método. No objeto <code class="language-plaintext highlighter-rouge">mifareRequest</code> é importante que tenha as informações de setor e do bloco.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mifare</span><span class="o">.</span><span class="na">readData</span><span class="o">(</span><span class="n">mifareRequest</span><span class="o">,</span> <span class="n">mifareCallback</span><span class="o">)</span>
+</code></pre></div></div>
+
+<p><strong>WriteData</strong></p>
+
+<p>Este método permite que um conteúdo seja escrito em um setor e bloco específico. No objeto <code class="language-plaintext highlighter-rouge">mifareRequest</code> é importante que tenha as informações de setor, bloco e data.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mifare</span><span class="o">.</span><span class="na">writeData</span><span class="o">(</span><span class="n">mifareRequest</span><span class="o">,</span> <span class="n">mifareCallback</span><span class="o">)</span>
+</code></pre></div></div>
+
+<p><strong>Increment</strong></p>
+
+<p>Este método é dedicado à operação de incremento, podendo ser utilizada em blocos valor. No objeto <code class="language-plaintext highlighter-rouge">mifareRequest</code> é importante que tenha as informações de setor, bloco e valor.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mifare</span><span class="o">.</span><span class="na">increment</span><span class="o">(</span><span class="n">mifareRequest</span><span class="o">,</span> <span class="n">mifareCallback</span><span class="o">)</span>
+</code></pre></div></div>
+
+<p><strong>Decrement</strong></p>
+
+<p>Seguindo os mesmos princípios da função “Increment”, é responsável pelo método de decremento em blocos valor. No objeto <code class="language-plaintext highlighter-rouge">mifareRequest</code> é importante que tenha as informações de setor, bloco e valor.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mifare</span><span class="o">.</span><span class="na">decrement</span><span class="o">(</span><span class="n">mifareRequest</span><span class="o">,</span> <span class="n">mifareCallback</span><span class="o">)</span>
+</code></pre></div></div>
+
+<p><strong>Deactivate</strong></p>
+
+<p>O método responsável por desativar o serviço, use-o quando estiver terminado. Ele retornará um callback DEACTIVATE.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mifare</span><span class="o">.</span><span class="na">deactivate</span><span class="o">(</span><span class="n">mifareCallback</span><span class="o">)</span>
+</code></pre></div></div>
+
+<p><strong>Backup</strong></p>
+
+<p>O método responsável por ler dados de um bloco e transferi-los para um novo bloco. No objeto <code class="language-plaintext highlighter-rouge">mifareRequest</code> é importante que tenha as informações de setor, bloco e bloco de destino.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mifare</span><span class="o">.</span><span class="na">backup</span><span class="o">(</span><span class="n">mifareRequest</span><span class="o">,</span> <span class="n">mifareCallback</span><span class="o">)</span>
+</code></pre></div></div>
+
+<p><strong>Restore</strong></p>
+
+<p>O método responsável por restaurar os dados de um setor de um bloco para outro. No objeto <code class="language-plaintext highlighter-rouge">mifareRequest</code> é importante que tenha as informações de setor, bloco e bloco de destino.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mifare</span><span class="o">.</span><span class="na">restore</span><span class="o">(</span><span class="n">mifareRequest</span><span class="o">,</span> <span class="n">mifareCallback</span><span class="o">)</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>Nota: Os métodos backup e restore disponíveis nesta API, segue o mesmo princípio de funcionalidade, sendo disponibilizado apenas para fins de utilização da operação em etapas diferentes do fluxo. Em algumas especificações de cartões Mifare estas funcionalidades podem aparecer com o nome transfer.</p>
+</blockquote>
+
 <h2 id="listagem-de-pedidos">Listagem de Pedidos</h2>
 
 <p>Na listagem de pedidos, é possível obter todas os pedidos (Orders) abertas na Cielo LIO pelo aplicativo do parceiro.
