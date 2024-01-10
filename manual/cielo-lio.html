@@ -2457,7 +2457,7 @@ Assim que possuir a instância da Order, utilize o método abaixo passando os pa
 <span class="o">}</span>
 </code></pre></div></div>
 
-<p>A classe MifareResponse contém o resultado da operação, a partir dela é possível saber se ocorreu sucesso ou falha.</p>
+<p>A classe <code class="language-plaintext highlighter-rouge">MifareResponse</code> contém o resultado da operação, a partir dela é possível saber se ocorreu sucesso ou falha.</p>
 
 <p><strong>MifareResponse</strong></p>
 
@@ -2495,9 +2495,9 @@ Assim que possuir a instância da Order, utilize o método abaixo passando os pa
 
 <p><strong>Métodos disponíveis na classe Mifare</strong></p>
 
-<p>A classe Mifare disponibiliza todos os métodos necessários para implementar a solução cashless no seu aplicativo.</p>
+<p>A classe <code class="language-plaintext highlighter-rouge">Mifare</code> disponibiliza todos os métodos necessários para implementar a solução cashless no seu aplicativo.</p>
 
-<p>Grande parte dos métodos necessita como parâmetro da classe MifareRequest, esta é responsável pelas informações necessárias durante na operação.</p>
+<p>Grande parte dos métodos necessita como parâmetro da classe <code class="language-plaintext highlighter-rouge">MifareRequest</code>, esta é responsável pelas informações necessárias durante na operação.</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">MifareRequest</span> <span class="n">mifareRequest</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MifareRequest</span><span class="o">(</span><span class="n">sector</span><span class="o">,</span> <span class="n">block</span><span class="o">,</span> <span class="n">data</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span> <span class="n">keyType</span><span class="o">,</span> <span class="n">key</span><span class="o">,</span> <span class="n">destinationBlock</span><span class="o">)</span>
 </code></pre></div></div>
@@ -2613,7 +2613,7 @@ Assim que possuir a instância da Order, utilize o método abaixo passando os pa
 </code></pre></div></div>
 
 <blockquote>
-  <p>Nota: Os métodos backup e restore disponíveis nesta API, segue o mesmo princípio de funcionalidade, sendo disponibilizado apenas para fins de utilização da operação em etapas diferentes do fluxo. Em algumas especificações de cartões Mifare estas funcionalidades podem aparecer com o nome transfer.</p>
+  <p>Nota: Os métodos <strong>backup</strong> e <strong>restore</strong> disponíveis nesta API, segue o mesmo princípio de funcionalidade, sendo disponibilizado apenas para fins de utilização da operação em etapas diferentes do fluxo. Em algumas especificações de cartões Mifare estas funcionalidades podem aparecer com o nome <strong>transfer</strong>.</p>
 </blockquote>
 
 <h2 id="listagem-de-pedidos">Listagem de Pedidos</h2>
