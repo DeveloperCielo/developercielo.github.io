@@ -24,7 +24,7 @@ Através dela, você pode **aceitar** ou **recusar** contestações, além de co
 
 ## Fluxo para integração com API de Chargeback
 
-[Fluxo Integracao API Chargeback](https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/images/api-chargeback/fluxo-integracao-api-chargeback.png)
+[Fluxo Integracao API Chargeback]({{ site.baseurl_root }}/images/api-chargeback/fluxo-integracao-api-chargeback.png)
 
 ## Integração com API de Chargeback
 
@@ -179,7 +179,7 @@ Extraia o campo access_token do retorno da requisição e passe como header em A
 
 Com a API de Chargeback, você consegue tratar suas contestações a partir de dois serviços: o de aceite e o de recusa. Veja como o fluxo funciona:
 
-![Fluxo Chargeback](https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/images/api-chargeback/fluxo-tratamento-contestacoes-pendentes.png)
+![Fluxo Chargeback]({{ site.baseurl_root }}/images/api-chargeback/fluxo-tratamento-contestacoes-pendentes.png)
 
 ## Fluxo de tratamento de contestações tratadas
 
