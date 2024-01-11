@@ -23,8 +23,7 @@ Através dela, você pode **aceitar** ou **recusar** contestações, além de co
 # Integração na API
 
 ## Fluxo para integração com API de Chargeback
-
-[Fluxo Integracao API Chargeback]({{ site.baseurl_root }}/images/api-chargeback/fluxo-integracao-api-chargeback.png)
+![Fluxo Integracao API Chargeback]({{ site.baseurl_root }}/images/api-chargeback/fluxo-integracao-api-chargeback.png)
 
 ## Integração com API de Chargeback
 
