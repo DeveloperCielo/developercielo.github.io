@@ -521,6 +521,332 @@ To test credit or debit cards, it is necessary to use a card that follows the *L
 
 To test boleto transactions, carry out the purchase process normally without any changes to the procedure. The boleto generated in test mode will always be a simulated boleto.
 
+# Creating the payment page
+
+In integration via API, the payment page is created based on sent data that forms a shopping cart. This data is divided into the following main nodes:
+
+|NODE|DESCRIPTION|
+|---|---|
+|`Cart`|Contains data on the products to be sold.|
+|`Shipping`|Contains data on the type of shipping to be charged. It is influenced by the `Cart` node.|
+|`Payment`|Contains information that influences the amount charged. Does not contain information about payment methods.|
+|`Customer`|Contains the shopper's data. Not required on integration, but required on the payment screen. We suggest sending it to speed up the purchasing process.|
+|`Options`|Controls optional Checkout features. Not mandatory.|
+
+After sending the cart data, Checkout will send a response containing a link to the payment page in the `CheckoutUrl` field.
+
+> **Important**: The payment page creation request does not create a transaction. The returned URL (`CheckoutUrl`) is just a “pre-order” indicating that the payment page is ready to be used. The transaction is only created when the shopper clicks **Finalizar** on the Checkout screen.
+
+## Request
+
+Check out an example of a request to create a payment page on Checkout Cielo.
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/orders</span></aside>
+
+**Parameters in the header**
+
+All requests sent to Cielo must be authenticated by the merchant. Authentication for creating the payment page consists of sending the `MerchantId` in the request header:
+
+|PARAMETER|TYPE|REQUIRED|SIZE|DESCRIPTION|
+|---|---|---|---|---|
+|`MerchantId`|GUID|Yes|36|Unique store identifier provided by Cielo after store affiliation. Format: 00000000-0000-0000-0000-000000000000|
+|`Content-type`|alphanumeric|Yes|n/a|Type of content of the message to be sent. Use: “application/json”|
+
+```json
+{
+  "OrderNumber": "Pedido01",
+  "SoftDescriptor": "Nomefantasia",
+  "Cart": {
+    "Discount": {
+      "Type": "Percent",
+      "Value": 00
+    },
+    "Items": [
+      {
+        "Name": "Produto01",
+        "Description": "ProdutoExemplo01",
+        "UnitPrice": 100,
+        "Quantity": 1,
+        "Type": "Asset",
+        "Sku": "ABC001",
+        "Weight": 500
+      }
+    ]
+  },
+  "Shipping": {
+    "SourceZipCode": "20020080",
+    "TargetZipCode": "21911130",
+    "Type": "FixedAmount",
+    "Services": [
+      {
+        "Name": "Motoboy",
+        "Price": 1,
+        "Deadline": 15,
+        "Carrier": null
+      },
+      {
+        "Name": "UPS Express",
+        "Price": 1,
+        "Deadline": 2,
+        "Carrier": null
+      }
+    ],
+    "Address": {
+      "Street": "Rua Cambui",
+      "Number": "92",
+      "Complement": "Apto 201",
+      "District": "Freguesia",
+      "City": "Rio de Janeiro",
+      "State": "RJ"
+    }
+  },
+  "Payment": {
+    "BoletoDiscount": 15,
+    "Installments": null,
+    "MaxNumberOfInstallments": null
+  },
+  "Customer": {
+    "Identity": "84261300206",
+    "FullName": "Test de Test",
+    "Email": "test@cielo.com.br",
+    "Phone": "21987654321"
+  },
+  "Settings": null
+}
+```
+
+**Parameters in the body**
+
+|PARAMETER|DESCRIPTION|TYPE|SIZE|REQUIRED|
+|---|---|---|---|---|
+|`OrderNumber`|Order number sent by the store.|alphanumeric|64|No|
+|`SoftDescriptor`|Description to be presented on the cardholder's credit card statement.|alphanumeric|13|No|
+|`Cart.Discount.Type`|Required if `Cart.Discount.Value` is greater than or equal to zero.|alphanumeric|255|Conditional|
+|`Cart.Discount.Value`|Required if `Cart.Discount.Type` is Amount or Percent.|number|18|Conditional|
+|`Cart.Items.Name`|Name of the item in the cart.Example: Order ABC.|alphanumeric|128|Yes|
+|`Cart.Items.Description`|Description of the item in the cart. Example: 50 pens - R$30.00|alphanumeric|256|No|
+|`Cart.Items.UnitPrice`|Unit price of the product in cents. Example: R$ 1.00 = 100|number|18|Yes|
+|`Cart.Items.Quantity`|Quantity of the item in the cart. Example: 1.|number|9|Yes|
+|`Cart.Items.Type`|Type of the item in the cart.<br>E.g.:<br>Asset<br>Digital<br>Service<br>Payment|alphanumeric|255|Yes|
+|`Cart.Items.Sku`|Product identifier.|alphanumeric|32|No|
+|`Cart.Items.Weight`|Product weight.|number|9|Required if `Shipping.Type` is “Correios”**.|
+|`Payment.BoletoDiscount`|Discount, in percentage, for payments to be made by boleto.|number|3|No|
+|`FirstInstallmentDiscount`|Discount, in percentage, for payments by credit card.|number|3|No|
+|`MaxNumberOfInstallments`|Defines maximum number of installments displayed on the payment page.|number|2|No|
+|`Customer.Identity`|Shopper identification (CPF or CNPJ). If sent, this amount is already filled in on the Cielo Checkout screen. *Not required in the API, but required in the transactional screen*.|number|14|No|
+|`Customer.FullName`|Full name of the shopper. *Not required in the API, but required in the transactional screen*.|alphanumeric|288|No|
+|`Customer.Email`|Email of the shopper. If sent, this amount is already filled in on the Cielo Checkout screen. *Not required in the API, but required in the transactional screen*.|alphanumeric|64|No|
+|`Customer.Phone`|Phone of the shopper. If sent, this amount is already filled in on the Cielo Checkout screen. *Not required in the API, but required in the transactional screen*.|number|11|No|
+|`Options.ReturnUrl`|Fixed URL defined by the store that can be registered in the Checkout backoffice. After completing payment, the shopper can be redirected to a web page defined by the store.|string|255|No|
+|`Shipping.Type`|Shipping type:<br>Correios<br>FixedAmount<br>Free<br>WithoutShippingPickUp<br>WithoutShipping|alphanumeric|255|Yes|
+|`Shipping.SourceZipCode`|ZIP code of origin of the shopping cart. Required if `Shipping.Type` is “Correios”**.|number|8|Conditional|
+|`Shipping.TargetZipCode`|CEP of shopper's shipping address.|number|8|No|
+|`Shipping.Address.Street`|Street, avenue, etc., of the shopper's delivery address.|alphanumeric|256|No*|
+|`Shipping.Address.Number`|Shopper's shipping address number.|alphanumeric|8|No*|
+|`Shipping.Address.Complement`|Complement of the shopper's shipping address.|alphanumeric|14|No|
+|`Shipping.Address.District`|Shopper's shipping address neighborhood.|alphanumeric|64|No*|
+|`Shipping.Address.City`|City of shopper's shipping address.|alphanumeric|64|No*|
+|`Shipping.Address.State`|State (UF) of the shopper's shipping address.|alphanumeric|2|No*|
+|`Shipping.Services.Name`|Shipping service name.|alphanumeric|128|Yes|
+|`Shipping.Services.Price`|Shipping service price in cents. E.g. R$ 1.00 = 100.|number|18|Yes|
+|`Shipping.Services.Deadline`|Delivery time (in days).|number|9|No|
+|`Shipping.Package`|Package type:<br>"Box": box<br>"Rol": cylinder or envelope. Find out more at [Correios shipping calculation](#### Correios shipping calculation)**|alphanumeric|Whole|Yes|
+|`Shipping.Length`|Package length. Find out more in [Correios shipping calculation](#### Correios shipping calculation)**.|number|Whole|Yes|
+|`Shipping.Height`|Height of the package sent. Required if `Shipping.Package` is "Box"|number|Whole|Conditional|
+|`Shipping.Width`|Package width. Required if `Shipping.Package` is "Box" or "Envelope". Find out more in [Correios shipping calculation](#### Correios shipping calculation)**.|number|Whole|Conditional|
+|`Shipping.Diameter`|Package diameter. Mandatory if `Shipping.Package` is "Rol". Find out more in [Correios shipping calculation](#### Correios shipping calculation)**.|number| Whole|Conditional|
+
+*Not required, but submission is recommended.
+<aside class="warning">**Correios shipping service is currently unavailable. If a request with this shipping option is sent, you will receive a return with error 400 and the message: "The shipping service by post is unavailable." If you use the service on your payment links or checkout pages, change the shipping type to the other available options.</aside>
+
+> See more information about the `Shipping` node in [Defining shipping](https://developercielo.github.io/manual/checkout-cielo#definindo-o-frete).
+
+## Response
+
+There are only two response options in API integration: success or error.
+
+> **Important**: The payment page creation request does not create a transaction, but rather the payment page URL (`CheckoutUrl`). The success or error response refers to the creation of the payment page and is not related to the transaction.
+
+&#9989; **Success**: in case of success, the response will be the content of the request plus the link that leads to the transactional screen (`CheckoutUrl`), highlighted in the following example:
+
+```json
+{
+  "Settings": {
+    "CheckoutUrl": "https://cieloecommerce.cielo.com.br/transacional/order/index?id=123",
+    "Profile": "CheckoutCielo",
+    "Version": 1
+  }
+}
+```
+
+|PARAMETER|DESCRIPTION|TYPE|SIZE|
+|---|---|---|---|
+|`CheckoutUrl`|URL of the transactional screen. The shopper must be directed to this environment to complete the transaction|string|255|
+|`Profile`|Retailer profile: fixed “CheckoutCielo”.|string|16|
+|`Version`|Version of the order creation service (version: 1).|string|Yes|1|
+
+&#10060; **Error**: in case of error, the API returns the following message:
+
+```json
+{
+  "message": "An error has occurred."
+}
+```
+
+|PARAMETER|DESCRIPTION|TYPE|SIZE|
+|---|---|---|---|
+|`Message`|Message describing the error.|string|254|
+
+## Creating payment in installments
+
+**Checkout Cielo** allows merchants to carry out credit transactions in up to 12 installments.
+
+> **Important**: Checkout is limited to up to 12 installments, even if your Cielo membership supports higher amounts. If the value shown in **Configurações da loja** on the Cielo website is less than 12, contact Cielo Support and check your Affiliation configuration.
+
+In this option, the merchant can configure the number of installments per sale. Checkout calculates installments considering the total value and limit of installments sent via API.
+
+> **Attention**: The number of desired installments must be less than the quantity registered in **Configurações da loja** (merchant settings) on the Cielo website.
+
+**Characteristics**
+
+* The merchant sends the maximum number of installments he wishes to display to the shopper;
+* The shipping cost is added to the installment payment.
+
+Installments via API are carried out by sending the `MaxNumberOfInstallments` field within the `Payment` node. This will force Checkout to recalculate the installment amount. Below is an example of the node:
+
+```json
+"Payment": {
+  "MaxNumberOfInstallments": 3
+}
+```
+
+|PARAMETER|DESCRIPTION|TYPE|SIZE|REQUIRED?|
+|---|---|---|---|---|
+|`MaxNumberOfInstallments`|Defines maximum number of installments displayed on the payment page.|number|2|No|
+
+## Applying discounts
+
+Checkout Cielo allows the store to apply specific discounts to both the cart and payment methods. The discounts available at Checkout Cielo are:
+
+|DISCOUNT|DESCRIPTION|
+|---|---|
+|**Carrinho**|Applies the discount to the entire cart, regardless of the payment method.|
+|**Meio de pagamento - boleto**|Apply the discount when the chosen payment method is boleto.|
+|**Meio de pagamento - crédito à vista**||Applies the discount when the chosen payment method is a credit card with one installment.|
+
+> **Note**: You can apply discounts via API or Cielo website. If a discount value is sent on the API, this will be the value considered, even if the Cielo website has another value registered.
+
+#### Discount in cart
+
+To send a discount on the cart, simply send the `Discount` node within the `Cart` node:
+
+```json
+{
+  "Discount": {
+    "Type": "Percent",
+    "Value": 00
+  }
+}
+```
+
+|PARAMETER|DESCRIPTION|TYPE|SIZE|REQUIRED?|
+|---|---|---|---|---|---|
+|`Cart.Discount.Type`|Type of discount to be applied: "Amount" (value) or "Percent" (percentage).<br>Required if `Cart.Discount.Value` is greater than or equal to zero.| alphanumeric|255|No|
+|`Cart.Discount.Value`|Discount value to be applied: "Amount" (value) or "Percent" (percentage). Required if `Cart.Discount.Type` is "Amount" or "Percent".|number|18|No|
+
+#### Discount by payment method
+
+To send a discount on the **invoice and/or credit card** send the corresponding field within the `Payment` node:
+
+* `BoletoDiscount` for boleto;
+* `FirstInstallmentDiscount` for credit card in only one installment.
+
+**Example**
+
+```json
+{
+  "Payment": {
+    "BoletoDiscount": 15,
+    "FirstInstallmentDiscount": 90
+  }
+}
+```
+
+|PARAMETER|DESCRIPTION|TYPE|SIZE|REQUIRED?|
+|---|---|---|---|---|
+|`Payment.BoletoDiscount`|Discount, in percentage, for payments to be made by boleto.|number|3|No|
+|`Payment.FirstInstallmentDiscount`|Discount, in percentage, for payments by credit card with only one installment.|number|3|No|
+
+## Defining shipping
+
+<aside class="warning">**Correios shipping service is currently unavailable. If a request with this shipping option is sent, you will receive a return with error 400 and the message: "The shipping service by post is unavailable." If you use the service on your payment links or checkout pages, change the shipping type to the other available options.</aside>
+
+Cielo Checkout allows you to define five shipping options in the `Shipping.Type` parameter.
+
+|SHIPPING TYPE|VALUE OF PARAMETER `Shipping.Type`|DESCRIPTION|
+|---|---|---|
+|**Fixed shipping**| "FixedAmount"|Fixed amount sent by the merchant. Used if the merchant has its own delivery method.|
+|**Free shipping**|"Free"|Does not perform shipping calculations and displays “Free Shipping” on the transactional screen.|
+|**Store Pickup**|"WithoutShippingPickUp"|Deemed **_Store Pickup_**.|
+|**No shipping**| "WithoutShipping"|No shipping charges (applicable to services and digital products).|
+|**Post office**|"Correios"|Uses the Correios API to calculate the cost. The calculation value will depend on the contract used (informed in the Merchant Settings) and the type of integration for calculation.|
+
+> **Note**: Options for multiple shipping in the Post Office category must be selected within **Configurações da loja** (merchant settings) on the Cielo website.
+
+Check out the nodes that form the shipping information below:
+
+* `Shipping`: base node. It is mandatory for integration via API. It defines the types of freight to be used
+
+|PARAMETER|DESCRIPTION|TYPE|SIZE|REQUIRED?|
+|----|---|---|---|---|
+|`Shipping.Type`|Shipping type:<br>Correios<br>FixedAmount<br>Free<br>WithoutShippingPickUp<br>WithoutShipping|alphanumeric|255|Yes|
+|`Shipping.SourceZipCode`|ZIP code of origin of the shopping cart. Required if `Shipping.Type` is “Correios”.|number|8|Conditional|
+|`Shipping.TargetZipCode`|CEP of shopper's shipping address.|number|8|No|
+
+* `Shipping.Address`: shipping address information. Not required in the API contract, but we suggest that this data be sent if it has already been collected within the store environment. If they have not been collected, the payment page will display address fields for the shopper to fill out.
+
+|PARAMETER|DESCRIPTION|TYPE|SIZE|REQUIRED?|
+|----|---|---|---|---|
+|`Shipping.Address.Street`|Street, avenue, etc., of the shopper's delivery address.|alphanumeric|256|No*|
+|`Shipping.Address.Number`|Shopper's shipping address number.|alphanumeric|8|No*|
+|`Shipping.Address.Complement`|Complement of the shopper's shipping address.|alphanumeric|14|No|
+|`Shipping.Address.District`|Shopper's shipping address neighborhood.|alphanumeric|64|No*|
+|`Shipping.Address.City`|City of shopper's shipping address.|alphanumeric|64|No*|
+|`Shipping.Address.State`|State (UF) of the shopper's shipping address.|alphanumeric|2|No*|
+
+*Not required, but submission is recommended
+
+* `Shipping.Services`: used for fixed shipping, such as shipping services contracted by the store.
+
+|PARAMETER|DESCRIPTION|TYPE|SIZE|REQUIRED?|
+|----|---|---|---|---|
+|`Shipping.Services.Name`|Shipping service name.|alphanumeric|128|Yes|
+|`Shipping.Services.Price`|Shipping service price in cents. Ex: R$ 1.00 = 100.|number|18|Yes|
+|`Shipping.Services.Deadline`|Delivery time (in days).|number|9|No|
+
+### Calculation of Correios shipping
+
+<aside class="warning">**Correios shipping service is currently unavailable. If a request with this shipping option is sent, you will receive a return with error 400 and the message: "The shipping service by post is unavailable." If you use the service on your payment links or checkout pages, change the shipping type to the other available options.</aside>
+
+Shipping calculation is done using the Correios API and can be of two types:
+
+* **Shipping with volume**: requires the merchant to inform the dimensions of the package that will be sent with the goods;
+* **Shipping without volume**: only considers the weight of the cart as the calculation basis for delivery.
+
+To use shipping with volume, submit the `Shipping.Measures` node, following the integration rules via REST API.
+
+* `Shipping.Measures`: indicates the package measurements.
+
+|PARAMETER|DESCRIPTION|TYPE|SIZE|REQUIRED?|
+|----|---|---|---|---|
+|`Shipping.Package`|Package type:<br>"Box": box<br>"Roll": cylinder or envelope.|alphanumeric|Whole|Yes|
+|`Shipping.Length`|Package length|number|Whole|Yes|
+|`Shipping.Height`|Height of the package sent. Required if `Shipping.Package` is "Box".|number|Whole|Conditional|
+|`Shipping.Width`|Package width. Required if `Shipping.Package` is "Box" or "Rol".|number|Whole|Conditional|
+|`Shipping.Diameter`|Package diameter. Required if `Shipping.Package` is "Rol".|number|Whole|Conditional|
+
+> To calculate shipping via the Correios, it is necessary to respect the measurements defined by the contract used by the merchant. For more information about the dimensions and weights allowed, we suggest that you validate the store contract in [Termo de Condições de Prestação de Serviços de Encomendas Nacionais dos Correios](https://www.correios.com.br/enviar/precisa-de-ajuda/arquivos/contratos-formalizados-ate-fevereiro-de-2020/18-termo-de-condicoes-de-prestacao-de-servicos-de-encomendas-nacio-ns-sedex-e-pac.pdf/view){:target="_blank"} (Term of Conditions for the Provision of National Correios Services)
+
 # Integrating Checkout Cielo
 
 This documentation describes all the features of the API Checkout Cielo integration, technical parameters and especially the examples of codes to facilitate their development.
