@@ -110,7 +110,7 @@ O chargeback é a contestação de uma venda feita com cartão de débito ou cr�
   <br/>
   Conforme as regras estabelecidas pelo mercado de pagamentos eletrônicos (bandeiras de cartões) o chargeback segue as normas de cartão não presente para operações realizadas no comércio eletrônico. Com base nestas regras, a loja pode iniciar o processo de disputa caso não concorde com o chargeback; para realizar a disputa, a loja deve enviar documentos que comprovem a sua defesa.
 
-> A aceitação ou disputa de chargeback podem ser feitas via API, pela [Risk Notification API](https://braspag.github.io//manual/risknotification){:target="\_blank"}.
+> A aceitação ou disputa de chargeback podem ser feitas via API, pela [API de Chargeback](https://developercielo.github.io/manual/api-chargeback-2-0){:target="\_blank"}.
 
 ## Fluxo do chargeback
 
