@@ -884,6 +884,932 @@ Check out more details about how the API works in the following flow:</p>
 
 <p>To test boleto transactions, carry out the purchase process normally without any changes to the procedure. The boleto generated in test mode will always be a simulated boleto.</p>
 
+<h1 id="creating-the-payment-page">Creating the payment page</h1>
+
+<p>In integration via API, the payment page is created based on sent data that forms a shopping cart. This data is divided into the following main nodes:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>NODE</th>
+      <th>DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Cart</code></td>
+      <td>Contains data on the products to be sold.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping</code></td>
+      <td>Contains data on the type of shipping to be charged. It is influenced by the <code class="language-plaintext highlighter-rouge">Cart</code> node.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment</code></td>
+      <td>Contains information that influences the amount charged. Does not contain information about payment methods.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer</code></td>
+      <td>Contains the shopper’s data. Not required on integration, but required on the payment screen. We suggest sending it to speed up the purchasing process.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Options</code></td>
+      <td>Controls optional Checkout features. Not mandatory.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>After sending the cart data, Checkout will send a response containing a link to the payment page in the <code class="language-plaintext highlighter-rouge">CheckoutUrl</code> field.</p>
+
+<blockquote>
+  <p><strong>Important</strong>: The payment page creation request does not create a transaction. The returned URL (<code class="language-plaintext highlighter-rouge">CheckoutUrl</code>) is just a “pre-order” indicating that the payment page is ready to be used. The transaction is only created when the shopper clicks <strong>Finalizar</strong> on the Checkout screen.</p>
+</blockquote>
+
+<h2 id="request-1">Request</h2>
+
+<p>Check out an example of a request to create a payment page on Checkout Cielo.</p>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/orders</span></aside>
+
+<p><strong>Parameters in the header</strong></p>
+
+<p>All requests sent to Cielo must be authenticated by the merchant. Authentication for creating the payment page consists of sending the <code class="language-plaintext highlighter-rouge">MerchantId</code> in the request header:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>PARAMETER</th>
+      <th>TYPE</th>
+      <th>REQUIRED</th>
+      <th>SIZE</th>
+      <th>DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>GUID</td>
+      <td>Yes</td>
+      <td>36</td>
+      <td>Unique store identifier provided by Cielo after store affiliation. Format: 00000000-0000-0000-0000-000000000000</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content-type</code></td>
+      <td>alphanumeric</td>
+      <td>Yes</td>
+      <td>n/a</td>
+      <td>Type of content of the message to be sent. Use: “application/json”</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"OrderNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido01"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nomefantasia"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Cart"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Discount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Percent"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="mi">00</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Produto01"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ProdutoExemplo01"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"UnitPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Asset"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC001"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"SourceZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20020080"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"TargetZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21911130"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FixedAmount"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Services"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Motoboy"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Price"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Deadline"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Carrier"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UPS Express"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Price"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Deadline"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Carrier"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Cambui"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"92"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apto 201"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Freguesia"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"BoletoDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"MaxNumberOfInstallments"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"84261300206"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"FullName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test de Test"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@cielo.com.br"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21987654321"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Settings"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Parameters in the body</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>PARAMETER</th>
+      <th>DESCRIPTION</th>
+      <th>TYPE</th>
+      <th>SIZE</th>
+      <th>REQUIRED</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OrderNumber</code></td>
+      <td>Order number sent by the store.</td>
+      <td>alphanumeric</td>
+      <td>64</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SoftDescriptor</code></td>
+      <td>Description to be presented on the cardholder’s credit card statement.</td>
+      <td>alphanumeric</td>
+      <td>13</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Cart.Discount.Type</code></td>
+      <td>Required if <code class="language-plaintext highlighter-rouge">Cart.Discount.Value</code> is greater than or equal to zero.</td>
+      <td>alphanumeric</td>
+      <td>255</td>
+      <td>Conditional</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Cart.Discount.Value</code></td>
+      <td>Required if <code class="language-plaintext highlighter-rouge">Cart.Discount.Type</code> is Amount or Percent.</td>
+      <td>number</td>
+      <td>18</td>
+      <td>Conditional</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Cart.Items.Name</code></td>
+      <td>Name of the item in the cart.Example: Order ABC.</td>
+      <td>alphanumeric</td>
+      <td>128</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Cart.Items.Description</code></td>
+      <td>Description of the item in the cart. Example: 50 pens - R$30.00</td>
+      <td>alphanumeric</td>
+      <td>256</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Cart.Items.UnitPrice</code></td>
+      <td>Unit price of the product in cents. Example: R$ 1.00 = 100</td>
+      <td>number</td>
+      <td>18</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Cart.Items.Quantity</code></td>
+      <td>Quantity of the item in the cart. Example: 1.</td>
+      <td>number</td>
+      <td>9</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Cart.Items.Type</code></td>
+      <td>Type of the item in the cart.<br />E.g.:<br />Asset<br />Digital<br />Service<br />Payment</td>
+      <td>alphanumeric</td>
+      <td>255</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Cart.Items.Sku</code></td>
+      <td>Product identifier.</td>
+      <td>alphanumeric</td>
+      <td>32</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Cart.Items.Weight</code></td>
+      <td>Product weight.</td>
+      <td>number</td>
+      <td>9</td>
+      <td>Required if <code class="language-plaintext highlighter-rouge">Shipping.Type</code> is “Correios”**.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.BoletoDiscount</code></td>
+      <td>Discount, in percentage, for payments to be made by boleto.</td>
+      <td>number</td>
+      <td>3</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">FirstInstallmentDiscount</code></td>
+      <td>Discount, in percentage, for payments by credit card.</td>
+      <td>number</td>
+      <td>3</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MaxNumberOfInstallments</code></td>
+      <td>Defines maximum number of installments displayed on the payment page.</td>
+      <td>number</td>
+      <td>2</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
+      <td>Shopper identification (CPF or CNPJ). If sent, this amount is already filled in on the Cielo Checkout screen. <em>Not required in the API, but required in the transactional screen</em>.</td>
+      <td>number</td>
+      <td>14</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.FullName</code></td>
+      <td>Full name of the shopper. <em>Not required in the API, but required in the transactional screen</em>.</td>
+      <td>alphanumeric</td>
+      <td>288</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
+      <td>Email of the shopper. If sent, this amount is already filled in on the Cielo Checkout screen. <em>Not required in the API, but required in the transactional screen</em>.</td>
+      <td>alphanumeric</td>
+      <td>64</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Phone</code></td>
+      <td>Phone of the shopper. If sent, this amount is already filled in on the Cielo Checkout screen. <em>Not required in the API, but required in the transactional screen</em>.</td>
+      <td>number</td>
+      <td>11</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Options.ReturnUrl</code></td>
+      <td>Fixed URL defined by the store that can be registered in the Checkout backoffice. After completing payment, the shopper can be redirected to a web page defined by the store.</td>
+      <td>string</td>
+      <td>255</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Type</code></td>
+      <td>Shipping type:<br />Correios<br />FixedAmount<br />Free<br />WithoutShippingPickUp<br />WithoutShipping</td>
+      <td>alphanumeric</td>
+      <td>255</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.SourceZipCode</code></td>
+      <td>ZIP code of origin of the shopping cart. Required if <code class="language-plaintext highlighter-rouge">Shipping.Type</code> is “Correios”**.</td>
+      <td>number</td>
+      <td>8</td>
+      <td>Conditional</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.TargetZipCode</code></td>
+      <td>CEP of shopper’s shipping address.</td>
+      <td>number</td>
+      <td>8</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Address.Street</code></td>
+      <td>Street, avenue, etc., of the shopper’s delivery address.</td>
+      <td>alphanumeric</td>
+      <td>256</td>
+      <td>No*</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Address.Number</code></td>
+      <td>Shopper’s shipping address number.</td>
+      <td>alphanumeric</td>
+      <td>8</td>
+      <td>No*</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Address.Complement</code></td>
+      <td>Complement of the shopper’s shipping address.</td>
+      <td>alphanumeric</td>
+      <td>14</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Address.District</code></td>
+      <td>Shopper’s shipping address neighborhood.</td>
+      <td>alphanumeric</td>
+      <td>64</td>
+      <td>No*</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Address.City</code></td>
+      <td>City of shopper’s shipping address.</td>
+      <td>alphanumeric</td>
+      <td>64</td>
+      <td>No*</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Address.State</code></td>
+      <td>State (UF) of the shopper’s shipping address.</td>
+      <td>alphanumeric</td>
+      <td>2</td>
+      <td>No*</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Services.Name</code></td>
+      <td>Shipping service name.</td>
+      <td>alphanumeric</td>
+      <td>128</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Services.Price</code></td>
+      <td>Shipping service price in cents. E.g. R$ 1.00 = 100.</td>
+      <td>number</td>
+      <td>18</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Services.Deadline</code></td>
+      <td>Delivery time (in days).</td>
+      <td>number</td>
+      <td>9</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Package</code></td>
+      <td>Package type:<br />“Box”: box<br />“Rol”: cylinder or envelope. Find out more at <a href="#### Correios shipping calculation">Correios shipping calculation</a>**</td>
+      <td>alphanumeric</td>
+      <td>Whole</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Length</code></td>
+      <td>Package length. Find out more in <a href="#### Correios shipping calculation">Correios shipping calculation</a>**.</td>
+      <td>number</td>
+      <td>Whole</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Height</code></td>
+      <td>Height of the package sent. Required if <code class="language-plaintext highlighter-rouge">Shipping.Package</code> is “Box”</td>
+      <td>number</td>
+      <td>Whole</td>
+      <td>Conditional</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Width</code></td>
+      <td>Package width. Required if <code class="language-plaintext highlighter-rouge">Shipping.Package</code> is “Box” or “Envelope”. Find out more in <a href="#### Correios shipping calculation">Correios shipping calculation</a>**.</td>
+      <td>number</td>
+      <td>Whole</td>
+      <td>Conditional</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Diameter</code></td>
+      <td>Package diameter. Mandatory if <code class="language-plaintext highlighter-rouge">Shipping.Package</code> is “Rol”. Find out more in <a href="#### Correios shipping calculation">Correios shipping calculation</a>**.</td>
+      <td>number</td>
+      <td>Whole</td>
+      <td>Conditional</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>*Not required, but submission is recommended.</p>
+<aside class="warning">**Correios shipping service is currently unavailable. If a request with this shipping option is sent, you will receive a return with error 400 and the message: "The shipping service by post is unavailable." If you use the service on your payment links or checkout pages, change the shipping type to the other available options.</aside>
+
+<blockquote>
+  <p>See more information about the <code class="language-plaintext highlighter-rouge">Shipping</code> node in <a href="https://developercielo.github.io/manual/checkout-cielo#definindo-o-frete">Defining shipping</a>.</p>
+</blockquote>
+
+<h2 id="response-1">Response</h2>
+
+<p>There are only two response options in API integration: success or error.</p>
+
+<blockquote>
+  <p><strong>Important</strong>: The payment page creation request does not create a transaction, but rather the payment page URL (<code class="language-plaintext highlighter-rouge">CheckoutUrl</code>). The success or error response refers to the creation of the payment page and is not related to the transaction.</p>
+</blockquote>
+
+<p>✅ <strong>Success</strong>: in case of success, the response will be the content of the request plus the link that leads to the transactional screen (<code class="language-plaintext highlighter-rouge">CheckoutUrl</code>), highlighted in the following example:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"Settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"CheckoutUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/transacional/order/index?id=123"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Profile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CheckoutCielo"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>PARAMETER</th>
+      <th>DESCRIPTION</th>
+      <th>TYPE</th>
+      <th>SIZE</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CheckoutUrl</code></td>
+      <td>URL of the transactional screen. The shopper must be directed to this environment to complete the transaction</td>
+      <td>string</td>
+      <td>255</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Profile</code></td>
+      <td>Retailer profile: fixed “CheckoutCielo”.</td>
+      <td>string</td>
+      <td>16</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Version</code></td>
+      <td>Version of the order creation service (version: 1).</td>
+      <td>string</td>
+      <td>Yes</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>❌ <strong>Error</strong>: in case of error, the API returns the following message:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"An error has occurred."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>PARAMETER</th>
+      <th>DESCRIPTION</th>
+      <th>TYPE</th>
+      <th>SIZE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Message</code></td>
+      <td>Message describing the error.</td>
+      <td>string</td>
+      <td>254</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="creating-payment-in-installments">Creating payment in installments</h2>
+
+<p><strong>Checkout Cielo</strong> allows merchants to carry out credit transactions in up to 12 installments.</p>
+
+<blockquote>
+  <p><strong>Important</strong>: Checkout is limited to up to 12 installments, even if your Cielo membership supports higher amounts. If the value shown in <strong>Configurações da loja</strong> on the Cielo website is less than 12, contact Cielo Support and check your Affiliation configuration.</p>
+</blockquote>
+
+<p>In this option, the merchant can configure the number of installments per sale. Checkout calculates installments considering the total value and limit of installments sent via API.</p>
+
+<blockquote>
+  <p><strong>Attention</strong>: The number of desired installments must be less than the quantity registered in <strong>Configurações da loja</strong> (merchant settings) on the Cielo website.</p>
+</blockquote>
+
+<p><strong>Characteristics</strong></p>
+
+<ul>
+  <li>The merchant sends the maximum number of installments he wishes to display to the shopper;</li>
+  <li>The shipping cost is added to the installment payment.</li>
+</ul>
+
+<p>Installments via API are carried out by sending the <code class="language-plaintext highlighter-rouge">MaxNumberOfInstallments</code> field within the <code class="language-plaintext highlighter-rouge">Payment</code> node. This will force Checkout to recalculate the installment amount. Below is an example of the node:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nl">"MaxNumberOfInstallments"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>PARAMETER</th>
+      <th>DESCRIPTION</th>
+      <th>TYPE</th>
+      <th>SIZE</th>
+      <th>REQUIRED?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MaxNumberOfInstallments</code></td>
+      <td>Defines maximum number of installments displayed on the payment page.</td>
+      <td>number</td>
+      <td>2</td>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="applying-discounts">Applying discounts</h2>
+
+<p>Checkout Cielo allows the store to apply specific discounts to both the cart and payment methods. The discounts available at Checkout Cielo are:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>DISCOUNT</th>
+      <th>DESCRIPTION</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Carrinho</strong></td>
+      <td>Applies the discount to the entire cart, regardless of the payment method.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Meio de pagamento - boleto</strong></td>
+      <td>Apply the discount when the chosen payment method is boleto.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Meio de pagamento - crédito à vista</strong></td>
+      <td> </td>
+      <td>Applies the discount when the chosen payment method is a credit card with one installment.</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p><strong>Note</strong>: You can apply discounts via API or Cielo website. If a discount value is sent on the API, this will be the value considered, even if the Cielo website has another value registered.</p>
+</blockquote>
+
+<h4 id="discount-in-cart">Discount in cart</h4>
+
+<p>To send a discount on the cart, simply send the <code class="language-plaintext highlighter-rouge">Discount</code> node within the <code class="language-plaintext highlighter-rouge">Cart</code> node:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"Discount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Percent"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="mi">00</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>PARAMETER</th>
+      <th>DESCRIPTION</th>
+      <th>TYPE</th>
+      <th>SIZE</th>
+      <th>REQUIRED?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Cart.Discount.Type</code></td>
+      <td>Type of discount to be applied: “Amount” (value) or “Percent” (percentage).<br />Required if <code class="language-plaintext highlighter-rouge">Cart.Discount.Value</code> is greater than or equal to zero.</td>
+      <td>alphanumeric</td>
+      <td>255</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Cart.Discount.Value</code></td>
+      <td>Discount value to be applied: “Amount” (value) or “Percent” (percentage). Required if <code class="language-plaintext highlighter-rouge">Cart.Discount.Type</code> is “Amount” or “Percent”.</td>
+      <td>number</td>
+      <td>18</td>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="discount-by-payment-method">Discount by payment method</h4>
+
+<p>To send a discount on the <strong>invoice and/or credit card</strong> send the corresponding field within the <code class="language-plaintext highlighter-rouge">Payment</code> node:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">BoletoDiscount</code> for boleto;</li>
+  <li><code class="language-plaintext highlighter-rouge">FirstInstallmentDiscount</code> for credit card in only one installment.</li>
+</ul>
+
+<p><strong>Example</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"BoletoDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"FirstInstallmentDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">90</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>PARAMETER</th>
+      <th>DESCRIPTION</th>
+      <th>TYPE</th>
+      <th>SIZE</th>
+      <th>REQUIRED?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.BoletoDiscount</code></td>
+      <td>Discount, in percentage, for payments to be made by boleto.</td>
+      <td>number</td>
+      <td>3</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.FirstInstallmentDiscount</code></td>
+      <td>Discount, in percentage, for payments by credit card with only one installment.</td>
+      <td>number</td>
+      <td>3</td>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="defining-shipping">Defining shipping</h2>
+
+<aside class="warning">**Correios shipping service is currently unavailable. If a request with this shipping option is sent, you will receive a return with error 400 and the message: "The shipping service by post is unavailable." If you use the service on your payment links or checkout pages, change the shipping type to the other available options.</aside>
+
+<p>Cielo Checkout allows you to define five shipping options in the <code class="language-plaintext highlighter-rouge">Shipping.Type</code> parameter.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>SHIPPING TYPE</th>
+      <th>VALUE OF PARAMETER <code class="language-plaintext highlighter-rouge">Shipping.Type</code></th>
+      <th>DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Fixed shipping</strong></td>
+      <td>“FixedAmount”</td>
+      <td>Fixed amount sent by the merchant. Used if the merchant has its own delivery method.</td>
+    </tr>
+    <tr>
+      <td><strong>Free shipping</strong></td>
+      <td>“Free”</td>
+      <td>Does not perform shipping calculations and displays “Free Shipping” on the transactional screen.</td>
+    </tr>
+    <tr>
+      <td><strong>Store Pickup</strong></td>
+      <td>“WithoutShippingPickUp”</td>
+      <td>Deemed <strong><em>Store Pickup</em></strong>.</td>
+    </tr>
+    <tr>
+      <td><strong>No shipping</strong></td>
+      <td>“WithoutShipping”</td>
+      <td>No shipping charges (applicable to services and digital products).</td>
+    </tr>
+    <tr>
+      <td><strong>Post office</strong></td>
+      <td>“Correios”</td>
+      <td>Uses the Correios API to calculate the cost. The calculation value will depend on the contract used (informed in the Merchant Settings) and the type of integration for calculation.</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p><strong>Note</strong>: Options for multiple shipping in the Post Office category must be selected within <strong>Configurações da loja</strong> (merchant settings) on the Cielo website.</p>
+</blockquote>
+
+<p>Check out the nodes that form the shipping information below:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Shipping</code>: base node. It is mandatory for integration via API. It defines the types of freight to be used</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>PARAMETER</th>
+      <th>DESCRIPTION</th>
+      <th>TYPE</th>
+      <th>SIZE</th>
+      <th>REQUIRED?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Type</code></td>
+      <td>Shipping type:<br />Correios<br />FixedAmount<br />Free<br />WithoutShippingPickUp<br />WithoutShipping</td>
+      <td>alphanumeric</td>
+      <td>255</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.SourceZipCode</code></td>
+      <td>ZIP code of origin of the shopping cart. Required if <code class="language-plaintext highlighter-rouge">Shipping.Type</code> is “Correios”.</td>
+      <td>number</td>
+      <td>8</td>
+      <td>Conditional</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.TargetZipCode</code></td>
+      <td>CEP of shopper’s shipping address.</td>
+      <td>number</td>
+      <td>8</td>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Shipping.Address</code>: shipping address information. Not required in the API contract, but we suggest that this data be sent if it has already been collected within the store environment. If they have not been collected, the payment page will display address fields for the shopper to fill out.</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>PARAMETER</th>
+      <th>DESCRIPTION</th>
+      <th>TYPE</th>
+      <th>SIZE</th>
+      <th>REQUIRED?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Address.Street</code></td>
+      <td>Street, avenue, etc., of the shopper’s delivery address.</td>
+      <td>alphanumeric</td>
+      <td>256</td>
+      <td>No*</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Address.Number</code></td>
+      <td>Shopper’s shipping address number.</td>
+      <td>alphanumeric</td>
+      <td>8</td>
+      <td>No*</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Address.Complement</code></td>
+      <td>Complement of the shopper’s shipping address.</td>
+      <td>alphanumeric</td>
+      <td>14</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Address.District</code></td>
+      <td>Shopper’s shipping address neighborhood.</td>
+      <td>alphanumeric</td>
+      <td>64</td>
+      <td>No*</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Address.City</code></td>
+      <td>City of shopper’s shipping address.</td>
+      <td>alphanumeric</td>
+      <td>64</td>
+      <td>No*</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Address.State</code></td>
+      <td>State (UF) of the shopper’s shipping address.</td>
+      <td>alphanumeric</td>
+      <td>2</td>
+      <td>No*</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>*Not required, but submission is recommended</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Shipping.Services</code>: used for fixed shipping, such as shipping services contracted by the store.</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>PARAMETER</th>
+      <th>DESCRIPTION</th>
+      <th>TYPE</th>
+      <th>SIZE</th>
+      <th>REQUIRED?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Services.Name</code></td>
+      <td>Shipping service name.</td>
+      <td>alphanumeric</td>
+      <td>128</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Services.Price</code></td>
+      <td>Shipping service price in cents. Ex: R$ 1.00 = 100.</td>
+      <td>number</td>
+      <td>18</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Services.Deadline</code></td>
+      <td>Delivery time (in days).</td>
+      <td>number</td>
+      <td>9</td>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="calculation-of-correios-shipping">Calculation of Correios shipping</h3>
+
+<aside class="warning">**Correios shipping service is currently unavailable. If a request with this shipping option is sent, you will receive a return with error 400 and the message: "The shipping service by post is unavailable." If you use the service on your payment links or checkout pages, change the shipping type to the other available options.</aside>
+
+<p>Shipping calculation is done using the Correios API and can be of two types:</p>
+
+<ul>
+  <li><strong>Shipping with volume</strong>: requires the merchant to inform the dimensions of the package that will be sent with the goods;</li>
+  <li><strong>Shipping without volume</strong>: only considers the weight of the cart as the calculation basis for delivery.</li>
+</ul>
+
+<p>To use shipping with volume, submit the <code class="language-plaintext highlighter-rouge">Shipping.Measures</code> node, following the integration rules via REST API.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Shipping.Measures</code>: indicates the package measurements.</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>PARAMETER</th>
+      <th>DESCRIPTION</th>
+      <th>TYPE</th>
+      <th>SIZE</th>
+      <th>REQUIRED?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Package</code></td>
+      <td>Package type:<br />“Box”: box<br />“Roll”: cylinder or envelope.</td>
+      <td>alphanumeric</td>
+      <td>Whole</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Length</code></td>
+      <td>Package length</td>
+      <td>number</td>
+      <td>Whole</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Height</code></td>
+      <td>Height of the package sent. Required if <code class="language-plaintext highlighter-rouge">Shipping.Package</code> is “Box”.</td>
+      <td>number</td>
+      <td>Whole</td>
+      <td>Conditional</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Width</code></td>
+      <td>Package width. Required if <code class="language-plaintext highlighter-rouge">Shipping.Package</code> is “Box” or “Rol”.</td>
+      <td>number</td>
+      <td>Whole</td>
+      <td>Conditional</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Diameter</code></td>
+      <td>Package diameter. Required if <code class="language-plaintext highlighter-rouge">Shipping.Package</code> is “Rol”.</td>
+      <td>number</td>
+      <td>Whole</td>
+      <td>Conditional</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>To calculate shipping via the Correios, it is necessary to respect the measurements defined by the contract used by the merchant. For more information about the dimensions and weights allowed, we suggest that you validate the store contract in <a href="https://www.correios.com.br/enviar/precisa-de-ajuda/arquivos/contratos-formalizados-ate-fevereiro-de-2020/18-termo-de-condicoes-de-prestacao-de-servicos-de-encomendas-nacio-ns-sedex-e-pac.pdf/view" target="_blank">Termo de Condições de Prestação de Serviços de Encomendas Nacionais dos Correios</a> (Term of Conditions for the Provision of National Correios Services)</p>
+</blockquote>
+
 <h1 id="integrating-checkout-cielo">Integrating Checkout Cielo</h1>
 
 <p>This documentation describes all the features of the API Checkout Cielo integration, technical parameters and especially the examples of codes to facilitate their development.</p>
@@ -1145,7 +2071,7 @@ These data are separated into the following “main nodes”:</p>
 
 <p><strong>IMPORTANT</strong>: A call to the API Checkout <strong>DOES NOT CREATE A TRANSACTION</strong>. The returned Link is just a “preorder” indicating that a transactional screen is ready to be used. The Transaction is created only when the buyer clicks on “FINALIZE”</p>
 
-<h3 id="request-1">Request</h3>
+<h3 id="request-2">Request</h3>
 
 <p>Endpoint is the URL to where requests with the cart data will be sent. All requests must be sent using the HTTP POST method, for the endpoint:</p>
 
