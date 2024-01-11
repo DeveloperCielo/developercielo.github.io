@@ -85,7 +85,7 @@ Através dela, você pode **aceitar** ou **recusar** contestações, além de co
 
         c. Aguardar retorno do time Cielo com o certificado MTLS assinado.
 
- > **Toda chamada para nosso serviço deve ser passada com a chave MLTS assinada.**
+ > **Toda chamada para nosso serviço deve ser passada com a chave MTLS assinada.**
 
 4. Acessar o Portal dos Desenvolvedores e efetuar o cadastro definitivo.
 
