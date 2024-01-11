@@ -39,9 +39,9 @@ Através dela, você pode **aceitar** ou **recusar** contestações, além de co
   c. Após esse cadastro, enviar um e-mail para a caixa de **Technical Support Chargeback** informando os dados cadastrados.
     - Obs.: esse cadastro é necessário para obter acesso ao Client_ID e Client_Secret dos ambientes de Sandbox e Produção.
 
-![Chargeback_1](https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/images/api-chargeback/chargeback-1.png)
+![Chargeback_1]({{ site.baseurl_root }}/images/api-chargeback/chargeback-1.png)
 
-![Chargeback_2](https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/images/api-chargeback/chargeback-2.png)
+![Chargeback_2]({{ site.baseurl_root }}/images/api-chargeback/chargeback-2.png)
 
 3. Criação de uma chave pública e privada para criptografia
 
