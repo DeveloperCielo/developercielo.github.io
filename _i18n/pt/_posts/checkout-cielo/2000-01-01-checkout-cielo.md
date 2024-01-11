@@ -785,7 +785,7 @@ Para enviar um desconto sobre o carrinho basta enviar o nó `Discount` dentro do
 |PARÂMETRO|DESCRIÇÃO|TIPO|TAMANHO|OBRIGATÓRIO?|
 |---|---|---|---|---|---|
 |`Cart.Discount.Type`|Tipo do desconto a ser aplicado: "Amount" (valor) ou "Percent" (percentual).<br>Obrigatório caso `Cart.Discount.Value` for maior ou igual a zero.|alfanumérico|255|Não|
-|`Cart.Discount.Value`|Valor do desconto a ser aplicado: "Amount" (valor) ou "Percent" (percentual).|Obrigatório caso `Cart.Discount.Type` for "Amount" ou "Percent".|número|18|Não|
+|`Cart.Discount.Value`|Valor do desconto a ser aplicado: "Amount" (valor) ou "Percent" (percentual). Obrigatório caso `Cart.Discount.Type` for "Amount" ou "Percent".|número|18|Não|
 
 #### Desconto por meio de pagamento
 
