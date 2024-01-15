@@ -496,6 +496,9 @@ Atualize o merchantID com base no registerID ou mainMerchantID.
 | `merchants`         | Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista ["9999111111", "9999111333"]                                                                                                        |        |         |             |
 | `type`              | Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, ANTECIPATION_CIELO                                                                                                                                            |        |         |             |
 
+<aside class="warning"><b>Importante!<br>Esta funcionalidade realiza a atualização do registro do Extrato e atribui ao Conciliador, portanto:<br>1 - Se a matriz possui, por exemplo, 10 estabelecimentos e for realizada a chamada informando apenas 3 estabelecimentos, o registro será atualizado mantendo apenas os 3 que foram informados e excluindo o registro dos 7 pré-existentes.<br>
+2 - O mesmo comportamento acima ocorre com relação a atualização de tipos de extratos</b></aside>
+
 ## **DELETE** Excluir o Registro do merchantID
 
 Consulte o MerchantID com base no registerID ou no mainMerchantID.
