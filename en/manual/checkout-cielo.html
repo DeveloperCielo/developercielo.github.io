@@ -1027,6 +1027,18 @@ Check out more details about how the API works in the following flow:</p>
 
 <p><strong>Parameters in the body</strong></p>
 
+<p><strong>IMPORTANT</strong>: The order identification number (<code class="language-plaintext highlighter-rouge">OrderNumber</code>) does not change throughout the transactional flow but an additional number could be generated for the order and used during the transaction. This number will only be different in case of non-compliance with the acquirer’s rules or in case of order identification numbers (<code class="language-plaintext highlighter-rouge">OrderNumber</code>) being repeated in less than 24 hours.</p>
+
+<p>For your order number to be sent in the transaction, follow the following formatting standards:</p>
+<ul>
+  <li><strong>Type of field</strong>: string;</li>
+  <li><strong>Minimum size</strong>: 1;</li>
+  <li><strong>Maximum size</strong>: 20;</li>
+  <li><strong>Allowed</strong>: letters (a-z, A-Z) and numbers (0-9);</li>
+  <li><strong>Not allowed</strong>: symbols and special characters, including blank spaces;</li>
+  <li>Do not repeat the number in less than 24 (twenty-four) hours.</li>
+</ul>
+
 <table>
   <thead>
     <tr>
