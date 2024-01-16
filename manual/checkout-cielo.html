@@ -1136,6 +1136,18 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
 
 <p><strong>Parâmetros no corpo (body)</strong></p>
 
+<p><strong>IMPORTANTE</strong>: O número de identificação do pedido (<code class="language-plaintext highlighter-rouge">OrderNumber</code>) não sofre alteração ao longo do fluxo transacional mas um número adicional pode ser gerado para o pedido e utilizado durante a transação. Esse número só será diferente em caso de adequação a regras da adquirente (que seguem abaixo) ou em caso de números de identificação do pedido (<code class="language-plaintext highlighter-rouge">OrderNumber</code>) repetidos em menos de 24 horas.</p>
+
+<p>Para que o seu número de pedido seja enviado na transação até o extrato para fins de conciliação, siga os seguintes padrões de formatação:</p>
+<ul>
+  <li><strong>Campo</strong>: string;</li>
+  <li><strong>Tamanho mínimo</strong>: 1;</li>
+  <li><strong>Tamanho máximo</strong>: 20;</li>
+  <li><strong>Permitido</strong>: letras (a-z, A-Z) e números (0-9);</li>
+  <li><strong>Não permitido</strong>: símbolos e caracteres especiais, inclusive espaços em branco;</li>
+  <li>Não repetir em menos de 24 (vinte e quatro) horas.</li>
+</ul>
+
 <table>
   <thead>
     <tr>
@@ -1149,9 +1161,9 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">OrderNumber</code></td>
-      <td>Número do pedido enviado pela loja.</td>
-      <td>alfanumérico</td>
-      <td>64</td>
+      <td>Número do pedido da loja. <br />Se não for enviado, o Checkout Cielo gerará um número, que será visualizado pelo consumidor.</td>
+      <td>alfanumérico<br /> <em>Para fins de conciliação, os caracteres permitidos são apenas a-z, A-Z, 0-9, não permitido caracteres especiais e espaços em branco.</em></td>
+      <td>64<br /><em>Para fins de conciliação, o tamanho máximo é de 20.</em></td>
       <td>Não</td>
     </tr>
     <tr>
