@@ -650,9 +650,19 @@ Todas as requisições enviadas para a Cielo deverão ser autenticadas pela loja
 
 **Parâmetros no corpo (body)**
 
+**IMPORTANTE**: O número de identificação do pedido (`OrderNumber`) não sofre alteração ao longo do fluxo transacional mas um número adicional pode ser gerado para o pedido e utilizado durante a transação. Esse número só será diferente em caso de adequação a regras da adquirente (que seguem abaixo) ou em caso de números de identificação do pedido (`OrderNumber`) repetidos em menos de 24 horas.
+
+Para que o seu número de pedido seja enviado na transação até o extrato para fins de conciliação, siga os seguintes padrões de formatação: 
+* **Campo**: string;
+* **Tamanho mínimo**: 1;
+* **Tamanho máximo**: 20;
+* **Permitido**: letras (a-z, A-Z) e números (0-9);
+* **Não permitido**: símbolos e caracteres especiais, inclusive espaços em branco; 
+* Não repetir em menos de 24 (vinte e quatro) horas.
+
 |PARÂMETRO|DESCRIÇÃO|TIPO|TAMANHO|OBRIGATÓRIO?|
 |---|---|---|---|---|
-|`OrderNumber`|Número do pedido enviado pela loja.|alfanumérico|64|Não|
+|`OrderNumber`|Número do pedido da loja. <br>Se não for enviado, o Checkout Cielo gerará um número, que será visualizado pelo consumidor. |alfanumérico<br> *Para fins de conciliação, os caracteres permitidos são apenas a-z, A-Z, 0-9, não permitido caracteres especiais e espaços em branco.*|64<br>*Para fins de conciliação, o tamanho máximo é de 20.*|Não|
 |`SoftDescriptor`|Descrição a ser apresentada na fatura do cartão de crédito do portador.|alfanumérico|13|Não|
 |`Cart.Discount.Type`|Obrigatório caso `Cart.Discount.Value` for maior ou igual a zero.|alfanumérico|255|Condicional|
 |`Cart.Discount.Value`|Obrigatório caso `Cart.Discount.Type` for Amount ou Percent.|número|18|Condicional|
