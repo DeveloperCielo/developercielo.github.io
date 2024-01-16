@@ -617,6 +617,16 @@ All requests sent to Cielo must be authenticated by the merchant. Authentication
 
 **Parameters in the body**
 
+**IMPORTANT**: The order identification number (`OrderNumber`) does not change throughout the transactional flow but an additional number could be generated for the order and used during the transaction. This number will only be different in case of non-compliance with the acquirer's rules or in case of order identification numbers (`OrderNumber`) being repeated in less than 24 hours.
+
+For your order number to be sent in the transaction, follow the following formatting standards:
+* **Type of field**: string;
+* **Minimum size**: 1;
+* **Maximum size**: 20;
+* **Allowed**: letters (a-z, A-Z) and numbers (0-9);
+* **Not allowed**: symbols and special characters, including blank spaces;
+* Do not repeat the number in less than 24 (twenty-four) hours.
+
 |PARAMETER|DESCRIPTION|TYPE|SIZE|REQUIRED|
 |---|---|---|---|---|
 |`OrderNumber`|Order number sent by the store.|alphanumeric|64|No|
