@@ -1310,7 +1310,7 @@ authorization_code: "01234567"
 |---|---|---|---|
 |`checkout_cielo_order_number`|Identificador único gerado pelo Checkout Cielo.|Alfanumérico|32|
 |`amount`|Preço unitário do produto, em centavos (ex: R$ 1,00 = 100)|Número|10|
-|`order_number`|Número do pedido enviado pela loja.|Alfanumérico|32|
+|`order_number`|Número do pedido enviado pela loja.<br>*Se não for enviado, o Checkout Cielo gerará um número que será visualizado pelo Consumidor.*|Alfanumérico<br>*Para fins de conciliação, os caracteres permitidos são apenas a-z, A-Z, 0-9. Não são permitidos caracteres especiais e espaços em branco.*|32|
 |`payment_method_brand`|Bandeira- somente para transações com meio de pagamento cartão de crédito. [Lista Completa](https://developercielo.github.io/manual/checkout-cielo#payment_method_brand) |Número|20|
 |`payment_status`|Status da transação. [Lista Completa](https://developercielo.github.io/manual/checkout-cielo#status-e-c%C3%B3digos)|Número|1|
 |`test_transaction`|Indica se a transação foi gerada com o Modo de teste ativado|Boolean|32|
