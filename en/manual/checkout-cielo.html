@@ -1052,9 +1052,9 @@ Check out more details about how the API works in the following flow:</p>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">OrderNumber</code></td>
-      <td>Order number sent by the store.</td>
-      <td>alphanumeric</td>
-      <td>64</td>
+      <td>Order number sent by the store. <br />If it is not sent, Checkout Cielo will generate a number, which will be viewed by the consumer.</td>
+      <td>alphanumeric <br /><em>For reconciliation purposes, the characters allowed are only a-z, A-Z, 0-9, special characters and blank spaces are not allowed.</em></td>
+      <td>64<br /><em>For reconciliation purposes, the maximum size is 20.</em></td>
       <td>No</td>
     </tr>
     <tr>
