@@ -1481,7 +1481,7 @@ Para consultar uma transação pelo `Checkout_Cielo_Order_Number`, basta realiza
 |PROPRIEDADE|Tipo|Tamanho|Descrição|Formato|
 |---|---|---|---|---|
 |`merchantId`|GUID|36|Id da Loja no Checkout Cielo.|Exemplo: c89fdfbb-dbe2-4e77-806a-6d75cd397dac|
-|`orderNumber`|Texto|32|Número do pedido da loja.|Exemplo: 123456|
+|`orderNumber`|alfanumérico<br>*Para fins de conciliação, os caracteres permitidos são apenas a-z, A-Z, 0-9. Não são permitidos caracteres especiais e espaços em branco.*|64<br>*Para fins de conciliação, o tamanho máximo é de 20 caracteres.*|Número do pedido da loja.<br>*Se não for enviado, o Checkout Cielo gerará um número que será visualizado pelo consumidor.*|Exemplo: 123456|
 |`softDescriptor`|Texto|13|Nome fantasia da loja exibido na fatura do comprador. Sem caracteres especiais ou espaços.|Exemplo: `Loja_ABC_1234`|
 |`cart.discount.type`|Texto|10|Tipo de desconto aplicado.|Valores possíveis: Amount ou Percent|
 |`cart.discount.value`|Número|18|Valor ou porcentagem de desconto aplicado.|Exemplo: Se `discount.type` for Amount, então 1000 = R$10,00. Se `discount.type` for Percent, o valor estará entre 0 e 100.|
