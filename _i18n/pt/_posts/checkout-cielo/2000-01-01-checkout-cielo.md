@@ -1117,7 +1117,8 @@ Url: "https://cieloecommerce.cielo.com.br/api/public/v1/orders/799g0de8-89c3-5d1
 |---|---|---|
 |`URL`|URL com os dados necessários para realizar a busca dos dados da transação.|String|
 |`MerchantId`|Identificador da loja no Checkout; consta no site Cielo no menu Configuração > Dados Cadastrais.|Alfanumérico (guid)|
-|`MerchantOrderNumber`|Número do pedido da loja; se não for enviado, o Checkout Cielo gerará um número, que será visualizado pelo Consumidor.|Alfanumérico|
+|`MerchantOrderNumber`*|Número do pedido da loja; se não for enviado, o Checkout Cielo gerará um número, que será visualizado pelo Consumidor.|Alfanumérico<br>*Para fins de conciliação, os caracteres permitidos são apenas a-z, A-Z, 0-9. Não são permitidos caracteres especiais e espaços em branco.*|
+*Em outras requisições e respostas pode se chamar `OrderNumber`.
 
 *O servidor da loja deve enviar o retorno `HTTP Status = 200 (OK)` para a API do Checkout, indicando que a notificação foi recebida e processada com sucesso.*
 
