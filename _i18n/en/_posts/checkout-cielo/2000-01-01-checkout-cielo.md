@@ -629,7 +629,7 @@ For your order number to be sent in the transaction, follow the following format
 
 |PARAMETER|DESCRIPTION|TYPE|SIZE|REQUIRED|
 |---|---|---|---|---|
-|`OrderNumber`|Order number sent by the store.|alphanumeric|64|No|
+|`OrderNumber`|Order number sent by the store. <br>If it is not sent, Checkout Cielo will generate a number, which will be viewed by the consumer. |alphanumeric <br>*For reconciliation purposes, the characters allowed are only a-z, A-Z, 0-9, special characters and blank spaces are not allowed.*|64<br>*For reconciliation purposes, the maximum size is 20.*|No|
 |`SoftDescriptor`|Description to be presented on the cardholder's credit card statement.|alphanumeric|13|No|
 |`Cart.Discount.Type`|Required if `Cart.Discount.Value` is greater than or equal to zero.|alphanumeric|255|Conditional|
 |`Cart.Discount.Value`|Required if `Cart.Discount.Type` is Amount or Percent.|number|18|Conditional|
