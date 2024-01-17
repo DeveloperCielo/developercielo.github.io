@@ -1167,7 +1167,7 @@ Tanto na notificação via POST ou via JSON, o conteúdo dos dados retornados é
 |---|---|---|---|
 |`checkout_cielo_order_number`|Identificador único gerado pelo Checkout Cielo.|Alfanumérico|32|
 |`amount`|Preço unitário do produto, em centavos (ex: R$ 1,00 = 100)|Número|10|
-|`order_number`|Número do pedido enviado pela loja|Alfanumérico|32|
+|`order_number`|Número do pedido enviado pela loja.<br> Se não for enviado, o Checkout Cielo gerará um número que será visualizado pelo consumidor.|Alfanumérico <br>*Para fins de conciliação, os caracteres permitidos são apenas a-z, A-Z, 0-9. Não são permitidos caracteres especiais e espaços em branco.* |32<br>*Para fins de conciliação, o tamanho máximo é de 20 caracteres.*| 
 |`created_date`|Data da criação do pedido - dd-MM-yyyy HH:mm:ss|Alfanumérico|20|
 |`customer_name`|Nome do consumidor. Se enviado, esse valor já vem preenchido na tela do Checkout Cielo|Alfanumérico|289|
 |`customer_identity`|Identificação do consumidor (CPF ou CNPJ) Se enviado, esse valor já vem preenchido na tela do Checkout Cielo|Alfanumérico|14|
