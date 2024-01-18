@@ -2947,9 +2947,9 @@ To save a card as a token during a credit card transaction authorization, send t
 
 The response will return with the card token on the `CardToken` field.
 
-## Tokenization by card brands
+## Network tokenization
 
-SoSome card brands have a tokenization solution that offers the storage of cards in safes at the brand itself, in an encrypted form. This brand tokenization is intended to improve the security and quality of card information transmitted, which leads to possible increases in the conversion of approval by issuing banks. See all the benefits:
+Some card brands offer a tokenization solution that tokenize and sotores card data in a network vault, in an encrypted form. Network tokenization is intended to improve the security and quality of card information transmitted, which leads to possible increases in the conversion of approval by issuing banks. See all the benefits:
 
 - **Increased security:** In addition to creating a code (token or DPAN) to replace the card information, the brands also issue cryptograms, which function as a password or signature of the brand, unique to that card at that establishment.
 - **Automatic Card Update:** When a new card is issued in place of the previous card, or when a card's expiration date changes, banks send this information to the brand's base, and the brand automatically updates the tokens with the new information. That is, there is no need for any action on the part of the establishment.
@@ -2957,11 +2957,11 @@ SoSome card brands have a tokenization solution that offers the storage of cards
 
 **How does it work?**
 
-The participating brands provide APIs for receiving and storing the card securely for acquirers, gateways and partners, with the creation of a exclusive token for that card at that establishment.
+The participating brands provide APIs for receiving and storing the card securely for acquirers, gateways and partners, with the creation of a exclusive token for that card at that merchant.
 
 Cielo provides these services to customers in two ways:
 
-- **Simple Integration:** The establishment integrates with Cielo's conventional tokenization functionality, which performs the tokenization of the brand behind it, and links these two tokens in Cielo's vault. In this way, merchants will always have a single token for that card, but Cielo will have the brand's tokens and cryptograms internally. To see how the integration with Cielo's conventional tokenization is like, go back to the [Card Tokenization](https://developercielo.github.io/en/manual/cielo-ecommerce#tokenization-of-cards){:target="\_blank"} menu
+- **Simple Integration:** The merchant integrates with Cielo's conventional tokenization functionality, which performs the tokenization of the brand behind it, and links these two tokens in Cielo's vault. In this way, merchants will always have a single token for that card, but Cielo will have the brand's tokens and cryptograms internally. To see how the integration with Cielo's conventional tokenization is like, go back to the [Card Tokenization](https://developercielo.github.io/en/manual/cielo-ecommerce#tokenization-of-cards){:target="\_blank"} menu
 - Available Brands: Visa;
 
 > To obtain this functionality, contact our E-commerce support channel and request them to enable the card brand token service: cieloecommerce@cielo.com.br
