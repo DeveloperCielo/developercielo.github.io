@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="theme-color" content="#00aeef" />
+  <meta http-equiv="Content-Language" content="en" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1"
+  />
+
+  <title>
+     Network Tokenization – Mandate Visa &middot; Documentações e tutoriais 
+  </title>
+
+  <link rel="shortcut icon" href="https://developercielo.github.io/en/assets/favicon.ico" />
+
+  <!-- CSS -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500"
+    rel="stylesheet"
+    media="none"
+    onload="if(media!='all')media='all'"
+  />
+  <script async src="https://use.fontawesome.com/3ae06f1030.js"></script>
+
+  <link
+    rel="stylesheet"
+    href="https://developercielo.github.io/en/assets/bundles/css/bundle.min.css"
+  />
+
+   
+  <link
+    rel="alternate"
+    hreflang="pt"
+    href="https://developercielo.github.io/en/tutorial/tokenizacaobandeira"
+  />
+    
+  <link
+    rel="alternate"
+    hreflang="en"
+    href="https://developercielo.github.io/en/en/tutorial/tokenizacaobandeira"
+  />
+   
+
+  <!-- RSS -->
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="RSS"
+    href="https://developercielo.github.io/en/atom.xml"
+  />
+</head>
+
+    <body>
+        
+        <div class="content-container no-dark-box">
+        
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="https://devcielo.zendesk.com/hc/pt-br#suporte" class="help">Help</a>
+
+                            
+                            <div class="lang">
+                                <span>Languages</span>
+
+                                
+                                    
+                                    <a href="https://developercielo.github.io/tutorial/tokenizacaobandeira">
+                                    
+
+                                        <img alt="Português" src="https://developercielo.github.io/en/assets/images/pt.png"/>
+                                    </a>
+                                
+                                    
+                                    <a href="https://developercielo.github.io/en/tutorial/tokenizacaobandeira">
+                                    
+
+                                        <img alt="English" src="https://developercielo.github.io/en/assets/images/en.png"/>
+                                    </a>
+                                
+                            </div>
+                            
+                        </div>
+
+                        
+                        <div class="search">
+                            <input type="text" class="search" id="input-search">
+                        </div>
+                    </div>
+                    <div class="submenu-row results">
+                        <div class="search-results-container">
+                            <ul class="search-results"></ul>
+                        </div>
+                    </div>
+                        
+
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="https://developercielo.github.io/en/">Home</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="https://developercielo.github.io/en/tutorial/tokenizacaobandeira">Network Tokenization – Mandate Visa</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post"><h1 id="network-tokenization--visa-mandate">Network tokenization – Visa Mandate</h1>
+
+<p><strong>What is the Visa mandate about tokenization?</strong></p>
+
+<p>As of February, 2024, Visa will charge an additional fee of 0.05% over the online transaction amount when the transaction is sent with the card data printed in the front of teh card (PAN). The goal is to improve online security through the adoption of the network token.</p>
+
+<p>The network token is digital identifier string unique for a card and a merchant that stores and replaces sensitive card data along the transaction flow.</p>
+
+<p>In this manual, we explain about network tokenization, benefits and which options Cielo offers for our clients so that they can be compliant with the mandate.</p>
+
+<p><strong>What is a network token and what are the benefits?</strong></p>
+
+<p>Network tokenization is the storage of tokenized card data in a network token vault.
+The goal is to improve security and quality of card information traffic, which may result in increase in approval performance by the issuers. See all the benefits:</p>
+
+<ul>
+  <li><strong>Improved security</strong>: in addition to creating a token (DPAN) that replaces card (PAN) information, the card brands also create the <em>cryptogram</em>, which function as a password or signature of the brand, unique for both the card and the merchant.</li>
+  <li><strong>Automatic card update</strong>: when a new card is issued in place of a previous card, or when the expiration date changes, the issuer sends the new card data to the card brand and the brand automatically updates the network tokens with the new data. This process does not require any action from the merchant, but fees related to token update may be applied depending on the card brand.</li>
+  <li><strong>Performance improvement</strong>: since the network tokenization process improves security and assures that card data is always updated, the transaction approval rates can also increase.</li>
+</ul>
+
+<h2 id="how-to-comply-with-the-mandate">How to comply with the mandate?</h2>
+
+<p>Cielo offers the following options so that the merchant can prepare and avoid additional charges from the card brand:</p>
+
+<ul>
+  <li>Transparent tokenization</li>
+  <li>Facilitated integration</li>
+  <li>External integration</li>
+</ul>
+
+<h3 id="option-1-transparent-tokenization">Option 1: transparent tokenization</h3>
+
+<p>In an effort to reduce financial impact in our clients, Cielo developed a solution that will automatically tokenize all eligible transactions.</p>
+
+<blockquote>
+  <p><strong>Eligible products</strong>: API E-commerce Cielo, API 1.5 (deprecated), Link de Pagamento and Checkout Cielo.</p>
+</blockquote>
+
+<p><strong>How does it work?</strong></p>
+
+<p>When the merchant sends an online transaction with card data (PAN) to our APIs, Cielo will automatically create a token for that card so that Visa will receive the tokenized card data, thus avoiding the 0.05% fee.</p>
+
+<p><strong>Will the token be saved in Cielo systems?</strong></p>
+
+<p>Yes, in transparent tokenization the network token will be saved in Cielo systems, so that in the next transaction it will not be necessary to create a new token for the same card.</p>
+
+<p><strong>Which transactions are eligible for tokenization?</strong></p>
+
+<p>According to Visa, approximately 90% of card BINs (first six to eight card digits) are already eligible for tokenization, hence Cielo is not able to tokenize 100% of Visa transactions.</p>
+
+<p><strong>What are the costs for transparent tokenization?</strong></p>
+
+<p>Currently, Cielo is not charging for transparent tokenization in order to enable the tokenization experience for our clients and to avoid the 0.05% fee over the transaction amount. Cielo may start charging for this service at any point in the future.</p>
+
+<p><strong>Is it necessary to modify my API integration or to request this feature for Cielo?</strong></p>
+
+<p>No. For transparent tokenization no additional integrations are required and the feature is being enabled for all of our clients in stages since September, 2023.</p>
+
+<p><strong>What is the impact of transparent tokenization for merchants who already use network tokenization?</strong></p>
+
+<p>If you are already using network tokenization, Cielo will identify the transaction as tokenized by Visa and will send it for authorization with the previously provided data.</p>
+
+<p><strong>What happens if the token is unavailable?</strong></p>
+
+<p>If there is a <em>timeout</em> or if the card brand/issuer are unavailable and the token/cryptogram is not provided, Cielo will proceed with the transaction using the card data (PAN), in order to prevent our clients from losing sales.</p>
+
+<p>Merchants can also opt to manage the network token on their own. Continue reading for further information.</p>
+
+<h3 id="option-2-facilitated-integration">Option 2: facilitated integration</h3>
+
+<p>In this option, the merchant integrates with Cielo tokenization service, which will create a network token. Thus, merchant will only have one token for a card, but Cielo will have the tokens and cryptograms safely stored and with only one integration.</p>
+
+<blockquote>
+  <p><strong>Available card brands:</strong> Visa.</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>Eligible Products:</strong> API E-commerce Cielo.</p>
+</blockquote>
+
+<p><strong>How to obtain this feature?</strong></p>
+
+<p>Send us an email at <em>cieloecommerce@cielo.com.br</em> and ask to enable tokenization using facilitated integration.</p>
+
+<p><strong>Which transactions are eligible for tokenization?</strong></p>
+
+<p>According to Visa, approximately 90% of card BINs (first six to eight card digits) are already eligible for tokenization, hence Cielo is not able to tokenize 100% of Visa transactions.</p>
+
+<p><strong>What are the costs?</strong></p>
+
+<p>Cielo does not charge any additional fee for merchants integrated with API E-commerce Cielo.</p>
+
+<blockquote>
+  <p>Get more information on facilitated integration on <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#network-tokenization" target="_blank">Network Tokenization</a></p>
+</blockquote>
+
+<h3 id="option-3-external-integration">Option 3: external integration</h3>
+
+<p>If the merchant uses a gateway or other any other partner that already provides the network token, it is possible to integrate so that the brand will receive the token information.</p>
+
+<blockquote>
+  <p><strong>Available brands:</strong> Visa, Master and Elo.<br />
+<em>For external integration, Cielo is prepared to receive network token from Visa, Mastercard and Elo, but you must verify if the brand is offering tokenization</em>.</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>Eligible products:</strong> API E-commerce Cielo and API 1.5 (deprecated).</p>
+</blockquote>
+
+<p><strong>How to obtain this feature?</strong></p>
+
+<p>The merchant must enable the feature with their gateway/partner and assure that such gateway/partner is integrated with API E-commerce Cielo in order to send the required parameters.</p>
+
+<p><strong>Which transactions are eligible for tokenization?</strong></p>
+
+<p>According to Visa, approximately 90% of card BINs (first six to eight card digits) are already eligible for tokenization, hence Cielo is not able to tokenize 100% of Visa transactions.</p>
+
+<p><strong>What are the costs?</strong></p>
+
+<p>Cielo does not charge any additional fee for merchants integrated with API E-commerce Cielo or API 1.5.</p>
+
+<h1 id="support">Support</h1>
+
+<p>Send us an email at <em>cieloecommerce@cielo.com.br</em>.</p>
+</div>
+
+
+            <div class="footer-conteudo">
+  <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+    <img
+      src="https://developercielo.github.io/en/assets/images/icon-doubt.svg"
+      width="55px"
+      height="53px"
+      alt="Need Help?"
+    />
+  </div>
+
+  <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+    <h2>Need Help?</h2>
+    <p>If you didn't find your answer, <a href="https://devcielo.zendesk.com/hc/pt-br#suporte">send us a message</a>.</p>
+  </div>
+</div>
+
+        </div>
+
+        <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a
+        title="Toggle left column"
+        class="hamburger"
+      >
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+      <a href="https://desenvolvedores.cielo.com.br" target="_blank">
+        <img
+          src="https://developercielo.github.io/en/assets/images/logo.png"
+          alt="Documentações e tutoriais"
+          style="width: 60%; margin-left: 20%"
+        />
+      </a>
+      <div></div>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="fixed-footer">
+      
+      <div class="toc-footer">
+        <h2 class="no-toc toc-footer-title">Complementary materials</h2>
+           
+
+        <ul class="toc-footer">
+            
+          <li>
+            <a
+              href="https://developercielo.github.io/en/manual/cielo-ecommerce"
+              title="The purpose of this documentation is to guide the developer on how to integrate with Cielo's API E-commerce Cielo."
+              
+              >Integration Manual E-commerce Cielo</a
+            >
+          </li>
+             
+          <li>
+            <a
+              href="https://developercielo.github.io/en/tutorial/tutoriais-3-0"
+              title="The purpose of this document is to guide the retailer on how to access the Backoffice of the Cielo e-Commerce API. Describing the functionalities, the methods to be used, listing necessary information and providing examples."
+              
+              >Tutorials</a
+            >
+          </li>
+             
+          <li>
+            <a
+              href="https://developercielo.github.io/en/manual/e-wallets-ecommercecielo"
+              title="E-wallets integration"
+              
+              >E-wallets Manual</a
+            >
+          </li>
+                 
+          <li>
+            <a
+              href="https://developercielo.github.io/en/tutorial/postman"
+              title="O Postman é um API Client que facilita aos desenvolvedores criar, compartilhar, testar e documentar APIs."
+              
+              >Postman Cielo</a
+            >
+          </li>
+           
+        </ul>
+      </div>
+      
+
+      <div class="toc-contact">
+        <div class="contact">
+          <a
+            title="Contact"
+            href="https://devcielo.zendesk.com/"
+          >
+            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+            <span>Contact</span>
+          </a>
+        </div>
+        <div class="github">
+          <a title="GitHub" href="https://github.com/developercielo">
+            <i class="fa fa-github" aria-hidden="true"></i>
+            <span>GitHub</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+        <script src="https://developercielo.github.io/en/assets/bundles/js/bundle.min.js"></script>
+        <script>
+            
+            var selectors = 'h1,h2,h3,h4,h5,h6';
+            
+        </script>
+
+        
+        <script src="https://developercielo.github.io/en/assets/bundles/js/search.min.js"></script>
+        
+
+        
+
+        <!-- Hotjar Tracking Code for https://developercielo.github.io/ -->
+<script>
+  (function (h, o, t, j, a, r) {
+    h.hj =
+      h.hj ||
+      function () {
+        (h.hj.q = h.hj.q || []).push(arguments);
+      };
+    h._hjSettings = { hjid: 674586, hjsv: 6 };
+    a = o.getElementsByTagName("head")[0];
+    r = o.createElement("script");
+    r.async = 1;
+    r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+    a.appendChild(r);
+  })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
+</script>
+
+    </body>
+</html>
