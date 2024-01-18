@@ -9,14 +9,14 @@ categories: tutorial
 sort_order: 5
 tags:
   - 1. API E-commerce
-  - 2. Checkout and Link de Pagamento
+  - 3. Checkout and Link de Pagamento
 ---
 
 # Network tokenization – Visa Mandate
 
 **What is the Visa mandate about tokenization?**
 
-As of February, 2024, Visa will charge an additional fee of 0.05% over the online transaction amount when the transaction is sent with the card data printed in the front of teh card (PAN). The goal is to improve online security through the adoption of the network token.
+As of February, 2024, Visa will charge an additional fee of 0.05% over the online transaction amount when the transaction is sent with sensitive card data (PAN). The goal is to improve online security through the adoption of the network token.
 
 The network token is digital identifier string unique for a card and a merchant that stores and replaces sensitive card data along the transaction flow.
 
@@ -35,11 +35,11 @@ The goal is to improve security and quality of card information traffic, which m
 
 Cielo offers the following options so that the merchant can prepare and avoid additional charges from the card brand:
 
-* Transparent tokenization
-* Facilitated integration
-* External integration
+* **[Transparent tokenization](https://developercielo.github.io/en/tutorial/tokenizacaobandeira#option-1-transparent-tokenization)**
+* **[Facilitated integration](https://developercielo.github.io/en/tutorial/tokenizacaobandeira#option-2-facilitated-integration)**
+* **[External integration](https://developercielo.github.io/en/tutorial/tokenizacaobandeira#option-3-external-integration)**
 
-### Option 1: transparent tokenization
+## Option 1: transparent tokenization
 
 In an effort to reduce financial impact in our clients, Cielo developed a solution that will automatically tokenize all eligible transactions.
 
@@ -75,7 +75,7 @@ If there is a *timeout* or if the card brand/issuer are unavailable and the toke
 
 Merchants can also opt to manage the network token on their own. Continue reading for further information.
 
-### Option 2: facilitated integration
+## Option 2: facilitated integration
 
 In this option, the merchant integrates with Cielo tokenization service, which will create a network token. Thus, merchant will only have one token for a card, but Cielo will have the tokens and cryptograms safely stored and with only one integration.
 
@@ -97,7 +97,7 @@ Cielo does not charge any additional fee for merchants integrated with API E-com
 
 > Get more information on facilitated integration on [Network Tokenization](https://developercielo.github.io/en/manual/cielo-ecommerce#network-tokenization){:target="_blank"}
 
-### Option 3: external integration
+## Option 3: external integration
 
 If the merchant uses a gateway or other any other partner that already provides the network token, it is possible to integrate so that the brand will receive the token information.
 
