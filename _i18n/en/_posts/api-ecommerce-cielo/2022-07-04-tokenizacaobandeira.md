@@ -9,7 +9,7 @@ categories: tutorial
 sort_order: 5
 tags:
   - 1. API E-commerce
-  - 2. Checkout e Link de Pagamento
+  - 2. Checkout and Link de Pagamento
 ---
 
 # Network tokenization – Visa Mandate
