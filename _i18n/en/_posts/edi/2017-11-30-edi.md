@@ -13,11 +13,11 @@ tags:
 
 # Important
 
-## 16/01/2024 - V15 - New version of electronic statements - Documentation and test files
+## V15 - New version of electronic statements - Documentation and test files
 
 Aiming to bring greater transparency and fluidity in the conciliation of extracts, our files will have a new structure in their demonstration.
 
-> This change is expected to be implemented in 01/16/2024
+> This change is expected to be implemented in 05/03/2024.
 
 Below is the communication sent with the details of the changes, test files and complementary documentation to support the homologation.
 
@@ -31,7 +31,7 @@ Below is the communication sent with the details of the changes, test files and 
 
 It is important that the approval of the new structure takes place by the indicated date so as not to impact the reading of the extracts.
 
-> Important! The current version of the extracts will no longer be supported and generated from Apr/24
+> Important! The current version of the extracts will no longer be supported and generated from 03/06/2024.
 
 ![update](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/20231222_atualizacoes_V15_EN.JPG)
 
