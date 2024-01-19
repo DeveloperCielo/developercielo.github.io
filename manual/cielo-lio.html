@@ -3357,7 +3357,7 @@ no arquivo de manifesto a seguinte permissão:</p>
     <tr>
       <td>cbType</td>
       <td>Forma que deseja receber o retorno da operação</td>
-      <td>I - Intent</td>
+      <td>A - Activity</td>
     </tr>
     <tr>
       <td> </td>
@@ -3507,7 +3507,7 @@ no arquivo de manifesto a seguinte permissão:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>B -&gt; Broadcast
 S -&gt; Service
-I -&gt; Intent
+A -&gt; Activity
 </code></pre></div></div>
 
 <h4 id="authenticate">Authenticate</h4>
@@ -3664,7 +3664,7 @@ Exemplo de chamada <strong>deactivate</strong>:</p>
 
 <p>Abaixo disponibilizando uma classe de exemplo que consume a API do Mifare, a implementação está em Kotlin e o modo de consumo escolhido foi o broadcast.</p>
 
-<p>Classe de Exemplo Mifare Callback Receiver</p>
+<p>Exemplo de solução que trata o retorno das operações mifare utilizando broadcast</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">MainActivity</span> <span class="p">:</span> <span class="nc">ComponentActivity</span><span class="p">()</span> <span class="p">{</span>
 
