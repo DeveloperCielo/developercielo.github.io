@@ -13,7 +13,7 @@ tags:
 
 # Importante
 
-V15 - Nova versão dos extratos eletrônicos - Documentação e arquivos de teste
+## V15 - Nova versão dos extratos eletrônicos - Documentação e arquivos de teste
 
 Visando trazer maior transparência e fluidez na conciliação dos extratos, os nossos arquivos terão uma nova estrutura em sua demonstração.
 
