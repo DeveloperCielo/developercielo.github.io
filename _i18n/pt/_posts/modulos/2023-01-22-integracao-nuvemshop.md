@@ -79,7 +79,7 @@ Solicite ao nosso atendimento a inclusão da URL de notificação da seguinte fo
 * *Transações de boleto conciliadas*
 * *Transações de Pix atualizadas*
 
-**Atenção:** A inclusão de URL de notificação também se aplica aos outros meios de pagamento e Pix pode ser solicitado uma única vez.
+<aside class="notice">A inclusão de URL de notificação também se aplica aos outros meios de pagamento e Pix pode ser solicitado uma única vez.</aside>
 
 #### Conciliação manual de boletos
 
@@ -97,7 +97,7 @@ A opção Cartão de Crédito vem selecionada e não será possível retirar ess
 |Valor mínimo da Parcela|Valor mínimo em que o pedido pode ser dividido em cada parcela.|
 |Nome da Loja (exibido na fatura)|Informação apresentada na fatura do cartão do comprador. Não aceita caracteres especiais. Apenas 13 caracteres.|
 
-**Atenção**: o pagamento com cartão de crédito só é possível para pedidos a partir de R$1,00. Se o valor for inferior, o pagamento deve ser realizado com boleto ou pix.
+<aside class="notice">O pagamento com cartão de crédito só é possível para pedidos a partir de R$1,00. Se o valor for inferior, o pagamento deve ser realizado com boleto ou pix.</aside>
 
 ### Pix
 
@@ -115,6 +115,6 @@ Solicite ao nosso inclusão URL de notificação da seguinte forma:
 * *Transações de boleto conciliadas*
 * *Transações de Pix atualizadas*
 
-**Atenção:** A inclusão de URL de notificação também se aplica aos outros meios de pagamento e Pix pode ser solicitado uma única vez.
+<aside class="notice">A inclusão de URL de notificação também se aplica aos outros meios de pagamento e Pix pode ser solicitado uma única vez.</aside>
 
-A Cielo não permite contratação de Pix Pessoa Física.
+<aside class="warning">A Cielo não permite contratação de Pix Pessoa Física.</aside>
