@@ -59,8 +59,8 @@ Para que nossa integração atualize os status do pagamento, siga as orientaçõ
 
 Solicite ao nosso atendimento a inclusão da URL de notificação da seguinte forma:
 
-**Destinatário**: cieloecommerce@cielo.com.br
-**Assunto**: [Nuvemshop] Atualizar URL de notificação
+**Destinatário**: cieloecommerce@cielo.com.br<br>
+**Assunto**: [Nuvemshop] Atualizar URL de notificação<br>
 **Texto**:
 
 *Favor atualizar na loja EC (insira número EC da loja) a seguinte URL: https://cielo-nuvemshop.herokuapp.com/api/v1/webhooks/cielo/orders*
@@ -95,8 +95,8 @@ A opção Cartão de Crédito vem selecionada e não será possível retirar ess
 
 Solicite ao nosso inclusão URL de notificação da seguinte forma: 
 
-**Destinatário**: cieloecommerce@cielo.com.br
-**Assunto**: [Nuvemshop] Atualizar URL de notificação
+**Destinatário**: cieloecommerce@cielo.com.br<br>
+**Assunto**: [Nuvemshop] Atualizar URL de notificação<br>
 **Texto**:
 
 *Favor atualizar na loja EC (insira número EC da loja) a seguinte URL: https://cielo-nuvemshop.herokuapp.com/api/v1/webhooks/cielo/orders*
