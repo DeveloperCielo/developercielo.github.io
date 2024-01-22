@@ -28,6 +28,8 @@ Para editar o aplicativo Cielo, siga os mesmos passos acima e clique em **Editar
 
 Se não possui cadastro Cielo, siga as instruções para fazer o cadastro. Se já possui, faça login.
 
+![Tela inicial de cadastro]({{ site.baseurl_root }}/images/modulos/nuvemshop/01inicial.png)
+
 ### Lojista sem cadastro Cielo
 
 Se ainda não possui cadastro Cielo, selecione a opção **Ainda não é cliente Cielo?**. Na página seguinte selecione a opção **Criar Agora** e preencha os dados requisitados.
@@ -40,9 +42,15 @@ Se já possui cadastro Cielo, selecione a opção **Já é cliente Cielo?**. Na 
 
 Ao fazer login na plataforma Nuvemshop, a tela de configuração do aplicativo será exibida.
 
+![Cadastrados Cielo]({{ site.baseurl_root }}/images/modulos/nuvemshop/02clientecielo.png)
+
+![Login Cielo]({{ site.baseurl_root }}/images/modulos/nuvemshop/03login.png)
+
 ## Preenchendo os dados da integração
 
 Informe as credenciais `MerchantID` e `MerchantKey`. Caso necessite recuperar essas informações, consulte [esse documento](https://developercielo.github.io/attachment/merchantid-merchantkey-cielo-2023.pdf){:target="_blank"}.
+
+![Dados integração]({{ site.baseurl_root }}/images/modulos/nuvemshop/04integracao.png)
 
 |CAMPO|DESCRIÇÃO|
 |--|--|
