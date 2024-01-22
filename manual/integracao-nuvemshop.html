@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="theme-color" content="#00aeef" />
+  <meta http-equiv="Content-Language" content="pt" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1"
+  />
+
+  <title>
+     Integração Nuvemshop &middot; Documentações e tutoriais 
+  </title>
+
+  <link rel="shortcut icon" href="https://developercielo.github.io/assets/favicon.ico" />
+
+  <!-- CSS -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500"
+    rel="stylesheet"
+    media="none"
+    onload="if(media!='all')media='all'"
+  />
+  <script async src="https://use.fontawesome.com/3ae06f1030.js"></script>
+
+  <link
+    rel="stylesheet"
+    href="https://developercielo.github.io/assets/bundles/css/bundle.min.css"
+  />
+
+   
+  <link
+    rel="alternate"
+    hreflang="pt"
+    href="https://developercielo.github.io/manual/integracao-nuvemshop"
+  />
+    
+  <link
+    rel="alternate"
+    hreflang="en"
+    href="https://developercielo.github.io/en/manual/integracao-nuvemshop"
+  />
+   
+
+  <!-- RSS -->
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="RSS"
+    href="https://developercielo.github.io/atom.xml"
+  />
+</head>
+
+    <body>
+        
+        <div class="content-container no-dark-box">
+        
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="https://devcielo.zendesk.com/hc/pt-br#suporte" class="help">Ajuda</a>
+
+                            
+                            <div class="lang">
+                                <span>Idiomas</span>
+
+                                
+                                    
+                                    <a href="https://developercielo.github.io/manual/integracao-nuvemshop">
+                                    
+
+                                        <img alt="Português" src="https://developercielo.github.io/assets/images/pt.png"/>
+                                    </a>
+                                
+                                    
+                                    <a href="https://developercielo.github.io/en/manual/integracao-nuvemshop">
+                                    
+
+                                        <img alt="English" src="https://developercielo.github.io/assets/images/en.png"/>
+                                    </a>
+                                
+                            </div>
+                            
+                        </div>
+
+                        
+                        <div class="search">
+                            <input type="text" class="search" id="input-search">
+                        </div>
+                    </div>
+                    <div class="submenu-row results">
+                        <div class="search-results-container">
+                            <ul class="search-results"></ul>
+                        </div>
+                    </div>
+                        
+
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="/">Início</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="https://developercielo.github.io/manual/integracao-nuvemshop">Integração Nuvemshop</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post"><h1 id="integração-nuvemshop">Integração Nuvemshop</h1>
+
+<p>A Cielo desenvolveu um conector na plataforma <strong>Nuvemshop</strong> para realização do pagamento através da API Ecommerce Cielo. A usabilidade da plataforma deve ser consultada no portal da <a href="https://atendimento.nuvemshop.com.br/" target="_blank">Nuvemshop</a>.</p>
+
+<p>Para usar o conector, é necessário ter um contrato com a <a href="https://minhaconta2.cielo.com.br/site/login" target="_blank">Cielo</a> e assegure que você possui os dados <strong>MerchantID</strong> e <strong>MerchantKey</strong>, que foram fornecidos no momento do seu cadastro. Se ainda não possuir contrato com a Cielo, acesse [Lojista sem cadastro Cielo].</p>
+
+<p>Caso necessite recuperar essas informações, consulte <a href="https://developercielo.github.io/attachment/merchantid-merchantkey-cielo-2023.pdf" target="_blank">esse documento</a>.</p>
+
+<h1 id="configuração">Configuração</h1>
+
+<p>Acesse a página de administração da sua loja (https://<em>NomeLoja</em>.lojavirtualnuvem.com.br/admin) e comece a navegação por <strong>Potencializar</strong> &gt; <strong>Meus aplicativos</strong> &gt; <strong>Ver todos os aplicativos</strong> &gt; Navegue na página até Cielo e clique em <strong>Instalar</strong>. Você também pode usar um caminho alternativo, começando por <strong>Configuração</strong> &gt; <strong>Meios de Pagamento</strong> &gt; Navegue na página até Cielo e clique em <strong>Configurar</strong>.</p>
+
+<p>Para editar o aplicativo Cielo, siga os mesmos passos acima e clique em <strong>Editar</strong>.</p>
+
+<h2 id="cadastro">Cadastro</h2>
+
+<p>Se não possui cadastro Cielo, siga as instruções para fazer o cadastro. Se já possui, faça login.</p>
+
+<h3 id="lojista-sem-cadastro-cielo">Lojista sem cadastro Cielo</h3>
+
+<p>Se ainda não possui cadastro Cielo, selecione a opção <strong>Ainda não é cliente Cielo?</strong>. Na página seguinte selecione a opção <strong>Criar Agora</strong> e preencha os dados requisitados.</p>
+
+<p>Entre em contato com a nossa central para continuar o onboarding e forneça informações de cadastro para Pessoa Física ou Pessoa Jurídica.</p>
+
+<h3 id="lojista-com-cadastro-cielo">Lojista com cadastro Cielo</h3>
+
+<p>Se já possui cadastro Cielo, selecione a opção <strong>Já é cliente Cielo?</strong>. Na página seguinte selecione <strong>Ative Aqui</strong> e <strong>Faça login na Nuvemshop</strong>.</p>
+
+<p>Ao fazer login na plataforma Nuvemshop, a tela de configuração do aplicativo será exibida.</p>
+
+<h2 id="preenchendo-os-dados-da-integração">Preenchendo os dados da integração</h2>
+
+<p>Informe as credenciais <code class="language-plaintext highlighter-rouge">MerchantID</code> e <code class="language-plaintext highlighter-rouge">MerchantKey</code>. Caso necessite recuperar essas informações, consulte <a href="https://developercielo.github.io/attachment/merchantid-merchantkey-cielo-2023.pdf" target="_blank">esse documento</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>CAMPO</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantID</code></td>
+      <td>Identificador da loja na API E-commerce Cielo.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
+      <td>Chave da loja para acesso à API E-commerce Cielo.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="meios-de-pagamento">Meios de pagamento</h2>
+
+<p>Ative os meios de pagamento que deseja exibir como opções possíveis na tela de checkout.</p>
+
+<h3 id="boleto">Boleto</h3>
+
+<p>Para que nossa integração atualize os status do pagamento, siga as orientações do <a href="https://developercielo.github.io/tutorial/manual-boleto#concilia%C3%A7%C3%A3o-manual-de-boletos" target="_blank">Manual Boletos</a>.</p>
+
+<p>Solicite ao nosso atendimento a inclusão da URL de notificação da seguinte forma:</p>
+
+<p><strong>Destinatário</strong>: cieloecommerce@cielo.com.br
+<strong>Assunto</strong>: [Nuvemshop] Atualizar URL de notificação
+<strong>Texto</strong>:</p>
+
+<p><em>Favor atualizar na loja EC (insira número EC da loja) a seguinte URL: https://cielo-nuvemshop.herokuapp.com/api/v1/webhooks/cielo/orders</em>
+<em>Habilitar a notificação para:</em></p>
+
+<ul>
+  <li><em>Transações de cartão (crédito ou débito) capturadas</em></li>
+  <li><em>Transações de cartão (crédito ou débito) canceladas</em></li>
+  <li><em>Transações de boleto conciliadas</em></li>
+  <li><em>Transações de Pix atualizadas</em></li>
+</ul>
+
+<p><strong>Atenção:</strong> A inclusão de URL de notificação também se aplica aos outros meios de pagamento e Pix pode ser solicitado uma única vez.</p>
+
+<h4 id="conciliação-manual-de-boletos">Conciliação manual de boletos</h4>
+
+<p>Para conciliar o boleto de forma manual, localize o pedido no site Cielo e dentro dos <strong>Detalhes da Transação</strong> localize o botão <strong>Conciliar</strong>.</p>
+
+<p>Desta forma o pedido terá o status alterado de <strong>Não Pago</strong> para <strong>Pago</strong>.</p>
+
+<h3 id="cartão-de-crédito">Cartão de crédito</h3>
+
+<p>A opção Cartão de Crédito vem selecionada e não será possível retirar esse meio de pagamento do checkout.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>CAMPO</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Quantidade de Parcelas</td>
+      <td>Número de parcelas que o lojista deseja aceitar no pedido. Insira 1 se não deseja habilitar parcelas.</td>
+    </tr>
+    <tr>
+      <td>Valor mínimo da Parcela</td>
+      <td>Valor mínimo em que o pedido pode ser dividido em cada parcela.</td>
+    </tr>
+    <tr>
+      <td>Nome da Loja (exibido na fatura)</td>
+      <td>Informação apresentada na fatura do cartão do comprador. Não aceita caracteres especiais. Apenas 13 caracteres.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Atenção</strong>: o pagamento com cartão de crédito só é possível para pedidos a partir de R$1,00. Se o valor for inferior, o pagamento deve ser realizado com boleto ou pix.</p>
+
+<h3 id="pix">Pix</h3>
+
+<p>Solicite ao nosso inclusão URL de notificação da seguinte forma:</p>
+
+<p><strong>Destinatário</strong>: cieloecommerce@cielo.com.br
+<strong>Assunto</strong>: [Nuvemshop] Atualizar URL de notificação
+<strong>Texto</strong>:</p>
+
+<p><em>Favor atualizar na loja EC (insira número EC da loja) a seguinte URL: https://cielo-nuvemshop.herokuapp.com/api/v1/webhooks/cielo/orders</em>
+<em>Habilitar a notificação para:</em></p>
+
+<ul>
+  <li><em>Transações de cartão (crédito ou débito) capturadas</em></li>
+  <li><em>Transações de cartão (crédito ou débito) canceladas</em></li>
+  <li><em>Transações de boleto conciliadas</em></li>
+  <li><em>Transações de Pix atualizadas</em></li>
+</ul>
+
+<p><strong>Atenção:</strong> A inclusão de URL de notificação também se aplica aos outros meios de pagamento e Pix pode ser solicitado uma única vez.</p>
+
+<p>A Cielo não permite contratação de Pix Pessoa Física.</p>
+</div>
+
+
+            <div class="footer-conteudo">
+  <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+    <img
+      src="https://developercielo.github.io/assets/images/icon-doubt.svg"
+      width="55px"
+      height="53px"
+      alt="Precisa de ajuda?"
+    />
+  </div>
+
+  <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+    <h2>Precisa de ajuda?</h2>
+    <p>Se você não conseguiu encontrar sua resposta acima, <a href="https://devcielo.zendesk.com/hc/pt-br#suporte">entre em contato conosco</a>.</p>
+  </div>
+</div>
+
+        </div>
+
+        <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a
+        title="Comutar a coluna da esquerda"
+        class="hamburger"
+      >
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+      <a href="https://desenvolvedores.cielo.com.br" target="_blank">
+        <img
+          src="https://developercielo.github.io/assets/images/logo.png"
+          alt="Documentações e tutoriais"
+          style="width: 60%; margin-left: 20%"
+        />
+      </a>
+      <div></div>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="fixed-footer">
+      
+
+      <div class="toc-contact">
+        <div class="contact">
+          <a
+            title="Contato"
+            href="https://devcielo.zendesk.com/"
+          >
+            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+            <span>Contato</span>
+          </a>
+        </div>
+        <div class="github">
+          <a title="GitHub" href="https://github.com/developercielo">
+            <i class="fa fa-github" aria-hidden="true"></i>
+            <span>GitHub</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+        <script src="https://developercielo.github.io/assets/bundles/js/bundle.min.js"></script>
+        <script>
+            
+            var selectors = 'h1,h2,h3,h4,h5,h6';
+            
+        </script>
+
+        
+        <script src="https://developercielo.github.io/assets/bundles/js/search.min.js"></script>
+        
+
+        
+
+        <!-- Hotjar Tracking Code for https://developercielo.github.io/ -->
+<script>
+  (function (h, o, t, j, a, r) {
+    h.hj =
+      h.hj ||
+      function () {
+        (h.hj.q = h.hj.q || []).push(arguments);
+      };
+    h._hjSettings = { hjid: 674586, hjsv: 6 };
+    a = o.getElementsByTagName("head")[0];
+    r = o.createElement("script");
+    r.async = 1;
+    r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+    a.appendChild(r);
+  })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
+</script>
+
+    </body>
+</html>
