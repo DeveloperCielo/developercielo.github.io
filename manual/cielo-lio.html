@@ -2505,7 +2505,7 @@ Assim que possuir a instância da Order, utilize o método abaixo passando os pa
   </tbody>
 </table>
 
-<p><strong>Métodos disponíveis na classe Mifare</strong></p>
+<h3 id="métodos-disponíveis-na-classe-mifare">Métodos disponíveis na classe Mifare</h3>
 
 <p>A classe <code class="language-plaintext highlighter-rouge">Mifare</code> disponibiliza todos os métodos necessários para implementar a solução cashless no seu aplicativo.</p>
 
@@ -2561,63 +2561,63 @@ Assim que possuir a instância da Order, utilize o método abaixo passando os pa
   </tbody>
 </table>
 
-<p><strong>Detect</strong></p>
+<h4 id="detect">Detect</h4>
 
 <p>O método detect é o responsável por ligar a antena e esperar pela aproximação do cartão. Possui como parâmetro o <code class="language-plaintext highlighter-rouge">MifareCallback</code> que apresentamos anteriormente, com o resultado da operação.</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mifare</span><span class="o">.</span><span class="na">detect</span><span class="o">(</span><span class="n">mifareCallback</span><span class="o">)</span>
 </code></pre></div></div>
 
-<p><strong>Authenticate</strong></p>
+<h4 id="authenticate">Authenticate</h4>
 
 <p>O método responsável por autenticar-se no setor, para que possa operar no mesmo. No objeto <code class="language-plaintext highlighter-rouge">mifareRequest</code> é importante que tenha as informações de setor, chave e tipo de chave (<code class="language-plaintext highlighter-rouge">sector</code>,<code class="language-plaintext highlighter-rouge">key</code>, <code class="language-plaintext highlighter-rouge">keyType</code>).</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mifare</span><span class="o">.</span><span class="na">authenticate</span><span class="o">(</span><span class="n">mifareRequest</span><span class="o">,</span> <span class="n">mifareCallback</span><span class="o">)</span>
 </code></pre></div></div>
 
-<p><strong>ReadData</strong></p>
+<h4 id="readdata">ReadData</h4>
 
 <p>Após realizar a autenticação no respectivo setor, é possível realizar a leitura dos blocos através deste método. No objeto <code class="language-plaintext highlighter-rouge">mifareRequest</code> é importante que tenha as informações de setor e do bloco.</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mifare</span><span class="o">.</span><span class="na">readData</span><span class="o">(</span><span class="n">mifareRequest</span><span class="o">,</span> <span class="n">mifareCallback</span><span class="o">)</span>
 </code></pre></div></div>
 
-<p><strong>WriteData</strong></p>
+<h4 id="writedata">WriteData</h4>
 
 <p>Este método permite que um conteúdo seja escrito em um setor e bloco específico. No objeto <code class="language-plaintext highlighter-rouge">mifareRequest</code> é importante que tenha as informações de setor, bloco e data.</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mifare</span><span class="o">.</span><span class="na">writeData</span><span class="o">(</span><span class="n">mifareRequest</span><span class="o">,</span> <span class="n">mifareCallback</span><span class="o">)</span>
 </code></pre></div></div>
 
-<p><strong>Increment</strong></p>
+<h4 id="increment">Increment</h4>
 
 <p>Este método é dedicado à operação de incremento, podendo ser utilizada em blocos valor. No objeto <code class="language-plaintext highlighter-rouge">mifareRequest</code> é importante que tenha as informações de setor, bloco e valor.</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mifare</span><span class="o">.</span><span class="na">increment</span><span class="o">(</span><span class="n">mifareRequest</span><span class="o">,</span> <span class="n">mifareCallback</span><span class="o">)</span>
 </code></pre></div></div>
 
-<p><strong>Decrement</strong></p>
+<h4 id="decrement">Decrement</h4>
 
 <p>Seguindo os mesmos princípios da função “Increment”, é responsável pelo método de decremento em blocos valor. No objeto <code class="language-plaintext highlighter-rouge">mifareRequest</code> é importante que tenha as informações de setor, bloco e valor.</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mifare</span><span class="o">.</span><span class="na">decrement</span><span class="o">(</span><span class="n">mifareRequest</span><span class="o">,</span> <span class="n">mifareCallback</span><span class="o">)</span>
 </code></pre></div></div>
 
-<p><strong>Deactivate</strong></p>
+<h4 id="deactivate">Deactivate</h4>
 
 <p>O método responsável por desativar o serviço, use-o quando estiver terminado. Ele retornará um callback DEACTIVATE.</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mifare</span><span class="o">.</span><span class="na">deactivate</span><span class="o">(</span><span class="n">mifareCallback</span><span class="o">)</span>
 </code></pre></div></div>
 
-<p><strong>Backup</strong></p>
+<h4 id="backup">Backup</h4>
 
 <p>O método responsável por ler dados de um bloco e transferi-los para um novo bloco. No objeto <code class="language-plaintext highlighter-rouge">mifareRequest</code> é importante que tenha as informações de setor, bloco e bloco de destino.</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mifare</span><span class="o">.</span><span class="na">backup</span><span class="o">(</span><span class="n">mifareRequest</span><span class="o">,</span> <span class="n">mifareCallback</span><span class="o">)</span>
 </code></pre></div></div>
 
-<p><strong>Restore</strong></p>
+<h4 id="restore">Restore</h4>
 
 <p>O método responsável por restaurar os dados de um setor de um bloco para outro. No objeto <code class="language-plaintext highlighter-rouge">mifareRequest</code> é importante que tenha as informações de setor, bloco e bloco de destino.</p>
 
@@ -3501,7 +3501,7 @@ no arquivo de manifesto a seguinte permissão:</p>
   <li>Restore</li>
 </ul>
 
-<h4 id="detect">Detect</h4>
+<h4 id="detect-1">Detect</h4>
 
 <p>Operação responsável por ligar a antena e esperar pela aproximação do cartão. Para chamadas com sucesso, dentro da intent de retorno teremos o parâmetro esult com valor R00, caso encontre outro valor será um retorno de erro.</p>
 
@@ -3522,7 +3522,7 @@ S -&gt; Service
 A -&gt; Activity
 </code></pre></div></div>
 
-<h4 id="authenticate">Authenticate</h4>
+<h4 id="authenticate-1">Authenticate</h4>
 
 <p>Operação responsável por autenticar-se no setor, para que possa operar no mesmo. É importante estar contido na intent as informações de setor, chave e tipo de chave (sector, key, keyType).</p>
 
@@ -3572,7 +3572,7 @@ A -&gt; Activity
     <span class="o">.</span><span class="na">let</span><span class="o">(::</span><span class="n">startService</span><span class="o">)</span>
 </code></pre></div></div>
 
-<h4 id="increment">Increment</h4>
+<h4 id="increment-1">Increment</h4>
 
 <p>Operação responsável pelo incremento de valor em um bloco específico. É importante conter na intent as informações de setor, do bloco e valor (sector, block e value).</p>
 
@@ -3589,7 +3589,7 @@ A -&gt; Activity
     <span class="o">.</span><span class="na">let</span><span class="o">(::</span><span class="n">startService</span><span class="o">)</span>
 </code></pre></div></div>
 
-<h4 id="decrement">Decrement</h4>
+<h4 id="decrement-1">Decrement</h4>
 
 <p>Operação responsável pelo decremento de valor em um bloco específico. É importante conter na intent as informações de setor, do bloco e valor (sector, block e value).
 Exemplo de chamada <strong>decrement</strong>:</p>
@@ -3605,7 +3605,7 @@ Exemplo de chamada <strong>decrement</strong>:</p>
     <span class="o">.</span><span class="na">let</span><span class="o">(::</span><span class="n">startService</span><span class="o">)</span>
 </code></pre></div></div>
 
-<h4 id="deactivate">Deactivate</h4>
+<h4 id="deactivate-1">Deactivate</h4>
 
 <p>Operação de encerramento do serviço, use-o quando estiver terminado. 
 Exemplo de chamada <strong>deactivate</strong>:</p>
@@ -3643,7 +3643,7 @@ Exemplo de chamada <strong>deactivate</strong>:</p>
     <span class="o">.</span><span class="na">let</span><span class="o">(::</span><span class="n">startService</span><span class="o">)</span>
 </code></pre></div></div>
 
-<h4 id="retorno-das-operações-para-o-aplicativo-do-cliente">Retorno das operações para o aplicativo do cliente.</h4>
+<h3 id="retorno-das-operações-para-o-aplicativo-do-cliente">Retorno das operações para o aplicativo do cliente.</h3>
 
 <p>Os componentes para tratar os retornos para as operações que acabamos de descrever podem ser variados (broadcast, service, intent), o que todos têm em comum é que passamos uma <em>intent</em> como parâmetro, nesta teremos os seguintes atributos:</p>
 
@@ -3676,9 +3676,9 @@ Exemplo de chamada <strong>deactivate</strong>:</p>
 
 <p>Abaixo disponibilizando uma classe de exemplo que consume a API do Mifare, a implementação está em Kotlin e o modo de consumo escolhido foi o broadcast.</p>
 
-<h3 id="exemplo-de-classe-para-tratamento-utilizando-broadcast">Exemplo de classe para tratamento utilizando broadcast</h3>
+<h4 id="exemplo-de-classe-para-tratamentodo-retorno-utilizando-broadcast">Exemplo de classe para tratamentodo retorno utilizando broadcast</h4>
 
-<p>Abaixo disponiblizamos um exemplo de solução que trta o retorno das operações mifare utilizando broadcast</p>
+<p>Abaixo disponiblizamos um exemplo de solução que trata o retorno das operações mifare utilizando broadcast</p>
 
 <p><a href="https://gist.github.com/vitorxsilva/ce74101755f4b3acc77c2dc988b4d60f">Clique aqui</a> para ver exemplo de solução.</p>
 
