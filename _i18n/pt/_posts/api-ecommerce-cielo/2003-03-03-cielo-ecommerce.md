@@ -95,7 +95,7 @@ A versão atual da API E-commerce Cielo possui suporte às seguintes bandeiras e
 | Visa             | Sim             | Sim                    | Sim    | _Não_   | Sim           |
 | Master Card      | Sim             | Sim                    | Sim    | _Não_   | Sim           |
 | American Express | Sim             | Sim                    | _Não_  | _Não_   | Sim           |
-| Elo              | Sim             | Sim                    | _Não_  | _Não_   | Sim           |
+| Elo              | Sim             | Sim                    | Sim    | _Não_   | Sim           |
 | Diners Club      | Sim             | Sim                    | _Não_  | _Não_   | Sim           |
 | Discover         | Sim             | Não                    | _Não_  | _Não_   | Sim           |
 | JCB              | Sim             | Sim                    | _Não_  | _Não_   | Sim           |
