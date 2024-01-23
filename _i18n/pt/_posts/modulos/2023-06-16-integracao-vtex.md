@@ -241,7 +241,7 @@ O novo conector CieloEcommerce será o único conector disponível a partir de *
 As seguintes mudanças acontecerão:
 
 |CAMPO|CIELOECOMMERCE (NOVO)|CIELO (LEGADO)|CIELO V3 (LEGADO)|BRASPAG (LEGADO)|BRASPAG V2/CIELO V4/CIELO ECOMMERCE (ATUAL)|
-|-|-|-|-|-|-|
+|--|--|--|--|--|--|
 |`MerchantOrderId`|Número de identificação do pedido.<br>**Cielo:** `MerchantOrderId`|Campo permanece o mesmo.|Campo permanece o mesmo.| Neste campo era utilizada a informação `reference` da VTEX e agora será utilizada a `orderId` da VTEX.|Campo permanece o mesmo.|
 |`Tid`|Id da transação no provedor de meio de pagamento.<br>**Cielo:** `AcquirerTransactionID`/`Tid`|Campo permanece o mesmo.|Campo permanece o mesmo.|O `PaymentId`` que era informado neste campo agora será informado no metadados `PaymentID_Cielo`.|Campo permanece o mesmo.|
 |`Returncode`|Código de retorno da operação.<br>**Cielo:** `ReasonCode`/ `ProviderReturnCode`/`ReturnCode`|Campo permanece o mesmo.|Campo permanece o mesmo.|Campo permanece o mesmo.|Campo permanece o mesmo.|
