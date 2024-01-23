@@ -94,7 +94,7 @@ The current version of Cielo Webservice supports the following issuers and produ
 | Visa             | Yes           | Yes                      | Yes   | _No_    | Yes           |
 | Master Card      | Yes           | Yes                      | Yes   | _No_    | Yes           |
 | American Express | Yes           | Yes                      | _No_  | _No_    | Yes           |
-| Elo              | Yes           | Yes                      | _No_  | _No_    | Yes           |
+| Elo              | Yes           | Yes                      | Yes   | _No_    | Yes           |
 | Diners Club      | Yes           | Yes                      | _No_  | _No_    | Yes           |
 | Discover         | Yes           | _No_                     | _No_  | _No_    | Yes           |
 | JCB              | Yes           | Yes                      | _No_  | _No_    | Yes           |
