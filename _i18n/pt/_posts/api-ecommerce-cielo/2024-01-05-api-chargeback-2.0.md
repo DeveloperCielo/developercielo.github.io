@@ -778,69 +778,65 @@ Este serviço disponibiliza o documento enviado pelo emissor para download.
 
 # Dúvidas frequentes
 
-1. **O que é uma contestação?**
+**1. O que é uma contestação?**
 
-É quando o titular do cartão identifica algum problema na transação, como suspeita de fraude ou desacordo com o lojista. Então, ele entra em contato com o Banco Emissor do cartão para relatar o ocorrido e é iniciado o processo de disputa. Além de contestação, esse processo também é chamado de Chargeback. E todo o fluxo de disputa é regulamentado pelas bandeiras dos cartões, que determinam as regras de disputa, como quem ganha e quem perde, por exemplo.
+É quando a pessoa titular do cartão identifica algum problema na transação, como suspeita de fraude ou desacordo com a loja. Então, a pessoa titular do cartão entra em contato com o banco emissor do cartão para relatar o ocorrido e é iniciado o processo de disputa. Além de contestação, esse processo também é chamado de chargeback. E todo o fluxo de disputa é regulamentado pelas bandeiras dos cartões, que determinam as regras de disputa, como quem ganha e quem perde, por exemplo.
 
-2. **Como eu posso me defender dessas contestações?**
+**2. Como eu posso me defender dessas contestações?**
 
-Quando uma compra é contestada, você tem 2 opções:
+Quando uma compra é contestada, você tem duas opções:
 
-- Aceitar e permitir o estorno do valor da venda;
-- Se defender e evitar que o valor seja estornado.
+* Aceitar e permitir o estorno do valor da venda;
+* Se defender e evitar que o valor seja estornado.
 
 Suas ações durante o processo de chargeback são chamadas de tratativas. A tratativa pode ser realizada dentro do App Cielo Gestão, Site Cielo ou através da API de Chargeback Cielo, que é o tema deste documento.
 
-3.   **Para dar início ao processo de integração com API de Chargeback, quais informações devo passar e para quem devo solicitar o cadastro?**
+**3. Para dar início ao processo de integração com a API de Chargeback, quais informações devo passar e para quem devo solicitar o cadastro?**
 
-Seguir o passo a passo descrito no item Integração com API de Chargeback.
+Siga o passo a passo descrito no item [Integração com API de Chargeback](https://developercielo.github.io/manual/api-chargeback-2-0#integra%C3%A7%C3%A3o-com-api-de-chargeback).
 
-4. **Caso eu esteja integrado com a API da Braspag, posso migrar para API de Chargeback da Cielo?**
+**4. Caso eu esteja integrado com a API Risk Notification (Braspag), posso migrar para API de Chargeback da Cielo?**
 
-Sim, nós recomendamos que essa migração ocorra, justamente porque a API de Chargeback da Cielo oferece benefícios em relação a API da Braspag. Entre eles, podemos listar:
+Sim, nós recomendamos que essa migração ocorra, justamente porque a API de Chargeback da Cielo oferece benefícios em relação a API Risk Notification. Entre eles, podemos listar:
 
-- Um aumento de prazo no tratamento das contestações em 3 dias. Ou seja, a API Braspag tem 7 dias e a Cielo 10 dias.
-- Um leque maior de formatos de documentos aceitos. A API Braspag aceita apenas .tiff, enquanto a Cielo aceita pdf e jpeg também.
-- A consulta do status da contestação (serviço ciclo de vida), dando maior visibilidade e capacidade de gestão das contestações tratadas.
-- A consulta do documento adicionado na defesa (serviço consulta de documento).
-- A consulta do documento enviado pelo Emissor.
+* Um aumento de prazo no tratamento das contestações em 3 dias. Ou seja, a API Risk Notification tem 7 dias e a Cielo 10 dias;
+* Um leque maior de formatos de documentos aceitos. A API Risk Notification aceita apenas TIFF, enquanto a Cielo aceita PDF e JPEG também;
+* A consulta do status da contestação (serviço ciclo de vida), dando maior visibilidade e capacidade de gestão das contestações tratadas;
+* A consulta do documento adicionado na defesa (serviço consulta de documento);
+* A consulta do documento enviado pelo emissor.
 
-Para realizar a migração, solicite ao seu Gerente de Negócios o descadastramento da API da Braspag e a integração com a API de Chargeback Cielo. Durante o período de integração com API de Chargeback Cielo (desde o momento do descadastro da API Braspag até o momento da integração com a nova API), você deverá administrar seus chargebacks pelo Site Cielo.
+Para realizar a migração, solicite ao seu Gerente de Negócios o descadastramento da API Risk Notification Braspag e a integração com a API de Chargeback Cielo. Durante o período de integração com API de Chargeback Cielo (desde o momento do descadastro da API Braspag até o momento da integração com a nova API), você deverá administrar seus chargebacks pelo site Cielo.
 
-5. **Como consultar uma contestação na API?**
+**5. Como consultar uma contestação na API?**
 
-No serviço Consulta de contestações pendentes ou tratadas, você consegue visualizar tanto as contestações que estão pendentes (status PENDING) quanto as que já foram tratadas (status DONE).
+No serviço **Consultar contestações pendentes ou tratadas**, você consegue visualizar tanto as contestações que estão pendentes (status PENDING) quanto as que já foram tratadas (status DONE).
 
 Para visualizar as contestações que estão pendentes de tratamento, basta informar o número do estabelecimento que deseja consultar, e para as já tratadas, você também deve especificar um período.
 
-6. **Posso realizar uma consulta para todos os estabelecimentos abaixo da minha matriz?**
+**6. Posso realizar uma consulta para todos os estabelecimentos abaixo da minha matriz?**
 
-Sim, nós recomendamos que você consulte sempre pelo seu estabelecimento matriz, pois dessa forma você visualiza todas as contestações dos demais estabelecimentos abaixo daquela matriz selecionada. Na API, o número do estabelecimento individual que recebeu a contestação é representado pelo campo establishmentNumber e o número do estabelecimento matriz é o mainCustomer. Então, no serviço de consulta, você só precisa preencher o campo mainCustomer, assim você vai obter todas as contestações abaixo da sua hierarquia de Raiz de CNPJ. Caso queira visualizar as contestações abaixo de um outro tipo de hierarquia, como por exemplo um Grupo de Pagamento, você deverá preencher também o campo hierarchyType para especificar o tipo de matriz a ser consultada.
+Sim, nós recomendamos que você consulte sempre pelo seu estabelecimento matriz, pois dessa forma você visualiza todas as contestações dos demais estabelecimentos abaixo daquela matriz selecionada. Na API, o número do estabelecimento individual que recebeu a contestação é representado pelo campo `establishmentNumber` e o número do estabelecimento matriz é o `mainCustomer`. Então, no serviço de consulta, você só precisa preencher o campo `mainCustomer`, assim você vai obter todas as contestações abaixo da sua hierarquia de Raiz de CNPJ. Caso queira visualizar as contestações abaixo de um outro tipo de hierarquia, como por exemplo um Grupo de Pagamento, você deverá preencher também o campo `hierarchyType` para especificar o tipo de matriz a ser consultada.
 
-7. **Como realizar uma tratativa na API?**
+**7. Como realizar uma tratativa na API?**
 
 No serviço Aceite de contestação, você realiza o aceite informando o número do estabelecimento que recebeu a contestação e o ID do Chargeback.
 
 No serviço Recusa de contestação, você realiza a recusa informando, além do número do estabelecimento que recebeu a contestação e do ID do Chargeback, uma breve descrição da razão de recusa (máximo 100 caracteres) e um documento que comprove que a venda foi legítima, isto é, que foi feita pela pessoa titular do cartão ou com o consentimento dela e que ambos cumpriram suas obrigações no momento da compra.
 
-8. **Enviei a documentação solicitada, como saber qual o status do meu caso. Eu ganhei ou perdi esta contestação?**
+**8. Enviei a documentação solicitada, como saber qual o status do meu caso. Eu ganhei ou perdi esta contestação?**
 
 Você pode consultar o andamento da sua contestação no serviço Pesquisa Ciclo de Vida da API, informando o número do case que deseja visualizar.
 
-9. **Com que frequência devo consultar as contestações?**
+**9. Com que frequência devo consultar as contestações?**
 
 As bandeiras atualizam as contestações uma vez por dia, por isso, você pode verificar suas contestações diariamente.
 
 # Mais informações
 
-Para mais informações, acesse as páginas:
+Para mais informações, acesse o [blog da Cielo](https://blog.cielo.com.br/dicas-e-historias-de-sucesso/o-que-e-chargeback/){:target="_blank"}.
 
-[Cielo no Blog.](https://blog.cielo.com.br/dicas-e-historias-de-sucesso/o-que-e-chargeback/)
+# Suporte
 
-# Contato para dúvidas
+Em caso de dúvidas, enie um e-mail para [techsupportchargeback@cielo.com.br](mailto:techsupportchargeback@cielo.com.br)
 
-[E-mail para suporte técnico.](techsupportchargeback@cielo.com.br)
-
-Caso precise de alguma ajuda, você pode entrar em contato diretamente com seu Gerente de Negócios, que estará pronto para te atender da melhor forma!  
-
-Conte com a gente
+Caso precise de alguma ajuda, você pode entrar em contato diretamente com seu Gerente de Negócios, que estará pronto para te atender da melhor forma.
