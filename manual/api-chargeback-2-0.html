@@ -151,121 +151,92 @@
 
 <h2 id="integração-com-api-de-chargeback">Integração com API de Chargeback</h2>
 
-<ol>
-  <li>
-    <p>Enviar para caixa <a href="mailto:techsupportchargeback@cielo.com.br">Technical Support Chargeback</a> o número do estabelecimento matriz (EC que representa a raiz de CNPJ) da companhia.
-  a. Obs. 1: Todos os estabelecimentos para a API de Chargeback estarão abaixo desse estabelecimento, isso não afeta nenhum outro fluxo da Cielo.
-  b. Obs. 2: Caso você tenha mais de uma raiz de CNPJ, enviar todas elas.</p>
-  </li>
-  <li>
-    <p>Efetuar o pré-cadastro no Portal de Desenvolvedores.
-  a. Link para acesso ao <a href="https://cielomulesoft.my.site.com/desenvolvedores/s/login/">Portal dos Desenvolvedores</a>.</p>
-    <ul>
-      <li>Deve ser criado apenas um único login por cliente.
-  b. Clicar em “Sign Up” e cadastrar Nome, Sobrenome e E-mail.
-  c. Após esse cadastro, enviar um e-mail para a caixa de <strong>Technical Support Chargeback</strong> informando os dados cadastrados.</li>
-      <li>Obs.: esse cadastro é necessário para obter acesso ao Client_ID e Client_Secret dos ambientes de Sandbox e Produção.</li>
-    </ul>
-  </li>
-</ol>
+<p><strong>1</strong>. Envie o número do estabelecimento matriz (EC que representa a raiz de CNPJ) da companhia para <a href="mailto:techsupportchargeback@cielo.com.br">Technical Support Chargeback</a> no e-mail <a href="mailto:techsupportchargeback@cielo.com.br">techsupportchargeback@cielo.com.br</a>.</p>
+
+<aside class="notice">Observação 1: Todos os estabelecimentos para a API de Chargeback estarão abaixo do estabelecimento matriz; isso não afeta nenhum outro fluxo da Cielo.</aside>
+
+<aside class="notice">Observação 2: Caso você tenha mais de uma raiz de CNPJ, envie todas elas.</aside>
+
+<p><strong>2. Efetue o pré-cadastro no Portal de Desenvolvedores.</strong></p>
+
+<ul>
+  <li>Acesse o <a href="https://cielomulesoft.my.site.com/desenvolvedores/s/login/" target="_blank">Portal dos Desenvolvedores</a>. Deve ser criado apenas um único login por cliente;</li>
+  <li>Clique em “Sign Up” e cadastre Nome, Sobrenome e E-mail;</li>
+  <li>Após esse cadastro, envie um e-mail para [<strong>Technical Support Chargeback</strong>];(mailto:techsupportchargeback@cielo.com.br) informando os dados cadastrados.</li>
+</ul>
+
+<aside class="notice">Atenção: Esse cadastro é necessário para obter acesso ao Client_ID e Client_Secret dos ambientes de Sandbox e Produção.</aside>
 
 <p><img src="https://developercielo.github.io/images/api-chargeback/chargeback-1.png" alt="Chargeback_1" /></p>
 
 <p><img src="https://developercielo.github.io/images/api-chargeback/chargeback-2.png" alt="Chargeback_2" /></p>
 
-<ol>
-  <li>
-    <p>Criação de uma chave pública e privada para criptografia</p>
+<p><strong>3. Crie uma chave pública e privada para criptografia</strong></p>
 
-    <p>a. É necessário gerar o arquivo da chave pública no formato <strong>.csr</strong>.</p>
-    <blockquote>
-      <p><strong>Dica</strong> : as chaves podem ser geradas via ferramenta openssl.
-<strong>Exemplo</strong> : openssl req -out nome_chave_publica.csr -new -newkey rsa:2048 -nodes - keyout chave_privada.key</p>
-    </blockquote>
+<p>a. É necessário gerar o arquivo da chave pública no formato <strong>.csr</strong>.
+    &gt; <strong>Dica</strong>: as chaves podem ser geradas via ferramenta <em>openssl</em>.<br />
+    &gt; <strong>Exemplo</strong>: <em>openssl req -out nome_chave_publica.csr -new -newkey rsa:2048 -nodes - keyout chave_privada.key</em></p>
 
-    <ul>
-      <li>
-        <p>Gerar o.csr da chave pública conforme padrão abaixo:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* Gere o.csr da chave pública conforme padrão abaixo:
 
-        <ol>
-          <li>
-            <p><strong>emailAddress</strong> \</p>
-          </li>
-          <li>
-            <p><strong>Common Name (CN)</strong> \</p>
-          </li>
-          <li>
-            <p><strong>Organizational Unit (OU)</strong> \</p>
-          </li>
-          <li>
-            <p><strong>Organization (O)</strong> \</p>
-          </li>
-          <li>
-            <p><strong>Locality (L)</strong> \</p>
-          </li>
-          <li>
-            <p><strong>State (ST)</strong> \</p>
-          </li>
-          <li>
-            <p><strong>Country (C)</strong> \</p>
-          </li>
-        </ol>
+    1. `emailAddress`: informar o mesmo e-mail cadastrado no Portal dos Desenvolvedores
+    2. `Common Name (CN)`: nome da empresa
+    3. `Organizational Unit (OU)`: deve ser cadastrado como "Cielo – chargeback"
+    4. `Organization (O)`: nome da empresa
+    5. `Locality (L)`: cidade
+    6. `State (ST)`: estado
+    7. `Country (C)`: BR
 
-        <ul>
-          <li>
-            <p><strong>Exemplo de preenchimento:</strong></p>
 
-            <p>emailAddress: <a href="mailto:adm@cliente1.com.br"><strong>adm@cliente1.com.br</strong></a></p>
+  * **Exemplo de preenchimento:**
 
-            <p>Common Name (CN): <strong>Cliente 1</strong></p>
+      &gt; emailAddress: **adm@cliente1.com.br**&lt;br&gt;
+      &gt; Common Name (CN): **Cliente 1**&lt;br&gt;
+      &gt; Organizational Unit (OU): **Cielo – chargeback**&lt;br&gt;
+      &gt; Organization (O): **Cliente 1**&lt;br&gt;
+      &gt; Locality (L): **Campinas**&lt;br&gt;
+      &gt; State (ST): **Sao Paulo**&lt;br&gt;
+      &gt; Country (C): **BR**
 
-            <p>Organizational Unit (OU): <strong>Cielo – chargeback</strong></p>
+b. Compacte o arquivo .csr contendo a chave pública em um arquivo .zip e envie para [**Technical Support Chargeback](mailto:techsupportchargeback@cielo.com.br) para realizar assinatura.
 
-            <p>Organization (O): <strong>Cliente 1</strong></p>
-
-            <p>Locality (L): <strong>Campinas</strong></p>
-
-            <p>State (ST): <strong>Sao Paulo</strong></p>
-
-            <p>Country (C): <strong>BR</strong></p>
-          </li>
-        </ul>
-
-        <p>b. Compactar o arquivo .csr contendo a chave pública em um o arquivo .zip e enviar para a caixa de <strong>Technical Support Chargeback</strong> para realizar assinatura.</p>
-
-        <p>c. Aguardar retorno do time Cielo com o certificado MTLS assinado.</p>
-      </li>
-    </ul>
-  </li>
-</ol>
+c. Aguarde retorno do time Cielo com o certificado MTLS assinado.
+</code></pre></div></div>
 
 <blockquote>
-  <p><strong>Toda chamada para nosso serviço deve ser passada com a chave MTLS assinada.</strong></p>
+  <p><strong>Toda chamada para nosso serviço deve ser enviada com a chave MTLS assinada.</strong></p>
 </blockquote>
 
-<ol>
-  <li>
-    <p>Acessar o Portal dos Desenvolvedores e efetuar o cadastro definitivo.</p>
+<p><strong>4. Acesse o Portal dos Desenvolvedores e efetue o cadastro definitivo</strong></p>
 
-    <p>a. Após o cadastro definitivo, fazer o login no Portal dos Desenvolvedores e coletar as chaves disponíveis do ambiente desejado.</p>
+<p>Após o cadastro definitivo, faça o login no <a href="https://cielomulesoft.my.site.com/desenvolvedores/s/login/">Portal dos Desenvolvedores</a> e colete as chaves disponíveis do ambiente desejado;</p>
 
-    <p>b. Link para acesso ao <a href="https://cielomulesoft.my.site.com/desenvolvedores/s/login/">Portal dos Desenvolvedores</a>.</p>
+<aside class="warning">Atenção: Para realizar o login, é necessário autenticação do MFA.</aside>
 
-    <p>c. <strong><em>Obs.: Para realizar o login, é necessário autenticação do MFA.</em></strong></p>
-  </li>
-</ol>
+<blockquote>
+  <p><strong>Ao finalizar esse processo, você está liberado para acessar o Sandbox da API de Chargeback e iniciar os testes conosco.</strong></p>
+</blockquote>
 
-<p><strong>Ao finalizar esse processo, você está liberado para acessar o Sandbox da API de Chargeback e iniciar os testes conosco!</strong></p>
+<p><strong>5. Liberação de acesso para os endpoints da Cielo:</strong></p>
 
-<ol>
-  <li>
-    <p>Liberação de acesso para os endpoints da Cielo:</p>
-
-    <p>a. Sandbox: apihml-internet.cielo.com.br/cielo-chargeback-sys-sandbox/</p>
-
-    <p>b. Produção: api-internet.cielo.com.br/cielo-chargeback-sys-external/</p>
-  </li>
-</ol>
+<table>
+  <thead>
+    <tr>
+      <th>Ambiente</th>
+      <th>Endpoint</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Sandbox</td>
+      <td>apihml-internet.cielo.com.br/cielo-chargeback-sys-sandbox/</td>
+    </tr>
+    <tr>
+      <td>Produção</td>
+      <td>api-internet.cielo.com.br/cielo-chargeback-sys-external/</td>
+    </tr>
+  </tbody>
+</table>
 
 <h1 id="instruções-para-uso-do-sandbox">Instruções para uso do Sandbox</h1>
 
