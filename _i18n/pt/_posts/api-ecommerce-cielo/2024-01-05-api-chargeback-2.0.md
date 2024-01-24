@@ -48,21 +48,21 @@ Através dela, você pode **aceitar** ou **recusar** contestações, além de co
 **3. Crie uma chave pública e privada para criptografia**
 
    a. É necessário gerar o arquivo da chave pública no formato **.csr**.
-    > **Dica**: as chaves podem ser geradas via ferramenta *openssl*.<br>
-    > **Exemplo**: *openssl req -out nome_chave_publica.csr -new -newkey rsa:2048 -nodes - keyout chave_privada.key*
+   
+  > **Dica**: as chaves podem ser geradas via ferramenta *openssl*.<br>
+  > **Exemplo**: *openssl req -out nome_chave_publica.csr -new -newkey rsa:2048 -nodes - keyout chave_privada.key*
 
-    * Gere o.csr da chave pública conforme padrão abaixo:
+  * Gere o.csr da chave pública conforme padrão abaixo:
 
-        1. `emailAddress`: informar o mesmo e-mail cadastrado no Portal dos Desenvolvedores
-        2. `Common Name (CN)`: nome da empresa
-        3. `Organizational Unit (OU)`: deve ser cadastrado como "Cielo – chargeback"
-        4. `Organization (O)`: nome da empresa
-        5. `Locality (L)`: cidade
-        6. `State (ST)`: estado
-        7. `Country (C)`: BR
+    1. `emailAddress`: informar o mesmo e-mail cadastrado no Portal dos Desenvolvedores
+    2. `Common Name (CN)`: nome da empresa
+    3. `Organizational Unit (OU)`: deve ser cadastrado como "Cielo – chargeback"
+    4. `Organization (O)`: nome da empresa
+    5. `Locality (L)`: cidade
+    6. `State (ST)`: estado
+    7. `Country (C)`: BR
 
-
-      * **Exemplo de preenchimento:**
+    * **Exemplo de preenchimento:**
 
           > emailAddress: **adm@cliente1.com.br**<br>
           > Common Name (CN): **Cliente 1**<br>
@@ -72,9 +72,9 @@ Através dela, você pode **aceitar** ou **recusar** contestações, além de co
           > State (ST): **Sao Paulo**<br>
           > Country (C): **BR**
 
-    b. Compacte o arquivo .csr contendo a chave pública em um arquivo .zip e envie para [**Technical Support Chargeback](mailto:techsupportchargeback@cielo.com.br) para realizar assinatura.
+  b. Compacte o arquivo .csr contendo a chave pública em um arquivo .zip e envie para [**Technical Support Chargeback](mailto:techsupportchargeback@cielo.com.br) para realizar assinatura.
 
-    c. Aguarde retorno do time Cielo com o certificado MTLS assinado.
+  c. Aguarde retorno do time Cielo com o certificado MTLS assinado.
 
  > **Toda chamada para nosso serviço deve ser enviada com a chave MTLS assinada.**
 
