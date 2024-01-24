@@ -72,11 +72,11 @@ Através dela, você pode **aceitar** ou **recusar** contestações, além de co
           > State (ST): **Sao Paulo**<br>
           > Country (C): **BR**
 
-  b. Compacte o arquivo .csr contendo a chave pública em um arquivo .zip e envie para [**Technical Support Chargeback](mailto:techsupportchargeback@cielo.com.br) para realizar assinatura.
+  b. Compacte o arquivo .csr contendo a chave pública em um arquivo .zip e envie para [**Technical Support Chargeback**](mailto:techsupportchargeback@cielo.com.br) para realizar a assinatura.
 
   c. Aguarde retorno do time Cielo com o certificado MTLS assinado.
 
- > **Toda chamada para nosso serviço deve ser enviada com a chave MTLS assinada.**
+<aside class="warning">Toda chamada para nosso serviço deve ser enviada com a chave MTLS assinada.</aside>
 
 **4. Acesse o Portal dos Desenvolvedores e efetue o cadastro definitivo**
 
@@ -84,7 +84,7 @@ Após o cadastro definitivo, faça o login no [Portal dos Desenvolvedores](https
 
 <aside class="warning">Atenção: Para realizar o login, é necessário autenticação do MFA.</aside>
 
-> **Ao finalizar esse processo, você está liberado para acessar o Sandbox da API de Chargeback e iniciar os testes conosco.**
+> **Ao finalizar esse processo, você poderá acessar o sandbox da API de Chargeback e iniciar os testes conosco.**
 
 **5. Liberação de acesso para os endpoints da Cielo:**
 
@@ -97,7 +97,7 @@ Após o cadastro definitivo, faça o login no [Portal dos Desenvolvedores](https
 
 Para utilizar o sandbox, passe os cenários abaixo para simular retornos de sucesso (código iniciando com 1) ou erro (código iniciando com 9).
 
-*Obs.: Caso sejam informados dados diferentes do cenário abaixo, os serviços irão retornar sucesso na requisição.*
+<aside class="notice">Importante: Caso você informe dados diferentes dos cenários da tabela abaixo, os serviços irão retornar sucesso na requisição.</aside>
 
 | Código | Nome do serviço                                 | Número do estabelecimento | IdCase  | IdChargeback |
 | ------ | ----------------------------------------------- | ------------------------- | ------- | ------------ |
@@ -111,20 +111,20 @@ Para utilizar o sandbox, passe os cenários abaixo para simular retornos de suce
 | 901    | Consulta de documento                           | 1111111111                |         | 10000        |
 | 901    | Pesquisa do ciclo de vida                       | 1111111111                | 3000000 | 30000        |  
 
+<br/>
+**Proposta de validação para prosseguirmos com a integração em produção:**
 
- Proposta de validação para prosseguirmos com a integração em Produção:
-
-- Validar sucesso (código 103) no serviço de Consulta de contestação pendente
-- Validar falha (código 901) no serviço de Consulta de contestação pendente
-- Validar sucesso (código 103) no serviço de Consulta de contestação tratada
-- Validar falha (código 901) no serviço de Consulta de contestação tratada
-- Validar sucesso (código 101) no serviço de Acate de contestação
-- Validar falha (código 901) no serviço de Acate de contestação
-- Validar sucesso (código 102) no serviço de Recusa de contestação
-- Validar falha (código 901) no serviço de Recusa de contestação
-- Validar sucesso (código 104) no serviço de Consulta de documento
-- Validar falha (código 901) no serviço de Consulta de documento
-- Validar falha (código 901) no serviço de Pesquisa do ciclo de vida
+* [ ] Validar sucesso (código 103) no serviço de Consulta de contestação pendente
+* [ ] Validar falha (código 901) no serviço de Consulta de contestação pendente
+* [ ] Validar sucesso (código 103) no serviço de Consulta de contestação tratada
+* [ ] Validar falha (código 901) no serviço de Consulta de contestação tratada
+* [ ] Validar sucesso (código 101) no serviço de Acate de contestação
+* [ ] Validar falha (código 901) no serviço de Acate de contestação
+* [ ] Validar sucesso (código 102) no serviço de Recusa de contestação
+* [ ] Validar falha (código 901) no serviço de Recusa de contestação
+* [ ] Validar sucesso (código 104) no serviço de Consulta de documento
+* [ ] Validar falha (código 901) no serviço de Consulta de documento
+* [ ] Validar falha (código 901) no serviço de Pesquisa do ciclo de vida
 
 # Utilização
 
