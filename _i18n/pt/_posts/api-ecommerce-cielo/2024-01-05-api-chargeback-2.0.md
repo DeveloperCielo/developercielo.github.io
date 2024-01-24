@@ -114,17 +114,17 @@ Para utilizar o sandbox, passe os cenários abaixo para simular retornos de suce
 <br/>
 **Proposta de validação para prosseguirmos com a integração em produção:**
 
-* [ ] Validar sucesso (código 103) no serviço de Consulta de contestação pendente
-* [ ] Validar falha (código 901) no serviço de Consulta de contestação pendente
-* [ ] Validar sucesso (código 103) no serviço de Consulta de contestação tratada
-* [ ] Validar falha (código 901) no serviço de Consulta de contestação tratada
-* [ ] Validar sucesso (código 101) no serviço de Acate de contestação
-* [ ] Validar falha (código 901) no serviço de Acate de contestação
-* [ ] Validar sucesso (código 102) no serviço de Recusa de contestação
-* [ ] Validar falha (código 901) no serviço de Recusa de contestação
-* [ ] Validar sucesso (código 104) no serviço de Consulta de documento
-* [ ] Validar falha (código 901) no serviço de Consulta de documento
-* [ ] Validar falha (código 901) no serviço de Pesquisa do ciclo de vida
+* Validar sucesso (código 103) no serviço de Consulta de contestação pendente
+* Validar falha (código 901) no serviço de Consulta de contestação pendente
+* Validar sucesso (código 103) no serviço de Consulta de contestação tratada
+* Validar falha (código 901) no serviço de Consulta de contestação tratada
+* Validar sucesso (código 101) no serviço de Acate de contestação
+* Validar falha (código 901) no serviço de Acate de contestação
+* Validar sucesso (código 102) no serviço de Recusa de contestação
+* Validar falha (código 901) no serviço de Recusa de contestação
+* Validar sucesso (código 104) no serviço de Consulta de documento
+* Validar falha (código 901) no serviço de Consulta de documento
+* Validar falha (código 901) no serviço de Pesquisa do ciclo de vida
 
 # Utilização
 
