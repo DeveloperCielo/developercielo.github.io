@@ -14,7 +14,7 @@ tags:
 
 A Cielo desenvolveu um conector na plataforma **Nuvemshop** para realização do pagamento através da API Ecommerce Cielo. A usabilidade da plataforma deve ser consultada no portal da [Nuvemshop](https://atendimento.nuvemshop.com.br/){:target="_blank"}.
 
-Para usar o conector, é necessário ter um contrato com a [Cielo](https://minhaconta2.cielo.com.br/site/login){:target="_blank"} e assegure que você possui os dados **MerchantID** e **MerchantKey**, que foram fornecidos no momento do seu cadastro. Se ainda não possuir contrato com a Cielo, acesse [Lojista sem cadastro Cielo].
+Para usar o conector, é necessário ter um contrato com a [Cielo](https://minhaconta2.cielo.com.br/site/login){:target="_blank"} e assegure que você possui os dados **MerchantID** e **MerchantKey**, que foram fornecidos no momento do seu cadastro. Se ainda não possuir contrato com a Cielo, acesse [Lojista sem cadastro Cielo](https://developercielo.github.io/manual/integracao-nuvemshop#lojista-sem-cadastro-cielo).
 
 Caso necessite recuperar essas informações, consulte [esse documento](https://developercielo.github.io/attachment/merchantid-merchantkey-cielo-2023.pdf){:target="_blank"}. 
 
@@ -69,15 +69,9 @@ Solicite ao nosso atendimento a inclusão da URL de notificação da seguinte fo
 
 **Destinatário**: cieloecommerce@cielo.com.br<br>
 **Assunto**: [Nuvemshop] Atualizar URL de notificação<br>
-**Texto**:
+**Texto**: [insira o texto abaixo]
 
-*Favor atualizar na loja EC (insira número EC da loja) a seguinte URL: https://cielo-nuvemshop.herokuapp.com/api/v1/webhooks/cielo/orders*
-*Habilitar a notificação para:*
-
-* *Transações de cartão (crédito ou débito) capturadas*
-* *Transações de cartão (crédito ou débito) canceladas*
-* *Transações de boleto conciliadas*
-* *Transações de Pix atualizadas*
+> *Favor atualizar na loja EC (insira número EC da loja) a seguinte URL: https://cielo-nuvemshop.herokuapp.com/api/v1/webhooks/cielo/orders*<br>*Habilitar a notificação para:* <br> * *Transações de cartão (crédito ou débito) capturadas* <br> * *Transações de cartão (crédito ou débito) canceladas* <br> * *Transações de boleto conciliadas* <br> * *Transações de Pix atualizadas*
 
 <aside class="notice">A inclusão de URL de notificação também se aplica aos outros meios de pagamento e Pix pode ser solicitado uma única vez.</aside>
 
@@ -93,7 +87,7 @@ A opção Cartão de Crédito vem selecionada e não será possível retirar ess
 
 |CAMPO|DESCRIÇÃO|
 |-|-|
-|Quantidade de Parcelas|Número de parcelas que o lojista deseja aceitar no pedido. Insira 1 se não deseja habilitar parcelas.|
+|Quantidade de Parcelas|Número de parcelas que deseja aceitar no pedido. Insira 1 se não deseja habilitar parcelas.|
 |Valor mínimo da Parcela|Valor mínimo em que o pedido pode ser dividido em cada parcela.|
 |Nome da Loja (exibido na fatura)|Informação apresentada na fatura do cartão do comprador. Não aceita caracteres especiais. Apenas 13 caracteres.|
 
@@ -101,19 +95,13 @@ A opção Cartão de Crédito vem selecionada e não será possível retirar ess
 
 ### Pix
 
-Solicite ao nosso inclusão URL de notificação da seguinte forma: 
+Solicite ao nosso atendimento inclusão URL de notificação da seguinte forma: 
 
 **Destinatário**: cieloecommerce@cielo.com.br<br>
 **Assunto**: [Nuvemshop] Atualizar URL de notificação<br>
-**Texto**:
+**Texto**: [insira o texto abaixo]
 
-*Favor atualizar na loja EC (insira número EC da loja) a seguinte URL: https://cielo-nuvemshop.herokuapp.com/api/v1/webhooks/cielo/orders*
-*Habilitar a notificação para:*
-
-* *Transações de cartão (crédito ou débito) capturadas*
-* *Transações de cartão (crédito ou débito) canceladas*
-* *Transações de boleto conciliadas*
-* *Transações de Pix atualizadas*
+> *Favor atualizar na loja EC (insira número EC da loja) a seguinte URL: https://cielo-nuvemshop.herokuapp.com/api/v1/webhooks/cielo/orders*<br>*Habilitar a notificação para:* <br> * *Transações de cartão (crédito ou débito) capturadas* <br> * *Transações de cartão (crédito ou débito) canceladas* <br> * *Transações de boleto conciliadas* <br> * *Transações de Pix atualizadas*
 
 <aside class="notice">A inclusão de URL de notificação também se aplica aos outros meios de pagamento e Pix pode ser solicitado uma única vez.</aside>
 
