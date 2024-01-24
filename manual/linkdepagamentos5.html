@@ -321,15 +321,87 @@ Caso o Pix não esteja habilitado em seu cadastro, será apresentada a tela de a
 
 <h3 id="5-configure-a-captura-e-antifraude">5. Configure a captura e Antifraude</h3>
 
-<p>Ao acessar as configurações da sua loja, procure a sessão Antifraude e captura automática. Selecione a opção desejada:</p>
+<p>Uma transação de <strong>cartão de crédito</strong> é enviada para a autorização da Cielo (adquirente) e, em seguida, será submetida à análise de fraude. Em seguida, de acordo com o resultado da análise de fraude, a transação poderá ser capturada automaticamente ou manualmente.</p>
 
-<ul>
-  <li><em>Nunca fazer a Captura Automática</em>;</li>
-  <li><em>Sempre fazer Captura Automática</em>;</li>
-  <li><em>Somente fazer captura Automática das transações de Baixo Risco no Antifraude.</em></li>
-</ul>
+<p><img src="https://developercielo.github.io/images/checkout/checkout-images/checkout-fluxo-captura-af.png" alt="Análise de risco" /></p>
+
+<p>Ao acessar as configurações da sua loja, procure a sessão <strong>Antifraude e captura automática</strong>. Selecione a opção desejada:</p>
 
 <p><img src="https://developercielo.github.io/images/checkout/superlink/superlink-captura-e-antifraude.png" alt="Configuração de captura e Antifraude" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Opção de captura</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><em>Nunca fazer a Captura Automática</em></td>
+      <td>Para toda transação de cartão de crédito autorizada será necessário que o estabelecimento efetue a captura manual da transação (requisição de captura).</td>
+    </tr>
+    <tr>
+      <td><em>Sempre fazer Captura Automática</em></td>
+      <td>Toda transação de cartão de crédito autorizada de baixo ou médio risco será capturada automaticamente.</td>
+    </tr>
+    <tr>
+      <td><em>Somente fazer captura Automática das transações de Baixo Risco no Antifraude</em></td>
+      <td>Toda transação de cartão de crédito (autorizada) de baixo risco será capturada automaticamente – as transações de médio risco ficarão aguardando a captura manual.</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>Se a análise de fraude classificar a transação como Alto Risco ela será cancelada automaticamente. Não será possível fazer a captura manual.</p>
+</blockquote>
+
+<p><strong>Análise de Fraude</strong></p>
+
+<p>Transações de crédito <strong>autorizadas</strong> serão enviadas para análise de fraude. Todas as transações classificadas como alto risco serão automaticamente canceladas, sem exceção.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>STATUS ANTIFRAUDE</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Baixo Risco</code></td>
+      <td>Baixo risco de ser uma transação fraudulenta.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Médio Risco</code></td>
+      <td>Médio risco de ser uma transação fraudulenta.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Alto Risco</code></td>
+      <td>Alto risco de ser uma transação fraudulenta.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Não finalizado</code></td>
+      <td>Não foi possível finalizar a consulta.</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>Além dos status da tabela acima, é possível que o Antifraude retorne o status N/A. O status N/A pode retornar nas seguintes situações:</p>
+  <ul>
+    <li>Quando a transação é autenticada pelo banco - não é passível de análise pelo Antifraude;</li>
+    <li>Quando o meio de pagamento não é passível de análise pelo Antifraude como cartões de débito, boleto e Pix;</li>
+    <li>Quando é uma transação de crédito recorrente posterior a transação de agendamento. Somente o Agendamento é analisado;</li>
+    <li>Quando a venda de cartão de crédito foi negada - não é passível de análise pelo Antifraude.</li>
+  </ul>
+</blockquote>
+
+<p>No site Cielo, a análise será apresentada em <strong>Detalhes do Pedido</strong>:</p>
+
+<p><img src="https://developercielo.github.io/images/checkout-cielo-analise-risco.png" alt="Análise de risco" /></p>
+
+<p>Você pode visualizar o status do Antifraude acessando os detalhes da compra, na aba <strong>Pedidos</strong> e clicando em <strong>+</strong>.</p>
 
 <h3 id="6-configure-as-opções-de-frete-dos-correios">6. Configure as opções de frete dos Correios</h3>
 
