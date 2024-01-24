@@ -173,35 +173,47 @@
 
 <p><strong>3. Crie uma chave pública e privada para criptografia</strong></p>
 
-<p>a. É necessário gerar o arquivo da chave pública no formato <strong>.csr</strong>.
-    &gt; <strong>Dica</strong>: as chaves podem ser geradas via ferramenta <em>openssl</em>.<br />
-    &gt; <strong>Exemplo</strong>: <em>openssl req -out nome_chave_publica.csr -new -newkey rsa:2048 -nodes - keyout chave_privada.key</em></p>
+<p>a. É necessário gerar o arquivo da chave pública no formato <strong>.csr</strong>.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* Gere o.csr da chave pública conforme padrão abaixo:
+<blockquote>
+  <p><strong>Dica</strong>: as chaves podem ser geradas via ferramenta <em>openssl</em>.<br />
+<strong>Exemplo</strong>: <em>openssl req -out nome_chave_publica.csr -new -newkey rsa:2048 -nodes - keyout chave_privada.key</em></p>
+</blockquote>
 
-    1. `emailAddress`: informar o mesmo e-mail cadastrado no Portal dos Desenvolvedores
-    2. `Common Name (CN)`: nome da empresa
-    3. `Organizational Unit (OU)`: deve ser cadastrado como "Cielo – chargeback"
-    4. `Organization (O)`: nome da empresa
-    5. `Locality (L)`: cidade
-    6. `State (ST)`: estado
-    7. `Country (C)`: BR
+<ul>
+  <li>
+    <p>Gere o.csr da chave pública conforme padrão abaixo:</p>
 
+    <ol>
+      <li><code class="language-plaintext highlighter-rouge">emailAddress</code>: informar o mesmo e-mail cadastrado no Portal dos Desenvolvedores</li>
+      <li><code class="language-plaintext highlighter-rouge">Common Name (CN)</code>: nome da empresa</li>
+      <li><code class="language-plaintext highlighter-rouge">Organizational Unit (OU)</code>: deve ser cadastrado como “Cielo – chargeback”</li>
+      <li><code class="language-plaintext highlighter-rouge">Organization (O)</code>: nome da empresa</li>
+      <li><code class="language-plaintext highlighter-rouge">Locality (L)</code>: cidade</li>
+      <li><code class="language-plaintext highlighter-rouge">State (ST)</code>: estado</li>
+      <li><code class="language-plaintext highlighter-rouge">Country (C)</code>: BR</li>
+    </ol>
 
-  * **Exemplo de preenchimento:**
+    <ul>
+      <li>
+        <p><strong>Exemplo de preenchimento:</strong></p>
 
-      &gt; emailAddress: **adm@cliente1.com.br**&lt;br&gt;
-      &gt; Common Name (CN): **Cliente 1**&lt;br&gt;
-      &gt; Organizational Unit (OU): **Cielo – chargeback**&lt;br&gt;
-      &gt; Organization (O): **Cliente 1**&lt;br&gt;
-      &gt; Locality (L): **Campinas**&lt;br&gt;
-      &gt; State (ST): **Sao Paulo**&lt;br&gt;
-      &gt; Country (C): **BR**
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; emailAddress: **adm@cliente1.com.br**&lt;br&gt;
+&gt; Common Name (CN): **Cliente 1**&lt;br&gt;
+&gt; Organizational Unit (OU): **Cielo – chargeback**&lt;br&gt;
+&gt; Organization (O): **Cliente 1**&lt;br&gt;
+&gt; Locality (L): **Campinas**&lt;br&gt;
+&gt; State (ST): **Sao Paulo**&lt;br&gt;
+&gt; Country (C): **BR**
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+</ul>
 
-b. Compacte o arquivo .csr contendo a chave pública em um arquivo .zip e envie para [**Technical Support Chargeback](mailto:techsupportchargeback@cielo.com.br) para realizar assinatura.
+<p>b. Compacte o arquivo .csr contendo a chave pública em um arquivo .zip e envie para <a href="mailto:techsupportchargeback@cielo.com.br">**Technical Support Chargeback</a> para realizar assinatura.</p>
 
-c. Aguarde retorno do time Cielo com o certificado MTLS assinado.
-</code></pre></div></div>
+<p>c. Aguarde retorno do time Cielo com o certificado MTLS assinado.</p>
 
 <blockquote>
   <p><strong>Toda chamada para nosso serviço deve ser enviada com a chave MTLS assinada.</strong></p>
