@@ -211,13 +211,11 @@
   </li>
 </ul>
 
-<p>b. Compacte o arquivo .csr contendo a chave pública em um arquivo .zip e envie para <a href="mailto:techsupportchargeback@cielo.com.br">**Technical Support Chargeback</a> para realizar assinatura.</p>
+<p>b. Compacte o arquivo .csr contendo a chave pública em um arquivo .zip e envie para <a href="mailto:techsupportchargeback@cielo.com.br"><strong>Technical Support Chargeback</strong></a> para realizar a assinatura.</p>
 
 <p>c. Aguarde retorno do time Cielo com o certificado MTLS assinado.</p>
 
-<blockquote>
-  <p><strong>Toda chamada para nosso serviço deve ser enviada com a chave MTLS assinada.</strong></p>
-</blockquote>
+<aside class="warning">Toda chamada para nosso serviço deve ser enviada com a chave MTLS assinada.</aside>
 
 <p><strong>4. Acesse o Portal dos Desenvolvedores e efetue o cadastro definitivo</strong></p>
 
@@ -226,7 +224,7 @@
 <aside class="warning">Atenção: Para realizar o login, é necessário autenticação do MFA.</aside>
 
 <blockquote>
-  <p><strong>Ao finalizar esse processo, você está liberado para acessar o Sandbox da API de Chargeback e iniciar os testes conosco.</strong></p>
+  <p><strong>Ao finalizar esse processo, você poderá acessar o sandbox da API de Chargeback e iniciar os testes conosco.</strong></p>
 </blockquote>
 
 <p><strong>5. Liberação de acesso para os endpoints da Cielo:</strong></p>
@@ -254,7 +252,7 @@
 
 <p>Para utilizar o sandbox, passe os cenários abaixo para simular retornos de sucesso (código iniciando com 1) ou erro (código iniciando com 9).</p>
 
-<p><em>Obs.: Caso sejam informados dados diferentes do cenário abaixo, os serviços irão retornar sucesso na requisição.</em></p>
+<aside class="notice">Importante: Caso você informe dados diferentes dos cenários da tabela abaixo, os serviços irão retornar sucesso na requisição.</aside>
 
 <table>
   <thead>
@@ -333,20 +331,21 @@
   </tbody>
 </table>
 
-<p>Proposta de validação para prosseguirmos com a integração em Produção:</p>
+<p><br />
+<strong>Proposta de validação para prosseguirmos com a integração em produção:</strong></p>
 
-<ul>
-  <li>Validar sucesso (código 103) no serviço de Consulta de contestação pendente</li>
-  <li>Validar falha (código 901) no serviço de Consulta de contestação pendente</li>
-  <li>Validar sucesso (código 103) no serviço de Consulta de contestação tratada</li>
-  <li>Validar falha (código 901) no serviço de Consulta de contestação tratada</li>
-  <li>Validar sucesso (código 101) no serviço de Acate de contestação</li>
-  <li>Validar falha (código 901) no serviço de Acate de contestação</li>
-  <li>Validar sucesso (código 102) no serviço de Recusa de contestação</li>
-  <li>Validar falha (código 901) no serviço de Recusa de contestação</li>
-  <li>Validar sucesso (código 104) no serviço de Consulta de documento</li>
-  <li>Validar falha (código 901) no serviço de Consulta de documento</li>
-  <li>Validar falha (código 901) no serviço de Pesquisa do ciclo de vida</li>
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Validar sucesso (código 103) no serviço de Consulta de contestação pendente</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Validar falha (código 901) no serviço de Consulta de contestação pendente</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Validar sucesso (código 103) no serviço de Consulta de contestação tratada</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Validar falha (código 901) no serviço de Consulta de contestação tratada</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Validar sucesso (código 101) no serviço de Acate de contestação</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Validar falha (código 901) no serviço de Acate de contestação</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Validar sucesso (código 102) no serviço de Recusa de contestação</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Validar falha (código 901) no serviço de Recusa de contestação</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Validar sucesso (código 104) no serviço de Consulta de documento</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Validar falha (código 901) no serviço de Consulta de documento</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Validar falha (código 901) no serviço de Pesquisa do ciclo de vida</li>
 </ul>
 
 <h1 id="utilização">Utilização</h1>
