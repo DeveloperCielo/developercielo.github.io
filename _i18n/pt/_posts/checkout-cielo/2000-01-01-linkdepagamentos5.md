@@ -149,13 +149,44 @@ Você deverá preencher as URLs de retorno, notificação e mudança de status. 
 
 ### 5. Configure a captura e Antifraude
 
-Ao acessar as configurações da sua loja, procure a sessão Antifraude e captura automática. Selecione a opção desejada:
+Uma transação de **cartão de crédito** é enviada para a autorização da Cielo (adquirente) e, em seguida, será submetida à análise de fraude. Em seguida, de acordo com o resultado da análise de fraude, a transação poderá ser capturada automaticamente ou manualmente.
 
-* *Nunca fazer a Captura Automática*;
-* *Sempre fazer Captura Automática*;
-* *Somente fazer captura Automática das transações de Baixo Risco no Antifraude.*
+![Análise de risco]({{ site.baseurl_root }}/images/checkout/checkout-images/checkout-fluxo-captura-af.png)
+
+Ao acessar as configurações da sua loja, procure a sessão **Antifraude e captura automática**. Selecione a opção desejada:
 
 ![Configuração de captura e Antifraude]({{ site.baseurl_root }}/images/checkout/superlink/superlink-captura-e-antifraude.png)
+
+|Opção de captura|Descrição|
+|---|---|
+|*Nunca fazer a Captura Automática*|Para toda transação de cartão de crédito autorizada será necessário que o estabelecimento efetue a captura manual da transação (requisição de captura).|
+|*Sempre fazer Captura Automática*|Toda transação de cartão de crédito autorizada de baixo ou médio risco será capturada automaticamente.|
+|*Somente fazer captura Automática das transações de Baixo Risco no Antifraude*|Toda transação de cartão de crédito (autorizada) de baixo risco será capturada automaticamente – as transações de médio risco ficarão aguardando a captura manual.|
+
+> Se a análise de fraude classificar a transação como Alto Risco ela será cancelada automaticamente. Não será possível fazer a captura manual.
+
+**Análise de Fraude**
+
+Transações de crédito **autorizadas** serão enviadas para análise de fraude. Todas as transações classificadas como alto risco serão automaticamente canceladas, sem exceção.
+
+|STATUS ANTIFRAUDE |DESCRIÇÃO|
+|---|---|
+|`Baixo Risco`| Baixo risco de ser uma transação fraudulenta.|
+|`Médio Risco`| Médio risco de ser uma transação fraudulenta.|
+|`Alto Risco`| Alto risco de ser uma transação fraudulenta.|
+|`Não finalizado`| Não foi possível finalizar a consulta.|
+
+> Além dos status da tabela acima, é possível que o Antifraude retorne o status N/A. O status N/A pode retornar nas seguintes situações:
+> * Quando a transação é autenticada pelo banco - não é passível de análise pelo Antifraude;
+> * Quando o meio de pagamento não é passível de análise pelo Antifraude como cartões de débito, boleto e Pix;
+> * Quando é uma transação de crédito recorrente posterior a transação de agendamento. Somente o Agendamento é analisado;
+> * Quando a venda de cartão de crédito foi negada - não é passível de análise pelo Antifraude.
+
+No site Cielo, a análise será apresentada em **Detalhes do Pedido**:
+
+![Análise de risco]({{ site.baseurl_root }}/images/checkout-cielo-analise-risco.png)
+
+Você pode visualizar o status do Antifraude acessando os detalhes da compra, na aba **Pedidos** e clicando em **+**.
 
 ### 6. Configure as opções de frete dos Correios
 
