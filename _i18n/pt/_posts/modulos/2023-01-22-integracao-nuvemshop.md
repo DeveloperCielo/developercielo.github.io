@@ -71,7 +71,7 @@ Solicite ao nosso atendimento a inclusão da URL de notificação da seguinte fo
 **Assunto**: [Nuvemshop] Atualizar URL de notificação<br>
 **Texto**: [insira o texto abaixo]
 
-> *Favor atualizar na loja EC (insira número EC da loja) a seguinte URL: https://cielo-nuvemshop.herokuapp.com/api/v1/webhooks/cielo/orders*<br>*Habilitar a notificação para:* <br> * *Transações de cartão (crédito ou débito) capturadas* <br> * *Transações de cartão (crédito ou débito) canceladas* <br> * *Transações de boleto conciliadas* <br> * *Transações de Pix atualizadas*
+> Favor atualizar na loja EC (insira número EC da loja) a seguinte URL: https://cielo-nuvemshop.herokuapp.com/api/v1/webhooks/cielo/orders<br>Habilitar a notificação para: <br> - Transações de cartão (crédito ou débito) capturadas <br> - Transações de cartão (crédito ou débito) canceladas <br> - Transações de boleto conciliadas <br> - Transações de Pix atualizadas
 
 <aside class="notice">A inclusão de URL de notificação também se aplica aos outros meios de pagamento e Pix pode ser solicitado uma única vez.</aside>
 
@@ -101,7 +101,7 @@ Solicite ao nosso atendimento inclusão URL de notificação da seguinte forma:
 **Assunto**: [Nuvemshop] Atualizar URL de notificação<br>
 **Texto**: [insira o texto abaixo]
 
-> *Favor atualizar na loja EC (insira número EC da loja) a seguinte URL: https://cielo-nuvemshop.herokuapp.com/api/v1/webhooks/cielo/orders*<br>*Habilitar a notificação para:* <br> * *Transações de cartão (crédito ou débito) capturadas* <br> * *Transações de cartão (crédito ou débito) canceladas* <br> * *Transações de boleto conciliadas* <br> * *Transações de Pix atualizadas*
+> Favor atualizar na loja EC (insira número EC da loja) a seguinte URL: https://cielo-nuvemshop.herokuapp.com/api/v1/webhooks/cielo/orders<br>Habilitar a notificação para: <br> - Transações de cartão (crédito ou débito) capturadas <br> - Transações de cartão (crédito ou débito) canceladas <br> - Transações de boleto conciliadas <br> - Transações de Pix atualizadas
 
 <aside class="notice">A inclusão de URL de notificação também se aplica aos outros meios de pagamento e Pix pode ser solicitado uma única vez.</aside>
 
