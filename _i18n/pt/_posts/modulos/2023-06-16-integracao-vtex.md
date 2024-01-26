@@ -38,7 +38,7 @@ Selecione o conector **CieloEcommerce** e insira as informações conforme receb
  
 ![CieloEcommerce]({{ site.baseurl_root }}/images/modulos/vtex/01-cieloecommerce.jpeg)
 
-Veja as diferenças entre conectores legados e o novo conector **CieloEcommerce** em [Anexos](https://developercielo.github.io/manual/integracao-vtex#anexos)
+[Veja as diferenças entre conectores legados e o novo conector **CieloEcommerce**](https://developercielo.github.io/manual/integracao-vtex#diferen%C3%A7as-entre-os-conectores-descontinuados-e-o-atual).
 
 ### 3. Escolhendo o Nome da Afiliação
 
@@ -52,7 +52,7 @@ Insira o Nome da Afiliação:
 
 |Exemplo|Definição|
 |-|-|
-|CieloEcommerce - Ticket|Nesse exemplo o título relembra que qualquer condição de pagamento que utilizar essa afiliação vai utilizar Ticket como o provider.|
+|CieloEcommerce - Alelo|Nesse exemplo o título relembra que qualquer condição de pagamento que utilizar essa afiliação vai utilizar Alelo como o provider.|
 |CieloEcommerce - Cielo30 c/ 3DS c/ SPLIT|Nesse exemplo o título relembra que qualquer condição de pagamento que utilizar essa afiliação vai utilizar Cielo30 como o provider, fazer a autenticação com 3DS (se compatível) e realizar SPLIT de pagamento (se compatível).
 
 ### 4. Preenchendo Dados Necessários
@@ -75,11 +75,11 @@ Preencha os campos com os dados requisitados. A imagem a seguir é um **exemplo*
 |**Provider**|Selecione o provedor  que deseja configurar a afiliação conforme o tipo de pagamento. <br>Exemplo: Se o seu provedor de Boleto é o Bradesco e o seu provedor de Crédito, Débito e Pix é o Cielo será necessário adicionar duas afiliações. <br>O provedor **Simulado** deve ser utilizado para transaçãoes de teste.<br>O provedor **Cielo** deve ser configurado para Integração **Adquirência**. <br>O provedor **Cielo30** deve ser configurado para Integração **Gateway**.|
 |**UseSPLIT**|Insira “Sim” ou “Não” se deseja utilizar o SPLIT de pagamentos. Disponível para os tipos de pagamento crédito, débito e boleto.|
 |**UseMPI**|Insira “Sim” ou “Não” se deseja utilizar a **Autenticação 3DS 2.0**. Este campo é **obrigatório para o tipo de pagamento débito**.|
-|**MpiClientId**|ID do MPI, disponibilizado para o cliente pela Cielo. *Campo relacionado à autenticação 3DS***.|
-|**MpiClientSecret**|Chave secreta do MPI, disponibilizada para o cliente pela Cielo. *Campo relacionado à autenticação 3DS***.|
-|**MpiMerchantName**|Nome da loja, disponibilizado pela Cielo. *Campo relacionado à autenticação 3DS***.|
-|**MpiMCC**|Merchant Category Code da loja, disponibilizado pela Cielo. *Campo relacionado à autenticação 3DS***.|
-|**MpiEstablishmentCode**|Código de estabelecimento da loja, disponibilizado pela Cielo. *Campo relacionado à autenticação 3DS***.|
+|**MpiClientId**|ID do MPI, disponibilizado para o cliente pela Cielo. *Campo relacionado à autenticação 3DS**.|
+|**MpiClientSecret**|Chave secreta do MPI, disponibilizada para o cliente pela Cielo. *Campo relacionado à autenticação 3DS**.|
+|**MpiMerchantName**|Nome da loja, disponibilizado pela Cielo. *Campo relacionado à autenticação 3DS**.|
+|**MpiMCC**|Merchant Category Code da loja, disponibilizado pela Cielo. *Campo relacionado à autenticação 3DS**.|
+|**MpiEstablishmentCode**|Código de estabelecimento da loja, disponibilizado pela Cielo. *Campo relacionado à autenticação 3DS**.|
 |**SoftDescriptor**|Valor que será concatenado com o valor de cadastro na adquirente para identificação na fatura. Permite no máximo 13 caracteres.|
 |**AntifraudProvider**|Selecionar o provedor de Antifraude escolhido, caso tenha contratado o serviço.|
 |**Antifraud**|Selecionar o fluxo utilizado pelo serviço de antifraude, podendo optar pelo fluxo de análise antes da transação ser autorizada, **AnalyseFirst**, ou após a autorização, **AuthorizeFirst**.|
@@ -94,7 +94,7 @@ Preencha os campos com os dados requisitados. A imagem a seguir é um **exemplo*
 |**Responsabilidade pelas tarifas de pagamento. Essa configuração será enviada para o seu processador de pagamentos**|Selecione **Marketplace**, **Marketplace + Sellers** ou **Sellers**. Só será exibido se **Ativar Divisão** estiver preenchido com “Sim”.|
 |**Responsabilidade pelos estornos. Essa configuração será enviada para o seu processador de pagamentos**|Selecione **Marketplace** ou **Marketplace + Sellers** ou **Sellers**. Só será exibido se **Ativar Divisão** estiver preenchido com “Sim”.|
 
-* O preenchimento dos campos relacionados ao MPI é opcional; você pode escolher preencher os dados de MPI e deixar a opção **UseMpi** desativada ("No") e, mais tarde, caso deseje ativar o 3DS para esta afiliação, apenas altere a opção **UseMpi** para "Yes".
+*O preenchimento dos campos relacionados ao MPI é opcional; você pode escolher preencher os dados de MPI e deixar a opção **UseMpi** desativada ("No") e, mais tarde, caso deseje ativar o 3DS para esta afiliação, apenas altere a opção **UseMpi** para "Yes".
 
 Após salvar o conector, ele irá aparecer na lista **Processar com afiliação** da tela de configuração da **Condição de Pagamento**.
 
