@@ -85,10 +85,10 @@ Preencha os campos com os dados requisitados. A imagem a seguir é um **exemplo*
 |**Antifraud**|Selecionar o fluxo utilizado pelo serviço de antifraude, podendo optar pelo fluxo de análise antes da transação ser autorizada, **AnalyseFirst**, ou após a autorização, **AuthorizeFirst**.|
 |**AntifraudSequenceCriteria**|Selecionar a sequência do fluxo de antifraude de acordo com a escolha da análise:<br>- Caso o fluxo escolhido tenha sido **AuthorizeFirst**, o lojista pode optar por sequenciar sempre, **Always** ou somente em casos de sucesso, **On Success**.<br>- Caso o fluxo escolhido tenha sido **AnalyseFirst**, a sequência sempre será **Always**.|
 |**Captura**|Tempo em horas em que será enviada a solicitação de captura. Em **Padrão** ou **Desativado**, a captura será será realizada 4 dias após a autorização. Em **Imediatamente** a captura será realizada imeadiatamente após a autorização. Não configura Capture = ‘True’.|
-|**UseVerifyCard**|Selecionar caso haja interesse em utilizar o serviço de [VerifyCard].|
+|**UseVerifyCard**|Selecionar caso haja interesse em utilizar o serviço de [VerifyCard](https://developercielo.github.io/manual/integracao-vtex#verifycard).|
 |**AcceptInternationalCard**|Selecionar se a loja aceitará cartões internacionais.|
 |**AcceptPrepaidCard**|Seleciona se a loja aceitará cartões pré-pagos.|
-|**SaveCard**|Selecionar caso a loja queira disponibilizar a opção de salvar cartão para futuras compras. É necessária adesão ao [Cartão Protegido]|
+|**SaveCard**|Selecionar caso a loja queira disponibilizar a opção de salvar cartão para futuras compras. É necessária adesão ao [Cartão Protegido](https://developercielo.github.io/manual/integracao-vtex#cart%C3%A3o-protegido).|
 |**CancelRefundType**|Permite que o lojista escolha o fluxo de cancelamento/estorno de pedidos:<br>- **Automático sempre que possível**: autoriza o cancelamento e estorno de forma automática (fluxo padrão);<br>- **Manual de acordo com a loja (notificação por e-mail)**: todos os pedidos de cancelamento e estorno não são autorizados de forma automática e o lojista é notificado via e-mail.|
 |**Ativar Divisão e tempos de captura**|Selecione **Sim** se for ativar divisão entre Marketplace e Seller. Selecione **Não** se não possuir divisão entre Marketplace e Seller.|
 |**Responsabilidade pelas tarifas de pagamento. Essa configuração será enviada para o seu processador de pagamentos**|Selecione **Marketplace**, **Marketplace + Sellers** ou **Sellers**. Só será exibido se **Ativar Divisão** estiver preenchido com “Sim”.|
