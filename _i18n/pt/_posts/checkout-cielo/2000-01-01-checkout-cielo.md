@@ -318,7 +318,7 @@ Ao acessar as configurações da sua loja, procure a sessão **Antifraude e capt
 |---|---|
 |*Nunca fazer a Captura Automática*|Para toda transação de cartão de crédito autorizada será necessário que o estabelecimento efetue a captura manual da transação (requisição de captura).|
 |*Sempre fazer Captura Automática*|Toda transação de cartão de crédito autorizada de baixo ou médio risco será capturada automaticamente.|
-|*Somente fazer captura Automática das transações de Baixo Risco no Antifraude*|Toda transação de cartão de crédito (autorizada) de baixo risco será capturada automaticamente – as transações de médio risco ficarão aguardando a captura manual.|
+|*Somente fazer captura Automática das transações de Baixo Risco no Antifraude*|Transações de cartão de crédito (autorizada) de baixo risco, transações autenticadas pelo 3DS e transações de QR code serão capturadas automaticamente. As transações de médio risco ficarão aguardando a captura manual. |
 
 > Se a análise de fraude classificar a transação como Alto Risco ela será cancelada automaticamente. Não será possível fazer a captura manual.
 
