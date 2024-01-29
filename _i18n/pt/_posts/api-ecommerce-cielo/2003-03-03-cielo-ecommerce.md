@@ -2955,15 +2955,21 @@ Veja todos os benefícios:
 
 As bandeiras participantes disponibilizam APIs para o recebimento e armazenamento do cartão de forma segura para adquirentes, gateways e parceiros, com a criação do token único e exclusivo para aquele cartão naquele estabelecimento.
 
-A Cielo fornece esse serviço para os clientes de duas formas:
+A Cielo fornece esse serviço para os clientes de três formas:
+
+* **Tokenização Transparente Cielo**: quando uma transação online com o cartão aberto (PAN) for recebida em nossa API, a Cielo irá solicitar um token para aquele cartão de forma transparente e sem a necessidade de integração adicional. Neste momento a Cielo não irá cobrar pela solução, de forma a propiciar a experiência da tokenização para nossos clientes e mitigar o custo da taxa de 0,05% sobre o valor da transação. Futuramente este tema poderá ser reavaliado. Nesta solução tanto os cartões quanto os tokens são de gestão e propriedade da Cielo.
+
+    > **Bandeira disponível**: Visa
 
 * **Integração facilitada:** o estabelecimento se integra com a funcionalidade de tokenização convencional da Cielo, que por trás realiza a tokenização da bandeira, e relaciona esses dois tokens no cofre da Cielo. Dessa forma, os estabelecimentos sempre terão um único token para aquele cartão, mas a Cielo terá os tokens e criptogramas das bandeiras internamente. Para conferir como é a integração com a tokeniação convencional da Cielo, volte para o menu [Tokenização de cartões](https://developercielo.github.io/manual/cielo-ecommerce#tokeniza%C3%A7%C3%A3o-de-cart%C3%B5es).
-  **Bandeiras disponíveis:** Visa.
+
+    > **Bandeira disponível:** Visa.
 
     > Para obter essa funcionalidade, entre em contato com nosso canal de suporte ecommerce solicitando a habilitação: **cieloecommerce@cielo.com.br**
 
 * **Integração externa:** se o estabelecimento usa um gateway ou outro parceiro que já oferece a solução de token de bandeira, a Cielo possui os campos para que sejam enviadas as informações do token na transação, para que no processamento a bandeira receba os dados do token. Veja mais detalhes na requisição a seguir.
-  **Bandeiras disponíveis:** Visa, Master e Elo.
+
+    > **Bandeiras disponíveis:** Visa, Master e Elo.
 
 Confira os campos a serem enviados na transação caso a opção escolhida seja a **integração externa**:
 
