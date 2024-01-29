@@ -37,7 +37,7 @@ Através dela, você pode **aceitar** ou **recusar** contestações, além de co
 
 * Acesse o [Portal dos Desenvolvedores](https://cielomulesoft.my.site.com/desenvolvedores/s/login/){:target="_blank"}. Deve ser criado apenas um único login por cliente;
 * Clique em "Sign Up" e cadastre Nome, Sobrenome e E-mail;
-* Após esse cadastro, envie um e-mail para [**Technical Support Chargeback**];(mailto:techsupportchargeback@cielo.com.br) informando os dados cadastrados.
+* Após esse cadastro, envie um e-mail para [**Technical Support Chargeback**](mailto:techsupportchargeback@cielo.com.br) informando os dados cadastrados.
 
 <aside class="notice">Atenção: Esse cadastro é necessário para obter acesso ao Client_ID e Client_Secret dos ambientes de Sandbox e Produção.</aside>
 
