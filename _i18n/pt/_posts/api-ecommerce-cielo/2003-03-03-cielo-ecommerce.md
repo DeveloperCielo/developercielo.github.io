@@ -2947,7 +2947,7 @@ Algumas bandeiras de cartão possuem uma solução de tokenização que oferece 
 
 Veja todos os benefícios:
 
-- **Maior segurança:** além da criação de um código (token ou DPAN) para substituir a informação do cartão, as bandeiras também emitem os criptogramas, que funcionam como uma senha ou assinatura da bandeira, única para aquele cartão naquele estabelecimento;
+- **Mais segurança:** além da criação de um código (token ou DPAN) para substituir a informação do cartão, as bandeiras também emitem os criptogramas, que funcionam como uma senha ou assinatura da bandeira, única para aquele cartão naquele estabelecimento;
 - **Atualização automática de cartões:** quando um novo cartão é emitido no lugar do cartão anterior, ou quando a data de expiração de um cartão muda, os bancos enviam essas informações para a base da bandeira, e a bandeira automaticamente atualiza os tokens com as novas informações. Ou seja, não tem necessidade de nenhuma ação por parte do estabelecimento;
 - **Maior conversão de aprovação:** Por conta da maior segurança com os tokens das bandeiras, os bancos emissores se sentem mais seguros em aprovar as transações. Além disso, com os dados de cartão atualizados automaticamente, mais vendas que poderiam ser negadas por dados de cartão desatualizados podem ser aprovadas.
 
