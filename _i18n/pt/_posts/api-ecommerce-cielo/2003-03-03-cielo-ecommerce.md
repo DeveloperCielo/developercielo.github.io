@@ -6974,6 +6974,8 @@ As transações negadas são classificadas como:
 <br/>
 As retentativas podem ser cobradas pela bandeira e a quantidade de vezes que uma transação pode ser retentada antes da cobrança também varia de acordo com a bandeira.
 
+> A bandeira Mastercard possui o programa Merchant Advice Code (MAC), que determina se a transação é reversível ou irreversível e qual ação a loja pode realizar para tentar aprovar a transação. Para saber mais sobre os códigos MAC, acesse [Merchant Advice Code Transaction Excellence (MAC)](https://developercielo.github.io/tutorial/programa-retentativa-bandeiras#2.-merchant-advice-code-transaction-excellence-(mac)){:target="_blank"}
+
 > Para ver as regras de retentativa de cada bandeira, acesse o manual [Programa de Retentativa das Bandeiras](https://developercielo.github.io/tutorial/programa-retentativa-bandeiras){:target="_blank"}
 
 ## Códigos de retorno ABECS
