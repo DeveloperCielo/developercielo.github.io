@@ -403,7 +403,7 @@ Header: `Authorization:` `Bearer {access_token}`
 |---|---|---|---|---|
 |`type`|Tipo de venda a ser realizada através do link de pagamento:<br>Asset – Material Físico<br>Digital – Produto Digital<br>Service – Serviço<br>Payment – Pagamentos Simples<br>Recurrent – Pagamento Recorrente|String|255|Sim|
 |`name`|Nome do produto|String|128|Sim|
-|`description`|Descrição do produto que será exibida na tela de pagamento caso a opção show_description seja verdadeira. É permitido usar o caracter pipe `|` caso seja desejável quebrar a linha ao apresentar a descrição na tela de pagamento.|String|512|Não|
+|`description`|Descrição do produto que será exibida na tela de pagamento caso a opção show_description seja verdadeira. É permitido usar o caracter pipe `|` caso seja desejável quebrar a linha ao apresentar a descrição na tela de pagamento.|String|256|Não|
 |`showDescription`|Flag indicando se a descrição deve ou não ser exibida na tela de pagamento.|String|–|Não|
 |`price`|Valor do produto em centavos.|Int|1000000|Sim|
 |`expirationDate`|Data de expiração do link. Caso uma data seja informada, o link se torna indisponível na data informada. Se nenhuma data for informada, o link não expira.|String (YYYY-MM-DD)|10|Não|
