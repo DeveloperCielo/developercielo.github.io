@@ -7055,6 +7055,8 @@ The denied transactions were classified as **irreversible** (never retry) and **
 
 Th card brands determine if they will charge a fee for retrying and how many retry attemps are allowed before applying charges. The merchants who do not follow the card brand rules will be penalized by charging fees for exceeded transactions.
 
+> The Merchant Advice Code (MAC) for Mastercard determines whether the transaction is reversible or not and which action the merchant can take to try to approve the transaction. Please refer to [Merchant Advice Code Transaction Excellence (MAC)](https://developercielo.github.io/en/tutorial/programa-retentativa-bandeiras#2.-merchant-advice-code-transaction-excellence-(mac)){:target="_blank"} for further information. 
+
 > Please refer to [Card Brands Retry Program manual](https://developercielo.github.io/en/tutorial/programa-retentativa-bandeiras){:target="_blank"} to see each card brand rules.
 
 ## ABECS Return codes
