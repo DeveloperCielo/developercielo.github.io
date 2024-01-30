@@ -2951,25 +2951,31 @@ The response will return with the card token on the `CardToken` field.
 
 Some card brands offer a tokenization solution that tokenize and sotores card data in a network vault, in an encrypted form. Network tokenization is intended to improve the security and quality of card information transmitted, which leads to possible increases in the conversion of approval by issuing banks. See all the benefits:
 
-- **Increased security:** In addition to creating a code (token or DPAN) to replace the card information, the brands also issue cryptograms, which function as a password or signature of the brand, unique to that card at that establishment.
-- **Automatic Card Update:** When a new card is issued in place of the previous card, or when a card's expiration date changes, banks send this information to the brand's base, and the brand automatically updates the tokens with the new information. That is, there is no need for any action on the part of the establishment.
-- **Higher approval conversion:** Due to the greater security with the flags' tokens, issuing banks feel more secure in approving transactions. Plus, with card data automatically updated, more sales that could be denied by outdated card data can be approved.
+* **Increased security:** In addition to creating a code (token or DPAN) to replace the card information, the brands also issue cryptograms, which function as a password or signature of the brand, unique to that card at that establishment.
+* **Automatic Card Update:** When a new card is issued in place of the previous card, or when a card's expiration date changes, banks send this information to the brand's base, and the brand automatically updates the tokens with the new information. That is, there is no need for any action on the part of the establishment.
+* **Higher approval conversion:** Due to the greater security with the flags' tokens, issuing banks feel more secure in approving transactions. Plus, with card data automatically updated, more sales that could be denied by outdated card data can be approved.
 
 **How does it work?**
 
-The participating brands provide APIs for receiving and storing the card securely for acquirers, gateways and partners, with the creation of a exclusive token for that card at that merchant.
+The participating brands provide APIs for receiving and storing the card securely for acquirers, gateways and partners, with the creation of an exclusive token for that card at that merchant.
 
-Cielo provides these services to customers in two ways:
+Cielo provides these services to clients in three ways:
 
-- **Simple Integration:** The merchant integrates with Cielo's conventional tokenization functionality, which performs the tokenization of the brand behind it, and links these two tokens in Cielo's vault. In this way, merchants will always have a single token for that card, but Cielo will have the brand's tokens and cryptograms internally. To see how the integration with Cielo's conventional tokenization is like, go back to the [Card Tokenization](https://developercielo.github.io/en/manual/cielo-ecommerce#tokenization-of-cards){:target="\_blank"} menu
-- Available Brands: Visa;
+* **Cielo Transparent Tokenization**: when the merchant sends an online transaction with card data (PAN) to our APIs, Cielo will automatically create a token for that card so that Visa will receive the tokenized card data and the merchant does not need to create any additional intergation. Currently, Cielo is not charging for transparent tokenization in order to enable the tokenization experience for our clients and to avoid the 0.05% fee over the transaction amount. Cielo may start charging for this service at any point in the future. In this solution, both the card data and the tokens are managed/owned by Cielo.
 
-> To enable network tokenization, contact our E-commerce support channel at *cieloecommerce@cielo.com.br*.
+    > **Card brand available**: Visa
 
-- **External Integration:** if the merchant uses a gateway or another partner that already offers the flag token solution, Cielo has the fields for the token information to be sent in the transaction, so that in the processing the brand receives the token data. See more details on the request below.
-- Available brands: Visa, Master and Elo.
+* **Simple Integration:** The merchant integrates with Cielo's conventional tokenization functionality, which performs the tokenization of the brand behind it, and links these two tokens in Cielo's vault. In this way, merchants will always have a single token for that card, but Cielo will have the brand's tokens and cryptograms internally. To see how the integration with Cielo's conventional tokenization is like, go back to the [Card Tokenization](https://developercielo.github.io/en/manual/cielo-ecommerce#tokenization-of-cards){:target="\_blank"} menu
 
-Check below the fields to be sent in the transaction if the option chosen is external integration:
+    > Available Brands: Visa;
+
+    > To enable network tokenization, contact our E-commerce support channel at *cieloecommerce@cielo.com.br*.
+
+* **External Integration:** if the merchant uses a gateway or another partner that already offers the flag token solution, Cielo has the fields for the token information to be sent in the transaction, so that in the processing the brand receives the token data. See more details on the request below.
+ 
+    > Available brands: Visa, Master and Elo.
+
+Check below which parameters to send in the transaction request if the option chosen is **external integration**:
 
 ### Request
 
