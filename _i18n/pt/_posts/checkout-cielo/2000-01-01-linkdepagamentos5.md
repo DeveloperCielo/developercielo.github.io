@@ -18,7 +18,7 @@ language_tabs:
 
 # Sobre esta documentação
 
-Este manual é um guia para desenvolvedores na integração com a API Link de Pagamento Cielo. Ao integrar a API do Link de Pagamento, você vai conseguir:
+Este manual é um guia para desenvolvedores na integração com a **API Link de Pagamento Cielo**. Ao integrar a API do Link de Pagamento, você vai conseguir:
 
 * Configurar a sua loja e personalizar seus links de pagamentos;
 * Criar e editar links de pagamento via API;
