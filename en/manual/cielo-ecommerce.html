@@ -5732,25 +5732,39 @@
 
 <p><strong>How does it work?</strong></p>
 
-<p>The participating brands provide APIs for receiving and storing the card securely for acquirers, gateways and partners, with the creation of a exclusive token for that card at that merchant.</p>
+<p>The participating brands provide APIs for receiving and storing the card securely for acquirers, gateways and partners, with the creation of an exclusive token for that card at that merchant.</p>
 
-<p>Cielo provides these services to customers in two ways:</p>
-
-<ul>
-  <li><strong>Simple Integration:</strong> The merchant integrates with Cielo’s conventional tokenization functionality, which performs the tokenization of the brand behind it, and links these two tokens in Cielo’s vault. In this way, merchants will always have a single token for that card, but Cielo will have the brand’s tokens and cryptograms internally. To see how the integration with Cielo’s conventional tokenization is like, go back to the <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#tokenization-of-cards" target="\_blank">Card Tokenization</a> menu</li>
-  <li>Available Brands: Visa;</li>
-</ul>
-
-<blockquote>
-  <p>To enable network tokenization, contact our E-commerce support channel at <em>cieloecommerce@cielo.com.br</em>.</p>
-</blockquote>
+<p>Cielo provides these services to clients in three ways:</p>
 
 <ul>
-  <li><strong>External Integration:</strong> if the merchant uses a gateway or another partner that already offers the flag token solution, Cielo has the fields for the token information to be sent in the transaction, so that in the processing the brand receives the token data. See more details on the request below.</li>
-  <li>Available brands: Visa, Master and Elo.</li>
+  <li>
+    <p><strong>Cielo Transparent Tokenization</strong>: when the merchant sends an online transaction with card data (PAN) to our APIs, Cielo will automatically create a token for that card so that Visa will receive the tokenized card data and the merchant does not need to create any additional intergation. Currently, Cielo is not charging for transparent tokenization in order to enable the tokenization experience for our clients and to avoid the 0.05% fee over the transaction amount. Cielo may start charging for this service at any point in the future. In this solution, both the card data and the tokens are managed/owned by Cielo.</p>
+
+    <blockquote>
+      <p><strong>Card brand available</strong>: Visa</p>
+    </blockquote>
+  </li>
+  <li>
+    <p><strong>Simple Integration:</strong> The merchant integrates with Cielo’s conventional tokenization functionality, which performs the tokenization of the brand behind it, and links these two tokens in Cielo’s vault. In this way, merchants will always have a single token for that card, but Cielo will have the brand’s tokens and cryptograms internally. To see how the integration with Cielo’s conventional tokenization is like, go back to the <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#tokenization-of-cards" target="\_blank">Card Tokenization</a> menu</p>
+
+    <blockquote>
+      <p>Available Brands: Visa;</p>
+    </blockquote>
+
+    <blockquote>
+      <p>To enable network tokenization, contact our E-commerce support channel at <em>cieloecommerce@cielo.com.br</em>.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p><strong>External Integration:</strong> if the merchant uses a gateway or another partner that already offers the flag token solution, Cielo has the fields for the token information to be sent in the transaction, so that in the processing the brand receives the token data. See more details on the request below.</p>
+
+    <blockquote>
+      <p>Available brands: Visa, Master and Elo.</p>
+    </blockquote>
+  </li>
 </ul>
 
-<p>Check below the fields to be sent in the transaction if the option chosen is external integration:</p>
+<p>Check below which parameters to send in the transaction request if the option chosen is <strong>external integration</strong>:</p>
 
 <h3 id="request-15">Request</h3>
 
