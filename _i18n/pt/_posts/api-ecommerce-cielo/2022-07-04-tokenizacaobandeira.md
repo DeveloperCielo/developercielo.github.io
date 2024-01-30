@@ -24,7 +24,7 @@ A seguir, explicamos um pouco do que é a tokenização de bandeira, benefícios
 
 Algumas bandeiras possuem uma solução de tokenização que oferece o armazenamento de cartões em cofres na própria bandeira, de forma criptografada. Esse serviço tem o intuito de melhorar a segurança e qualidade das informações de cartão trafegadas, o que acarreta possíveis aumentos na performance de aprovação pelos bancos emissores. Veja todos os benefícios:
 
-* **Maior segurança:** além da criação de um código (token ou DPAN) para substituir a informação do cartão aberto (PAN), as bandeiras também emitem os criptogramas, que funcionam como uma senha ou assinatura da bandeira, única para aquele cartão naquele estabelecimento;
+* **Mais segurança:** além da criação de um código (token ou DPAN) para substituir a informação do cartão aberto (PAN), as bandeiras também emitem os criptogramas, que funcionam como uma senha ou assinatura da bandeira, única para aquele cartão naquele estabelecimento;
 * **Atualização automática de cartões:** quando um novo cartão é emitido no lugar do cartão anterior, ou quando a data de expiração de um cartão muda, os bancos enviam essas informações para a base da bandeira, e a bandeira automaticamente atualiza os tokens com as novas informações. Ou seja, não há necessidade de nenhuma ação por parte do estabelecimento - dependendo da bandeira pode haver custos relacionados à atualização do token;
 * **Maior performance de aprovação:** por conta da maior segurança no processo e com os dados de cartão sempre atualizados, os tokens de bandeira tendem a aumentar a chance de aprovação das transações.
 
