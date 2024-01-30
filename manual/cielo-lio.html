@@ -2488,7 +2488,7 @@ Assim que possuir a instância da Order, utilize o método abaixo passando os pa
     </tr>
     <tr>
       <td>Data</td>
-      <td>Em caso de operação deleitura, o parâmetro retornao que foi lido do cartão, paraoutras operações o retorno é nulo.</td>
+      <td>Em caso de operação de leitura, o parâmetro retorna o que foi lido do cartão, para outras operações o retorno é nul</td>
       <td><code class="language-plaintext highlighter-rouge">ByteArray</code></td>
     </tr>
     <tr>
@@ -2528,7 +2528,7 @@ Assim que possuir a instância da Order, utilize o método abaixo passando os pa
       <td><code class="language-plaintext highlighter-rouge">Byte</code></td>
     </tr>
     <tr>
-      <td>data</td>
+      <td>data*</td>
       <td>Os dados a serem inseridos no bloco</td>
       <td><code class="language-plaintext highlighter-rouge">ByteArray</code></td>
     </tr>
@@ -2555,9 +2555,13 @@ Assim que possuir a instância da Order, utilize o método abaixo passando os pa
   </tbody>
 </table>
 
+<blockquote>
+  <p>data*: É necessário que seja passado um atributo de exatamente 16 bytes.</p>
+</blockquote>
+
 <h4 id="detect">Detect</h4>
 
-<p>O método detect é o responsável por ligar a antena e esperar pela aproximação do cartão. Possui como parâmetro o <code class="language-plaintext highlighter-rouge">MifareCallback</code> que apresentamos anteriormente, com o resultado da operação.</p>
+<p>O método detect é o responsável por ligar a antena e esperar pela aproximação do cartão. Possui como parâmetro o <code class="language-plaintext highlighter-rouge">MifareCallback</code> que apresentamos anteriormente, com o resultado da operação. Esta operação possui um timeout de 60 segundos, temos como alternativa o método deactivate que cancela a operação.</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mifare</span><span class="o">.</span><span class="na">detect</span><span class="o">(</span><span class="n">mifareCallback</span><span class="o">)</span>
 </code></pre></div></div>
