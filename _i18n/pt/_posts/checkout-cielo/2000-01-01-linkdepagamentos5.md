@@ -375,6 +375,7 @@ Header: `Authorization:` `Bearer {access_token}`
 
 ```json
 {
+  "OrderNumber": "123456",  
   "type": "Digital",
   "name": "Pedido",
   "description": "teste description",
@@ -399,8 +400,19 @@ Header: `Authorization:` `Bearer {access_token}`
 
 **Dados do produto**
 
+**IMPORTANTE**: O número de identificação do pedido (`OrderNumber`) não sofre alteração ao longo do fluxo transacional mas um número adicional pode ser gerado para o pedido e utilizado durante a transação. Esse número só será diferente em caso de adequação a regras da adquirente (que seguem abaixo) ou em caso de números de identificação do pedido (`OrderNumber`) repetidos em menos de 24 horas.
+
+Para que o seu número de pedido seja enviado na transação até o extrato para fins de conciliação, siga os seguintes padrões de formatação: 
+* **Campo**: string;
+* **Tamanho mínimo**: 1;
+* **Tamanho máximo**: 20;
+* **Permitido**: letras (a-z, A-Z) e números (0-9);
+* **Não permitido**: símbolos e caracteres especiais, inclusive espaços em branco; 
+* Não repetir em menos de 24 (vinte e quatro) horas.
+
 |PROPRIEDADE | DESCRIÇÃO | TIPO | TAMANHO | OBRIGATÓRIO|
 |---|---|---|---|---|
+|`OrderNumber`|Número do pedido da loja.<br>Se não for enviado, o Link de Pagamento gerará um número que será visualizado pelo consumidor.|alfanumérico <br> *Para fins de conciliação, os caracteres permitidos são apenas a-z, A-Z, 0-9, não permitido caracteres especiais e espaços em branco.*|64 <br> *Para fins de conciliação, o tamanho máximo é 20.*|Não|  
 |`type`|Tipo de venda a ser realizada através do link de pagamento:<br>Asset – Material Físico<br>Digital – Produto Digital<br>Service – Serviço<br>Payment – Pagamentos Simples<br>Recurrent – Pagamento Recorrente|String|255|Sim|
 |`name`|Nome do produto|String|128|Sim|
 |`description`|Descrição do produto que será exibida na tela de pagamento caso a opção show_description seja verdadeira. É permitido usar o caracter pipe `|` caso seja desejável quebrar a linha ao apresentar a descrição na tela de pagamento.|String|256|Não|
@@ -447,6 +459,7 @@ A resposta irá retornar o link de pagamento no campo `shortUrl` e o `id` do lin
 {
   "id": "529aca91-2961-4976-8f7d-9e3f2fa8a0c9",
   "shortUrl": "http://bit.ly/2smqdhD",
+  "OrderNumber": "123456",
   "type": "Asset",
   "name": "Pedido ABC",
   "description": "50 canetas - R$30,00 | 10 cadernos - R$50,00",
@@ -499,13 +512,15 @@ Os dados retornados na resposta contemplam todos os enviados na requisição e d
 
 Para consultar um link existente basta realizar um GET informando o `id` do link.
 
-> **Importante**: A resposta da consulta contém o link em si (`shortUrl`) e os mesmos dados retornados na criação do link.<br>
-> **O link ainda não é a transação**. Uma transação só será iniciada quando o comprador fizer a tentativa de pagamento e pode ou não ser autorizada.<br>
+> **Importante**: A resposta da consulta contém o link em si (`shortUrl`) e os mesmos dados retornados na criação do link.
+
+> **O link ainda não é a transação**. Uma transação só será iniciada quando o comprador fizer a tentativa de pagamento e pode ou não ser autorizada.
+
 > Para consultar uma transação, veja a seção [Consulta de Transações](https://developercielo.github.io/manual/linkdepagamentos5#consulta-de-transa%C3%A7%C3%B5es).
 
 ### Requisição
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}</span></aside> 
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}</span></aside>
 
 Header: `Authorization`: `Bearer {access_token}`
 
@@ -517,6 +532,7 @@ Header: `Authorization`: `Bearer {access_token}`
 {
   "id": "529aca91-2961-4976-8f7d-9e3f2fa8a0c9",
   "shortUrl": "http://bit.ly/2smqdhD",
+  "OrderNumber": "123456",
   "type": "Asset",
   "name": "Pedido ABC",
   "description": "50 canetas - R$30,00 | 10 cadernos - R$50,00",
