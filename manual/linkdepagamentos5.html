@@ -1342,20 +1342,22 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
     <tr>
       <td><code class="language-plaintext highlighter-rouge">URL</code></td>
       <td>URL com os dados necessários para realizar a busca dos dados da transação.</td>
-      <td>String</td>
+      <td>string</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
       <td>Identificador da loja no Link de Pagamento; consta no site Cielo no menu Configuração &gt; Dados Cadastrais.</td>
-      <td>Alfanumérico (guid)</td>
+      <td>alfanumérico (guid)</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantOrderNumber</code></td>
-      <td>Número do pedido da loja; se não for enviado, o Link de Pagamento Cielo gerará um número, que será visualizado pelo Consumidor.</td>
-      <td>Alfanumérico</td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantOrderNumber</code>*</td>
+      <td>Número do pedido da loja.<br /> Se não for enviado, o Link de Pagamento Cielo gerará um número, que será visualizado pelo consumidor.</td>
+      <td>alfanumérico <br /><em>Para fins de conciliação, os caracteres permitidos são apenas a-z, A-Z, 0-9. Não são permitidos caracteres especiais e espaços em branco.</em></td>
     </tr>
   </tbody>
 </table>
+
+<p>*Em outras requisições e respostas pode se chamar <code class="language-plaintext highlighter-rouge">OrderNumber</code>.</p>
 
 <p><em>O servidor da loja deve enviar o retorno <code class="language-plaintext highlighter-rouge">HTTP Status = 200 (OK)</code> para a API do Link de Pagamento, indicando que a notificação foi recebida e processada com sucesso.</em></p>
 
@@ -1423,9 +1425,9 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">order_number</code></td>
-      <td>Número do pedido enviado pela loja</td>
-      <td>Alfanumérico</td>
-      <td>32</td>
+      <td>Número do pedido enviado pela loja.<br /> Se não for enviado, o Link de Pagamento Cielo gerará um número, que será visualizado pelo consumidor.</td>
+      <td>Alfanumérico<br /> <em>Para fins de conciliação, os caracteres permitidos são apenas a-z, A-Z, 0-9. Não são permitidos caracteres especiais e espaços em branco.</em></td>
+      <td>64 <br /><em>Para fins de conciliação, o tamanho máximo é de 20</em></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">created_date</code></td>
@@ -2011,9 +2013,9 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">order_number</code></td>
-      <td>Número do pedido enviado pela loja.</td>
-      <td>Alfanumérico</td>
-      <td>32</td>
+      <td>Número do pedido enviado pela loja. <br /> Se não for enviado, o Link de Pagamento Cielo gerará um número, que será visualizado pelo consumidor.</td>
+      <td>Alfanumérico <br /> <em>Para fins de conciliação, os caracteres permitidos são apenas a-z, A-Z, 0-9. Não são permitidos caracteres especiais e espaços em branco.</em></td>
+      <td>64<br /><em>Para fins de conciliação, o tamanho máximo é de 20.</em></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">payment_method_brand</code></td>
