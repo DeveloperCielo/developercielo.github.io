@@ -759,9 +759,11 @@ Url: "https://cieloecommerce.cielo.com.br/api/public/v1/orders/799g0de8-89c3-5d1
 
 |PARÂMETRO|DESCRIÇÃO|TIPO DO CAMPO|
 |---|---|---|
-|`URL`|URL com os dados necessários para realizar a busca dos dados da transação.|String|
-|`MerchantId`|Identificador da loja no Link de Pagamento; consta no site Cielo no menu Configuração > Dados Cadastrais.|Alfanumérico (guid)|
-|`MerchantOrderNumber`|Número do pedido da loja; se não for enviado, o Link de Pagamento Cielo gerará um número, que será visualizado pelo Consumidor.|Alfanumérico|
+|`URL`|URL com os dados necessários para realizar a busca dos dados da transação.|string|
+|`MerchantId`|Identificador da loja no Link de Pagamento; consta no site Cielo no menu Configuração > Dados Cadastrais.|alfanumérico (guid)|
+|`MerchantOrderNumber`* |Número do pedido da loja.<br> Se não for enviado, o Link de Pagamento Cielo gerará um número, que será visualizado pelo consumidor.|alfanumérico <br>*Para fins de conciliação, os caracteres permitidos são apenas a-z, A-Z, 0-9. Não são permitidos caracteres especiais e espaços em branco.*|
+
+*Em outras requisições e respostas pode se chamar `OrderNumber`.
 
 *O servidor da loja deve enviar o retorno `HTTP Status = 200 (OK)` para a API do Link de Pagamento, indicando que a notificação foi recebida e processada com sucesso.*
 
@@ -810,7 +812,7 @@ Tanto na notificação via POST ou via JSON, o conteúdo dos dados retornados é
 |---|---|---|---|
 |`checkout_cielo_order_number`|Identificador único gerado pelo Link de Pagamento Cielo.|Alfanumérico|32|
 |`amount`|Preço unitário do produto, em centavos (ex: R$ 1,00 = 100)|Número|10|
-|`order_number`|Número do pedido enviado pela loja|Alfanumérico|32|
+|`order_number`|Número do pedido enviado pela loja.<br> Se não for enviado, o Link de Pagamento Cielo gerará um número, que será visualizado pelo consumidor.|Alfanumérico<br> *Para fins de conciliação, os caracteres permitidos são apenas a-z, A-Z, 0-9. Não são permitidos caracteres especiais e espaços em branco.* |64 <br>*Para fins de conciliação, o tamanho máximo é de 20* |
 |`created_date`|Data da criação do pedido - dd-MM-yyyy HH:mm:ss|Alfanumérico|20|
 |`customer_name`|Nome do consumidor. Se enviado, esse valor já vem preenchido na tela do Link de Pagamento Cielo|Alfanumérico|289|
 |`customer_identity`|Identificação do consumidor (CPF ou CNPJ) Se enviado, esse valor já vem preenchido na tela do Link de Pagamento Cielo|Alfanumérico|14|
@@ -963,7 +965,7 @@ authorization_code: "01234567"
 |---|---|---|---|
 |`checkout_cielo_order_number`|Identificador único gerado pelo Link de Pagamento Cielo.|Alfanumérico|32|
 |`amount`|Preço unitário do produto, em centavos (ex: R$ 1,00 = 100)|Número|10|
-|`order_number`|Número do pedido enviado pela loja.|Alfanumérico|32|
+|`order_number`|Número do pedido enviado pela loja. <br> Se não for enviado, o Link de Pagamento Cielo gerará um número, que será visualizado pelo consumidor.|Alfanumérico <br> *Para fins de conciliação, os caracteres permitidos são apenas a-z, A-Z, 0-9. Não são permitidos caracteres especiais e espaços em branco.* |64<br>*Para fins de conciliação, o tamanho máximo é de 20.*|
 |`payment_method_brand`|Bandeira- somente para transações com meio de pagamento cartão de crédito. [Lista Completa](https://developercielo.github.io/manual/linkdepagamentos5#payment_method_brand) |Número|20|
 |`payment_status`|Status da transação. [Lista Completa](https://developercielo.github.io/manual/linkdepagamentos5#status-e-c%C3%B3digos)|Número|1|
 |`test_transaction`|Indica se a transação foi gerada com o Modo de teste ativado|Boolean|32|
