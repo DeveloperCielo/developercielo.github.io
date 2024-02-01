@@ -2267,9 +2267,9 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">orderNumber</code></td>
-      <td>Texto</td>
-      <td>32</td>
-      <td>Número do pedido da loja.</td>
+      <td>Texto<br /> <em>Para fins de conciliação, os caracteres permitidos são apenas a-z, A-Z, 0-9. Não são permitidos caracteres especiais e espaços em branco.</em></td>
+      <td>64<br /> <em>Para fins de conciliação, o tamanho máximo é de 20</em></td>
+      <td>Número do pedido da loja.<br /> Se não for enviado, o Link de Pagamento Cielo gerará um número, que será visualizado pelo consumidor.</td>
       <td>Exemplo: 123456</td>
     </tr>
     <tr>
@@ -2623,9 +2623,9 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">orders.orderNumber</code></td>
-      <td>Id pedido gerado pelo Link de Pagamento Cielo.</td>
-      <td>Texto</td>
-      <td>32</td>
+      <td>Número do pedido da loja. <br /> Se não for enviado, o Link de Pagamento Cielo gerará um número, que será visualizado pelo consumidor.</td>
+      <td>Texto<br /> <em>Para fins de conciliação, os caracteres permitidos são apenas a-z, A-Z, 0-9. Não são permitidos caracteres especiais e espaços em branco.</em></td>
+      <td>64<br /> <em>Para fins de conciliação, o tamanho máximo é de 20</em></td>
       <td>Exemplo: b74df3e3c1ac49ccb7ad89fde2d787f7</td>
     </tr>
     <tr>
@@ -2710,7 +2710,7 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
 
 <p>É obrigatório ter fornecido uma URL de notificação de transação pois os dados para consulta da transação serão enviados no conteúdo da notificação.</p>
 
-<p>O <code class="language-plaintext highlighter-rouge">Checkout_Cielo_Order_Number</code> é gerado apenas quando o pagamento é finalizado na tela transacional. Ele é enviado apenas pela URL de Notificação e não pela Resposta da criação da tela transacional.</p>
+<p>O <code class="language-plaintext highlighter-rouge">Checkout_Cielo_Order_Number</code> é gerado apenas quando o pagamento é finalizado na tela transacional. Ele é enviado apenas pela URL de Notificação e não pela resposta da criação da tela transacional.</p>
 
 <h1 id="status-e-códigos">Status e Códigos</h1>
 
