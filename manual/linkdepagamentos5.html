@@ -694,6 +694,7 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
 <p>Header: <code class="language-plaintext highlighter-rouge">Authorization:</code> <code class="language-plaintext highlighter-rouge">Bearer {access_token}</code></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"OrderNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">  
   </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Digital"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"teste description"</span><span class="p">,</span><span class="w">
@@ -718,6 +719,18 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
 
 <p><strong>Dados do produto</strong></p>
 
+<p><strong>IMPORTANTE</strong>: O número de identificação do pedido (<code class="language-plaintext highlighter-rouge">OrderNumber</code>) não sofre alteração ao longo do fluxo transacional mas um número adicional pode ser gerado para o pedido e utilizado durante a transação. Esse número só será diferente em caso de adequação a regras da adquirente (que seguem abaixo) ou em caso de números de identificação do pedido (<code class="language-plaintext highlighter-rouge">OrderNumber</code>) repetidos em menos de 24 horas.</p>
+
+<p>Para que o seu número de pedido seja enviado na transação até o extrato para fins de conciliação, siga os seguintes padrões de formatação:</p>
+<ul>
+  <li><strong>Campo</strong>: string;</li>
+  <li><strong>Tamanho mínimo</strong>: 1;</li>
+  <li><strong>Tamanho máximo</strong>: 20;</li>
+  <li><strong>Permitido</strong>: letras (a-z, A-Z) e números (0-9);</li>
+  <li><strong>Não permitido</strong>: símbolos e caracteres especiais, inclusive espaços em branco;</li>
+  <li>Não repetir em menos de 24 (vinte e quatro) horas.</li>
+</ul>
+
 <table>
   <thead>
     <tr>
@@ -729,6 +742,13 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OrderNumber</code></td>
+      <td>Número do pedido da loja.<br />Se não for enviado, o Link de Pagamento gerará um número que será visualizado pelo consumidor.</td>
+      <td>alfanumérico <br /> <em>Para fins de conciliação, os caracteres permitidos são apenas a-z, A-Z, 0-9, não permitido caracteres especiais e espaços em branco.</em></td>
+      <td>64 <br /> <em>Para fins de conciliação, o tamanho máximo é 20.</em></td>
+      <td>Não</td>
+    </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">type</code></td>
       <td>Tipo de venda a ser realizada através do link de pagamento:<br />Asset – Material Físico<br />Digital – Produto Digital<br />Service – Serviço<br />Payment – Pagamentos Simples<br />Recurrent – Pagamento Recorrente</td>
@@ -905,6 +925,7 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"shortUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://bit.ly/2smqdhD"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"OrderNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Asset"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido ABC"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50 canetas - R$30,00 | 10 cadernos - R$50,00"</span><span class="p">,</span><span class="w">
@@ -979,9 +1000,15 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
 <p>Para consultar um link existente basta realizar um GET informando o <code class="language-plaintext highlighter-rouge">id</code> do link.</p>
 
 <blockquote>
-  <p><strong>Importante</strong>: A resposta da consulta contém o link em si (<code class="language-plaintext highlighter-rouge">shortUrl</code>) e os mesmos dados retornados na criação do link.<br />
-<strong>O link ainda não é a transação</strong>. Uma transação só será iniciada quando o comprador fizer a tentativa de pagamento e pode ou não ser autorizada.<br />
-Para consultar uma transação, veja a seção <a href="https://developercielo.github.io/manual/linkdepagamentos5#consulta-de-transa%C3%A7%C3%B5es">Consulta de Transações</a>.</p>
+  <p><strong>Importante</strong>: A resposta da consulta contém o link em si (<code class="language-plaintext highlighter-rouge">shortUrl</code>) e os mesmos dados retornados na criação do link.</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>O link ainda não é a transação</strong>. Uma transação só será iniciada quando o comprador fizer a tentativa de pagamento e pode ou não ser autorizada.</p>
+</blockquote>
+
+<blockquote>
+  <p>Para consultar uma transação, veja a seção <a href="https://developercielo.github.io/manual/linkdepagamentos5#consulta-de-transa%C3%A7%C3%B5es">Consulta de Transações</a>.</p>
 </blockquote>
 
 <h3 id="requisição-2">Requisição</h3>
@@ -997,6 +1024,7 @@ Para consultar uma transação, veja a seção <a href="https://developercielo.g
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"shortUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://bit.ly/2smqdhD"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"OrderNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Asset"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido ABC"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50 canetas - R$30,00 | 10 cadernos - R$50,00"</span><span class="p">,</span><span class="w">
