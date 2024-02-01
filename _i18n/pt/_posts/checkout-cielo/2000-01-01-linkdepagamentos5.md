@@ -1119,7 +1119,7 @@ Header: `Authorization`: `Bearer {access_token}`
 |PROPRIEDADE|Tipo|Tamanho|Descrição|Formato|
 |---|---|---|---|---|
 |`merchantId`|GUID|36|Id da Loja no Link de Pagamento Cielo.|Exemplo: c89fdfbb-dbe2-4e77-806a-6d75cd397dac|
-|`orderNumber`|Texto|32|Número do pedido da loja.|Exemplo: 123456|
+|`orderNumber`|Texto<br> *Para fins de conciliação, os caracteres permitidos são apenas a-z, A-Z, 0-9. Não são permitidos caracteres especiais e espaços em branco.* |64<br> *Para fins de conciliação, o tamanho máximo é de 20* |Número do pedido da loja.<br> Se não for enviado, o Link de Pagamento Cielo gerará um número, que será visualizado pelo consumidor.|Exemplo: 123456|
 |`softDescriptor`|Texto|13|Nome fantasia da loja exibido na fatura do comprador. Sem caracteres especiais ou espaços.|Exemplo: `Loja_ABC_1234`|
 |`cart.discount.type`|Texto|10|Tipo de desconto aplicado.|Valores possíveis: Amount ou Percent|
 |`cart.discount.value`|Número|18|Valor ou porcentagem de desconto aplicado.|Exemplo: Se `discount.type` for Amount, então 1000 = R$10,00. Se `discount.type` for Percent, o valor estará entre 0 e 100.|
@@ -1207,7 +1207,7 @@ Header: `Authorization`: `Bearer {access_token}`
 |`productId`|Id do link de pagamento.|GUID|36|Exemplo: 9487e3a9-f204-4188-96c5-a5a3013b2517|
 |`createdDate`|Data de criação do link de pagamento. |Data|-|AAAA-MM-DDTHH:mm:SS.ss|
 |`orders.$id`|Id do nó.|Número|-|Exemplo: 1|
-|`orders.orderNumber`|Id pedido gerado pelo Link de Pagamento Cielo.|Texto|32|Exemplo: b74df3e3c1ac49ccb7ad89fde2d787f7|
+|`orders.orderNumber`|Número do pedido da loja. <br> Se não for enviado, o Link de Pagamento Cielo gerará um número, que será visualizado pelo consumidor.|Texto<br> *Para fins de conciliação, os caracteres permitidos são apenas a-z, A-Z, 0-9. Não são permitidos caracteres especiais e espaços em branco.* |64<br> *Para fins de conciliação, o tamanho máximo é de 20* |Exemplo: b74df3e3c1ac49ccb7ad89fde2d787f7|
 |`orders.createdDate`|Data de criação do pedido. |Data|-|AAAA-MM-DDTHH:mm:SS.ss|
 |`orders.payment.$id`|Id do nó.|Número|-|Exemplo: 1|
 |`orders.payment.price`|Valor da pedido, sem pontuação.|Número|-|Exemplo: R$ 1,00 = 100|
@@ -1226,7 +1226,7 @@ Para realizar o as consultas via API de Controle Transacional no Link de Pagamen
 
 É obrigatório ter fornecido uma URL de notificação de transação pois os dados para consulta da transação serão enviados no conteúdo da notificação.
 
-O `Checkout_Cielo_Order_Number` é gerado apenas quando o pagamento é finalizado na tela transacional. Ele é enviado apenas pela URL de Notificação e não pela Resposta da criação da tela transacional.
+O `Checkout_Cielo_Order_Number` é gerado apenas quando o pagamento é finalizado na tela transacional. Ele é enviado apenas pela URL de Notificação e não pela resposta da criação da tela transacional.
 
 # Status e Códigos
 
