@@ -154,7 +154,7 @@ https://api-internet.cielo.com.br/cielo-security-sys-web/oauth/v2/MulesoftPRD/pr
 --data-urlencode 'grant\_type=client\_credentials'
 ```
 
-Extraia o campo access_token do retorno da requisição e passe como header em Authorization:
+Extraia o campo `access_token` do retorno da requisição e passe como header em Authorization:
 
 | **KEY** | **VALUE** |
 | --- | --- |
@@ -176,14 +176,14 @@ Depois da tratativa, você pode acompanhar todo o processo consultando o ciclo d
 
 | Descrição | Path | Método HTTP |
 | --- | --- | --- |
-| Consulta de contestação pendentes e tratadas | v1/chargeback/{status} | POST |
-| Pesquisa do ciclo de vida | /v1/chargeback/lifecycle/{idCase} | GET |
-| Aceite de contestação | /v1/chargeback/accept | PUT |
-| Recusa de contestação | /v1/chargeback/refuse | PUT |
-| Pesquisa da razão | /v1/chargeback/Reason/{idBandeira} | GET |
-| Consulta de documento | /v1/chargeback/DocumentSupport/ | GET |
-| Lista de documentos do emissor | /v1/chargeback/ListIssuerDocuments/{establishmentNumber}/{idChargeback} | GET |
-| Download do documento do emissor | /v1/chargeback/DocumentIssuer/{establishmentNumber}/{idDocumento} | GET |
+| Consulta de contestação pendentes e tratadas | v1/chargeback/{status} | `POST` |
+| Pesquisa do ciclo de vida | /v1/chargeback/lifecycle/{idCase} | `GET` |
+| Aceite de contestação | /v1/chargeback/accept | `PUT` |
+| Recusa de contestação | /v1/chargeback/refuse | `PUT` |
+| Pesquisa da razão | /v1/chargeback/Reason/{idBandeira} | `GET` |
+| Consulta de documento | /v1/chargeback/DocumentSupport/ | `GET` |
+| Lista de documentos do emissor | /v1/chargeback/ListIssuerDocuments/{establishmentNumber}/{idChargeback} | `GET` |
+| Download do documento do emissor | /v1/chargeback/DocumentIssuer/{establishmentNumber}/{idDocumento} | `GET` |
 
 # Detalhamento dos serviços
 
@@ -192,21 +192,19 @@ Depois da tratativa, você pode acompanhar todo o processo consultando o ciclo d
 Com esse serviço, você consegue filtrar contestações para visualizar ou tratar por diversos parâmetros, como período, número do EC, entre outros. 
 
 
-**Endpoint da Requisição:**
+### Requisição
 
-```java
-{endpoint}/v1/chargeback/{status}?page={page}&pageSize={pageSize}
-```
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{endpoint}/v1/chargeback/{status}?page={page}&pageSize={pageSize}</span></aside>
 
 **Parâmetros e Path Variables:**
 
 | Nome | Descrição | Tipo |
 | --- | --- | --- |
-| Status | Indica o status desejado, conforme domínios da tabela status | Variável |
-| Page | Número da página desejada, considerando que **0** é a primeira | Parâmetro de query |
-| pageSize | Tamanho de registros que retornam na página, considerando que o limite é **200** | Parâmetro de query |
-| orderBy | Campo de ordenação da pesquisa | receptionDate ou treatmentDeadline |
-| Order | Forma de ordenação da pesquisa | asc ou desc |
+| `Status` | Indica o status desejado, conforme domínios da tabela status | Variável |
+| `Page` | Número da página desejada, considerando que **0** é a primeira | Parâmetro de query |
+| `pageSize` | Tamanho de registros que retornam na página, considerando que o limite é **200** | Parâmetro de query |
+| `orderBy` | Campo de ordenação da pesquisa | receptionDate ou treatmentDeadline |
+| `Order` | Forma de ordenação da pesquisa | asc ou desc |
 
 
 **Corpo da requisição:**
@@ -229,17 +227,17 @@ Com esse serviço, você consegue filtrar contestações para visualizar ou trat
 
 | Campo | Descrição | Conteúdo |
 | --- | --- | --- |
-| startNotificationPeriod\* | Data inicial da notificação | Texto, formato yyyy-MM-dd |
-| endNotificationPeriod\* | Data final da notificação | Texto, formato yyyy-MM-dd |
-| cardAssociationCode | Bandeira do cartão | Texto, somente numérico |
-| process | Tipo de processo | Lista, texto |
-| reason | Id da Razão (ver serviço de consulta da razão) | Lista, texto |
-| establishmentNumber\* | Número do Estabelecimento Comercial | Lista, numérico |
-| mainCustomer | Número do Estabelecimento Matriz | Lista, numérico |
-| hierarchyType | Tipo de hierarquia | Numérico |
-| idCase | Id do case do chargeback | Numérico |
-| tid | Número TID | Numérico |
-| nsu | Número serial único | Texto |
+| `startNotificationPeriod`\* | Data inicial da notificação | Texto, formato yyyy-MM-dd |
+| `endNotificationPeriod`\* | Data final da notificação | Texto, formato yyyy-MM-dd |
+| `cardAssociationCode` | Bandeira do cartão | Texto, somente numérico |
+| `process` | Tipo de processo | Lista, texto |
+| `reason` | Id da Razão (ver serviço de consulta da razão) | Lista, texto |
+| `establishmentNumber`\* | Número do Estabelecimento Comercial | Lista, numérico |
+| `mainCustomer` | Número do Estabelecimento Matriz | Lista, numérico |
+| `hierarchyType` | Tipo de hierarquia | Numérico |
+| `idCase` | Id do case do chargeback | Numérico |
+| `tid` | Número TID | Numérico |
+| `nsu` | Número serial único | Texto |
 
 _\*Obrigatório para status DONE._
 
@@ -281,7 +279,9 @@ _\*Obrigatório para status DONE._
 | 2      | Matriz de pagamento |
 | 4      | Todos os tipos de hierarquia (fortemente recomendável para clientes integrados na API) |
 
-**Retorno da requisição (pendentes e tratadas respectivamente):**
+### Resposta
+
+A seguir, apresentamos exemplos de retornos da requisição para o ststus pendente e tratadas, respectivamente:**
 
  - Exemplo de requisição do status pendente:
 
@@ -388,11 +388,9 @@ Status de retorno:
 
 Esse serviço permite consultar o ciclo de vida de uma contestação tratada, isto é, as ações ocorridas na contestação após a tratativa.
 
-**Endpoint da Requisição:**
+### Requisição
 
-```java
-{endpoint}/v1/chargeback/lifecycle/{idCase}
-```  
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{endpoint}/v1/chargeback/lifecycle/{idCase}</span></aside>
 
 **Parâmetros e Path Variables:**
 
@@ -443,11 +441,9 @@ Esse serviço permite consultar o ciclo de vida de uma contestação tratada, is
 
 Serviço de realização do aceite de uma contestação, considerando a venda como inválida e concordando com o estorno pela credenciadora, a Cielo. 
 
-**Endpoint da Requisição:**
+### Requisição
 
-```java
-{endpoint}/v1/chargeback/accept
-```  
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{endpoint}/v1/chargeback/accept</span></aside>
 
 **Parâmetros e Path Variables:**
 
@@ -502,11 +498,9 @@ _*Todos os campos são obrigatórios._
 
 Com esse serviço, você pode se defender de uma contestação apresentando uma evidência na forma de imagem ou documento, além de um breve texto justificando a posição.
 
-**Endpoint da Requisição:**
+### Requisição
 
-```java
-{endpoint}/v1/chargeback/refuse
-```
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{endpoint}/v1/chargeback/refuse</span></aside>
 
 **Parâmetros e Path Variables:**
 
@@ -522,7 +516,7 @@ Com esse serviço, você pode se defender de uma contestação apresentando uma 
 
 *_Todos os campos são obrigatórios._
 
-**Retorno da requisição:**
+### Resposta
 
 ```json
 {
@@ -545,11 +539,9 @@ Com esse serviço, você pode se defender de uma contestação apresentando uma 
 
 Serviço que provê a lista de todas as razões, por cada bandeira, para ser utilizada no filtro do serviço "**Consulta de contestação pendentes e tratadas**".
 
-**Endpoint da Requisição:**
+### Requisição
 
-```java
-{endpoint}/api/v1/chargeback/Reason/{idBandeira}
-```  
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{endpoint}/api/v1/chargeback/Reason/{idBandeira}</span></aside>
 
 **Parâmetros e Path Variables:**
 
@@ -565,7 +557,7 @@ Serviço que provê a lista de todas as razões, por cada bandeira, para ser uti
 | 7      | Elo |
 | 40     | Hipercard |
 
-**Retorno da requisição:**
+### Resposta
 
 ```json
 {
@@ -579,11 +571,9 @@ Serviço que provê a lista de todas as razões, por cada bandeira, para ser uti
 
 No caso de recusa da contestação, esse serviço retorna o documento de defesa anexado para consulta.
 
-**Endpoint da Requisição:**
+### Requisição
 
-```
-{endpoint}v1/chargeback/DocumentSupport/{establishmentNumber}/{idChargeback}
-```
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{endpoint}v1/chargeback/DocumentSupport/{establishmentNumber}/{idChargeback}</span></aside>
 
 **Parâmetros e Path Variables:**
 
@@ -594,7 +584,7 @@ No caso de recusa da contestação, esse serviço retorna o documento de defesa 
 
 *_Todos os campos são obrigatórios._
 
-**Retorno da requisição:**
+### Resposta
 
 ```json
 [
@@ -616,11 +606,9 @@ Esse serviço retorna os nomes e os códigos dos documentos enviados pelo emisso
 
 _Obs.: É necessário primeiro listar o documento, para após isso, realizar o download._
 
-**Endpoint da Requisição:**
+### Requisição
 
-```java
-{endpoint}/api/v1/chargeback/ListIssuerDocuments/{establishmentNumber}/{idChargeback}
-```
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{endpoint}/api/v1/chargeback/ListIssuerDocuments/{establishmentNumber}/{idChargeback}</span></aside>
 
 **Parâmetros e Path Variables:**
 
@@ -631,7 +619,7 @@ _Obs.: É necessário primeiro listar o documento, para após isso, realizar o d
 
 *_Todos os campos são obrigatórios._
 
-**Retorno da requisição:**
+### Resposta
 
 ```json
 [
@@ -646,11 +634,9 @@ _Obs.: É necessário primeiro listar o documento, para após isso, realizar o d
 
 Este serviço disponibiliza o documento enviado pelo emissor para download.
 
-**Endpoint da Requisição:**
+### Requisição
 
-```java
-{endpoint}/api/v1/chargeback/DocumentIssuer/{establishmentNumber}/{idDocumento}
-```
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{endpoint}/api/v1/chargeback/DocumentIssuer/{establishmentNumber}/{idDocumento}</span></aside>
 
 **Parâmetros e Path Variables:**
 
@@ -661,7 +647,7 @@ Este serviço disponibiliza o documento enviado pelo emissor para download.
 
 *_Todos os campos são obrigatórios._
 
-**Retorno da requisição:**
+### Resposta
 
 ```json
 {
