@@ -837,6 +837,6 @@ Para mais informações, acesse o [blog da Cielo](https://blog.cielo.com.br/dica
 
 # Suporte
 
-Em caso de dúvidas, enie um e-mail para [techsupportchargeback@cielo.com.br](mailto:techsupportchargeback@cielo.com.br)
+Em caso de dúvidas, envie um e-mail para [techsupportchargeback@cielo.com.br](mailto:techsupportchargeback@cielo.com.br)
 
 Caso precise de alguma ajuda, você pode entrar em contato diretamente com seu Gerente de Negócios, que estará pronto para te atender da melhor forma.
