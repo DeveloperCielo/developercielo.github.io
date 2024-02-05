@@ -374,7 +374,7 @@
 <span class="o">--</span><span class="n">data</span><span class="o">-</span><span class="n">urlencode</span> <span class="err">'</span><span class="n">grant</span><span class="err">\</span><span class="n">_type</span><span class="o">=</span><span class="n">client</span><span class="err">\</span><span class="n">_credentials</span><span class="err">'</span>
 </code></pre></div></div>
 
-<p>Extraia o campo access_token do retorno da requisição e passe como header em Authorization:</p>
+<p>Extraia o campo <code class="language-plaintext highlighter-rouge">access_token</code> do retorno da requisição e passe como header em Authorization:</p>
 
 <table>
   <thead>
@@ -417,42 +417,42 @@
     <tr>
       <td>Consulta de contestação pendentes e tratadas</td>
       <td>v1/chargeback/{status}</td>
-      <td>POST</td>
+      <td><code class="language-plaintext highlighter-rouge">POST</code></td>
     </tr>
     <tr>
       <td>Pesquisa do ciclo de vida</td>
       <td>/v1/chargeback/lifecycle/{idCase}</td>
-      <td>GET</td>
+      <td><code class="language-plaintext highlighter-rouge">GET</code></td>
     </tr>
     <tr>
       <td>Aceite de contestação</td>
       <td>/v1/chargeback/accept</td>
-      <td>PUT</td>
+      <td><code class="language-plaintext highlighter-rouge">PUT</code></td>
     </tr>
     <tr>
       <td>Recusa de contestação</td>
       <td>/v1/chargeback/refuse</td>
-      <td>PUT</td>
+      <td><code class="language-plaintext highlighter-rouge">PUT</code></td>
     </tr>
     <tr>
       <td>Pesquisa da razão</td>
       <td>/v1/chargeback/Reason/{idBandeira}</td>
-      <td>GET</td>
+      <td><code class="language-plaintext highlighter-rouge">GET</code></td>
     </tr>
     <tr>
       <td>Consulta de documento</td>
       <td>/v1/chargeback/DocumentSupport/</td>
-      <td>GET</td>
+      <td><code class="language-plaintext highlighter-rouge">GET</code></td>
     </tr>
     <tr>
       <td>Lista de documentos do emissor</td>
       <td>/v1/chargeback/ListIssuerDocuments/{establishmentNumber}/{idChargeback}</td>
-      <td>GET</td>
+      <td><code class="language-plaintext highlighter-rouge">GET</code></td>
     </tr>
     <tr>
       <td>Download do documento do emissor</td>
       <td>/v1/chargeback/DocumentIssuer/{establishmentNumber}/{idDocumento}</td>
-      <td>GET</td>
+      <td><code class="language-plaintext highlighter-rouge">GET</code></td>
     </tr>
   </tbody>
 </table>
@@ -463,10 +463,9 @@
 
 <p>Com esse serviço, você consegue filtrar contestações para visualizar ou tratar por diversos parâmetros, como período, número do EC, entre outros.</p>
 
-<p><strong>Endpoint da Requisição:</strong></p>
+<h3 id="requisição">Requisição</h3>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">{</span><span class="n">endpoint</span><span class="o">}/</span><span class="n">v1</span><span class="o">/</span><span class="n">chargeback</span><span class="o">/{</span><span class="n">status</span><span class="o">}?</span><span class="n">page</span><span class="o">={</span><span class="n">page</span><span class="o">}&amp;</span><span class="n">pageSize</span><span class="o">={</span><span class="n">pageSize</span><span class="o">}</span>
-</code></pre></div></div>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{endpoint}/v1/chargeback/{status}?page={page}&amp;pageSize={pageSize}</span></aside>
 
 <p><strong>Parâmetros e Path Variables:</strong></p>
 
@@ -480,27 +479,27 @@
   </thead>
   <tbody>
     <tr>
-      <td>Status</td>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
       <td>Indica o status desejado, conforme domínios da tabela status</td>
       <td>Variável</td>
     </tr>
     <tr>
-      <td>Page</td>
+      <td><code class="language-plaintext highlighter-rouge">Page</code></td>
       <td>Número da página desejada, considerando que <strong>0</strong> é a primeira</td>
       <td>Parâmetro de query</td>
     </tr>
     <tr>
-      <td>pageSize</td>
+      <td><code class="language-plaintext highlighter-rouge">pageSize</code></td>
       <td>Tamanho de registros que retornam na página, considerando que o limite é <strong>200</strong></td>
       <td>Parâmetro de query</td>
     </tr>
     <tr>
-      <td>orderBy</td>
+      <td><code class="language-plaintext highlighter-rouge">orderBy</code></td>
       <td>Campo de ordenação da pesquisa</td>
       <td>receptionDate ou treatmentDeadline</td>
     </tr>
     <tr>
-      <td>Order</td>
+      <td><code class="language-plaintext highlighter-rouge">Order</code></td>
       <td>Forma de ordenação da pesquisa</td>
       <td>asc ou desc</td>
     </tr>
@@ -534,57 +533,57 @@
   </thead>
   <tbody>
     <tr>
-      <td>startNotificationPeriod*</td>
+      <td><code class="language-plaintext highlighter-rouge">startNotificationPeriod</code>*</td>
       <td>Data inicial da notificação</td>
       <td>Texto, formato yyyy-MM-dd</td>
     </tr>
     <tr>
-      <td>endNotificationPeriod*</td>
+      <td><code class="language-plaintext highlighter-rouge">endNotificationPeriod</code>*</td>
       <td>Data final da notificação</td>
       <td>Texto, formato yyyy-MM-dd</td>
     </tr>
     <tr>
-      <td>cardAssociationCode</td>
+      <td><code class="language-plaintext highlighter-rouge">cardAssociationCode</code></td>
       <td>Bandeira do cartão</td>
       <td>Texto, somente numérico</td>
     </tr>
     <tr>
-      <td>process</td>
+      <td><code class="language-plaintext highlighter-rouge">process</code></td>
       <td>Tipo de processo</td>
       <td>Lista, texto</td>
     </tr>
     <tr>
-      <td>reason</td>
+      <td><code class="language-plaintext highlighter-rouge">reason</code></td>
       <td>Id da Razão (ver serviço de consulta da razão)</td>
       <td>Lista, texto</td>
     </tr>
     <tr>
-      <td>establishmentNumber*</td>
+      <td><code class="language-plaintext highlighter-rouge">establishmentNumber</code>*</td>
       <td>Número do Estabelecimento Comercial</td>
       <td>Lista, numérico</td>
     </tr>
     <tr>
-      <td>mainCustomer</td>
+      <td><code class="language-plaintext highlighter-rouge">mainCustomer</code></td>
       <td>Número do Estabelecimento Matriz</td>
       <td>Lista, numérico</td>
     </tr>
     <tr>
-      <td>hierarchyType</td>
+      <td><code class="language-plaintext highlighter-rouge">hierarchyType</code></td>
       <td>Tipo de hierarquia</td>
       <td>Numérico</td>
     </tr>
     <tr>
-      <td>idCase</td>
+      <td><code class="language-plaintext highlighter-rouge">idCase</code></td>
       <td>Id do case do chargeback</td>
       <td>Numérico</td>
     </tr>
     <tr>
-      <td>tid</td>
+      <td><code class="language-plaintext highlighter-rouge">tid</code></td>
       <td>Número TID</td>
       <td>Numérico</td>
     </tr>
     <tr>
-      <td>nsu</td>
+      <td><code class="language-plaintext highlighter-rouge">nsu</code></td>
       <td>Número serial único</td>
       <td>Texto</td>
     </tr>
@@ -711,7 +710,9 @@
   </tbody>
 </table>
 
-<p><strong>Retorno da requisição (pendentes e tratadas respectivamente):</strong></p>
+<h3 id="resposta">Resposta</h3>
+
+<p>A seguir, apresentamos exemplos de retornos da requisição para o ststus pendente e tratadas, respectivamente:**</p>
 
 <ul>
   <li>Exemplo de requisição do status pendente:</li>
@@ -843,10 +844,9 @@
 
 <p>Esse serviço permite consultar o ciclo de vida de uma contestação tratada, isto é, as ações ocorridas na contestação após a tratativa.</p>
 
-<p><strong>Endpoint da Requisição:</strong></p>
+<h3 id="requisição-1">Requisição</h3>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">{</span><span class="n">endpoint</span><span class="o">}/</span><span class="n">v1</span><span class="o">/</span><span class="n">chargeback</span><span class="o">/</span><span class="n">lifecycle</span><span class="o">/{</span><span class="n">idCase</span><span class="o">}</span>
-</code></pre></div></div>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{endpoint}/v1/chargeback/lifecycle/{idCase}</span></aside>
 
 <p><strong>Parâmetros e Path Variables:</strong></p>
 
@@ -929,10 +929,9 @@
 
 <p>Serviço de realização do aceite de uma contestação, considerando a venda como inválida e concordando com o estorno pela credenciadora, a Cielo.</p>
 
-<p><strong>Endpoint da Requisição:</strong></p>
+<h3 id="requisição-2">Requisição</h3>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">{</span><span class="n">endpoint</span><span class="o">}/</span><span class="n">v1</span><span class="o">/</span><span class="n">chargeback</span><span class="o">/</span><span class="n">accept</span>
-</code></pre></div></div>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{endpoint}/v1/chargeback/accept</span></aside>
 
 <p><strong>Parâmetros e Path Variables:</strong></p>
 
@@ -1008,10 +1007,9 @@
 
 <p>Com esse serviço, você pode se defender de uma contestação apresentando uma evidência na forma de imagem ou documento, além de um breve texto justificando a posição.</p>
 
-<p><strong>Endpoint da Requisição:</strong></p>
+<h3 id="requisição-3">Requisição</h3>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">{</span><span class="n">endpoint</span><span class="o">}/</span><span class="n">v1</span><span class="o">/</span><span class="n">chargeback</span><span class="o">/</span><span class="n">refuse</span>
-</code></pre></div></div>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{endpoint}/v1/chargeback/refuse</span></aside>
 
 <p><strong>Parâmetros e Path Variables:</strong></p>
 
@@ -1026,7 +1024,7 @@
 
 <p>*<em>Todos os campos são obrigatórios.</em></p>
 
-<p><strong>Retorno da requisição:</strong></p>
+<h3 id="resposta-1">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"code"</span><span class="p">:</span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -1071,10 +1069,9 @@
 
 <p>Serviço que provê a lista de todas as razões, por cada bandeira, para ser utilizada no filtro do serviço “<strong>Consulta de contestação pendentes e tratadas</strong>”.</p>
 
-<p><strong>Endpoint da Requisição:</strong></p>
+<h3 id="requisição-4">Requisição</h3>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">{</span><span class="n">endpoint</span><span class="o">}/</span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">chargeback</span><span class="o">/</span><span class="nc">Reason</span><span class="o">/{</span><span class="n">idBandeira</span><span class="o">}</span>
-</code></pre></div></div>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{endpoint}/api/v1/chargeback/Reason/{idBandeira}</span></aside>
 
 <p><strong>Parâmetros e Path Variables:</strong></p>
 
@@ -1126,7 +1123,7 @@
   </tbody>
 </table>
 
-<p><strong>Retorno da requisição:</strong></p>
+<h3 id="resposta-2">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"cdReason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -1139,10 +1136,9 @@
 
 <p>No caso de recusa da contestação, esse serviço retorna o documento de defesa anexado para consulta.</p>
 
-<p><strong>Endpoint da Requisição:</strong></p>
+<h3 id="requisição-5">Requisição</h3>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{endpoint}v1/chargeback/DocumentSupport/{establishmentNumber}/{idChargeback}
-</code></pre></div></div>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{endpoint}v1/chargeback/DocumentSupport/{establishmentNumber}/{idChargeback}</span></aside>
 
 <p><strong>Parâmetros e Path Variables:</strong></p>
 
@@ -1170,7 +1166,7 @@
 
 <p>*<em>Todos os campos são obrigatórios.</em></p>
 
-<p><strong>Retorno da requisição:</strong></p>
+<h3 id="resposta-3">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
@@ -1191,10 +1187,9 @@
 
 <p><em>Obs.: É necessário primeiro listar o documento, para após isso, realizar o download.</em></p>
 
-<p><strong>Endpoint da Requisição:</strong></p>
+<h3 id="requisição-6">Requisição</h3>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">{</span><span class="n">endpoint</span><span class="o">}/</span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">chargeback</span><span class="o">/</span><span class="nc">ListIssuerDocuments</span><span class="o">/{</span><span class="n">establishmentNumber</span><span class="o">}/{</span><span class="n">idChargeback</span><span class="o">}</span>
-</code></pre></div></div>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{endpoint}/api/v1/chargeback/ListIssuerDocuments/{establishmentNumber}/{idChargeback}</span></aside>
 
 <p><strong>Parâmetros e Path Variables:</strong></p>
 
@@ -1222,7 +1217,7 @@
 
 <p>*<em>Todos os campos são obrigatórios.</em></p>
 
-<p><strong>Retorno da requisição:</strong></p>
+<h3 id="resposta-4">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -1236,10 +1231,9 @@
 
 <p>Este serviço disponibiliza o documento enviado pelo emissor para download.</p>
 
-<p><strong>Endpoint da Requisição:</strong></p>
+<h3 id="requisição-7">Requisição</h3>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">{</span><span class="n">endpoint</span><span class="o">}/</span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">chargeback</span><span class="o">/</span><span class="nc">DocumentIssuer</span><span class="o">/{</span><span class="n">establishmentNumber</span><span class="o">}/{</span><span class="n">idDocumento</span><span class="o">}</span>
-</code></pre></div></div>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{endpoint}/api/v1/chargeback/DocumentIssuer/{establishmentNumber}/{idDocumento}</span></aside>
 
 <p><strong>Parâmetros e Path Variables:</strong></p>
 
@@ -1267,7 +1261,7 @@
 
 <p>*<em>Todos os campos são obrigatórios.</em></p>
 
-<p><strong>Retorno da requisição:</strong></p>
+<h3 id="resposta-5">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"dateInclusion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-06-07"</span><span class="p">,</span><span class="w">
