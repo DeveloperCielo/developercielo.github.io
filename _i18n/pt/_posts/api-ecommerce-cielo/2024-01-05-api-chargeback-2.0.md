@@ -663,55 +663,55 @@ Este serviço disponibiliza o documento enviado pelo emissor para download.
 
 | Nome do campo | Descrição do campo |
 | ------------- | ------------------ |
-| action | Descrição da ação dada para o chargeback |
-| actionDate | Data da ação dada |
-| actionTakenCode | Código da ação dada para o Chargeback |
-| authorization | Código de autorização |
-| cardAssociation | Código da bandeira |
-| cardAssociationName | Nome da bandeira |
-| cdReason | Código da razão |
-| chargebackMessage | Mensagem do chargeback |
-| code | Código da mensagem de status |
-| codigo | Indica se o arquivo foi trafegado com sucesso |
-| currency | Moeda da contestação |
-| dateInclusion | Data da inclusão |
-| dcReason | Descrição da razão |
-| establishmentName | Nome do estabelecimento comercial |
-| establishmentNumber | Número de estabelecimentos específicos |
-| mainCustomer | Número do estabelecimento matriz |
-| file | Arquivo base64 |
-| nameFile | Nome do arquivo |
-| hierarchyType | Código para identificar o tipo de hierarquia |
-| idCase | Identificador do case |
-| idChargeback | Identificador da contestação |
-| idDocumento | Identificador do documento do emissor |
-| issuerSenderCode | Código do emissor |
-| issuerSenderDescription | Descrição do emissor |
-| mensagem | Mensagem do status do tráfego do arquivo |
-| message | Mensagem de retorno da requisição |
-| nameFile | Nome do arquivo |
-| nsu | Número serial único |
-| process | Código do processo |
-| productCode | Código do produto |
-| productDescription | Descrição do produto |
-| rapidDisputeResolution | Indicador de resolução rápida de disputas |
-| reasonCode | Código da razão |
-| reasonDescription | Descrição da razão |
-| reasonMessage | Mensagem da razão |
-| reasonToRefuse | Texto contendo o motivo da recusa |
-| receptionDate | Data de recepção da contestação |
-| referenceNumber | Número de referência |
-| remainingDaysToTreat | Dias pendentes para tratamento |
-| replyDate | Data do tratamento |
-| ro | Número RO |
-| terminal | Número do terminal |
-| tid | Número TID |
-| tpReason | Tipo da razão |
-| transactionAmount | Valor da transação da contestação |
-| transactionDate | Data da transação da contestação |
-| treatmentDeadline | Data limite de tratamento |
-| truncatedCard | Número de cartão truncado |
-| userName | E-mail do responsável pela tratativa |
+| `action` | Descrição da ação dada para o chargeback |
+| `actionDate` | Data da ação dada |
+| `actionTakenCode` | Código da ação dada para o Chargeback |
+| `authorization` | Código de autorização |
+| `cardAssociation` | Código da bandeira |
+| `cardAssociationName` | Nome da bandeira |
+| `cdReason` | Código da razão |
+| `chargebackMessage` | Mensagem do chargeback |
+| `code` | Código da mensagem de status |
+| `codigo` | Indica se o arquivo foi trafegado com sucesso |
+| `currency` | Moeda da contestação |
+| `dateInclusion` | Data da inclusão |
+| `dcReason` | Descrição da razão |
+| `establishmentName` | Nome do estabelecimento comercial |
+| `establishmentNumber` | Número de estabelecimentos específicos |
+| `mainCustomer` | Número do estabelecimento matriz |
+| `file` | Arquivo base64 |
+| `nameFile` | Nome do arquivo |
+| `hierarchyType` | Código para identificar o tipo de hierarquia |
+| `idCase` | Identificador do case |
+| `idChargeback` | Identificador da contestação |
+| `idDocumento` | Identificador do documento do emissor |
+| `issuerSenderCode` | Código do emissor |
+| `issuerSenderDescription` | Descrição do emissor |
+| `mensagem` | Mensagem do status do tráfego do arquivo |
+| `message` | Mensagem de retorno da requisição |
+| `nameFile` | Nome do arquivo |
+| `nsu` | Número serial único |
+| `process` | Código do processo |
+| `productCode` | Código do produto |
+| `productDescription` | Descrição do produto |
+| `rapidDisputeResolution` | Indicador de resolução rápida de disputas |
+| `reasonCode` | Código da razão |
+| `reasonDescription` | Descrição da razão |
+| `reasonMessage` | Mensagem da razão |
+| `reasonToRefuse` | Texto contendo o motivo da recusa |
+| `receptionDate` | Data de recepção da contestação |
+| `referenceNumber` | Número de referência |
+| `remainingDaysToTreat` | Dias pendentes para tratamento |
+| `replyDate` | Data do tratamento |
+| `ro` | Número RO |
+| `terminal` | Número do terminal |
+| `tid` | Número TID |
+| `tpReason` | Tipo da razão |
+| `transactionAmount` | Valor da transação da contestação |
+| `transactionDate` | Data da transação da contestação |
+| `treatmentDeadline` | Data limite de tratamento |
+| `truncatedCard` | Número de cartão truncado |
+| `userName` | E-mail do responsável pela tratativa |
 
 # Tabela dos status de retorno
 
