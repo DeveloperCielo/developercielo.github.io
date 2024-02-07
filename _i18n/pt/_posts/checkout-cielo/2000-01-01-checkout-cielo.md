@@ -1118,6 +1118,7 @@ Url: "https://cieloecommerce.cielo.com.br/api/public/v1/orders/799g0de8-89c3-5d1
 |`URL`|URL com os dados necessários para realizar a busca dos dados da transação.|String|
 |`MerchantId`|Identificador da loja no Checkout; consta no site Cielo no menu Configuração > Dados Cadastrais.|Alfanumérico (guid)|
 |`MerchantOrderNumber`*|Número do pedido da loja; se não for enviado, o Checkout Cielo gerará um número, que será visualizado pelo Consumidor.|Alfanumérico<br>*Para fins de conciliação, os caracteres permitidos são apenas a-z, A-Z, 0-9. Não são permitidos caracteres especiais e espaços em branco.*|
+
 *Em outras requisições e respostas pode se chamar `OrderNumber`.
 
 *O servidor da loja deve enviar o retorno `HTTP Status = 200 (OK)` para a API do Checkout, indicando que a notificação foi recebida e processada com sucesso.*
@@ -1196,7 +1197,7 @@ Tanto na notificação via POST ou via JSON, o conteúdo dos dados retornados é
 |`payment_status`|Status da transação|Número|1|
 |`tid`|TransactionId Cielo gerado no momento da autorização da transação|Alfanumérico|20|
 |`test_transaction`|Indica se a transação foi gerada com o Modo de teste ativado|Boolean|32
-|`product_id`|Identificador do Botão/Link de pagamento que gerou a transação|Alfanumérico|32|
+|`product_id`|Identificador do Botão/Link de pagamento que gerou a transação|Alfanumérico|36|
 |`product_type`|Tipo de Botão que gerou o pedido (Ver tabela de ProductID)|Alfanumérico|32|
 |`product_sku`|Identificador do produto cadastro no link de pagamento|texto|16|
 |`product_max_number_of_installments`|Número de parcelas liberado pelo lojistas para o link de pagamento|Número|2|
