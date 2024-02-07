@@ -840,7 +840,7 @@ Tanto na notificação via POST ou via JSON, o conteúdo dos dados retornados é
 |`payment_status`|Status da transação|Número|1|
 |`tid`|TransactionId Cielo gerado no momento da autorização da transação|Alfanumérico|20|
 |`test_transaction`|Indica se a transação foi gerada com o Modo de teste ativado|Boolean|32
-|`product_id`|Identificador do Botão/Link de pagamento que gerou a transação|Alfanumérico|32|
+|`product_id`|Identificador do Botão/Link de pagamento que gerou a transação|Alfanumérico|36|
 |`product_type`|Tipo de Botão que gerou o pedido (Ver tabela de ProductID)|Alfanumérico|32|
 |`product_sku`|Identificador do produto cadastro no link de pagamento|texto|16|
 |`product_max_number_of_installments`|Número de parcelas liberado pelo lojistas para o link de pagamento|Número|2|
