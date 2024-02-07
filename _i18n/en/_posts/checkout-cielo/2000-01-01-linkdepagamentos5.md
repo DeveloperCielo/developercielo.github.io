@@ -788,7 +788,7 @@ Both in the notification via POST or via JSON, the content of the returned data 
 |`payment_status`|Transaction status.|Number|1|
 |`tid`|TransactionId Cielo generated at the time of transaction authorization.|Alphanumeric|20|
 |`test_transaction`|Indicates whether the transaction was generated with Test Mode enabled.|Boolean|32
-|`product_id`|Payment Button/Link Identifier that generated the transaction.|Alphanumeric|32|
+|`product_id`|Payment Button/Link Identifier that generated the transaction.|Alphanumeric|36|
 |`product_type`|Type of Button that generated the order (See ProductID table).|Alphanumeric|32|
 |`product_sku`|Product identifier registration in the payment link.|Text|16|
 |`product_max_number_of_installments`|Number of installments allowed by merchants for the payment link.|Number|2|
