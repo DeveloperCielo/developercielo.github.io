@@ -220,23 +220,23 @@
   <tbody>
     <tr>
       <td><strong>Nome da Afiliação</strong></td>
-      <td>Insira nome identificador da afiliação.</td>
+      <td>Insira o nome identificador da afiliação.</td>
     </tr>
     <tr>
       <td><strong>Application Key</strong></td>
-      <td>Insira o MerchantID.</td>
+      <td>Insira o <code class="language-plaintext highlighter-rouge">**MerchantID**</code>.</td>
     </tr>
     <tr>
       <td><strong>Application Token</strong></td>
-      <td>Insira o MerchantKey.</td>
+      <td>Insira o <code class="language-plaintext highlighter-rouge">**MerchantKey**</code>.</td>
     </tr>
     <tr>
       <td><strong>Integration</strong></td>
-      <td>Selecione <strong>Adquirência</strong> se o seu contrato é <strong>somente</strong> com a adquirência Cielo. <br />Selecione <strong>Gateway</strong> se o seu contrato é para utilização de <strong>outros provedores</strong>.</td>
+      <td>Selecione <strong>Adquirência</strong> se a sua integração atual é <strong>diretamente com a Cielo</strong>. <br />Selecione <strong>Gateway</strong> se a sua integração atual é para utilização de <strong>outros provedores via Pagador</strong> (Gateway Braspag).</td>
     </tr>
     <tr>
       <td><strong>Provider</strong></td>
-      <td>Selecione o provedor  que deseja configurar a afiliação conforme o tipo de pagamento. <br />Exemplo: Se o seu provedor de Boleto é o Bradesco e o seu provedor de Crédito, Débito e Pix é o Cielo será necessário adicionar duas afiliações. <br />O provedor <strong>Simulado</strong> deve ser utilizado para transaçãoes de teste.<br />O provedor <strong>Cielo</strong> deve ser configurado para Integração <strong>Adquirência</strong>. <br />O provedor <strong>Cielo30</strong> deve ser configurado para Integração <strong>Gateway</strong>.</td>
+      <td>Selecione o provedor  que deseja configurar a afiliação conforme o tipo de pagamento. <br />Exemplo: Se o seu provedor de Boleto é o Bradesco e o seu provedor de Crédito, Débito e Pix é o Cielo será necessário adicionar duas afiliações. <br />O provedor <strong>Simulado</strong> deve ser utilizado para transações de teste.<br />O provedor <strong>Cielo</strong> deve ser configurado para Integração <strong>Adquirência</strong>. <br />O provedor <strong>Cielo30</strong> deve ser configurado para Integração <strong>Gateway</strong>.</td>
     </tr>
     <tr>
       <td><strong>UseSPLIT</strong></td>
@@ -248,23 +248,23 @@
     </tr>
     <tr>
       <td><strong>MpiClientId</strong></td>
-      <td>ID do MPI, disponibilizado para o cliente pela Cielo. *Campo relacionado à autenticação 3DS**.</td>
+      <td>ID do MPI, disponibilizado para o cliente pela Cielo. <em>Campo relacionado à autenticação 3DS</em> *.</td>
     </tr>
     <tr>
       <td><strong>MpiClientSecret</strong></td>
-      <td>Chave secreta do MPI, disponibilizada para o cliente pela Cielo. *Campo relacionado à autenticação 3DS**.</td>
+      <td>Chave secreta do MPI, disponibilizada para o cliente pela Cielo. <em>Campo relacionado à autenticação 3DS</em> *.</td>
     </tr>
     <tr>
       <td><strong>MpiMerchantName</strong></td>
-      <td>Nome da loja, disponibilizado pela Cielo. *Campo relacionado à autenticação 3DS**.</td>
+      <td>Nome da loja, disponibilizado pela Cielo. <em>Campo relacionado à autenticação 3DS</em> *.</td>
     </tr>
     <tr>
       <td><strong>MpiMCC</strong></td>
-      <td>Merchant Category Code da loja, disponibilizado pela Cielo. *Campo relacionado à autenticação 3DS**.</td>
+      <td>Merchant Category Code da loja, disponibilizado pela Cielo. <em>Campo relacionado à autenticação 3DS</em> *.</td>
     </tr>
     <tr>
       <td><strong>MpiEstablishmentCode</strong></td>
-      <td>Código de estabelecimento da loja, disponibilizado pela Cielo. *Campo relacionado à autenticação 3DS**.</td>
+      <td>Código de estabelecimento da loja, disponibilizado pela Cielo. <em>Campo relacionado à autenticação 3DS</em> *.</td>
     </tr>
     <tr>
       <td><strong>SoftDescriptor</strong></td>
@@ -272,35 +272,35 @@
     </tr>
     <tr>
       <td><strong>AntifraudProvider</strong></td>
-      <td>Selecionar o provedor de Antifraude escolhido, caso tenha contratado o serviço.</td>
+      <td><strong>[Em homologação]</strong> <br />Selecionar o provedor de Antifraude escolhido, caso tenha contratado o serviço com o comercial do Gateway ou da Cielo.</td>
     </tr>
     <tr>
       <td><strong>Antifraud</strong></td>
-      <td>Selecionar o fluxo utilizado pelo serviço de antifraude, podendo optar pelo fluxo de análise antes da transação ser autorizada, <strong>AnalyseFirst</strong>, ou após a autorização, <strong>AuthorizeFirst</strong>.</td>
+      <td><strong>[Em homologação]</strong> <br />Selecionar o fluxo utilizado pelo serviço de antifraude, podendo optar pelo fluxo de análise antes da transação ser autorizada, <strong>AnalyseFirst</strong>, ou após a autorização, <strong>AuthorizeFirst</strong>.</td>
     </tr>
     <tr>
       <td><strong>AntifraudSequenceCriteria</strong></td>
-      <td>Selecionar a sequência do fluxo de antifraude de acordo com a escolha da análise:<br />- Caso o fluxo escolhido tenha sido <strong>AuthorizeFirst</strong>, o lojista pode optar por sequenciar sempre, <strong>Always</strong> ou somente em casos de sucesso, <strong>On Success</strong>.<br />- Caso o fluxo escolhido tenha sido <strong>AnalyseFirst</strong>, a sequência sempre será <strong>Always</strong>.</td>
+      <td><strong>[Em homologação]</strong> <br />Selecionar a sequência do fluxo de antifraude de acordo com a escolha da análise:<br />- Caso o fluxo escolhido tenha sido <strong>AuthorizeFirst</strong>, o lojista pode optar por sequenciar sempre, <strong>Always</strong> ou somente em casos de sucesso, <strong>On Success</strong>.<br />- Caso o fluxo escolhido tenha sido <strong>AnalyseFirst</strong>, a sequência sempre será <strong>Always</strong>.</td>
     </tr>
     <tr>
       <td><strong>Captura</strong></td>
-      <td>Tempo em horas em que será enviada a solicitação de captura. Em <strong>Padrão</strong> ou <strong>Desativado</strong>, a captura será será realizada 4 dias após a autorização. Em <strong>Imediatamente</strong> a captura será realizada imeadiatamente após a autorização. Não configura Capture = ‘True’.</td>
+      <td>Tempo em horas em que será enviada a solicitação de captura. Em <strong>Padrão</strong> ou <strong>Desativado</strong>, a captura será será realizada 4 dias após a autorização. Em <strong>Imediatamente</strong> a captura será realizada imediatamente após a autorização. Não configura Capture = ‘True’.</td>
     </tr>
     <tr>
       <td><strong>UseVerifyCard</strong></td>
-      <td>Selecionar caso haja interesse em utilizar o serviço de <a href="https://developercielo.github.io/manual/integracao-vtex#verifycard">VerifyCard</a>.</td>
+      <td>Selecionar caso haja interesse em utilizar o serviço de <a href="https://developercielo.github.io/manual/integracao-vtex#verifycard">VerifyCard</a>. <br /> Antes de configurar, confira se essa funcionalidade está habilitada em sua loja/EC.</td>
     </tr>
     <tr>
       <td><strong>AcceptInternationalCard</strong></td>
-      <td>Selecionar se a loja aceitará cartões internacionais.</td>
+      <td><strong>[Exige VerifyCard]</strong> <br /> Selecionar se a loja aceitará cartões internacionais via VerifyCard.</td>
     </tr>
     <tr>
       <td><strong>AcceptPrepaidCard</strong></td>
-      <td>Seleciona se a loja aceitará cartões pré-pagos.</td>
+      <td><strong>[Exige VerifyCard]</strong> <br /> Selecionar se a loja aceitará cartões pré-pagos via VerifyCard.</td>
     </tr>
     <tr>
       <td><strong>SaveCard</strong></td>
-      <td>Selecionar caso a loja queira disponibilizar a opção de salvar cartão para futuras compras. É necessária adesão ao <a href="https://developercielo.github.io/manual/integracao-vtex#cart%C3%A3o-protegido">Cartão Protegido</a>.</td>
+      <td>Selecionar caso a loja queira disponibilizar a opção de salvar cartão para futuras compras. <br /> Antes de configurar, confira se a funcionalidade <a href="https://developercielo.github.io/manual/integracao-vtex#cart%C3%A3o-protegido">Cartão Protegido</a> está habilitada em sua loja/EC.</td>
     </tr>
     <tr>
       <td><strong>CancelRefundType</strong></td>
@@ -589,15 +589,23 @@
 
 <p>As seguintes mudanças acontecerão:</p>
 
+<h2 id="migração-para-novo-conector-1">Migração para novo conector</h2>
+
+<p>O novo conector CieloEcommerce será o único conector disponível a partir de <strong>31 de janeiro de 2024</strong>. O prazo para migração é <strong>31 de março de 2024</strong>. Todos os outros conectores serão descontinuados.</p>
+
+<p>As seguintes mudanças acontecerão em comparação com os conectores que serão descontinuados:</p>
+
+<h3 id="cielo-legado">Cielo (legado)</h3>
+
+<p>Nesta tabela você pode conferir o que os campos representam no novo conector CieloEcommerce em comparação com o que representavam no conector Cielo, que foi descontinuado.</p>
+
 <table>
   <thead>
     <tr>
       <th>CAMPO</th>
       <th>CIELOECOMMERCE (NOVO)</th>
       <th>CIELO (LEGADO)</th>
-      <th>CIELO V3 (LEGADO)</th>
-      <th>BRASPAG (LEGADO)</th>
-      <th>BRASPAG V2 / CIELO V4 / CIELO ECOMMERCE (ATUAL)</th>
+      <th> </th>
     </tr>
   </thead>
   <tbody>
@@ -606,56 +614,195 @@
       <td>Número de identificação do pedido.<br /><strong>Cielo:</strong> MerchantOrderId</td>
       <td>Campo permanece o mesmo.</td>
       <td>Campo permanece o mesmo.</td>
-      <td>Neste campo era utilizada a informação <code class="language-plaintext highlighter-rouge">reference</code> da VTEX e agora será utilizada a <code class="language-plaintext highlighter-rouge">orderId</code> da VTEX.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Tid</code></td>
+      <td>Id da transação no provedor de meio de pagamento.<br /><strong>Cielo:</strong> AcquirerTransactionID / Tid</td>
+      <td>Campo permanece o mesmo.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Returncode</code></td>
+      <td>Código de retorno da operação.<br /><strong>Cielo:</strong> ReasonCode / ProviderReturnCode / ReturnCode</td>
+      <td>Campo permanece o mesmo.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Message</code></td>
+      <td>Código de autorização.<br /><strong>Cielo:</strong> AuthorizationCode</td>
+      <td>Campo permanece o mesmo.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">authId</code></td>
+      <td>Código de autorização.<br /><strong>Cielo:</strong> AuthorizationCode</td>
+      <td>Campo permanece o mesmo.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">nsu</code></td>
+      <td>Número do comprovante de venda. <br /><strong>Cielo:</strong> ProofOfSale</td>
+      <td>Campo permanece o mesmo.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">metadados</code></td>
+      <td>Campo adicional com <code class="language-plaintext highlighter-rouge">Name</code> e <code class="language-plaintext highlighter-rouge">Value</code>. <br />Aqui será informado:<br /><strong>Name:</strong>`paymentIdApi;<br /><strong>Name:</strong> NSU_rede2captura;<br /><strong>Name:</strong> NSU_rede2cancelamento.</td>
+      <td>n/a</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="cielo-v3-legado">Cielo V3 (legado)</h3>
+
+<p>Nesta tabela você pode conferir o que os campos representam no novo conector CieloEcommerce em comparação com o que representavam no conector Cielo V3, que foi descontinuado.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>CAMPO</th>
+      <th>CIELOECOMMERCE (NOVO)</th>
+      <th>CIELO V3 (LEGADO)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
+      <td>Número de identificação do pedido.<br /><strong>Cielo:</strong> MerchantOrderId</td>
       <td>Campo permanece o mesmo.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Tid</code></td>
       <td>Id da transação no provedor de meio de pagamento.<br /><strong>Cielo:</strong> AcquirerTransactionID / Tid</td>
       <td>Campo permanece o mesmo.</td>
-      <td>Campo permanece o mesmo.</td>
-      <td>O <code class="language-plaintext highlighter-rouge">PaymentId</code> que era informado neste campo agora será informado no metadados <code class="language-plaintext highlighter-rouge">PaymentID_Cielo</code>.</td>
-      <td>Campo permanece o mesmo.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Returncode</code></td>
       <td>Código de retorno da operação.<br /><strong>Cielo:</strong> ReasonCode / ProviderReturnCode / ReturnCode</td>
-      <td>Campo permanece o mesmo.</td>
-      <td>Campo permanece o mesmo.</td>
-      <td>Campo permanece o mesmo.</td>
       <td>Campo permanece o mesmo.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Message</code></td>
       <td>Código de autorização.<br /><strong>Cielo:</strong> AuthorizationCode</td>
       <td>Campo permanece o mesmo.</td>
-      <td>Campo permanece o mesmo.</td>
-      <td>Campo permanece o mesmo.</td>
-      <td>Campo permanece o mesmo.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">authId</code></td>
       <td>Código de autorização.<br /><strong>Cielo:</strong> AuthorizationCode</td>
       <td>Campo permanece o mesmo.</td>
-      <td>Campo permanece o mesmo.</td>
-      <td>O <code class="language-plaintext highlighter-rouge">AcquirerTransactionID</code> que era informado aqui agora será informado no campo <code class="language-plaintext highlighter-rouge">Tid</code>. <br />Este campo refere-se ao que era informado no campo <code class="language-plaintext highlighter-rouge">AuthorizationCode</code>.</td>
-      <td>O <code class="language-plaintext highlighter-rouge">PaymentId</code> que era informado aqui agora será informado no metadados <code class="language-plaintext highlighter-rouge">PaymentID_Cielo</code>.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">nsu</code></td>
       <td>Número do comprovante de venda. <br /><strong>Cielo:</strong> ProofOfSale</td>
       <td>Campo permanece o mesmo.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">metadados</code></td>
+      <td>Campo adicional com <code class="language-plaintext highlighter-rouge">Name</code> e <code class="language-plaintext highlighter-rouge">Value</code>. <br />Aqui será informado:<br /><strong>Name:</strong>`paymentIdApi;<br /><strong>Name:</strong> NSU_rede2captura;<br /><strong>Name:</strong> NSU_rede2cancelamento.</td>
+      <td>n/a</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="braspag-legado">Braspag (legado)</h3>
+
+<p>Nesta tabela você pode conferir o que os campos representam no novo conector CieloEcommerce em comparação com o que representavam no conector Braspag, que foi descontinuado.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>CAMPO</th>
+      <th>CIELOECOMMERCE (NOVO)</th>
+      <th>BRASPAG (LEGADO)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
+      <td>Número de identificação do pedido.<br /><strong>Cielo:</strong> MerchantOrderId</td>
+      <td>Neste campo era utilizada a informação <code class="language-plaintext highlighter-rouge">reference</code> da VTEX e agora será utilizada a <code class="language-plaintext highlighter-rouge">orderId</code> da VTEX.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Tid</code></td>
+      <td>Id da transação no provedor de meio de pagamento.<br /><strong>Cielo:</strong> AcquirerTransactionID / Tid</td>
+      <td>O <code class="language-plaintext highlighter-rouge">PaymentId</code> que era informado neste campo agora será informado no metadados <code class="language-plaintext highlighter-rouge">paymentIdApi</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Returncode</code></td>
+      <td>Código de retorno da operação.<br /><strong>Cielo:</strong> ReasonCode / ProviderReturnCode / ReturnCode</td>
       <td>Campo permanece o mesmo.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Message</code></td>
+      <td>Código de autorização.<br /><strong>Cielo:</strong> AuthorizationCode</td>
+      <td>Campo permanece o mesmo.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">authId</code></td>
+      <td>Código de autorização.<br /><strong>Cielo:</strong> AuthorizationCode</td>
+      <td>O <code class="language-plaintext highlighter-rouge">AcquirerTransactionID</code> que era informado aqui agora será informado no campo <code class="language-plaintext highlighter-rouge">Tid</code>. <br />Este campo refere-se ao que era informado no campo <code class="language-plaintext highlighter-rouge">AuthorizationCode</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">nsu</code></td>
+      <td>Número do comprovante de venda. <br /><strong>Cielo:</strong> ProofOfSale</td>
       <td>O <code class="language-plaintext highlighter-rouge">AcquirerTransactionID</code> que era informado aqui agora será informado no campo <code class="language-plaintext highlighter-rouge">Tid</code>. Este campo refere-se ao que era informado no campo <code class="language-plaintext highlighter-rouge">proofOfSale</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">metadados</code></td>
+      <td>Campo adicional com <code class="language-plaintext highlighter-rouge">Name</code> e <code class="language-plaintext highlighter-rouge">Value</code>. <br />Aqui será informado:<br /><strong>Name:</strong><code class="language-plaintext highlighter-rouge">paymentIdApi;&lt;br&gt;**Name:** NSU_rede2captura;&lt;br&gt;**Name:** NSU_rede2cancelamento.|O </code>paymentIdApi<code class="language-plaintext highlighter-rouge"> refere-se ao que era informado no </code>braspagTransactionID`.</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="braspag-v2-cielo-v4-e-cieloecommerce-legado">Braspag V2, Cielo V4 e CieloEcommerce (legado)</h3>
+
+<p>Nesta tabela você pode conferir o que os campos representam no novo conector CieloEcommerce em comparação com o que representavam nos conectores Braspag V2, Cielo V4 e CieloEcommerce (legado), que foram descontinuados.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>CAMPO</th>
+      <th>CIELOECOMMERCE (NOVO)</th>
+      <th>BRASPAG V2 / CIELO V4 / CIELO ECOMMERCE (ATUAL)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
+      <td>Número de identificação do pedido.<br /><strong>Cielo:</strong> MerchantOrderId</td>
+      <td>Campo permanece o mesmo.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Tid</code></td>
+      <td>Id da transação no provedor de meio de pagamento.<br /><strong>Cielo:</strong> AcquirerTransactionID / Tid</td>
+      <td>Campo permanece o mesmo.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Returncode</code></td>
+      <td>Código de retorno da operação.<br /><strong>Cielo:</strong> ReasonCode / ProviderReturnCode / ReturnCode</td>
+      <td>Campo permanece o mesmo.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Message</code></td>
+      <td>Código de autorização.<br /><strong>Cielo:</strong> AuthorizationCode</td>
+      <td>Campo permanece o mesmo.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">authId</code></td>
+      <td>Código de autorização.<br /><strong>Cielo:</strong> AuthorizationCode</td>
+      <td>O <code class="language-plaintext highlighter-rouge">PaymentId</code> que era informado aqui agora será informado no metadados <code class="language-plaintext highlighter-rouge">paymentIdApi</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">nsu</code></td>
+      <td>Número do comprovante de venda. <br /><strong>Cielo:</strong> ProofOfSale</td>
       <td>Os campos concatenados AuthorizationCode - Proofsale que eram informados aqui agora estão nos campos de referência <code class="language-plaintext highlighter-rouge">authId</code> e <code class="language-plaintext highlighter-rouge">proofOfSale</code>.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">metadados</code></td>
-      <td>Campo adicional com <code class="language-plaintext highlighter-rouge">Name</code> e <code class="language-plaintext highlighter-rouge">Value</code>. <br />Aqui será informado:<br /><strong>Name:</strong> PaymentID_Cielo;<br /><strong>Name:</strong> NSU_rede2captura;<br /><strong>Name:</strong> NSU_rede2cancelamento.</td>
-      <td>n/a</td>
-      <td>n/a</td>
-      <td>O <code class="language-plaintext highlighter-rouge">PaymentID_Cielo</code> refere-se ao que era informado no <code class="language-plaintext highlighter-rouge">braspagTransactionID</code>.</td>
-      <td>O <code class="language-plaintext highlighter-rouge">PaymentID_Cielo</code> refere-se ao que era informado no <code class="language-plaintext highlighter-rouge">authId</code>.</td>
+      <td>Campo adicional com <code class="language-plaintext highlighter-rouge">Name</code> e <code class="language-plaintext highlighter-rouge">Value</code>. <br />Aqui será informado:<br /><strong>Name:</strong><code class="language-plaintext highlighter-rouge">paymentIdApi;&lt;br&gt;**Name:** NSU_rede2captura;&lt;br&gt;**Name:** NSU_rede2cancelamento.|O </code>paymentIdApi<code class="language-plaintext highlighter-rouge"> refere-se ao que era informado no </code>authId`.</td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
