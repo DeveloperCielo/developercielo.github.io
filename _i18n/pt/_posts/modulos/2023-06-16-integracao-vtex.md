@@ -68,27 +68,27 @@ Preencha os campos com os dados requisitados. A imagem a seguir é um **exemplo*
 
 |Campo|Descrição|
 |-|-|
-|**Nome da Afiliação**|Insira nome identificador da afiliação.|
-|**Application Key**|Insira o MerchantID.|
-|**Application Token**|Insira o MerchantKey.|
-|**Integration**|Selecione **Adquirência** se o seu contrato é **somente** com a adquirência Cielo. <br>Selecione **Gateway** se o seu contrato é para utilização de **outros provedores**.|
-|**Provider**|Selecione o provedor  que deseja configurar a afiliação conforme o tipo de pagamento. <br>Exemplo: Se o seu provedor de Boleto é o Bradesco e o seu provedor de Crédito, Débito e Pix é o Cielo será necessário adicionar duas afiliações. <br>O provedor **Simulado** deve ser utilizado para transaçãoes de teste.<br>O provedor **Cielo** deve ser configurado para Integração **Adquirência**. <br>O provedor **Cielo30** deve ser configurado para Integração **Gateway**.|
+|**Nome da Afiliação**|Insira o nome identificador da afiliação.|
+|**Application Key**|Insira o `**MerchantID**`.|
+|**Application Token**|Insira o `**MerchantKey**`.|
+|**Integration**|Selecione **Adquirência** se a sua integração atual é **diretamente com a Cielo**. <br>Selecione **Gateway** se a sua integração atual é para utilização de **outros provedores via Pagador** (Gateway Braspag).|
+|**Provider**|Selecione o provedor  que deseja configurar a afiliação conforme o tipo de pagamento. <br>Exemplo: Se o seu provedor de Boleto é o Bradesco e o seu provedor de Crédito, Débito e Pix é o Cielo será necessário adicionar duas afiliações. <br>O provedor **Simulado** deve ser utilizado para transações de teste.<br>O provedor **Cielo** deve ser configurado para Integração **Adquirência**. <br>O provedor **Cielo30** deve ser configurado para Integração **Gateway**.|
 |**UseSPLIT**|Insira “Sim” ou “Não” se deseja utilizar o SPLIT de pagamentos. Disponível para os tipos de pagamento crédito, débito e boleto.|
 |**UseMPI**|Insira “Sim” ou “Não” se deseja utilizar a **Autenticação 3DS 2.0**. Este campo é **obrigatório para o tipo de pagamento débito**.|
-|**MpiClientId**|ID do MPI, disponibilizado para o cliente pela Cielo. *Campo relacionado à autenticação 3DS**.|
-|**MpiClientSecret**|Chave secreta do MPI, disponibilizada para o cliente pela Cielo. *Campo relacionado à autenticação 3DS**.|
-|**MpiMerchantName**|Nome da loja, disponibilizado pela Cielo. *Campo relacionado à autenticação 3DS**.|
-|**MpiMCC**|Merchant Category Code da loja, disponibilizado pela Cielo. *Campo relacionado à autenticação 3DS**.|
-|**MpiEstablishmentCode**|Código de estabelecimento da loja, disponibilizado pela Cielo. *Campo relacionado à autenticação 3DS**.|
+|**MpiClientId**|ID do MPI, disponibilizado para o cliente pela Cielo. *Campo relacionado à autenticação 3DS* *.|
+|**MpiClientSecret**|Chave secreta do MPI, disponibilizada para o cliente pela Cielo. *Campo relacionado à autenticação 3DS* *.|
+|**MpiMerchantName**|Nome da loja, disponibilizado pela Cielo. *Campo relacionado à autenticação 3DS* *.|
+|**MpiMCC**|Merchant Category Code da loja, disponibilizado pela Cielo. *Campo relacionado à autenticação 3DS* *.|
+|**MpiEstablishmentCode**|Código de estabelecimento da loja, disponibilizado pela Cielo. *Campo relacionado à autenticação 3DS* *.|
 |**SoftDescriptor**|Valor que será concatenado com o valor de cadastro na adquirente para identificação na fatura. Permite no máximo 13 caracteres.|
-|**AntifraudProvider**|Selecionar o provedor de Antifraude escolhido, caso tenha contratado o serviço.|
-|**Antifraud**|Selecionar o fluxo utilizado pelo serviço de antifraude, podendo optar pelo fluxo de análise antes da transação ser autorizada, **AnalyseFirst**, ou após a autorização, **AuthorizeFirst**.|
-|**AntifraudSequenceCriteria**|Selecionar a sequência do fluxo de antifraude de acordo com a escolha da análise:<br>- Caso o fluxo escolhido tenha sido **AuthorizeFirst**, o lojista pode optar por sequenciar sempre, **Always** ou somente em casos de sucesso, **On Success**.<br>- Caso o fluxo escolhido tenha sido **AnalyseFirst**, a sequência sempre será **Always**.|
-|**Captura**|Tempo em horas em que será enviada a solicitação de captura. Em **Padrão** ou **Desativado**, a captura será será realizada 4 dias após a autorização. Em **Imediatamente** a captura será realizada imeadiatamente após a autorização. Não configura Capture = ‘True’.|
-|**UseVerifyCard**|Selecionar caso haja interesse em utilizar o serviço de [VerifyCard](https://developercielo.github.io/manual/integracao-vtex#verifycard).|
-|**AcceptInternationalCard**|Selecionar se a loja aceitará cartões internacionais.|
-|**AcceptPrepaidCard**|Seleciona se a loja aceitará cartões pré-pagos.|
-|**SaveCard**|Selecionar caso a loja queira disponibilizar a opção de salvar cartão para futuras compras. É necessária adesão ao [Cartão Protegido](https://developercielo.github.io/manual/integracao-vtex#cart%C3%A3o-protegido).|
+|**AntifraudProvider**|**[Em homologação]** <br>Selecionar o provedor de Antifraude escolhido, caso tenha contratado o serviço com o comercial do Gateway ou da Cielo.|
+|**Antifraud**|**[Em homologação]** <br>Selecionar o fluxo utilizado pelo serviço de antifraude, podendo optar pelo fluxo de análise antes da transação ser autorizada, **AnalyseFirst**, ou após a autorização, **AuthorizeFirst**.|
+|**AntifraudSequenceCriteria**|**[Em homologação]** <br>Selecionar a sequência do fluxo de antifraude de acordo com a escolha da análise:<br>- Caso o fluxo escolhido tenha sido **AuthorizeFirst**, o lojista pode optar por sequenciar sempre, **Always** ou somente em casos de sucesso, **On Success**.<br>- Caso o fluxo escolhido tenha sido **AnalyseFirst**, a sequência sempre será **Always**.|
+|**Captura**|Tempo em horas em que será enviada a solicitação de captura. Em **Padrão** ou **Desativado**, a captura será será realizada 4 dias após a autorização. Em **Imediatamente** a captura será realizada imediatamente após a autorização. Não configura Capture = ‘True’.|
+|**UseVerifyCard**|Selecionar caso haja interesse em utilizar o serviço de [VerifyCard](https://developercielo.github.io/manual/integracao-vtex#verifycard). <br> Antes de configurar, confira se essa funcionalidade está habilitada em sua loja/EC.|
+|**AcceptInternationalCard**|**[Exige VerifyCard]** <br> Selecionar se a loja aceitará cartões internacionais via VerifyCard.|
+|**AcceptPrepaidCard**|**[Exige VerifyCard]** <br> Selecionar se a loja aceitará cartões pré-pagos via VerifyCard.|
+|**SaveCard**|Selecionar caso a loja queira disponibilizar a opção de salvar cartão para futuras compras. <br> Antes de configurar, confira se a funcionalidade [Cartão Protegido](https://developercielo.github.io/manual/integracao-vtex#cart%C3%A3o-protegido) está habilitada em sua loja/EC.|
 |**CancelRefundType**|Permite que o lojista escolha o fluxo de cancelamento/estorno de pedidos:<br>- **Automático sempre que possível**: autoriza o cancelamento e estorno de forma automática (fluxo padrão);<br>- **Manual de acordo com a loja (notificação por e-mail)**: todos os pedidos de cancelamento e estorno não são autorizados de forma automática e o lojista é notificado via e-mail.|
 |**Ativar Divisão e tempos de captura**|Selecione **Sim** se for ativar divisão entre Marketplace e Seller. Selecione **Não** se não possuir divisão entre Marketplace e Seller.|
 |**Responsabilidade pelas tarifas de pagamento. Essa configuração será enviada para o seu processador de pagamentos**|Selecione **Marketplace**, **Marketplace + Sellers** ou **Sellers**. Só será exibido se **Ativar Divisão** estiver preenchido com “Sim”.|
@@ -255,15 +255,67 @@ O novo conector CieloEcommerce será o único conector disponível a partir de *
 
 As seguintes mudanças acontecerão:
 
-| CAMPO | CIELOECOMMERCE (NOVO) | CIELO (LEGADO) | CIELO V3 (LEGADO) | BRASPAG (LEGADO) | BRASPAG V2 / CIELO V4 / CIELO ECOMMERCE (ATUAL) |
-|---|---|---|---|---|---|
-|`MerchantOrderId`|Número de identificação do pedido.<br>**Cielo:** MerchantOrderId|Campo permanece o mesmo.|Campo permanece o mesmo.| Neste campo era utilizada a informação `reference` da VTEX e agora será utilizada a `orderId` da VTEX.|Campo permanece o mesmo.|
-|`Tid`|Id da transação no provedor de meio de pagamento.<br>**Cielo:** AcquirerTransactionID / Tid|Campo permanece o mesmo.|Campo permanece o mesmo.|O `PaymentId` que era informado neste campo agora será informado no metadados `PaymentID_Cielo`.|Campo permanece o mesmo.|
-|`Returncode`|Código de retorno da operação.<br>**Cielo:** ReasonCode / ProviderReturnCode / ReturnCode|Campo permanece o mesmo.|Campo permanece o mesmo.|Campo permanece o mesmo.|Campo permanece o mesmo.|
-|`Message`|Código de autorização.<br>**Cielo:** AuthorizationCode|Campo permanece o mesmo.|Campo permanece o mesmo.|Campo permanece o mesmo.|Campo permanece o mesmo.|
-|`authId`|Código de autorização.<br>**Cielo:** AuthorizationCode |Campo permanece o mesmo.|Campo permanece o mesmo.|O `AcquirerTransactionID` que era informado aqui agora será informado no campo `Tid`. <br>Este campo refere-se ao que era informado no campo `AuthorizationCode`.|O `PaymentId` que era informado aqui agora será informado no metadados `PaymentID_Cielo`.|
-|`nsu`|Número do comprovante de venda. <br>**Cielo:** ProofOfSale|Campo permanece o mesmo.|Campo permanece o mesmo.|O `AcquirerTransactionID` que era informado aqui agora será informado no campo `Tid`. Este campo refere-se ao que era informado no campo `proofOfSale`.|Os campos concatenados AuthorizationCode - Proofsale que eram informados aqui agora estão nos campos de referência `authId` e `proofOfSale`.|
-|`metadados`|Campo adicional com `Name` e `Value`. <br>Aqui será informado:<br>**Name:** PaymentID_Cielo;<br>**Name:** NSU_rede2captura;<br>**Name:** NSU_rede2cancelamento.|n/a|n/a|O `PaymentID_Cielo` refere-se ao que era informado no `braspagTransactionID`.|O `PaymentID_Cielo` refere-se ao que era informado no `authId`.|
+## Migração para novo conector
+
+O novo conector CieloEcommerce será o único conector disponível a partir de **31 de janeiro de 2024**. O prazo para migração é **31 de março de 2024**. Todos os outros conectores serão descontinuados.
+
+As seguintes mudanças acontecerão em comparação com os conectores que serão descontinuados:
+
+### Cielo (legado)
+
+Nesta tabela você pode conferir o que os campos representam no novo conector CieloEcommerce em comparação com o que representavam no conector Cielo, que foi descontinuado.
+
+| CAMPO | CIELOECOMMERCE (NOVO) | CIELO (LEGADO) |
+|---|---|---|
+|`MerchantOrderId`|Número de identificação do pedido.<br>**Cielo:** MerchantOrderId|Campo permanece o mesmo.|Campo permanece o mesmo.|
+|`Tid`|Id da transação no provedor de meio de pagamento.<br>**Cielo:** AcquirerTransactionID / Tid|Campo permanece o mesmo.|
+|`Returncode`|Código de retorno da operação.<br>**Cielo:** ReasonCode / ProviderReturnCode / ReturnCode|Campo permanece o mesmo.|
+|`Message`|Código de autorização.<br>**Cielo:** AuthorizationCode|Campo permanece o mesmo.|
+|`authId`|Código de autorização.<br>**Cielo:** AuthorizationCode |Campo permanece o mesmo.|
+|`nsu`|Número do comprovante de venda. <br>**Cielo:** ProofOfSale|Campo permanece o mesmo.|
+|`metadados`|Campo adicional com `Name` e `Value`. <br>Aqui será informado:<br>**Name:**`paymentIdApi;<br>**Name:** NSU_rede2captura;<br>**Name:** NSU_rede2cancelamento.|n/a|
+
+### Cielo V3 (legado)
+
+Nesta tabela você pode conferir o que os campos representam no novo conector CieloEcommerce em comparação com o que representavam no conector Cielo V3, que foi descontinuado.
+
+| CAMPO | CIELOECOMMERCE (NOVO) | CIELO V3 (LEGADO) |
+|---|---|---|
+|`MerchantOrderId`|Número de identificação do pedido.<br>**Cielo:** MerchantOrderId|Campo permanece o mesmo.|
+|`Tid`|Id da transação no provedor de meio de pagamento.<br>**Cielo:** AcquirerTransactionID / Tid|Campo permanece o mesmo.|
+|`Returncode`|Código de retorno da operação.<br>**Cielo:** ReasonCode / ProviderReturnCode / ReturnCode|Campo permanece o mesmo.|
+|`Message`|Código de autorização.<br>**Cielo:** AuthorizationCode|Campo permanece o mesmo.|
+|`authId`|Código de autorização.<br>**Cielo:** AuthorizationCode |Campo permanece o mesmo.|
+|`nsu`|Número do comprovante de venda. <br>**Cielo:** ProofOfSale|Campo permanece o mesmo.|
+|`metadados`|Campo adicional com `Name` e `Value`. <br>Aqui será informado:<br>**Name:**`paymentIdApi;<br>**Name:** NSU_rede2captura;<br>**Name:** NSU_rede2cancelamento.|n/a|
+
+### Braspag (legado)
+
+Nesta tabela você pode conferir o que os campos representam no novo conector CieloEcommerce em comparação com o que representavam no conector Braspag, que foi descontinuado.
+
+| CAMPO | CIELOECOMMERCE (NOVO) | BRASPAG (LEGADO) |
+|---|---|---|
+|`MerchantOrderId`|Número de identificação do pedido.<br>**Cielo:** MerchantOrderId| Neste campo era utilizada a informação `reference` da VTEX e agora será utilizada a `orderId` da VTEX.|
+|`Tid`|Id da transação no provedor de meio de pagamento.<br>**Cielo:** AcquirerTransactionID / Tid|O `PaymentId` que era informado neste campo agora será informado no metadados `paymentIdApi`.|
+|`Returncode`|Código de retorno da operação.<br>**Cielo:** ReasonCode / ProviderReturnCode / ReturnCode|Campo permanece o mesmo.|
+|`Message`|Código de autorização.<br>**Cielo:** AuthorizationCode|Campo permanece o mesmo.|
+|`authId`|Código de autorização.<br>**Cielo:** AuthorizationCode |O `AcquirerTransactionID` que era informado aqui agora será informado no campo `Tid`. <br>Este campo refere-se ao que era informado no campo `AuthorizationCode`.|
+|`nsu`|Número do comprovante de venda. <br>**Cielo:** ProofOfSale|O `AcquirerTransactionID` que era informado aqui agora será informado no campo `Tid`. Este campo refere-se ao que era informado no campo `proofOfSale`.|
+|`metadados`|Campo adicional com `Name` e `Value`. <br>Aqui será informado:<br>**Name:**`paymentIdApi;<br>**Name:** NSU_rede2captura;<br>**Name:** NSU_rede2cancelamento.|O `paymentIdApi` refere-se ao que era informado no `braspagTransactionID`.|
+
+### Braspag V2, Cielo V4 e CieloEcommerce (legado)
+
+Nesta tabela você pode conferir o que os campos representam no novo conector CieloEcommerce em comparação com o que representavam nos conectores Braspag V2, Cielo V4 e CieloEcommerce (legado), que foram descontinuados.
+
+| CAMPO | CIELOECOMMERCE (NOVO) | BRASPAG V2 / CIELO V4 / CIELO ECOMMERCE (ATUAL) |
+|---|---|---|
+|`MerchantOrderId`|Número de identificação do pedido.<br>**Cielo:** MerchantOrderId|Campo permanece o mesmo.|
+|`Tid`|Id da transação no provedor de meio de pagamento.<br>**Cielo:** AcquirerTransactionID / Tid|Campo permanece o mesmo.|
+|`Returncode`|Código de retorno da operação.<br>**Cielo:** ReasonCode / ProviderReturnCode / ReturnCode|Campo permanece o mesmo.|
+|`Message`|Código de autorização.<br>**Cielo:** AuthorizationCode|Campo permanece o mesmo.|
+|`authId`|Código de autorização.<br>**Cielo:** AuthorizationCode |O `PaymentId` que era informado aqui agora será informado no metadados `paymentIdApi`.|
+|`nsu`|Número do comprovante de venda. <br>**Cielo:** ProofOfSale|Os campos concatenados AuthorizationCode - Proofsale que eram informados aqui agora estão nos campos de referência `authId` e `proofOfSale`.|
+|`metadados`|Campo adicional com `Name` e `Value`. <br>Aqui será informado:<br>**Name:**`paymentIdApi;<br>**Name:** NSU_rede2captura;<br>**Name:** NSU_rede2cancelamento.|O `paymentIdApi` refere-se ao que era informado no `authId`.|
 
 ## Diferenças entre os conectores descontinuados e o atual
 
