@@ -267,7 +267,7 @@ Nesta tabela você pode conferir o que os campos representam no novo conector Ci
 |`Message`|Código de autorização.<br>**Cielo:** AuthorizationCode|Campo permanece o mesmo.|
 |`authId`|Código de autorização.<br>**Cielo:** AuthorizationCode |Campo permanece o mesmo.|
 |`nsu`|Número do comprovante de venda. <br>**Cielo:** ProofOfSale|Campo permanece o mesmo.|
-|`metadados`|Campo adicional com `Name` e `Value`. <br>Aqui será informado:<br>**Name:**`paymentIdApi`;<br>**Name:** NSU_rede2captura;<br>**Name:** NSU_rede2cancelamento.|n/a|
+|`metadados`|Campo adicional com `Name` e `Value`. <br>Informar:<br>**Name:**`paymentIdApi`;<br>**Name:** NSU_rede2captura;<br>**Name:** NSU_rede2cancelamento.|n/a|
 
 ### Cielo V3 (legado)
 
@@ -281,7 +281,7 @@ Nesta tabela você pode conferir o que os campos representam no novo conector Ci
 |`Message`|Código de autorização.<br>**Cielo:** AuthorizationCode|Campo permanece o mesmo.|
 |`authId`|Código de autorização.<br>**Cielo:** AuthorizationCode |Campo permanece o mesmo.|
 |`nsu`|Número do comprovante de venda. <br>**Cielo:** ProofOfSale|Campo permanece o mesmo.|
-|`metadados`|Campo adicional com `Name` e `Value`. <br>Aqui será informado:<br>**Name:**`paymentIdApi`;<br>**Name:** NSU_rede2captura;<br>**Name:** NSU_rede2cancelamento.|n/a|
+|`metadados`|Campo adicional com `Name` e `Value`. <br>Informar:<br>**Name:**`paymentIdApi`;<br>**Name:** NSU_rede2captura;<br>**Name:** NSU_rede2cancelamento.|n/a|
 
 ### Braspag (legado)
 
@@ -295,7 +295,7 @@ Nesta tabela você pode conferir o que os campos representam no novo conector Ci
 |`Message`|Código de autorização.<br>**Cielo:** AuthorizationCode|Campo permanece o mesmo.|
 |`authId`|Código de autorização.<br>**Cielo:** AuthorizationCode |O `AcquirerTransactionID` que era informado aqui agora será informado no campo `Tid`. <br>Este campo refere-se ao que era informado no campo `AuthorizationCode`.|
 |`nsu`|Número do comprovante de venda. <br>**Cielo:** ProofOfSale|O `AcquirerTransactionID` que era informado aqui agora será informado no campo `Tid`. Este campo refere-se ao que era informado no campo `proofOfSale`.|
-|`metadados`|Campo adicional com `Name` e `Value`. <br>Aqui será informado:<br>**Name:**`paymentIdApi`;<br>**Name:** NSU_rede2captura;<br>**Name:** NSU_rede2cancelamento.|O `paymentIdApi` refere-se ao que era informado no `braspagTransactionID`.|
+|`metadados`|Campo adicional com `Name` e `Value`. <br>Informar:<br>**Name:**`paymentIdApi`;<br>**Name:** NSU_rede2captura;<br>**Name:** NSU_rede2cancelamento.|O `paymentIdApi` refere-se ao que era informado no `braspagTransactionID`.|
 
 ### Braspag V2, Cielo V4 e CieloEcommerce (legado)
 
@@ -309,7 +309,7 @@ Nesta tabela você pode conferir o que os campos representam no novo conector Ci
 |`Message`|Código de autorização.<br>**Cielo:** AuthorizationCode|Campo permanece o mesmo.|
 |`authId`|Código de autorização.<br>**Cielo:** AuthorizationCode |O `PaymentId` que era informado aqui agora será informado no metadados `paymentIdApi`.|
 |`nsu`|Número do comprovante de venda. <br>**Cielo:** ProofOfSale|Os campos concatenados AuthorizationCode - Proofsale que eram informados aqui agora estão nos campos de referência `authId` e `proofOfSale`.|
-|`metadados`|Campo adicional com `Name` e `Value`. <br>Aqui será informado:<br>**Name:**`paymentIdApi`;<br>**Name:** NSU_rede2captura;<br>**Name:** NSU_rede2cancelamento.|O `paymentIdApi` refere-se ao que era informado no `authId`.|
+|`metadados`|Campo adicional com `Name` e `Value`. <br>Informar:<br>**Name:**`paymentIdApi`;<br>**Name:** NSU_rede2captura;<br>**Name:** NSU_rede2cancelamento.|O `paymentIdApi` refere-se ao que era informado no `authId`.|
 
 ## Diferenças entre os conectores descontinuados e o atual
 
