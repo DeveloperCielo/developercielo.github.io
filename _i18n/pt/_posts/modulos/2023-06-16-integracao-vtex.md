@@ -26,7 +26,7 @@ Para mais informações, visite os artigos de suporte da VTEX: [Cadastrar afilia
 
 Acesse o painel **ADMIN VTEX** (https://*nomedaloja*.myvtex.com/admin) e comece a navegação por **Configurações da loja** > **Pagamentos** > **Configurações** > **Afiliações de gateways** > **+**
 
-![Afiliação]({{ site.baseurl_root }}/images/modulos/vtex/00-afiliacao.png)
+![Afiliação]({{ site.baseurl_root }}/images/modulos/vtex/00-afiliacao-21-02-24.jpg)
 
 ### 2. Selecionando o Conector
 
@@ -36,7 +36,7 @@ Acesse o painel **ADMIN VTEX** (https://*nomedaloja*.myvtex.com/admin) e comece 
 
 Selecione o conector **CieloEcommerce** e insira as informações conforme recebidas após a contratação da solução.
  
-![CieloEcommerce]({{ site.baseurl_root }}/images/modulos/vtex/01-cieloecommerce.jpeg)
+![CieloEcommerce]({{ site.baseurl_root }}/images/modulos/vtex/01-cieloecommerce-21-02-2024.jpg)
 
 [Veja as diferenças entre conectores legados e o novo conector **CieloEcommerce**](https://developercielo.github.io/manual/integracao-vtex#diferen%C3%A7as-entre-os-conectores-descontinuados-e-o-atual).
 
@@ -46,7 +46,7 @@ Insira o Nome da Afiliação:
 
 > É preciso configurar o mesmo conector com cada tipo de pagamento desejado, por isso preste atenção ao Nome da Afiliação utilizado. Sugerimos incluir no nome o provedor e meio de pagamento configurado, para facilitar o reconhecimento. Veja o exemplo:
 
-![Nome da Afiliação]({{ site.baseurl_root }}/images/modulos/vtex/02-nome-afiliacao-alelo.png)
+![Nome da Afiliação]({{ site.baseurl_root }}/images/modulos/vtex/02-nome-afiliacao-21-02-2024.jpg)
 
 #### Exemplos de Nome da Afiliação
 
@@ -61,19 +61,21 @@ Preencha os campos com os dados requisitados. A imagem a seguir é um **exemplo*
 
 > Se o seu contrato é para vários provedores, sua integração será **Gateway**. Caso o seu contrato seja somente com a Cielo, sua integração é **Cielo**.
 
-![1Dados Afiliação]({{ site.baseurl_root }}/images/modulos/vtex/03a-dados.png)
-![2Dados Afiliação]({{ site.baseurl_root }}/images/modulos/vtex/03b-dados.png)
+![1Dados Afiliação]({{ site.baseurl_root }}/images/modulos/vtex/03a-dados-21-02-2024.jpg)
+![2Dados Afiliação]({{ site.baseurl_root }}/images/modulos/vtex/03b-dados-21-02-2024.jpg)
+![3Dados Afiliação]({{ site.baseurl_root }}/images/modulos/vtex/03c-dados-21-02-2024.jpg)
 
 #### Dados da Afiliação
 
 |Campo|Descrição|
 |-|-|
-|**Nome da Afiliação**|Insira o nome identificador da afiliação.|
-|**Application Key**|Insira o `**MerchantID**`.|
-|**Application Token**|Insira o `**MerchantKey**`.|
+|**Chave de aplicação**|Insira o `**MerchantID**`.|
+|**Token de aplicação**|Insira o `**MerchantKey**`.|
+|**Nome**|Insira o nome identificador da afiliação.|
+|**Controle de pagamento**|Campo VTEX sobre liquidação automática.|
 |**Integration**|Selecione **Adquirência** se a sua integração atual é **diretamente com a Cielo**. <br>Selecione **Gateway** se a sua integração atual é para utilização de **outros provedores via Pagador** (Gateway Braspag).|
 |**Provider**|Selecione o provedor  que deseja configurar a afiliação conforme o tipo de pagamento. <br>Exemplo: Se o seu provedor de Boleto é o Bradesco e o seu provedor de Crédito, Débito e Pix é o Cielo será necessário adicionar duas afiliações. <br>O provedor **Simulado** deve ser utilizado para transações de teste.<br>O provedor **Cielo** deve ser configurado para Integração **Adquirência**. <br>O provedor **Cielo30** deve ser configurado para Integração **Gateway**.|
-|**UseSPLIT**|Insira “Sim” ou “Não” se deseja utilizar o SPLIT de pagamentos. Disponível para os tipos de pagamento crédito, débito e boleto.|
+|**IsSplit**|Insira “Sim” ou “Não” se deseja utilizar o SPLIT de pagamentos. Disponível para os tipos de pagamento crédito, débito e boleto.|
 |**UseMPI**|Insira “Sim” ou “Não” se deseja utilizar a **Autenticação 3DS 2.0**. Este campo é **obrigatório para o tipo de pagamento débito**.|
 |**MpiClientId**|ID do MPI, disponibilizado para o cliente pela Cielo. *Campo relacionado à autenticação 3DS* *.|
 |**MpiClientSecret**|Chave secreta do MPI, disponibilizada para o cliente pela Cielo. *Campo relacionado à autenticação 3DS* *.|
@@ -90,9 +92,6 @@ Preencha os campos com os dados requisitados. A imagem a seguir é um **exemplo*
 |**AcceptPrepaidCard**|**[Exige VerifyCard]** <br> Selecionar se a loja aceitará cartões pré-pagos via VerifyCard.|
 |**SaveCard**|Selecionar caso a loja queira disponibilizar a opção de salvar cartão para futuras compras. <br> Antes de configurar, confira se a funcionalidade [Cartão Protegido](https://developercielo.github.io/manual/integracao-vtex#cart%C3%A3o-protegido) está habilitada em sua loja/EC.|
 |**CancelRefundType**|Permite que o lojista escolha o fluxo de cancelamento/estorno de pedidos:<br>- **Automático sempre que possível**: autoriza o cancelamento e estorno de forma automática (fluxo padrão);<br>- **Manual de acordo com a loja (notificação por e-mail)**: todos os pedidos de cancelamento e estorno não são autorizados de forma automática e o lojista é notificado via e-mail.|
-|**Ativar Divisão e tempos de captura**|Selecione **Sim** se for ativar divisão entre Marketplace e Seller. Selecione **Não** se não possuir divisão entre Marketplace e Seller.|
-|**Responsabilidade pelas tarifas de pagamento. Essa configuração será enviada para o seu processador de pagamentos**|Selecione **Marketplace**, **Marketplace + Sellers** ou **Sellers**. Só será exibido se **Ativar Divisão** estiver preenchido com “Sim”.|
-|**Responsabilidade pelos estornos. Essa configuração será enviada para o seu processador de pagamentos**|Selecione **Marketplace** ou **Marketplace + Sellers** ou **Sellers**. Só será exibido se **Ativar Divisão** estiver preenchido com “Sim”.|
 
 *O preenchimento dos campos relacionados ao MPI é opcional; você pode escolher preencher os dados de MPI e deixar a opção **UseMpi** desativada ("No") e, mais tarde, caso deseje ativar o 3DS para esta afiliação, apenas altere a opção **UseMpi** para "Yes".
 
