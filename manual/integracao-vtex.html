@@ -150,7 +150,7 @@
 
 <p>Acesse o painel <strong>ADMIN VTEX</strong> (https://<em>nomedaloja</em>.myvtex.com/admin) e comece a navegação por <strong>Configurações da loja</strong> &gt; <strong>Pagamentos</strong> &gt; <strong>Configurações</strong> &gt; <strong>Afiliações de gateways</strong> &gt; <strong>+</strong></p>
 
-<p><img src="https://developercielo.github.io/images/modulos/vtex/00-afiliacao.png" alt="Afiliação" /></p>
+<p><img src="https://developercielo.github.io/images/modulos/vtex/00-afiliacao-21-02-24.jpg" alt="Afiliação" /></p>
 
 <h3 id="2-selecionando-o-conector">2. Selecionando o Conector</h3>
 
@@ -162,7 +162,7 @@
 
 <p>Selecione o conector <strong>CieloEcommerce</strong> e insira as informações conforme recebidas após a contratação da solução.</p>
 
-<p><img src="https://developercielo.github.io/images/modulos/vtex/01-cieloecommerce.jpeg" alt="CieloEcommerce" /></p>
+<p><img src="https://developercielo.github.io/images/modulos/vtex/01-cieloecommerce-21-02-2024.jpg" alt="CieloEcommerce" /></p>
 
 <p><a href="https://developercielo.github.io/manual/integracao-vtex#diferen%C3%A7as-entre-os-conectores-descontinuados-e-o-atual">Veja as diferenças entre conectores legados e o novo conector <strong>CieloEcommerce</strong></a>.</p>
 
@@ -174,7 +174,7 @@
   <p>É preciso configurar o mesmo conector com cada tipo de pagamento desejado, por isso preste atenção ao Nome da Afiliação utilizado. Sugerimos incluir no nome o provedor e meio de pagamento configurado, para facilitar o reconhecimento. Veja o exemplo:</p>
 </blockquote>
 
-<p><img src="https://developercielo.github.io/images/modulos/vtex/02-nome-afiliacao-alelo.png" alt="Nome da Afiliação" /></p>
+<p><img src="https://developercielo.github.io/images/modulos/vtex/02-nome-afiliacao-21-02-2024.jpg" alt="Nome da Afiliação" /></p>
 
 <h4 id="exemplos-de-nome-da-afiliação">Exemplos de Nome da Afiliação</h4>
 
@@ -205,8 +205,9 @@
   <p>Se o seu contrato é para vários provedores, sua integração será <strong>Gateway</strong>. Caso o seu contrato seja somente com a Cielo, sua integração é <strong>Cielo</strong>.</p>
 </blockquote>
 
-<p><img src="https://developercielo.github.io/images/modulos/vtex/03a-dados.png" alt="1Dados Afiliação" />
-<img src="https://developercielo.github.io/images/modulos/vtex/03b-dados.png" alt="2Dados Afiliação" /></p>
+<p><img src="https://developercielo.github.io/images/modulos/vtex/03a-dados-21-02-2024.jpg" alt="1Dados Afiliação" />
+<img src="https://developercielo.github.io/images/modulos/vtex/03b-dados-21-02-2024.jpg" alt="2Dados Afiliação" />
+<img src="https://developercielo.github.io/images/modulos/vtex/03c-dados-21-02-2024.jpg" alt="3Dados Afiliação" /></p>
 
 <h4 id="dados-da-afiliação">Dados da Afiliação</h4>
 
@@ -219,16 +220,20 @@
   </thead>
   <tbody>
     <tr>
-      <td><strong>Nome da Afiliação</strong></td>
-      <td>Insira o nome identificador da afiliação.</td>
-    </tr>
-    <tr>
-      <td><strong>Application Key</strong></td>
+      <td><strong>Chave de aplicação</strong></td>
       <td>Insira o <code class="language-plaintext highlighter-rouge">**MerchantID**</code>.</td>
     </tr>
     <tr>
-      <td><strong>Application Token</strong></td>
+      <td><strong>Token de aplicação</strong></td>
       <td>Insira o <code class="language-plaintext highlighter-rouge">**MerchantKey**</code>.</td>
+    </tr>
+    <tr>
+      <td><strong>Nome</strong></td>
+      <td>Insira o nome identificador da afiliação.</td>
+    </tr>
+    <tr>
+      <td><strong>Controle de pagamento</strong></td>
+      <td>Campo VTEX sobre liquidação automática.</td>
     </tr>
     <tr>
       <td><strong>Integration</strong></td>
@@ -239,7 +244,7 @@
       <td>Selecione o provedor  que deseja configurar a afiliação conforme o tipo de pagamento. <br />Exemplo: Se o seu provedor de Boleto é o Bradesco e o seu provedor de Crédito, Débito e Pix é o Cielo será necessário adicionar duas afiliações. <br />O provedor <strong>Simulado</strong> deve ser utilizado para transações de teste.<br />O provedor <strong>Cielo</strong> deve ser configurado para Integração <strong>Adquirência</strong>. <br />O provedor <strong>Cielo30</strong> deve ser configurado para Integração <strong>Gateway</strong>.</td>
     </tr>
     <tr>
-      <td><strong>UseSPLIT</strong></td>
+      <td><strong>IsSplit</strong></td>
       <td>Insira “Sim” ou “Não” se deseja utilizar o SPLIT de pagamentos. Disponível para os tipos de pagamento crédito, débito e boleto.</td>
     </tr>
     <tr>
@@ -305,18 +310,6 @@
     <tr>
       <td><strong>CancelRefundType</strong></td>
       <td>Permite que o lojista escolha o fluxo de cancelamento/estorno de pedidos:<br />- <strong>Automático sempre que possível</strong>: autoriza o cancelamento e estorno de forma automática (fluxo padrão);<br />- <strong>Manual de acordo com a loja (notificação por e-mail)</strong>: todos os pedidos de cancelamento e estorno não são autorizados de forma automática e o lojista é notificado via e-mail.</td>
-    </tr>
-    <tr>
-      <td><strong>Ativar Divisão e tempos de captura</strong></td>
-      <td>Selecione <strong>Sim</strong> se for ativar divisão entre Marketplace e Seller. Selecione <strong>Não</strong> se não possuir divisão entre Marketplace e Seller.</td>
-    </tr>
-    <tr>
-      <td><strong>Responsabilidade pelas tarifas de pagamento. Essa configuração será enviada para o seu processador de pagamentos</strong></td>
-      <td>Selecione <strong>Marketplace</strong>, <strong>Marketplace + Sellers</strong> ou <strong>Sellers</strong>. Só será exibido se <strong>Ativar Divisão</strong> estiver preenchido com “Sim”.</td>
-    </tr>
-    <tr>
-      <td><strong>Responsabilidade pelos estornos. Essa configuração será enviada para o seu processador de pagamentos</strong></td>
-      <td>Selecione <strong>Marketplace</strong> ou <strong>Marketplace + Sellers</strong> ou <strong>Sellers</strong>. Só será exibido se <strong>Ativar Divisão</strong> estiver preenchido com “Sim”.</td>
     </tr>
   </tbody>
 </table>
