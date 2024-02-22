@@ -69,8 +69,8 @@ Preencha os campos com os dados requisitados. A imagem a seguir é um **exemplo*
 
 |Campo|Descrição|
 |-|-|
-|**Chave de aplicação**|Insira o `**MerchantID**`.|
-|**Token de aplicação**|Insira o `**MerchantKey**`.|
+|**Chave de aplicação**|Insira o `MerchantID`.|
+|**Token de aplicação**|Insira o `MerchantKey`.|
 |**Nome**|Insira o nome identificador da afiliação.|
 |**Controle de pagamento**|Campo VTEX sobre liquidação automática.|
 |**Integration**|Selecione **Adquirência** se a sua integração atual é **diretamente com a Cielo**. <br>Selecione **Gateway** se a sua integração atual é para utilização de **outros provedores via Pagador** (Gateway Braspag).|
