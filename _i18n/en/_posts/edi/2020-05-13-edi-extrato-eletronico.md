@@ -21,11 +21,11 @@ Aiming to bring greater transparency and fluidity in the conciliation of extract
 
 Below is the communication sent with the details of the changes, test files and complementary documentation to support the homologation.
 
-[PT-BR](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_PT-BR_Dezembro_27.12.2023.zip)
+[PT-BR](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_PT-BR_Fev24.zip)
 
-[EN](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_english_Dezembro_27.12.2023.zip)
+[EN](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_english_Fev24.zip)
 
-[ES](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_espanol_Dezembro_27.12.2023.zip)
+[ES](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_espanol_Fev24.zip)
 
 [Arquivos de Teste](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Arquivos_Testes.zip)
 
@@ -35,25 +35,39 @@ It is important that the approval of the new structure takes place by the indica
 
 ![update](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/20231222_atualizacoes_V15_EN.JPG)
 
+## V14/ V15 – New Elo Voucher
+
+As established by Law No. **14,442, of September 2, 2022**, the **Elo Voucher** is a card that is part of the **new Open Benefit Arrangement** and offers a variety of benefits to the worker, such as meal, food, culture, transportation
+
+> This change is scheduled for implementation on 04/15/2024.
+
+**Detailed Announcement:**
+
+![Elo Voucher: New Product Code/Payment Method](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/20240219-Novo-PAT-Voucher-Elo-EN.JPG)
+
+**Manual V14:**
+
+[CIELO_Extrato_Eletronico_-_Manual_-_Versao_14.5](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Manual-Versao-14.5-Voucher-Elo.pdf)
+
+[CIELO_Electronic_Statement_-_English_-_Version_14.5](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/English-Version-14.5-Voucher-Elo.pdf)
+
+**Manual V15:**
+
+[CIELO-Extrato-Eletronico-Manual-Versao-15.6](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO-Extrato-Eletronico-Manual-Versao-15.6.pdf)
+
+[CIELO-Eletronic-Statement-Manual-Version-15.6](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO-Eletronic-Statement-Manual-Version-15.6.pdf)
+
+[CIELO-Extracto-Electronico-Manual-Version-15.6](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO-Extracto-Electronico-Manual-Version-15.6.pdf)
+
 # Change History
 
-## Production Version
+## Production Version V14
 
-> Here you will find the documentation relating to the productive version of the EDI Statement, updated on: 09/06/2023
+> Here you will find the documentation relating to the productive version of the EDI Statement, updated on: 02/23/2024
 
-[Manual Portuguese version](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_14_v4prepago_Amex.pdf)
+[Manual Portuguese version](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Manual-Versao-14.5-Voucher-Elo.pdf)
 
-[Manual English version](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Electronic_Statement_-_English_-_Version_14_v4prepago_Amex.pdf)
-
-> Note: the updates below will be available from June 7, 2021.
-
-[Electronic Statement Manual](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Electronic_Statement_-_English_-_Version_14_1_0.pdf)
-
-[Electronic Statement Manual - Versão Portuguesa](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_14_1_0.pdf)
-
-[EE Layout Update - Receivables Registration + PIX](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Atualizacao_layout_EE_-_Registro_de_Recebiveis_PIX_0.pdf)
-
-[Test files - Announcement 12/09/2022](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Arquivos_de_teste_-_Comunicado_09122022.rar)
+[Manual English version](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/English-Version-14.5-Voucher-Elo.pdf)
 
 ## 01/09/2023 - V14 - Inclusion of new Pix fields (CIELO16) - Documentation and test files
 
@@ -64,6 +78,18 @@ It is important that the approval of the new structure takes place by the indica
 [Massa_PIX_Cenarios_EDI_V2](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Massa_PIX_Cenarios_EDI_V2.rar)
 
 ![PIX](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Slide6.JPG)
+
+## 09/12/2022 – V14 – Receivables Negotiation + pix
+
+> Note: the updates mentioned below will be available from June 7, 2021.
+
+[Manual de Extrato Eletrônico](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_14_1_0.pdf)
+
+[Electronic Statement Manual - English version](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Electronic_Statement_-_English_-_Version_14_1_0.pdf)
+
+[Atualização de Layout EE - Registro de Recebíveis + PIX](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Atualizacao_layout_EE_-_Registro_de_Recebiveis_PIX_0.pdf)
+
+[Arquivos de teste – Comunicado 09/12/2022](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Arquivos_de_teste_-_Comunicado_09122022.rar)
 
 # Introduction
 
