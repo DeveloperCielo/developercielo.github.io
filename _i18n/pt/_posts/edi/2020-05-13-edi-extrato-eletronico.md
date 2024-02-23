@@ -21,11 +21,11 @@ Visando trazer maior transparência e fluidez na conciliação dos extratos, os 
 
 Abaixo segue o comunicado enviado com os detalhes das alterações, arquivos de teste e documentação complementar para apoiar com a homologação.
 
-[Material versão português](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_PT-BR_Dezembro_27.12.2023.zip)
+[Material versão português](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_PT-BR_Fev24.zip)
 
-[Material version english](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_english_Dezembro_27.12.2023.zip)
+[Material version english](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_english_Fev24.zip)
 
-[Material versión español](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_espanol_Dezembro_27.12.2023.zip)
+[Material versión español](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_espanol_Fev24.zip)
 
 [Arquivos de Teste](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Arquivos_Testes.zip)
 
@@ -35,15 +35,39 @@ Abaixo segue o comunicado enviado com os detalhes das alterações, arquivos de 
 
 ![Atualizacao](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/20231222_atualizacoes_V15_PT.JPG)
 
+## V14/ V15 – Novo Voucher Elo
+
+Conforme estabelecido pela Lei N° **14.442, de 2 de setembro de 2022**, o **Voucher Elo** é um cartão que faz parte do **novo Arranjo Aberto de Benefícios** e oferece uma variedade de benefícios para o trabalhador, como refeição, alimentação, cultura, transporte
+
+> Esta mudança está prevista para implantação em 15/04/2024.
+
+**Comunicado Detalhado:**
+
+![Elo Voucher: New Product Code/Payment Method](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/20240219_Novo_PAT_Voucher_Elo_PT.JPG)
+
+**Manual V14:**
+
+[CIELO_Extrato_Eletronico_-_Manual_-_Versao_14.5](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Manual-Versao-14.5-Voucher-Elo.pdf)
+
+[CIELO_Electronic_Statement_-_English_-_Version_14.5](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/English-Version-14.5-Voucher-Elo.pdf)
+
+**Manual V15:**
+
+[CIELO-Extrato-Eletronico-Manual-Versao-15.6](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO-Extrato-Eletronico-Manual-Versao-15.6.pdf)
+
+[CIELO-Eletronic-Statement-Manual-Version-15.6](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO-Eletronic-Statement-Manual-Version-15.6.pdf)
+
+[CIELO-Extracto-Electronico-Manual-Version-15.6](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO-Extracto-Electronico-Manual-Version-15.6.pdf)
+
 # Histórico de Alterações
 
-## Versão Produtiva
+## Versão Produtiva V14
 
-> Aqui você encontra as documentações referentes a versão produtiva do Extrato EDI, atualizada em: 06/09/2023
+> Aqui você encontra as documentações referentes a versão produtiva do Extrato EDI, atualizada em: 23/02/2024
 
-[Manual versão português](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_14_v4prepago_Amex.pdf)
+[Manual versão português](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Manual-Versao-14.5-Voucher-Elo.pdf)
 
-[Manual versão inglês](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Electronic_Statement_-_English_-_Version_14_v4prepago_Amex.pdf)
+[Manual versão inglês](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/English-Version-14.5-Voucher-Elo.pdf)
 
 ## 01/09/2023 - V14 - Inclusão de novos campos Pix (CIELO16) - Documentação e arquivos de teste
 
