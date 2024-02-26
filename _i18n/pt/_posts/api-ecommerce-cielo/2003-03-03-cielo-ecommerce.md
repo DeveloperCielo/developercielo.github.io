@@ -1634,7 +1634,7 @@ O comprador então realiza a leitura do QR code através de um dos aplicativos h
 
 ![Pagamento Pix]({{ site.baseurl_root }}/images/apicieloecommerce/pagamento-pix-pt.png)
 
-<aside class="notice">O tempo de expiração do QRCode Pix Cielo é de 24 horas.</aside>
+<aside class="notice">O tempo de expiração do QRCode Pix Cielo é de duas horas.</aside>
 
 Veja exemplos de envio de requisição e resposta para a geração do QR Code Pix:
 
