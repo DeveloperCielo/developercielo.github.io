@@ -1641,7 +1641,7 @@ The shopper then scans the QR code through one of the apps enabled for Pix and m
 
 ![Pagamento Pix]({{ site.baseurl_root }}/images/apicieloecommerce/pagamento-pix-en.png)
 
-<aside class="notice">The QRCode for Cielo Pix expires in 24 hours.</aside>
+<aside class="notice">The QRCode for Cielo Pix expires in two hours.</aside>
 
 See the request and response examples for generating Pix QR Code:
 
