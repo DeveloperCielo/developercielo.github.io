@@ -6957,8 +6957,13 @@ Abaixo vamos explica-los na ordem em que podem ocorrer:
 | 200              | OK (Capture/Void/Get) |
 | 201              | OK (Authorization)    |
 | 400              | Bad Request           |
+| 401              | Unauthorized          |
+| 403              | Forbidden             |
 | 404              | Resource Not Found    |
+| 405              | Method Not Allowed    |
 | 500              | Internal Server Error |
+| 502              | Bad Gateway           |
+| 503              | Service Unavailable   |
 
 ## Programa de Retentativa das Bandeiras
 
