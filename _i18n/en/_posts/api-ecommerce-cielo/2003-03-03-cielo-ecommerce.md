@@ -7037,10 +7037,18 @@ Below we explain them in the order in which they can occur:
 
 ## HTTP Status Code
 
-| HTTP Status Code | Description           |
+| HTTP Status Code | Descrição             |
 | ---------------- | --------------------- |
 | 200              | OK (Capture/Void/Get) |
 | 201              | OK (Authorization)    |
+| 400              | Bad Request           |
+| 401              | Unauthorized          |
+| 403              | Forbidden             |
+| 404              | Resource Not Found    |
+| 405              | Method Not Allowed    |
+| 500              | Internal Server Error |
+| 502              | Bad Gateway           |
+| 503              | Service Unavailable   |
 | 400              | Bad Request           |
 | 404              | Resource Not Found    |
 | 500              | Internal Server Error |
