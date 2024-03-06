@@ -4638,7 +4638,7 @@
 
 <p><strong>Simular respostas:</strong></p>
 
-<p>Para simular alguma resposta especifica utilize o campo <code class="language-plaintext highlighter-rouge">Amount</code>, onde de acordo com o valor dos centavos informado nesse campo é possivel receber uma resposta conforme descrito na tabela abaixo:</p>
+<p>Para simular alguma resposta especifica no ambiente Sandbox, utilize o campo <code class="language-plaintext highlighter-rouge">Amount</code>, onde de acordo com o valor dos centavos informado nesse campo é possivel receber uma resposta conforme descrito na tabela abaixo:</p>
 
 <table>
   <thead>
@@ -4671,6 +4671,47 @@
     </tr>
   </tbody>
 </table>
+
+<p>No ambiente de homologação, utilizar as definições abaixo:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Bandeira do cartão</th>
+      <th>Retorno simulado do Pagamento</th>
+      <th>Exemplo de valor simulado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Visa</td>
+      <td>Negado</td>
+      <td>1005 = R$10,05</td>
+    </tr>
+    <tr>
+      <td>Mastercard</td>
+      <td>Negado</td>
+      <td>90205 = R$902,05</td>
+    </tr>
+    <tr>
+      <td>Elo</td>
+      <td>Negada</td>
+      <td>2005 = R$20,05</td>
+    </tr>
+    <tr>
+      <td>Todas Bandeiras</td>
+      <td>timeout</td>
+      <td>984218401 = R$9.842.184,01</td>
+    </tr>
+    <tr>
+      <td>Todas Bandeiras</td>
+      <td>Aprovado</td>
+      <td>Enviar valores sem centavos - Ex: R$15,00</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Observação: Para direcionar as chamadas para o ambiente de homologação, se faz necessário enviar no header da requisição o valor <code class="language-plaintext highlighter-rouge">Homologacao</code>.</p>
 
 <h2 id="autorização">Autorização</h2>
 
