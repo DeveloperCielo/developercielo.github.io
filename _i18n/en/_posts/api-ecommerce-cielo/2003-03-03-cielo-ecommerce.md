@@ -139,7 +139,7 @@ You just have to install the following files in the server Trustedstore. Cielo d
 
 - [Root Certificate]({{ site.baseurl }}/attachment/root-2024.zip)
 - [Intermediate certificate]({{ site.baseurl }}/attachment/intermediate-2024.zip)
-- [[E-Commerce Cielo certificate]({{ site.baseurl }}/attachment/cielo-ecommerce-2024.zip)
+- [E-Commerce Cielo certificate]({{ site.baseurl }}/attachment/cielo-ecommerce-2024.zip)
 
 ## Installation tutorial
 
@@ -157,9 +157,9 @@ Usually, the browser automatically updates the Certificate. If it does not and t
 
 Save these files below into a new folder, or into a folder that can be easily accessed, as it will be used later:
 
-- [Root Certificate]({{ site.baseurl }}/attachment/Root.cer)
-- [Intermediate certificate]({{ site.baseurl }}/attachment/Intermediario.cer)
-- [E-Commerce Cielo certificate]({{ site.baseurl }}/attachment/cieloecommerce.cert-2023-2024.zip)
+- [Root Certificate]({{ site.baseurl }}/attachment/root-2024.zip)
+- [Intermediate certificate]({{ site.baseurl }}/attachment/intermediate-2024.zip)
+- [E-Commerce Cielo certificate]({{ site.baseurl }}/attachment/cielo-ecommerce-2024.zip)
 
 **Step 2:**
 
