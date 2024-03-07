@@ -139,7 +139,7 @@ You just have to install the following files in the server Trustedstore. Cielo d
 
 - [Root Certificate]({{ site.baseurl }}/attachment/TrustedRoot.crt)
 - [Intermediate certificate]({{ site.baseurl }}/attachment/DigiCertCA.crt)
-- [[E-Commerce Cielo certificate]({{ site.baseurl }}/attachment/star_cieloecommerce_cielo_com_br.crt)
+- [E-Commerce Cielo certificate]({{ site.baseurl }}/attachment/star_cieloecommerce_cielo_com_br.crt)
 
 ## Installation tutorial
 
