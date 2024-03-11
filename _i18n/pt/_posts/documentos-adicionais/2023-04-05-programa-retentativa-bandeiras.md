@@ -213,11 +213,11 @@ As regras da tabela a seguir são válidas tanto para transações de compra, qu
 | **Categoria 3** <br>Qualidade de dados  | **Reversível**   | 54 - Cartão vencido  <br>   55 - Senha incorreta  <br>    70 - Dados de PIN necessários (somente na região da Europa)    <br>   82 - Os resultados de CAM,2 dCVV,3 iCVV4 ou CVV on-line foram negativos  <br>    1A - Autenticação de cliente adicional necessária (somente na região da Europa)    <br>  6P - Falha na verificação (a identificação do titular do cartão não corresponde aos registros do emissor)    <br>    N7 - Recusa decorrente de falha do CVV2 (Visa)    |Cobrança de tarifa a partir da 16ª tentativa: o estabelecimento pode retentar a mesma transação 15 vezes.<br> A partir da  16ª tentativa (com mesmo cartão, transação, validade, valor e estabelecimento) num período de 30 dias corridos a partir da 1ª tentativa, a transação será tarifada. Passado o período de 30 dias, a Visa não permite nenhuma nova tentativa. Então, caso haja envio de uma tentativa dessa mesma transação, a cobrança já será aplicada para essa retentativa enviada (daí, a regra de 15 tentativas deixa de ser válida, passado a ser válido o período de 30 dias corridos).|
 | **Categoria 4**<br>**Códigos de respostas genéricos**  | **Reversível**   | Códigos de respostas genéricos não listados nas categorias 1,2,3 |Cobrança de tarifa a partir da 16ª tentativa: o estabelecimento pode retentar a mesma transação 15 vezes.<br> A partir da  16ª tentativa (com mesmo cartão, transação, validade, valor e estabelecimento) num período de 30 dias corridos a partir da 1ª tentativa, a transação será tarifada. Passado o período de 30 dias, a Visa não permite nenhuma nova tentativa. Então, caso haja envio de uma tentativa dessa mesma transação, a cobrança já será aplicada para essa retentativa enviada (daí, a regra de 15 tentativas deixa de ser válida, passado a ser válido o período de 30 dias corridos).|
 
-/* *O código 14 será reclassificado a partir de 24/04/2024, mas permanece na categoria 1*.
+\* *O código 14 será reclassificado a partir de 24/04/2024, mas permanece na categoria 1*.
 
-/** *Os códigos 39, 52 e 53 irão migrar da categoria 4 para a categoria 2*.
+\** *Os códigos 39, 52 e 53 irão migrar da categoria 4 para a categoria 2*.
 
-/*** *O código Z5 é um código novo e está na categoria 2*.
+\*** *O código Z5 é um código novo e está na categoria 2*.
 
 > **Importante 1:** O código de resposta 14 aparece nas categorias 1 e 3 porém a contabilização é a seguinte:<br>
 > * Na categoria 1 o EC é tarifado a partir da 2ª tentativa para o (mesmo estabelecimento e mesmo cartão) **não permitido retentar.**<br>
