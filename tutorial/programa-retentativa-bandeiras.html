@@ -465,20 +465,64 @@ Significa que o emissor pode aprovar a transação, mas não pode fazê-lo agora
 
 <p><strong>Tabela com as regras e códigos de recusa:</strong></p>
 
-<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/retentativa_visa.png" alt="VISA" /></p>
+<p>As regras da tabela a seguir são válidas tanto para transações de compra, quanto para transações Zero Auth.</p>
 
-<p><strong>Observação:</strong> O código de resposta 14 aparece nas categorias 1 e 3 porém a contabilização é a seguinte:</p>
+<table>
+  <thead>
+    <tr>
+      <th><strong>Categoria</strong></th>
+      <th><strong>Tipo</strong></th>
+      <th><strong>Códigos</strong></th>
+      <th><strong>Regras</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Categoria 1</strong><br /> <strong>Emissor não aprovará novas tentativas</strong></td>
+      <td><strong>Irreversível</strong></td>
+      <td>04 - Reter cartão <br />07 - Reter cartão, condições especiais<br />12 - Transação inválida  <br />14 - Número de conta inválido*<br />15 - Emissor não existe<br /> 41 -Reter cartão (cartão perdido) <br />  43 - Reter cartão (cartão roubado)  <br />  46 - Conta encerrada   <br /> 57 - Transação não permitida ao portador de cartão    <br /> R0 - Parar ordem de pagamento   <br />  R1 - Revogação do pedido de autorização  <br />  R3 - Revogação de todos os pedidos de autorização  <br /></td>
+      <td>Cobrança de tarifa a partir da 2ª tentativa.</td>
+    </tr>
+    <tr>
+      <td><strong>Categoria 2</strong><br /> <strong>Emissor não aprovará no momento; novas tentativas são permitidas</strong></td>
+      <td><strong>Reversível</strong></td>
+      <td>03 - Comerciante inválido <br /> 19 - Redigitar a transação   <br />  39 - Sem conta de crédito  <br />  51 - Insuficiência de fundos  <br />  52 - Sem conta corrente  <br />  53 - Sem conta poupança  <br />  59 - Suspeita de fraude  <br />   61 - Excede os limites de valor de retiradas <br />  62 - Cartão restrito (cartão inválido na região ou país)  <br />   65 - Excede a frequência de retiradas  <br />  75 - Excedeu o número permitido de tentativas de digitação de senha    <br />  78 - Bloqueado, usado pela primeira vez ou condição especial (a conta está temporariamente bloqueada)  <br />  86 - Mal funcionamento no caixa eletrônico  <br />  91 - Emissor ou switch inoperante  <br />  93 - A transação não pode ser concluída (violação da lei)  <br />  96 - Mal funcionamento do sistema  <br />   N3 - Serviço de saque indisponível   <br />  N4 - Solicitação de dinheiro excede o limite do emissor   <br />   Z5 - Conta válida, mas valor não suportado  <br /></td>
+      <td>Cobrança de tarifa a partir da 16ª tentativa: o estabelecimento pode retentar a mesma transação 15 vezes.<br /> A partir da  16ª tentativa (com mesmo cartão, transação, validade, valor e estabelecimento) num período de 30 dias corridos a partir da 1ª tentativa, a transação será tarifada. Passado o período de 30 dias, a Visa não permite nenhuma nova tentativa. Então, caso haja envio de uma tentativa dessa mesma transação, a cobrança já será aplicada para essa retentativa enviada (daí, a regra de 15 tentativas deixa de ser válida, passado a ser válido o período de 30 dias corridos).</td>
+    </tr>
+    <tr>
+      <td><strong>Categoria 3</strong> <br />Qualidade de dados</td>
+      <td><strong>Reversível</strong></td>
+      <td>54 - Cartão vencido  <br />   55 - Senha incorreta  <br />    70 - Dados de PIN necessários (somente na região da Europa)    <br />   82 - Os resultados de CAM,2 dCVV,3 iCVV4 ou CVV on-line foram negativos  <br />    1A - Autenticação de cliente adicional necessária (somente na região da Europa)    <br />  6P - Falha na verificação (a identificação do titular do cartão não corresponde aos registros do emissor)    <br />    N7 - Recusa decorrente de falha do CVV2 (Visa)</td>
+      <td>Cobrança de tarifa a partir da 16ª tentativa: o estabelecimento pode retentar a mesma transação 15 vezes.<br /> A partir da  16ª tentativa (com mesmo cartão, transação, validade, valor e estabelecimento) num período de 30 dias corridos a partir da 1ª tentativa, a transação será tarifada. Passado o período de 30 dias, a Visa não permite nenhuma nova tentativa. Então, caso haja envio de uma tentativa dessa mesma transação, a cobrança já será aplicada para essa retentativa enviada (daí, a regra de 15 tentativas deixa de ser válida, passado a ser válido o período de 30 dias corridos).</td>
+    </tr>
+    <tr>
+      <td><strong>Categoria 4</strong><br /><strong>Códigos de respostas genéricos</strong></td>
+      <td><strong>Reversível</strong></td>
+      <td>Códigos de respostas genéricos não listados nas categorias 1,2,3</td>
+      <td>Cobrança de tarifa a partir da 16ª tentativa: o estabelecimento pode retentar a mesma transação 15 vezes.<br /> A partir da  16ª tentativa (com mesmo cartão, transação, validade, valor e estabelecimento) num período de 30 dias corridos a partir da 1ª tentativa, a transação será tarifada. Passado o período de 30 dias, a Visa não permite nenhuma nova tentativa. Então, caso haja envio de uma tentativa dessa mesma transação, a cobrança já será aplicada para essa retentativa enviada (daí, a regra de 15 tentativas deixa de ser válida, passado a ser válido o período de 30 dias corridos).</td>
+    </tr>
+  </tbody>
+</table>
 
-<ul>
-  <li>
-    <p>Na categoria 1 o EC é tarifado a partir da 2ª tentativa para o (mesmo estabelecimento e mesmo cartão) <strong>não permitido retentar.</strong></p>
-  </li>
-  <li>
-    <p>Na categoria 3 compõe o grupo de códigos para contabilização das 10.001 transações, após o EC atingir 10.000 retentativas com o este grupo de códigos, qualquer transação será contabilizada independente do cartão.</p>
+<p>/* <em>O código 14 será reclassificado a partir de 24/04/2024, mas permanece na categoria 1</em>.</p>
 
-    <p><strong>Exemplo:</strong> Tivemos 10.000 transações negadas em um EC com os códigos de categoria 3, se a transação 10.001 for no código 14 ou em qualquer código do grupo de categoria 3 ele será tarifado independente do cartão.</p>
-  </li>
-</ul>
+<p>/** <em>Os códigos 39, 52 e 53 irão migrar da categoria 4 para a categoria 2</em>.</p>
+
+<p>/<em>** *O código Z5 é um código novo e está na categoria 2</em>.</p>
+
+<blockquote>
+  <p><strong>Importante 1:</strong> O código de resposta 14 aparece nas categorias 1 e 3 porém a contabilização é a seguinte:<br /></p>
+  <ul>
+    <li>Na categoria 1 o EC é tarifado a partir da 2ª tentativa para o (mesmo estabelecimento e mesmo cartão) <strong>não permitido retentar.</strong><br /></li>
+    <li>Na categoria 3 compõe o grupo de códigos para contabilização das 10.001 transações, após o EC atingir 10.000 retentativas com o este grupo de códigos, qualquer transação será contabilizada independente do cartão.</li>
+  </ul>
+</blockquote>
+
+<p><strong>Exemplo:</strong> Tivemos 10.000 transações negadas em um EC com os códigos de categoria 3, se a transação 10.001 for no código 14 ou em qualquer código do grupo de categoria 3 ele será tarifado independente do cartão.</p>
+
+<blockquote>
+  <p><strong>Importante 2</strong>: A partir de <strong>24 de abril de 2023</strong>, o limite permitido da contagem total de recusas para a categoria 3 aumenta de 10.000 para 25.000 recusas em um ciclo de faturamento de 30 dias.</p>
+</blockquote>
 
 <h1 id="elo">Elo</h1>
 
