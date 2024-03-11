@@ -215,17 +215,16 @@ As regras da tabela a seguir são válidas tanto para transações de compra, qu
 
 \* *O código 14 será reclassificado a partir de 24/04/2024, mas permanece na categoria 1*.
 
-\** *Os códigos 39, 52 e 53 irão migrar da categoria 4 para a categoria 2*.
+\** *Os códigos 39, 52 e 53 irão migrar da categoria 4 para a categoria 2 a partir de 24/04/2024*.
 
 \*** *O código Z5 é um código novo e está na categoria 2*.
 
-> **Importante 1:** O código de resposta 14 aparece nas categorias 1 e 3 porém a contabilização é a seguinte:<br>
+> **Importante 1:** Até 23/04/24 o código de resposta 14 aparece nas categorias 1 e 3 porém a contabilização é a seguinte:<br>
 > * Na categoria 1 o EC é tarifado a partir da 2ª tentativa para o (mesmo estabelecimento e mesmo cartão) **não permitido retentar.**<br>
-> * Na categoria 3 compõe o grupo de códigos para contabilização das 10.001 transações, após o EC atingir 10.000 retentativas com o este grupo de códigos, qualquer transação será contabilizada independente do cartão.
+> * Na categoria 3 compõe o grupo de códigos para contabilização das 10.001 transações, após o EC atingir 10.000 retentativas com o este grupo de códigos, qualquer transação será contabilizada independente do cartão.<br>
+  > **Exemplo:** Tivemos 10.000 transações negadas em um EC com os códigos de categoria 3, se a transação 10.001 for no código 14 ou em qualquer código do grupo de categoria 3 ele será tarifado independente do cartão.
 
-  **Exemplo:** Tivemos 10.000 transações negadas em um EC com os códigos de categoria 3, se a transação 10.001 for no código 14 ou em qualquer código do grupo de categoria 3 ele será tarifado independente do cartão.
-
-> **Importante 2**: A partir de **24 de abril de 2023**, o limite permitido da contagem total de recusas para a categoria 3 aumenta de 10.000 para 25.000 recusas em um ciclo de faturamento de 30 dias.
+> **Importante 2**: Desde **24/04/2023**, o limite permitido da contagem total de recusas para a categoria 3 aumenta de 10.000 para 25.000 recusas em um ciclo de faturamento de 30 dias.
 
 # Elo
 
