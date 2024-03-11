@@ -204,15 +204,28 @@ Os emissores devem usar códigos de resposta que reflitam com mais precisão o m
 
 **Tabela com as regras e códigos de recusa:**
 
-![VISA](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/retentativa_visa.png)
+As regras da tabela a seguir são válidas tanto para transações de compra, quanto para transações Zero Auth.
 
-**Observação:** O código de resposta 14 aparece nas categorias 1 e 3 porém a contabilização é a seguinte:
+| **Categoria**   | **Tipo**     | **Códigos**    | **Regras**   |
+|-----------|--------------|-------------|-------------|
+| **Categoria 1**<br> **Emissor não aprovará novas tentativas**   | **Irreversível** | 04 - Reter cartão <br>07 - Reter cartão, condições especiais<br>12 - Transação inválida  <br>14 - Número de conta inválido*<br>15 - Emissor não existe<br> 41 -Reter cartão (cartão perdido) <br>  43 - Reter cartão (cartão roubado)  <br>  46 - Conta encerrada   <br> 57 - Transação não permitida ao portador de cartão    <br> R0 - Parar ordem de pagamento   <br>  R1 - Revogação do pedido de autorização  <br>  R3 - Revogação de todos os pedidos de autorização  <br>   | Cobrança de tarifa a partir da 2ª tentativa. |
+| **Categoria 2**<br> **Emissor não aprovará no momento; novas tentativas são permitidas** | **Reversível**   | 03 - Comerciante inválido <br> 19 - Redigitar a transação   <br>  39 - Sem conta de crédito  <br>  51 - Insuficiência de fundos  <br>  52 - Sem conta corrente  <br>  53 - Sem conta poupança  <br>  59 - Suspeita de fraude  <br>   61 - Excede os limites de valor de retiradas <br>  62 - Cartão restrito (cartão inválido na região ou país)  <br>   65 - Excede a frequência de retiradas  <br>  75 - Excedeu o número permitido de tentativas de digitação de senha    <br>  78 - Bloqueado, usado pela primeira vez ou condição especial (a conta está temporariamente bloqueada)  <br>  86 - Mal funcionamento no caixa eletrônico  <br>  91 - Emissor ou switch inoperante  <br>  93 - A transação não pode ser concluída (violação da lei)  <br>  96 - Mal funcionamento do sistema  <br>   N3 - Serviço de saque indisponível   <br>  N4 - Solicitação de dinheiro excede o limite do emissor   <br>   Z5 - Conta válida, mas valor não suportado  <br> |Cobrança de tarifa a partir da 16ª tentativa: o estabelecimento pode retentar a mesma transação 15 vezes.<br> A partir da  16ª tentativa (com mesmo cartão, transação, validade, valor e estabelecimento) num período de 30 dias corridos a partir da 1ª tentativa, a transação será tarifada. Passado o período de 30 dias, a Visa não permite nenhuma nova tentativa. Então, caso haja envio de uma tentativa dessa mesma transação, a cobrança já será aplicada para essa retentativa enviada (daí, a regra de 15 tentativas deixa de ser válida, passado a ser válido o período de 30 dias corridos).|
+| **Categoria 3** <br>Qualidade de dados  | **Reversível**   | 54 - Cartão vencido  <br>   55 - Senha incorreta  <br>    70 - Dados de PIN necessários (somente na região da Europa)    <br>   82 - Os resultados de CAM,2 dCVV,3 iCVV4 ou CVV on-line foram negativos  <br>    1A - Autenticação de cliente adicional necessária (somente na região da Europa)    <br>  6P - Falha na verificação (a identificação do titular do cartão não corresponde aos registros do emissor)    <br>    N7 - Recusa decorrente de falha do CVV2 (Visa)    |Cobrança de tarifa a partir da 16ª tentativa: o estabelecimento pode retentar a mesma transação 15 vezes.<br> A partir da  16ª tentativa (com mesmo cartão, transação, validade, valor e estabelecimento) num período de 30 dias corridos a partir da 1ª tentativa, a transação será tarifada. Passado o período de 30 dias, a Visa não permite nenhuma nova tentativa. Então, caso haja envio de uma tentativa dessa mesma transação, a cobrança já será aplicada para essa retentativa enviada (daí, a regra de 15 tentativas deixa de ser válida, passado a ser válido o período de 30 dias corridos).|
+| **Categoria 4**<br>**Códigos de respostas genéricos**  | **Reversível**   | Códigos de respostas genéricos não listados nas categorias 1,2,3 |Cobrança de tarifa a partir da 16ª tentativa: o estabelecimento pode retentar a mesma transação 15 vezes.<br> A partir da  16ª tentativa (com mesmo cartão, transação, validade, valor e estabelecimento) num período de 30 dias corridos a partir da 1ª tentativa, a transação será tarifada. Passado o período de 30 dias, a Visa não permite nenhuma nova tentativa. Então, caso haja envio de uma tentativa dessa mesma transação, a cobrança já será aplicada para essa retentativa enviada (daí, a regra de 15 tentativas deixa de ser válida, passado a ser válido o período de 30 dias corridos).|
 
-- Na categoria 1 o EC é tarifado a partir da 2ª tentativa para o (mesmo estabelecimento e mesmo cartão) **não permitido retentar.**
+/* *O código 14 será reclassificado a partir de 24/04/2024, mas permanece na categoria 1*.
 
-- Na categoria 3 compõe o grupo de códigos para contabilização das 10.001 transações, após o EC atingir 10.000 retentativas com o este grupo de códigos, qualquer transação será contabilizada independente do cartão.
+/** *Os códigos 39, 52 e 53 irão migrar da categoria 4 para a categoria 2*.
+
+/*** *O código Z5 é um código novo e está na categoria 2*.
+
+> **Importante 1:** O código de resposta 14 aparece nas categorias 1 e 3 porém a contabilização é a seguinte:<br>
+> * Na categoria 1 o EC é tarifado a partir da 2ª tentativa para o (mesmo estabelecimento e mesmo cartão) **não permitido retentar.**<br>
+> * Na categoria 3 compõe o grupo de códigos para contabilização das 10.001 transações, após o EC atingir 10.000 retentativas com o este grupo de códigos, qualquer transação será contabilizada independente do cartão.
 
   **Exemplo:** Tivemos 10.000 transações negadas em um EC com os códigos de categoria 3, se a transação 10.001 for no código 14 ou em qualquer código do grupo de categoria 3 ele será tarifado independente do cartão.
+
+> **Importante 2**: A partir de **24 de abril de 2023**, o limite permitido da contagem total de recusas para a categoria 3 aumenta de 10.000 para 25.000 recusas em um ciclo de faturamento de 30 dias.
 
 # Elo
 
