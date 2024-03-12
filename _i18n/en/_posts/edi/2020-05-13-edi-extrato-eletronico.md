@@ -17,7 +17,7 @@ tags:
 
 Aiming to bring greater transparency and fluidity in the conciliation of extracts, our files will have a new structure in their demonstration.
 
-> This change is expected to be implemented in 05/03/2024.
+> This change is expected to be implemented in 19/03/2024.
 
 Below is the communication sent with the details of the changes, test files and complementary documentation to support the homologation.
 
