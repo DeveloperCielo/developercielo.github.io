@@ -41,6 +41,8 @@ Cielo offers the following options so that the merchant can prepare and avoid ad
 
 ## Option 1: transparent tokenization
 
+<aside class="warning">Transparent tokenization is currently unavailable. We estimate this option might be available again after May 2024.</aside>
+
 In an effort to reduce financial impact in our clients, Cielo developed a solution that will automatically tokenize all eligible transactions.
 
 > **Eligible products**: API E-commerce Cielo, API 1.5 (deprecated), Link de Pagamento and Checkout Cielo.
