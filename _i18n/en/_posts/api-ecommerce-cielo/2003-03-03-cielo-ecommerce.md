@@ -2861,9 +2861,9 @@ In addition, you have to send some additional data in the transaction so that th
 | `Customer.IdentityType`     | Text          | 255                            | Yes for Cash In transactions                       | Shopper ID Type (CPF/CNPJ).                                                                                                                         |
 | `SoftDescriptor`            | text          | 13                             | Yes for Cash In transactions                       | Text that will be printed on the shopper's bank invoice.<br> Does not allow special characters.<br>Needs to include **Wallet name\*merchant name**. |
 
-# Tokenization of cards
+# Card tokenization
 
-_What is the **tokenization** of cards?_
+_What is ** card tokenization**?_
 
 It is encryption that allows for secure credit card data storage. This data is transformed into an encrypted code called a “token”, which can be stored in a database. With the tokenization of cards, the merchant will be able to offer features like "1-click buy" and "Retry transaction sending", always preserving the integrity and the confidentiality of the information.
 
@@ -2961,7 +2961,9 @@ The participating brands provide APIs for receiving and storing the card securel
 
 Cielo provides these services to clients in three ways:
 
-* **Cielo Transparent Tokenization**: when the merchant sends an online transaction with card data (PAN) to our APIs, Cielo will automatically create a token for that card so that Visa will receive the tokenized card data and the merchant does not need to create any additional intergation. Currently, Cielo is not charging for transparent tokenization in order to enable the tokenization experience for our clients and to avoid the 0.05% fee over the transaction amount. Cielo may start charging for this service at any point in the future. In this solution, both the card data and the tokens are managed/owned by Cielo.
+* **Cielo Transparent Tokenization**: **Transparent tokenization is currently unavailable**. When the merchant sends an online transaction with card data (PAN) to our APIs, Cielo will automatically create a token for that card so that Visa will receive the tokenized card data and the merchant does not need to create any additional intergation. Currently, Cielo is not charging for transparent tokenization in order to enable the tokenization experience for our clients and to avoid the 0.05% fee over the transaction amount. Cielo may start charging for this service at any point in the future. In this solution, both the card data and the tokens are managed/owned by Cielo.
+
+<aside class="warning">Transparent tokenization is currently unavailable. We estimate this option might be available again after May 2024.</aside>
 
     > **Card brand available**: Visa
 
