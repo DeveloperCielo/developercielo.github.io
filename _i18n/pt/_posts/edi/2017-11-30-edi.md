@@ -17,7 +17,7 @@ tags:
 
 Visando trazer maior transparência e fluidez na conciliação dos extratos, os nossos arquivos terão uma nova estrutura em sua demonstração.
 
-> Esta mudança está prevista para implantação em 05/03/2024.
+> Esta mudança está prevista para implantação em 19/03/2024.
 
 Abaixo segue o comunicado enviado com os detalhes das alterações, arquivos de teste e documentação complementar para apoiar com a homologação.
 
