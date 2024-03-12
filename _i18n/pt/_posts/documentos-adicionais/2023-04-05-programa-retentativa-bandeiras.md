@@ -161,48 +161,53 @@ Os códigos originais serão substituídos pelo Merchant Advice Code (MAC), que 
 
 # Visa
 
-**O que é?**
+O programa de retentativas instituído pela bandeira Visa gera cobranças quando o estabelecimento comercial excede as regras de retentativas. 
 
-Um programa instituído pela bandeira Visa que gera cobranças quando o estabelecimento comercial excede as regras de retentativas.
+O objetivo é criar um equilíbrio no ecossistema de transações a fim de garantir que os credenciadores e estabelecimentos forneçam informações precisas sobre as retentativas e diminuam novas tentativas desnecessárias. 
 
-- Válido para transações com cartão presente e cartão não presente;
-- **Códigos reversíveis:** são permitidas até 15 tentativas de aprovar uma mesma transação (mesmo cartão, mesmo estabelecimento e valor) no período de 30 dias. Após os 30 dias iniciais (a contar da primeira tentativa), qualquer retentativa será cobrada;
-- **Códigos irreversíveis:** é permitido apenas UMA tentativa de aprovar uma mesma transação (mesmo cartão, mesmo estabelecimento), na segunda tentativa será cobrado;
-- Após uma transação ser aprovada, o contador é zerado.
-  <br>
+A bandeira exige que os emissores usem códigos de resposta corretos e não genéricos, para facilitar a identificação do motivo da recusa de uma transação.
+
+A Visa divide esses códigos em reversíveis e irreversíveis, sendo válido tanto para transações com cartão presente e cartão não presente:
+
+* **Códigos reversíveis**: são permitidas até 15 tentativas de aprovar uma mesma transação (com mesmo cartão, transação, validade, valor e estabelecimento) no período de 30 dias. Após os 30 dias, a contar da primeira tentativa, qualquer retentativa será cobrada. Passado o período de 30 dias, o envio de uma retentativa da mesma transação, a cobrança já será aplicada.
+  Dessa forma, a regra de 15 tentativas deixa de ser válida, passando a ser válido o período de 30 dias corridos.
+* **Códigos irreversíveis**: é permitida apenas a 1ª tentativa de aprovar a transação (com mesmo cartão, transação, validade, valor e estabelecimento). Na segunda tentativa, a transação já será cobrada, independente do período em que for realizada.
 
 > **Tarifas**: Ao ultrapassar os limites de tentativas estabelecidos pela bandeira, haverá uma cobrança de tarifa para cada transação excedente.
 >
 > - **Doméstico**: USD 0,10 + 13,83% de imposto;
 > - **Estrangeiro**: USD 0,25 + 13,83% de imposto.
 
-Regras de autorização já vigentes. A cobrança de tarifas é aplicada desde abril de 2021.
+<br>
+A cobrança de tarifas é aplicada desde abril de 2021.
+<br>
+<br>
 
-**A Visa agrupou os códigos de retorno em quatro categorias:**
+A Visa agrupou os códigos de retorno em quatro categorias:
 
-- **Categoria 1: emissor nunca aprovará**
+* **Categoria 1: emissor nunca aprovará**
 
-  Para essa categoria, indica que o cartão foi cancelado ou nunca existiu ou que a negativa é resultado de uma restrição permanente ou condição de erro que impedirá uma aprovação futura.
+    Indica que o cartão foi cancelado ou nunca existiu ou que a negativa é resultado de uma restrição permanente ou condição de erro que impedirá uma aprovação futura.
 
-- **Categoria 2: emissor não pode aprovar neste momento**
+* **Categoria 2: emissor não pode aprovar no momento**
 
-  Indicam que a negativa é resultado de uma condição temporária tal como risco de crédito, controles de velocidade do emissor ou outras restrições do cartão que podem permitir uma retentativa da transação ser aprovada. Em alguns casos, a negativa requer uma ação do portador ou emissor para remover a restrição antes que uma aprovação possa ser obtida.
+    Indica que a negativa é resultado de uma condição temporária tal como risco de crédito, controles de velocidade do emissor ou outras restrições do cartão que podem permitir uma retentativa da transação ser aprovada. Em alguns casos, a negativa requer uma ação do portador ou emissor para remover a restrição antes que uma aprovação possa ser obtida.
 
-- **Categoria 3: qualidade de dados/revisar dados**
+* **Categoria 3: qualidade de dados**
 
-  Quando um erro de dados é identificado pelo emissor essa transação é declinada como consequência. Os estabelecimentos devem revalidar dados de pagamentos antes de retentar. Estabelecimentos e Credenciadores devem monitorar estes códigos de negativas devido a exposição potencial a fraudes.
+    Quando um erro de dados é identificado pelo emissor essa transação é declinada como consequência. Os estabelecimentos devem revalidar dados de pagamentos antes de retentar. Estabelecimentos e credenciadores devem monitorar estes códigos de negativas devido a exposição potencial a fraudes.
 
-> **Atenção**: A categoria 3 tem, além dos limites considerados na categoria 2, um limite diferente que é cumulativo. Um estabelecimento pode realizar até 10.000 transações em um período de 30 dias (neste caso considerando apenas o número do estabelecimento e códigos de negadas). Se ultrapassar o limite, todas as transações recusadas por categoria 3 serão tarifadas.
+    > **Atenção**: A categoria 3 tem, além dos limites considerados na categoria 2, um limite diferente que é cumulativo. Um estabelecimento pode realizar até 25.000* transações em um período de 30 dias (neste caso considerando apenas o número do estabelecimento e códigos de negadas). Se ultrapassar o limite, todas as transações recusadas por categoria 3 serão tarifadas.
 
-- **Categoria 4: códigos de respostas genéricos**
+    **Novo limite, válido a partir de 24/abr/24. Atualmente é de 10 mil.*
 
-  A categoria 4 inclui todos os outros códigos de resposta de recusa, muitos dos quais fornecem pouco ou nenhum valor para Adquirentes/Comerciantes como parte de sua estratégia de nova tentativa. O uso do emissor deve permanecer mínimo.
+* **Categoria 4: códigos de respostas genéricos**
 
-A maioria das condições de recusa tem códigos de resposta descritivos nas Categorias 1, 2 e 3 para indicar o motivo da recusa. No entanto, pode haver circunstâncias em que não haja valor de código de resposta para uma condição de declínio específica. Emissores pode usar outros valores de códigos de resposta definidos nas Especificações Técnicas VisaNet; no entanto, o uso deve permanecer mínimo.
+    A categoria 4 inclui todos os demais códigos de resposta de recusa que não estão nas categorias 1, 2 e 3, pois pode haver circunstâncias em que não haja valor de código de resposta para uma condição de recusa específica. Emissores podem usar outros valores de códigos de resposta definidos nas Especificações Técnicas VisaNet; no entanto, o uso deve permanecer mínimo.
 
-Os emissores devem usar códigos de resposta que reflitam com mais precisão o motivo das recusas. Categorias 1 (o emissor nunca aprovar), 2 (o emissor não pode aprovar neste momento) e 3 (qualidade dos dados) devem ser usados, e os emissores devem limitar o uso de Categoria 4 (Código de Resposta Genérico) para transações onde nenhum outro valor se aplica. A taxa do Código de Resposta Genérico é cobrada para garantir que não mais do que a porcentagem aprovada regionalmente do total de recusas do emissor sejam categorizadas como Categoria 4. Os emissores que excederem o limite definido regionalmente receberão a Taxa de Código de Resposta Genérica por base de transação para cada declínio em excesso do limite definido.
+Os emissores devem usar códigos de resposta que reflitam com mais precisão o motivo das recusas. Ou seja, focar nas categorias 1 (o emissor nunca aprovar), 2 (o emissor não pode aprovar neste momento) e 3 (qualidade dos dados) e evitar usar a 4 (código de resposta genérico). Os emissores devem limitar dessa categoria ao máximo. A taxa da Categoria 4 é cobrada para garantir que não mais do que a porcentagem aprovada regionalmente do total de recusas do emissor sejam categorizadas como Categoria 4. Os emissores que excederem o limite definido regionalmente receberão a Taxa de Código de Resposta Genérica por base de transação para cada declínio em excesso do limite definido.
 
-**Tabela com as regras e códigos de recusa:**
+**Tabela com as regras e códigos de recusa**:
 
 As regras da tabela a seguir são válidas tanto para transações de compra, quanto para transações Zero Auth.
 
@@ -213,13 +218,14 @@ As regras da tabela a seguir são válidas tanto para transações de compra, qu
 | **Categoria 3** <br>Qualidade de dados  | **Reversível**   | 54 - Cartão vencido  <br>   55 - Senha incorreta  <br>    70 - Dados de PIN necessários (somente na região da Europa)    <br>   82 - Os resultados de CAM,2 dCVV,3 iCVV4 ou CVV on-line foram negativos  <br>    1A - Autenticação de cliente adicional necessária (somente na região da Europa)    <br>  6P - Falha na verificação (a identificação do titular do cartão não corresponde aos registros do emissor)    <br>    N7 - Recusa decorrente de falha do CVV2 (Visa)    |Cobrança de tarifa a partir da 16ª tentativa: o estabelecimento pode retentar a mesma transação 15 vezes.<br> A partir da  16ª tentativa (com mesmo cartão, transação, validade, valor e estabelecimento) num período de 30 dias corridos a partir da 1ª tentativa, a transação será tarifada. Passado o período de 30 dias, a Visa não permite nenhuma nova tentativa. Então, caso haja envio de uma tentativa dessa mesma transação, a cobrança já será aplicada para essa retentativa enviada (daí, a regra de 15 tentativas deixa de ser válida, passado a ser válido o período de 30 dias corridos).|
 | **Categoria 4**<br>**Códigos de respostas genéricos**  | **Reversível**   | Códigos de respostas genéricos não listados nas categorias 1,2,3 |Cobrança de tarifa a partir da 16ª tentativa: o estabelecimento pode retentar a mesma transação 15 vezes.<br> A partir da  16ª tentativa (com mesmo cartão, transação, validade, valor e estabelecimento) num período de 30 dias corridos a partir da 1ª tentativa, a transação será tarifada. Passado o período de 30 dias, a Visa não permite nenhuma nova tentativa. Então, caso haja envio de uma tentativa dessa mesma transação, a cobrança já será aplicada para essa retentativa enviada (daí, a regra de 15 tentativas deixa de ser válida, passado a ser válido o período de 30 dias corridos).|
 
-\* *O código 14 será reclassificado a partir de 24/04/2024, mas permanece na categoria 1*.
+/* *O código **14** será reclassificado a partir de 24/04/2024, mas permanece na categoria 1*.
 
-\** *Os códigos 39, 52 e 53 irão migrar da categoria 4 para a categoria 2 a partir de 24/04/2024*.
+/** *Os códigos **39, 52 e 53** irão migrar da categoria 4 para a categoria 2*.
 
-\*** *O código Z5 é um código novo e está na categoria 2*.
+/*** *O código **Z5** é um código novo e está na categoria 2*.
 
-> **Importante**: Desde 24/04/2023, o limite permitido da contagem total de recusas para a **categoria 3** aumentou de 10.000 para **25.000 recusas** em um ciclo de faturamento de 30 dias.
+> **Importante**:<br>
+> Desde abril de 2023 o limite permitido da contagem total de recusas para a categoria 3, passou de 10.000 para 25.000 recusas em um ciclo de faturamento de 30 dias.
 
 # Elo
 
