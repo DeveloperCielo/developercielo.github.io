@@ -2959,7 +2959,7 @@ A Cielo fornece esse serviço para os clientes de três formas:
 
 * **Tokenização Transparente Cielo**: **No momento essa opção está indisponível**. Quando uma transação online com o cartão aberto (PAN) for recebida em nossa API, a Cielo irá solicitar um token para aquele cartão de forma transparente e sem a necessidade de integração adicional. Neste momento a Cielo não irá cobrar pela solução, de forma a propiciar a experiência da tokenização para nossos clientes e mitigar o custo da taxa de 0,05% sobre o valor da transação. Futuramente este tema poderá ser reavaliado. Nesta solução tanto os cartões quanto os tokens são de gestão e propriedade da Cielo.
 
-<aside class="warning">No momento a tokenização transparente Cielo está indisponível. A previsão de retorno é a partir de 26/abr/24.</aside>
+<aside class="warning">No momento a tokenização transparente Cielo está indisponível. A previsão de retorno é a partir de maio de 2024.</aside>
 
     > **Bandeira disponível**: Visa.
 
