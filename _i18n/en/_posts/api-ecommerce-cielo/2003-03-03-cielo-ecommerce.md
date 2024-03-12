@@ -2961,7 +2961,7 @@ The participating brands provide APIs for receiving and storing the card securel
 
 Cielo provides these services to clients in three ways:
 
-* **Cielo Transparent Tokenization**: **Transparent tokenization is currently unavailable**. When the merchant sends an online transaction with card data (PAN) to our APIs, Cielo will automatically create a token for that card so that Visa will receive the tokenized card data and the merchant does not need to create any additional intergation. Currently, Cielo is not charging for transparent tokenization in order to enable the tokenization experience for our clients and to avoid the 0.05% fee over the transaction amount. Cielo may start charging for this service at any point in the future. In this solution, both the card data and the tokens are managed/owned by Cielo.
+* **Cielo Transparent Tokenization**: When the merchant sends an online transaction with card data (PAN) to our APIs, Cielo will automatically create a token for that card so that Visa will receive the tokenized card data and the merchant does not need to create any additional intergation. Currently, Cielo is not charging for transparent tokenization in order to enable the tokenization experience for our clients and to avoid the 0.05% fee over the transaction amount. Cielo may start charging for this service at any point in the future. In this solution, both the card data and the tokens are managed/owned by Cielo.
 
 <aside class="warning">Transparent tokenization is currently unavailable. We estimate this option might be available again after May 2024.</aside>
 
