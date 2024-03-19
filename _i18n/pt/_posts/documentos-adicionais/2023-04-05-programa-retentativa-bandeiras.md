@@ -223,7 +223,7 @@ As regras da tabela a seguir são válidas tanto para transações de compra, qu
 \*** *O código **Z5** é um código novo e está na categoria 2*.
 
 > **Importante**:<br>
-> Desde abril de 2023 o limite permitido da contagem total de recusas para a categoria 3, passou de 10.000 para 25.000 recusas em um ciclo de faturamento de 30 dias.
+> Desde abril de 2023, o limite permitido da contagem total de recusas para a categoria 3 passou de 10.000 para 25.000 recusas em um ciclo de faturamento de 30 dias.
 
 # Elo
 
