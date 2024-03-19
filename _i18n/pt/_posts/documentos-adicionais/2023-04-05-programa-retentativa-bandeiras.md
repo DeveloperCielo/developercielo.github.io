@@ -197,9 +197,7 @@ A Visa agrupou os códigos de retorno em quatro categorias:
 
     Quando um erro de dados é identificado pelo emissor essa transação é declinada como consequência. Os estabelecimentos devem revalidar dados de pagamentos antes de retentar. Estabelecimentos e credenciadores devem monitorar estes códigos de negativas devido a exposição potencial a fraudes.
 
-    > **Atenção**: A categoria 3 tem, além dos limites considerados na categoria 2, um limite diferente que é cumulativo. Um estabelecimento pode realizar até 25.000* transações em um período de 30 dias (neste caso considerando apenas o número do estabelecimento e códigos de negadas). Se ultrapassar o limite, todas as transações recusadas por categoria 3 serão tarifadas.
-
-    **Novo limite, válido a partir de 24/abr/24. Atualmente é de 10 mil.*
+    > **Atenção**: A categoria 3 tem, além dos limites considerados na categoria 2, um limite diferente que é cumulativo. Um estabelecimento pode realizar até 25.000 transações em um período de 30 dias (neste caso considerando apenas o número do estabelecimento e códigos de negadas). Se ultrapassar o limite, todas as transações recusadas por categoria 3 serão tarifadas.
 
 * **Categoria 4: códigos de respostas genéricos**
 
