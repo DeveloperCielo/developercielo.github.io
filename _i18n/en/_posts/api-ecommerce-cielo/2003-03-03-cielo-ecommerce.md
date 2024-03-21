@@ -19,7 +19,7 @@ language_tabs:
 
 The purpose of this documentation is to guide the developer on how to integrate with **API E-commerce Cielo**, describing the features, methods to be used, listing information to be sent and received, and providing examples.
 
-We recommend intermediate knowledge in Web programming language, HTTP/HTTPS requests and JSON file manipulation are required to successfully deploy the E-commerce Cielo solution.
+We recommend intermediate knowledge in web programming language, HTTP/HTTPS requests and JSON file manipulation are required to successfully deploy the E-commerce Cielo solution.
 
 In this guide, you will find information on all operations available on API REST of API E-commerce Cielo. These operations must be performed using its specific key (Merchant ID and Merchant Key) in the respective environment endpoints
 
