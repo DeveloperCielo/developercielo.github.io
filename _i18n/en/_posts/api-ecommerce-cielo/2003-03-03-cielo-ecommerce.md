@@ -7055,6 +7055,25 @@ Below we explain them in the order in which they can occur:
 | 404              | Resource Not Found    |
 | 500              | Internal Server Error |
 
+See some example scenarios for when each HTTP code may return:
+
+**Successful responses**
+
+* **200 Ok**: the request succeeded. E.g.: when creating an `AccessToken`;
+* **201 Created**: the request succeeded and the transaction was created (for all payment methods: boleto, credit, debit, electronic transfer and e-wallet).
+
+**Client error responses**
+
+* **400 Bad Request**: the request is not valid. E.g: malformed JSON request syntax;
+* **401 Unauthorized**: authentication error. E.g.: wrong `MerchantKey`;
+* **403 Forbidden**: non-authorized due to IP restriction in the e-commerce;
+* **404 Not Found**: The server can not find the requested resource. E.g.: wrong endpoint; for order search: the order does not exist, or was created by another merchant or the order is older than three months;
+* **405 Method Not Allowed**: wrong HTTP method (POST, PUT, GET, PATCH, DELETE).
+
+**Server error responses**
+
+* **500 Internal Server Error, 502 Bad Gateway ou 503 Service Unavailable**: these errors responses can return due to some internal fail at Braspag, such as unavailable payment method or low speed. If you get any of these responses, we recommend contacting our Support for further information.
+
 ## Card Brands Retry Program
 
 When a shopper tries to make a card purchase on e-commerce, the transaction may be denied due to several reasons. The **next attempts to complete the transaction** using the **same card** are called **retrying**.
