@@ -16,7 +16,7 @@ tags:
 
 **O que é essa nova regra?**
 
-Com o objetivo de aumentar a segurança online por meio da adoção do token de bandeira (network token), a Visa irá começar a cobrar de forma incremental 0,05% sobre o valor de toda transação online aprovada com o cartão aberto (PAN) a partir de fevereiro de 2024.
+Com o objetivo de aumentar a segurança online por meio da adoção do token de bandeira (*network token*), a Visa irá começar a cobrar de forma incremental 0,05% sobre o valor de toda transação online aprovada com o cartão aberto (PAN) a partir de fevereiro de 2024.
 
 A seguir, explicamos um pouco do que é a tokenização de bandeira, benefícios e quais opções a Cielo oferece para que os clientes possam se adequar à nova regra.
 
