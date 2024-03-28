@@ -6967,6 +6967,25 @@ Abaixo vamos explica-los na ordem em que podem ocorrer:
 | 502              | Bad Gateway           |
 | 503              | Service Unavailable   |
 
+Para cada status teremos diferentes cenários, veja alguns exemplos de situações em que cada código pode retornar:
+
+**Respostas de sucesso**
+
+* **200 Ok**: status informando que a solicitação foi atendida. Pode ser retornado ao obter um `AccessToken`, por exemplo;
+* **201 Created**: status informando que a criação da transação ocorreu corretamente (para todos os tipos de pagamentos: boleto, crédito, débito, transferência eletrônica e e-wallet).
+
+**Respostas de erro do Cliente**
+
+* **400 Bad Request**: indica alguma falha na requisição (sintaxe JSON inválida);
+* **401 Unauthorized**: indica erro de autenticação. Pode ocorrer caso use o `MerchantKey` errado, por exemplo;
+* **403 Forbidden**: não autorizado por conta de restrição de IP na loja;
+* **404 Not Found**: o servidor não pode encontrar o recurso solicitado. O endpoint pode estar errado ou, no caso de consulta de pedidos, o pedido pode não existir, pode ter sido criado por outra loja (diferente da loja que você está usando) ou pode ter mais de três meses (período máximo para consultar pedidos na API);
+* **405 Method Not Allowed**: o método HTTP está incorreto (POST, PUT, GET, PATCH, DELETE).
+
+**Respostas de erro do Servidor**
+
+* **500 Internal Server Error, 502 Bad Gateway ou 503 Service Unavailable**: podem ser retornados em alguma falha interna na Braspag, como por exemplo indisponibilidade de algum meio de pagamento ou lentidão.Caso observe um desses retornos, recomendamos contatar o suporte para entender o real motivo.
+
 ## Programa de Retentativa das Bandeiras
 
 Quando uma pessoa tenta fazer uma compra com cartão no e-commerce a transação pode ser negada devido a uma série de fatores. As **tentativas seguintes de concluir a transação** usando o **mesmo cartão** são o que chamamos de **retentativa**.
