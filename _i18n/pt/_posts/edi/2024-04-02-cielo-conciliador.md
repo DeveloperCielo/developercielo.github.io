@@ -3,7 +3,7 @@ layout: manual
 title: EDI - Cielo Conciliador
 description: Instruções EDI
 search: true
-translated: true
+translated: false
 toc_footers: true
 categories: manual
 sort_order: 1
