@@ -1,14 +1,17 @@
 ---
-layout: tutorial
+layout: manual
 title: EDI - Cielo Conciliador
 description: Instruções EDI
 search: true
 translated: true
 toc_footers: true
-categories: tutorial
+categories: manual
 sort_order: 8
 tags:
   - 6. EDI Cielo
+language_tabs:
+  json: JSON
+  shell: cURL
 ---
 
 # F360 Finanças
@@ -26,14 +29,14 @@ https://f360.zendesk.com/hc/pt-br/articles/360062098714
 Body
 
 ```json
-{ "token": "{{token_login}}" }
+{ "token": "{{token\_login}}" }
 ```
 
 Request
 
-cURL
 
-```json
+
+```shell
 curl --location --globoff '{{URL}}/PublicLoginAPI/DoLogin' \
 --header 'Content-Type: application/json' \
 --data '{ "token": "{{token\_login}}" }'
@@ -43,6 +46,7 @@ Response
 
 ```json
 {
+
 "Token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZGEwOTEzNDI2Mjk1MzBlZDAyNGU1M2IiLCJjdXN0b21lcklkIjoiNWRhMDg5MzEyNjI5NTMwZWQwMjQ5MDE3Iiwid2Vic2VydmljZUlkIjoiNjBkYjE2MjA4OWQ1OWUwYWVjNWQxYWYxIiwiZW1haWwiOiI0MzRkODUwZC04NzI3LTQwOGEtOTE4OC0xYTQ4Mjk5MGQ0MWZAd2Vic2VydmljZS5jb20iLCJhY2Vzc29Ub3RhbCI6IlRydWUiLCJyb2xlcyI6IiIsIm5iZiI6MTYyNDk3MzMxMywiZXhwIjoxNjI0OTc2OTEzLCJpYXQiOjE2MjQ5NzMzMTN9.8PmneW6TSqEcSdZdr-HF6LR79DbSYNs43jZlyBfmC9M"
 }
 ```
@@ -105,8 +109,7 @@ Authorization Bearer {{token_jwt}}
 
 Request
 
-```json
-cURL
+```shell
 curl --location --globoff '{{URL}}/PublicRelatorioAPI/GerarRelatorio' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -182,7 +185,7 @@ Exemplo de arquivo contábil no formato JSON:  https://drive.google.com/file/d/1
 
 Request
 
-```json
+```shell
 curl --location --globoff '{{URL}}/PublicRelatorioAPI/GerarRelatorioDeConciliacaoDeCartoes' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -202,7 +205,6 @@ Response
 "Result": "60db204089d59e0aec5d8756",
 "Ok": true
 }
-```
 
 ## Obter Relatório
 
@@ -214,7 +216,7 @@ Evite fazer polling neste método para saber se o seu relatório foi concluído 
 
 Authorization Bearer {{token_jwt}}
 
-```json
+```shell
 curl --location -g '{{URL}}/PublicRelatorioAPI/Download?id=60db204089d59e0aec5d8756' \
 --header 'Content-Type: application/json' \
 --data ''
@@ -252,7 +254,7 @@ Authorization Bearer {{token_jwt}}
 
 Request
 
-```json
+```shell
 curl --location --globoff '{{URL}}/PublicRelatorioAPI/GerarRelatorioTransferenciasEntreContas' \
 --data '{
 "Mes": "2022-02",
@@ -288,7 +290,7 @@ Authorization Bearer {{token_jwt}}
 
 Request
 
-```json
+```shell
 curl --location --globoff '{{URL}}/PlanoDeContasPublicAPI/ListarPlanosContas' \
 --header 'Content-Type: application/json' \
 --data ''
@@ -384,7 +386,7 @@ Authorization Bearer {{token_jwt}}
 
 Request
 
-```json
+```shell
 curl --location --globoff '{{URL}}/PlanoDeContasPublicAPI/ObterPlanoDeContas/5da089312629530ed0249022' \
 --header 'Content-Type: application/json'
 ```
@@ -418,8 +420,7 @@ Authorization Bearer {{token_jwt}}
 
 Request
 
-```json
-cURL
+```shell
 curl --location --globoff '{{URL}}/PlanoDeContasPublicAPI/ListarClassificacaoProdutos' \
 --header 'Content-Type: application/json' \
 --data ''
@@ -569,7 +570,7 @@ Este método irá excluir um Plano de Contas do módulo F360 Finanças. É obrig
 
 Authorization Bearer {{token_jwt}}
 
-```json
+```shell
 curl --location -g --request DELETE '{{URL}}/PlanoDeContasPublicAPI/ExcluirPlanoDeContas/60b6539d243c1419b084b181' \
 --header 'Content-Type: application/json'
 ```
@@ -626,10 +627,10 @@ cpfCnpj= (opcional) um CPF ou CNPJ que pode ser formatado com ou sem os caracter
 
 Request
 
-```json
+```shell
 curl --location --globoff '{{URL}}/PessoasPublicAPI/ListarPessoas?pagina=1&definicao=ambos' \
 --header 'Content-Type: application/json'
-```json
+```
 
 Response
 
@@ -742,8 +743,7 @@ Authorization Bearer {{token\_jwt}}
 
 Request
 
-```json
-cURL
+```shell
 curl --location --globoff '{{URL}}/PessoasPublicAPI/ObterPessoa/60a51476a413311798b4a27e' \
 --header 'Content-Type: application/json'
 ```
@@ -793,7 +793,7 @@ Authorization Bearer {{token_jwt}}
 
 Request
 
-```json
+```shell
 curl --location -g --request DELETE '{{URL}}//PessoasPublicAPI/ExcluirPessoa/60ba8a6d243c143044040f40' \
 --header 'Content-Type: application/json'
 ```
@@ -842,7 +842,7 @@ Authorization Bearer {{token_jwt}}
 
 Exemplo Request
 
-```json
+```shell
 curl --location -g '{{URL}}/PessoasPublicAPI/CriarPessoa' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -906,7 +906,7 @@ Neste endpoint poderá editar os dados de uma Pessoa cadastrada em sua conta da 
 
 Exemplo Request
 
-```json
+```shell
 curl --location -g --request PUT '{{URL}}/PessoasPublicAPI/EditarPessoa/60ba9117243c141a14383d29' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -983,7 +983,7 @@ Authorization Bearer {{token_jwt}}
 
 Exemplo Request:
 
-```json
+```shell
 curl --location -g '{{URL}}/NFPublicAPI/ListarNotas?pagina=1&registro=NFSe&inicio=2021-05-01&fim=2021-05-11&tipo=Cria%C3%A7%C3%A3o&empresas=82.374.240%2F0001-10%2C30.733.246%2F0001-33&clienteFornecedores=10.118.341%2F0001-10' \
 --header 'Content-Type: application/json'
 ```
@@ -998,7 +998,7 @@ Authorization Bearer {{token_jwt}}
 
 Exemplo Request:
 
-```json
+```shell
 curl --location -g '{{URL}}/NFPublicAPI/ObterDanfe/60be13ca243c1322b4f726cb' \
 --header 'Content-Type: application/json'
 ```
@@ -1013,7 +1013,7 @@ Authorization Bearer {{token_jwt}}
 
 Exemplo Request
 
-```json
+```shell
 curl --location -g '{{URL}}/NFPublicAPI/ObterXML/60be13ca243c1322b4f726cb' \
 --header 'Content-Type: application/json'
 ```
@@ -1058,7 +1058,7 @@ tipoDatas=Emissão
 
 Request
 
-```json
+```shell
 curl --location --globoff '{{URL}}/ParcelasDeTituloPublicAPI/ListarParcelasDeTitulos?pagina=1&tipo=Despesa&inicio=2021-06-01&fim=2021-06-30&tipoDatas=Emiss%C3%A3o' \
 --header 'Content-Type: application/json'
 ```
@@ -1206,7 +1206,7 @@ tipoDatas=emissao
 
 Request
 
-```json
+```shell
 curl --location --globoff '{{URL}}/ParcelasDeCartoesPublicAPI/ListarParcelasDeCartoes?pagina=1&tipo=ambos&inicio=2021-03-01&fim=2021-03-30&tipoDatas=emissao' \
 --header 'Content-Type: application/json'
 ```
@@ -1505,7 +1505,7 @@ Authorization Bearer {{token_jwt}}
 
 Request
 
-```json
+```shell
 curl --location --globoff '{{URL}}/ExtratoBancarioPublicAPI/ObterExtratoBancario' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -1639,7 +1639,7 @@ Authorization Bearer {{token_jwt}}
 
 Request
 
-```json
+```shell
 curl --location --globoff '{{URL}}/CentroDeCustoPublicAPI/ListarCentrosDeCusto' \
 --header 'Content-Type: application/json'
 ```
@@ -1680,7 +1680,7 @@ Authorization Bearer {{token_jwt}}
 
 Exemplo Request
 
-```json
+```shell
 curl --location --globoff '{{URL}}/ContaBancariaPublicAPI/ListarContasBancarias' \
 --header 'Content-Type: application/json'
 ```
