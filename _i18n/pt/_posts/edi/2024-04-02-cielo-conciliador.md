@@ -6,7 +6,7 @@ search: true
 translated: true
 toc_footers: true
 categories: manual
-sort_order: 8
+sort_order: 1
 tags:
   - 6. EDI Cielo
 language_tabs:
