@@ -59,7 +59,7 @@ Insira o Nome da Afiliação:
 
 Preencha os campos com os dados requisitados. A imagem a seguir é um **exemplo** do preenchimento para o conector **CieloEcommerce**; consulte a tabela [Dados da Afiliação](https://developercielo.github.io/manual/integracao-vtex#dados-da-afilia%C3%A7%C3%A3o) para verificar quais são os campos correspondentes ao conector desejado.
 
-> Se o seu contrato é para vários provedores, sua integração será **Gateway**. Caso o seu contrato seja somente com a Cielo, sua integração é **Cielo**.
+> Se o seu contrato é para vários provedores, sua integração será **Gateway**. Caso o seu contrato seja somente com a Cielo, sua integração será **Cielo**.
 
 ![1Dados Afiliação]({{ site.baseurl_root }}/images/modulos/vtex/03a-dados-21-02-2024.jpg)
 ![2Dados Afiliação]({{ site.baseurl_root }}/images/modulos/vtex/03b-dados-21-02-2024.jpg)
