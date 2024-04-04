@@ -14,7 +14,7 @@ tags:
 
 ## Sobre este tutorial
 
-Este tutorial tem como objetivo auxiliar o lojista na utilização dos produtos Checkout e Link de Pagamento pelo backoffice do site Cielo. Neste tutorial você vai aprender a:
+Este tutorial tem como objetivo auxiliar o lojista na utilização dos produtos **Checkout** e **Link de Pagamento** pelo backoffice do site Cielo. Neste tutorial você vai aprender a:
 
 * Configurar a sua loja no **Checkout** ou **Link de Pagamento**, desde a aparência da sua página de pagamento do até os meios de pagamento que irá disponibilizar aos seus clientes e opções de captura;
 * Criar links de pagamento;
