@@ -152,7 +152,7 @@
 
 <p>The purpose of this documentation is to guide the developer on how to integrate with <strong>API E-commerce Cielo</strong>, describing the features, methods to be used, listing information to be sent and received, and providing examples.</p>
 
-<p>We recommend intermediate knowledge in Web programming language, HTTP/HTTPS requests and JSON file manipulation are required to successfully deploy the E-commerce Cielo solution.</p>
+<p>We recommend intermediate knowledge in web programming language, HTTP/HTTPS requests and JSON file manipulation are required to successfully deploy the E-commerce Cielo solution.</p>
 
 <p>In this guide, you will find information on all operations available on API REST of API E-commerce Cielo. These operations must be performed using its specific key (Merchant ID and Merchant Key) in the respective environment endpoints</p>
 
@@ -13410,6 +13410,31 @@ The return code <strong>00 represents success in Zero Auth</strong>, the other c
     </tr>
   </tbody>
 </table>
+
+<p>See some example scenarios for when each HTTP code may return:</p>
+
+<p><strong>Successful responses</strong></p>
+
+<ul>
+  <li><strong>200 Ok</strong>: the request succeeded. E.g.: when creating an <code class="language-plaintext highlighter-rouge">AccessToken</code>;</li>
+  <li><strong>201 Created</strong>: the request succeeded and the transaction was created (for all payment methods: boleto, credit, debit, electronic transfer and e-wallet).</li>
+</ul>
+
+<p><strong>Client error responses</strong></p>
+
+<ul>
+  <li><strong>400 Bad Request</strong>: the request is not valid. E.g: malformed JSON request syntax;</li>
+  <li><strong>401 Unauthorized</strong>: authentication error. E.g.: wrong <code class="language-plaintext highlighter-rouge">MerchantKey</code>;</li>
+  <li><strong>403 Forbidden</strong>: non-authorized due to IP restriction in the e-commerce;</li>
+  <li><strong>404 Not Found</strong>: The server can not find the requested resource. E.g.: wrong endpoint; for order search: the order does not exist, or was created by another merchant or the order is older than three months;</li>
+  <li><strong>405 Method Not Allowed</strong>: wrong HTTP method (POST, PUT, GET, PATCH, DELETE).</li>
+</ul>
+
+<p><strong>Server error responses</strong></p>
+
+<ul>
+  <li><strong>500 Internal Server Error, 502 Bad Gateway ou 503 Service Unavailable</strong>: these errors responses can return due to some internal fail at Braspag, such as unavailable payment method or low speed. If you get any of these responses, we recommend contacting our Support for further information.</li>
+</ul>
 
 <h2 id="card-brands-retry-program">Card Brands Retry Program</h2>
 

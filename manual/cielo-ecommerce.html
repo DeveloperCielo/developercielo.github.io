@@ -13190,6 +13190,31 @@ Abaixo vamos explica-los na ordem em que podem ocorrer:</p>
   </tbody>
 </table>
 
+<p>Para cada status teremos diferentes cenários, veja alguns exemplos de situações em que cada código pode retornar:</p>
+
+<p><strong>Respostas de sucesso</strong></p>
+
+<ul>
+  <li><strong>200 Ok</strong>: status informando que a solicitação foi atendida. Pode ser retornado ao obter um <code class="language-plaintext highlighter-rouge">AccessToken</code>, por exemplo;</li>
+  <li><strong>201 Created</strong>: status informando que a criação da transação ocorreu corretamente (para todos os tipos de pagamentos: boleto, crédito, débito, transferência eletrônica e e-wallet).</li>
+</ul>
+
+<p><strong>Respostas de erro do Cliente</strong></p>
+
+<ul>
+  <li><strong>400 Bad Request</strong>: indica alguma falha na requisição (sintaxe JSON inválida);</li>
+  <li><strong>401 Unauthorized</strong>: indica erro de autenticação. Pode ocorrer caso use o <code class="language-plaintext highlighter-rouge">MerchantKey</code> errado, por exemplo;</li>
+  <li><strong>403 Forbidden</strong>: não autorizado por conta de restrição de IP na loja;</li>
+  <li><strong>404 Not Found</strong>: o servidor não pode encontrar o recurso solicitado. O endpoint pode estar errado ou, no caso de consulta de pedidos, o pedido pode não existir, pode ter sido criado por outra loja (diferente da loja que você está usando) ou pode ter mais de três meses (período máximo para consultar pedidos na API);</li>
+  <li><strong>405 Method Not Allowed</strong>: o método HTTP está incorreto (POST, PUT, GET, PATCH, DELETE).</li>
+</ul>
+
+<p><strong>Respostas de erro do Servidor</strong></p>
+
+<ul>
+  <li><strong>500 Internal Server Error, 502 Bad Gateway ou 503 Service Unavailable</strong>: podem ser retornados em alguma falha interna na Braspag, como por exemplo indisponibilidade de algum meio de pagamento ou lentidão.Caso observe um desses retornos, recomendamos contatar o suporte para entender o real motivo.</li>
+</ul>
+
 <h2 id="programa-de-retentativa-das-bandeiras">Programa de Retentativa das Bandeiras</h2>
 
 <p>Quando uma pessoa tenta fazer uma compra com cartão no e-commerce a transação pode ser negada devido a uma série de fatores. As <strong>tentativas seguintes de concluir a transação</strong> usando o <strong>mesmo cartão</strong> são o que chamamos de <strong>retentativa</strong>.</p>
