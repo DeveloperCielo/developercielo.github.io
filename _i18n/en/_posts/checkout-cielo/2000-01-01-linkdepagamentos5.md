@@ -641,6 +641,8 @@ It is worth noting that Link de Pagamento notifies only when a transaction is co
 
 **Example**: *The shopper accesses the payment link and chooses to pay via Pix. When you click Finalize, Link de Pagamento generates the Pix key and sends the transaction completion notification to the store, which will have the status “Pendente (Pending)”. When the shopper makes the payment via Pix, the transaction will have the status “Pago (Paid)” and Link de Pagamento will send the status change notification.*
 
+<aside class="notice">To receive notifications, the merchant needs to configure the SSL certificate. Additionally, there is no authentication implementation for sending notifications, so if the store endpoint has firewall layers, this may prevent notifications from being received.</aside>
+
 ## Notification features
 
 Notification URLs are webhooks that can receive a notification via POST or via JSON:
