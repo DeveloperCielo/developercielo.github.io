@@ -29,12 +29,10 @@ https://f360.zendesk.com/hc/pt-br/articles/360062098714
 Body
 
 ```json
-{ "token": "{{token\_login}}" }
+{ "token": "{{token_login}}" }
 ```
 
 Request
-
-
 
 ```shell
 curl --location --globoff '{{URL}}/PublicLoginAPI/DoLogin' \
@@ -46,7 +44,6 @@ Response
 
 ```json
 {
-
 "Token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZGEwOTEzNDI2Mjk1MzBlZDAyNGU1M2IiLCJjdXN0b21lcklkIjoiNWRhMDg5MzEyNjI5NTMwZWQwMjQ5MDE3Iiwid2Vic2VydmljZUlkIjoiNjBkYjE2MjA4OWQ1OWUwYWVjNWQxYWYxIiwiZW1haWwiOiI0MzRkODUwZC04NzI3LTQwOGEtOTE4OC0xYTQ4Mjk5MGQ0MWZAd2Vic2VydmljZS5jb20iLCJhY2Vzc29Ub3RhbCI6IlRydWUiLCJyb2xlcyI6IiIsIm5iZiI6MTYyNDk3MzMxMywiZXhwIjoxNjI0OTc2OTEzLCJpYXQiOjE2MjQ5NzMzMTN9.8PmneW6TSqEcSdZdr-HF6LR79DbSYNs43jZlyBfmC9M"
 }
 ```
