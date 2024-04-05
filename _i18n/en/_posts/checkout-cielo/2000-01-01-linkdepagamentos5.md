@@ -372,7 +372,7 @@ Header: `Authorization:` `Bearer {access_token}`
 |`description`|Product description that will be displayed on the payment screen if the show_description option is true. It is allowed to use the pipe character `|` if you want to break the line when presenting the description on the payment screen.|String|256|No|
 |`showDescription`|Flag indicating whether or not the description should be displayed on the payment screen.|String|–|No|
 |`price`|Product value in cents.|Int|1000000|Yes|
-|`expirationDate`|Link expiration date. If a date is informed, the link becomes unavailable on the informed date. If no date is informed, the link does not expire.|String (YYYY-MM-DD)|10|No|
+|`expirationDate`|Link expiration date. If a date is informed, the link becomes unavailable on the informed date. If no date is informed, the link does not expire. The property also allows you to include an expiration time, but it is not required. If a time is not included, the default is 00:00:00.|String (YYYY-MM-DD)|10|No|
 |`weight`|Product weight in grams.|String|2000000|No|
 |`softDescriptor`|Description to be presented on the cardholder's credit card statement.|String|13|No|
 |`maxNumberOfInstallments`|Maximum number of installments that the shopper can select on the payment screen. If not informed, the store settings will be used. Attention: do not send this field if the product type (`type`) is equal to “Recurrent”.|int|up to 2 characters (1 to 12 installments)|No|
