@@ -59,25 +59,11 @@ As established by Law No. **14,442, of September 2, 2022**, the **Elo Voucher** 
 
 [CIELO-Extracto-Electronico-Manual-Version-15.6](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO-Extracto-Electronico-Manual-Version-15.6.pdf)
 
-## V15.8 - New update rules in the demonstration of Receivables Negotiations entries in the Electronic Statement
-
-Since receivables negotiations may undergo changes, cancellations and recalculations by the card receivables registration system, or by the responsible financial institutions, from version 15.8 onwards the V15 Capture/Forecast Statement **(CIELO03)** will be demonstrating updates regarding expected payment amounts.
-
-> This change is scheduled for implementation on 06/01/2024.
-
-For more information, see the Manual for updates regarding the new version 15.8:
-
-[Manual](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO_Extrato_Eletronico_Manual_Versao_15.8.pdf)
-
-> NOTE: Version 15.8 includes both updates (15.7 and 15.8)
-
-![Communication (EN)](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/20240330Atualizacao_Negociacoes_Cielo_EN.JPG)
-
 ## V15.7 - Financial Reserve in the Electronic Statement
 
 The **Financial Reserve** is basically an amount previously defined by Cielo that is reserved/blocked and is not available for negotiations/advances, and can be used to cover debts (such as fines, refunds, compensations, etc.), if there are no values ​​available in the agenda, in order to manage the risk inherent to the contractual relationship (Accreditor and Recipient/Client).
 
-> This change is scheduled for implementation on 06/01/2024.
+> This change is scheduled for implementation on 06/03/2024.
 
 For more information, see the updates regarding the new version 15.7 in the Manual:
 
@@ -85,7 +71,21 @@ For more information, see the updates regarding the new version 15.7 in the Manu
 
 > NOTE: Version 15.8 includes both updates (15.7 and 15.8)
 
-![Communication (EN)](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/20240330Reserva_Financeira_EN.JPG)
+![Communication (EN)](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/20240330ReservaFinanceira_EN.JPG)
+
+## V15.8 - New update rules in the demonstration of Receivables Negotiations entries in the Electronic Statement
+
+Since receivables negotiations may undergo changes, cancellations and recalculations by the card receivables registration system, or by the responsible financial institutions, from version 15.8 onwards the V15 Capture/Forecast Statement **(CIELO03)** will be demonstrating updates regarding expected payment amounts.
+
+> This change is scheduled for implementation on 06/03/2024.
+
+For more information, see the Manual for updates regarding the new version 15.8:
+
+[Manual](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO_Extrato_Eletronico_Manual_Versao_15.8.pdf)
+
+> NOTE: Version 15.8 includes both updates (15.7 and 15.8)
+
+![Communication (EN)](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/20240330AtualizacaoNegociacoes_Cielo_EN.JPG)
 
 # Change History
 
