@@ -786,8 +786,8 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">expirationDate</code></td>
-      <td>Data de expiração do link. Caso uma data seja informada, o link se torna indisponível na data informada. Se nenhuma data for informada, o link não expira.</td>
-      <td>String (YYYY-MM-DD)</td>
+      <td>Data de expiração do link. Caso uma data seja informada, o link se torna indisponível na data informada. Se nenhuma data for informada, o link não expira. O campo permite incluir um horário de expiração, mas não é obrigatório. Se um horário não for incluso, o padrão considerado é 00:00:00.</td>
+      <td>String (YYYY-MM-DD HH:MM:SS)</td>
       <td>10</td>
       <td>Não</td>
     </tr>
