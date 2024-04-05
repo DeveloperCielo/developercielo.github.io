@@ -534,6 +534,45 @@
   </tbody>
 </table>
 
+<h3 id="examples-for-script-output">Examples for script output</h3>
+
+<p><strong>Example for event <code class="language-plaintext highlighter-rouge">OnSuccess</code></strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="err">Cavv:</span><span class="w"> </span><span class="err">'Y</span><span class="mi">2</span><span class="err">FyZGluYWxjb</span><span class="mi">21</span><span class="err">tZXJjZWF</span><span class="mi">1</span><span class="err">dGg='</span><span class="p">,</span><span class="w">
+  </span><span class="err">Xid:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="err">Eci:</span><span class="w"> </span><span class="err">'</span><span class="mi">01</span><span class="err">'</span><span class="p">,</span><span class="w">
+  </span><span class="err">Version:</span><span class="w"> </span><span class="err">'</span><span class="mi">2</span><span class="err">'</span><span class="p">,</span><span class="w">
+  </span><span class="err">ReferenceId:</span><span class="w"> </span><span class="err">'</span><span class="mi">973</span><span class="err">cf</span><span class="mi">83</span><span class="err">d-b</span><span class="mi">378-43</span><span class="err">d</span><span class="mi">5-84</span><span class="err">b</span><span class="mi">6</span><span class="err">-ce</span><span class="mi">1531475</span><span class="err">f</span><span class="mi">2</span><span class="err">a'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Example for event <code class="language-plaintext highlighter-rouge">OnFailure</code></strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="err">Xid:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="err">Eci:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="err">ReturnCode:</span><span class="w"> </span><span class="err">'</span><span class="mi">231</span><span class="err">'</span><span class="p">,</span><span class="w">
+  </span><span class="err">ReturnMessage:</span><span class="w"> </span><span class="err">'Unexpected</span><span class="w"> </span><span class="err">error</span><span class="w"> </span><span class="err">ocurred'</span><span class="p">,</span><span class="w">
+  </span><span class="err">ReferenceId:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Example when card brand is not supported for authentication</strong></p>
+
+<p>When tha card brand is not supported for 3DS, the MPI returns the code “MPI600” and the message <em>“Brand not supported for authentication”.</em></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="err">Xid:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="err">Eci:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="err">ReturnCode:</span><span class="w"> </span><span class="err">'MPI</span><span class="mi">600</span><span class="err">'</span><span class="p">,</span><span class="w">
+  </span><span class="err">ReturnMessage:</span><span class="w"> </span><span class="err">'Brand</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">supported</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">authentication'</span><span class="p">,</span><span class="w">
+  </span><span class="err">ReferenceId:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Confira os valores possíveis de <code class="language-plaintext highlighter-rouge">ReturnCodes</code> na tabela <a href="https://developercielo.github.io/manual/3ds#lista-de-return-codes">Lista de Return Codes</a>.</p>
+
 <h2 id="step-3-mapping-classes">STEP 3. Mapping Classes</h2>
 
 <p>Classes that must be mapped in your HTML code.</p>
