@@ -691,6 +691,8 @@ Vale destacar que o Link de Pagamento realiza a notificação somente quando uma
 
 **Exemplo**: *O comprador acessa o link de pagamento e escolhe pagar via Pix. Ao clicar em Finalizar, o Link de Pagamento gera a chave Pix e envia para a loja a notificação de finalização da transação, que estará com o status “Pendente”. Quando o comprador fizer o pagamento via Pix, a transação ficará com o status “Pago” e o Link de Pagamento enviará a notificação de mudança de status.*
 
+<aside class="notice">Para receber as notificações, o lojista precisa configurar o certificado SSL. Além disso, não há implementação de autenticação para o envio de notificações, então, se o endpoint da loja possuir camadas de firewall, isso pode impedir o recebimento das notificações.</aside>
+
 ## Características das notificações
 
 As URLs para notificação são webhooks que podem receber uma notificação via POST ou via JSON:
