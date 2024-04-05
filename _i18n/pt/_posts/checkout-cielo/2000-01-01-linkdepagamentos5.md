@@ -418,7 +418,7 @@ Para que o seu número de pedido seja enviado na transação até o extrato para
 |`description`|Descrição do produto que será exibida na tela de pagamento caso a opção show_description seja verdadeira. É permitido usar o caracter pipe `|` caso seja desejável quebrar a linha ao apresentar a descrição na tela de pagamento.|String|256|Não|
 |`showDescription`|Flag indicando se a descrição deve ou não ser exibida na tela de pagamento.|String|–|Não|
 |`price`|Valor do produto em centavos.|Int|1000000|Sim|
-|`expirationDate`|Data de expiração do link. Caso uma data seja informada, o link se torna indisponível na data informada. Se nenhuma data for informada, o link não expira.|String (YYYY-MM-DD)|10|Não|
+|`expirationDate`|Data de expiração do link. Caso uma data seja informada, o link se torna indisponível na data informada. Se nenhuma data for informada, o link não expira. O campo permite incluir um horário de expiração, mas não é obrigatório. Se um horário não for incluso, o padrão considerado é 00:00:00. |String (YYYY-MM-DD HH:MM:SS)|10|Não|
 |`weight`|Peso do produto em gramas.|String|2000000|Não|
 |`softDescriptor`|Descrição a ser apresentada na fatura do cartão de crédito do portador.|String|13|Não|
 |`maxNumberOfInstallments`|Número máximo de parcelas que o comprador pode selecionar na tela de pagamento. Se não informado, será utilizada as configurações da loja. Atenção: não envie esse campo se o tipo de produto (`type`) for igual a “Recurrent”.|int|até 2 caracteres (1 a 12 parcelas)|Não|
