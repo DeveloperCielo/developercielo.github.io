@@ -1014,6 +1014,8 @@ It is worth noting that Checkout only carries out a notification when a transact
 
 **Example**: *The shopper accesses the payment link and chooses to pay via Pix. When you click Finalizar, Checkout generates the Pix key and sends the transaction completion notification to the merchant, which will have the “Pending” status. When the shopper makes the payment via Pix, the transaction will have the status “Paid” and Checkout will send a status change notification.*
 
+<aside class="notice">To receive notifications, the merchant needs to configure the SSL certificate. Additionally, there is no authentication implementation for sending notifications, so if the store endpoint has firewall layers, this may prevent notifications from being received.</aside>
+
 ## Characteristics of notifications
 
 Notification URLs are webhooks that can receive a notification via POST or via JSON:
