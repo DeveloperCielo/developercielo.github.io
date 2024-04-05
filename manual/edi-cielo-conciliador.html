@@ -136,92 +136,87 @@
 
 <p>https://f360.zendesk.com/hc/pt-br/articles/360062098714</p>
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/PublicLoginAPI/DoLogin&lt;/aside&gt;
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/PublicLoginAPI/DoLogin</span></aside>
 
-Body
+<p>Body</p>
 
-```json
-{ "token": "" }
-```
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w"> </span><span class="nl">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
-Request
+<p>Request</p>
 
-```shell
-curl --location --globoff '/PublicLoginAPI/DoLogin' \
---header 'Content-Type: application/json' \
---data '{ "token": "" }'
-```
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">--location</span> <span class="nt">--globoff</span> <span class="s1">'/PublicLoginAPI/DoLogin'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data</span> <span class="s1">'{ "token": "" }'</span>
+</code></pre></div></div>
 
-Response
+<p>Response</p>
 
-```json
-{
-"Token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZGEwOTEzNDI2Mjk1MzBlZDAyNGU1M2IiLCJjdXN0b21lcklkIjoiNWRhMDg5MzEyNjI5NTMwZWQwMjQ5MDE3Iiwid2Vic2VydmljZUlkIjoiNjBkYjE2MjA4OWQ1OWUwYWVjNWQxYWYxIiwiZW1haWwiOiI0MzRkODUwZC04NzI3LTQwOGEtOTE4OC0xYTQ4Mjk5MGQ0MWZAd2Vic2VydmljZS5jb20iLCJhY2Vzc29Ub3RhbCI6IlRydWUiLCJyb2xlcyI6IiIsIm5iZiI6MTYyNDk3MzMxMywiZXhwIjoxNjI0OTc2OTEzLCJpYXQiOjE2MjQ5NzMzMTN9.8PmneW6TSqEcSdZdr-HF6LR79DbSYNs43jZlyBfmC9M"
-}
-```
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="nl">"Token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZGEwOTEzNDI2Mjk1MzBlZDAyNGU1M2IiLCJjdXN0b21lcklkIjoiNWRhMDg5MzEyNjI5NTMwZWQwMjQ5MDE3Iiwid2Vic2VydmljZUlkIjoiNjBkYjE2MjA4OWQ1OWUwYWVjNWQxYWYxIiwiZW1haWwiOiI0MzRkODUwZC04NzI3LTQwOGEtOTE4OC0xYTQ4Mjk5MGQ0MWZAd2Vic2VydmljZS5jb20iLCJhY2Vzc29Ub3RhbCI6IlRydWUiLCJyb2xlcyI6IiIsIm5iZiI6MTYyNDk3MzMxMywiZXhwIjoxNjI0OTc2OTEzLCJpYXQiOjE2MjQ5NzMzMTN9.8PmneW6TSqEcSdZdr-HF6LR79DbSYNs43jZlyBfmC9M"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
-# 2 - Relatórios
+<h1 id="2---relatórios">2 - Relatórios</h1>
 
-Aqui você irá encontrar todos os endpoints disponíveis relacionados a download de relatórios da F360.
+<p>Aqui você irá encontrar todos os endpoints disponíveis relacionados a download de relatórios da F360.</p>
 
-## Gerar Relatório para Contabilidade
+<h2 id="gerar-relatório-para-contabilidade">Gerar Relatório para Contabilidade</h2>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/PublicRelatorioAPI/GerarRelatorio</span></aside>
 
-Esse método irá gerar um relatório para a contabilidade com base nas informações do módulo F360 Finanças. Os campos obrigatórios estão em negrito:
+<p>Esse método irá gerar um relatório para a contabilidade com base nas informações do módulo F360 Finanças. Os campos obrigatórios estão em negrito:</p>
 
-**Data:** "yyyy-MM-dd"
+<p><strong>Data:</strong> “yyyy-MM-dd”</p>
 
-**ModeloContabil:** "provisao" ou "obrigacao". No modelo de "provisao", iremos exportar os lançamentos pela data de emissão do registro. Já no modelo de "obrigacao", iremos exportar pela data de pagamento.
+<p><strong>ModeloContabil:</strong> “provisao” ou “obrigacao”. No modelo de “provisao”, iremos exportar os lançamentos pela data de emissão do registro. Já no modelo de “obrigacao”, iremos exportar pela data de pagamento.</p>
 
-**ModeloRelatorio:** "tradicional" ou "gerencial". O modelo "tradicional" não virá com o rateio de centros de custos, ou seja, iremos considerar apenas o CNPJ da emissão das despesas/receitas. Já no "gerencial", iremos quebrar os lançamentos pelos centros de custos gerenciais que foram informados na plataforma.
+<p><strong>ModeloRelatorio:</strong> “tradicional” ou “gerencial”. O modelo “tradicional” não virá com o rateio de centros de custos, ou seja, iremos considerar apenas o CNPJ da emissão das despesas/receitas. Já no “gerencial”, iremos quebrar os lançamentos pelos centros de custos gerenciais que foram informados na plataforma.</p>
 
-**ExtensaoDeArquivo:** "json" ou "csv".
+<p><strong>ExtensaoDeArquivo:</strong> “json” ou “csv”.</p>
 
-**DataFim:** "yyyy-MM-dd".
+<p><strong>DataFim:</strong> “yyyy-MM-dd”.</p>
 
-**CNPJEmpresas:** Informar a lista de CNPJ's para a criação do relatório. Caso vazio ou nulo, o relatório irá conter as movimentações de todas as lojas.
+<p><strong>CNPJEmpresas:</strong> Informar a lista de CNPJ’s para a criação do relatório. Caso vazio ou nulo, o relatório irá conter as movimentações de todas as lojas.</p>
 
-**EnviarNotificacaoPorWebbook:** "true" ou "false".
+<p><strong>EnviarNotificacaoPorWebbook:</strong> “true” ou “false”.</p>
 
-**URLNotificaticao:** Informar a URL que deseja ser notificado após o termino da criação do relatório. Isso é importante pois o processamento do relatório é feito em background em uma fila de mensagens. Quando você informa a URL de notificação, iremos encaminhar para você um aviso assim que o relatório terminar de ser processado e estiver pronto para download.
+<p><strong>URLNotificaticao:</strong> Informar a URL que deseja ser notificado após o termino da criação do relatório. Isso é importante pois o processamento do relatório é feito em background em uma fila de mensagens. Quando você informa a URL de notificação, iremos encaminhar para você um aviso assim que o relatório terminar de ser processado e estiver pronto para download.</p>
 
-**Contas:** Números externo das contas em que serão filtradas para a geração do relatório.
+<p><strong>Contas:</strong> Números externo das contas em que serão filtradas para a geração do relatório.</p>
 
-Exemplo de notificação do webhook:
+<p>Exemplo de notificação do webhook:</p>
 
-https://drive.google.com/file/d/1W709XgD8ZrK4HR3ugf_KtO46wZOAmCEt/view?usp=sharing
+<p>https://drive.google.com/file/d/1W709XgD8ZrK4HR3ugf_KtO46wZOAmCEt/view?usp=sharing</p>
 
-Exemplo de arquivo contábil no formato JSON:
+<p>Exemplo de arquivo contábil no formato JSON:</p>
 
-https://drive.google.com/file/d/1US40NyNOnEGuznTb0uAgBn4ak7oBkUeo/view?usp=sharing
+<p>https://drive.google.com/file/d/1US40NyNOnEGuznTb0uAgBn4ak7oBkUeo/view?usp=sharing</p>
 
-Exemplo de arquivo contábil no formato CSV:
+<p>Exemplo de arquivo contábil no formato CSV:</p>
 
-https://drive.google.com/file/d/1SLCd2_E_7WMwhy3YziCVRpiPTl2YhxsC/view?usp=sharing
+<p>https://drive.google.com/file/d/1SLCd2_E_7WMwhy3YziCVRpiPTl2YhxsC/view?usp=sharing</p>
 
-Authorization Bearer 
+<p>Authorization Bearer</p>
 
-```json
-{
-"Data": "2021-01-01",
-"DataFim": "2021-01-17",
-"ModeloContabil": "provisao",
-"ModeloRelatorio": "gerencial",
-"ExtensaoDeArquivo": "json",
-"EnviarNotificacaoPorWebhook": false,
-"URLNotificacao": "",
-"Contas": "\*\*\*\*,\*\*\*\*,\*\*\*\*",
-"CNPJEmpresas": []
-}
-```
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="nl">"Data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01-01"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"DataFim"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01-17"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"ModeloContabil"</span><span class="p">:</span><span class="w"> </span><span class="s2">"provisao"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"ModeloRelatorio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gerencial"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"ExtensaoDeArquivo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"json"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"EnviarNotificacaoPorWebhook"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+</span><span class="nl">"URLNotificacao"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Contas"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\*\*\*\*</span><span class="s2">,</span><span class="se">\*\*\*\*</span><span class="s2">,</span><span class="se">\*\*\*\*</span><span class="s2">"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"CNPJEmpresas"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
-Request
+<p>Request</p>
 
-```shell
-curl --location --globoff '/PublicRelatorioAPI/GerarRelatorio' \
---header 'Content-Type: application/json' \
---data '{
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">--location</span> <span class="nt">--globoff</span> <span class="s1">'/PublicRelatorioAPI/GerarRelatorio'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data</span> <span class="s1">'{
 "Data": "2021-01-01",
 "DataFim": "2021-01-15",
 "ModeloContabil": "provisao",
@@ -231,124 +226,136 @@ curl --location --globoff '/PublicRelatorioAPI/GerarRelatorio' \
 "URLNotificaticao": "",
 "Contas": "\*\*\*\*,\*\*\*\*,\*\*\*\*",
 "CNPJEmpresas": []
-}'
-```
+}'</span>
+</code></pre></div></div>
 
-Response
+<p>Response</p>
 
-```json
-{
-"Result": "60db204089d59e0aec5d8756",
-"Ok": true
-}
-```
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="nl">"Result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"60db204089d59e0aec5d8756"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
-## Gerar Relatório de Conciliacao de Cartoes
+<h2 id="gerar-relatório-de-conciliacao-de-cartoes">Gerar Relatório de Conciliacao de Cartoes</h2>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/PublicRelatorioAPI/GerarRelatorioDeConciliacaoDeCartoes</span></aside>
 
-Esse método irá gerar um relatório dos cartões conciliados a partir dos filtros escolhidos e com base nas informações do módulo F360 Finanças. Os campos obrigatórios estão em negrito:
+<p>Esse método irá gerar um relatório dos cartões conciliados a partir dos filtros escolhidos e com base nas informações do módulo F360 Finanças. Os campos obrigatórios estão em negrito:</p>
 
-**DataInicio:** "yyyy-MM-dd";
+<p><strong>DataInicio:</strong> “yyyy-MM-dd”;</p>
 
-**DataFim:** "yyyy-MM-dd";
+<p><strong>DataFim:</strong> “yyyy-MM-dd”;</p>
 
-**CNPJEmpresas:** Informar a lista de CNPJ's para a criação do relatório. Caso vazio ou nulo, o relatório irá conter as movimentações de todas as lojas;
+<p><strong>CNPJEmpresas:</strong> Informar a lista de CNPJ’s para a criação do relatório. Caso vazio ou nulo, o relatório irá conter as movimentações de todas as lojas;</p>
 
-**EnviarNotificacaoPorWebbook:** "true" ou "false";
+<p><strong>EnviarNotificacaoPorWebbook:</strong> “true” ou “false”;</p>
 
-**URLNotificaticao:** Informar a URL que deseja ser notificado após o término da criação do relatório. Isso é importante pois o processamento do relatório é feito em background em uma fila de mensagens. Quando você informa a URL de notificação, iremos encaminhar para você um aviso assim que o relatório terminar de ser processado e estiver pronto para download;
+<p><strong>URLNotificaticao:</strong> Informar a URL que deseja ser notificado após o término da criação do relatório. Isso é importante pois o processamento do relatório é feito em background em uma fila de mensagens. Quando você informa a URL de notificação, iremos encaminhar para você um aviso assim que o relatório terminar de ser processado e estiver pronto para download;</p>
 
-**TipoConciliacao:**
+<p><strong>TipoConciliacao:</strong></p>
 
-“0” ou “Todos”;
+<p>“0” ou “Todos”;</p>
 
-“1” ou “Automatica”;
+<p>“1” ou “Automatica”;</p>
 
-“2” ou “ManualTodos”;
+<p>“2” ou “ManualTodos”;</p>
 
-“3” ou “ManualComJustificativa”;
+<p>“3” ou “ManualComJustificativa”;</p>
 
-“4” ou “ManualSemJustificativa”.
+<p>“4” ou “ManualSemJustificativa”.</p>
 
-Caso esse campo não seja informado, por padrão será selecionado “Todos”. Sempre informar, o valor no formato string ("0").
+<p>Caso esse campo não seja informado, por padrão será selecionado “Todos”. Sempre informar, o valor no formato string (“0”).</p>
 
-Obs. A DataInicio e DataFim possuem um
+<p>Obs. A DataInicio e DataFim possuem um</p>
 
-limite de 90 dias para gerar o relatório.
+<p>limite de 90 dias para gerar o relatório.</p>
 
-Exemplo de notificação do webhook: https://drive.google.com/file/d/17dUuyMmcIDXeC58GDUNzv89-s2n3KJAJ/view?usp=sharing
+<p>Exemplo de notificação do webhook: https://drive.google.com/file/d/17dUuyMmcIDXeC58GDUNzv89-s2n3KJAJ/view?usp=sharing</p>
 
-Exemplo de arquivo contábil no formato JSON:  https://drive.google.com/file/d/1sookaW6V1bopgPGl8mABL3w970VbslOT/view?usp=sharing
+<p>Exemplo de arquivo contábil no formato JSON:  https://drive.google.com/file/d/1sookaW6V1bopgPGl8mABL3w970VbslOT/view?usp=sharing</p>
 
-```json
-{
-"DataInicio": "2021-11-08",
-"DataFim": "2021-11-08",
-"TipoConciliacao": "Todos",
-"EnviarNotificacaoPorWebhook": false,
-"URLNotificacao": "",
-"CNPJEmpresas": []
-}
-```json
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="nl">"DataInicio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-11-08"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"DataFim"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-11-08"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"TipoConciliacao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Todos"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"EnviarNotificacaoPorWebhook"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+</span><span class="nl">"URLNotificacao"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"CNPJEmpresas"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="err">```json</span><span class="w">
 
-Request
+</span><span class="err">Request</span><span class="w">
 
-```shell
-curl --location --globoff '/PublicRelatorioAPI/GerarRelatorioDeConciliacaoDeCartoes' \
---header 'Content-Type: application/json' \
---data '{
-"DataInicio": "2021-11-08",
-"DataFim": "2021-11-08",
-"TipoConciliacao": "Todos",
-"EnviarNotificacaoPorWebhook": false,
-"URLNotificaticao": "",
-"CNPJEmpresas": []
-}'
-```
+</span><span class="err">```shell</span><span class="w">
+</span><span class="err">curl</span><span class="w"> </span><span class="err">--location</span><span class="w"> </span><span class="err">--globoff</span><span class="w"> </span><span class="err">'/PublicRelatorioAPI/GerarRelatorioDeConciliacaoDeCartoes'</span><span class="w"> </span><span class="err">\</span><span class="w">
+</span><span class="err">--header</span><span class="w"> </span><span class="err">'Content-Type:</span><span class="w"> </span><span class="err">application/json'</span><span class="w"> </span><span class="err">\</span><span class="w">
+</span><span class="err">--data</span><span class="w"> </span><span class="err">'</span><span class="p">{</span><span class="w">
+</span><span class="nl">"DataInicio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-11-08"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"DataFim"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-11-08"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"TipoConciliacao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Todos"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"EnviarNotificacaoPorWebhook"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+</span><span class="nl">"URLNotificaticao"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"CNPJEmpresas"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="err">'</span><span class="w">
+</span></code></pre></div></div>
 
-Response
+<p>Response</p>
 
-```json
-{
-"Result": "60db204089d59e0aec5d8756",
-"Ok": true
-}
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="nl">"Result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"60db204089d59e0aec5d8756"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
 
-## Obter Relatório
+</span><span class="err">##</span><span class="w"> </span><span class="err">Obter</span><span class="w"> </span><span class="err">Relatório</span><span class="w">
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">/PublicRelatorioAPI/Download?id=60db204089d59e0aec5d8756</span></aside>
+</span><span class="err">&lt;aside</span><span class="w"> </span><span class="err">class=</span><span class="s2">"request"</span><span class="err">&gt;&lt;span</span><span class="w"> </span><span class="err">class=</span><span class="s2">"method get"</span><span class="err">&gt;GET&lt;/span&gt;</span><span class="w"> </span><span class="err">&lt;span</span><span class="w"> </span><span class="err">class=</span><span class="s2">"endpoint"</span><span class="err">&gt;/PublicRelatorioAPI/Download?id=</span><span class="mi">60</span><span class="err">db</span><span class="mi">204089</span><span class="err">d</span><span class="mi">59e0</span><span class="err">aec</span><span class="mi">5</span><span class="err">d</span><span class="mi">8756</span><span class="err">&lt;/span&gt;&lt;/aside&gt;</span><span class="w">
 
-Este método irá retornar o relatório que foi gerado no endpoint anterior. Lembre-se que a geração do relatório é feito por meio de uma fila de mensagens, ou seja, o processo é feito em background.
+</span><span class="err">Este</span><span class="w"> </span><span class="err">método</span><span class="w"> </span><span class="err">irá</span><span class="w"> </span><span class="err">retornar</span><span class="w"> </span><span class="err">o</span><span class="w"> </span><span class="err">relatório</span><span class="w"> </span><span class="err">que</span><span class="w"> </span><span class="err">foi</span><span class="w"> </span><span class="err">gerado</span><span class="w"> </span><span class="err">no</span><span class="w"> </span><span class="err">endpoint</span><span class="w"> </span><span class="err">anterior.</span><span class="w"> </span><span class="err">Lembre-se</span><span class="w"> </span><span class="err">que</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">geração</span><span class="w"> </span><span class="err">do</span><span class="w"> </span><span class="err">relatório</span><span class="w"> </span><span class="err">é</span><span class="w"> </span><span class="err">feito</span><span class="w"> </span><span class="err">por</span><span class="w"> </span><span class="err">meio</span><span class="w"> </span><span class="err">de</span><span class="w"> </span><span class="err">uma</span><span class="w"> </span><span class="err">fila</span><span class="w"> </span><span class="err">de</span><span class="w"> </span><span class="err">mensagens,</span><span class="w"> </span><span class="err">ou</span><span class="w"> </span><span class="err">seja,</span><span class="w"> </span><span class="err">o</span><span class="w"> </span><span class="err">processo</span><span class="w"> </span><span class="err">é</span><span class="w"> </span><span class="err">feito</span><span class="w"> </span><span class="err">em</span><span class="w"> </span><span class="err">background.</span><span class="w">
 
-Evite fazer polling neste método para saber se o seu relatório foi concluído com sucesso ou não. O melhor cenário é que você configure uma URL de notificação ao gerar o relatório, dessa forma você será notificado assim que terminarmos o processamento.
+</span><span class="err">Evite</span><span class="w"> </span><span class="err">fazer</span><span class="w"> </span><span class="err">polling</span><span class="w"> </span><span class="err">neste</span><span class="w"> </span><span class="err">método</span><span class="w"> </span><span class="err">para</span><span class="w"> </span><span class="err">saber</span><span class="w"> </span><span class="err">se</span><span class="w"> </span><span class="err">o</span><span class="w"> </span><span class="err">seu</span><span class="w"> </span><span class="err">relatório</span><span class="w"> </span><span class="err">foi</span><span class="w"> </span><span class="err">concluído</span><span class="w"> </span><span class="err">com</span><span class="w"> </span><span class="err">sucesso</span><span class="w"> </span><span class="err">ou</span><span class="w"> </span><span class="err">não.</span><span class="w"> </span><span class="err">O</span><span class="w"> </span><span class="err">melhor</span><span class="w"> </span><span class="err">cenário</span><span class="w"> </span><span class="err">é</span><span class="w"> </span><span class="err">que</span><span class="w"> </span><span class="err">você</span><span class="w"> </span><span class="err">configure</span><span class="w"> </span><span class="err">uma</span><span class="w"> </span><span class="err">URL</span><span class="w"> </span><span class="err">de</span><span class="w"> </span><span class="err">notificação</span><span class="w"> </span><span class="err">ao</span><span class="w"> </span><span class="err">gerar</span><span class="w"> </span><span class="err">o</span><span class="w"> </span><span class="err">relatório,</span><span class="w"> </span><span class="err">dessa</span><span class="w"> </span><span class="err">forma</span><span class="w"> </span><span class="err">você</span><span class="w"> </span><span class="err">será</span><span class="w"> </span><span class="err">notificado</span><span class="w"> </span><span class="err">assim</span><span class="w"> </span><span class="err">que</span><span class="w"> </span><span class="err">terminarmos</span><span class="w"> </span><span class="err">o</span><span class="w"> </span><span class="err">processamento.</span><span class="w">
 
-Authorization Bearer 
+</span><span class="err">Authorization</span><span class="w"> </span><span class="err">Bearer</span><span class="w"> 
 
-```shell
-curl --location -g '/PublicRelatorioAPI/Download?id=60db204089d59e0aec5d8756' \
---header 'Content-Type: application/json' \
---data ''
-```
+</span><span class="err">```shell</span><span class="w">
+</span><span class="err">curl</span><span class="w"> </span><span class="err">--location</span><span class="w"> </span><span class="err">-g</span><span class="w"> </span><span class="err">'/PublicRelatorioAPI/Download?id=</span><span class="mi">60</span><span class="err">db</span><span class="mi">204089</span><span class="err">d</span><span class="mi">59e0</span><span class="err">aec</span><span class="mi">5</span><span class="err">d</span><span class="mi">8756</span><span class="err">'</span><span class="w"> </span><span class="err">\</span><span class="w">
+</span><span class="err">--header</span><span class="w"> </span><span class="err">'Content-Type:</span><span class="w"> </span><span class="err">application/json'</span><span class="w"> </span><span class="err">\</span><span class="w">
+</span><span class="err">--data</span><span class="w"> </span><span class="err">''</span><span class="w">
+</span></code></pre></div></div>
 
-## Gerar Relatório de Transferencias Entre Contas
+<h2 id="gerar-relatório-de-transferencias-entre-contas">Gerar Relatório de Transferencias Entre Contas</h2>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/PublicRelatorioAPI/GerarRelatorioTransferenciasEntreContas</span></aside>
 
-Esse método irá gerar um relatório contendo informações das Transferências entre Contas a partir dos filtros escolhidos e com base nas informações do módulo F360 Finanças.
+<p>Esse método irá gerar um relatório contendo informações das Transferências entre Contas a partir dos filtros escolhidos e com base nas informações do módulo F360 Finanças.</p>
 
-Os campos obrigatórios estão em negrito:
+<p>Os campos obrigatórios estão em negrito:</p>
 
-**Mes:** "yyyy-MM";
+<p><strong>Mes:</strong> “yyyy-MM”;</p>
 
-**ContasOrigem:** Informar a Lista de Contas de Origem para a criação do relatório em forma de Array. Caso o campo não seja enviado, iremos considerar todas as Contas;
+<p><strong>ContasOrigem:</strong> Informar a Lista de Contas de Origem para a criação do relatório em forma de Array. Caso o campo não seja enviado, iremos considerar todas as Contas;</p>
 
-**EnviarNotificacaoPorWebbook:** "true" ou "false";
+<p><strong>EnviarNotificacaoPorWebbook:</strong> “true” ou “false”;</p>
 
-**URLNotificaticao:** Informar a URL que deseja ser notificado após o término da criação do relatório. Isso é importante pois o processamento do relatório é feito em background em uma fila de mensagens. Quando você informa a URL de notificação, iremos encaminhar para você um aviso assim que o relatório terminar de ser processado e estiver pronto para download.
+<p><strong>URLNotificaticao:</strong> Informar a URL que deseja ser notificado após o término da criação do relatório. Isso é importante pois o processamento do relatório é feito em background em uma fila de mensagens. Quando você informa a URL de notificação, iremos encaminhar para você um aviso assim que o relatório terminar de ser processado e estiver pronto para download.</p>
 
-```json
-{
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="nl">"Mes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"ContasOrigem"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="s2">"nome-conta-1"</span><span class="p">,</span><span class="w">
+</span><span class="s2">"nome-conta-2"</span><span class="w">
+</span><span class="p">],</span><span class="w">
+</span><span class="nl">"EnviarNotificacaoPorWebhook"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+</span><span class="nl">"URLNotificacao"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Authorization Bearer</p>
+
+<p>Request</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">--location</span> <span class="nt">--globoff</span> <span class="s1">'/PublicRelatorioAPI/GerarRelatorioTransferenciasEntreContas'</span> <span class="se">\</span>
+<span class="nt">--data</span> <span class="s1">'{
 "Mes": "2022-02",
 "ContasOrigem": [
 "nome-conta-1",
@@ -356,669 +363,632 @@ Os campos obrigatórios estão em negrito:
 ],
 "EnviarNotificacaoPorWebhook": false,
 "URLNotificacao": ""
-}
-```
+}'</span>
+</code></pre></div></div>
 
-Authorization Bearer 
+<p>Response</p>
 
-Request
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="nl">"Result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"60db204089d59e0aec5d8756"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
-```shell
-curl --location --globoff '/PublicRelatorioAPI/GerarRelatorioTransferenciasEntreContas' \
---data '{
-"Mes": "2022-02",
-"ContasOrigem": [
-"nome-conta-1",
-"nome-conta-2"
-],
-"EnviarNotificacaoPorWebhook": false,
-"URLNotificacao": ""
-}'
-```
+<h1 id="3---planos-de-contas">3 - Planos de Contas</h1>
 
-Response
+<p>Os planos de contas são as classificações contábeis das despesas e receitas dentro da plataforma da F360. O objetivo desses endpoint é permitir que algumas dessas classificações possam ser feitas por meio de API.</p>
 
-```json
-{
-"Result": "60db204089d59e0aec5d8756",
-"Ok": true
-}
-```
-
-# 3 - Planos de Contas
-
-Os planos de contas são as classificações contábeis das despesas e receitas dentro da plataforma da F360. O objetivo desses endpoint é permitir que algumas dessas classificações possam ser feitas por meio de API.
-
-## Listar Planos de Contas
+<h2 id="listar-planos-de-contas">Listar Planos de Contas</h2>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/PlanoDeContasPublicAPI/ListarPlanosContas</span></aside>
 
-Este método irá listar todos os planos de contas disponíveis e as suas classificações contábeis. É importante chamar esse método, pois é por meio dele que você conseguirá obter o identificador dos planos de contas que são necessários para a realização das classificações desejadas.
+<p>Este método irá listar todos os planos de contas disponíveis e as suas classificações contábeis. É importante chamar esse método, pois é por meio dele que você conseguirá obter o identificador dos planos de contas que são necessários para a realização das classificações desejadas.</p>
 
-Authorization Bearer 
+<p>Authorization Bearer</p>
 
-Request
+<p>Request</p>
 
-```shell
-curl --location --globoff '/PlanoDeContasPublicAPI/ListarPlanosContas' \
---header 'Content-Type: application/json' \
---data ''
-```json
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">--location</span> <span class="nt">--globoff</span> <span class="s1">'/PlanoDeContasPublicAPI/ListarPlanosContas'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data</span> <span class="s1">''</span>
+<span class="sb">```</span>json
 
 Response
 
-```json
-{
-"Result": [
-{
-"PlanoDeContasId": "5da089312629530ed0249022",
-"Nome": "Ajustes a Crédito de Cartão",
-"Tipo": "A receber"
-},
-{
-"PlanoDeContasId": "5da089312629530ed0249023",
-"Nome": "Ajustes a Débito de Cartão",
-"Tipo": "A pagar"
-},
-{
-"PlanoDeContasId": "5da089312629530ed024901b",
-"Nome": "Aluguel de POS / Outras Taxas",
-"Tipo": "A pagar"
-},
-{
-"PlanoDeContasId": "5da089312629530ed024901f",
-"Nome": "Descontos sobre Despesas",
-"Tipo": "A receber"
-},
-{
-"PlanoDeContasId": "5da089312629530ed024901c",
-"Nome": "Descontos sobre Receitas",
-"Tipo": "A pagar"
-},
-{
-"PlanoDeContasId": "5da089312629530ed0249024",
-"Nome": "Falta de Caixa",
-"Tipo": "A pagar"
-},
-{
-"PlanoDeContasId": "5da089312629530ed0249020",
-"Nome": "Juros sobre Despesas",
-"Tipo": "A pagar"
-},
-{
-"PlanoDeContasId": "5da089312629530ed024901d",
-"Nome": "Juros sobre Receitas",
-"Tipo": "A receber"
-},
-{
-"PlanoDeContasId": "5da089312629530ed0249021",
-"Nome": "Multa sobre Despesas",
-"Tipo": "A pagar"
-},
-{
-"PlanoDeContasId": "5da089312629530ed024901e",
-"Nome": "Multa sobre Receitas",
-"Tipo": "A receber"
-},
-{
-"PlanoDeContasId": "5da089312629530ed0249025",
-"Nome": "Sobra de Caixa",
-"Tipo": "A receber"
-},
-{
-"PlanoDeContasId": "5da089312629530ed0249019",
-"Nome": "Taxa Administrativa de Cartões",
-"Tipo": "A pagar"
-},
-{
-"PlanoDeContasId": "5da089312629530ed024901a",
-"Nome": "Taxa de Antecipação de Cartões de Crédito",
-"Tipo": "A pagar"
-},
-{
-"PlanoDeContasId": "5da089312629530ed0249018",
-"Nome": "Vendas de Mercadorias",
-"Tipo": "A receber"
-}
-],
-"Ok": true
-}
-```
+<span class="sb">```</span>json
+<span class="o">{</span>
+<span class="s2">"Result"</span>: <span class="o">[</span>
+<span class="o">{</span>
+<span class="s2">"PlanoDeContasId"</span>: <span class="s2">"5da089312629530ed0249022"</span>,
+<span class="s2">"Nome"</span>: <span class="s2">"Ajustes a Crédito de Cartão"</span>,
+<span class="s2">"Tipo"</span>: <span class="s2">"A receber"</span>
+<span class="o">}</span>,
+<span class="o">{</span>
+<span class="s2">"PlanoDeContasId"</span>: <span class="s2">"5da089312629530ed0249023"</span>,
+<span class="s2">"Nome"</span>: <span class="s2">"Ajustes a Débito de Cartão"</span>,
+<span class="s2">"Tipo"</span>: <span class="s2">"A pagar"</span>
+<span class="o">}</span>,
+<span class="o">{</span>
+<span class="s2">"PlanoDeContasId"</span>: <span class="s2">"5da089312629530ed024901b"</span>,
+<span class="s2">"Nome"</span>: <span class="s2">"Aluguel de POS / Outras Taxas"</span>,
+<span class="s2">"Tipo"</span>: <span class="s2">"A pagar"</span>
+<span class="o">}</span>,
+<span class="o">{</span>
+<span class="s2">"PlanoDeContasId"</span>: <span class="s2">"5da089312629530ed024901f"</span>,
+<span class="s2">"Nome"</span>: <span class="s2">"Descontos sobre Despesas"</span>,
+<span class="s2">"Tipo"</span>: <span class="s2">"A receber"</span>
+<span class="o">}</span>,
+<span class="o">{</span>
+<span class="s2">"PlanoDeContasId"</span>: <span class="s2">"5da089312629530ed024901c"</span>,
+<span class="s2">"Nome"</span>: <span class="s2">"Descontos sobre Receitas"</span>,
+<span class="s2">"Tipo"</span>: <span class="s2">"A pagar"</span>
+<span class="o">}</span>,
+<span class="o">{</span>
+<span class="s2">"PlanoDeContasId"</span>: <span class="s2">"5da089312629530ed0249024"</span>,
+<span class="s2">"Nome"</span>: <span class="s2">"Falta de Caixa"</span>,
+<span class="s2">"Tipo"</span>: <span class="s2">"A pagar"</span>
+<span class="o">}</span>,
+<span class="o">{</span>
+<span class="s2">"PlanoDeContasId"</span>: <span class="s2">"5da089312629530ed0249020"</span>,
+<span class="s2">"Nome"</span>: <span class="s2">"Juros sobre Despesas"</span>,
+<span class="s2">"Tipo"</span>: <span class="s2">"A pagar"</span>
+<span class="o">}</span>,
+<span class="o">{</span>
+<span class="s2">"PlanoDeContasId"</span>: <span class="s2">"5da089312629530ed024901d"</span>,
+<span class="s2">"Nome"</span>: <span class="s2">"Juros sobre Receitas"</span>,
+<span class="s2">"Tipo"</span>: <span class="s2">"A receber"</span>
+<span class="o">}</span>,
+<span class="o">{</span>
+<span class="s2">"PlanoDeContasId"</span>: <span class="s2">"5da089312629530ed0249021"</span>,
+<span class="s2">"Nome"</span>: <span class="s2">"Multa sobre Despesas"</span>,
+<span class="s2">"Tipo"</span>: <span class="s2">"A pagar"</span>
+<span class="o">}</span>,
+<span class="o">{</span>
+<span class="s2">"PlanoDeContasId"</span>: <span class="s2">"5da089312629530ed024901e"</span>,
+<span class="s2">"Nome"</span>: <span class="s2">"Multa sobre Receitas"</span>,
+<span class="s2">"Tipo"</span>: <span class="s2">"A receber"</span>
+<span class="o">}</span>,
+<span class="o">{</span>
+<span class="s2">"PlanoDeContasId"</span>: <span class="s2">"5da089312629530ed0249025"</span>,
+<span class="s2">"Nome"</span>: <span class="s2">"Sobra de Caixa"</span>,
+<span class="s2">"Tipo"</span>: <span class="s2">"A receber"</span>
+<span class="o">}</span>,
+<span class="o">{</span>
+<span class="s2">"PlanoDeContasId"</span>: <span class="s2">"5da089312629530ed0249019"</span>,
+<span class="s2">"Nome"</span>: <span class="s2">"Taxa Administrativa de Cartões"</span>,
+<span class="s2">"Tipo"</span>: <span class="s2">"A pagar"</span>
+<span class="o">}</span>,
+<span class="o">{</span>
+<span class="s2">"PlanoDeContasId"</span>: <span class="s2">"5da089312629530ed024901a"</span>,
+<span class="s2">"Nome"</span>: <span class="s2">"Taxa de Antecipação de Cartões de Crédito"</span>,
+<span class="s2">"Tipo"</span>: <span class="s2">"A pagar"</span>
+<span class="o">}</span>,
+<span class="o">{</span>
+<span class="s2">"PlanoDeContasId"</span>: <span class="s2">"5da089312629530ed0249018"</span>,
+<span class="s2">"Nome"</span>: <span class="s2">"Vendas de Mercadorias"</span>,
+<span class="s2">"Tipo"</span>: <span class="s2">"A receber"</span>
+<span class="o">}</span>
+<span class="o">]</span>,
+<span class="s2">"Ok"</span>: <span class="nb">true</span>
+<span class="o">}</span>
+</code></pre></div></div>
 
-## Obter Plano De Contas
+<h2 id="obter-plano-de-contas">Obter Plano De Contas</h2>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/PlanoDeContasPublicAPI/ObterPlanoDeContas/5da089312629530ed0249022</span></aside>
 
-Este método irá obter um Plano de Contas existente do módulo F360 Finanças. É obrigatório informar o Id do Plano de Contas.
+<p>Este método irá obter um Plano de Contas existente do módulo F360 Finanças. É obrigatório informar o Id do Plano de Contas.</p>
 
-Authorization Bearer 
+<p>Authorization Bearer</p>
 
-Request
+<p>Request</p>
 
-```shell
-curl --location --globoff '/PlanoDeContasPublicAPI/ObterPlanoDeContas/5da089312629530ed0249022' \
---header 'Content-Type: application/json'
-```
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">--location</span> <span class="nt">--globoff</span> <span class="s1">'/PlanoDeContasPublicAPI/ObterPlanoDeContas/5da089312629530ed0249022'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span>
+</code></pre></div></div>
 
-Response
+<p>Response</p>
 
-```json
-{
-"Result": {
-"PlanoDeContasId": "5da089312629530ed0249022",
-"Nome": "Ajustes a Crédito de Cartão",
-"Tipo": "A receber"
-},
-"Ok": true
-}
-```
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="nl">"Result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"PlanoDeContasId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5da089312629530ed0249022"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Nome"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ajustes a Crédito de Cartão"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Tipo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A receber"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="nl">"Ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
-## Listar classificações de produtos
+<h2 id="listar-classificações-de-produtos">Listar classificações de produtos</h2>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/PlanoDeContasPublicAPI/ListarClassificacaoProdutos</span></aside>
 
-Este método irá listar todas as classificações de produtos disponíveis. Essas classificações são importantes para que o sistema faça o lançamento automático do rateio de plano de contas das despesas provindas de Nota Fiscal de Mercadorias.
+<p>Este método irá listar todas as classificações de produtos disponíveis. Essas classificações são importantes para que o sistema faça o lançamento automático do rateio de plano de contas das despesas provindas de Nota Fiscal de Mercadorias.</p>
 
-Dentro do módulo F360 Finanças, a classificação de uma despesa de Nota Fiscal de Mercadorias é feita da seguinte forma:
+<p>Dentro do módulo F360 Finanças, a classificação de uma despesa de Nota Fiscal de Mercadorias é feita da seguinte forma:</p>
 
-Por padrão, utilizamos uma combinação de NCM e CFOP para definir qual o plano de contas que deve ser utilizado. Dessa forma, se na nota fiscal existem 10 produtos no mesmo NCM e CFOP, iremos sugerir a classificação contábil de todos esses produtos para o plano de contas que foi selecionado na parametrização desse NCM e CFOP.
+<p>Por padrão, utilizamos uma combinação de NCM e CFOP para definir qual o plano de contas que deve ser utilizado. Dessa forma, se na nota fiscal existem 10 produtos no mesmo NCM e CFOP, iremos sugerir a classificação contábil de todos esses produtos para o plano de contas que foi selecionado na parametrização desse NCM e CFOP.</p>
 
-Porém, existem situações onde devemos fazer uma classificação fiscal por código do produto, pois existem casos onde alguns produtos presentes no mesmo NCM e CFOP possuem classificações de planos de contas diferentes. Para essas situações, o sistema irá precisar que seja informado o código do produto, o fornecedor e a identificação do plano de contas.
+<p>Porém, existem situações onde devemos fazer uma classificação fiscal por código do produto, pois existem casos onde alguns produtos presentes no mesmo NCM e CFOP possuem classificações de planos de contas diferentes. Para essas situações, o sistema irá precisar que seja informado o código do produto, o fornecedor e a identificação do plano de contas.</p>
 
-Authorization Bearer 
+<p>Authorization Bearer</p>
 
-Request
+<p>Request</p>
 
-```shell
-curl --location --globoff '/PlanoDeContasPublicAPI/ListarClassificacaoProdutos' \
---header 'Content-Type: application/json' \
---data ''
-```
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">--location</span> <span class="nt">--globoff</span> <span class="s1">'/PlanoDeContasPublicAPI/ListarClassificacaoProdutos'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data</span> <span class="s1">''</span>
+</code></pre></div></div>
 
-Response
+<p>Response</p>
 
-```json
-{
-"Result": [
-{
-"NCM": 45154544,
-"CFOP": 1234,
-"PlanoDeContasId": "5da089312629530ed024901b"
-},
-{
-"NCM": 54546845,
-"CFOP": 2154,
-"PlanoDeContasId": "5da089312629530ed0249024"
-}
-],
-"Ok": true
-}
-```
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="nl">"Result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"NCM"</span><span class="p">:</span><span class="w"> </span><span class="mi">45154544</span><span class="p">,</span><span class="w">
+</span><span class="nl">"CFOP"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
+</span><span class="nl">"PlanoDeContasId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5da089312629530ed024901b"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"NCM"</span><span class="p">:</span><span class="w"> </span><span class="mi">54546845</span><span class="p">,</span><span class="w">
+</span><span class="nl">"CFOP"</span><span class="p">:</span><span class="w"> </span><span class="mi">2154</span><span class="p">,</span><span class="w">
+</span><span class="nl">"PlanoDeContasId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5da089312629530ed0249024"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">],</span><span class="w">
+</span><span class="nl">"Ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
-## Adicionar/Editar classificações contábeis no plano de contas
+<h2 id="adicionareditar-classificações-contábeis-no-plano-de-contas">Adicionar/Editar classificações contábeis no plano de contas</h2>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/PlanoDeContasPublicAPI/AdicionarClassificacaoContabeisNoPlanoDeContas</span></aside>
 
-Este método deve ser usado para efetuar as classificações dos planos de contas.
+<p>Este método deve ser usado para efetuar as classificações dos planos de contas.</p>
 
-**PlanoDeContasId:** Identificador do plano de contas
+<p><strong>PlanoDeContasId:</strong> Identificador do plano de contas</p>
 
-**CodigoProvisaoContabil:** Código da provisão contábil do plano de contas
+<p><strong>CodigoProvisaoContabil:</strong> Código da provisão contábil do plano de contas</p>
 
-**CodigoObrigacaoContabil:** Código da obrigação contábil do plano de contas
+<p><strong>CodigoObrigacaoContabil:</strong> Código da obrigação contábil do plano de contas</p>
 
-**CodigosPorFornecedor:** Essa é uma lista de códigos de provisão e obrigação contábil quebrada por fornecedor. Dessa forma, caso esse plano de contas tenha algum código de provisão e/ou obrigação que seja diferente para cada fornecedor, essa lista deverá ser preenchida. O sistema sempre dará preferencia em usar essa lista de códigos por fornecedor, onde iremos cruzar o CNPJ do fornecedor da despesa com o CNPJ do fornecedor cadastrado nessa lista. Se existir essa parametrização, ela será prioritária para o sistema. Caso essa parametrização não exista, iremos utilizar os códigos de provisão e obrigação informados na raiz do plano de contas.
+<p><strong>CodigosPorFornecedor:</strong> Essa é uma lista de códigos de provisão e obrigação contábil quebrada por fornecedor. Dessa forma, caso esse plano de contas tenha algum código de provisão e/ou obrigação que seja diferente para cada fornecedor, essa lista deverá ser preenchida. O sistema sempre dará preferencia em usar essa lista de códigos por fornecedor, onde iremos cruzar o CNPJ do fornecedor da despesa com o CNPJ do fornecedor cadastrado nessa lista. Se existir essa parametrização, ela será prioritária para o sistema. Caso essa parametrização não exista, iremos utilizar os códigos de provisão e obrigação informados na raiz do plano de contas.</p>
 
-```json
-{
-"PlanoDeContasId": "53f37f16418ada0af08c2220",
-"CodigoProvisaoContabil": "4189",
-"CodigoObrigacaoContabil": "4456",
-"CodigosPorFornecedor": [
-{
-"CodigoObrigacaoContabil": "544",
-"CodigoProvisaoContabil": "4",
-"Inscricao": "06.147.451/0025-00"
-}
-]
-}
-```
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="nl">"PlanoDeContasId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"53f37f16418ada0af08c2220"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"CodigoProvisaoContabil"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4189"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"CodigoObrigacaoContabil"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4456"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"CodigosPorFornecedor"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"CodigoObrigacaoContabil"</span><span class="p">:</span><span class="w"> </span><span class="s2">"544"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"CodigoProvisaoContabil"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Inscricao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06.147.451/0025-00"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
-## Adicionar classificações de NCM / CFOP
+<h2 id="adicionar-classificações-de-ncm--cfop">Adicionar classificações de NCM / CFOP</h2>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/PlanoDeContasPublicAPI/AdicionarClassificacaoPorNCM_CFOP</span></aside>
 
-Esse é o endpoint para que seja feita a classificação por NCM e CFOP.
+<p>Esse é o endpoint para que seja feita a classificação por NCM e CFOP.</p>
 
-**NCM:** Código do NCM
+<p><strong>NCM:</strong> Código do NCM</p>
 
-**CFOP:** Código do CFOP
+<p><strong>CFOP:</strong> Código do CFOP</p>
 
-**PlanoDeContasId:** Identificador do plano de contas que deseja vincular com essa combinação de NCM e CFOP. Caso não seja informado o plano de contas, iremos deixar essa combinação sem nenhum vinculo.
+<p><strong>PlanoDeContasId:</strong> Identificador do plano de contas que deseja vincular com essa combinação de NCM e CFOP. Caso não seja informado o plano de contas, iremos deixar essa combinação sem nenhum vinculo.</p>
 
-**RemoverClassificacaoPorProduto:** Dentro de uma combinação de NCM e CFOP, existe uma lista de classificação por código de produto. Caso você deseje remover todos os itens dessa lista, basta colocar "true" nessa opção. Caso contrário, o padrão é sempre "false".
+<p><strong>RemoverClassificacaoPorProduto:</strong> Dentro de uma combinação de NCM e CFOP, existe uma lista de classificação por código de produto. Caso você deseje remover todos os itens dessa lista, basta colocar “true” nessa opção. Caso contrário, o padrão é sempre “false”.</p>
 
-Authorization Bearer 
+<p>Authorization Bearer</p>
 
-```json
-{
-"NCM": 95030031,
-"CFOP": 6102,
-"PlanoDeContasId": "53f37f16418ada0af08c2220",
-"RemoverClassificacaoPorProduto": false
-}
-```
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="nl">"NCM"</span><span class="p">:</span><span class="w"> </span><span class="mi">95030031</span><span class="p">,</span><span class="w">
+</span><span class="nl">"CFOP"</span><span class="p">:</span><span class="w"> </span><span class="mi">6102</span><span class="p">,</span><span class="w">
+</span><span class="nl">"PlanoDeContasId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"53f37f16418ada0af08c2220"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"RemoverClassificacaoPorProduto"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
-## Adicionar classificações de produtos
+<h2 id="adicionar-classificações-de-produtos">Adicionar classificações de produtos</h2>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/PlanoDeContasPublicAPI/AdicionarClassificacaoPorProdutos</span></aside>
 
-Neste endpoint é possível adicionar uma classificação de plano de contas especifica para cada código de produto.
+<p>Neste endpoint é possível adicionar uma classificação de plano de contas especifica para cada código de produto.</p>
 
-**CodigoProduto:** Informe o código do produto
+<p><strong>CodigoProduto:</strong> Informe o código do produto</p>
 
-**InscricaoFornecedor:** Informe o número do CNPJ do fornecedor
+<p><strong>InscricaoFornecedor:</strong> Informe o número do CNPJ do fornecedor</p>
 
-**PlanoDeContasId:** Identificador do plano de contas que deseja vincular para esse código de produto. Caso não seja informado o plano de contas, iremos remover a classificação desse código de produto
+<p><strong>PlanoDeContasId:</strong> Identificador do plano de contas que deseja vincular para esse código de produto. Caso não seja informado o plano de contas, iremos remover a classificação desse código de produto</p>
 
-**NCM:** Informe o NCM desse código de produto caso você tenha essa informação
+<p><strong>NCM:</strong> Informe o NCM desse código de produto caso você tenha essa informação</p>
 
-**CFOP:** Informe o CFOP desse código de produto caso você tenha essa informação
+<p><strong>CFOP:</strong> Informe o CFOP desse código de produto caso você tenha essa informação</p>
 
-Authorization Bearer 
+<p>Authorization Bearer</p>
 
-```json
-{
-"CodigoProduto": "10300",
-"InscricaoFornecedor": "06.147.451/0025-00",
-"PlanoDeContasId": "53f37f16418ada0af08c2220",
-"NCM": "",
-"CFOP": ""
-}
-```
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="nl">"CodigoProduto"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10300"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"InscricaoFornecedor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06.147.451/0025-00"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"PlanoDeContasId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"53f37f16418ada0af08c2220"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"NCM"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"CFOP"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
-## Criar Plano De Contas
+<h2 id="criar-plano-de-contas">Criar Plano De Contas</h2>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/PlanoDeContasPublicAPI/CriarPlanoDeContas</span></aside>
 
-Este método irá criar um novo Plano de Contas do módulo F360 Finanças. Os campos obrigatórios estão em negrito:
+<p>Este método irá criar um novo Plano de Contas do módulo F360 Finanças. Os campos obrigatórios estão em negrito:</p>
 
-**Nome:** "Nome do plano de contas"
+<p><strong>Nome:</strong> “Nome do plano de contas”</p>
 
-**Tipo:** "No qual é possível colocar para A receber ou A pagar"
+<p><strong>Tipo:</strong> “No qual é possível colocar para A receber ou A pagar”</p>
 
-Authorization Bearer 
+<p>Authorization Bearer</p>
 
-```json
-{
-"Nome": "Teste",
-"CodigoObrigacaoContabil": "252",
-"CodigoProvisaoContabil": "111",
-"FolhasAssociadas": [
-{
-"SistemaUtilizado": 3,
-"Codigo": "3659"
-}
-],
-"Tipo": "A receber",
-"CodigosPorFornecedor": [
-{
-"CodigoObrigacaoContabil": "111",
-"CodigoProvisaoContabil": "333",
-"Inscricao": "00.000.000/0000-00"
-}
-]
-}
-```
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="nl">"Nome"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teste"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"CodigoObrigacaoContabil"</span><span class="p">:</span><span class="w"> </span><span class="s2">"252"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"CodigoProvisaoContabil"</span><span class="p">:</span><span class="w"> </span><span class="s2">"111"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"FolhasAssociadas"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"SistemaUtilizado"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Codigo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3659"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">],</span><span class="w">
+</span><span class="nl">"Tipo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A receber"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"CodigosPorFornecedor"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"CodigoObrigacaoContabil"</span><span class="p">:</span><span class="w"> </span><span class="s2">"111"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"CodigoProvisaoContabil"</span><span class="p">:</span><span class="w"> </span><span class="s2">"333"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Inscricao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00.000.000/0000-00"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
-## Excluir Plano De Contas
+<h2 id="excluir-plano-de-contas">Excluir Plano De Contas</h2>
 
 <aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/PlanoDeContasPublicAPI/ExcluirPlanoDeContas/60b6539d243c1419b084b181</span></aside>
 
-Este método irá excluir um Plano de Contas do módulo F360 Finanças. É obrigatório informar o Id do Plano de Contas.
+<p>Este método irá excluir um Plano de Contas do módulo F360 Finanças. É obrigatório informar o Id do Plano de Contas.</p>
 
-Authorization Bearer 
+<p>Authorization Bearer</p>
 
-```shell
-curl --location -g --request DELETE '/PlanoDeContasPublicAPI/ExcluirPlanoDeContas/60b6539d243c1419b084b181' \
---header 'Content-Type: application/json'
-```
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">--location</span> <span class="nt">-g</span> <span class="nt">--request</span> DELETE <span class="s1">'/PlanoDeContasPublicAPI/ExcluirPlanoDeContas/60b6539d243c1419b084b181'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span>
+</code></pre></div></div>
 
-## Editar Plano De Contas
+<h2 id="editar-plano-de-contas">Editar Plano De Contas</h2>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/PlanoDeContasPublicAPI/EditarPlanoDeContas/60b6539d243c1419b084b181</span></aside>
 
-Este método irá editar um Plano de Contas existente do módulo F360 Finanças. É obrigatório informar o Id do Plano de Contas.
+<p>Este método irá editar um Plano de Contas existente do módulo F360 Finanças. É obrigatório informar o Id do Plano de Contas.</p>
 
-Authorization Bearer 
+<p>Authorization Bearer</p>
 
-```json
-{
-"Nome": "Teste",
-"CodigoObrigacaoContabil": "252",
-"CodigoProvisaoContabil": "111",
-"FolhasAssociadas": [
-{
-"SistemaUtilizado": 3,
-"Codigo": "3659"
-}
-],
-"Tipo": "A receber",
-"CodigosPorFornecedor": [
-{
-"CodigoObrigacaoContabil": "111",
-"CodigoProvisaoContabil": "333",
-"Inscricao": "00.000.000/0000-00"
-}
-]
-}
-```
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="nl">"Nome"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teste"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"CodigoObrigacaoContabil"</span><span class="p">:</span><span class="w"> </span><span class="s2">"252"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"CodigoProvisaoContabil"</span><span class="p">:</span><span class="w"> </span><span class="s2">"111"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"FolhasAssociadas"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"SistemaUtilizado"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Codigo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3659"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">],</span><span class="w">
+</span><span class="nl">"Tipo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A receber"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"CodigosPorFornecedor"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"CodigoObrigacaoContabil"</span><span class="p">:</span><span class="w"> </span><span class="s2">"111"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"CodigoProvisaoContabil"</span><span class="p">:</span><span class="w"> </span><span class="s2">"333"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Inscricao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00.000.000/0000-00"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
-# 4- Pessoas
+<h1 id="4--pessoas">4- Pessoas</h1>
 
-Aqui poderá ter acesso aos endpoints disponíveis para a área de Clientes e Fornecedores da F360.
+<p>Aqui poderá ter acesso aos endpoints disponíveis para a área de Clientes e Fornecedores da F360.</p>
 
-## Listar Pessoas
+<h2 id="listar-pessoas">Listar Pessoas</h2>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/PessoasPublicAPI/ListarPessoas?pagina=1&amp;definicao=ambos</span></aside>
 
-Aqui poderá ter acesso aos endpoints disponíveis para a área de Clientes e Fornecedores da F360. É opcional informar um CPF ou CNPJ, para buscar uma pessoa por este parâmetro.
+<p>Aqui poderá ter acesso aos endpoints disponíveis para a área de Clientes e Fornecedores da F360. É opcional informar um CPF ou CNPJ, para buscar uma pessoa por este parâmetro.</p>
 
-Authorization Bearer 
+<p>Authorization Bearer</p>
 
-**Query Params**
+<p><strong>Query Params</strong></p>
 
-pagina=1
+<p>pagina=1</p>
 
-definicao=ambos
+<p>definicao=ambos</p>
 
-cpfCnpj= (opcional) um CPF ou CNPJ que pode ser formatado com ou sem os caracteres '.' , '/' e '-'
+<p>cpfCnpj= (opcional) um CPF ou CNPJ que pode ser formatado com ou sem os caracteres ‘.’ , ‘/’ e ‘-‘</p>
 
-Request
+<p>Request</p>
 
-```shell
-curl --location --globoff '/PessoasPublicAPI/ListarPessoas?pagina=1&amp;definicao=ambos' \
---header 'Content-Type: application/json'
-```
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">--location</span> <span class="nt">--globoff</span> <span class="s1">'/PessoasPublicAPI/ListarPessoas?pagina=1&amp;definicao=ambos'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span>
+</code></pre></div></div>
 
-Response
+<p>Response</p>
 
-```json
-{
-"Result": {
-"QuantidadeDePessoas": 4,
-"Pagina": 1,
-"QuantidadeDePaginas": 1,
-"Pessoas": [
-{
-"Id": "60a51476a413311798b4a27e",
-"Nome": "DIRECAO GERAL",
-"RazaoSocial": "BANCO DO BRASIL SA",
-"Telefone": "(61) 3493-9002",
-"Email": "teste@teste.com.br",
-"CodigoExterno": "",
-"PlanoDeContaPadrao": "Ajustes a Débito de Cartão",
-"Tipo": "Pessoa Jurídica",
-"Definicao": "Fornecedor",
-"CpfCnpj": "00.000.000/0001-91",
-"Endereco": {
-"Logradouro": "SAUN Quadra 5 Lote B Torres I",
-"Complemento": "ANDAR 1 A 16 SALA 101 A 1601 ANDAR 1 A 16 SALA 101 A 1601 ANDAR 1 A 16 SALA 101 A 1601",
-"Numero": "SN",
-"Bairro": "SN",
-"Cidade": "Brasília",
-"UF": "DF",
-"CEP": "70040-912"
-},
-"IndicadorIE": "ContribuinteICMS",
-"InscricaoEstadual": "",
-"InscricaoMunicipal": "",
-"InscricaoSUFRAMA": "",
-"MeioDePagamentoPadrao": "",
-"TipoDeDocumentoPadrao": ""
-},
-{
-"Id": "5f9ab4159134b21b2ca5bf90",
-"Nome": "teste",
-"RazaoSocial": "",
-"Telefone": "teste",
-"Email": "teste@tste.com.br",
-"CodigoExterno": "",
-"PlanoDeContaPadrao": "Ajustes a Crédito de Cartão",
-"Tipo": "Pessoa física",
-"Definicao": "Ambos",
-"CpfCnpj": "230.633.778-05",
-"Endereco": {
-"Logradouro": "",
-"Complemento": "",
-"Numero": "",
-"Bairro": "",
-"CEP": ""
-},
-"IndicadorIE": "ContribuinteICMS",
-"InscricaoEstadual": "",
-"InscricaoMunicipal": "",
-"InscricaoSUFRAMA": "",
-"MeioDePagamentoPadrao": "",
-"TipoDeDocumentoPadrao": ""
-},
-{
-"Id": "5da089312629530ed0249027",
-"Nome": "VENDAS CHEQUE",
-"RazaoSocial": "",
-"Telefone": "",
-"Email": "",
-"CodigoExterno": "",
-"PlanoDeContaPadrao": "Vendas de Mercadorias",
-"Tipo": "Pessoa física",
-"Definicao": "Ambos",
-"IndicadorIE": "ContribuinteICMS",
-"InscricaoEstadual": "",
-"InscricaoMunicipal": "",
-"InscricaoSUFRAMA": "",
-"MeioDePagamentoPadrao": "",
-"TipoDeDocumentoPadrao": ""
-},
-{
-"Id": "5da089312629530ed0249026",
-"Nome": "VENDAS DINHEIRO",
-"RazaoSocial": "",
-"Telefone": "",
-"Email": "",
-"CodigoExterno": "",
-"PlanoDeContaPadrao": "Vendas de Mercadorias",
-"Tipo": "Pessoa física",
-"Definicao": "Ambos",
-"IndicadorIE": "ContribuinteICMS",
-"InscricaoEstadual": "",
-"InscricaoMunicipal": "",
-"InscricaoSUFRAMA": "",
-"MeioDePagamentoPadrao": "",
-"TipoDeDocumentoPadrao": ""
-}
-]
-},
-"Ok": true
-}
-```
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="nl">"Result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"QuantidadeDePessoas"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Pagina"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+</span><span class="nl">"QuantidadeDePaginas"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Pessoas"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"60a51476a413311798b4a27e"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Nome"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DIRECAO GERAL"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"RazaoSocial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BANCO DO BRASIL SA"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Telefone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(61) 3493-9002"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"teste@teste.com.br"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"CodigoExterno"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"PlanoDeContaPadrao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ajustes a Débito de Cartão"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Tipo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pessoa Jurídica"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Definicao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fornecedor"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"CpfCnpj"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00.000.000/0001-91"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Endereco"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"Logradouro"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SAUN Quadra 5 Lote B Torres I"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Complemento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ANDAR 1 A 16 SALA 101 A 1601 ANDAR 1 A 16 SALA 101 A 1601 ANDAR 1 A 16 SALA 101 A 1601"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Numero"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SN"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Bairro"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SN"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Cidade"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Brasília"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"UF"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DF"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"CEP"</span><span class="p">:</span><span class="w"> </span><span class="s2">"70040-912"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="nl">"IndicadorIE"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ContribuinteICMS"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"InscricaoEstadual"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"InscricaoMunicipal"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"InscricaoSUFRAMA"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"MeioDePagamentoPadrao"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"TipoDeDocumentoPadrao"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5f9ab4159134b21b2ca5bf90"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Nome"</span><span class="p">:</span><span class="w"> </span><span class="s2">"teste"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"RazaoSocial"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Telefone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"teste"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"teste@tste.com.br"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"CodigoExterno"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"PlanoDeContaPadrao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ajustes a Crédito de Cartão"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Tipo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pessoa física"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Definicao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ambos"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"CpfCnpj"</span><span class="p">:</span><span class="w"> </span><span class="s2">"230.633.778-05"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Endereco"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"Logradouro"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Complemento"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Numero"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Bairro"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"CEP"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="nl">"IndicadorIE"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ContribuinteICMS"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"InscricaoEstadual"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"InscricaoMunicipal"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"InscricaoSUFRAMA"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"MeioDePagamentoPadrao"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"TipoDeDocumentoPadrao"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5da089312629530ed0249027"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Nome"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VENDAS CHEQUE"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"RazaoSocial"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Telefone"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"CodigoExterno"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"PlanoDeContaPadrao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vendas de Mercadorias"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Tipo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pessoa física"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Definicao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ambos"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"IndicadorIE"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ContribuinteICMS"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"InscricaoEstadual"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"InscricaoMunicipal"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"InscricaoSUFRAMA"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"MeioDePagamentoPadrao"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"TipoDeDocumentoPadrao"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5da089312629530ed0249026"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Nome"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VENDAS DINHEIRO"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"RazaoSocial"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Telefone"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"CodigoExterno"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"PlanoDeContaPadrao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vendas de Mercadorias"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Tipo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pessoa física"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Definicao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ambos"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"IndicadorIE"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ContribuinteICMS"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"InscricaoEstadual"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"InscricaoMunicipal"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"InscricaoSUFRAMA"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"MeioDePagamentoPadrao"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"TipoDeDocumentoPadrao"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="nl">"Ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
-## Obter Pessoa
+<h2 id="obter-pessoa">Obter Pessoa</h2>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/PessoasPublicAPI/ObterPessoa/60a51476a413311798b4a27e</span></aside>
 
-Neste endpoint poderá ter acesso aos dados de uma Pessoa cadastrada em sua conta da F360. É obrigatório informar o Id da Pessoa.
+<p>Neste endpoint poderá ter acesso aos dados de uma Pessoa cadastrada em sua conta da F360. É obrigatório informar o Id da Pessoa.</p>
 
-Authorization Bearer 
+<p>Authorization Bearer</p>
 
-Request
+<p>Request</p>
 
-```shell
-curl --location --globoff '/PessoasPublicAPI/ObterPessoa/60a51476a413311798b4a27e' \
---header 'Content-Type: application/json'
-```
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">--location</span> <span class="nt">--globoff</span> <span class="s1">'/PessoasPublicAPI/ObterPessoa/60a51476a413311798b4a27e'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span>
+</code></pre></div></div>
 
-Response
+<p>Response</p>
 
-```json
-{
-"Result": {
-"Id": "60a51476a413311798b4a27e",
-"Nome": "DIRECAO GERAL",
-"RazaoSocial": "BANCO DO BRASIL SA",
-"Telefone": "(61) 3493-9002",
-"Email": "teste@teste.com.br",
-"CodigoExterno": "",
-"PlanoDeContaPadrao": "Ajustes a Débito de Cartão",
-"Tipo": "Pessoa Jurídica",
-"Definicao": "Fornecedor",
-"CpfCnpj": "00.000.000/0001-91",
-"Endereco": {
-"Logradouro": "SAUN Quadra 5 Lote B Torres I",
-"Complemento": "ANDAR 1 A 16 SALA 101 A 1601 ANDAR 1 A 16 SALA 101 A 1601 ANDAR 1 A 16 SALA 101 A 1601",
-"Numero": "SN",
-"Bairro": "SN",
-"Cidade": "Brasília",
-"UF": "DF",
-"CEP": "70040-912"
-},
-"IndicadorIE": "ContribuinteICMS",
-"InscricaoEstadual": "",
-"InscricaoMunicipal": "",
-"InscricaoSUFRAMA": "",
-"MeioDePagamentoPadrao": "",
-"TipoDeDocumentoPadrao": ""
-},
-"Ok": true
-}
-```
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="nl">"Result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"60a51476a413311798b4a27e"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Nome"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DIRECAO GERAL"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"RazaoSocial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BANCO DO BRASIL SA"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Telefone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(61) 3493-9002"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"teste@teste.com.br"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"CodigoExterno"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"PlanoDeContaPadrao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ajustes a Débito de Cartão"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Tipo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pessoa Jurídica"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Definicao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fornecedor"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"CpfCnpj"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00.000.000/0001-91"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Endereco"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"Logradouro"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SAUN Quadra 5 Lote B Torres I"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Complemento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ANDAR 1 A 16 SALA 101 A 1601 ANDAR 1 A 16 SALA 101 A 1601 ANDAR 1 A 16 SALA 101 A 1601"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Numero"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SN"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Bairro"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SN"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Cidade"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Brasília"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"UF"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DF"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"CEP"</span><span class="p">:</span><span class="w"> </span><span class="s2">"70040-912"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="nl">"IndicadorIE"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ContribuinteICMS"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"InscricaoEstadual"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"InscricaoMunicipal"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"InscricaoSUFRAMA"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"MeioDePagamentoPadrao"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"TipoDeDocumentoPadrao"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="nl">"Ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
-## Excluir Pessoa
+<h2 id="excluir-pessoa">Excluir Pessoa</h2>
 
 <aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/PessoasPublicAPI/ExcluirPessoa/60ba8a6d243c143044040f40</span></aside>
 
-Neste endpoint poderá excluir uma Pessoa cadastrada em sua conta da F360. É obrigatório informar o Id da Pessoa.
+<p>Neste endpoint poderá excluir uma Pessoa cadastrada em sua conta da F360. É obrigatório informar o Id da Pessoa.</p>
 
-Authorization Bearer 
+<p>Authorization Bearer</p>
 
-Request
+<p>Request</p>
 
-```shell
-curl --location -g --request DELETE '//PessoasPublicAPI/ExcluirPessoa/60ba8a6d243c143044040f40' \
---header 'Content-Type: application/json'
-```
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">--location</span> <span class="nt">-g</span> <span class="nt">--request</span> DELETE <span class="s1">'//PessoasPublicAPI/ExcluirPessoa/60ba8a6d243c143044040f40'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span>
+</code></pre></div></div>
 
-## Criar Pessoa
+<h2 id="criar-pessoa">Criar Pessoa</h2>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/PessoasPublicAPI/CriarPessoa</span></aside>
 
-Neste endpoint poderá criar uma nova Pessoa em sua conta da F360. Os campos obrigatórios estão em negrito:
+<p>Neste endpoint poderá criar uma nova Pessoa em sua conta da F360. Os campos obrigatórios estão em negrito:</p>
 
-**Nome:** "Nome da Pessoa"
+<p><strong>Nome:</strong> “Nome da Pessoa”</p>
 
-**PlanoDeContaPadrao:** "Nome do plano de contas que essa pessoa deve possuir como padrão"
+<p><strong>PlanoDeContaPadrao:</strong> “Nome do plano de contas que essa pessoa deve possuir como padrão”</p>
 
-**Tipo:** "Pessoa física ou Pessoa Jurídica"
+<p><strong>Tipo:</strong> “Pessoa física ou Pessoa Jurídica”</p>
 
-**Definicao:** "Cliente, Fornecedor ou Ambos"
+<p><strong>Definicao:</strong> “Cliente, Fornecedor ou Ambos”</p>
 
-Authorization Bearer 
+<p>Authorization Bearer</p>
 
-```json
-{
-"Nome": "Teste",
-"RazaoSocial": "",
-"Telefone": "",
-"Email": "",
-"CodigoExterno": "",
-"PlanoDeContaPadrao": "",
-"Tipo": "Pessoa física",
-"Definicao": "Ambos",
-"CpfCnpj": "",
-"Endereco": {
-"Logradouro": "",
-"Complemento": "",
-"Numero": "",
-"Bairro": "",
-"CEP": ""
-},
-"IndicadorIE": "",
-"InscricaoEstadual": "",
-"InscricaoMunicipal": "",
-"InscricaoSUFRAMA": "",
-"MeioDePagamentoPadrao": "",
-"TipoDeDocumentoPadrao": ""
-}
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="nl">"Nome"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teste"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"RazaoSocial"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Telefone"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"CodigoExterno"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"PlanoDeContaPadrao"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Tipo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pessoa física"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Definicao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ambos"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"CpfCnpj"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Endereco"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"Logradouro"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Complemento"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Numero"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Bairro"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"CEP"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="nl">"IndicadorIE"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"InscricaoEstadual"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"InscricaoMunicipal"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"InscricaoSUFRAMA"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"MeioDePagamentoPadrao"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"TipoDeDocumentoPadrao"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="w">
 
-Exemplo Request
+</span><span class="err">Exemplo</span><span class="w"> </span><span class="err">Request</span><span class="w">
 
-```shell
-curl --location -g '/PessoasPublicAPI/CriarPessoa' \
---header 'Content-Type: application/json' \
---data '{
-    "Nome": "Teste",
-    "RazaoSocial": "",
-    "Telefone": "",
-    "Email": "",
-    "CodigoExterno": "",
-    "PlanoDeContaPadrao": "",
-    "Tipo": "Pessoa física",
-    "Definicao": "Ambos",
-    "CpfCnpj": "",
-    "Endereco": {
-        "Logradouro": "",
-        "Complemento": "",
-        "Numero": "",
-        "Bairro": "",
-        "CEP": ""
-    },
-    "IndicadorIE": "",
-    "InscricaoEstadual": "",
-    "InscricaoMunicipal": "",
-    "InscricaoSUFRAMA": "",
-    "MeioDePagamentoPadrao": "",
-    "TipoDeDocumentoPadrao": ""
-}'
-```
+</span><span class="err">```shell</span><span class="w">
+</span><span class="err">curl</span><span class="w"> </span><span class="err">--location</span><span class="w"> </span><span class="err">-g</span><span class="w"> </span><span class="err">'/PessoasPublicAPI/CriarPessoa'</span><span class="w"> </span><span class="err">\</span><span class="w">
+</span><span class="err">--header</span><span class="w"> </span><span class="err">'Content-Type:</span><span class="w"> </span><span class="err">application/json'</span><span class="w"> </span><span class="err">\</span><span class="w">
+</span><span class="err">--data</span><span class="w"> </span><span class="err">'</span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Nome"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teste"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"RazaoSocial"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Telefone"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CodigoExterno"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"PlanoDeContaPadrao"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Tipo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pessoa física"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Definicao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ambos"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CpfCnpj"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Endereco"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Logradouro"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Complemento"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Numero"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Bairro"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"CEP"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"IndicadorIE"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"InscricaoEstadual"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"InscricaoMunicipal"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"InscricaoSUFRAMA"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"MeioDePagamentoPadrao"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"TipoDeDocumentoPadrao"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="err">'</span><span class="w">
+</span></code></pre></div></div>
 
-## Editar Pessoa
+<h2 id="editar-pessoa">Editar Pessoa</h2>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/PessoasPublicAPI/EditarPessoa/60ba9117243c141a14383d29</span></aside>
 
-Neste endpoint poderá editar os dados de uma Pessoa cadastrada em sua conta da F360. É obrigatório informar o Id da Pessoa.
+<p>Neste endpoint poderá editar os dados de uma Pessoa cadastrada em sua conta da F360. É obrigatório informar o Id da Pessoa.</p>
 
-```json
-{
-"Nome": "Teste",
-"RazaoSocial": "",
-"Telefone": "",
-"Email": "",
-"CodigoExterno": "",
-"PlanoDeContaPadrao": "",
-"Tipo": "Pessoa física",
-"Definicao": "Ambos",
-"CpfCnpj": "",
-"Endereco": {
-"Logradouro": "",
-"Complemento": "",
-"Numero": "",
-"Bairro": "",
-"CEP": ""
-},
-"IndicadorIE": "",
-"InscricaoEstadual": "",
-"InscricaoMunicipal": "",
-"InscricaoSUFRAMA": "",
-"MeioDePagamentoPadrao": "",
-"TipoDeDocumentoPadrao": ""
-}
-```
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="nl">"Nome"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teste"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"RazaoSocial"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Telefone"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"CodigoExterno"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"PlanoDeContaPadrao"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Tipo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pessoa física"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Definicao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ambos"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"CpfCnpj"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Endereco"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"Logradouro"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Complemento"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Numero"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Bairro"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"CEP"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="nl">"IndicadorIE"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"InscricaoEstadual"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"InscricaoMunicipal"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"InscricaoSUFRAMA"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"MeioDePagamentoPadrao"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"TipoDeDocumentoPadrao"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
-Exemplo Request
+<p>Exemplo Request</p>
 
-```shell
-curl --location -g --request PUT '/PessoasPublicAPI/EditarPessoa/60ba9117243c141a14383d29' \
---header 'Content-Type: application/json' \
---data '{
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">--location</span> <span class="nt">-g</span> <span class="nt">--request</span> PUT <span class="s1">'/PessoasPublicAPI/EditarPessoa/60ba9117243c141a14383d29'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data</span> <span class="s1">'{
     "Nome": "Teste",
     "RazaoSocial": "",
     "Telefone": "",
@@ -1041,779 +1011,762 @@ curl --location -g --request PUT '/PessoasPublicAPI/EditarPessoa/60ba9117243c141
     "InscricaoSUFRAMA": "",
     "MeioDePagamentoPadrao": "",
     "TipoDeDocumentoPadrao": ""
-}'
-```
+}'</span>
+</code></pre></div></div>
 
-# 5 - Notas Fiscais
+<h1 id="5---notas-fiscais">5 - Notas Fiscais</h1>
 
-Aqui poderá ter acesso aos endpoints disponíveis para a área de Notas Ficais da F360.
+<p>Aqui poderá ter acesso aos endpoints disponíveis para a área de Notas Ficais da F360.</p>
 
-## Listar Notas
+<h2 id="listar-notas">Listar Notas</h2>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/NFPublicAPI/ListarNotas?pagina=1&amp;registro=NFSe&amp;inicio=2021-05-01&amp;fim=2021-05-11&amp;tipo=Criação&amp;empresas=82.374.240/0001-10,30.733.246/0001-33&amp;clienteFornecedores=10.118.341/0001-10</span></aside>
 
-Neste endpoint poderá ter uma lista tendo uma paginação de até 75 Notas fiscais com uma paginação da pesquisa da F360, o período de pesquisa não pode ultrapassar 31 dias. Os parâmetros obrigatórios estão em negrito:
+<p>Neste endpoint poderá ter uma lista tendo uma paginação de até 75 Notas fiscais com uma paginação da pesquisa da F360, o período de pesquisa não pode ultrapassar 31 dias. Os parâmetros obrigatórios estão em negrito:</p>
 
-**registro:** "O tipo de registro das Notas ficais, podendo ser NFe, NFSe e NotaDeDebito"
+<p><strong>registro:</strong> “O tipo de registro das Notas ficais, podendo ser NFe, NFSe e NotaDeDebito”</p>
 
-**inicio:** "Data de inicio para Pesquisa 2021-06-01"
+<p><strong>inicio:</strong> “Data de inicio para Pesquisa 2021-06-01”</p>
 
-**fim:** "Data de final para Pesquisa 2021-06-30"
+<p><strong>fim:</strong> “Data de final para Pesquisa 2021-06-30”</p>
 
-**tipo:** "Filtro para dentro dos períodos das datas, podendo ser Emissão ou Criação"
+<p><strong>tipo:</strong> “Filtro para dentro dos períodos das datas, podendo ser Emissão ou Criação”</p>
 
-Obs:
+<p>Obs:</p>
 
-Para os campos não obrigatórios:
+<p>Para os campos não obrigatórios:</p>
 
-**empresas:** "Pode se passar o CNPJ de uma ou mais empresas"
+<p><strong>empresas:</strong> “Pode se passar o CNPJ de uma ou mais empresas”</p>
 
-**clienteFornecedores:** "Pode se passar o CPF/CNPJ de uma ou mais pessoas"
+<p><strong>clienteFornecedores:</strong> “Pode se passar o CPF/CNPJ de uma ou mais pessoas”</p>
 
-Authorization Bearer 
+<p>Authorization Bearer</p>
 
-Query Params
+<p>Query Params</p>
 
-pagina=1
+<p>pagina=1</p>
 
-registro=NFSe
+<p>registro=NFSe</p>
 
-inicio =2021-05-01
+<p>inicio =2021-05-01</p>
 
-fim=2021-05-11
+<p>fim=2021-05-11</p>
 
-tipo=Criação
+<p>tipo=Criação</p>
 
-empresas=82\.374.240/0001-10,30.733.246/0001-33
+<p>empresas=82.374.240/0001-10,30.733.246/0001-33</p>
 
-clienteFornecedores=10\.118.341/0001-10
+<p>clienteFornecedores=10.118.341/0001-10</p>
 
-Authorization Bearer 
+<p>Authorization Bearer</p>
 
-Exemplo Request:
+<p>Exemplo Request:</p>
 
-```shell
-curl --location -g '/NFPublicAPI/ListarNotas?pagina=1&amp;registro=NFSe&amp;inicio=2021-05-01&amp;fim=2021-05-11&amp;tipo=Cria%C3%A7%C3%A3o&amp;empresas=82.374.240%2F0001-10%2C30.733.246%2F0001-33&amp;clienteFornecedores=10.118.341%2F0001-10' \
---header 'Content-Type: application/json'
-```
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">--location</span> <span class="nt">-g</span> <span class="s1">'/NFPublicAPI/ListarNotas?pagina=1&amp;registro=NFSe&amp;inicio=2021-05-01&amp;fim=2021-05-11&amp;tipo=Cria%C3%A7%C3%A3o&amp;empresas=82.374.240%2F0001-10%2C30.733.246%2F0001-33&amp;clienteFornecedores=10.118.341%2F0001-10'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span>
+</code></pre></div></div>
 
-## Obter Danfe
+<h2 id="obter-danfe">Obter Danfe</h2>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/NFPublicAPI/ObterDanfe/60be13ca243c1322b4f726cb</span></aside>
 
-Neste endpoint poderá ter acesso ao arquivo XML em base64 de uma Nota Fiscal da F360. É obrigatório informar o Id da Nota Fiscal.
+<p>Neste endpoint poderá ter acesso ao arquivo XML em base64 de uma Nota Fiscal da F360. É obrigatório informar o Id da Nota Fiscal.</p>
 
-Authorization Bearer 
+<p>Authorization Bearer</p>
 
-Exemplo Request:
+<p>Exemplo Request:</p>
 
-```shell
-curl --location -g '/NFPublicAPI/ObterDanfe/60be13ca243c1322b4f726cb' \
---header 'Content-Type: application/json'
-```
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">--location</span> <span class="nt">-g</span> <span class="s1">'/NFPublicAPI/ObterDanfe/60be13ca243c1322b4f726cb'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span>
+</code></pre></div></div>
 
-## Obter XML
+<h2 id="obter-xml">Obter XML</h2>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/NFPublicAPI/ObterXML/60be13ca243c1322b4f726cb</span></aside>
 
-Neste endpoint poderá ter acesso ao arquivo DANFE em base64 de uma Nota Fiscal da F360. É obrigatório informar o Id da Nota Fiscal.
+<p>Neste endpoint poderá ter acesso ao arquivo DANFE em base64 de uma Nota Fiscal da F360. É obrigatório informar o Id da Nota Fiscal.</p>
 
-Authorization Bearer 
+<p>Authorization Bearer</p>
 
-Exemplo Request
+<p>Exemplo Request</p>
 
-```shell
-curl --location -g '/NFPublicAPI/ObterXML/60be13ca243c1322b4f726cb' \
---header 'Content-Type: application/json'
-```
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">--location</span> <span class="nt">-g</span> <span class="s1">'/NFPublicAPI/ObterXML/60be13ca243c1322b4f726cb'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span>
+</code></pre></div></div>
 
-# 6 - Parcelas de Título
+<h1 id="6---parcelas-de-título">6 - Parcelas de Título</h1>
 
-Aqui poderá ter acesso aos endpoints de Parcela de Títulos da F360.
+<p>Aqui poderá ter acesso aos endpoints de Parcela de Títulos da F360.</p>
 
-## Listar Parcelas De Titulos
+<h2 id="listar-parcelas-de-titulos">Listar Parcelas De Titulos</h2>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/ParcelasDeTituloPublicAPI/ListarParcelasDeTitulos?pagina=1&amp;tipo=Despesa&amp;inicio=2021-06-01&amp;fim=2021-06-30&amp;tipoDatas=Emissão</span></aside>
 
-Neste endpoint iremos listar as parcelas de títulos de forma paginada (100 itens por requisição). O período de pesquisa não poderá ultrapassar 31 dias. Segue os parâmetros da pesquisa (em negrito são os itens obrigatórios):
+<p>Neste endpoint iremos listar as parcelas de títulos de forma paginada (100 itens por requisição). O período de pesquisa não poderá ultrapassar 31 dias. Segue os parâmetros da pesquisa (em negrito são os itens obrigatórios):</p>
 
-**tipo:** "Escolha o tipo de registro entre: 'Despesa', 'Receita' ou 'Ambos'"
+<p><strong>tipo:</strong> “Escolha o tipo de registro entre: ‘Despesa’, ‘Receita’ ou ‘Ambos’”</p>
 
-**inicio:** "Data de inicio para a pesquisa (yyyy-MM-dd)"
+<p><strong>inicio:</strong> “Data de inicio para a pesquisa (yyyy-MM-dd)”</p>
 
-**fim:** "Data final para a pesquisa (yyyy-MM-dd)"
+<p><strong>fim:</strong> “Data final para a pesquisa (yyyy-MM-dd)”</p>
 
-**tipoDatas:** "Escolha o tipo de data da pesquisa, entre as opções: 'Emissão', 'Competência', 'Vencimento', 'Liquidação' ou 'Atualização'"
+<p><strong>tipoDatas:</strong> “Escolha o tipo de data da pesquisa, entre as opções: ‘Emissão’, ‘Competência’, ‘Vencimento’, ‘Liquidação’ ou ‘Atualização’”</p>
 
-**status:** "Escolha o status da parcela, podendo ser: 'Todos', 'Aberto', 'AbertoAVencer', 'AbertoVencidos', 'Liquidado', 'Baixado', 'Aprovados', 'PendentesDeAprovacao', 'Renegociados', 'LiquidadoConciliado', 'Agendado', 'AbertoNaoAgendados', 'NaoVinculadoComDDA' e 'LiquidadoPendente'"
+<p><strong>status:</strong> “Escolha o status da parcela, podendo ser: ‘Todos’, ‘Aberto’, ‘AbertoAVencer’, ‘AbertoVencidos’, ‘Liquidado’, ‘Baixado’, ‘Aprovados’, ‘PendentesDeAprovacao’, ‘Renegociados’, ‘LiquidadoConciliado’, ‘Agendado’, ‘AbertoNaoAgendados’, ‘NaoVinculadoComDDA’ e ‘LiquidadoPendente’”</p>
 
-**empresas:** "Informe o CNPJ das empresas separado por vírgula"
+<p><strong>empresas:</strong> “Informe o CNPJ das empresas separado por vírgula”</p>
 
-**contas:** "Informe o nome das contas separado por vírgula"
+<p><strong>contas:</strong> “Informe o nome das contas separado por vírgula”</p>
 
-Authorization Bearer 
+<p>Authorization Bearer</p>
 
-**Query Params**
+<p><strong>Query Params</strong></p>
 
-pagina=1
+<p>pagina=1</p>
 
-tipo=Despesa
+<p>tipo=Despesa</p>
 
-inicio=2021-06-01
+<p>inicio=2021-06-01</p>
 
-fim=2021-06-30
+<p>fim=2021-06-30</p>
 
-tipoDatas=Emissão
+<p>tipoDatas=Emissão</p>
 
-Request
+<p>Request</p>
 
-```shell
-curl --location --globoff '/ParcelasDeTituloPublicAPI/ListarParcelasDeTitulos?pagina=1&amp;tipo=Despesa&amp;inicio=2021-06-01&amp;fim=2021-06-30&amp;tipoDatas=Emiss%C3%A3o' \
---header 'Content-Type: application/json'
-```
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">--location</span> <span class="nt">--globoff</span> <span class="s1">'/ParcelasDeTituloPublicAPI/ListarParcelasDeTitulos?pagina=1&amp;tipo=Despesa&amp;inicio=2021-06-01&amp;fim=2021-06-30&amp;tipoDatas=Emiss%C3%A3o'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span>
+</code></pre></div></div>
 
-Response
+<p>Response</p>
 
-```json
-{
-"Result": {
-"QuantidadeDeParcelas": 2,
-"Pagina": 1,
-"QuantidadeDePaginas": 1,
-"DataMaisRecente": "2022-06-01",
-"Parcelas": [
-{
-"Registro": "Parcela de título",
-"Tipo": "Despesa",
-"ParcelaId": "62bc4ab19a25ae25d806b06f",
-"Numero": "1",
-"ConciliadaComExtrato": false,
-"Cancelada": false,
-"Vencimento": "2022-07-01",
-"Liquidacao": "",
-"ValorBruto": 108.02,
-"Conta": "",
-"MeioDePagamento": "Débito Automático",
-"Status": "Aberto (Vencido)",
-"DadosDoTitulo": {
-"NumeroDoTitulo": "1",
-"TituloId": "62bc4ab19a25ae25d806b06e",
-"Emissao": "2022-06-01",
-"TipoDeDocumento": "Outros",
-"TotalDeParcelas": 2,
-"Valor": 216.04,
-"Observacao": "",
-"Empresa": {
-"Nome": "",
-"Inscricao": "00.000.000/0000-00"
-},
-"ClienteFornecedor": {
-"Nome": "",
-"Inscricao": "00.000.000/0000-00"
-}
-},
-"Rateio": [
-{
-"CentroDeCusto": "",
-"PlanoDeContas": "ADMINISTRATIVO DE MARKETING",
-"Competencia": "2022-06",
-"Valor": 108.02,
-"Tipo": "Despesa"
-}
-],
-"TipoDeDocumento": "Outros",
-"NumeroDaParcela": 1,
-"Parcelamento": "1/2"
-},
-{
-"Registro": "Parcela de título",
-"Tipo": "Despesa",
-"ParcelaId": "62bc4ab19a25ae25d806b071",
-"Numero": "1",
-"ConciliadaComExtrato": false,
-"Cancelada": false,
-"Vencimento": "2022-08-01",
-"Liquidacao": "",
-"ValorBruto": 108.02,
-"ValorLiquido": 108.02,
-"Conta": "",
-"MeioDePagamento": "Débito Automático",
-"Status": "Aberto (A Vencer)",
-"DadosDoTitulo": {
-"NumeroDoTitulo": "1",
-"TituloId": "62bc4ab19a25ae25d806b06e",
-"Emissao": "2022-06-01",
-"TipoDeDocumento": "Outros",
-"TotalDeParcelas": 2,
-"Valor": 216.04,
-"Observacao": "",
-"Empresa": {
-"Nome": "",
-"Inscricao": "00.000.000/0000-00"
-},
-"ClienteFornecedor": {
-"Nome": "",
-"Inscricao": "00.000.000/0000-00"
-}
-},
-"Rateio": [
-{
-"CentroDeCusto": "",
-"PlanoDeContas": "ADMINISTRATIVO DE MARKETING",
-"Competencia": "2022-06",
-"Valor": 216.04,
-"Tipo": "Despesa"
-}
-],
-"TipoDeDocumento": "Outros",
-"NumeroDaParcela": 2,
-"Parcelamento": "2/2"
-}
-]
-},
-"Ok": true
-}
-```
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="nl">"Result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"QuantidadeDeParcelas"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Pagina"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+</span><span class="nl">"QuantidadeDePaginas"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+</span><span class="nl">"DataMaisRecente"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-06-01"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Parcelas"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"Registro"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Parcela de título"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Tipo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Despesa"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"ParcelaId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"62bc4ab19a25ae25d806b06f"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Numero"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"ConciliadaComExtrato"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Cancelada"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Vencimento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-07-01"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Liquidacao"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"ValorBruto"</span><span class="p">:</span><span class="w"> </span><span class="mf">108.02</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Conta"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"MeioDePagamento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Débito Automático"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aberto (Vencido)"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"DadosDoTitulo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"NumeroDoTitulo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"TituloId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"62bc4ab19a25ae25d806b06e"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Emissao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-06-01"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"TipoDeDocumento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Outros"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"TotalDeParcelas"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Valor"</span><span class="p">:</span><span class="w"> </span><span class="mf">216.04</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Observacao"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Empresa"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"Nome"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Inscricao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00.000.000/0000-00"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="nl">"ClienteFornecedor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"Nome"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Inscricao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00.000.000/0000-00"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="nl">"Rateio"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"CentroDeCusto"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"PlanoDeContas"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ADMINISTRATIVO DE MARKETING"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Competencia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-06"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Valor"</span><span class="p">:</span><span class="w"> </span><span class="mf">108.02</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Tipo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Despesa"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">],</span><span class="w">
+</span><span class="nl">"TipoDeDocumento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Outros"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"NumeroDaParcela"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Parcelamento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1/2"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"Registro"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Parcela de título"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Tipo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Despesa"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"ParcelaId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"62bc4ab19a25ae25d806b071"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Numero"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"ConciliadaComExtrato"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Cancelada"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Vencimento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-08-01"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Liquidacao"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"ValorBruto"</span><span class="p">:</span><span class="w"> </span><span class="mf">108.02</span><span class="p">,</span><span class="w">
+</span><span class="nl">"ValorLiquido"</span><span class="p">:</span><span class="w"> </span><span class="mf">108.02</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Conta"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"MeioDePagamento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Débito Automático"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aberto (A Vencer)"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"DadosDoTitulo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"NumeroDoTitulo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"TituloId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"62bc4ab19a25ae25d806b06e"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Emissao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-06-01"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"TipoDeDocumento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Outros"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"TotalDeParcelas"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Valor"</span><span class="p">:</span><span class="w"> </span><span class="mf">216.04</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Observacao"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Empresa"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"Nome"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Inscricao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00.000.000/0000-00"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="nl">"ClienteFornecedor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"Nome"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Inscricao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00.000.000/0000-00"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="nl">"Rateio"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"CentroDeCusto"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"PlanoDeContas"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ADMINISTRATIVO DE MARKETING"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Competencia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-06"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Valor"</span><span class="p">:</span><span class="w"> </span><span class="mf">216.04</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Tipo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Despesa"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">],</span><span class="w">
+</span><span class="nl">"TipoDeDocumento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Outros"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"NumeroDaParcela"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Parcelamento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2/2"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="nl">"Ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
-# 7 - Parcelas de Cartões
+<h1 id="7---parcelas-de-cartões">7 - Parcelas de Cartões</h1>
 
-Aqui poderá ter acesso aos endpoints de Parcela de Cartões da F360.
+<p>Aqui poderá ter acesso aos endpoints de Parcela de Cartões da F360.</p>
 
-## Listar Parcelas De Cartões
+<h2 id="listar-parcelas-de-cartões">Listar Parcelas De Cartões</h2>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/ParcelasDeCartoesPublicAPI/ListarParcelasDeCartoes?pagina=1&amp;tipo=ambos&amp;inicio=2021-03-01&amp;fim=2021-03-30&amp;tipoDatas=emissao</span></aside>
 
-Neste endpoint iremos listar as parcelas de cartões de forma paginada (100 itens por requisição). O período de pesquisa não poderá ultrapassar 31 dias. Segue os parâmetros da pesquisa (em negrito são os itens obrigatórios):
+<p>Neste endpoint iremos listar as parcelas de cartões de forma paginada (100 itens por requisição). O período de pesquisa não poderá ultrapassar 31 dias. Segue os parâmetros da pesquisa (em negrito são os itens obrigatórios):</p>
 
-**tipo:** "Escolha o tipo entre: 'Despesa', 'Receita' ou 'Ambos'"
+<p><strong>tipo:</strong> “Escolha o tipo entre: ‘Despesa’, ‘Receita’ ou ‘Ambos’”</p>
 
-**inicio:** "Data de inicio para a pesquisa (yyyy-MM-dd)"
+<p><strong>inicio:</strong> “Data de inicio para a pesquisa (yyyy-MM-dd)”</p>
 
-**fim:** "Data final para a pesquisa (yyyy-MM-dd)"
+<p><strong>fim:</strong> “Data final para a pesquisa (yyyy-MM-dd)”</p>
 
-**tipoDatas:** "Escolha o tipo de data da pesquisa, entre as opções: 'Emissão', 'Venda', 'Competência', 'Vencimento', 'Liquidação' ou 'Atualização' "
+<p><strong>tipoDatas:</strong> “Escolha o tipo de data da pesquisa, entre as opções: ‘Emissão’, ‘Venda’, ‘Competência’, ‘Vencimento’, ‘Liquidação’ ou ‘Atualização’ “</p>
 
-**status:** "Escolha o status da parcela, podendo ser: 'Todos', 'Cancelados', 'Estornados', 'PendentesConciliacaoPDV\_TEF', 'PendentesConciliacaoExtrato', 'ConciliadosPDV\_TEF', 'AntecipadosTodos', 'LiquidadosTodos', 'ConciliadosExtrato', 'Baixados', 'AbertosTodos', 'AbertosAVencer', 'AbertosVencidos', 'LiquidadosPendentes', 'AntecipadosConciliados', 'AntecipadosPendentes' e 'DivergenciaDeTaxa'"
+<p><strong>status:</strong> “Escolha o status da parcela, podendo ser: ‘Todos’, ‘Cancelados’, ‘Estornados’, ‘PendentesConciliacaoPDV_TEF’, ‘PendentesConciliacaoExtrato’, ‘ConciliadosPDV_TEF’, ‘AntecipadosTodos’, ‘LiquidadosTodos’, ‘ConciliadosExtrato’, ‘Baixados’, ‘AbertosTodos’, ‘AbertosAVencer’, ‘AbertosVencidos’, ‘LiquidadosPendentes’, ‘AntecipadosConciliados’, ‘AntecipadosPendentes’ e ‘DivergenciaDeTaxa’”</p>
 
-**empresas:** "Informe o CNPJ das empresas separado por vírgula"
+<p><strong>empresas:</strong> “Informe o CNPJ das empresas separado por vírgula”</p>
 
-**contas:** "Informe o nome das contas separado por vírgula"
+<p><strong>contas:</strong> “Informe o nome das contas separado por vírgula”</p>
 
-Authorization Bearer 
+<p>Authorization Bearer</p>
 
-**Query Params**
+<p><strong>Query Params</strong></p>
 
-pagina=1
+<p>pagina=1</p>
 
-tipo=ambos
+<p>tipo=ambos</p>
 
-inicio=2021-03-01
+<p>inicio=2021-03-01</p>
 
-fim=2021-03-30
+<p>fim=2021-03-30</p>
 
-tipoDatas=emissao
+<p>tipoDatas=emissao</p>
 
-Request
+<p>Request</p>
 
-```shell
-curl --location --globoff '/ParcelasDeCartoesPublicAPI/ListarParcelasDeCartoes?pagina=1&amp;tipo=ambos&amp;inicio=2021-03-01&amp;fim=2021-03-30&amp;tipoDatas=emissao' \
---header 'Content-Type: application/json'
-```
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">--location</span> <span class="nt">--globoff</span> <span class="s1">'/ParcelasDeCartoesPublicAPI/ListarParcelasDeCartoes?pagina=1&amp;tipo=ambos&amp;inicio=2021-03-01&amp;fim=2021-03-30&amp;tipoDatas=emissao'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span>
+</code></pre></div></div>
 
-Response
+<p>Response</p>
 
-```json
-{
-"Result": {
-"QuantidadeDeParcelas": 2,
-"Pagina": 1,
-"QuantidadeDePaginas": 1,
-"DataMaisRecente": "2021-02-26",
-"Parcelas": [
-{
-"Registro": "Parcela de Cartão",
-"Tipo": "Receita",
-"ParcelaId": "603cfba6sa45d2f9cee4559c",
-"Numero": 1,
-"ConciliadaComExtrato": true,
-"Cancelada": false,
-"Vencimento": "2021-02-26",
-"Liquidacao": "2021-02-26",
-"ValorBruto": 90.6,
-"ValorLiquido": 90.6,
-"Taxa": 0,
-"ApuracaoTaxas": {
-"PercentualTaxaAcordo": 0,
-"PercentualTaxaRealizado": 0,
-"DifTaxa": 0
-},
-"Conta": "Conta 01",
-"Modalidade": "PIX",
-"Observacoes": "",
-"DadosDoCartao": {
-"CartaoId": "603cfba6sa45d2f9cee4559b",
-"DataDaVenda": "2021-02-26",
-"DataDeApresentacao": "2021-02-26",
-"CodigoDoEstabelecimento": 99999,
-"ConciliadoComPDV": "true",
-"Cancelado": "false",
-"Adquirente": "PIX",
-"Bandeira": "PIX",
-"MeioDeCaptura": "POS",
-"TipoDeTransacao": "Venda",
-"TotalDeParcelas": 1,
-"Valor": 90.6,
-"Empresa": {
-"Nome": "Loja 01",
-"Inscricao": "00.000.000/0001-88"
-},
-"Vendas": [
-{
-"NSU": 0,
-"CodigoAutorizacao": "a5468255-0mb6-4120-b052-503c83048d2b",
-"DataDaVenda": "2021-02-26",
-"ValorBruto": 90.6,
-"VendaCancelada": "false"
-}
-],
-"NumeroPedido": "204060",
-"Status": "Conciliados com PDV/TEF"
-},
-"Rateio": [
-{
-"CentroDeCusto": "Loja 01",
-"PlanoDeContas": "Vendas de Mercadorias",
-"Competencia": "2021-02",
-"Valor": 90.6,
-"Tipo": "Receita"
-}
-],
-"Status": "Conciliados com Extrato"
-},
-{
-"Registro": "Parcela de Cartão",
-"Tipo": "Receita",
-"ParcelaId": "603cfba6sa45d2f9cee4559b",
-"Numero": 1,
-"ConciliadaComExtrato": true,
-"Cancelada": false,
-"Vencimento": "2021-02-26",
-"Liquidacao": "2021-02-26",
-"ValorBruto": 108.9,
-"ValorLiquido": 108.9,
-"Taxa": 0,
-"ApuracaoTaxas": {
-"PercentualTaxaAcordo": 0,
-"PercentualTaxaRealizado": 0,
-"DifTaxa": 0
-},
-"Conta": "Conta 02",
-"Modalidade": "PIX",
-"Observacoes": "",
-"DadosDoCartao": {
-"CartaoId": "603cfba6sa45d2f9cee4559c",
-"DataDaVenda": "2021-02-26",
-"DataDeApresentacao": "2021-02-26",
-"CodigoDoEstabelecimento": 88888,
-"ConciliadoComPDV": "true",
-"Cancelado": "false",
-"Adquirente": "PIX",
-"Bandeira": "PIX",
-"MeioDeCaptura": "POS",
-"TipoDeTransacao": "Venda",
-"TotalDeParcelas": 1,
-"Valor": 108.9,
-"Empresa": {
-"Nome": "Loja 02",
-"Inscricao": "00.000.000/0001-99"
-},
-"Vendas": [
-{
-"NSU": 0,
-"CodigoAutorizacao": "83993941-8592-4f38-8592-2bf0b04f42e0    ",
-"DataDaVenda": "2021-02-26",
-"ValorBruto": 108.9,
-"VendaCancelada": "false"
-}
-],
-"NumeroPedido": "204068",
-"Status": "Conciliados com PDV/TEF"
-},
-"Rateio": [
-{
-"CentroDeCusto": "Loja 02",
-"PlanoDeContas": "Vendas de Mercadorias",
-"Competencia": "2021-02",
-"Valor": 108.9,
-"Tipo": "Receita"
-}
-],
-"Status": "Conciliados com Extrato"
-}
-]
-},
-"Ok": true
-}
-```
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="nl">"Result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"QuantidadeDeParcelas"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Pagina"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+</span><span class="nl">"QuantidadeDePaginas"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+</span><span class="nl">"DataMaisRecente"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-26"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Parcelas"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"Registro"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Parcela de Cartão"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Tipo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Receita"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"ParcelaId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"603cfba6sa45d2f9cee4559c"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Numero"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+</span><span class="nl">"ConciliadaComExtrato"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Cancelada"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Vencimento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-26"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Liquidacao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-26"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"ValorBruto"</span><span class="p">:</span><span class="w"> </span><span class="mf">90.6</span><span class="p">,</span><span class="w">
+</span><span class="nl">"ValorLiquido"</span><span class="p">:</span><span class="w"> </span><span class="mf">90.6</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Taxa"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+</span><span class="nl">"ApuracaoTaxas"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"PercentualTaxaAcordo"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+</span><span class="nl">"PercentualTaxaRealizado"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+</span><span class="nl">"DifTaxa"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="nl">"Conta"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Conta 01"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Modalidade"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PIX"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Observacoes"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"DadosDoCartao"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"CartaoId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"603cfba6sa45d2f9cee4559b"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"DataDaVenda"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-26"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"DataDeApresentacao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-26"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"CodigoDoEstabelecimento"</span><span class="p">:</span><span class="w"> </span><span class="mi">99999</span><span class="p">,</span><span class="w">
+</span><span class="nl">"ConciliadoComPDV"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Cancelado"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Adquirente"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PIX"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Bandeira"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PIX"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"MeioDeCaptura"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POS"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"TipoDeTransacao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Venda"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"TotalDeParcelas"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Valor"</span><span class="p">:</span><span class="w"> </span><span class="mf">90.6</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Empresa"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"Nome"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loja 01"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Inscricao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00.000.000/0001-88"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="nl">"Vendas"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"NSU"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+</span><span class="nl">"CodigoAutorizacao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a5468255-0mb6-4120-b052-503c83048d2b"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"DataDaVenda"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-26"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"ValorBruto"</span><span class="p">:</span><span class="w"> </span><span class="mf">90.6</span><span class="p">,</span><span class="w">
+</span><span class="nl">"VendaCancelada"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">],</span><span class="w">
+</span><span class="nl">"NumeroPedido"</span><span class="p">:</span><span class="w"> </span><span class="s2">"204060"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Conciliados com PDV/TEF"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="nl">"Rateio"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"CentroDeCusto"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loja 01"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"PlanoDeContas"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vendas de Mercadorias"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Competencia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Valor"</span><span class="p">:</span><span class="w"> </span><span class="mf">90.6</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Tipo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Receita"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">],</span><span class="w">
+</span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Conciliados com Extrato"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"Registro"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Parcela de Cartão"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Tipo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Receita"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"ParcelaId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"603cfba6sa45d2f9cee4559b"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Numero"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+</span><span class="nl">"ConciliadaComExtrato"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Cancelada"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Vencimento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-26"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Liquidacao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-26"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"ValorBruto"</span><span class="p">:</span><span class="w"> </span><span class="mf">108.9</span><span class="p">,</span><span class="w">
+</span><span class="nl">"ValorLiquido"</span><span class="p">:</span><span class="w"> </span><span class="mf">108.9</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Taxa"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+</span><span class="nl">"ApuracaoTaxas"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"PercentualTaxaAcordo"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+</span><span class="nl">"PercentualTaxaRealizado"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+</span><span class="nl">"DifTaxa"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="nl">"Conta"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Conta 02"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Modalidade"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PIX"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Observacoes"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"DadosDoCartao"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"CartaoId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"603cfba6sa45d2f9cee4559c"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"DataDaVenda"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-26"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"DataDeApresentacao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-26"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"CodigoDoEstabelecimento"</span><span class="p">:</span><span class="w"> </span><span class="mi">88888</span><span class="p">,</span><span class="w">
+</span><span class="nl">"ConciliadoComPDV"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Cancelado"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Adquirente"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PIX"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Bandeira"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PIX"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"MeioDeCaptura"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POS"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"TipoDeTransacao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Venda"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"TotalDeParcelas"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Valor"</span><span class="p">:</span><span class="w"> </span><span class="mf">108.9</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Empresa"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"Nome"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loja 02"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Inscricao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00.000.000/0001-99"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="nl">"Vendas"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"NSU"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+</span><span class="nl">"CodigoAutorizacao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"83993941-8592-4f38-8592-2bf0b04f42e0    "</span><span class="p">,</span><span class="w">
+</span><span class="nl">"DataDaVenda"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-26"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"ValorBruto"</span><span class="p">:</span><span class="w"> </span><span class="mf">108.9</span><span class="p">,</span><span class="w">
+</span><span class="nl">"VendaCancelada"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">],</span><span class="w">
+</span><span class="nl">"NumeroPedido"</span><span class="p">:</span><span class="w"> </span><span class="s2">"204068"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Conciliados com PDV/TEF"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="nl">"Rateio"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"CentroDeCusto"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loja 02"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"PlanoDeContas"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vendas de Mercadorias"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Competencia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Valor"</span><span class="p">:</span><span class="w"> </span><span class="mf">108.9</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Tipo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Receita"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">],</span><span class="w">
+</span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Conciliados com Extrato"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="nl">"Ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
-# 8 - Gerar Movimentos de Cartões
+<h1 id="8---gerar-movimentos-de-cartões">8 - Gerar Movimentos de Cartões</h1>
 
-Aqui você poderá enviar os dados de movimento de cartão para serem inseridos na plataforma.
+<p>Aqui você poderá enviar os dados de movimento de cartão para serem inseridos na plataforma.</p>
 
-## Gerar Movimentos de Cartão
+<h2 id="gerar-movimentos-de-cartão">Gerar Movimentos de Cartão</h2>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/CartaoPublicAPI/GerarMovimentoDeCartao</span></aside>
 
-Neste endpoint você poderá criar um ou mais movimentos de cartão.
+<p>Neste endpoint você poderá criar um ou mais movimentos de cartão.</p>
 
-**BODY PARAMS**
+<p><strong>BODY PARAMS</strong></p>
 
-**CodigoEstabelecimento:** Código de Estabelecimento, Informe o código utilizado. para identificar a empresa que o cartão deverá ser inserido.
+<p><strong>CodigoEstabelecimento:</strong> Código de Estabelecimento, Informe o código utilizado. para identificar a empresa que o cartão deverá ser inserido.</p>
 
-**DataDaVenda:** Informe a data da venda no formato {DD/MM/YYYY},
+<p><strong>DataDaVenda:</strong> Informe a data da venda no formato {DD/MM/YYYY},</p>
 
-**TipoDeLancamento:** Informe o tipo de lançamento. Ex.: Débito, Crédito
+<p><strong>TipoDeLancamento:</strong> Informe o tipo de lançamento. Ex.: Débito, Crédito</p>
 
-**TipoDeTransacao:** Informe o Tipo da Transação. Ex.: Venda
+<p><strong>TipoDeTransacao:</strong> Informe o Tipo da Transação. Ex.: Venda</p>
 
-**TipoDeRegistro:** Informe o tipo de registro. Ex.: Venda,
+<p><strong>TipoDeRegistro:</strong> Informe o tipo de registro. Ex.: Venda,</p>
 
-**DescricaoBandeira:** Informe a bandeira do cartão. Ex.: Visa,
+<p><strong>DescricaoBandeira:</strong> Informe a bandeira do cartão. Ex.: Visa,</p>
 
-**DescricaoOperadora:** Informe o nome da operadora,
+<p><strong>DescricaoOperadora:</strong> Informe o nome da operadora,</p>
 
-**NSU:** Informe o Número Sequencial Único,
+<p><strong>NSU:</strong> Informe o Número Sequencial Único,</p>
 
-**CodigoAutorizacao:** Informe o código de autorização,
+<p><strong>CodigoAutorizacao:</strong> Informe o código de autorização,</p>
 
-**ResumoDeOperacoes:** Informe o resumo de operações,
+<p><strong>ResumoDeOperacoes:</strong> Informe o resumo de operações,</p>
 
-**TotalDeParcelas:** Número total de parcelas,
+<p><strong>TotalDeParcelas:</strong> Número total de parcelas,</p>
 
-**Parcelas:** Informe cada parcela com suas respectivas informações.
+<p><strong>Parcelas:</strong> Informe cada parcela com suas respectivas informações.</p>
 
-```json
-{
-NumeroParcela: Informe o número da parcela,
-ValorBruto: Informe o Valor bruto da parcela,
-ValorLiquido: Informe o Valor Liquido da parcela,
-Desconto: Informe o valor de desconto da parcela,
-DataVencimento: Informe o vencimento da parcela no formato “DD/MM/YYYY”,
-DataLiquidacao: Informe a data de Liquidação da parcela no formato “DD/MM/YYYY”
-},
-```
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="err">NumeroParcela:</span><span class="w"> </span><span class="err">Informe</span><span class="w"> </span><span class="err">o</span><span class="w"> </span><span class="err">número</span><span class="w"> </span><span class="err">da</span><span class="w"> </span><span class="err">parcela</span><span class="p">,</span><span class="w">
+</span><span class="err">ValorBruto:</span><span class="w"> </span><span class="err">Informe</span><span class="w"> </span><span class="err">o</span><span class="w"> </span><span class="err">Valor</span><span class="w"> </span><span class="err">bruto</span><span class="w"> </span><span class="err">da</span><span class="w"> </span><span class="err">parcela</span><span class="p">,</span><span class="w">
+</span><span class="err">ValorLiquido:</span><span class="w"> </span><span class="err">Informe</span><span class="w"> </span><span class="err">o</span><span class="w"> </span><span class="err">Valor</span><span class="w"> </span><span class="err">Liquido</span><span class="w"> </span><span class="err">da</span><span class="w"> </span><span class="err">parcela</span><span class="p">,</span><span class="w">
+</span><span class="err">Desconto:</span><span class="w"> </span><span class="err">Informe</span><span class="w"> </span><span class="err">o</span><span class="w"> </span><span class="err">valor</span><span class="w"> </span><span class="err">de</span><span class="w"> </span><span class="err">desconto</span><span class="w"> </span><span class="err">da</span><span class="w"> </span><span class="err">parcela</span><span class="p">,</span><span class="w">
+</span><span class="err">DataVencimento:</span><span class="w"> </span><span class="err">Informe</span><span class="w"> </span><span class="err">o</span><span class="w"> </span><span class="err">vencimento</span><span class="w"> </span><span class="err">da</span><span class="w"> </span><span class="err">parcela</span><span class="w"> </span><span class="err">no</span><span class="w"> </span><span class="err">formato</span><span class="w"> </span><span class="err">“DD/MM/YYYY”</span><span class="p">,</span><span class="w">
+</span><span class="err">DataLiquidacao:</span><span class="w"> </span><span class="err">Informe</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">data</span><span class="w"> </span><span class="err">de</span><span class="w"> </span><span class="err">Liquidação</span><span class="w"> </span><span class="err">da</span><span class="w"> </span><span class="err">parcela</span><span class="w"> </span><span class="err">no</span><span class="w"> </span><span class="err">formato</span><span class="w"> </span><span class="err">“DD/MM/YYYY”</span><span class="w">
+</span><span class="p">}</span><span class="err">,</span><span class="w">
+</span></code></pre></div></div>
 
-**ValorBruto:** Informe o Valor bruto total da compra
+<p><strong>ValorBruto:</strong> Informe o Valor bruto total da compra</p>
 
-Authorization Bearer 
+<p>Authorization Bearer</p>
 
-Request
+<p>Request</p>
 
-```json
-{
-"FileType": "Modelo de Importação dos Registros de Adquirente - Modelo Json 1.0",
-"Cartoes": [
-{
-"CodigoEstabelecimento": "1234567890001",
-"DataDaVenda": "17/01/2022",
-"TipoDeLancamento": "Débito",
-"TipoDeTransacao": "Venda",
-"TipoDeRegistro": "Venda",
-"DescricaoBandeira": "Visa",
-"DescricaoOperadora": "Teste",
-"NSU": 123456789,
-"CodigoAutorizacao": "ABCDE",
-"ResumoDeOperacoes": "ABCDE",
-"TotalDeParcelas": 1,
-"Parcelas": [
-{
-"NumeroParcela": 1,
-"ValorBruto": 99.99,
-"ValorLiquido": 98.99,
-"Desconto": 1,
-"DataVencimento": "18/01/2022",
-"DataLiquidacao": null
-}
-],
-"ValorBruto": 99.99
-},
-{
-"CodigoEstabelecimento": "1234567890001",
-"DataDaVenda": "17/01/2022",
-"TipoDeLancamento": "Débito",
-"TipoDeTransacao": "Venda",
-"TipoDeRegistro": "Venda",
-"DescricaoBandeira": "Visa",
-"DescricaoOperadora": "Teste",
-"NSU": 123456789,
-"CodigoAutorizacao": "ABCDE",
-"ResumoDeOperacoes": "ABCDE",
-"TotalDeParcelas": 1,
-"Parcelas": [
-{
-"NumeroParcela": 1,
-"ValorBruto": 99.99,
-"ValorLiquido": 98.99,
-"Desconto": 1,
-"DataVencimento": "18/01/2022",
-"DataLiquidacao": null
-}
-],
-"ValorBruto": 99.99
-}
-]
-}
-```
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="nl">"FileType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Modelo de Importação dos Registros de Adquirente - Modelo Json 1.0"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Cartoes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"CodigoEstabelecimento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890001"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"DataDaVenda"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17/01/2022"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"TipoDeLancamento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Débito"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"TipoDeTransacao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Venda"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"TipoDeRegistro"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Venda"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"DescricaoBandeira"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"DescricaoOperadora"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teste"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"NSU"</span><span class="p">:</span><span class="w"> </span><span class="mi">123456789</span><span class="p">,</span><span class="w">
+</span><span class="nl">"CodigoAutorizacao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABCDE"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"ResumoDeOperacoes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABCDE"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"TotalDeParcelas"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Parcelas"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"NumeroParcela"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+</span><span class="nl">"ValorBruto"</span><span class="p">:</span><span class="w"> </span><span class="mf">99.99</span><span class="p">,</span><span class="w">
+</span><span class="nl">"ValorLiquido"</span><span class="p">:</span><span class="w"> </span><span class="mf">98.99</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Desconto"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+</span><span class="nl">"DataVencimento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18/01/2022"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"DataLiquidacao"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">],</span><span class="w">
+</span><span class="nl">"ValorBruto"</span><span class="p">:</span><span class="w"> </span><span class="mf">99.99</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"CodigoEstabelecimento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890001"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"DataDaVenda"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17/01/2022"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"TipoDeLancamento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Débito"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"TipoDeTransacao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Venda"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"TipoDeRegistro"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Venda"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"DescricaoBandeira"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"DescricaoOperadora"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teste"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"NSU"</span><span class="p">:</span><span class="w"> </span><span class="mi">123456789</span><span class="p">,</span><span class="w">
+</span><span class="nl">"CodigoAutorizacao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABCDE"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"ResumoDeOperacoes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABCDE"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"TotalDeParcelas"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Parcelas"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"NumeroParcela"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+</span><span class="nl">"ValorBruto"</span><span class="p">:</span><span class="w"> </span><span class="mf">99.99</span><span class="p">,</span><span class="w">
+</span><span class="nl">"ValorLiquido"</span><span class="p">:</span><span class="w"> </span><span class="mf">98.99</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Desconto"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+</span><span class="nl">"DataVencimento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18/01/2022"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"DataLiquidacao"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">],</span><span class="w">
+</span><span class="nl">"ValorBruto"</span><span class="p">:</span><span class="w"> </span><span class="mf">99.99</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
-# 9 - Extrato Bancário
+<h1 id="9---extrato-bancário">9 - Extrato Bancário</h1>
 
-Aqui você terá acesso aos endpoints disponíveis para obtenção do Extrato Bancário.
+<p>Aqui você terá acesso aos endpoints disponíveis para obtenção do Extrato Bancário.</p>
 
-## Obter Extrato Bancário
+<h2 id="obter-extrato-bancário">Obter Extrato Bancário</h2>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/ExtratoBancarioPublicAPI/ObterExtratoBancario</span></aside>
 
-Aqui você pode obter o Extrato Bancário de forma paginada. Os resultados são uma réplica do relatório que pode ser gerado pela tela de "Contas Movimento", aba "Extrato Bancário".
+<p>Aqui você pode obter o Extrato Bancário de forma paginada. Os resultados são uma réplica do relatório que pode ser gerado pela tela de “Contas Movimento”, aba “Extrato Bancário”.</p>
 
-Segue os parâmetros da pesquisa (Parâmetros devem ser enviados no Body da requisição):
+<p>Segue os parâmetros da pesquisa (Parâmetros devem ser enviados no Body da requisição):</p>
 
-\*\* Os itens em negrito são obrigatórios \*\*
+<p>** Os itens em negrito são obrigatórios **</p>
 
-EndFragment
+<p>EndFragment</p>
 
-**DataInicio:** Data de inicio para a pesquisa (yyyy-MM-dd).
+<p><strong>DataInicio:</strong> Data de inicio para a pesquisa (yyyy-MM-dd).</p>
 
-**DataFim:** Data final para a pesquisa (yyyy-MM-dd).
+<p><strong>DataFim:</strong> Data final para a pesquisa (yyyy-MM-dd).</p>
 
-**Status:** Escolha o status entre: 'Todos', 'Conciliados' ou 'Nao Conciliados'.
+<p><strong>Status:</strong> Escolha o status entre: ‘Todos’, ‘Conciliados’ ou ‘Nao Conciliados’.</p>
 
-**ModeloRelatorio:** Escolha o status entre: 'Sintetico' ou 'Analitico'.
+<p><strong>ModeloRelatorio:</strong> Escolha o status entre: ‘Sintetico’ ou ‘Analitico’.</p>
 
-ExibirDetalhesConciliacao: Escolha entre 'true' ou 'false' ou omita para que seja 'false'. Esta opção está disponível apenas no modelo ****Sintético** e em registros com status **Conciliado**. Ela adiciona ao campo "DetalhesConciliacao" todos os registros vinculados e valores por CNPJ.
+<p>ExibirDetalhesConciliacao: Escolha entre ‘true’ ou ‘false’ ou omita para que seja ‘false’. Esta opção está disponível apenas no modelo <strong>**Sintético</strong> e em registros com status <strong>Conciliado</strong>. Ela adiciona ao campo “DetalhesConciliacao” todos os registros vinculados e valores por CNPJ.</p>
 
-Contas: Informar a lista de Ids de contas criação do extrato.
+<p>Contas: Informar a lista de Ids de contas criação do extrato.</p>
 
-CNPJEmpresas: Informar a lista de CNPJ's para a criação do relatório. Serão consideradas todas as contas que tenham no campo **Cnpj** o(s) valor(es) fornecido(s).
+<p>CNPJEmpresas: Informar a lista de CNPJ’s para a criação do relatório. Serão consideradas todas as contas que tenham no campo <strong>Cnpj</strong> o(s) valor(es) fornecido(s).</p>
 
-Pagina: Identificador da página a ser buscada, caso não fornecido será considerado o valor 1.
+<p>Pagina: Identificador da página a ser buscada, caso não fornecido será considerado o valor 1.</p>
 
-É necessário ao menos um Id de Conta Bancária ou CNPJ para ser gerado o Extrato Bancário.
+<p>É necessário ao menos um Id de Conta Bancária ou CNPJ para ser gerado o Extrato Bancário.</p>
 
-Authorization Bearer 
+<p>Authorization Bearer</p>
 
-```json
-{
-"DataInicio": "2022-08-22",
-"DataFim": "2022-08-22",
-"Status": "Todos",
-"ModeloRelatorio": "Sintetico",
-"Contas": ["3604cd42b874ab1940a81b5f"],
-"ExibirDetalhesConciliacao": false
-}
-```
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="nl">"DataInicio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-08-22"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"DataFim"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-08-22"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Todos"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"ModeloRelatorio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sintetico"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Contas"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"3604cd42b874ab1940a81b5f"</span><span class="p">],</span><span class="w">
+</span><span class="nl">"ExibirDetalhesConciliacao"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
-Request
+<p>Request</p>
 
-```shell
-curl --location --globoff '/ExtratoBancarioPublicAPI/ObterExtratoBancario' \
---header 'Content-Type: application/json' \
---data '{
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">--location</span> <span class="nt">--globoff</span> <span class="s1">'/ExtratoBancarioPublicAPI/ObterExtratoBancario'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data</span> <span class="s1">'{
 "DataInicio": "2022-08-22",
 "DataFim": "2022-08-22",
 "Status": "Todos",
 "ModeloRelatorio": "Sintetico",
 "Contas": ["3604cd42b874ab1940a81b5f"]
-}'
-```
+}'</span>
+</code></pre></div></div>
 
-Response
+<p>Response</p>
 
-```json
-{
-"Result": {
-"Pagina": 1,
-"QuantidadeDePaginas": 1,
-"Filtros": {
-"DataInicio": "2022-08-22",
-"DataFim": "2022-08-22",
-"Contas": [
-"3604cd42b874ab1940a81b5f"
-],
-"Status": "Todos",
-"ModeloRelatorio": "Sintetico"
-},
-"Extratos": [
-{
-"Data": "2022-08-22",
-"Conta": "CONTA BANCARIA EXEMPLO",
-"Valor": 100.00,
-"Historico": "DEB.AUTOR.",
-"Complemento": "",
-"Documento": "3751",
-"Empresa": "",
-"DetalhesConciliacao":{
-"Extratos": [
-{
-"id": "640744c79f2ad94617fa6a04",
-"Valor": 100.00
-}
-],
-"Transferencias": [],
-"ResultadoConciliacao": [
-{
-"Cnpj": "96901111000148",
-"Valor": 100.00
-}
-]
-},
-"Origem": "OFX",
-"Status": "Conciliado",
-"TipoDeConciliacao": "Parcelas de Títulos"
-},
-{
-"Data": "2022-08-22",
-"Conta": "CONTA BANCARIA EXEMPLO",
-"Valor": 100.00,
-"Historico": "CRED TED",
-"Complemento": "",
-"Documento": "33",
-"Empresa": "",
-"DetalhesConciliacao":{
-"Extratos": [
-{
-"id": "640745fbb0c0f5248cd9059b",
-"Valor": 100.00
-},
-{
-"id": "6407460c33b369af5c817339",
-"Valor": 100.00
-}
-],
-"Transferencias": [],
-"ResultadoConciliacao": [
-{
-"Cnpj": "96901111000148",
-"Valor": 200.00
-}
-]
-},
-"Origem": "OFX",
-"Status": "Conciliado",
-"TipoDeConciliacao": "Transferência entre Contas"
-},
-{
-"Data": "2022-08-22",
-"Conta": "CONTA BANCARIA EXEMPLO",
-"Valor": 250.00,
-"Historico": "Banco Exemplo",
-"Complemento": "",
-"Documento": "54",
-"Empresa": "",
-"DetalhesConciliacao":{
-"Extratos": [
-{
-"id": "640746bf0b4b164879ae9f37",
-"Valor": 250.00
-}
-],
-"Transferencias": [
-{
-"Id": "640746c65f32118635834ee6",
-"Valor": 250.00
-}
-],
-"ResultadoConciliacao": []
-},
-"Origem": "OFX",
-"Status": "Conciliado",
-"TipoDeConciliacao": "Parcelas de Títulos"
-}
-]
-},
-"Ok": true
-}
-```
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="nl">"Result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"Pagina"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+</span><span class="nl">"QuantidadeDePaginas"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Filtros"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"DataInicio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-08-22"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"DataFim"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-08-22"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Contas"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="s2">"3604cd42b874ab1940a81b5f"</span><span class="w">
+</span><span class="p">],</span><span class="w">
+</span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Todos"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"ModeloRelatorio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sintetico"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="nl">"Extratos"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"Data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-08-22"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Conta"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONTA BANCARIA EXEMPLO"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Valor"</span><span class="p">:</span><span class="w"> </span><span class="mf">100.00</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Historico"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEB.AUTOR."</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Complemento"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Documento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3751"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Empresa"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"DetalhesConciliacao"</span><span class="p">:{</span><span class="w">
+</span><span class="nl">"Extratos"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"640744c79f2ad94617fa6a04"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Valor"</span><span class="p">:</span><span class="w"> </span><span class="mf">100.00</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">],</span><span class="w">
+</span><span class="nl">"Transferencias"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+</span><span class="nl">"ResultadoConciliacao"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"Cnpj"</span><span class="p">:</span><span class="w"> </span><span class="s2">"96901111000148"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Valor"</span><span class="p">:</span><span class="w"> </span><span class="mf">100.00</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="nl">"Origem"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OFX"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Conciliado"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"TipoDeConciliacao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Parcelas de Títulos"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"Data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-08-22"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Conta"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONTA BANCARIA EXEMPLO"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Valor"</span><span class="p">:</span><span class="w"> </span><span class="mf">100.00</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Historico"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CRED TED"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Complemento"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Documento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Empresa"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"DetalhesConciliacao"</span><span class="p">:{</span><span class="w">
+</span><span class="nl">"Extratos"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"640745fbb0c0f5248cd9059b"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Valor"</span><span class="p">:</span><span class="w"> </span><span class="mf">100.00</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6407460c33b369af5c817339"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Valor"</span><span class="p">:</span><span class="w"> </span><span class="mf">100.00</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">],</span><span class="w">
+</span><span class="nl">"Transferencias"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+</span><span class="nl">"ResultadoConciliacao"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"Cnpj"</span><span class="p">:</span><span class="w"> </span><span class="s2">"96901111000148"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Valor"</span><span class="p">:</span><span class="w"> </span><span class="mf">200.00</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="nl">"Origem"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OFX"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Conciliado"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"TipoDeConciliacao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transferência entre Contas"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"Data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-08-22"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Conta"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONTA BANCARIA EXEMPLO"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Valor"</span><span class="p">:</span><span class="w"> </span><span class="mf">250.00</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Historico"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Banco Exemplo"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Complemento"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Documento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Empresa"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+</span><span class="nl">"DetalhesConciliacao"</span><span class="p">:{</span><span class="w">
+</span><span class="nl">"Extratos"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"640746bf0b4b164879ae9f37"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Valor"</span><span class="p">:</span><span class="w"> </span><span class="mf">250.00</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">],</span><span class="w">
+</span><span class="nl">"Transferencias"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"640746c65f32118635834ee6"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Valor"</span><span class="p">:</span><span class="w"> </span><span class="mf">250.00</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">],</span><span class="w">
+</span><span class="nl">"ResultadoConciliacao"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="nl">"Origem"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OFX"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Conciliado"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"TipoDeConciliacao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Parcelas de Títulos"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="nl">"Ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
-# 10 - Centros de Custo
+<h1 id="10---centros-de-custo">10 - Centros de Custo</h1>
 
-Aqui você terá acesso aos endpoints disponíveis para consultar os Centros de Custo.
+<p>Aqui você terá acesso aos endpoints disponíveis para consultar os Centros de Custo.</p>
 
-## Listar Centros de Custo
+<h2 id="listar-centros-de-custo">Listar Centros de Custo</h2>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/CentroDeCustoPublicAPI/ListarCentrosDeCusto</span></aside>
 
-Este método irá listar todos os centros de custo disponíveis.
+<p>Este método irá listar todos os centros de custo disponíveis.</p>
 
-Authorization Bearer 
+<p>Authorization Bearer</p>
 
-Request
+<p>Request</p>
 
-```shell
-curl --location --globoff '/CentroDeCustoPublicAPI/ListarCentrosDeCusto' \
---header 'Content-Type: application/json'
-```
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">--location</span> <span class="nt">--globoff</span> <span class="s1">'/CentroDeCustoPublicAPI/ListarCentrosDeCusto'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span>
+</code></pre></div></div>
 
-Response
+<p>Response</p>
 
-```json
-{
-"Result": [
-{
-"CentroDeCustoId": "6407488d348b87f955141da5",
-"Nome": "TESTE1"
-},
-{
-"CentroDeCustoId": "640748915e4e442569840e37",
-"Nome": "TESTE2"
-},
-{
-"CentroDeCustoId": "6407489685062763fb31f143",
-"Nome": "TESTE3"
-}
-],
-"Ok": true
-}
-```
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="nl">"Result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"CentroDeCustoId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6407488d348b87f955141da5"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Nome"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TESTE1"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"CentroDeCustoId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"640748915e4e442569840e37"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Nome"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TESTE2"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"CentroDeCustoId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6407489685062763fb31f143"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Nome"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TESTE3"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">],</span><span class="w">
+</span><span class="nl">"Ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
-# 11 - Conta Bancária
+<h1 id="11---conta-bancária">11 - Conta Bancária</h1>
 
-Aqui você terá acesso aos endpoints disponíveis para consultar as Contas Bancárias.
+<p>Aqui você terá acesso aos endpoints disponíveis para consultar as Contas Bancárias.</p>
 
-## Listar Contas Bancárias
+<h2 id="listar-contas-bancárias">Listar Contas Bancárias</h2>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">ContaBancariaPublicAPI/ListarContasBancarias</span></aside>
 
-Este método irá listar todas as contas bancárias disponíveis.
+<p>Este método irá listar todas as contas bancárias disponíveis.</p>
 
-Authorization Bearer 
+<p>Authorization Bearer</p>
 
-Exemplo Request
+<p>Exemplo Request</p>
 
-```shell
-curl --location --globoff '/ContaBancariaPublicAPI/ListarContasBancarias' \
---header 'Content-Type: application/json'
-```
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">--location</span> <span class="nt">--globoff</span> <span class="s1">'/ContaBancariaPublicAPI/ListarContasBancarias'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span>
+</code></pre></div></div>
 
-Response
+<p>Response</p>
 
-```json
-{
-"Result": [
-{
-"Id": "454061eb0d9a9413f8067ad6",
-"Nome": "NOME DA CONTA TESTE",
-"TipoDeConta": "Conta Corrente",
-"Carteira": "0",
-"Agencia": "1234",
-"Conta": "1234567",
-"DigitoConta": "12",
-"NumeroBanco": 33
-}
-],
-"Ok": true
-}
-```
-</span></aside>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="nl">"Result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"454061eb0d9a9413f8067ad6"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Nome"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOME DA CONTA TESTE"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"TipoDeConta"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Conta Corrente"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Carteira"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Agencia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Conta"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"DigitoConta"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"NumeroBanco"</span><span class="p">:</span><span class="w"> </span><span class="mi">33</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">],</span><span class="w">
+</span><span class="nl">"Ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 </div>
 
 
