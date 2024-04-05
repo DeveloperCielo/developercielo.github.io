@@ -59,6 +59,38 @@ Conforme estabelecido pela Lei N° **14.442, de 2 de setembro de 2022**, o **Vou
 
 [CIELO-Extracto-Electronico-Manual-Version-15.6](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO-Extracto-Electronico-Manual-Version-15.6.pdf)
 
+## V15.8 - Novas regras de atualização na demonstração de lançamentos de Negociações de Recebíveis no Extrato Eletrônico
+
+Uma vez que as negociações de recebíveis podem sofrer alterações, cancelamentos e recálculos pelo sistema de registro de recebíveis de cartões, ou pelas instituições financeiras responsáveis, a partir da versão 15.8 o Extrato V15 de Captura/Previsão **(CIELO03)**, passará a demonstrar as atualizações referentes aos valores previstos para pagamento.
+
+> Esta mudança está prevista para implantação em 01/06/2024.
+
+Para maiores informações consulte no Manual, as atualizações referentes à nova versão 15.8:
+
+[Manual](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO_Extrato_Eletronico_Manual_Versao_15.8.pdf) 
+
+> OBS: A versão 15.8 contempla ambas as atualizações (15.7 e 15.8)
+
+![Comunicado (PT)](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/20240330Atualizacao_Negociacoes_Cielo_PT.JPG)
+
+![Comunicado (EN)](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/20240330Atualizacao_Negociacoes_Cielo_EN.JPG)
+
+## V15.7 - Reserva Financeira No Extrato Eletrônico
+
+A **Reserva Financeira**, basicamente é um montante previamente definido pela Cielo que é reservado/bloqueado e não fica disponível para negociações/antecipações, podendo ser utilizada para cobrir débitos (tais como multas, estornos, compensações, etc.), caso não existam valores disponíveis em agenda, a fim de gerenciar o risco inerente à relação contratual (Credenciadora e Recebedor/Cliente).
+
+> Esta mudança está prevista para implantação em 01/06/2024.
+
+Para maiores informações consulte no Manual, as atualizações referentes à nova versão 15.7:
+
+[Manual](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO_Extrato_Eletronico_Manual_Versao_15.8.pdf) 
+
+> OBS: A versão 15.8 contempla ambas as atualizações (15.7 e 15.8)
+
+![Comunicado (PT)](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/20240330Reserva_Financeira_PT.JPG)
+
+![Comunicado (EN)](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/20240330Reserva_Financeira_EN.JPG)
+
 # Histórico de Alterações
 
 ## Versão Produtiva V14
