@@ -107,7 +107,7 @@ Authorization Bearer {{token_jwt}}
 Request
 
 ```shell
-curl --location --globoff '{{URL}}/PublicRelatorioAPI/GerarRelatorio' \
+curl --location --globoff '{URL}}/PublicRelatorioAPI/GerarRelatorio' \
 --header 'Content-Type: application/json' \
 --data '{
 "Data": "2021-01-01",
@@ -178,12 +178,12 @@ Exemplo de arquivo contábil no formato JSON:  https://drive.google.com/file/d/1
 "URLNotificacao": "",
 "CNPJEmpresas": []
 }
-```json
+```
 
 Request
 
 ```shell
-curl --location --globoff '{{URL}}/PublicRelatorioAPI/GerarRelatorioDeConciliacaoDeCartoes' \
+curl --location --globoff '{URL}/PublicRelatorioAPI/GerarRelatorioDeConciliacaoDeCartoes' \
 --header 'Content-Type: application/json' \
 --data '{
 "DataInicio": "2021-11-08",
@@ -202,6 +202,7 @@ Response
 "Result": "60db204089d59e0aec5d8756",
 "Ok": true
 }
+```
 
 ## Obter Relatório
 
