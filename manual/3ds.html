@@ -1183,6 +1183,19 @@ Além das bandeiras, o emissor do cartão também precisa processar o protocolo 
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
+<p><strong>Exemplo de retorno para bandeira não suportada</strong></p>
+
+<p>Quando a bandeira não é suportada pelo 3DS, o MPI retorna o código “MPI 600” e a mensagem <em>“Brand not supported for authentication”.</em></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="err">Xid:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="err">Eci:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="err">ReturnCode:</span><span class="w"> </span><span class="err">'MPI</span><span class="mi">600</span><span class="err">'</span><span class="p">,</span><span class="w">
+  </span><span class="err">ReturnMessage:</span><span class="w"> </span><span class="err">'Brand</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">supported</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">authentication'</span><span class="p">,</span><span class="w">
+  </span><span class="err">ReferenceId:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
 <p>Confira os valores possíveis de <code class="language-plaintext highlighter-rouge">ReturnCodes</code> na tabela <a href="https://developercielo.github.io/manual/3ds#lista-de-return-codes">Lista de Return Codes</a>.</p>
 
 <h3 id="tabela-de-eci">Tabela de ECI</h3>
