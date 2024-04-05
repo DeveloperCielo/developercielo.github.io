@@ -24,7 +24,7 @@ O token é dispobinilizado pela plataforma da F360 ao criar um webservice de API
 
 https://f360.zendesk.com/hc/pt-br/articles/360062098714
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/PublicLoginAPI/DoLogin</aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/PublicLoginAPI/DoLogin</span></aside>
 
 Body
 
