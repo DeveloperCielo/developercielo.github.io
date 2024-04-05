@@ -214,7 +214,7 @@
 
 <p>Request</p>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">--location</span> <span class="nt">--globoff</span> <span class="s1">'/PublicRelatorioAPI/GerarRelatorio'</span> <span class="se">\</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">--location</span> <span class="nt">--globoff</span> <span class="s1">'{URL}}/PublicRelatorioAPI/GerarRelatorio'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data</span> <span class="s1">'{
 "Data": "2021-01-01",
@@ -283,22 +283,21 @@
 </span><span class="nl">"URLNotificacao"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
 </span><span class="nl">"CNPJEmpresas"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span><span class="err">```json</span><span class="w">
-
-</span><span class="err">Request</span><span class="w">
-
-</span><span class="err">```shell</span><span class="w">
-</span><span class="err">curl</span><span class="w"> </span><span class="err">--location</span><span class="w"> </span><span class="err">--globoff</span><span class="w"> </span><span class="err">'/PublicRelatorioAPI/GerarRelatorioDeConciliacaoDeCartoes'</span><span class="w"> </span><span class="err">\</span><span class="w">
-</span><span class="err">--header</span><span class="w"> </span><span class="err">'Content-Type:</span><span class="w"> </span><span class="err">application/json'</span><span class="w"> </span><span class="err">\</span><span class="w">
-</span><span class="err">--data</span><span class="w"> </span><span class="err">'</span><span class="p">{</span><span class="w">
-</span><span class="nl">"DataInicio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-11-08"</span><span class="p">,</span><span class="w">
-</span><span class="nl">"DataFim"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-11-08"</span><span class="p">,</span><span class="w">
-</span><span class="nl">"TipoConciliacao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Todos"</span><span class="p">,</span><span class="w">
-</span><span class="nl">"EnviarNotificacaoPorWebhook"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-</span><span class="nl">"URLNotificaticao"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-</span><span class="nl">"CNPJEmpresas"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-</span><span class="p">}</span><span class="err">'</span><span class="w">
 </span></code></pre></div></div>
+
+<p>Request</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">--location</span> <span class="nt">--globoff</span> <span class="s1">'{URL}/PublicRelatorioAPI/GerarRelatorioDeConciliacaoDeCartoes'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data</span> <span class="s1">'{
+"DataInicio": "2021-11-08",
+"DataFim": "2021-11-08",
+"TipoConciliacao": "Todos",
+"EnviarNotificacaoPorWebhook": false,
+"URLNotificaticao": "",
+"CNPJEmpresas": []
+}'</span>
+</code></pre></div></div>
 
 <p>Response</p>
 
@@ -306,22 +305,22 @@
 </span><span class="nl">"Result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"60db204089d59e0aec5d8756"</span><span class="p">,</span><span class="w">
 </span><span class="nl">"Ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
-</span><span class="err">##</span><span class="w"> </span><span class="err">Obter</span><span class="w"> </span><span class="err">Relatório</span><span class="w">
-
-</span><span class="err">&lt;aside</span><span class="w"> </span><span class="err">class=</span><span class="s2">"request"</span><span class="err">&gt;&lt;span</span><span class="w"> </span><span class="err">class=</span><span class="s2">"method get"</span><span class="err">&gt;GET&lt;/span&gt;</span><span class="w"> </span><span class="err">&lt;span</span><span class="w"> </span><span class="err">class=</span><span class="s2">"endpoint"</span><span class="err">&gt;/PublicRelatorioAPI/Download?id=</span><span class="mi">60</span><span class="err">db</span><span class="mi">204089</span><span class="err">d</span><span class="mi">59e0</span><span class="err">aec</span><span class="mi">5</span><span class="err">d</span><span class="mi">8756</span><span class="err">&lt;/span&gt;&lt;/aside&gt;</span><span class="w">
-
-</span><span class="err">Este</span><span class="w"> </span><span class="err">método</span><span class="w"> </span><span class="err">irá</span><span class="w"> </span><span class="err">retornar</span><span class="w"> </span><span class="err">o</span><span class="w"> </span><span class="err">relatório</span><span class="w"> </span><span class="err">que</span><span class="w"> </span><span class="err">foi</span><span class="w"> </span><span class="err">gerado</span><span class="w"> </span><span class="err">no</span><span class="w"> </span><span class="err">endpoint</span><span class="w"> </span><span class="err">anterior.</span><span class="w"> </span><span class="err">Lembre-se</span><span class="w"> </span><span class="err">que</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">geração</span><span class="w"> </span><span class="err">do</span><span class="w"> </span><span class="err">relatório</span><span class="w"> </span><span class="err">é</span><span class="w"> </span><span class="err">feito</span><span class="w"> </span><span class="err">por</span><span class="w"> </span><span class="err">meio</span><span class="w"> </span><span class="err">de</span><span class="w"> </span><span class="err">uma</span><span class="w"> </span><span class="err">fila</span><span class="w"> </span><span class="err">de</span><span class="w"> </span><span class="err">mensagens,</span><span class="w"> </span><span class="err">ou</span><span class="w"> </span><span class="err">seja,</span><span class="w"> </span><span class="err">o</span><span class="w"> </span><span class="err">processo</span><span class="w"> </span><span class="err">é</span><span class="w"> </span><span class="err">feito</span><span class="w"> </span><span class="err">em</span><span class="w"> </span><span class="err">background.</span><span class="w">
-
-</span><span class="err">Evite</span><span class="w"> </span><span class="err">fazer</span><span class="w"> </span><span class="err">polling</span><span class="w"> </span><span class="err">neste</span><span class="w"> </span><span class="err">método</span><span class="w"> </span><span class="err">para</span><span class="w"> </span><span class="err">saber</span><span class="w"> </span><span class="err">se</span><span class="w"> </span><span class="err">o</span><span class="w"> </span><span class="err">seu</span><span class="w"> </span><span class="err">relatório</span><span class="w"> </span><span class="err">foi</span><span class="w"> </span><span class="err">concluído</span><span class="w"> </span><span class="err">com</span><span class="w"> </span><span class="err">sucesso</span><span class="w"> </span><span class="err">ou</span><span class="w"> </span><span class="err">não.</span><span class="w"> </span><span class="err">O</span><span class="w"> </span><span class="err">melhor</span><span class="w"> </span><span class="err">cenário</span><span class="w"> </span><span class="err">é</span><span class="w"> </span><span class="err">que</span><span class="w"> </span><span class="err">você</span><span class="w"> </span><span class="err">configure</span><span class="w"> </span><span class="err">uma</span><span class="w"> </span><span class="err">URL</span><span class="w"> </span><span class="err">de</span><span class="w"> </span><span class="err">notificação</span><span class="w"> </span><span class="err">ao</span><span class="w"> </span><span class="err">gerar</span><span class="w"> </span><span class="err">o</span><span class="w"> </span><span class="err">relatório,</span><span class="w"> </span><span class="err">dessa</span><span class="w"> </span><span class="err">forma</span><span class="w"> </span><span class="err">você</span><span class="w"> </span><span class="err">será</span><span class="w"> </span><span class="err">notificado</span><span class="w"> </span><span class="err">assim</span><span class="w"> </span><span class="err">que</span><span class="w"> </span><span class="err">terminarmos</span><span class="w"> </span><span class="err">o</span><span class="w"> </span><span class="err">processamento.</span><span class="w">
-
-</span><span class="err">Authorization</span><span class="w"> </span><span class="err">Bearer</span><span class="w"> 
-
-</span><span class="err">```shell</span><span class="w">
-</span><span class="err">curl</span><span class="w"> </span><span class="err">--location</span><span class="w"> </span><span class="err">-g</span><span class="w"> </span><span class="err">'/PublicRelatorioAPI/Download?id=</span><span class="mi">60</span><span class="err">db</span><span class="mi">204089</span><span class="err">d</span><span class="mi">59e0</span><span class="err">aec</span><span class="mi">5</span><span class="err">d</span><span class="mi">8756</span><span class="err">'</span><span class="w"> </span><span class="err">\</span><span class="w">
-</span><span class="err">--header</span><span class="w"> </span><span class="err">'Content-Type:</span><span class="w"> </span><span class="err">application/json'</span><span class="w"> </span><span class="err">\</span><span class="w">
-</span><span class="err">--data</span><span class="w"> </span><span class="err">''</span><span class="w">
 </span></code></pre></div></div>
+
+<h2 id="obter-relatório">Obter Relatório</h2>
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/PublicRelatorioAPI/Download?id=60db204089d59e0aec5d8756</span></aside>
+
+<p>Este método irá retornar o relatório que foi gerado no endpoint anterior. Lembre-se que a geração do relatório é feito por meio de uma fila de mensagens, ou seja, o processo é feito em background.</p>
+
+<p>Evite fazer polling neste método para saber se o seu relatório foi concluído com sucesso ou não. O melhor cenário é que você configure uma URL de notificação ao gerar o relatório, dessa forma você será notificado assim que terminarmos o processamento.</p>
+
+<p>Authorization Bearer</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">--location</span> <span class="nt">-g</span> <span class="s1">'/PublicRelatorioAPI/Download?id=60db204089d59e0aec5d8756'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data</span> <span class="s1">''</span>
+</code></pre></div></div>
 
 <h2 id="gerar-relatório-de-transferencias-entre-contas">Gerar Relatório de Transferencias Entre Contas</h2>
 
