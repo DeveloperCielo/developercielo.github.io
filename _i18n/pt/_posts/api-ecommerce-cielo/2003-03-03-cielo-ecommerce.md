@@ -2957,11 +2957,11 @@ As bandeiras participantes disponibilizam APIs para o recebimento e armazenament
 
 A Cielo fornece esse serviço para os clientes de três formas:
 
-* **Tokenização Transparente Cielo**: quando uma transação online com o cartão aberto (PAN) for recebida em nossa API, a Cielo irá solicitar um token para aquele cartão de forma transparente e sem a necessidade de integração adicional. Neste momento a Cielo não irá cobrar pela solução, de forma a propiciar a experiência da tokenização para nossos clientes e mitigar o custo da taxa de 0,05% sobre o valor da transação. Futuramente este tema poderá ser reavaliado. Nesta solução tanto os cartões quanto os tokens são de gestão e propriedade da Cielo. No momento essa opção está indisponível.
+* **Tokenização Transparente Cielo**: quando uma transação online com o cartão aberto (PAN) for recebida em nossa API, a Cielo irá solicitar um token para aquele cartão de forma transparente e sem a necessidade de integração adicional. Neste momento a Cielo não irá cobrar pela solução, de forma a propiciar a experiência da tokenização para nossos clientes e mitigar o custo da taxa de 0,05% sobre o valor da transação. Futuramente este tema poderá ser reavaliado. Nesta solução tanto os cartões quanto os tokens são de gestão e propriedade da Cielo.
 
 <aside class="warning">No momento a tokenização transparente Cielo está indisponível. A previsão de retorno é a partir de maio de 2024.</aside>
 
-    > **Bandeira disponível**: Visa.
+  > **Bandeira disponível**: Visa.
 
 * **Integração facilitada:** o estabelecimento se integra com a funcionalidade de tokenização convencional da Cielo, que por trás realiza a tokenização da bandeira, e relaciona esses dois tokens no cofre da Cielo. Dessa forma, os estabelecimentos sempre terão um único token para aquele cartão, mas a Cielo terá os tokens e criptogramas das bandeiras internamente. Para conferir como é a integração com a tokeniação convencional da Cielo, volte para o menu [Tokenização de cartões](https://developercielo.github.io/manual/cielo-ecommerce#tokeniza%C3%A7%C3%A3o-de-cart%C3%B5es).
 
@@ -4684,7 +4684,7 @@ HTTP Status 200
 
 Veja o Anexo [HTTP Status Code](#http-status-code) para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
-### Modificando intevalo da Recorrência
+### Modificando intervalo da Recorrência
 
 Altera o intervalo da Recorrência.
 
