@@ -63,7 +63,7 @@ Preencha os campos com os dados requisitados. A imagem a seguir é um **exemplo*
 
 ![1Dados Afiliação]({{ site.baseurl_root }}/images/modulos/vtex/03a-dados-21-02-2024.jpg)
 ![2Dados Afiliação]({{ site.baseurl_root }}/images/modulos/vtex/03b-dados-21-02-2024.jpg)
-![3Dados Afiliação]({{ site.baseurl_root }}/images/modulos/vtex/03c-dados-21-02-2024.jpg)
+![3Dados Afiliação]({{ site.baseurl_root }}/images/modulos/vtex/03c-dados-22-03-2024.jpg)
 
 #### Dados da Afiliação
 
