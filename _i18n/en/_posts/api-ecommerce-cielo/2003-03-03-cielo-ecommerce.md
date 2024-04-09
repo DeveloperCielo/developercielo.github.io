@@ -66,7 +66,7 @@ To execute an operation:
 | **GET**  | The `GET` HTTP method is used for querying already existing features. For example, transaction query.                                                |
 
 All operations require the access credentials **`MerchantId`** and **`MerchantKey`**, which must be sent in the header (_header_) of the request.<br>
-<br>Each request sent will return an [HTTP Status Code](https://developercielo.github.io/manual/cielo-ecommerce#http-status-code), indicating whether it was carried out successfully or not.
+<br>Each request sent will return an [HTTP Status Code](https://developercielo.github.io/en/manual/cielo-ecommerce#http-status-code), indicating whether it was carried out successfully or not.
 
 ## Glossary
 
