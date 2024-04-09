@@ -72,7 +72,6 @@ Preencha os campos com os dados requisitados. A imagem a seguir é um **exemplo*
 |**Chave de aplicação**|Insira o `MerchantID`.|
 |**Token de aplicação**|Insira o `MerchantKey`.|
 |**Nome**|Insira o nome identificador da afiliação.|
-|**Controle de pagamento**|Campo VTEX sobre liquidação automática.|
 |**Integration**|Selecione **Adquirência** se a sua integração atual é **diretamente com a Cielo**. <br>Selecione **Gateway** se a sua integração atual é para utilização de **outros provedores via Pagador** (Gateway Braspag).|
 |**Provider**|Selecione o provedor  que deseja configurar a afiliação conforme o tipo de pagamento. <br>Exemplo: Se o seu provedor de Boleto é o Bradesco e o seu provedor de Crédito, Débito e Pix é o Cielo será necessário adicionar duas afiliações. <br>O provedor **Simulado** deve ser utilizado para transações de teste.<br>O provedor **Cielo** deve ser configurado para Integração **Adquirência**. <br>O provedor **Cielo30** deve ser configurado para Integração **Gateway**.|
 |**IsSplit**|Insira “Sim” ou “Não” se deseja utilizar o SPLIT de pagamentos. Disponível para os tipos de pagamento crédito, débito e boleto.|
@@ -92,6 +91,7 @@ Preencha os campos com os dados requisitados. A imagem a seguir é um **exemplo*
 |**AcceptPrepaidCard**|**[Exige VerifyCard]** <br> Selecionar se a loja aceitará cartões pré-pagos via VerifyCard.|
 |**SaveCard**|Selecionar caso a loja queira disponibilizar a opção de salvar cartão para futuras compras. <br> Antes de configurar, confira se a funcionalidade [Cartão Protegido](https://developercielo.github.io/manual/integracao-vtex#cart%C3%A3o-protegido) está habilitada em sua loja/EC.|
 |**CancelRefundType**|Permite que o lojista escolha o fluxo de cancelamento/estorno de pedidos:<br>- **Automático sempre que possível**: autoriza o cancelamento e estorno de forma automática (fluxo padrão);<br>- **Manual de acordo com a loja (notificação por e-mail)**: todos os pedidos de cancelamento e estorno não são autorizados de forma automática e o lojista é notificado via e-mail.|
+|**CieloLIOClientId**|Campo configurado apenas para a utilização do **SalesApp**. Caso use o conector exclusivamente para e-commerce, esse campo deverá ficar em branco.|
 
 *O preenchimento dos campos relacionados ao MPI é opcional; você pode escolher preencher os dados de MPI e deixar a opção **UseMpi** desativada ("No") e, mais tarde, caso deseje ativar o 3DS para esta afiliação, apenas altere a opção **UseMpi** para "Yes".
 
