@@ -188,7 +188,7 @@ Para utilizar esta solução, é necessário instalar o aplicativo 3DS. Com o us
 
 <aside class="notice">https://{nome_da_loja}.myvtex.com/admin/apps/braspag.braspag-3ds-payment-app@4.0.4/setup/</aside>
 
-> O aplicativo deve ser instalado na(s) loja(s) que transacionarão com o 3DS.
+> O aplicativo deve ser instalado na loja que transacionará com o 3DS. Se mais de uma loja usará a solução, instale o app individualmente em cada uma das lojas.
 
 Ao concluir a instalação, verifique se o aplicativo aparece em **Aplicativos** > **Meus Aplicativos**:
 
