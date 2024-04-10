@@ -184,9 +184,9 @@ Nesta seção configure os dados para Private Label, Ticket e Alelo:
 
 As credenciais recebidas para utilização da solução devem ser inseridas conforme o tópico [Afiliação de Pagamento](https://braspag.github.io//tutorial/integracao-vtex#afilia%C3%A7%C3%A3o-de-pagamento).
 
-Para utilizar esta solução, é necessário instalar o aplicativo 3DS. Com o usuário logado, acesse a seguinte URL e substitua o *nome_da_loja* pelo nome de sua loja.
+Para utilizar esta solução, é necessário instalar o aplicativo 3DS. Com o usuário logado, acesse a seguinte URL e substitua o *{nome_da_loja}* pelo nome de sua loja.
 
-<aside class="notice">https://[nome_da_loja].myvtex.com/admin/apps/braspag.braspag-3ds-payment-app@3.0.1/setup/</aside>
+<aside class="notice">https://{nome_da_loja}.myvtex.com/admin/apps/braspag.braspag-3ds-payment-app@4.0.4/setup/</aside>
 
 Ao concluir a instalação, verifique se o aplicativo aparece em **Aplicativos** > **Meus Aplicativos**:
 
