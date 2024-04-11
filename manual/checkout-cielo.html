@@ -2098,15 +2098,114 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
 
 <h2 id="alterando-dados-da-recorrência">Alterando dados da Recorrência</h2>
 
-<p>Para alterar dados da recorrência, acesse o <strong>site Cielo</strong>, onde é possível alterar:</p>
+<p>O lojista pode alterar dados da recorrência gerada após a criação do pagamento. Confira quais dados é possível alterar:</p>
 
 <ul>
-  <li><strong>Ativação</strong>: uma recorrência pode ser ativada ou cancelada;</li>
-  <li><strong>Intervalo</strong>: é possivel modificar o intervalo de execução;</li>
-  <li><strong>Dia da recorrência</strong>: é possivel modificar o dia de execução da transação recorrente.
-<br />
-Acesse o <a href="https://developercielo.github.io/tutorial/checkout-tutoriais">Tutorial do Backoffice Checkout Cielo</a> para mais informações.</li>
+  <li><strong>Intervalo</strong>: intervalo de execução;</li>
+  <li><strong>Dia da recorrência</strong>: dia de execução da transação recorrente;</li>
+  <li><strong>Data da próxima cobrança</strong>: data em que a próxima cobrança será realizada, seguindo a configuração de intervalo configurada e o dia da recorrência;</li>
+  <li><strong>Valor da recorrência</strong>: valor da cobrança recorrente no cartão do cliente;</li>
+  <li><strong>Data final da recorrência</strong>: data em que a recorrência é desativada.
+<br /></li>
 </ul>
+
+<p>Essas alteração podem ser feitas por dois canais. Confira abaixo quais são e as respectivas orientações:</p>
+
+<ul>
+  <li><strong>Site Cielo</strong> (alteração manual): Acesse o <a href="https://developercielo.github.io/tutorial/checkout-tutoriais">Tutorial do Backoffice Checkout Cielo</a> para mais informações.</li>
+  <li><strong>API do Checkout</strong> (alteração integrada): siga os passos a seguir para enviar requisições de edição de recorrência de forma integrada pela API do Checkout Cielo.</li>
+</ul>
+
+<h3 id="alteração-integrada">Alteração Integrada</h3>
+
+<p>Para alterar dados de uma recorrêcia usando a API do Checkout Cielo, basta enviar uma requisição com as informações a serem alteradas. Confira um exemplo dessa requisição.</p>
+
+<h4 id="requisição-3">Requisição</h4>
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v1/RecurrentPayment/Update</span></aside>
+
+<p><strong>Parâmetros no cabeçalho (header)</strong></p>
+<ul>
+  <li><strong>Authorization</strong>: Bearer {access_token}</li>
+  <li><strong>Content-type</strong>: application/json</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w"> 
+  </span><span class="nl">"PagadorRecurrentPaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0207CE76-8144-48DC-8B17-876465BC3A6D"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nl">"EndDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2030-12-31"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nl">"Interval"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> 
+  </span><span class="nl">"NextPaymentDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-12-31"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33333.33"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nl">"Day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31"</span><span class="w"> 
+</span><span class="p">}</span><span class="w"> 
+</span></code></pre></div></div>
+
+<p><strong>Parâmentros no corpo (body)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>PARÂMETRO</th>
+      <th>DESCRIÇÃO</th>
+      <th>TIPO</th>
+      <th>TAMANHO MÁXIMO</th>
+      <th>OBRIGATÓRIO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PagadorRecurrentPaymentI</code></td>
+      <td>Número de identificação da recorrência no Checkout.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Amount</code></td>
+      <td>Valor da recorrência em centavos (ex: R$ 1,00 = 100)</td>
+      <td>número</td>
+      <td>10</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">interval</code></td>
+      <td>Intervalo de cobrança da recorrência em meses.<br />“Monthly” - 1<br />“Bimonthly” - 2<br />“Quarterly” - 3<br />“SemiAnnual” - 6<br />“Annual” - 12</td>
+      <td>número</td>
+      <td>10</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">EndDate</code></td>
+      <td>Data de encerramento da recorrência. Se não enviado, a recorrência se encerra somente se cancelada.</td>
+      <td>data (YYYY-MM-DD)</td>
+      <td>255</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Day</code></td>
+      <td>Dia do mês em que a cobrança da recorrência é realizada.</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">NextPaymentDate</code></td>
+      <td>Data da próxima cobrança da recorrência. Se alterada, as próximas cobranças seguirão essa data.<br />Exemplo: em uma recorrência de intervalo mensal, o dia do mês em que é feita a cobrança é sempre dia 10. A primeira cobrança foi no dia 10/01/2024, então a próxima cobrança seria 10/02/2024. Se essa data de próxima cobrança for alterada para 20/02/2024, a partir dela, as próximas cobranças serão no dia 20 do mês, mensalmente.</td>
+      <td>data (YYYY-MM-DD)</td>
+      <td>10</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="resposta-2">Resposta</h4>
+
+<p><code class="language-plaintext highlighter-rouge">HTTP Status: 200 - OK</code></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w"> 
+</span><span class="s2">" Recurrent Payment - {id} Updated Successfully"</span><span class="w"> 
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <h1 id="notificações-da-transação">Notificações da transação</h1>
 
@@ -2903,7 +3002,7 @@ Acesse o <a href="https://developercielo.github.io/tutorial/checkout-tutoriais">
 
 <p>A consulta de transações por <code class="language-plaintext highlighter-rouge">order_number</code> retorna uma lista de transações com o mesmo número de pedidos; isso ocorre pois o Checkout não impede a duplicação de <code class="language-plaintext highlighter-rouge">order_number</code>s por parte da loja. A resposta retornará o <code class="language-plaintext highlighter-rouge">checkout_cielo_order_number</code>, que deverá ser usado na consulta de uma transação específica.</p>
 
-<h4 id="requisição-3">Requisição</h4>
+<h4 id="requisição-4">Requisição</h4>
 
 <p>Para consultar uma transação pelo <code class="language-plaintext highlighter-rouge">order_number</code>, faça um <code class="language-plaintext highlighter-rouge">GET</code>.</p>
 
@@ -2932,7 +3031,7 @@ Acesse o <a href="https://developercielo.github.io/tutorial/checkout-tutoriais">
   </tbody>
 </table>
 
-<h4 id="resposta-2">Resposta</h4>
+<h4 id="resposta-3">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -3029,7 +3128,7 @@ Acesse o <a href="https://developercielo.github.io/tutorial/checkout-tutoriais">
 
 <h3 id="por-checkout_cielo_order_number">Por Checkout_Cielo_Order_Number</h3>
 
-<h4 id="requisição-4">Requisição</h4>
+<h4 id="requisição-5">Requisição</h4>
 
 <p>Para consultar uma transação pelo <code class="language-plaintext highlighter-rouge">Checkout_Cielo_Order_Number</code>, basta realizar um <code class="language-plaintext highlighter-rouge">GET</code>.</p>
 
@@ -3062,7 +3161,7 @@ Acesse o <a href="https://developercielo.github.io/tutorial/checkout-tutoriais">
   </tbody>
 </table>
 
-<h4 id="resposta-3">Resposta</h4>
+<h4 id="resposta-4">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w"> 
     </span><span class="nl">"merchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c89fdfbb-dbe2-4e77-806a-6d75cd397dac"</span><span class="p">,</span><span class="w"> 
@@ -3434,7 +3533,7 @@ Acesse o <a href="https://developercielo.github.io/tutorial/checkout-tutoriais">
 
 <p>A captura acontece após a autorização, para que a venda seja concretizada e a cobrança seja feita no cartão. Somente após a captura o portador do cartão poderá visualizá-la em seu extrato ou fatura.</p>
 
-<h3 id="requisição-5">Requisição</h3>
+<h3 id="requisição-6">Requisição</h3>
 
 <p>Para capturar uma transação de cartão de crédito pelo <code class="language-plaintext highlighter-rouge">Checkout_Cielo_Order_Number</code>, basta realizar um <code class="language-plaintext highlighter-rouge">PUT</code>.</p>
 
@@ -3458,7 +3557,7 @@ Acesse o <a href="https://developercielo.github.io/tutorial/checkout-tutoriais">
   <p><strong>Observação</strong>: A captura parcial pode ser realizada apenas uma vez e é exclusiva para cartão de crédito.</p>
 </blockquote>
 
-<h3 id="resposta-4">Resposta</h3>
+<h3 id="resposta-5">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -3529,7 +3628,7 @@ Acesse o <a href="https://developercielo.github.io/tutorial/checkout-tutoriais">
   <p><strong>Importante</strong>: Para realizar qualquer solicitação de cancelamento, é necessário que o estabelecimento possua saldo suficiente na transação/em agenda.</p>
 </blockquote>
 
-<h3 id="requisição-6">Requisição</h3>
+<h3 id="requisição-7">Requisição</h3>
 
 <blockquote>
   <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
@@ -3551,7 +3650,7 @@ Acesse o <a href="https://developercielo.github.io/tutorial/checkout-tutoriais">
   <p><strong>Atenção</strong>: O cancelamento parcial pode ser realizado apenas após a captura. O cancelamento parcial pode ser realizado inúmeras vezes até que o valor total seja cancelado.</p>
 </blockquote>
 
-<h3 id="resposta-5">Resposta</h3>
+<h3 id="resposta-6">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
