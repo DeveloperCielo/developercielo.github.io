@@ -1024,13 +1024,63 @@ Caso uma das transações da recorrência não seja autorizada, o Checkout Cielo
 
 ## Alterando dados da Recorrência
 
-Para alterar dados da recorrência, acesse o **site Cielo**, onde é possível alterar:
+O lojista pode alterar dados da recorrência gerada após a criação do pagamento. Confira quais dados é possível alterar: 
 
-* **Ativação**: uma recorrência pode ser ativada ou cancelada;
-* **Intervalo**: é possivel modificar o intervalo de execução;
-* **Dia da recorrência**: é possivel modificar o dia de execução da transação recorrente.
+* **Intervalo**: intervalo de execução;
+* **Dia da recorrência**: dia de execução da transação recorrente;
+* **Data da próxima cobrança**: data em que a próxima cobrança será realizada, seguindo a configuração de intervalo configurada e o dia da recorrência;
+* **Valor da recorrência**: valor da cobrança recorrente no cartão do cliente;
+* **Data final da recorrência**: data em que a recorrência é desativada.
 <br/>
-Acesse o [Tutorial do Backoffice Checkout Cielo](https://developercielo.github.io/tutorial/checkout-tutoriais) para mais informações.
+
+Essas alteração podem ser feitas por dois canais. Confira abaixo quais são e as respectivas orientações:
+
+* **Site Cielo** (alteração manual): Acesse o [Tutorial do Backoffice Checkout Cielo](https://developercielo.github.io/tutorial/checkout-tutoriais) para mais informações.
+* **API do Checkout** (alteração integrada): siga os passos a seguir para enviar requisições de edição de recorrência de forma integrada pela API do Checkout Cielo.
+
+### Alteração Integrada
+
+Para alterar dados de uma recorrêcia usando a API do Checkout Cielo, basta enviar uma requisição com as informações a serem alteradas. Confira um exemplo dessa requisição.
+
+#### Requisição 
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v1/RecurrentPayment/Update</span></aside>
+
+**Parâmetros no cabeçalho (header)**
+* **Authorization**: Bearer {access_token}
+* **Content-type**: application/json
+
+```json
+{ 
+  "PagadorRecurrentPaymentId": "0207CE76-8144-48DC-8B17-876465BC3A6D", 
+  "EndDate": "2030-12-31", 
+  "Interval": 1, 
+  "NextPaymentDate": "2024-12-31", 
+  "Amount": "33333.33", 
+  "Day": "31" 
+} 
+```
+
+**Parâmentros no corpo (body)**
+
+|PARÂMETRO|DESCRIÇÃO|TIPO|TAMANHO MÁXIMO|OBRIGATÓRIO|
+|-|-|-|-|-|
+|`PagadorRecurrentPaymentI`|Número de identificação da recorrência no Checkout.|GUID|36|Sim|
+|`Amount`|Valor da recorrência em centavos (ex: R$ 1,00 = 100)|número|10|Não|
+|`interval`|Intervalo de cobrança da recorrência em meses.<br>"Monthly" - 1<br>"Bimonthly" - 2<br>"Quarterly" - 3<br>"SemiAnnual" - 6<br>"Annual" - 12|número|10|Não|
+|`EndDate`|Data de encerramento da recorrência. Se não enviado, a recorrência se encerra somente se cancelada.|data (YYYY-MM-DD)|255|Não|
+|`Day`|Dia do mês em que a cobrança da recorrência é realizada.|
+|`NextPaymentDate`|Data da próxima cobrança da recorrência. Se alterada, as próximas cobranças seguirão essa data.<br>Exemplo: em uma recorrência de intervalo mensal, o dia do mês em que é feita a cobrança é sempre dia 10. A primeira cobrança foi no dia 10/01/2024, então a próxima cobrança seria 10/02/2024. Se essa data de próxima cobrança for alterada para 20/02/2024, a partir dela, as próximas cobranças serão no dia 20 do mês, mensalmente.|data (YYYY-MM-DD)|10|Não|
+
+#### Resposta
+
+`HTTP Status: 200 - OK`
+
+```json
+{ 
+" Recurrent Payment - {id} Updated Successfully" 
+}
+```
 
 # Notificações da transação
 
