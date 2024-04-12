@@ -1717,11 +1717,11 @@ Para que o Franqueador possa ter acesso aos saldos das contas de um Franqueado, 
 
 **- Selecione a conta que deseja compartilhar com o Franqueador e clique em Editar.**
 
-![2.png](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/imgconciliador/13146190141591)
+![2.png](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/imgconciliador/13146190141591.png)
 
 **- No modal que aparecer, marcar ‘Sim’ em “Compartilhar com Franqueador”, e preencher o CNPJ da loja em que os valores dessa conta pertencem e clicar em Salvar.**
 
-![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/imgconciliador/13254476181399)
+![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/imgconciliador/13254476181399.png)
 
 Com isso, os dados de saldo dessa conta devem ser compartilhados com o Franqueador via Fluxo de Caixa
 
@@ -1733,11 +1733,11 @@ Caso tenha a necessidade de inativar alguma conta. Você consegue realizar este 
 
 Veja abaixo como realizar a operação de Inativar:  
   
-1. Vamos Inativar a Conta selecionada:![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/imgconciliador/19858201588631)
-2. Selecione a Conta e após isso clique no botão "Inativar Conta":![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/imgconciliador/19858171369495)
-3. Ao clicar no botão a mensagem de alerta irá aparecer, para inativar a Conta clique em "Sim":![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/imgconciliador/19112335689879)
-4. Após finalizar esse processo, sua conta já estará Inativa e por padrão, não será mais considerada na Dashboard ou no Fluxo de caixa, e também não poderá mais ser vinculada com o Open Finance:![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/imgconciliador/19858201593111)
+1. Vamos Inativar a Conta selecionada:![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/imgconciliador/19858201588631.png)
+2. Selecione a Conta e após isso clique no botão "Inativar Conta":![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/imgconciliador/19858171369495.png)
+3. Ao clicar no botão a mensagem de alerta irá aparecer, para inativar a Conta clique em "Sim":![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/imgconciliador/19112335689879.png)
+4. Após finalizar esse processo, sua conta já estará Inativa e por padrão, não será mais considerada na Dashboard ou no Fluxo de caixa, e também não poderá mais ser vinculada com o Open Finance:![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/imgconciliador/19858201593111.png)
 5. Para Ativar novamente a conta, é necessário clicar no botão "Ativar Conta":  
-![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/imgconciliador/19858171374615)
-6. Ao clicar no botão a mensagem de alerta irá aparecer, para inativar a Conta clique em "Sim":![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/imgconciliador/19112335689879)
-7. E por fim a Conta Bancaria estará ativa:![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/imgconciliador/19858201588631)
+![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/imgconciliador/19858171374615.png)
+6. Ao clicar no botão a mensagem de alerta irá aparecer, para inativar a Conta clique em "Sim":![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/imgconciliador/19112335689879.png)
+7. E por fim a Conta Bancaria estará ativa:![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/imgconciliador/19858201588631.png)
