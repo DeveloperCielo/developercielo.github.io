@@ -1741,3 +1741,15 @@ Veja abaixo como realizar a operação de Inativar:
 ![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/imgconciliador/19858171374615.png)
 6. Ao clicar no botão a mensagem de alerta irá aparecer, para inativar a Conta clique em "Sim":![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/imgconciliador/19112335689879.png)
 7. E por fim a Conta Bancaria estará ativa:![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/imgconciliador/19858201588631.png)
+
+## Fechamento de Caixa
+
+### Como abrir período de Fechamento de Caixa
+
+Caso você precise abrir o período de fechamento de caixa de um determinado dia, você pode selecionar e clicar no rodapé em Abrir Período.
+
+Uma pequena observação, caso você deseje abrir em uma data que não seja o último dia do mês, o sistema irá abrir desse dia para frente.
+
+Mas, caso deseje abrir o período do mês todo, você pode clicar no primeiro dia do mês e clicar abaixo no rodapé em Abrir Período, veja o vídeo como exemplo:
+
+![abrir_periodo_do_caixa.gif](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/imgconciliador/abrir_periodo_do_caixa.gif)
