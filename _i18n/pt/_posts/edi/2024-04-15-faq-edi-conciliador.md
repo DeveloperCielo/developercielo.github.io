@@ -10,6 +10,8 @@ tags:
 search: true
 ---
 
+# FAQ
+
 ## Dashboard
 
 ### Novos indicadores da dashboard
