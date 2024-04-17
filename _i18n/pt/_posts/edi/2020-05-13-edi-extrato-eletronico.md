@@ -388,6 +388,8 @@ Retorna configurações existentes agrupadas por mainMerchantID.
 
 Registre o ID do lojista(apenas um, uma lista ou todos), com base no número da entidade.
 
+> A partir de 22/04/2024, como parte das ações relacionadas à Migração do Extrato Eletrônico da versão 14 para a versão 15, a API de Registro do Extrato (Registrar merchantID - POST /registers) será desabilitada. Qualquer nova ativação deverá ser realizada pelo time de Atendimento EDI diretamente na versão 15.
+
 ### Request
 
 > **POST** {{host}}/registers
