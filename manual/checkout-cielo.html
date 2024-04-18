@@ -304,6 +304,11 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
       <td>https://cieloecommerce.cielo.com.br/api/public/v2/</td>
       <td>Consulta, captura e cancelamento de transações.</td>
     </tr>
+    <tr>
+      <td><strong>Recorrência</strong></td>
+      <td>https://cieloecommerce.cielo.com.br/api/public/v1/RecurrentPayment/</td>
+      <td>Criação, alteração e exclusão de uma recorrência.</td>
+    </tr>
   </tbody>
 </table>
 
@@ -2122,7 +2127,7 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
 
 <h4 id="requisição-3">Requisição</h4>
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v1/RecurrentPayment/Update</span></aside>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/RecurrentPayment/Update </span></aside>
 
 <p><strong>Parâmetros no cabeçalho (header)</strong></p>
 <ul>
@@ -2206,6 +2211,24 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
 </span><span class="s2">" Recurrent Payment - {id} Updated Successfully"</span><span class="w"> 
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
+
+<h2 id="desativando-uma-recorrência">Desativando uma Recorrência</h2>
+
+<p>Para desativar uma recorrência, mande a seguinte requisição.</p>
+
+<aside class="warning">Após desativada uma recorrência, não é possível ativá-la novamente. Por isso, tenha certeza dessa ação antes de realizar a desativação.</aside>
+
+<h3 id="requisição-4">Requisição</h3>
+
+<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/RecurrentPayment/Deactivate/</span></aside>
+
+<p><strong>Parâmetros no cabeçalho (header)</strong></p>
+<ul>
+  <li><strong>Authorization</strong>: Bearer {access_token}</li>
+  <li><strong>Content-type</strong>: application/json</li>
+</ul>
+
+<p>Não é necessário envio de nenhum parâmetro no corpo (body).</p>
 
 <h1 id="notificações-da-transação">Notificações da transação</h1>
 
@@ -3002,7 +3025,7 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
 
 <p>A consulta de transações por <code class="language-plaintext highlighter-rouge">order_number</code> retorna uma lista de transações com o mesmo número de pedidos; isso ocorre pois o Checkout não impede a duplicação de <code class="language-plaintext highlighter-rouge">order_number</code>s por parte da loja. A resposta retornará o <code class="language-plaintext highlighter-rouge">checkout_cielo_order_number</code>, que deverá ser usado na consulta de uma transação específica.</p>
 
-<h4 id="requisição-4">Requisição</h4>
+<h4 id="requisição-5">Requisição</h4>
 
 <p>Para consultar uma transação pelo <code class="language-plaintext highlighter-rouge">order_number</code>, faça um <code class="language-plaintext highlighter-rouge">GET</code>.</p>
 
@@ -3128,7 +3151,7 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
 
 <h3 id="por-checkout_cielo_order_number">Por Checkout_Cielo_Order_Number</h3>
 
-<h4 id="requisição-5">Requisição</h4>
+<h4 id="requisição-6">Requisição</h4>
 
 <p>Para consultar uma transação pelo <code class="language-plaintext highlighter-rouge">Checkout_Cielo_Order_Number</code>, basta realizar um <code class="language-plaintext highlighter-rouge">GET</code>.</p>
 
@@ -3533,7 +3556,7 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
 
 <p>A captura acontece após a autorização, para que a venda seja concretizada e a cobrança seja feita no cartão. Somente após a captura o portador do cartão poderá visualizá-la em seu extrato ou fatura.</p>
 
-<h3 id="requisição-6">Requisição</h3>
+<h3 id="requisição-7">Requisição</h3>
 
 <p>Para capturar uma transação de cartão de crédito pelo <code class="language-plaintext highlighter-rouge">Checkout_Cielo_Order_Number</code>, basta realizar um <code class="language-plaintext highlighter-rouge">PUT</code>.</p>
 
@@ -3628,7 +3651,7 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
   <p><strong>Importante</strong>: Para realizar qualquer solicitação de cancelamento, é necessário que o estabelecimento possua saldo suficiente na transação/em agenda.</p>
 </blockquote>
 
-<h3 id="requisição-7">Requisição</h3>
+<h3 id="requisição-8">Requisição</h3>
 
 <blockquote>
   <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
