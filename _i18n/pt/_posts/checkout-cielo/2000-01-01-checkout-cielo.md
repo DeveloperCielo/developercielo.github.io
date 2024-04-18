@@ -92,6 +92,7 @@ Os endpoints para integração com o Checkout Cielo são apresentados na tabela 
 |**API Checkout Cielo** | https://cieloecommerce.cielo.com.br/api/public/v1/orders/| Criação da página de pagamento.|
 |**Cielo OAUTH2 Server** | https://cieloecommerce.cielo.com.br/api/public/v2/token | Autenticação para consulta, captura e cancelamento de transações (criação do `access_token`).|
 |**API de Controle Transacional** | https://cieloecommerce.cielo.com.br/api/public/v2/ | Consulta, captura e cancelamento de transações.|
+|**Recorrência**| https://cieloecommerce.cielo.com.br/api/public/v1/RecurrentPayment/ | Criação, alteração e exclusão de uma recorrência.|
 
 > **Importante**: A API do Checkout não possui sandbox, mas você pode criar páginas de pagamento de teste ativando o Modo Teste no site Cielo.
 
@@ -1044,7 +1045,7 @@ Para alterar dados de uma recorrêcia usando a API do Checkout Cielo, basta envi
 
 #### Requisição 
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v1/RecurrentPayment/Update</span></aside>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/RecurrentPayment/Update </span></aside>
 
 **Parâmetros no cabeçalho (header)**
 * **Authorization**: Bearer {access_token}
@@ -1081,6 +1082,22 @@ Para alterar dados de uma recorrêcia usando a API do Checkout Cielo, basta envi
 " Recurrent Payment - {id} Updated Successfully" 
 }
 ```
+
+## Desativando uma Recorrência
+
+Para desativar uma recorrência, mande a seguinte requisição.
+
+<aside class="warning">Após desativada uma recorrência, não é possível ativá-la novamente. Por isso, tenha certeza dessa ação antes de realizar a desativação.</aside>
+
+### Requisição
+
+<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/RecurrentPayment/Deactivate/{{pagadorRecurrentPaymentId}}</span></aside>
+
+**Parâmetros no cabeçalho (header)**
+* **Authorization**: Bearer {access_token}
+* **Content-type**: application/json
+
+Não é necessário envio de nenhum parâmetro no corpo (body).
 
 # Notificações da transação
 
