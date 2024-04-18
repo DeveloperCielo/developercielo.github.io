@@ -381,7 +381,7 @@ Header: `Authorization:` `Bearer {access_token}`
   "description": "teste description",
   "price": "1000000",
   "weight": 2000000,
-  "expirationDate": "2027-06-19",
+  "expirationDate": "2027-06-19 16:30:00",
   "maxNumberOfInstallments": "1",
   "quantity": 2,
   "sku": "teste",
@@ -544,7 +544,7 @@ Header: `Authorization`: `Bearer {access_token}`
     "originZipcode": "06455030"
   },
   "softDescriptor": "Pedido1234",
-  "expirationDate": "2024-06-30",
+  "expirationDate": "2024-06-30 16:30:00",
   "maxNumberOfInstallments": 2,
   "links": [
     {
@@ -594,7 +594,7 @@ Header: `Authorization`: `Bearer {access_token}`
   "description":
     "50 canetas - R$30,00 | 10 cadernos - R$50,00 | 10 Borrachas - R$10,00",
   "price": 9000,
-  "expirationDate": "2024-06-30",
+  "expirationDate": "2024-06-30 16:30:00",
   "weight": 4700,
   "sku": "abc123456",  
   "shipping": {
@@ -629,7 +629,7 @@ Header: `Authorization`: `Bearer {access_token}`
     "price": 1000
   },
   "softDescriptor": "Pedido1234",
-  "expirationDate": "2024-06-30",
+  "expirationDate": "2024-06-30 16:30:00",
   "maxNumberOfInstallments": 2,
   "links": [
     {
