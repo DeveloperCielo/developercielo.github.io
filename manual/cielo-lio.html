@@ -1104,6 +1104,46 @@ Clique na aba Apps -&gt; Clique no aplicativo Cielo Store -&gt; Escolha o aplica
 
 <p>As seções abaixo possuem todas as informações necessárias para realizar a integração de forma rápida e segura.</p>
 
+<h2 id="ambiente-sandbox--emulador">Ambiente Sandbox – Emulador</h2>
+
+<p>Oferecemos um aplicativo para facilitar a validação da sua integração com a LIO On, suportando integração híbrida e SDK. Esta solução elimina a necessidade de um hardware físico da LIO On em modo debug, que não é fornecido pela Cielo por razões de segurança.</p>
+
+<p>O aplicativo processa as solicitações e simula as respostas para o software de integração, permitindo que os desenvolvedores realizem testes integrados e depurem suas aplicações durante o desenvolvimento, sem a necessidade de possuir uma Cielo LIO On.</p>
+
+<p><strong>Como faço para validar minha solução a partir do aplicativo que simula a LIO?</strong></p>
+
+<p>Primeiro baixe e instale o aplicativo, download <a href="https://s3-sa-east-1.amazonaws.com/cielo-lio-store/apps/lio-emulator/1.58.0/lio-emulator.apk">aqui no link</a></p>
+
+<p>Caso tenha dificuldade com a instalação:</p>
+
+<ol>
+  <li>Acesse as configurações do seu aparelho e vá até o menu “Segurança”;</li>
+  <li>Localize o item “Fontes desconhecidas”, na seção “Administração do dispositivo”</li>
+  <li>Toque na chave ao lado e confirme sua escolha para passar a permitir a instalação de arquivos APK baixados por fontes alternativas.</li>
+</ol>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/emuladorLIO.png" alt="emuladorLIO" /></p>
+
+<p>Depois de instalado, inicie o aplicativo, será aberta a tela de boas-vindas, nesta tela temos uma mensagem e um botão para limpar os dados (esta opção limpa os pedidos criados pelo integrador). <strong>Se achar necessário, pode minimizar o aplicativo, esta ação não muda sua experiência.</strong></p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/EmuladorLIO2.png" alt="emuladorlio2" /></p>
+
+<p>O próximo passo é instalar o aplicativo de integração, para fins didático sutilizamos nosso <a href="https://github.com/DeveloperCielo/LIO-SDK-Sample-Integracao-Local">aplicativo Sample</a>, disponibilizado no github da Cielo. Na imagem abaixo temos o seguinte cenário: Pedido criado, item adicionado, pedidoliberado para pagamento (os passos descritos utilizam da integração com emulador).</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/LioEmuladorPagamento.png" alt="emuladorlio3" /></p>
+
+<p>Ao clicar no botão pagar, o emulador vem para foreground e exibe os dados do pagamento, dando sequência, temos uma tela com as opções de resposta para o integrador, imagens abaixo:</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/liosucessoerro.png" alt="emuladorlio4" /></p>
+
+<p><strong>Sucesso:</strong> Retorna os dados do pagamento simulando uma operação realizada com sucesso na Lio On.</p>
+
+<p><strong>Cancelado:</strong> Aborta a operação de pagamento.</p>
+
+<p><strong>Erro:</strong> Retorna um erro genérico de falha na operação de pagamento.</p>
+
+<p>Ao selecionar uma das opções de resposta, retornamos o resultado para o sistema integrado e movemos nossa aplicação para o background. Além da operação de pagamento, oferecemos suporte a uma variedade de funcionalidades, incluindo o cancelamento de um pedido, a consulta de produtos disponíveis para pagamento (como Crédito, Débito, Pix, entre outros) e a consulta de pedidos criados, seja de forma individual ou em lista.</p>
+
 <h2 id="cielo-lio-order-manager-sdk">Cielo Lio Order Manager SDK</h2>
 
 <h3 id="sobre-3">Sobre</h3>
@@ -1121,26 +1161,6 @@ Clique na aba Apps -&gt; Clique no aplicativo Cielo Store -&gt; Escolha o aplica
 </ol>
 
 <p>Para mais informações e detalhes sobre o desenvolvimento de um aplicativo para a Cielo LIO, acesse a documentação Desenvolva um App para LIO.</p>
-
-<h3 id="ambiente-sandbox---emulador">Ambiente Sandbox - Emulador</h3>
-
-<p>Este aplicativo funciona como um proxy de todas as chamadas que o SDK enviaria para a LIO. Ele simplesmente trata essas chamadas e simula os tipos possíveis de retorno para a aplicação cliente, permitindo que o desenvolvedor realize os testes nos métodos do SDK e faça o debug da sua aplicação durante o desenvolvimento e a integração com o Cielo LIO Order Manager SDK, sem a necessidade de possuir um hardware da Cielo LIO.</p>
-
-<blockquote>
-  <p>Não é nem mesmo necessário deixar esse app aberto. Assim que a aplicação cliente utilizar uma função do OrderManager que chamaria a LIO, essa aplicação entra em primeiro plano para seleção do que deve ser retornado (Sucesso, Erro ou Cancelamento)</p>
-</blockquote>
-
-<p>Faça o download do .apk do emulador no link abaixo:</p>
-
-<p><a href="https://s3-sa-east-1.amazonaws.com/cielo-lio-store/apps/lio-emulator/1.1.0/lio-emulator.apk">Download do Emulador</a></p>
-
-<p>Para instalar o aplicativo, basta seguir os seguintes passos:</p>
-
-<ul>
-  <li>Acesse as configurações do seu aparelho e vá até o menu “Segurança”;</li>
-  <li>Localize o item “Fontes desconhecidas”, na seção “Administração do dispositivo”</li>
-  <li>Toque na chave ao lado e confirme sua escolha para passar a permitir a instalação de arquivos APK baixados por fontes alternativas.</li>
-</ul>
 
 <h3 id="configurar-módulos-e-dependências">Configurar módulos e dependências</h3>
 
@@ -2926,7 +2946,7 @@ O método recebe como parâmetro o <code class="language-plaintext highlighter-r
   <li>Leia toda a documentação sobre a Integração Local.</li>
   <li>Crie sua conta no Portal de Desenvolvedores da Cielo para obter todas as funcionalidades que o portal pode oferecer para você, desenvolvedor. É obrigatório possuir uma conta para gerar um Client-Id.</li>
   <li>Realizando o cadastro de Client ID, o desenvolvedor recebe os tokens</li>
-  <li>(Client ID e Access-Token) e consegue utilizar o Cielo LIO Order Manager SDK. Realize os testes no Emulador Cielo Lio Confira o link: <a href="https://s3-sa-east-1.amazonaws.com/cielo-lio-emulator/latest-release/lio-emulator.apk">Download do Emulador</a></li>
+  <li>(Client ID e Access-Token) e consegue utilizar o Cielo LIO Order Manager SDK. Realize os testes no  Cielo Lio Confira o link: <a href="https://s3-sa-east-1.amazonaws.com/cielo-lio-emulator/latest-release/lio-emulator.apk">Download do Emulador</a></li>
   <li>Acesse a <a href="https://www.cieloliostore.com.br/login">Cielo Store</a> e faça o upload do APK da sua aplicação. Ao término do upload, submeta seu aplicativo para certificação e preencha todas as informações necessárias.</li>
   <li>Ao término do upload submeta seu aplicativo, no próprio ambiente da Cielo Store, para certificação e preencha todas as informações necessárias.</li>
   <li>Assim que a certificação for concluída, o desenvolvedor receberá um e-mail e deverá acessar novamente a Cielo Store para promover o aplicativo para produção.</li>
