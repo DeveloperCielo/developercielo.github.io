@@ -65,9 +65,9 @@ A **Reserva Financeira**, basicamente é um montante previamente definido pela C
 
 > Esta mudança está prevista para implantação em 03/06/2024.
 
-Para maiores informações consulte no Manual, as atualizações referentes à nova versão 15.7:
+Para maiores informações consulte no Manual, as atualizações referentes à nova versão 15.8.1:
 
-[Manual](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO_Extrato_Eletronico_Manual_Versao_15.8.pdf) 
+[Manual](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_15.8.1.pdf) 
 
 > OBS: A versão 15.8 contempla ambas as atualizações (15.7 e 15.8)
 
@@ -75,15 +75,15 @@ Para maiores informações consulte no Manual, as atualizações referentes à n
 
 ![Comunicado (EN)](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/20240330ReservaFinanceira_EN.JPG)
 
-## V15.8 - Novas regras de atualização na demonstração de lançamentos de Negociações de Recebíveis no Extrato Eletrônico
+## V15.8.1 - Novas regras de atualização na demonstração de lançamentos de Negociações de Recebíveis no Extrato Eletrônico
 
 Uma vez que as negociações de recebíveis podem sofrer alterações, cancelamentos e recálculos pelo sistema de registro de recebíveis de cartões, ou pelas instituições financeiras responsáveis, a partir da versão 15.8 o Extrato V15 de Captura/Previsão **(CIELO03)**, passará a demonstrar as atualizações referentes aos valores previstos para pagamento.
 
 > Esta mudança está prevista para implantação em 03/06/2024.
 
-Para maiores informações consulte no Manual, as atualizações referentes à nova versão 15.8:
+Para maiores informações consulte no Manual, as atualizações referentes à nova versão 15.8.1:
 
-[Manual](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO_Extrato_Eletronico_Manual_Versao_15.8.pdf) 
+[Manual](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_15.8.1.pdf) 
 
 > OBS: A versão 15.8 contempla ambas as atualizações (15.7 e 15.8)
 
