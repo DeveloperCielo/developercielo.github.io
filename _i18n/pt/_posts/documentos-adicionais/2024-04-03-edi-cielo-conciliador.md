@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: EDI - Cielo Conciliador
+title: Cielo Conciliador
 description: Instruções EDI
 search: true
 translated: false
@@ -14,13 +14,13 @@ language_tabs:
   shell: cURL
 ---
 
-# F360 Finanças
+# Cielo Conciliador
 
-Essa documentação contém todas as API's públicas disponíveis pela plataforma da F360. A URL de produção para todos os endpoints é https://financas.f360.com.br﻿
+Essa documentação contém todas as API's públicas disponíveis pela plataforma do Cielo Conciliador. A URL de produção para todos os endpoints é https://financas.f360.com.br﻿
 
 # 1 - Login
 
-O token é dispobinilizado pela plataforma da F360 ao criar um webservice de API Pública. Segue o link de como criar um token de autenticação na API:
+O token é dispobinilizado pela plataforma ao criar um webservice de API Pública. Segue o link de como criar um token de autenticação na API:
 
 https://f360.zendesk.com/hc/pt-br/articles/360062098714
 
