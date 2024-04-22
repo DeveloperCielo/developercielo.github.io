@@ -50,7 +50,7 @@ Response
 
 # 2 - Relatórios
 
-Aqui você irá encontrar todos os endpoints disponíveis relacionados a download de relatórios da F360.
+Aqui você irá encontrar todos os endpoints disponíveis relacionados a download de relatórios da F360
 
 ## Gerar Relatório para Contabilidade
 
