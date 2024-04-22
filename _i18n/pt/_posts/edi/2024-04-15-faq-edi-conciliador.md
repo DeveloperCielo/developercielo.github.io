@@ -10,11 +10,9 @@ tags:
 search: true
 ---
 
-# FAQ
+# Dashboard
 
-## Dashboard
-
-### Novos indicadores da dashboard 
+## Novos indicadores da dashboard 
 Neste artigo, vamos descrever os novos **indicadores** que estarão disponível na tela de indicadores.
 Os novos indicadores são compostos por 3 tipos: **Desempenho de vendas**, **Fechamento de caixa** e **Vendas Canceladas**.
  
@@ -52,7 +50,7 @@ Vendas canceladas
 O indicador **Vendas canceladas**apresenta informações sobre o volume e o valor total de vendas canceladas e chargebacks durante o período selecionado.
 As vendas canceladas representam transações que foram revertidas antes da conclusão, enquanto chargebacks indicam disputas de pagamento revertidas em favor do cliente.
 Através do indicador de Vendas canceladas, é possível ter uma visão clara dos e organizada das informações relevantes para avaliar a estabilidade das transações e identificar áreas potenciais de melhoria na gestão de vendas.
-### Gráfico de Vendas por modalidade detalhada 
+## Gráfico de Vendas por modalidade detalhada 
 Aprimoramos a funcionalidade de exibição de gráficos de vendas do cliente para oferecer um detalhamento mais abrangente das modalidades de pagamento. Anteriormente, o gráfico apresentava uma visão simples das modalidades, como crédito à vista, parcelado e débito. Agora, introduzimos um nível de detalhamento que proporciona uma compreensão mais refinada das transações, incluindo variantes específicas de cada modalidade, da mesma forma que é exibido na Dashboard antiga.
 Todos os pagamentos parcelados, independentemente do número de parcelas, serão agora detalhados no gráfico de vendas. Por exemplo, ao invés de uma entrada única para "Crédito Parcelado", o sistema exibirá informações específicas, tais como "Crédito 2x", "Crédito 3x", e assim por diante.
  
@@ -65,7 +63,7 @@ Com a implementação dos filtros customizados, os usuários têm a capacidade d
  
 Essa combinação de detalhamento avançado de modalidades de pagamento e filtros customizados por empresa e origem de dados visa aprimorar a análise de vendas, proporcionando uma visão mais completa e personalizada aos usuários, contribuindo assim para a eficácia das estratégias comerciais.
  
-### Manual de filtros de preferências da dashboard 
+## Manual de filtros de preferências da dashboard 
 
 **Introdução aos Filtros de Preferências**
 Os filtros de preferências foram desenvolvidos com o objetivo de facilitar o acesso a informações personalizadas na sua dashboard, garantindo eficiência e obtenção de valores de acordo com suas preferências, fornecendo informações prontas com os parâmetros que desejar.
@@ -172,9 +170,9 @@ Somente quando clicar em aplicar é que os filtros serão de fato computados par
  
 ![](https://f360.zendesk.com//hc/article_attachments/20293375398935.png)
  
-## Menu de Cadastros
+# Menu de Cadastros
 
-### Cadastro de taxas acordadas com a adquirente
+## Cadastro de taxas acordadas com a adquirente
 
 Você sabia que além de todas as funcionalidades de gestão e eficiência financeira, o F360 Finanças também possui um recurso que possibilita a conciliação automática de cartões de débito e crédito que permitem uma **apuração real das taxas cobradas pelas administradoras, realizando uma conferência entre as taxas combinadas com as cobradas**?
 
@@ -193,13 +191,13 @@ Veja a seguir como é fácil o cadastro correto das taxas: 
 5. Preencha as informações das taxas conforme o seu acordo com a sua adquirente. Depois do preenchimento, clique em Salvar na tela de taxas e aguarde o carregamento do sistema.
 6. Depois disso, clique em Salvar a empresa para que as informações realmente sejam inseridas na plataforma.
 
-### Como duplicar uma taxa:
+## Como duplicar uma taxa:
 
 ![duplicar_taxa.gif](https://f360.zendesk.com//hc/article_attachments/4403359440919.gif)
 No momento da criação de uma taxa nova, você também pode duplicar o cadastro da taxa para as outras empresas do seu grupo. Segue algumas informações úteis sobre esse processo:
 * + Essa opção está disponível apenas para uma taxa nova, ou seja, depois que a taxa foi criada e salva, não é mais possível duplicar a taxa;
 	+ Uma taxa criada a partir de uma duplicação se torna 100% independente da taxa original. Ao editar qualquer um desses registros, o sistema NÃO irá editar as outras taxas das outras empresas.
-### Taxa diferente por parcelamento:
+## Taxa diferente por parcelamento:
 ![taxa_parcelamento.gif](https://f360.zendesk.com//hc/article_attachments/4403351730071.gif)
 Durante o cadastro de uma taxa, você também pode criar taxas diferentes para cada parcela. Ou seja, se você tem um acordo com a adquirente onde as taxas são diferentes para um range específico de parcelas, você consegue informar isso ao sistema clicando no **botão Habilitar quebra de taxa por parcelas.**
 **Observação:** Para cadastro de taxa para débito e crédito existem diferenças de bandeiras, abaixo segue um breve exemplo:* Modalidade Crédito - Bandeira **Mastercard**
@@ -208,7 +206,7 @@ Durante o cadastro de uma taxa, você também pode criar taxas diferentes para c
 * Modalidade Débito - Bandeira **Visa Electron**
  Além disso, para empresas configuradas como "**Finanças Flex**" o sistema irá gerar um cartão automaticamente a partir da criação de um movimento de PDV, caso a modalidade selecionada seja "PIX". Nesse cenário, as taxas consideradas para a criação do cartão serão as taxas cadastradas para a bandeira "PIX" da adquirente selecionada.
  
-### ATENÇÃO:
+## ATENÇÃO:
 
 Quando o cadastro da taxa é criado ou modificado, o módulo F360 Finanças irá rodar uma rotina em segundo plano em todos os registros do histórico de vendas para calcular a diferença entre a taxa acordada e a taxa realizada pelas adquirentes.   
 Esse processo poderá levar até **24h dia para ser concluído**. Somente após esse período o sistema irá atualizar as pendências indicadas na dashboard no indicador de “Adquirente e Taxas“.
@@ -218,7 +216,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Como configurar sua regra de usuários1. **O que são regras de usuários?**
+## Como configurar sua regra de usuários1. **O que são regras de usuários?**
 
 Regras de usuários são configurações que permitem ao administrador do seu grupo empresarial definir o que cada usuário terá acesso dentro da plataforma F360 - Finanças.
 Por meio dessas configurações é possível definir que um grupo X de usuários terá acesso apenas à tela de Fechamento de Caixa, enquanto um grupo Y terá acesso às telas de Conciliação de Cartões e Conciliação Bancária, por exemplo.
@@ -270,7 +268,7 @@ Gostou desse artigo? Tem alguma dúvida ou sugestão?
 Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
 **Equipe F360**
- ### Centro de Custos - Franqueadores DisponíveisAlgumas lojas são de Marcas Homologadas F360. Como exemplo, podemos incluir Boticário, Havaianas, Usaflex e mais. Essas marcas são parceiras estratégicas que possuem uma plataforma própria chamada Painel da Franqueadora que nada mais é que um consolidador de informações de suas franquias que permitem a transferência de dados.
+ ## Centro de Custos - Franqueadores DisponíveisAlgumas lojas são de Marcas Homologadas F360. Como exemplo, podemos incluir Boticário, Havaianas, Usaflex e mais. Essas marcas são parceiras estratégicas que possuem uma plataforma própria chamada Painel da Franqueadora que nada mais é que um consolidador de informações de suas franquias que permitem a transferência de dados.
 Esses dados alimentam a análise da franqueadora ao passo que não interfere na usabilidade e independência do franqueado em se tratando de suas próprias informações. Desta maneira, a comunicação entre as duas partes se torna mais fácil e sem atritos.
 Nas Configurações de Centro de Custo também podemos realizar o vínculo com diretamente com a Franqueadora para aqueles centros de custos que não são de apenas uma loja específica. Ou seja, os valores que anteriormente eram de uma marca específica, mas que não eram vinculados a um único CNPJ (Como por exemplo, central administrativa), agora poderão passar para o controle da franqueadora. **Somente os valores desta marca passarão para a Franqueadora.**
 Assim, entramos no assunto. A inclusão da Franqueadora no campo Franqueadores Disponíveis na hora de criar um centro de custo é crucial para a passagem de informações entre franquia e franqueadora. Com este campo preenchido, a franqueadora conseguiria analisar os DREs de um grupo de franquias, por exemplo.
@@ -278,7 +276,7 @@ Assim, entramos no assunto. A inclusão da Franqueadora no campo Franqueadores D
 ![1.jpg](https://f360.zendesk.com//hc/article_attachments/8865578980503/1.jpg)
 Para os grupos que possuem lojas de uma dessas marcas parceiras F360, ao criar um centro de custo, esse último campo *"Franqueadores disponíveis'*aparecerá e pedirá que seja preenchido. Deste modo, levando as informações deste centro de custo automaticamente para a franqueadora.
  
-### Menu de cadastro - Empresas e filiaisCadastro de Empresas
+## Menu de cadastro - Empresas e filiaisCadastro de Empresas
 
 Tem como objetivo o cadastro de cada empresa do grupo, assim como a configuração dos seus dados dos cartões e outras informações.   
 O cadastramento inicial da sua empresa é feito pelo BackOffice da F360° - Finanças, porém quando você abre uma nova Empresa, é preciso que envie a solicitação para o nosso [suporte@f360.com.br,](mailto:suporte@f360.com.br,) para o Pré-Onboarding realizar a liberação de Cadastro. Mas, o cadastro a ser realizado é pelo usuário, visto que após a implantação não temos mais acesso a base de clientes.
@@ -298,7 +296,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360.**
  
-### Como cadastrar o Aluguel de POS 
+## Como cadastrar o Aluguel de POS 
 
 Você pode realizar o cadastro do aluguel de POS acordado com a sua adquirente, esse cadastro servirá também para realizar a pesquisa de aluguel de POS na tela de Cartões á pagar, para analisar se a adquirente está realizando a cobrança correta do aluguel.
  
@@ -311,7 +309,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360°.**
  
-### Menu de Cadastro - Regra de rateio
+## Menu de Cadastro - Regra de rateio
 
 Esta funcionalidade foi criada para facilitar o lançamento de despesas ou receitas que utilizam rateios recorrentes.   
   
@@ -337,7 +335,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360.**
 
-### Regra de Usuário Nova Dashboard
+## Regra de Usuário Nova Dashboard
 
 Neste artigo vamos explicar como funcionam as regras de usuários para a nova Dashboard e como aplicá-las.
 
@@ -460,7 +458,7 @@ Para permitir a visualização do painel **Indicadores de DRE**, acesse o Menu d
 DRE
 ![](https://lh4.googleusercontent.com/n0Wiz_H-fDpewQPVYg-SP_S3DfhhSoWCTnjsfkQCyRYw6yEhHbs1yoBPNbTXqMzFEutvHUqg_q06vUIDaAgntREccgXZEVpqrKNNTs5b_T6xdmwmleavRLrNvNHRhqLr8WQiRMu9uqvyoE1ruX2FoZzIhe02yctH.html; charset=UTF-8)
 
-### Menu de Cadastro - Contas 
+## Menu de Cadastro - Contas 
 
 Nessa aba poderá efetuar o cadastro de todas as contas do grupo, pode ser conta bancária ou conta dinheiro.
 Para criar: Acesse a tela de Menu de Cadastros > Clique em Contas > Clique no rodapé em Criar, digite o nome da conta, tipo da conta (ex: dinheiro, conta corrente),  o saldo inicial e a data do saldo (é a data que você vai começar a movimentar a conta) e opte por ser exibida ou não nos gráficos da Dashboard e fluxo de caixa.
@@ -483,7 +481,7 @@ Por favor, entre em contato com a gente pelo e-mail [suporte@f360.com.br](mailto
 Um grande abraço,
 **Equipe F360°.**
 
-### Importação de Clientes e Fornecedores
+## Importação de Clientes e Fornecedores
 
 É possível manipular os dados de Clientes e Fornecedores através da importação de planilhas Excel na plataforma F360.
 Para realizar o upload da planilha para inserir Clientes e Fornecedores, basta acessar no menu a opção "Upload de Arquivos" e baixar o novo modelo de importação:
@@ -501,7 +499,7 @@ O sistema vai considerar os filtros em tela para geração do relatório. É pos
 **Coluna "ação"**Agora o arquivo de "Clientes e Fornecedores" poderá tanto inserir ou editar um "cliente e fornecedor"
 **![](https://f360.zendesk.com//hc/article_attachments/21411437269783.png)**
 ![](https://f360.zendesk.com//hc/article_attachments/21411525166871.png)
-### Criar Plano de Contas por importação de arquivoNa Plataforma do F360 Finanças é possível realizar cadastro de Planos de Contas à partir da importação de uma planilha.
+## Criar Plano de Contas por importação de arquivoNa Plataforma do F360 Finanças é possível realizar cadastro de Planos de Contas à partir da importação de uma planilha.
 Para baixar a planilha, basta ir em ***Menu de Cadastros*** e ***Upload de Arquivos*** realizar o download:
 ![](https://f360.zendesk.com//hc/article_attachments/14123290844823.png)
  
@@ -519,7 +517,7 @@ Vendo os detalhes, é possível identificar possíveis erros que impediram a ins
  
 *- Se o franqueado não estiver vinculado a nenhum franqueador que utilize o painel ou não der autorização para compartilhamento de dados, ainda será possível utilizar a planilha com a versão anterior.*
  
-### Menu de Cadastro - Centros de custo
+## Menu de Cadastro - Centros de custo
 
 Para cada empresa criada no sistema também é criado um centro de custo, ele é utilizado para o controle gerencial dos gastos e receitas de cada uma das empresas do grupo.   
 No momento do cadastro inicial do grupo, o nosso BackOffice vai criar os centros de custos com o nome que foi informado na planilha de cadastro inicial.
@@ -538,7 +536,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360.**
 
-### Menu de Cadastro - Clientes e fornecedores 
+## Menu de Cadastro - Clientes e fornecedores 
 Esta é a tela aonde você pode cadastrar todos os seus clientes e fornecedores, sendo pessoa física ou jurídica. Podem ser cadastrados também com a opção de “ambos” onde a pessoa física ou jurídica é cliente e fornecedor ao mesmo tempo (dessa maneira, você consegue lançar tanto contas á receber como contas á pagar selecionando esse cliente/fornecedor).
   
 O sistema trabalha com o vínculo de planos de contas em cada um dos seus clientes ou fornecedores.   
@@ -554,7 +552,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360°.**
 
-### Como converter o certificado de P12 para PFX?* 
+## Como converter o certificado de P12 para PFX?* 
 
 Efetue o download do arquivo na máquina, dois cliques para executar o arquivo > Clique em avançar;
 ![](https://f360.zendesk.com//hc/article_attachments/19030624006935.png)
@@ -593,7 +591,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360.**
 
-### Cadastro de Adquirente
+## Cadastro de Adquirente
 
 O primeiro passo para liberação de arquivos da sua adquirente, é preciso que entre em contato com o nosso suporte através do chat ou e-mail: [suporte@f360.com.br](mailto:suporte@f360.com.br) informando os seguintes dados:
 * **Razão Social.**
@@ -619,7 +617,7 @@ Por favor, entre em contato com a gente pelo e-mail [suporte@f360.com.br](mailto
 Um grande abraço,
 **Equipe F360°.**
 
-### Como configurar o Finanças Flex 
+## Como configurar o Finanças Flex 
 
 **Tema: Configuração do Finanças Flex**
 Neste artigo, exploraremos o processo de configuração do Finanças Flex em uma empresa, visando facilitar o uso do Finanças para aqueles que não possuem um Sistema de Ponto de Venda (PDV) integrado ao sistema ou que optam por não utilizá-lo.
@@ -647,7 +645,7 @@ Ao selecionar a opção 'Finanças Flex', uma série de funcionalidades será at
   
 Além disso, essa escolha resultará na remoção de algumas opções de configuração que não são essenciais para o processo. Isso simplifica e agiliza o procedimento de configuração do Finanças Flex, tornando-o mais acessível e fácil de utilizar para aqueles que não possuem um sistema de PDV integrado ou preferem não usá-lo.
 
-### Menu de Cadastro - Plano de Contas 
+## Menu de Cadastro - Plano de Contas 
 Essa aba é para o cadastro de todos os planos de contas que vão ser utilizados para classificação das suas receitas (tipo á receber) ou despesas (tipo á pagar) .
 A qualquer momento você pode criar um plano de contas,  indo em Menu de cadastros > planos de contas > clicando no rodapé em "Criar" > digite o nome e selecione do tipo a pagar ou receber. 
   
@@ -660,9 +658,9 @@ Por favor, entre em contato com a gente pelo e-mail [suporte@f360.com.br](mailto
 Um grande abraço,
 **Equipe F360°.**
 
-## DRE
+# DRE
 
-### Ajuste de De-Para já Aprovados
+## Ajuste de De-Para já Aprovados
 
 É possível ajustar "De-Para" através de solicitações de ajuste de "De-Para", assim o franqueado pode pedir uma solicitação de ajuste no seu plano de contas para o franqueador. O ajuste pode ser do tipo de alteração de plano de contas, ou seja, quando uma linha de DRE passa a pertencer a outro plano de conta, ou pode ser do tipo justificativa, quando uma linha de DRE não pertence a nenhum plano de contas.
 Este artigo tem como objetivo instruir como os usuários devem realizar ou cancelar uma solicitação de ajuste de De-Para de seus planos de contas.
@@ -698,7 +696,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360.**
 
-### Solicitação de ajuste de De-Para
+## Solicitação de ajuste de De-Para
 
 Solicitação de ajuste de De-Para, serve para que o franqueado possa pedir uma solicitação de ajuste no seu plano de contas para o franqueador. O ajuste pode ser do tipo de alteração de plano de contas, ou seja, quando uma linha de DRE passa a pertencer a outro plano de conta, ou pode ser do tipo justificativa, quando uma linha de DRE não pertence a nenhum plano de contas.
 Este artigo tem como objetivo instruir como os usuários devem realizar ou cancelar uma solicitação de ajuste de De-Para de seus planos de contas.
@@ -747,7 +745,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360°.**
 
-### Como configurar e utilizar a DRE1. **Introdução**
+## Como configurar e utilizar a DRE1. **Introdução**
 Esse documento possui a finalidade de demonstrar todos os processos de configuração e utilização da DRE dentro da plataforma F360.
 A  (DRE) é um relatório dinâmico destinado a evidenciar a formação do resultado líquido em um exercício, por meio do confronto das receitas, custos e resultados.    2.**1. Como Funciona**Na F360, a DRE pode ser obtida em **Regime de Competência** ou **Regime de Caixa**. Na primeira opção, o relatório utiliza a data de competência das receitas e das despesas para demonstrar os resultados. Já na segunda opção, o parâmetro de pesquisa é a data de vencimento ou pagamento dos títulos. Para garantir dinamismo, o usuário pode selecionar sua preferência no momento da pesquisa.
 Também é possível informar a Data Inicial e da Data Final da pesquisa, selecionar as Empresas, os Centros de Custos e o Status dos registros. Outra facilidade encontrada na DRE é a possibilidade de realização de Analise Horizontal, onde a plataforma, conforme a necessidade e escolha dos usuários, realiza uma comparação entre períodos, empresas ou centros de custos.
@@ -794,7 +792,7 @@ mceclip10.png
 Caso você precise informar manualmente os valores que serão usados para formatar a sua DRE, você poderá fazer isso na aba “Valores da DRE”. Os valores devem ser informados para uma determinada data, empresa e centro de custo. Para isso, siga os seguintes passos: 1. Acesse a tela da nova DRE e clique na aba “Valores Manuais”.
 2. Selecione o modelo e a linha da DRE. Também informe a competência, as empresas e se deseja cadastrar os valores no centro de custo padrão de cada empresa ou se deseja selecionar outros centros de custos.
 ![mceclip11.png](https://f360.zendesk.com//hc/article_attachments/11402243439895.png)
-3. Clique em “Pesquisar” e aguarde a lista dos resultados. A imagem a seguir demonstra o processo descrito:![mceclip12.png](https://f360.zendesk.com//hc/article_attachments/11402252160791.png)##### **Figura 9**. Valores manuais da DRE.
+3. Clique em “Pesquisar” e aguarde a lista dos resultados. A imagem a seguir demonstra o processo descrito:![mceclip12.png](https://f360.zendesk.com//hc/article_attachments/11402252160791.png)### **Figura 9**. Valores manuais da DRE.
 4. Após a obtenção dos resultados, clique duas vezes sobre o valor que deseja editar ou selecione a coluna desejada e clique no botão Editar localizado no centro da barra inferior do sistema.
 5. Será aberta uma caixa de texto onde é possível digitar o valor desejado. Caso seja uma despesa é necessário informar o valor com o sinal negativo.
 ![mceclip13.png](https://f360.zendesk.com//hc/article_attachments/11402247595287.png)
@@ -828,7 +826,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360º.**
 
-### Exportar Detalhes do DRE
+## Exportar Detalhes do DRE
 
 Este documento possui a finalidade de demonstrar a funcionalidade de exportação de detalhes do DRE, além de ser apresentado as informações em tela.  
   
@@ -854,7 +852,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360°**
  
-### Como utilizar os movimentos do PDV no relatório da DRE
+## Como utilizar os movimentos do PDV no relatório da DRE
 
 Esse artigo irá demonstrar todas as etapas de configurações no módulo F360 Finanças para que você consiga utilizar os registros que estão do **Fechamento de Caixa** em sua **DRE**. Vamos lá?
  
@@ -874,7 +872,7 @@ Esse artigo irá demonstrar todas as etapas de configurações no módulo F360 F
 3. Clique no botão **Salvar** e a partir disso os valores dos lançamentos do PDV estarão presentes em sua DRE nas linhas onde foi feita essa parametrização.
 **ATENÇÃO:** Ao fazer essa parametrização, o sistema irá computar o valor dessas linhas pela soma dos lançamentos do PDV conforme os planos de contas que foram configurados na tela de empresas e filiais. Por padrão, o módulo F360 Finanças utiliza os dados das telas de contas a receber e contas a pagar para computar a DRE, mas iremos ignorar os registros dessas telas e considerar apenas as informações disponíveis na aba **Movimentos** do **Fechamento de Caixa** *(apenas para as linhas onde foram feitas essas parametrizações, as outras linhas da DRE irão continuar com o comportamento padrão da plataforma)*.
 
-### Lançamento CMV manual 
+## Lançamento CMV manual 
 
 Nesse artigo vamos abordar a configuração e lançamento do CMV na plataforma F360 Finanças.
  
@@ -898,9 +896,9 @@ Qualquer dúvida estamos à disposição no chat integrado na plataforma ou no [
  * [config CMV.gif](https://f360.zendesk.com//hc/pt-br/article_attachments/4404188423831)2 MB
 [Baixar](https://f360.zendesk.com//hc/pt-br/article_attachments/4404188423831)
 * [lançamento CMV.gif](https://f360.zendesk.com//hc/pt-br/article_attachments/4404183201815)3 MB
-[Baixar](https://f360.zendesk.com//hc/pt-br/article_attachments/4404183201815)## Dúvidas Gerais
+[Baixar](https://f360.zendesk.com//hc/pt-br/article_attachments/4404183201815)# Dúvidas Gerais
 
-### Como exportar o arquivo de Extrato Bancário (OFX) do Banco Bradesco
+## Como exportar o arquivo de Extrato Bancário (OFX) do Banco Bradesco
 
 O arquivo OFX, é o espelho do seu extrato bancário, para que você possa realizar a conciliação bancária de entradas e saídas de sua conta, que é realizado na tela de contas Movimentos.
  
@@ -923,7 +921,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360.**
  
-### Como alterar a senha de acesso 
+## Como alterar a senha de acesso 
 
 Para realizar a alteração da senha do seu perfil, você pode realizar o processo no seu próprio perfil, veja abaixo como realizar a alteração:
  
@@ -934,7 +932,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Como configurar sua base para inserir Folha de Pagamento Manad
+## Como configurar sua base para inserir Folha de Pagamento Manad
 
 Para inserir o arquivo de Folha Manad, você deve primeiramente configurar sua base e pensando na melhor forma de ensinar, a F360 preparou os vídeos explicativos abaixo:
 **Manual Folha de Pagamento Manad - F360° - Parte 01/03**
@@ -945,7 +943,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Como exportar o arquivo de Extrato Bancário (OFX) do Banco do Brasil
+## Como exportar o arquivo de Extrato Bancário (OFX) do Banco do Brasil
 
 O arquivo OFX, é o espelho do seu extrato bancário, para que você possa realizar a conciliação bancária de entradas e saídas de sua conta, que é realizado na tela de contas Movimentos.
  
@@ -963,7 +961,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360.**
 
-### Compartilhamento de dados com o Painel do Franqueador
+## Compartilhamento de dados com o Painel do Franqueador
 
 O compartilhamento de dados entre F360 Finanças e F360 Painel facilita a colaboração e a parceria entre Franqueado e Franqueador. Na F360 os produtos estão sempre em evolução, passando por melhorias e mudanças para se aperfeiçoarem cada vez mais para proporcionar uma rotina de trabalho eficiente e colaborativa.
 A grande vantagem de usar a tecnologia da F360 voltada para o compartilhamento de dados é a possibilidade de automatizar grande parte de processos que tomam um tempo considerável quando feitos manualmente e reduzir erros.
@@ -1067,7 +1065,7 @@ O Franqueador **não** tem acesso:
 * Certificado Digital
 * Acesso (usuário e senha) a sua plataforma F360 Finanças
  
-### Segunda via de Boleto e Nota Fiscal de mensalidade
+## Segunda via de Boleto e Nota Fiscal de mensalidade
 
 Está precisando emitir a segunda via de boleto do F360 Finanças, mas não sabe o que fazer? Veja o passo a passo que preparamos para te ajudar nisso! 
  
@@ -1099,7 +1097,7 @@ Sua opinião é muito importante para nós.
 Um grande abraço,
 **Equipe F360**
  
-### Como consultar histórico de acessos ao sistema**Relatório de acesso ao sistema**
+## Como consultar histórico de acessos ao sistema**Relatório de acesso ao sistema**
 Neste artigo vamos apresentar como o relatório de acesso ao sistema funciona.
 **Passo a passo**
 1. Acesse o menu de cadastros
@@ -1131,7 +1129,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360°**
 
-### Como configurar e exportar arquivos para TOTVS
+## Como configurar e exportar arquivos para TOTVS
 
 A exportação do arquivo TXT na F360 - Finanças deve seguir uma rotina especifica, pois são necessárias algumas diretrizes para que seja feita a correta leitura do arquivo por parte do sistema TOTVS.
 Segue o passo a passo para conseguir realizar o download do arquivo TXT:
@@ -1180,7 +1178,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Como exportar o arquivo de Extrato Bancário (OFX) do Banco Santander
+## Como exportar o arquivo de Extrato Bancário (OFX) do Banco Santander
 
 O arquivo OFX, é o espelho do seu extrato bancário, para que você possa realizar a conciliação bancária de entradas e saídas de sua conta, que é realizado na tela de contas Movimentos.
  Preparamos um passo a passo de como você pode extrair esse arquivo de sua conta bancária:
@@ -1197,7 +1195,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360.**
 
-### Como exportar o arquivo de Extrato Bancário (OFX) do banco Caixa Econômica Federal
+## Como exportar o arquivo de Extrato Bancário (OFX) do banco Caixa Econômica Federal
 
 O arquivo OFX, é o espelho do seu extrato bancário, para que você possa realizar a conciliação bancária de entradas e saídas de sua conta, que é realizado na tela de contas Movimentos.
  
@@ -1214,7 +1212,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360.**
  
-### Como solicitar inclusão de loja na F360°
+## Como solicitar inclusão de loja na F360°
 
 Iremos listar a seguir os principais procedimentos que devem ser adotados sempre que você abrir uma nova loja. A solicitação de alguns arquivos para operadoras e bancos são demorados, então recomendamos que **você nos avise com 30 dias de antecedência da data de abertura** da loja para que tenhamos tempo hábil de trabalhar em todos os processos. **1° Passo – Cadastro de Empresas**
 Assim que a empresa estiver com CNPJ aberto, você precisará enviar um e-mail para: [suporte@financas360.com.br](mailto:suporte@financas360.com.br)com todos os dados cadastrais da loja para solicitar a liberação de mais uma empresa no seu perfil da F360 - Finanças. Se você precisar de ajuda durante o processo de inclusão da loja no sistema, chame nossos operadores no chat que eles poderão te ajudar em todas as etapas de preenchimento dos dados, que envolvem: criação de centro de custos, conta caixa e cadastro de operadoras e outras diversas parametrizações.
@@ -1230,7 +1228,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Acesso as novidades F360° 
+## Acesso as novidades F360° 
 
 Na plataforma, no canto superior do lado direito da tela, você encontrará um 🔔 onde será possível visualizar as novidades relevantes sobre melhorias no produto e comunicados.
  
@@ -1244,7 +1242,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360°**
  
-### Diagnóstico 
+## Diagnóstico 
 
 Neste artigo, você saberá como este recurso pode contribuir com a sua rotina financeira. 
 Utilizando a tela Diagnóstico é possível visualizar quais são as atividades que estão pendentes na plataforma, evitando divergências de informações e melhorando a sua performance na plataforma.
@@ -1261,7 +1259,7 @@ Utilizando a tela Diagnóstico é possível visualizar quais são as atividades 
 ![pesquisa_segunda_parte.gif](https://f360.zendesk.com//hc/article_attachments/4964222630551/pesquisa_segunda_parte.gif)
 **Analisando os dados Gerados**
 
-### **fa_upload.png Upload de Arquivos**
+## **fa_upload.png Upload de Arquivos**
 Nessa parte do relatório serão analisados os arquivos importados que foram lidos, porém por falta de informações cadastradas não inseriram vendas ou cartões na plataforma.
 ![upload_arquivo.gif](https://f360.zendesk.com//hc/article_attachments/4964208003607/upload_arquivo.gif)
  
@@ -1278,7 +1276,7 @@ Objetivo - Identificar e alertar sobre os cartões não inseridos.
 Serão localizados os cartões que não foram inseridos por que a conta descrita no arquivo não foi cadastrada na tela de contas da plataforma.
 Objetivo - Identificar e alertar sobre os cartões não inseridos.
  
-### **fa_calendar.png Fechamento de Caixa**
+## **fa_calendar.png Fechamento de Caixa**
 Nessa parte do relatório serão analisadas as vendas e se a conferência do Fechamento de Caixa está em dia.
 ![fechamento.gif](https://f360.zendesk.com//hc/article_attachments/4964296463511/fechamento.gif)
 * **Data com Caixa Pendente**
@@ -1291,7 +1289,7 @@ Objetivo - Alertar para validar as informações inseridas na plataforma, garant
 A data da última venda será analisada para verificar se existe algum problema na entrega de informações para a plataforma.
 Objetivo - Identificar e alertar sobre o recebimento das vendas, garantindo que todos os processos estão funcionando corretamente.
  
-### **fa_creditCard.png Conciliação**
+## **fa_creditCard.png Conciliação**
 Nessa parte do relatório serão analisados os dados dos cartões enviados pela adquirente e a conciliação das vendas.
 ![Conciliacao.gif](https://f360.zendesk.com//hc/article_attachments/4964281378071/Conciliacao.gif)
 * **PDV's e Cartões Pendentes**
@@ -1315,9 +1313,9 @@ Um grande abraço,
 **------------**
 Você sabia que a [F360 Contábil](https://www.f360.com.br/contabil/) fornece serviço contábil, fiscal e de departamento pessoal de forma fácil, rápida e econômica? Você pode economizar até 60% dos custos de honorários contábeis ao utilizar nossa contabilidade *online*. [Clique aqui e saiba mais.](https://www.f360.com.br/contabil/)
 
-## Nota Fiscal de Serviços
+# Nota Fiscal de Serviços
 
-### Tags para descrição do serviço
+## Tags para descrição do serviço
 
 No cadastro de Webservice de NFSE é possível adicionar marcadores inteligentes que são interpretados no momento da emissão da NFSE.
 Na tela de cadastro de Webservice, basta localizar a seção "Discriminação" e clicar no botão Marcadores:
@@ -1328,7 +1326,7 @@ A relação de tag/informação relacionada no Finanças é:
 * parcela.numero = Número do Título
 * parcela.histórico = Campo "Histórico" no título
 * parcela.valor\_liquido = Valor do título
-* parcela.liquidacao = Data da liquidação do título### Nota Fiscal de Serviço - EmissãoEssa opção estará disponível para os clientes que possuem o produto Emissor.
+* parcela.liquidacao = Data da liquidação do título## Nota Fiscal de Serviço - EmissãoEssa opção estará disponível para os clientes que possuem o produto Emissor.
 Veja o nosso artigo de como realizar a configuração de emissão de boletos > <https://bit.ly/3BhMDET>
 Veja abaixo o passo a passo de como realizar a emissão de NFSe.
 Utilize a funcionalidade de Lotes para realizar a emissão de várias notas, ganhando produtividade no seu dia a dia:
@@ -1345,7 +1343,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360°**
 
-### Emissão de NFSe a partir do movimento PDV
+## Emissão de NFSe a partir do movimento PDV
 
 Na plataforma F360 é possível realizar a emissão de Notas Fiscais de Serviços (NFSe) através do Movimento PDV. Para realizar esta operação, acesse a nova aba de PDV na tela de Contas a Receber.
 Para usuários com permissão, a nova aba de PDV estará visível e permitirá ao cliente a pesquisa e visualização de Movimentos PDV de acordo com os filtros selecionados, similarmente à aba de “Movimentos” na tela de Fechamento de Caixa.
@@ -1367,9 +1365,9 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360°.**
 
-## Upload de Arquivos
+# Upload de Arquivos
 
-### Como reprocessar arquivos já inseridos na plataforma
+## Como reprocessar arquivos já inseridos na plataforma
 
 O reprocessamento de arquivos na tela de upload de arquivos > gerenciamento de arquivos, é uma alternativa para evitar que seja inserido novamente o arquivo, clicando no botão reprocessar o robô irá realizar a leitura novamente.
 Obs: Quando o arquivo é reprocessado, na última coluna apresentará o número 1 em azul, que aponta que o arquivo foi reprocessado uma vez, mas é possível reprocessar o arquivo mais duas vezes.
@@ -1380,7 +1378,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Inserindo arquivos e acompanhando processamento
+## Inserindo arquivos e acompanhando processamento
 
 - Tela upload de arquivos
 **Onde inserir os arquivos**É na tela de [Upload de Arquivos](https://financas.f360.com.br/Arquivo) que são inserido os arquivos que alimentam a plataforma F360.  
@@ -1432,9 +1430,9 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
  
-## Open Finance
+# Open Finance
 
-### Open Finance - Contratação e Ativação
+## Open Finance - Contratação e Ativação
 
 Nesse artigo, vamos descrever o processo de contratação e ativação da automação bancário, sendo esse, um dos requisitos para ter acesso as funcionalidades que facilitam a comunicação entre as instituições bancárias e a F360, como a [obtenção de extrato bancário](/knowledge/articles/11856566986135/pt-br?brand_id=360003815913).
 Para iniciar o fluxo de contratação clique no botão 'Automação Bancária', localizado no canto inferior esquerdo, presente na tela de 'Menu de Cadastro' > 'Contas' e na tela de 'Contas Movimento'. 
@@ -1463,7 +1461,7 @@ Por favor, entre em contato com a gente pelo e-mail [suporte@f360.com.br](mailto
 Um grande abraço,
 **Equipe F360°.**
 
-### Open Finance - Extrato bancário
+## Open Finance - Extrato bancário
 
 Nesse artigo, vamos descrever o processo de obtenção do extrato bancário, sendo esse um dos processos de automação bancária, que consiste em uma funcionalidade que facilita a comunicação entre as instituições bancárias e a F360, permitindo obter as movimentações bancárias (entradas e saídas) da forma mais automatizada possível.
 Para fazer o uso dessa funcionalidade será necessário a contratação e conexão das contas que pode ser realizada seguindo os passos do link: [**Contratação Open Finance**](/knowledge/articles/11858870902039/pt-br?brand_id=360003815913).
@@ -1494,9 +1492,9 @@ Por favor, entre em contato com a gente pelo e-mail [suporte@f360.com.br](mailto
 Um grande abraço,
 **Equipe F360°.**
 
-## Plano Orçamentário
+# Plano Orçamentário
 
-### Como realizar a configuração do plano orçamentário sem histórico
+## Como realizar a configuração do plano orçamentário sem histórico
 
 A tela de plano orçamentário, é onde você consegue realizar provisões de pagamentos sendo possível gerar títulos de contas á pagar, para o ano inteiro.
 Logo no vídeo abaixo, segue o exemplo de como realizar a configuração do orçamento sem histórico:
@@ -1506,7 +1504,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
  
-### Como configurar o plano orçamentário para receitas
+## Como configurar o plano orçamentário para receitas
 A configuração de um planejamento orçamentário é essencial para que você tenha uma visão de futuro do seu negócio e também para que você possa comparar as suas previsões com os valores realizados.
 Esse manual vai te explicar como configurar um orçamento para receitas na F360. Recomendamos que você leia com atenção e depois disso faça a configuração do seu orçamento para o ano de 2019.**Crie um novo orçamento ou uma nova hipótese:**
 Você terá a possibilidade de criar quantos orçamentos desejar. Dessa forma você consegue criar diversas hipóteses de orçamento, como por exemplo uma hipótese otimista com um crescimento de receitas de 20% em relação ao ano anterior ou uma hipótese pessimista onde você simula uma queda de 5% no faturamento ou ainda uma hipótese realista para simular um crescimento de 7%.
@@ -1568,7 +1566,7 @@ Por favor, entre em contato com a gente pelo e-mail [suporte@f360.com.br](mailto
 Um grande abraço,
 **Equipe F360**
 
-### Como configurar o plano orçamentário a partir das receitas
+## Como configurar o plano orçamentário a partir das receitas
 
 A tela de plano orçamentário, é onde você consegue realizar provisões de pagamentos sendo possível gerar títulos de contas á pagar, para o ano inteiro.
 Logo no vídeo abaixo, segue o exemplo de como realizar a configuração do orçamento, a partir do plano orçamentário criado de receitas:
@@ -1578,7 +1576,7 @@ Por favor, entre em contato com a gente pelo e-mail [suporte@f360.com.br](mailto
 Um grande abraço,
 **Equipe F360**
  
-### Como configurar o plano orçamentário de despesas a partir do histórico do contas a pagar
+## Como configurar o plano orçamentário de despesas a partir do histórico do contas a pagar
 
 A tela de plano orçamentário, é onde você consegue realizar provisões de pagamentos sendo possível gerar títulos de contas á pagar, para o ano inteiro.
 Logo no vídeo abaixo, segue o exemplo de como realizar a configuração do orçamento, a partir do histórico existente na tela de contas á pagar: 
@@ -1587,7 +1585,7 @@ Por favor, entre em contato com a gente pelo e-mail [suporte@f360.com.br](mailto
 Um grande abraço,
 **Equipe F360**
  
-### Como configurar plano orçamentário de despesas a partir de outra despesa
+## Como configurar plano orçamentário de despesas a partir de outra despesa
 
 A tela de plano orçamentário, é onde você consegue realizar provisões de pagamentos sendo possível gerar títulos de contas á pagar, para o ano inteiro.
 Logo no vídeo abaixo, segue o exemplo de como realizar a configuração do orçamento, a partir de outra despesa:Gostou desse artigo? Tem alguma dúvida ou sugestão?  
@@ -1595,9 +1593,9 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360.**
 
-## Nota Fiscal Eletrônica
+# Nota Fiscal Eletrônica
 
-### Inclusão e Renovação do Certificado Digital
+## Inclusão e Renovação do Certificado Digital
 
 O Certificado Digital é a identidade digital que permite ligar uma entidade a uma chave pública. Esse documento deve ser gerado e assinado por uma Autoridade Certificadora (órgão responsável pela criação e gerenciamento dos Certificados Digitais) que esteja conforme as regras estabelecidas pela ICP-Brasil. O certificado digital em nossa Webservice te permitirá buscar as notas de fornecedores que estarão disponibilizadas no sistema do SEFAZ, sendo assim através das notas obtidas você poderá confirmar a nota e gerar o título de contas a pagar através da tela de NFE.   
 Todo certificado possui uma data de expiração para que prováveis alterações ocorridas nos dados do identificado sejam atualizados ao longo do tempo e deverá ser na extensão A1. Para a inclusão ou renovação do certificado digital siga as seguintes instruções;
@@ -1619,7 +1617,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360.**
 
-### Como negar notas fiscais
+## Como negar notas fiscais
 
 O botão de negar notas, significa que o destinatário desconhece a emissão da nota pelo fornecedor e lembrando que é irreversível pelo ponto da mensagem transmitida para o fornecedor, pois na plataforma F360 é possível gerar o título através da nota, mas para isso é preciso realizar o download XML da nota e em seguida realizar a exclusão da nota que foi negada:
 ![negar_notas.gif](https://f360.zendesk.com//hc/article_attachments/360060105734/negar_notas.gif)------------------------------------------------------------Gostou desse artigo? Tem alguma dúvida ou sugestão?  
@@ -1627,7 +1625,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Como funciona o botão obter notas
+## Como funciona o botão obter notas
 
 O botão de Obter Notas está localizado na tela de Nota Fiscal Eletrônica, no lado no rodapé da tela no lado direito, possui a função de realizar a busca das notas que estão disponíveis nos servidores da Sefaz ou até para identificar se o certificado digital A1 está vencido, para isso basta clicar no botão e o robô irá realizar a busca referente a empresa selecionada que possui cadastro do certificado na plataforma F360, em seguida clique em Ver Histórico e veja qual a mensagem apresentada após clicar em obter notas, veja o exemplo abaixo:
  
@@ -1638,7 +1636,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Leitura da Nota de Débito "Hering"
+## Leitura da Nota de Débito "Hering"
 
 Para agilizar o lançamento das Notas de Débito da Cia.Hering passamos a efetuar a leitura do PDF dessas notas de Débito.
 Inicialmente é preciso que realize algumas configurações em seu perfil, abaixo siga o passo a passo:
@@ -1666,7 +1664,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Como excluir uma nota fiscal - Quando não tem título gerado
+## Como excluir uma nota fiscal - Quando não tem título gerado
 
 Para realizar a exclusão de uma nota fiscal na plataforma F360, é apenas realizar a pesquisa da nota, selecionar e clicar no botão de excluir, localizado no rodapé da tela, veja o gif abaixo:
 ![como_excluir_uma_nota_sem_o_titulo_estiver_gerado.gif](https://f360.zendesk.com//hc/article_attachments/360060101554/como_excluir_uma_nota_sem_o_titulo_estiver_gerado.gif)-----------------------------------------------------------------Gostou desse artigo? Tem alguma dúvida ou sugestão?  
@@ -1674,7 +1672,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Como realizar o download do XML da nota e o download da DANFE para visualizar em PDF
+## Como realizar o download do XML da nota e o download da DANFE para visualizar em PDF
 
 Para realizar o download do XML da nota e Danfe (espelho da nota fiscal), você irá pesquisar a nota com o filtro á seu critério, irá selecionar a nota e clicar abaixo em Download XML ou Download Danfe, lembrando que para realizar o download é preciso que a nota já tenha sido confirmada veja o gif abaixo:
 ![Download_xml_e_danfe.gif](https://f360.zendesk.com//hc/article_attachments/360060110754/Download_xml_e_danfe.gif)
@@ -1683,7 +1681,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
  
-### Como realizar configuração de NCM/CFOP
+## Como realizar configuração de NCM/CFOP
 
 Quando a nota possuir um alerta, é preciso verificar a mensagem apresentada, pois pode se tratar de uma pendência de configuração, no exemplo abaixo se trata de uma configuração de NCM/CFOP, para identificar o produto que possui a combinação que está pendente de configuração, o ideal é realizar o download da Danfe, para identificar o produto e verificar qual o plano de contas se enquadra na combinação de NCM/CFOP, veja o exemplo abaixo:
 ![Alertas_de_configura_ao.gif](https://f360.zendesk.com//hc/article_attachments/360061041093/Alertas_de_configura_ao.gif)
@@ -1692,7 +1690,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Como excluir uma nota fiscal quando o título está gerado
+## Como excluir uma nota fiscal quando o título está gerado
 
 Para realizar a exclusão de uma nota que possua um título gerado, é preciso que primeiro seja excluído a nota fiscal na tela de nota fiscal eletrônica, pois como possui o vínculo com o título, após a exclusão da nota o título não é excluído automaticamente, veja o gif abaixo:
 ![Como_excluir_uma_nota_com_titulo_gerado.gif](https://f360.zendesk.com//hc/article_attachments/360060104254/Como_excluir_uma_nota_com_titulo_gerado.gif)
@@ -1701,7 +1699,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Como realizar a confirmação e download de uma NFEO Webservice de comunicação da F360 com a NFE é dividido em três partes:
+## Como realizar a confirmação e download de uma NFEO Webservice de comunicação da F360 com a NFE é dividido em três partes:
 * Obtenção da lista de notas emitidas contra o CNPJ das empresas cadastradas;
 * Confirmação do reconhecimento das notas recebidas;
 * Download das notas cujo reconhecimento foi efetuado com sucesso; O processo para a obtenção da lista das notas emitidas contra o CNPJ das empresas é feito em segundo plano pela F360 todos os dias durante a madrugada. Porém, os processos de confirmação e download das notas deve ser feito manualmente pelo usuário.
@@ -1725,7 +1723,7 @@ Por favor, entre em contato com a gente pelo e-mail [suporte@f360.com.br](mailto
 Um grande abraço,
 **Equipe F360º.**
 
-### Como funciona a tela de nota fiscal eletrônica 
+## Como funciona a tela de nota fiscal eletrônica 
 
 Criamos uma rotina que realiza conexão com os serviços da Fazenda com o intuito de buscar automaticamente todas as Notas Fiscais Eletrônicas de Produtos lançadas contra o CNPJ de suas empresas.
 Com isso, a F360 irá importar os XML’s automaticamente para o seu perfil do sistema, eliminando a necessidade de fazer o download dos arquivos XML’s e inseri-los no sistema.
@@ -1752,7 +1750,7 @@ Por favor, entre em contato com a gente pelo e-mail [suporte@f360.com.br](mailto
 Um grande abraço,
 **Equipe F360**
 
-### Como inserir manualmente o XML de uma nota fiscal
+## Como inserir manualmente o XML de uma nota fiscal
 
 Para casos em que a nota não está disponibilizada no sistema do Sefaz, você poderá inserir o arquivo xml da nota. Para realizar a inserção do xml, acesse a tela de nota fiscal eletrônica, aba de Importações, selecione o xml que está salvo em seu computador e insira na tela de Importações, mesmo sendo importado nessa tela é preciso que verifique na tela de Upload de arquivos > gerenciamento de arquivos se o xml foi lido e inserido corretamente, **lembrando que a nota que é inserida manualmente não é preciso realizar a confirmação da nota**, veja o gif abaixo:
 ![inserir_xml_de_nota_fiscal.gif](https://f360.zendesk.com//hc/article_attachments/360060115194/inserir_xml_de_nota_fiscal.gif)
@@ -1762,7 +1760,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Criação automática de contas a pagar através da NFe 
+## Criação automática de contas a pagar através da NFe 
 
 Aqui iremos lhe mostrar como realizar a configuração na sua sabe F360º Finanças, para que seja automatizado a criação de Títulos a pagar, apenas através da importação da Notas fiscal, seja ela importada através do xml ou pela Sefaz, e para as notas de débitos e de serviços em PDF (Verificar no nosso canal do suporte municípios e marcas homologadas).
 Para realizar o **upload de forma manual** deste tipo de arquivo na plataforma, basta acessar a tela de "Upload de Arquivos" e selecionar os arquivos que deseja importar (conforme imagens abaixo). 
@@ -1821,7 +1819,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360°**
 
-### Como cadastrar fornecedores confiáveis em NFEA Webservice de comunicação da F360 - 
+## Como cadastrar fornecedores confiáveis em NFEA Webservice de comunicação da F360 - 
 
 Finanças com a NFE é dividido em três partes:
 
@@ -1842,7 +1840,7 @@ Por favor, entre em contato com a gente pelo e-mail [suporte@f360.com.br](mailto
 Um grande abraço,
 **Equipe F360**
   
-### Como corrigir os alertas das notas em NFE
+## Como corrigir os alertas das notas em NFE
 
 Utilizamos as NFE's para auxiliar no processo de lançamento das despesas no sistema. Uma das grandes vantagens desse processo é a automatização do rateio do contas a pagar. Nós fazemos isso usando as seguintes informações da nota:
 * Olhamos a lista de produtos lançados no XML e cruzamos com as informações cadastradas na tela de NCM/CFOP. Usamos esses dados para criar alguns itens do rateio da nota;
@@ -1862,7 +1860,7 @@ Por favor, entre em contato com a gente pelo e-mail [suporte@f360.com.br](mailto
 Um grande abraço,
 **Equipe F360**
 
-### Como configurar exceções de planos de contas diferentes que tem o mesmo NCM/CFOP na NFEDurante a parametrização de um NCM/CFOP na F360
+## Como configurar exceções de planos de contas diferentes que tem o mesmo NCM/CFOP na NFEDurante a parametrização de um NCM/CFOP na F360
 
 Finanças às vezes a gente se depara com o seguinte problema:
 
@@ -1877,7 +1875,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Manifestação de nota fiscal eletrônica
+## Manifestação de nota fiscal eletrônica
 
 Neste manual vamos descrever o processo de manifestação de notas fiscais eletrônicas simplificadas.
 
@@ -1888,7 +1886,7 @@ Ao selecionar a nota fiscal que deseja manifestar, no menu inferior irá aparece
  
 **Referências:** [**https://www.nfe.fazenda.gov.br/portal/perguntasFrequentes.aspx?tipoConteudo=PN6e+JQMTxs=**](https://www.nfe.fazenda.gov.br/portal/perguntasFrequentes.aspx?tipoConteudo=PN6e+JQMTxs=)
 
-### O Boticário - Como realizar a configuração para nota de débito e nota fiscal de serviços
+## O Boticário - Como realizar a configuração para nota de débito e nota fiscal de serviços
 
 Na plataforma é possível realizar a inserção de notas de débitos e notas fiscais de serviços em PDF da marca O Boticário, mas antes de realizar a importação das notas é necessário realizar as configurações, veja no exemplo abaixo:
   
@@ -1897,9 +1895,9 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
  
-## Fluxo de Caixa
+# Fluxo de Caixa
 
-### Qual a utilidade do fluxo de caixa
+## Qual a utilidade do fluxo de caixa
 
 ?Através da aba de **Fluxo de Caixa,** temos todas as entradas e saídas de recursos financeiros ou dinheiro, em um determinado período de tempo em uma conta. Ou seja, **fluxo de caixa** é uma ferramenta empresarial que serve para controlar a movimentação financeira.
  
@@ -1914,7 +1912,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
  
-### Como identificar diferença no saldo do caixa
+## Como identificar diferença no saldo do caixa
 
 O saldo da conta caixa é composto pelo saldo anterior e as vendas do dia, como também os lançamentos liquidados em contas á pagar e contas á receber, depósitos e transferência entre contas. Utilize a aba de Fluxo de Caixa como função de extrato de conferência da conta caixa para consulta, selecione a conta do caixa, a data, status e parâmetros, conforme o gif abaixo, verifique se possui alguma entrada ou saída que esteja impactando no saldo do dia:
  
@@ -1925,7 +1923,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### O que é o fluxo de caixa analítico / DFC?
+## O que é o fluxo de caixa analítico / DFC?
 
 O Fluxo de Caixa Analítico ou o Demonstrativo do Fluxo de Caixa (DFC) é um relatório gerencial emitido por regime de caixa que irá demonstrar detalhadamente todas as movimentações de entrada e saída de caixa de suas contas, sejam elas bancárias ou não bancárias. O grande diferencial do Fluxo de Caixa Analítico em relação ao Fluxo de Caixa Comum é que as informações serão mostradas de forma detalhada. Para as movimentações do Contas a Receber e do Contas a Pagar serão separados por plano de contas.
 Essa função do sistema está disponível na tela de Fluxo de Caixa na aba “Fluxo Analítico - DFC”.
@@ -1937,7 +1935,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
  
-### Como efetuar sua pesquisa no fluxo de caixa
+## Como efetuar sua pesquisa no fluxo de caixa
 
 Para efetuar a pesquisa na aba de Fluxo de Caixa, selecione o período, status: Liquidados, conta e selecione os dois primeiros parâmetros (Exibir parcelas de títulos pendentes de aprovação? e  Visualizar os valores de final de semana em seus dias originais?) e clique em Pesquisar.
 Ao obter o resultado da pesquisa, clique no sinal de + ao lado da data, para que apareçam as linhas das contas (pois você pode selecionar mais de 1 conta), e no total de onde deseja efetuar a pesquisa para obter o detalhamento dos lançamentos, que está compondo o total.
@@ -1947,7 +1945,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Como configurar seu fluxo de caixa
+## Como configurar seu fluxo de caixa
 
 Vamos ensinar através do Gif, como configurar sua pesquisa no Fluxo de Caixa, para apresentar as modalidades que desejar, lembrando que os valores que estiverem em modalidades não configuradas, ficará na coluna de outros.
 Clique no lápis no campo de Data para iniciar a configuração, depois no sinal de + nas linhas de entrada ou saídas para acrescentar a nova modalidade, selecione e clique em salvar. Após adicionar as modalidades clique em Salvar Configurações.
@@ -1957,7 +1955,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
  
-### Como configurar seu fluxo de caixa analítico
+## Como configurar seu fluxo de caixa analítico
 
 Para realizar a configuração do Fluxo de Caixa Analítico, entre na tela de Fluxo de Caixa à Entre na aba “Fluxo Analítico - DFC” e acesse a aba “Configurações”.
 Se essa for a primeira vez que você acessa essa aba, o sistema irá criar uma configuração padrão para você chamada “Modelo 01”. Você poderá trabalhar em cima dessa configuração ou criar um novo modelo clicando no botão “Novo Fluxo de Caixa” localizado no canto inferior esquerdo da tela. Você deverá informar um nome para essa configuração e definir se ela será o seu relatório padrão, conforme a imagem a seguir:
@@ -1980,9 +1978,9 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-## Manuais  AdquirentesOperadoras
+# Manuais  AdquirentesOperadoras
 
-### Manual Adquirente Wizeo
+## Manual Adquirente Wizeo
 
 Preparamos o manual de exportação dos arquivos da Adquirente Wizeo, para que possa importar os arquivos e realizar a conciliação dos recebíveis na sua plataforma F360° Finanças, siga as instruções abaixo:
  
@@ -2024,7 +2022,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
  
-### Manual OmniChannel Boleto - O Boticário
+## Manual OmniChannel Boleto - O Boticário
 
 Preparamos um manual, com as instruções de importação dos pedidos omni com o meio de pagamento Boleto.
 **Lembramos que para omni cartão e pix, a importação é através dos arquivos que sobem automaticamente pela Web Service Mooz Cartões, e o relatório deve ser exportado pela data de pedido e será apresentado por valor liquido.**
@@ -2062,7 +2060,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360º**
 
-### Manual de Exportação EcxCard
+## Manual de Exportação EcxCard
 
 Preparamos o manual de exportação dos arquivos da EcxCard, para que possa importar os arquivos e realizar a conciliação dos recebíveis na sua plataforma F360° Finanças, siga as instruções abaixo:
  
@@ -2096,7 +2094,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360.**
  
-### Manual Operadora CREDZ
+## Manual Operadora CREDZ
 
 Veja abaixo o passo a passo de como exportar o relatório da operadora Credz.
 **Nota: Antes de realizar esse processo, é importante que seja enviado o e-mail para o [suporte@f360.com.br,](mailto:suporte@f360.com.br,) solicitando o credenciamento da operadora.**
@@ -2111,7 +2109,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360º.**
 
-### Manual de exportação Elavon
+## Manual de exportação Elavon
 
 Preparamos o manual de exportação dos arquivos da Elavon, para realizar a conciliação dos recebíveis na sua plataforma F360° Finanças, siga as instruções abaixo:
  
@@ -2139,7 +2137,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360.**
  
-### Manual de exportação Good Card
+## Manual de exportação Good Card
 
 Preparamos o manual de exportação dos arquivos Good Card, para que possa importar os arquivos e realizar a conciliação dos recebíveis na sua plataforma F360° Finanças, siga as instruções abaixo:
  
@@ -2174,7 +2172,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360.**
 
-### Manual de Exportação arquivos Ben Visa Vale
+## Manual de Exportação arquivos Ben Visa Vale
 
 Preparamos o manual de exportação dos arquivos da Ben Visa Vale, para que possa importar os arquivos e realizar a conciliação dos recebíveis na sua plataforma F360° Finanças, siga as instruções abaixo:
  
@@ -2204,7 +2202,7 @@ Um grande abraço,
  
  
  
-### Manual de exportação FortBrasil
+## Manual de exportação FortBrasil
 
 Preparamos o manual de exportação dos arquivos da FortBrasil, para que possa importar os arquivos e realizar a conciliação dos recebíveis na sua plataforma F360° Finanças, siga as instruções abaixo:
  
@@ -2239,7 +2237,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360.**
 
-### Manual de exportação VeroCard - (Refeição, Alimentação, Farmácia, Combustível, Cesta, Flex, Cult e Champ)
+## Manual de exportação VeroCard - (Refeição, Alimentação, Farmácia, Combustível, Cesta, Flex, Cult e Champ)
 
 Preparamos o manual de exportação dos arquivos da Verocard, para que possa importar os arquivos e realizar a conciliação dos recebíveis na sua plataforma F360° Finanças, siga as instruções abaixo:
  
@@ -2268,7 +2266,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Manual de Exportação Adquirente Credpar
+## Manual de Exportação Adquirente Credpar
 
 Preparamos o manual de exportação dos arquivos da Adquirente Credpar, para que possa importar os arquivos e realizar a conciliação dos recebíveis na sua plataforma F360° Finanças, siga as instruções abaixo:
  
@@ -2314,7 +2312,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
  
-### Manual de adquirente Getnet
+## Manual de adquirente Getnet
 
 Preparamos esse artigo, para que você saiba como realizar a importação de relatórios da adquirente Getnet:
  
@@ -2327,7 +2325,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360.**
  
-### Manual de importação VR 
+## Manual de importação VR 
 
 Preparamos esse artigo, para que você possa realizar a exportação dos relatórios da adquirente VR, para realizar as conciliações. 
 Os arquivos da VR são transmitidos pela a Nexxera automaticamente via API, mas caso necessite de arquivo retroativos ou por algum motivo a venda não subiu automaticamente, você pode seguir o caminho abaixo para importação, pois a Nexxera não realiza reprocessamento de arquivos.
@@ -2350,7 +2348,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360.**
 
-### Manual de exportação IfoodPay
+## Manual de exportação IfoodPay
 
 Preparamos o manual de exportação dos arquivos IfoodPay, para que possa importar os arquivos e realizar a conciliação dos recebíveis na sua plataforma F360° Finanças, siga as instruções abaixo:
  
@@ -2382,7 +2380,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360.**
  
-### Importação do arquivo Cielo 15
+## Importação do arquivo Cielo 15
 
 A Cielo possui um arquivo que contém informações de parcelas antecipadas, porém não possui informações suficientes para realizarmos a antecipação na plataforma de forma arbitrária.   
   
@@ -2401,7 +2399,7 @@ Como o arquivo da Cielo (Cielo15) não possui a especificação de quais vendas 
 **Reverter a antecipação:**
 Você poderá reverter a antecipação realizada dentro do sistema desde que nenhuma das parcelas afetadas pela antecipação tenham sido conciliadas com o extrato bancário. Para isso, basta localizar e selecionar o *log* da antecipação na aba de **Antecipação Manual** e clicar no botão **Reverter Antecipação**.
 
-### Manual de Webservice Adquirente Wirecard
+## Manual de Webservice Adquirente Wirecard
 
 Preparamos o manual de criação da webservice referente a adquirente Wirecard, para que possa importar os arquivos de vendas e realizar a conciliação dos recebíveis na sua plataforma F360° Finanças, siga as instruções abaixo:
 * O Primeiro passo, é preciso que você envie um e-mail para a Wirecard solicitando liberação ao acesso dos arquivos/extratos de conciliação no conciliador F360°.
@@ -2427,7 +2425,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
  
-### Manual de Exportação Sodexo
+## Manual de Exportação Sodexo
 
 Preparamos esse artigo, para que você possa realizar a exportação dos relatórios da adquirente Sodexo, para realizar as conciliações. 
 Os arquivos da Sodexo são transmitidos pela a Nexxera automaticamente via API, mas caso necessite de arquivo retroativos ou por algum motivo a venda não subiu automaticamente, você pode seguir o caminho abaixo para importação, pois a Nexxera não realiza reprocessamento de arquivos.
@@ -2457,7 +2455,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360.**
 
-### Manual Download Adquirente AME Digital
+## Manual Download Adquirente AME Digital
 
 Preparamos o manual de exportação dos arquivos da Adquirente Ame Digital, para que possa importar os arquivos e realizar a conciliação dos recebíveis na sua plataforma F360° Finanças, siga as instruções abaixo:
  
@@ -2495,7 +2493,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Manual Operadora ACQIO
+## Manual Operadora ACQIO
 
 Veja abaixo o passo a passo de como exportar o relatório da operadora ACQIO.
 **Nota: Antes de realizar esse processo, é importante que seja enviado o e-mail para o [suporte@f360.com.br,](mailto:suporte@f360.com.br,) solicitando o credenciamento da operadora.**
@@ -2512,7 +2510,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360º.**
 
-### Credenciamento - Operadora Stone 
+## Credenciamento - Operadora Stone 
 
 Segue abaixo o passo a passo de como realizar o credenciamento da operadora Stone na plataforma F360° Finanças:
  
@@ -2540,7 +2538,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360°**
 
-### Manual de Webservice Adquirente InfinitePay 
+## Manual de Webservice Adquirente InfinitePay 
 
 Preparamos o manual de criação da webservice referente a adquirente InifinitePay, para que possa importar os arquivos e realizar a conciliação dos recebíveis na sua plataforma F360° Finanças, siga as instruções abaixo:
  
@@ -2561,7 +2559,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Manual Adquirente Credz
+## Manual Adquirente Credz
 
 Preparamos o manual de exportação dos arquivos da Adquirente Credz, para que possa importar os arquivos e realizar a conciliação dos recebíveis na sua plataforma F360° Finanças, siga as instruções abaixo:
  
@@ -2585,7 +2583,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
  
-### Manual de importação Ticket
+## Manual de importação Ticket
 
 Preparamos esse artigo, para que você possa realizar a exportação dos relatórios da adquirente Ticket, para realizar as conciliações.
 Os arquivos da Ticket são transmitidos pela a Nexxera automaticamente via API, mas caso necessite de arquivo retroativos ou por algum motivo a venda não subiu automaticamente, você pode seguir o caminho abaixo para importação, pois a Nexxera não realiza reprocessamento de arquivos.
@@ -2603,7 +2601,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360.**
 
-### Credenciamento - Operadora Rede
+## Credenciamento - Operadora Rede
 
 Segue abaixo o passo a passo de como realizar o credenciamento da operadora REDE na plataforma F360° Finanças:
  
@@ -2661,9 +2659,9 @@ Por favor, entre em contato com a gente pelo e-mail [suporte@f360.com.br](mailto
 Um grande abraço,
 Equipe F360°Relativo a
 * [Rede](https://f360.zendesk.com//hc/pt-br/search?content_tags=01HFVHWBZYJ9TV7EK281DT2RKT&utf8=%E2%9C%93 "Resultados da pesquisa")
-* [Credenciamento](https://f360.zendesk.com//hc/pt-br/search?content_tags=01HFVHWHZQDY1ZDKZ2AK1T5VV5&utf8=%E2%9C%93 "Resultados da pesquisa")### 
+* [Credenciamento](https://f360.zendesk.com//hc/pt-br/search?content_tags=01HFVHWHZQDY1ZDKZ2AK1T5VV5&utf8=%E2%9C%93 "Resultados da pesquisa")## 
 
-### Manual de Consulta de Repasse Adquirente Wizeo
+## Manual de Consulta de Repasse Adquirente Wizeo
 
 Nesse artigo, preparamos o passo a passo para realizar a consulta dos pagamentos da adquirente Wizeo.
 Lembrando que é apenas para consulta e não para importação do relatório na plataforma F360 Finanças, pois no momento da importação do arquivo de vendas da adquirente é preciso informar a data de vencimento dos registros que serão importados.
@@ -2702,7 +2700,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Manual de Adquirente Sumup
+## Manual de Adquirente Sumup
 
 Preparamos esse artigo, para que você saiba como realizar a importação de arquivos da adquirente Sumup.
  
@@ -2728,7 +2726,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
  
-### Cadastro de adquirente GiftCard (Havaianas)
+## Cadastro de adquirente GiftCard (Havaianas)
 
 Preparamos esse artigo para lhe auxiliar no cadastro da adquirente Giftcard em Empresas e Filiais, esse cadastro é essencial para que os arquivos sejam recebidos em sua base automaticamente, caso ainda não está recebendo os arquivos automaticamente, entre em contato com o nosso suporte através do chat ou e-mail: [suporte@f360.com.br.](suporte@f360.com.br)
 * Acesse a tela de Menu de Cadastros e clique em Empresas e Filiais:
@@ -2747,7 +2745,7 @@ Por favor, entre em contato com a gente pelo e-mail [suporte@f360.com.br](mailto
 Um grande abraço,
 **Equipe F360°.**
 
-### Manual de exportação - Convênios Card
+## Manual de exportação - Convênios Card
 
 Preparamos o manual de exportação dos arquivos da Convênios card, para que possa importar os arquivos e realizar a conciliação dos recebíveis na sua plataforma F360° Finanças, siga as instruções abaixo:
  
@@ -2767,7 +2765,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Manual de exportação CrediShop
+## Manual de exportação CrediShop
 
 Preparamos o manual de importação dos arquivos da CrediShop, para realizar a conciliação dos recebíveis na sua plataforma F360° Finanças, siga as instruções abaixo:
  
@@ -2803,7 +2801,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Manual de Importação PagSeguro 
+## Manual de Importação PagSeguro 
 Preparamos esse artigo, para que você saiba como  realizar a importação de arquivos da adquirente PagSeguro:
  
 ![](https://f360.zendesk.com//hc/article_attachments/19583199051671.png)
@@ -2817,7 +2815,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360.**
 
-### Adquirente Yapay (Link de Pagamento) - VIND
+## Adquirente Yapay (Link de Pagamento) - VIND
 
 IVeja abaixo o passo a passo de como exportar o relatório da adquirente Yapay:
  
@@ -2836,9 +2834,9 @@ Por favor, entre em contato conosco pelo e-mail suporte@f360.com.br ou através 
 Um grande abraço,
 **Equipe F360.**
 
-## Integrações
+# Integrações
 
-### Como cadastrar webservice da Mooz Cartões – Franquias Boticário e quem disse, Berenice?
+## Como cadastrar webservice da Mooz Cartões – Franquias Boticário e quem disse, Berenice?
 
 A Mooz Cartões junto com O Boticário e a F360° liberou uma API, onde capturamos as vendas das lojas automaticamente. Portanto, a partir de agora vocês não vão mais precisar inserir o arquivo de Vendas e Pagamentos que são extraídos manualmente do site da operadora.
 **Antes de iniciar o cadastro da Api Mooz Cartões, por gentileza siga abaixo o passo a passo para solicitação dos arquivos:**
@@ -2887,7 +2885,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360°.**
 
-### Cadastro Web service PDV Business Shop (Marca Usaflex ou Luz da Lua) 
+## Cadastro Web service PDV Business Shop (Marca Usaflex ou Luz da Lua) 
 
 Para que você possa receber as vendas do seu PDV automaticamente, preparamos um artigo com as instruções para configuração dessa Api.
  
@@ -2920,7 +2918,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360°**
 
-### Integração F360º e antecipação de Unidades de Recebível (Webhooks) 
+## Integração F360º e antecipação de Unidades de Recebível (Webhooks) 
 
 Os Webhooks permitem que sejam enviadas notificações via HTTP em tempo real de informações para o F360 Finanças, como por exemplo, notificação para acrescentar um registro de venda, entrada de cupons, entre outros. Com isso não há a necessidade de preencher certas informações manualmente, bastando apenas a chamada do Webhook para inserção do registro trazendo agilidade ao processo de integração.
  
@@ -3100,12 +3098,12 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360°**
 
-### Como criar uma chave de API para integração com o módulo F360 Finanças
+## Como criar uma chave de API para integração com o módulo F360 Finanças
 
 Através de uma chave de API é possível compartilhar informações entre sistemas. Para isso, a pessoa ou empresa que irá manipular essa chave de API deverá ter conhecimentos técnicos de integrações entre sistemas.
 Para consultar os *endpoints* disponíveis na API, acesse a nossa [Documentação Técnica](https://documenter.getpostman.com/view/68066/Tz5m8Kcb).
  
-### Como criar uma chave de API?
+## Como criar uma chave de API?
 
 1. Entre na tela de [webservices](https://sistema.financas360.com.br/Webservice) do módulo F360 Finanças.
 2. Clique no botão **Criar** localizado no canto inferior esquerdo da tela.
@@ -3115,14 +3113,14 @@ Para consultar os *endpoints* disponíveis na API, acesse a nossa [Documentaçã
 6. Salve sua chave em um local seguro e compartilhe apenas com pessoas de confiança. Essa chave será exibida apenas 1 vez para você por medidas de segurança da plataforma.
 Caso você queira desativar uma chave de API, selecione o *webservice* e clique no botão "Inativar". Ao fazer isso, qualquer fornecedor que tenha sua chave de acesso não irá conseguir acessar novamente às API's.
  
-### Documentação técnica da API:
+## Documentação técnica da API:
 A utilização da API deverá ser feita por pessoas técnicas com conhecimento de integração entre sistemas. A documentação técnica está disponível no seguinte endereço:
 <https://documenter.getpostman.com/view/68066/Tz5m8Kcb>
  
 \* A chave de API gerada na etapa de criação do webservice deverá ser usada por pessoas de confiança e conhecimento técnico de integração entre sistemas. O detentor dessa chave terá acesso aos dados de API da sua rede de franquias conforme as liberações feitas no momento do cadastro da chave.
 \*\* A F360 não dá suporte de integração de API, mas todas as informações necessárias para a manipulação dos dados estão na documentação técnica.
  
-### Novo modelo de Arquivo de Adquirente (v 2.0)Este documento especifica a Importação do Arquivo Modelo Adquirente para o Sistema Finanças 360º.
+## Novo modelo de Arquivo de Adquirente (v 2.0)Este documento especifica a Importação do Arquivo Modelo Adquirente para o Sistema Finanças 360º.
 ![mceclip0.png](https://f360.zendesk.com//hc/article_attachments/7864774677271/mceclip0.png)
 **Veja a seguir como fazer esse procedimento:**
 1. Acesse a tela de **Upload de Arquivos**
@@ -3333,7 +3331,7 @@ Segue exemplos de preenchimento **incorreto**:
 | DeliveryCenter | PIX | Yapay |
 | DeliveryDireto | PlanVale | Zoop |
  
-### Webservice Pagar.me V5 (Kopenhagen e Brasil Cacau)Veja abaixo o passo a passo de como realizar a configuração da API Pagar.me V5 para as marcas Kopenhagen e Brasil Cacau:
+## Webservice Pagar.me V5 (Kopenhagen e Brasil Cacau)Veja abaixo o passo a passo de como realizar a configuração da API Pagar.me V5 para as marcas Kopenhagen e Brasil Cacau:
 
 ![mceclip0.png](https://f360.zendesk.com//hc/article_attachments/12408981552151.png)
 ![mceclip1.png](https://f360.zendesk.com//hc/article_attachments/12409001349399.png)
@@ -3343,7 +3341,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360.**
 
-### Manual PDV Gestão Click via Webservice
+## Manual PDV Gestão Click via Webservice
 
 Agora as suas vendas do seu sistema de PDV Gestão Click, serão importado automaticamente via Web Service na plataforma F360° Finanças, onde também você poderá chamar serviço manualmente sempre que precisar.
 **Veja as instruções abaixo de como realizar a configuração da Web Service em sua base:**
@@ -3370,7 +3368,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Manual PDV Linx Degust
+## Manual PDV Linx Degust
 
 Veja abaixo o passo a passo de como exportar o relatório de PDV Linx Degust.
 **Nota: O cliente tem que entrar em contato com o PDV (Comercial), fazer a contratação da integração, e quando assinar o contrato, terá todos as informações que precisamos, é só nos repassar depois para criar a webservice.**
@@ -3383,7 +3381,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360º.**
 
-### Integração F360º e outras plataformas (Webhooks)
+## Integração F360º e outras plataformas (Webhooks)
 
 Os Webhooks permitem que sejam enviadas notificações via HTTP em tempo real de informações para o F360 Finanças, como por exemplo, notificação para acrescentar um registro de venda, entrada de cupons, entre outros. Com isso não há a necessidade de preencher certas informações manualmente, bastando apenas a chamada do Webhook para inserção do registro trazendo agilidade ao processo de integração.
  
@@ -3713,7 +3711,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360°**
 
-### Manual PDV MVarandas Webservice 
+## Manual PDV MVarandas Webservice 
 
 Agora as suas vendas do seu sistema de PDV MVarandas, serão importado automaticamente via Web Service na plataforma F360° Finanças, onde também você poderá chamar serviço manualmente sempre que precisar.
 **Veja as instruções abaixo de como realizar a configuração da Web Service em sua base:**
@@ -3730,13 +3728,13 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Como criar uma URL para envio de mensagens via WebHook
+## Como criar uma URL para envio de mensagens via WebHook
 
  para integração com o módulo F360 FinançasOs Webhooks permitem que sejam enviadas notificações via HTTP em tempo real de informações para o F360 Finanças, como por exemplo, notificação para acrescentar um registro de venda, entrada de cupons, entre outros. Com isso não há a necessidade de preencher certas informações manualmente, bastando apenas a chamada do Webhook para inserção do registro trazendo agilidade ao processo de integração.
  
 Para consultar os padrões disponíveis de mensagens via webhook, acesse a nossa [Documentação Técnica](https://f360.zendesk.com//hc/pt-br/articles/6442659749911-Webhooks). A utilização dessa documentação deverá ser feita por pessoas técnicas com conhecimento de integração entre sistemas.
  
-### Como criar uma URL para envio de mensagens?
+## Como criar uma URL para envio de mensagens?
 
 1. Entre na tela de [webservices](https://sistema.financas360.com.br/Webservice) do módulo F360 Finanças.
 2. Clique no botão **Criar** localizado no canto inferior esquerdo da tela.
@@ -3751,14 +3749,14 @@ Caso você queira desativar a URL, selecione o *webservice* e clique no botão 
 \* A URL para envio de mensagens via webhook gerada na etapa de criação do webservice deverá ser usada por pessoas de confiança e conhecimento técnico de integração entre sistemas. O detentor dessa chave terá acesso ao envio de mensagens e possíveis inserção de informações na sua base de dados.
 \*\* A F360 não dá suporte de integração via webhook, mas todas as informações necessárias para a manipulação dos dados estão na documentação técnica.
  
-### Integração com a plataforma EducaAgora é possível acessar a plataforma Educa com apenas um clique através do seu F360 Finanças!
+## Integração com a plataforma EducaAgora é possível acessar a plataforma Educa com apenas um clique através do seu F360 Finanças!
 
 Após logar na plataforma, basta clicar no botão canto superior direito da tela, conforme indicado na imagem abaixo:
 ![](https://f360.zendesk.com//hc/article_attachments/12888420247575.png)
 Ao clicar no botão, você será direcionado automaticamente para a plataforma Educa:
 ![](https://f360.zendesk.com//hc/article_attachments/12888432610839.png)
  
-### Webservice PDV Ciss LiveVeja abaixo o passo a passo de como realizar a configuração da API Ciss Live:
+## Webservice PDV Ciss LiveVeja abaixo o passo a passo de como realizar a configuração da API Ciss Live:
 ![mceclip1.png](https://f360.zendesk.com//hc/article_attachments/12408822234391.png)
  
 ![mceclip2.png](https://f360.zendesk.com//hc/article_attachments/12408875114135.png)
@@ -3769,7 +3767,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360.**
 
-### Integração com a API do Ifood
+## Integração com a API do Ifood
 
 Com a integração do Ifood será possível realizar de forma automática o processo de conciliação de cartões e conciliação bancária de todas as vendas realizadas pelo aplicativo. Na F360, os recebíveis do Ifood são tratados como uma adquirente de cartão e para que as vendas entrem corretamente na plataforma, são necessárias algumas parametrizações que serão explicadas com mais detalhes a seguir.
 ***Pré-requisitos:***
@@ -3780,7 +3778,7 @@ Com a integração do Ifood será possível realizar de forma automática o proc
 	+ Permissão para inclusão ou edição de [Clientes / Fornecedores](https://financas.f360.com.br/Pessoa).
  
 ---
-### Primeira etapa:
+## Primeira etapa:
 
 O primeiro passo para ativar a integração com o Ifood é a realização do credenciamento da API da F360 em sua conta do Ifood. Para isso, você deve seguir os seguintes passos:
 1. Entre no [portal do Ifood](https://portal.ifood.com.br/) e obtenha o seu **Id de Loja**. Essa informação pode ser obtida na barra lateral do portal do Ifood clicando na opção **Perfil**.
@@ -3788,7 +3786,7 @@ O primeiro passo para ativar a integração com o Ifood é a realização do cre
 3. Após a liberação feita pelo time da F360, acesse novamente o portal do Ifood e clique na opção Aplicativos. Localize o aplicativo F360 (Conciliação) e clique no botão "Permitir" e depois clique em "Autorizar".
  
 ---
-### Segunda etapa:
+## Segunda etapa:
 
 Após a etapa de credenciamento da API do Ifood, a próxima etapa será fazer as devidas parametrizações dentro da plataforma da F360. Todas essas parametrizações devem ser feitas por um usuário autenticado na plataforma com todas as permissões explicitas no início deste artigo.
 ***Configuração do webservice:***
@@ -3808,7 +3806,7 @@ Existem três situações especificas onde a nossa plataforma irá criar um cont
 * **Taxas de operações feitas em vouchers:** Operações feitas em adquirentes de vouchers não são pagas pelo Ifood, mas ainda assim são descontadas as taxas de serviço cobradas pelo Ifood. Como essas operações não podem entrar na conciliação de cartões, a plataforma da F360 irá criar um contas a pagar para o fornecedor selecionado na configuração de empresas e irá categorizar a despesa com o mesmo plano de contas configurado no campo *Taxas Administrativas*.
 * **Devolução de imposto de renda:** O Ifood faz devolução de impostos de renda para o estabelecimento. Nessa situação, criamos um contas a receber para o plano de contas e cliente selecionado na configuração de empresas.
  
-### Terceira etapa:
+## Terceira etapa:
 
 Por último, após a realização de todas as configurações feitas na [primeira etapa](#h_01FJCWYHZE70EY42F70955Y8MB) e feitas na [segunda etapa](#h_01FJCWYZ14AWV98FGDN9RWTB8F), a integração com o Ifood estará disponível para uso. A integração irá funcionar de duas formas:
 * **Automática:** Nossa plataforma fará a consulta no portal do Ifood de forma automática todas as quintas-feiras. O *range* de pesquisa será entre a segunda-feira da semana anterior e o domingo da semana atual, contabilizando o total de 7 dias de pesquisa. A integração foi feita neste modelo, pois o Ifood demora alguns dias para liberar os extratos na API, conforme a evidência a seguir:  
@@ -3816,7 +3814,7 @@ Por último, após a realização de todas as configurações feitas na [primeir
 * **Manual:** Dentro da tela de cadastro de webservices na plataforma da F360, ao selecionar a integração com o Ifood, será possível clicar no botão **Chamar Serviço**. Ao clicar neste botão, selecione as opções disponíveis em tela e aguarde a conclusão do processamento. O processamento manual segue a mesma lógica de liberação descrita anteriormente, ou seja, o Ifood disponibiliza os relatórios de conciliação financeira toda quarta-feira referente os lançamentos da semana anterior.
 * ![mceclip0.png](https://f360.zendesk.com//hc/article_attachments/4411047974167/mceclip0.png)
  
-### Tabela de Campos:
+## Tabela de Campos:
 
 Segue uma tabela explicativa dos principais campos que utilizados para a configuração da integração com o Ifood.
 | **Campo** | **Descrição** |
@@ -3852,7 +3850,7 @@ Segue uma tabela explicativa dos principais campos que utilizados para a configu
 | Taxa de manutenção mensal | Plano de contas onde deseja inserir os valores a pagar de taxa de manutenção mensal do Ifood. |
 | Restituição de IR | Plano de contas onde deseja inserir os valores a receber de restituição de imposto de renda que o Ifood devolve para o estabelecimento. |
 *Tabela B - Cadastro da adquirente Ifood dentro de Empresas e Filiais*
-### Integração PDV MoncloaVeja abaixo o passo a passo de como realizar a configuração da API PDV Moncloa.
+## Integração PDV MoncloaVeja abaixo o passo a passo de como realizar a configuração da API PDV Moncloa.
 ![mceclip0.png](https://f360.zendesk.com//hc/article_attachments/7766277055511/mceclip0.png)
 ![mceclip1.png](https://f360.zendesk.com//hc/article_attachments/7766278881559/mceclip1.png)
 ![mceclip2.png](https://f360.zendesk.com//hc/article_attachments/7766303221143/mceclip2.png)
@@ -3861,7 +3859,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360º.**
 
-### Manual PDV Avec Integração via Webservice
+## Manual PDV Avec Integração via Webservice
 
 Agora as suas vendas do seu sistema de PDV Avec, serão importado automaticamente via Web Service na plataforma F360° Finanças, onde também você poderá chamar serviço manualmente sempre que precisar.
 **Veja as instruções abaixo de como realizar a configuração da Web Service em sua base:**
@@ -3884,7 +3882,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Novo modelo de Arquivo Contas a Pagar / Contas a Receber Rateado
+## Novo modelo de Arquivo Contas a Pagar / Contas a Receber Rateado
 
 Este documento especifica a Importação do Arquivo Modelo Contas a Pagar / Contas a Receber Rateado para o Sistema Finanças 360º.
 ![print_seta.png](https://f360.zendesk.com//hc/article_attachments/11778883087895.png)
@@ -3978,9 +3976,9 @@ E para considerarmos que determinadas linhas são referentes a mesma parcela, as
 * Parcela
 * Status
 * Liquidação
-* Código de Barras## Conciliação de Cartões
+* Código de Barras# Conciliação de Cartões
 
-### Como efetuar uma conciliação de cartões
+## Como efetuar uma conciliação de cartões
 
 Caso não tenha sido efetuada automaticamente sua conciliação de cartões, selecione o lançamento da venda e o respectivo lançamento no lado da adquirente e arraste o movimento da adquirente para o lado do movimento de vendas, conforme o gif abaixo:
  ![Concilia_ao_de_cartoes.gif](https://f360.zendesk.com//hc/article_attachments/360060027474/Concilia_ao_de_cartoes.gif)
@@ -3996,7 +3994,7 @@ Um grande abraço,
 **Equipe F360**
 
 
-### O que é necessário para efetuar a conciliação de cartões?
+## O que é necessário para efetuar a conciliação de cartões?
 
 Na tela de conciliação de cartões ao clicar sobre uma data para detalhar as informações, caso não haja pendências, teremos 2 lados, Movimentos de Vendas (lado esquerdo, PDV) e Movimentos da Adquirente (lado direito, operadora de cartões) seguem os arquivos que devem ser inseridos para que possa efetuar a sua conciliação:
 Movimentos de Vendas (lado esquerdo da tela): alimentada pelo arquivo de PDV, que foi inserido para o fechamento de caixa;
@@ -4008,7 +4006,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Como efetuar uma conciliação de cartões utilizando o range de datas
+## Como efetuar uma conciliação de cartões utilizando o range de datas
 
 Quando ocorrer da venda ter sido registrada no seu sistema de PDV em uma data e o cartão cobrado em outra (POS), no lado de movimento do sistema, utilize o range de datas para selecionar um período e no lado do movimento da operadora selecione a data do registro do cartão, selecione os lançamentos e faça a conciliação manual (por se tratar de datas divergentes, obrigatoriamente você terá que descrever uma justificativa), veja o gif abaixo:
  ![Conciliando_com_Range_de_Datas.gif](https://f360.zendesk.com//hc/article_attachments/360060941753/Conciliando_com_Range_de_Datas.gif)-----------------------------------------------------------------Gostou desse artigo? Tem alguma dúvida ou sugestão?  
@@ -4016,7 +4014,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Como efetuar uma conciliação manual criando o movimento da adquirente
+## Como efetuar uma conciliação manual criando o movimento da adquirente
 
 Quando o lançamento de confirmação da venda não foi enviado pela adquirente, você pode efetuar a conciliação manual da venda, desde que confirme o registro da operação no site da adquirente de cartão, consultando a data de pagamento e valor líquido.
 Em conciliação de cartões, selecione o movimento da venda e clique no rodapé em Conciliar Manualmente, preencher os campos de Data de pagamento, Valor Líquido, Operadora, Produto e Conta e clique em Salvar.
@@ -4027,7 +4025,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Como desfazer uma conciliação de cartões
+## Como desfazer uma conciliação de cartões
 
 Na tela de conciliação de cartões, no campo de Status selecione Conciliados, selecione o movimento que deseja desconciliar e clique na bolinha 🚫 e confirme.
  
@@ -4038,7 +4036,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Conciliando cartões com ajuste de valor
+## Conciliando cartões com ajuste de valor
 
 Quando a venda é registrada com valor diferente ao que foi passado no cartão, deve efetuar a conciliação justificando o ajuste de valor. Selecione o movimento da venda e da adquirente, arraste e justifique o motivo da diferença de valor.
  ![Concilia_ao_com_justificativa_de_valor.gif](https://f360.zendesk.com//hc/article_attachments/360060942013/Concilia_ao_com_justificativa_de_valor.gif)
@@ -4048,13 +4046,13 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Como fazer conciliação de PIX pelo arquivo do PDV
+## Como fazer conciliação de PIX pelo arquivo do PDV
 
 Existem duas formas principais de vender em PIX atualmente:
 * Utilizando o QRCode pela máquina de POS e/ou TEF da sua adquirente. Normalmente esse tipo de transação PIX será inserida e conciliada pela F360 através do extrato de sua adquirente de cartão.
 * Ou as vendas PIX podem ser feitas sem a intervenção de uma adquirente de cartão. Ela poderá ocorrer por meio de um QRCode fornecido pelo seu sistema de PDV ou por um QRCode exposto em algum local de sua loja ou ainda por uma transferência verbal das chaves PIX entre você e seu consumidor. Nesse tipo de cenário as vendas do PIX não virão no extrato da adquirente, mas devem estar presentes em sua plataforma de PDV.
 Esse artigo irá focar nessa segunda opção de vendas em PIX, ou seja, quando a venda não está integrada com nenhuma adquirente de cartão. Iremos explicar aqui como fazer as parametrizações necessárias para que essas vendas entrem na plataforma já conciliadas.
-### 1 - Faça a parametrização da modalidade no Fechamento de Caixa:
+## 1 - Faça a parametrização da modalidade no Fechamento de Caixa:
 ![config_pix_modalidade.gif](https://f360.zendesk.com//hc/article_attachments/360103647253/config_pix_modalidade.gif)
 O primeiro passo para a conciliação automática das vendas do PIX é fazer as parametrizações necessárias nas modalidades do **Fechamento de Caixa**. Para isso, faça:
 1. Entre na tela de **Fechamento de Caixa** e acesse a aba **Configuração**.
@@ -4065,7 +4063,7 @@ O primeiro passo para a conciliação automática das vendas do PIX é fazer as 
 6. Ainda na área de edição da modalidade, selecione a opção para que o sistema crie automaticamente o cartão. Ao selecionar essa opção, irá aparecer uma tela de confirmação dessa ação.
 7. Clique no botão **Concluir** para finalizar a parametrização da modalidade.
 
-### 2 - Faça a parametrização das empresas:
+## 2 - Faça a parametrização das empresas:
 ![pix-empresas.gif](https://f360.zendesk.com//hc/article_attachments/1500002607182/pix-empresas.gif)
 Após a configuração das modalidades, você precisará configurar as suas empresas para que o sistema saiba como trabalhar com as vendas em PIX. Segue o passo a passo:
 1. Entre na tela de Menu de Cadastros > **Empresas e Filiais**, localize a empresa desejada e clique em **Editar**.
@@ -4080,7 +4078,7 @@ Depois que essas duas parametrizações forem feitas, você poderá importar o s
  
 **Notas:** Clientes marca **Havaianas**, será necessário criar um plano de contas do tipo a receber com a descrição **"Vendas Pix"**, para que seja vinculado no campo de **Receitas** e criação de plano de contas do tipo a pagar com a descrição **"Taxa Pix"**, para vincular no campo de **Taxa administrativas**, no cadastro da operadora.
 
-### Conciliação de cartões com múltiplas empresas
+## Conciliação de cartões com múltiplas empresas
 
 Quando utilizar a máquina de POS em outra filial, é necessário selecionar as 2 empresas para poder efetuar a conciliação de cartões, pois o movimento da operadora estará somente em 1 empresa, e justificar o motivo.
 Caso as contas de créditos sejam diferentes entre as empresas, precisa vincular a conta de crédito da POS no cadastro da empresa que onde registrou a venda. Acesse: Menu de Cadastro >  Empresas e Filiais > selecione a empresa onde registrou a venda e clique em Editar no rodapé > vá na aba de Outras Informações, vincule a conta de crédito da POS e clique em Salvar.
@@ -4089,7 +4087,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Relatório de Conciliação de Cartões
+## Relatório de Conciliação de Cartões
 
 **1.** Primeiro de tudo é necessário ter essa permissão ativada na regra do seu usuário. Caso você seja um usuário **administrador**, a regra já vira por padrão ativada para você, caso o contrário será necessário solicitar para um administrador, uma autorização para utilizar a funcionalidade.  
 Essa funcionalidade pode ser encontrada da seguinte forma para ativação (Apenas para Administradores):  
@@ -4126,7 +4124,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360°**
 
-### Como efetuar o fechamento de período em conciliação de cartões
+## Como efetuar o fechamento de período em conciliação de cartões
 
 Após ter efetuado a conciliação de cartões, selecione a data desejada e clique no rodapé em Fechar Período, marque se deseja impedir o fechamento do período caso tenha pendência de conciliação ou não e clique em Fechar Período.
 Caso permita a conciliação com pendências, se a mesma for no movimentos de venda (PDV) ela ficará no status cancelados. Se for no movimento das operadoras, será criado um movimento de venda.
@@ -4137,7 +4135,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Como efetuar uma conciliação manual criando o movimento da venda
+## Como efetuar uma conciliação manual criando o movimento da venda
 
 Quando houver o movimento da adquirente e faltar o movimento de venda, clique no movimento da adquirente e no rodapé em Gerar o Movimento da Venda, selecione o Tipo de Operação (venda/acordo/outros), a empresa e confirme.
 Será criado o movimento de venda no fechamento de caixa de acordo com o valor e modalidade informada através do movimento da adquirente e conciliado.
@@ -4147,7 +4145,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Como abrir período em conciliação de cartões 
+## Como abrir período em conciliação de cartões 
 
 Caso você precise abrir o período da tela de conciliação de cartões de um determinado dia, você pode selecionar e clicar no rodapé em Abrir Período.
 Uma pequena observação, caso você deseje abrir em uma data que não seja o último dia do mês, o sistema irá abrir desse dia para frente.
@@ -4162,7 +4160,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
  
-### Como efetuar a conciliação automática - Conciliação de cartões
+## Como efetuar a conciliação automática - Conciliação de cartões
 
 Acesse a tela de conciliação de cartões e clique em "Conciliação Automática" no rodapé a direita, dessa maneira ele irá realizar a conciliação de todas as lojas do grupo. Caso deseje realizar o procedimento para somente uma empresa, selecione-a e posteriormente clique em "Conciliação Automática". Informe o período desejado e clique em "Conciliar", aguarde em torno de 5 minutos e atualize a tela.
 ![Concilia_ao_Automatica.gif](https://f360.zendesk.com//hc/article_attachments/360060942073/Concilia_ao_Automatica.gif)
@@ -4171,7 +4169,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Conciliação Automática para o Finanças Flex 
+## Conciliação Automática para o Finanças Flex 
 
 **Introdução**
 Neste guia, oferecemos uma visão abrangente da funcionalidade de Conciliação Automática disponível no Finanças Flex.
@@ -4185,7 +4183,7 @@ A funcionalidade de Conciliação Automática no Finanças Flex proporciona às 
 Ao final desse processo, será possível visualizar todos os cartões inseridos e devidamente conciliados na tela de Conciliação de Cartões.
  
 Cada conciliação estará acompanhada de uma mensagem de identificação originada no Finanças Flex:
-### *'PDV gerado e conciliado automaticamente pela configuração do Finanças Flex em 24/08/2023'*
+## *'PDV gerado e conciliado automaticamente pela configuração do Finanças Flex em 24/08/2023'*
 ![](https://f360.zendesk.com//hc/article_attachments/16999686137751.png)
  
  
@@ -4195,9 +4193,9 @@ Algumas diretrizes são importantes para o correto funcionamento da Conciliaçã
 2. O período de fechamento de caixa precisa estar aberto para a data das transações de cartão inseridas no sistema. Esse requisito é crucial para garantir a precisão da conciliação.
 Este guia visa oferecer uma compreensão abrangente da funcionalidade de Conciliação Automática no Finanças Flex. Ao seguir os procedimentos adequados e atender aos requisitos estabelecidos, as empresas podem otimizar seu processo de conciliação de forma eficiente e confiável.
  
-## Contas Movimentos
+# Contas Movimentos
 
-### Como efetuar o ajuste do saldo da conta bancária
+## Como efetuar o ajuste do saldo da conta bancária
 
 O botão de fechar período, é um botão de segurança que é utilizado para evitar que seja alterado movimentos já conciliados no sistema, também pode ser utilizado para ajuste de lançamentos pendentes e ajuste de saldo da conta dinheiro ou conta bancária, veja o exemplo abaixo que possui o fechamento de período da conta bancária: 
  
@@ -4209,7 +4207,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Como realizar a conciliação bancária manualmente
+## Como realizar a conciliação bancária manualmente
 
 Para realizar a conciliação bancária, é necessário que possua informações do lado do movimento do sistema, se tratando de um contas á receber ou á pagar, é necessário que o título esteja liquidado para que o mesmo possa constar na coluna de movimentos do sistema, e realizar a conciliação com o extrato bancário que foi importado na tela de upload de arquivos, veja o exemplo abaixo:
 ![como_realizar_uma_concilia_ao.gif](https://f360.zendesk.com//hc/article_attachments/360060141694/como_realizar_uma_concilia_ao.gif)
@@ -4218,7 +4216,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Como efetuar o ajuste do saldo da conta caixa da loja
+## Como efetuar o ajuste do saldo da conta caixa da loja
 
 Para realizar o ajuste do Saldo do caixa, você precisará acessar a tela de contas Movimentos, selecione a conta do caixa (dinheiro), a data que você deseje que inicie com o saldo ajustado, clique em Fechar Período para digitar o novo valor:
 ![Atualizar_o_saldo_do_caixa_da_loja.gif](https://f360.zendesk.com//hc/article_attachments/360060926013/Atualizar_o_saldo_do_caixa_da_loja.gif)
@@ -4228,7 +4226,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Como criar um movimento diretamente na tela de conciliação bancária
+## Como criar um movimento diretamente na tela de conciliação bancária
 
 É possível realizar a criação de um título através da tela de contas movimentos, selecionando o movimento que consta no lado do extrato bancário e arrastando para o campo Novo Movimento, e o sistema irá abrir uma tela de criação do título, sendo ele á receber ou á pagar. Essa função realiza a criação, liquidação e conciliação ao mesmo tempo, veja o exemplo abaixo:
 ![Como_criar_um_movimento_atraves_da_tela_de_contas_movimentos.gif](https://f360.zendesk.com//hc/article_attachments/360060148134/Como_criar_um_movimento_atraves_da_tela_de_contas_movimentos.gif)
@@ -4238,7 +4236,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Como abrir período em Contas Movimentos 
+## Como abrir período em Contas Movimentos 
 
 Caso você precise abrir o período de uma conta em contas Movimentos de um determinado dia ou mês, você pode selecionar a data e clicar no rodapé em Abrir Período.
 Uma pequena observação, caso você deseje abrir em uma data que não seja o último dia do mês, o sistema irá abrir desse dia para frente.
@@ -4255,7 +4253,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360.**
 
-### Como realizar a exclusão de uma transferência
+## Como realizar a exclusão de uma transferência
 
 A transferência não é possível realizar a edição, portanto se alguma transferência foi lançada erroneamente será preciso realizar a exclusão, veja o exemplo abaixo:
 ![excluir_transferencia.gif](https://f360.zendesk.com//hc/article_attachments/360061236633/excluir_transferencia.gif)
@@ -4264,7 +4262,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Como configurar regras de conciliação bancária
+## Como configurar regras de conciliação bancária
 
 Agora é possível criar regras para facilitar a criação de receitas e despesas por meio da importação do extrato do banco. **Mas como isso funciona?**
 Você irá cadastrar uma regra que é dividida em duas opções:
@@ -4290,7 +4288,7 @@ Por favor, entre em contato com a gente pelo e-mail [suporte@f360.com.br](mailto
 Um grande abraço,
 **Equipe F360**
 
-### Troca de conta bancária de parcelas de cartões
+## Troca de conta bancária de parcelas de cartões
 
 Para realizar a troca da conta bancária de pagamento de parcelas de cartão, vá até a tela de 'Contas Movimento', selecione a conta de origem dos cartões e o dia em que o cartão foi liquidado e clique em 'DETALHES'.
 ![mceclip2.png](https://f360.zendesk.com//hc/article_attachments/12204763306007.png)
@@ -4312,7 +4310,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Como consultar o extrato bancário
+## Como consultar o extrato bancário
 
 Na plataforma F360, é possível pesquisar o extrato bancário que já foi importado e verificar se possui movimentos que foram conciliados ou pendentes de conciliação. Nessa tela você também poderá exportar a pesquisa para o Excel, lembrando que o extrato apresentado nessa tela é um espelho do arquivo CNAB ou OFX que você inseriu na tela de upload de arquivos, veja o exemplo como realizar a pesquisa do extrato bancário:
 ![consultar_extrato_bancario.gif](https://f360.zendesk.com//hc/article_attachments/360061237633/consultar_extrato_bancario.gif)
@@ -4322,7 +4320,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
  
-### Como desfazer uma conciliação bancári
+## Como desfazer uma conciliação bancári
 
 Para desfazer uma conciliação bancária, é preciso que antes de tudo a conta esteja com o período aberto.
 Na tela de contas movimentos, selecione a conta que deseja realizar o processo, clique 2x no dia em que ocorreu a conciliação, status conciliados, no lado direito do laçamento existe uma bolinha com a opção de Desfazer Conciliação, clique na mesma, clique em Sim e o movimento voltará para o status de Pendentes de Conciliação, veja o GIF abaixo:
@@ -4334,7 +4332,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360.**
 
-### Como realizar a criação de uma transferência na tela de contas movimentos
+## Como realizar a criação de uma transferência na tela de contas movimentos
 
 Na plataforma possui duas maneiras diferentes de realizar o lançamento de uma transferência na tela de contas movimentos, abaixo possui os dois exemplos:
 **1º -** Criação de uma transferência através do extrato bancário:
@@ -4347,7 +4345,7 @@ Por favor, entre em contato com a gente pelo e-mail [suporte@f360.com.br](mailto
 Um grande abraço,
 **Equipe F360**
 
-### Como realizar a pesquisa de transferência
+## Como realizar a pesquisa de transferência
 
 Para consultar transferências realizadas entre contas ou realizar uma pesquisa de transferências de apenas de uma conta, é possível realizar essa pesquisa na tela de contas movimentos na aba de Transferências, nessa tela você pode selecionar conta de origem e destino e a data que deseja verificar a consulta, e é possível verificar se a transferência foi conciliada ou não com o extrato bancário, é possível realizar a exportação do relatório da pesquisa, veja o exemplo abaixo:
  
@@ -4358,7 +4356,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Lançamentos pendentes de conciliação de cartões - Conciliação Bancária 
+## Lançamentos pendentes de conciliação de cartões - Conciliação Bancária 
 
 O processo de conciliação bancária é uma das últimas etapas operacionais a ser realizada no sistema. As parcelas a serem pagas de recebimentos de cartões só aparecem na tela de conciliação bancária quando as vendas estão conciliadas na tela de “Conciliação de Cartões”. Essa dependência é uma segurança para que o processo de conciliação de cartões seja feito com sucesso e que essa importante etapa não seja ignorada. Muitos problemas de recebimentos de cartões na conciliação bancária devem ser evitados ao realizar diariamente a conciliação de cartões.
 Por conta disso, nós adicionamos uma opção para que seja possível ver os lançamentos pendentes de conciliação de cartões que poderão de alguma forma influenciar na conciliação bancária.
@@ -4375,9 +4373,9 @@ Por favor, entre em contato com a gente pelo e-mail [suporte@f360.com.br](mailto
 Um grande abraço,
 **Equipe F360**
 
-## Contas a Receber e Contas a pagar
+# Contas a Receber e Contas a pagar
 
-### Como agendar um título para liquidação automática
+## Como agendar um título para liquidação automática
 
 Para realizar o agendamento de um título para ser liquidado, sendo um á pagar ou á receber, você precisa selecionar a data de quitação futura e selecionar abaixo a opção de Liquidar automaticamente no agendamento, assim que selecionar essa opção e clicar abaixo em Agendar o título ficará com um ícone de um relógio, com o status de agendado e será liquidado automaticamente na data de quitação que foi selecionada anteriormente, veja abaixo o exemplo:
 ![Gif___Liquida__o_autom_tica_agendada.gif](https://f360.zendesk.com//hc/article_attachments/360060929233/Gif___Liquida__o_autom_tica_agendada.gif)
@@ -4386,7 +4384,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Como realizar a reabertura de parcelas de cartões
+## Como realizar a reabertura de parcelas de cartões
 
 Caso deseje reabrir (desliquidar) uma parcela de cartão nas telas de "Contas a Receber" ou "Contas a Pagar", este artigo explicará passo-a-passo como realizar esse processo.
 Ao acessar uma dessas telas, na aba de "Cartões a Receber" ou "Cartões a Pagar", faça a pesquisa normalmente e localize as parcelas de cartões que deseja reabrir. Você poderá selecionar uma ou mais parcelas:  
@@ -4411,15 +4409,15 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Como realizar a renegociação de receitas e despesas**Como fazer uma renegociação:**
+## Como realizar a renegociação de receitas e despesas**Como fazer uma renegociação:**
 
 1. Entre na tela de “Contas a Receber” e localize o boleto original utilizando as opções de pesquisa disponíveis na tela (Número do título, empresa, emissão, etc).
 2. Selecione o boleto e clique em “Renegociar”. O sistema irá abrir a tela de renegociação, onde será possível informar os valores para “Juros”, “Multa” e/ou “Desconto”. Nessa tela, você também deverá informar os dados dos novos títulos.
 ![](http://teekitstorage.blob.core.windows.net/financas360-attachments/be412682-52aa-4c82-bc03-de52201f3bdb.png)
-##### **Figura 1**. Visão geral da tela de renegociação
+### **Figura 1**. Visão geral da tela de renegociação
  
  ![](http://teekitstorage.blob.core.windows.net/financas360-attachments/45bee16b-f791-40d9-bbf6-45d51065ef12.png)
-##### **Figura 2**. Visão geral da tela de renegociação
+### **Figura 2**. Visão geral da tela de renegociação
  3. Após preencher os dados dos novos títulos, clique no botão “Salvar” para concluir a renegociação.
 4. O sistema irá criar dois lançamentos:
          Título em dinheiro no valor de R$ 100,00.
@@ -4457,7 +4455,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360.**
 
-### Como importar arquivo remessa com código de convênio
+## Como importar arquivo remessa com código de convênio
 
 A importação de arquivo de remessa é realizada para o preenchimento do contas a receber de boletos dentro da F360. Existem duas formas de fazer essa importação no sistema, pela tela de upload de arquivos ou pela tela de contas a receber. Para a importação do arquivo pela tela de upload de arquivos, o código de convênio deverá estar vinculado na empresa, caso o código de convênio ainda não esteja vinculado, essa configuração deverá ser realizada com os seguintes passos:1. Entre na tela de “Empresas e Filiais”, selecione a empresa desejada e clique em “Editar”.
 2. Vá até a aba “Outras Informações” e localize as opções “Importação de Arquivo de Remessa”.
@@ -4476,7 +4474,7 @@ Por favor, entre em contato com a gente pelo e-mail [suporte@f360.com.br](mailto
 Um grande abraço,
 **Equipe F360.**
 
-### Como realizar a liquidação de títulos em lote
+## Como realizar a liquidação de títulos em lote
 
 A liquidação em lote é uma opção caso o total de títulos que precisam ser liquidados ultrapasse o total de itens por página 75 e que possua mais de uma página de títulos para serem liquidados, veja o exemplo abaixo:
 ![Gif_de_liquida__o_com_mais_de_um_lote.gif](https://f360.zendesk.com//hc/article_attachments/360060929313/Gif_de_liquida__o_com_mais_de_um_lote.gif)
@@ -4485,7 +4483,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Como criar um título à receber ou à pagar
+## Como criar um título à receber ou à pagar
 
 Para criar um título á receber ou á pagar, você irá clicar no botão Criar que está localizado no lado esquerdo no rodapé da tela. Você precisa preencher os campos obrigatórios, uma dica para identificar quais são os campos obrigatórios, é clicar diretamente em salvar e o sistema irá apresentar os campos obrigatórios para serem preenchidos, veja o exemplo abaixo:
 ![Gif_-_Criar_um_t_tulo___receber_ou___pagar.gif](https://f360.zendesk.com//hc/article_attachments/360060927773/Gif_-_Criar_um_t_tulo___receber_ou___pagar.gif)
@@ -4495,7 +4493,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360.**
 
-### Emissão e envio de boletos
+## Emissão e envio de boletos
 
 A funcionalidade de criação e envio de boletos foi criada para facilitar a cobrança dos seus clientes, gerando o arquivo remessa necessário para o banco, o arquivo em PDF com o boleto e automatização   
 do envio do boleto por e-mail para o cliente.  
@@ -4546,7 +4544,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360º**
  
-### Antecipação manual de cartões
+## Antecipação manual de cartões
 
 ![antecipacao2__1_.gif](https://f360.zendesk.com//hc/article_attachments/13739272222871.gif)
 
@@ -4559,10 +4557,10 @@ Visando essa nova pratica do banco central, a F360 se criou uma função dentro 
 5. Confirme se as informações apresentadas estão corretas e depois clique em **Efetuar Antecipação**.
 6. O processo de antecipação será feito em segundo plano e você será avisado por *e-mail* após a conclusão do processamento.
 
-### Reverter a antecipação:
+## Reverter a antecipação:
 Você poderá reverter a antecipação realizada dentro do sistema desde que nenhuma das parcelas afetadas pela antecipação tenham sido conciliadas com o extrato bancário. Para isso, basta localizar e selecionar o *log* da antecipação na aba de **Antecipação Manual** e clicar no botão **Reverter Antecipação**.
 
-### Como pesquisar as taxas cobradas pela a adquirente 
+## Como pesquisar as taxas cobradas pela a adquirente 
 
 No sistema é possível realizar a pesquisa das taxas cobradas pela adquirente, caso necessite confirmar se a mesma está cobrando corretamente as taxas acordadas para: Débito, Crédito á Vista e Crédito Parcelado, de acordo para cada bandeira.
 Por isso seria ideal realizar o cadastro das taxas para a adquirente e para a bandeira, pois ao analisar o relatório exportado do cartões á receber, apresentará a coluna de Taxa, Acordo e Divergência.
@@ -4579,7 +4577,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Salvar Preferência de Pesquisa 
+## Salvar Preferência de Pesquisa 
 
 Agora dentro da plataforma, você consegue salvar a sua preferência de pesquisa. Essa configuração facilita no sei dia a dia, principalmente se possui muitas contas e empresas em sua base.
 A preferência pode ser aplicada em contas á receber e contas á pagar, você pode deixa - la como padrão ou não veja abaixo como realizar a configuração.
@@ -4591,7 +4589,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Reabertura em massa de parcelas de cartões
+## Reabertura em massa de parcelas de cartões
 
 Caso deseje reabrir (desliquidar) várias parcelas de cartões nas telas de "Contas a Receber" ou "Contas a Pagar", este artigo explicará passo-a-passo de como realizar esse processo.
 Ao acessar uma dessas telas, na aba de "Cartões a Receber" ou "Cartões a Pagar", faça a pesquisa das parcelas de cartões que deseja reabrir.  
@@ -4621,7 +4619,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Como reabrir uma parcela baixada em Contas Movimentos 
+## Como reabrir uma parcela baixada em Contas Movimentos 
 
 Caso tenha realizado a baixa erroneamente de um movimento de cartão na tela de contas movimentos, é possível recuperá-lo na tela de contas á receber na segunda aba de Cartões á Receber.
 Você precisará selecionar por data de vencimento, selecione a conta bancária, empresa e o status de Baixados, clique em pesquisar e em seguida selecione o movimento e clique abaixo em reabrir.
@@ -4634,7 +4632,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Rateio com desconto - 
+## Rateio com desconto - 
 
 Como criarCaso o rateio possua o valor sendo descontado no lançamento de um salário por exemplo, que irei descontar o adiantamento que efetuei o pagamento anteriormente, eu preciso sempre criar o título no valor liquido e na aba de rateio irei selecionar o campo ao lado da coluna de competência para poder inverter um plano de contas á receber, veja o exemplo abaixo:
  
@@ -4644,7 +4642,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Competência de Rateio com contexto da parcela
+## Competência de Rateio com contexto da parcela
 
 Neste manual vamos descrever o processo de configuração da criação de rateios com data de competência com contexto da parcela.  
   
@@ -4669,7 +4667,7 @@ Tipo de Rateio Contexto da Parcela:
   
 ![](https://f360.zendesk.com//hc/article_attachments/14393070122007.png)  
   
-### Exclusão em lote de parcelas de títulos
+## Exclusão em lote de parcelas de títulos
 
 Excluir parcelas de título uma a uma pode ser uma tarefa bem cansativa e demorada, por isso pensamos em uma solução para esse problema. A exclusão em massa de parcela de títulos, disponível no **Contas a Pagar** e **Contas a Receber** tem a função de facilitar a exclusão de diversos títulos, e suas respectivas parcelas. Os títulos para exclusão são selecionados a partir do filtro na pesquisa.
 
@@ -4693,7 +4691,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,  
   **Equipe F360º.**
 
-### Planilha de renegociação de títulos a receber e a pagar
+## Planilha de renegociação de títulos a receber e a pagar
 
 Esta funcionalidade permite que o usuário do sistema possa fazer a renegociação de títulos em aberto, através da importação de uma planilha padronizada. A planilha modelo se encontra disponível para ser baixada na seção **Download dos Modelos de Importação > Renegociação de Títulos a Pagar / Títulos a Receber** da tela de **Upload de Arquivos**, onde ela deverá ser posteriormente enviada quando estiver devidamente preenchida.
  
@@ -4756,7 +4754,7 @@ Os meios de pagamentos disponíveis para seleção são os mesmos presentes em t
  
 **Nota:** ao escolher um meio de pagamento que permite escolher o tipo de operação, o tipo de operação que será colocado para as parcelas novas no processo de renegociação será a opção “Acordo”. Atualmente não é possível especificar esse campo através da planilha. Como paliativo, é possível fazer a importação da planilha e posteriormente fazer a alteração do tipo de operação da renegociação em tela.
 
-### Como realizar um parcelamento de um título
+## Como realizar um parcelamento de um título
 
 Para realizar um parcelamento de um título sendo um á pagar ou á receber, você irá clicar em Criar localizado no lado esquerdo no rodapé da tela, é preciso que seja preenchido primeiramente a aba de Dados Principais, e em seguida na aba de Parcelamento, selecione a quantidade de parcelas, é possível alterar as datas de vencimento e valor de cada parcela, pois o sistema calcula automaticamente o valor de cada parcela e insere a data de vencimento também, veja o exemplo abaixo:
 **![Gif_parcelamento_de_um_t_tulo.gif](https://f360.zendesk.com//hc/article_attachments/360060929253/Gif_parcelamento_de_um_t_tulo.gif)**
@@ -4765,7 +4763,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Como excluir movimentos de cartões 
+## Como excluir movimentos de cartões 
 
 É possível realizar a exclusão de um movimento de cartão, caso a informação tenha sido importado em duplicidade pelo arquivo da operadora.
 **Nota: Após excluir o movimento de cartão, eles não serão mais apresentados na plataforma, e não é possível reverter a exclusão.**
@@ -4778,7 +4776,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Como liquidar um título
+## Como liquidar um título
 
 Para realizar a liquidação de um título, você irá pesquisa – lo com filtro á seu critério. Selecione o título e clique abaixo no botão Liquidar e selecione a conta destino e a data da quitação do título, caso possua desconto ou juros, você pode alterar o valor abaixo á ser pago ou Informar Taxas, veja o exemplo abaixo:
  
@@ -4791,7 +4789,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360°.**
  
-### Como exportar o arquivo de Retorno do Gera 
+## Como exportar o arquivo de Retorno do Gera 
 
 Preparamos o manual de como realizar a exportação do arquivo de Retorno da sua Venda Direta, para que seja realizado a liquidação dos títulos em abertos que foram importados pelo arquivo de Remessa anteriormente, diretamente da tela de Contas á Receber. 
  
@@ -4831,7 +4829,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360.**
 
-### Prorrogação em lote de vencimento de cartões
+## Prorrogação em lote de vencimento de cartões
 
 Abaixo segue instruções de como efetuar as prorrogações de vencimentos de **Cartões a Receber** e **Cartões a Pagar**. 
 
@@ -4852,7 +4850,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360.**
 
-### Liquidação em Massa
+## Liquidação em Massa
 
 Similar à função de Exclusão de Cartões em Massa que o sistema Finanças oferece hoje nas telas de Cartões, as telas de Contas a Pagar e Contas a Receber contam agora com a função de Liquidação de Títulos em Massa.
   
@@ -4874,7 +4872,7 @@ Após selecionar a opção “Liquidar Parcelas”, um aviso será exibido em te
 Quando a liquidação de títulos for concluída, o cliente receberá no e-mail informado um relatório de liquidação informando que o processo foi finalizado e seu status, assim como a quantidade de títulos em aberto que foram encontrados e liquidados:
 ![mceclip6.png](https://f360.zendesk.com//hc/article_attachments/7320192621591/mceclip6.png)
 
-### Editar rateio em massa
+## Editar rateio em massa
 
 Nesse artigo, vamos descrever o processo de ***Edição de rateio em massa***.
  
@@ -4906,7 +4904,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
  
-### Como realizar rateio em um título - Sem desconto no lançamento
+## Como realizar rateio em um título - Sem desconto no lançamento
 
 Para realizar o rateio em um título, é preciso que seja preenchido a primeira aba de Dados Principais, após preencher essa aba poderá ir na aba de rateio distribuindo a despesa/receita para outros centros de custos e também possível em outros planos de contas, veja o exemplo abaixo:
 
@@ -4916,9 +4914,9 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-## Contas
+# Contas
 
-### Autorização de compartilhamento de saldo com o Painel do Franqueador
+## Autorização de compartilhamento de saldo com o Painel do Franqueador
 
 Para que o Franqueador possa ter acesso aos saldos das contas de um Franqueado, é necessário que o **Franqueado** realize liberação dessa conta no **F360 Finanças**, seguindo o passo a passo:
 
@@ -4931,7 +4929,7 @@ Para que o Franqueador possa ter acesso aos saldos das contas de um Franqueado, 
  
 Com isso, os dados de saldo dessa conta devem ser compartilhados com o Franqueador via Fluxo de Caixa.
 
-### Inativar e Ativar Conta Bancaria
+## Inativar e Ativar Conta Bancaria
 
 Nesse artigo, vamos descrever o processo de como Inativar e Ativar Contas bancarias.
  
@@ -4947,9 +4945,9 @@ Veja abaixo como realizar a operação de Inativar:
 6. Ao clicar no botão a mensagem de alerta irá aparecer, para inativar a Conta clique em "Sim":![](https://f360.zendesk.com//hc/article_attachments/19112335689879.png)
 7. E por fim a Conta Bancaria estará ativa:![](https://f360.zendesk.com//hc/article_attachments/19858201588631.png)
  
-## Fechamento de Caixa
+# Fechamento de Caixa
 
-### Como criar uma venda para o fechamento de caixa (Soma do PDV)**Como criar uma venda para o fechamento de caixa (Soma do PDV)**
+## Como criar uma venda para o fechamento de caixa (Soma do PDV)**Como criar uma venda para o fechamento de caixa (Soma do PDV)**
 
 Na tela de fechamento de caixa, você irá na segunda aba de Movimentos, clique no botão Criar, localizado do seu lado esquerdo no rodapé da tela.
 O número de documento é opcional, digite a data da venda, valor, selecione a empresa, a modalidade do pagamento (se for cartão, opcionalmente é possível selecionar a bandeira e a operadora), após o preenchimento, clique em "Salvar".
@@ -4968,7 +4966,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360°**
 
-### Como editar o valor de uma venda no caixa ( Soma de PDV) 
+## Como editar o valor de uma venda no caixa ( Soma de PDV) 
 
 Você percebeu que uma venda foi cobrada ou criada manualmente com o valor incorreto, e precisa alterar para o valor correto.
 Logo abaixo você verá dois exemplos, o primeiro é para as vendas na forma de pagamento: Dinheiro, Débito e Crédito á vista.
@@ -4987,7 +4985,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360°**
 
-### Como excluir a venda no campo de Valor Real
+## Como excluir a venda no campo de Valor Real
 
 Você pode realizar a exclusão do movimento que está em Valor Real, porém é preciso que o movimento não esteja liquidado e nem conciliado.
 Veja abaixo como realizar a exclusão diretamente no fechamento de caixa:
@@ -5003,7 +5001,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
  
-### Como lançar falta ou sobra de caixa
+## Como lançar falta ou sobra de caixa
 
 O lançamento de sobra ou falta do caixa, é realizado na própria tela de fechamento. Acrescentando o valor da sobra e/ou falta, no campo dinheiro na coluna de Valor Real, e salvando como uma justificativa de Sobra ou Falta:
 
@@ -5015,7 +5013,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Fechamento de Caixa – Relatórios**Overview do Tema**
+## Fechamento de Caixa – Relatórios**Overview do Tema**
 
 Nesse artigo, você aprenderá exportar os relatórios disponíveis que são fechamento de caixa e quebra de caixa. Esses relatórios poderão te trazer uma visão mais completa e analítica sobre suas movimentações diárias.
  
@@ -5059,11 +5057,11 @@ Por favor, entre em contato conosco pelo e-mail suporte@f360.com.br ou através 
 Um grande abraço,
 **Equipe F360°**
  
-### Criação automática de receitas por arquivo de PDV1. **Contextualização do Problema**:
+## Criação automática de receitas por arquivo de PDV1. **Contextualização do Problema**:
 
 Algumas empresas fazem muitos lançamentos de “Outras Receitas” em seus arquivos de PDV. Alguns exemplos seriam os pagamentos em “Cheque”, “Promissória” ou “Vale Funcionário”.
 Esses recebimentos entram na tela de “Fechamento de Caixa” na F360 na opção “Soma do PDV”, mas isso obriga os usuários a criarem manualmente uma ou várias receitas para preencher a coluna “Valor Real”. Caso isso não seja feito, o sistema apresenta uma diferença de caixa, conforme a imagem a seguir:
-![](http://teekitstorage.blob.core.windows.net/financas360-attachments/01667cc9-3a3a-4596-9803-1f682d87adee.png)##### **Figura 1**. Fechamento de Caixa com diferença nos valores de “Cheque” e “Outras Receitas”
+![](http://teekitstorage.blob.core.windows.net/financas360-attachments/01667cc9-3a3a-4596-9803-1f682d87adee.png)### **Figura 1**. Fechamento de Caixa com diferença nos valores de “Cheque” e “Outras Receitas”
 
 Quando existem poucos lançamentos diários em “Cheque” ou “Outras Receitas”, esse procedimento manual é fácil e rápido. Porém, conforme mencionado, algumas empresas têm um recebimento acima da média em uma dessas modalidades.Para facilitar o lançamento desse tipo de receita, criamos uma opção no sistema que permitirá a criação automática dessas receitas na F360. Isso significa que durante a importação do arquivo de PDV, caso exista algum lançamento em uma dessas modalidades, o sistema irá criar as receitas para os usuários sem a necessidade de intervenção do usuário. 
 2. **Como habilitar essa opção:**
@@ -5085,7 +5083,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Como realizar depósito no fechamento de caixa 
+## Como realizar depósito no fechamento de caixa 
 
 Sempre que há a retirada do valor do caixa, enviando o valor para o cofre, escritório, retaguarda ou ao banco, é necessário realizar o depósito na conferência do seu caixa **(para isso, a conta de destino precisa estar cadastrada no sistema).** 
 **Obs: Caso a conta destino não esteja cadastrada, veja o nosso artigo de como criar: [Menu de Cadastro - Contas](https://f360.zendesk.com//hc/pt-br/articles/360045180473)**
@@ -5098,7 +5096,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Como abrir período de Fechamento de Caixa 
+## Como abrir período de Fechamento de Caixa 
 
 Caso você precise abrir o período de fechamento de caixa de um determinado dia, você pode selecionar e clicar no rodapé em Abrir Período.
 Uma pequena observação, caso você deseje abrir em uma data que não seja o último dia do mês, o sistema irá abrir desse dia para frente.
@@ -5111,7 +5109,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Como editar uma venda no lado de Valor Real
+## Como editar uma venda no lado de Valor Real
 
 Caso você tenha criado a venda no valor incorreto para Cheque ou Outras Receitas, você pode realizar a edição no mesmo atalho que criou.
 Veja abaixo o vídeo de como realizar a edição diretamente no fechamento de caixa:
@@ -5124,7 +5122,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Fechamento de caixa**O que é o fechamento de caixa?**
+## Fechamento de caixa**O que é o fechamento de caixa?**
 
 O fechamento de caixa é um processo de reconciliação e verificação de todas as transações monetárias realizadas durante um período de tempo (dia, semana, mensal), ou seja, todas as entradas e saídas, incluindo vendas em dinheiro, Pix, cartão de crédito ou débito, pagamentos de contas, entre outros.
  
@@ -5217,7 +5215,7 @@ A opção de salvar vendas irá exibir uma nova janela onde poderá realizar a c
  
 ![](https://f360.zendesk.com//hc/article_attachments/20173573031063.png)
 
-### Como editar uma despesa no caixa 
+## Como editar uma despesa no caixa 
 
 Caso você tenha realizado o lançamento da despesa no caixa incorreto, seja no valor, fornecedor ou data de vencimento. É possível realizar a edição na própria tela de conferência do caixa, no mesmo caminho que foi criado a despesa.
  
@@ -5230,7 +5228,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360°**
 
-### Como excluir uma venda do fechamento de caixa (Soma de PDV) 
+## Como excluir uma venda do fechamento de caixa (Soma de PDV) 
 
 Para excluir uma ou mais vendas, na tela de Fechamento de Caixa, clique na segunda aba:  Movimentos. Selecione a empresa, data da venda, e se desejar, selecione também a modalidade e o nº do documento da venda, com esses filtros selecionados se torna mais fácil e rápido de encontrar a venda que deseja excluir. Após a pesquisa, selecione a venda e clique no rodapé da página em Excluir.
 **Atenção: Se essa venda estiver com um visto ✔ , significa que está conciliada na tela de conciliação de cartões e precisará desconciliar primeiro para depois excluir.**
@@ -5244,7 +5242,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
  
-### Como realizar o fechamento de período no fechamento de caixa
+## Como realizar o fechamento de período no fechamento de caixa
 
 O fechamento de período do caixa é um botão de segurança e é aconselhável ser fechado, para que não seja inserido erroneamente o pdv ou impedindo que alguma edição no caixa seja realizada, causando duplicidade de informações e deixando o caixa novamente pendente.
 Para realizar o fechamento de período, você irá selecionar o dia em que deseja fechar o período, se por acaso o dia em que irá fechar estiver pendente de conferência do caixa, você precisa salvar o caixa, selecionar o dia e clicar abaixo em fechar período, como o gif abaixo.
@@ -5256,7 +5254,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Como criar uma despesa no caixa 
+## Como criar uma despesa no caixa 
 
 A criação de despesa no fechamento de caixa, é quando o dinheiro do caixa é utilizado para efetuar o pagamento de uma despesa. Para realizar a criação, você irá clicar em despesa, em seguida clique em Adicionar:
  ![criar_despesa_do_caixa.gif](https://f360.zendesk.com//hc/article_attachments/360060012134/criar_despesa_do_caixa.gif)
@@ -5266,7 +5264,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Como alterar a modalidade (forma de pagamento) da venda - Soma de PDV 
+## Como alterar a modalidade (forma de pagamento) da venda - Soma de PDV 
 
 Na tela de Fechamento de Caixa, na aba de Movimentos. Selecione a empresa, data da venda, e se desejar você pode selecionar a modalidade, o nº do documento da venda, com esses filtros selecionados é mais fácil e rápido de encontrar a venda. Após pesquisar, selecione a venda e clique em Editar no Rodapé da Página, selecione a modalidade correta e clique em Salvar.
 ![altera_ao_de_modalidade.gif](https://f360.zendesk.com//hc/article_attachments/360060011094/altera_ao_de_modalidade.gif)
@@ -5280,7 +5278,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Como criar uma venda na coluna de valor real na forma de pagamento outras receitas ou cheque
+## Como criar uma venda na coluna de valor real na forma de pagamento outras receitas ou cheque
 
 O seu caixa está com diferença, sendo o valor á menor na coluna de valor real, nas modalidades de outras receitas ou cheque, será necessário criar um contas á receber para a composição do valor. Na conferência do caixa, utilize o campo de Receitas (localizada abaixo da linha de despesas), clique em adicionar e preencha os campos.
 **OBS: Caso o recebimento seja parcelado para cheque, será necessário criar um contas á receber para cada uma das parcelas.**
@@ -5291,7 +5289,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Como incluir uma nova descrição de modalidade
+## Como incluir uma nova descrição de modalidade
 
 Após realizar a inserção do arquivo de PDV através da tela de Upload de Arquivos, na aba "Gerenciamento de Arquivos" o sistema informou uma nota na leitura do mesmo. Ao selecionar o arquivo e clicar no botão detalhes localizado no rodapé, temos a seguinte mensagem **(por exemplo)**: ***Não foi localizado a descrição 'CARTAO DE CREDITO TEF' nas modalidades cadastradas.***
 Em fechamento de caixa, acesse a terceira aba **"Configuração"**, para realizar o cadastro da modalidade. Clique em Pesquisar, e seguindo o exemplo acima, selecione a modalidade Crédito á Vista, clique em editar no rodapé, inclua a descrição contida na mensagem sem as aspas (" "). Repita o procedimento na modalidade Crédito Parcelado.
@@ -5303,7 +5301,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Conferência de Caixa
+## Conferência de Caixa
 
 Ao conferir o caixa de algum dia pendente no Fechamento de Caixa podemos visualizar as vendas do dia dia de 4 formas diferentes a depender do tipo do Finanças (PDV ou Flex) da empresa selecionada ou ao visualizar os dados de todas as empresas.
  
@@ -5328,20 +5326,20 @@ As duas formas mostram as vendas da seguinte forma:
  
 No modo Finanças Flex os valores de Dinheiro e PIX Bancário funcionam de forma diferente em comparação com os demais valores. Essas duas modalidades irão apresentar apenas valor na coluna da direita, Total Real, e ao preencher estes valores e salvar o caixa, o sistema irá efetuar a criação de movimentos de vendas correspondente ao valor preenchido.
  
-### Criar venda Dinheiro
+## Criar venda Dinheiro
 
 ![](https://f360.zendesk.com//hc/article_attachments/20168085773207.gif)
  
-### Criar venda PIX Bancário
+## Criar venda PIX Bancário
 
 ![](https://f360.zendesk.com//hc/article_attachments/20168072662807.gif)
  
-### Modalidade
+## Modalidade
 
 A visualização por Modalidade agrupa as vendas daquele dia por modalidades e mostra os detalhes por adquirente em cada modalidade.
 ![](https://f360.zendesk.com//hc/article_attachments/20168072666007.gif)
  
-### Adquirente
+## Adquirente
 
 A visualização por Adquirente agrupa as vendas daquele dia por adquirentes e mostra os detalhes por modalidade em cada adquirente.
  
@@ -5381,7 +5379,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360°**
 
-### Manual de diferenças entre o antigo e o novo Fechamento de Caixa
+## Manual de diferenças entre o antigo e o novo Fechamento de Caixa
 
 A tela de Fechamento de Caixa está com um novo visual e diversas funcionalidades foram reprojetadas para proporcionar uma operacionalização ainda mais simplificada, especialmente para você!
 Esse artigo irá destrinchar as principais novidades da nova tela de Fechamento de Caixa.
@@ -5489,7 +5487,7 @@ Gostou desse artigo? Tem alguma dúvida ou sugestão?
 Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
 **Equipe F360.**
-### Como exportar o arquivo Remessa do Gera 
+## Como exportar o arquivo Remessa do Gera 
 Preparamos o manual de como realizar a exportação do arquivo de Remessa da sua Venda Direta, para que seja alimentado o seu fechamento de caixa na coluna de Valor Real em Boletos e o seu contas á receber.
  
 **No Gera > Contas a Receber > Integração Bancos > Gerenciar Arquivos de Remessa**
@@ -5514,7 +5512,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360.**
 
-### Mudança de leitura no Código de PDV do Gera (Venda Direta Boticário)
+## Mudança de leitura no Código de PDV do Gera (Venda Direta Boticário)
 
 Realizamos uma mudança na leitura do código de PDV do arquivo do Gera para as Vendas Diretas e Loja Hibrida, onde as informações são inseridas em seu fechamento de caixa. 
 Liberamos no cadastro da empresa na aba de Outras Informações, um novo campo de **Cód. PDV do Estabelecimento (Secundário)**e para os clientes que realizam a importação dos arquivos de Pdvs do Gera, é necessário que preencham esse campo com o código disponível no arquivo exportado do gera em controle de títulos, na coluna **AQ (Código Cedente).**
@@ -5531,7 +5529,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360.**
 
-### Configuração das Vendas do PDV - Vouchers e Aplicativos
+## Configuração das Vendas do PDV - Vouchers e Aplicativos
 
 Preparamos o manual de configuração do PDV para as suas vendas de Vouchers e aplicativo, onde você conseguirá realizar a conciliação dos recebíveis na sua plataforma F360°, siga as instruções abaixo:
  
@@ -5570,7 +5568,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360.**
 
-### Como excluir uma despesa no caixa 
+## Como excluir uma despesa no caixa 
 
 Caso você tenha lançado uma despesa no caixa que não deveria, não se preocupe. Você consegue realizar a exclusão na própria tela de fechamento de caixa.
  
@@ -5583,9 +5581,9 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360°**
 
-## Manuais  PDVs 
+# Manuais  PDVs 
 
-### Manual PDV AlterdataVeja abaixo o passo a passo de como exportar o relatório de PDV Alterdata.
+## Manual PDV AlterdataVeja abaixo o passo a passo de como exportar o relatório de PDV Alterdata.
 
 Essa exportação só pode ser utilizada, caso não tenha a integração via API do Alterdata.
 ![mceclip0.png](https://f360.zendesk.com//hc/article_attachments/7755154987287/mceclip0.png)
@@ -5603,7 +5601,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360º.**
 
-### Manual PDV EVO - Com recorrência mensal 
+## Manual PDV EVO - Com recorrência mensal 
 
 Veja a baixo o passo a passo para a criação de Token no PDV e Configuração de Webservice F360 Finanças, para clientes que**utilizam recorrência mensal:**
 
@@ -5613,7 +5611,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360º.**
 
-### Exportação de PDV Varejo Fácil - O Boticário
+## Exportação de PDV Varejo Fácil - O Boticário
 
 Preparamos esse artigo para que você possa realizar a importação dos relatórios de PDV para a plataforma Finanças.
 Veja abaixo o passo a passo:
@@ -5630,7 +5628,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360.**
 
-### Como cadastrar webservice da Linx ERP Franquias - Alpargatas 
+## Como cadastrar webservice da Linx ERP Franquias - Alpargatas 
 
 **1. Como cadastrar o WebService da Linx ERP Franquias:** 
 A Linx junto com a Alpargatas e a Finanças 360 liberou uma API onde poderemos capturar as vendas das lojas automaticamente. Portanto, a partir de agora vocês não vão mais precisar inserir o arquivo de PDV que é extraído manualmente do servidor remoto.
@@ -5656,7 +5654,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360**
 
-### Manual PDV Seta Digital
+## Manual PDV Seta Digital
 
 Preparamos esse manual de como realizar a exportação do relatório do PDV SETA, possuímos a integração da API, que é necessário contratação com o PDV x Cliente, caso tenha interesse em contratar a API SETA, por gentileza entre em contato com o nosso suporte através do e-mail: [suporte@f360.com.br](mailto:suporte@f360.com.br).
 Veja abaixo o passo a passo de como exportar o relatório do PDV Seta Digital:
@@ -5676,7 +5674,7 @@ Gostou desse artigo? Tem alguma dúvida ou sugestão?
 Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
 **Equipe F360º.**
-### Manual PDV EVO - Sem recorrência mensal 
+## Manual PDV EVO - Sem recorrência mensal 
 Veja a baixo o passo a passo para a criação de Token no PDV e Configuração de Webservice F360 Finanças, para clientes que **não utilizam recorrência mensal:**
  
 **![](https://f360.zendesk.com//hc/article_attachments/19542403253911.png)![](https://f360.zendesk.com//hc/article_attachments/19542414008599.png)![](https://f360.zendesk.com//hc/article_attachments/19542382330775.png)![](https://f360.zendesk.com//hc/article_attachments/19542394150039.png)**
@@ -5686,7 +5684,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360º.**
 
-### Manual PDV Cigam
+## Manual PDV Cigam
 
 Veja abaixo o passo a passo de como exportar o relatório do PDV Cigam.
 ![mceclip0.png](https://f360.zendesk.com//hc/article_attachments/7766175547287/mceclip0.png)
@@ -5699,7 +5697,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360º.**
 
-### Como exportar o arquivo de PDV Gera Venda Direta - (O Boticário)
+## Como exportar o arquivo de PDV Gera Venda Direta - (O Boticário)
 
 Para que você consiga realizar a conferência de seu fechamento de caixa, é preciso que realize a importação dos arquivos de PDvs (movimento de vendas).
 Logo abaixo segue o passo a passo de como realizar essa exportação:
@@ -5728,7 +5726,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360.**
 
-### Manual PDV Teknisa
+## Manual PDV Teknisa
 
 Veja abaixo o passo a passo de como exportar o relatório do PDV Teknisa.
 ![mceclip0.png](https://f360.zendesk.com//hc/article_attachments/7766405681175/mceclip0.png)
@@ -5742,7 +5740,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360º.**
 
-### Manual PDV Linx Microvix
+## Manual PDV Linx Microvix
 
 Realizamos uma leitura nos arquivos de PDV LINX Mircrovix, a mudança vai impactar os lançamentos do Arquivo de PDV que estão com valor negativo, ou seja, normalmente devolução de vendas.
  Para que essas informações possam ser importadas em sua base, orientamos que seja criado uma nova modalidade em Fechamento de Caixa > Configuração > Criar, com a descrição **Dinheiro - Devolução,**fica á seu critério em configurar a modalidade para Apenas Informativo ( que não irá somar no seu caixa) ou para Somar no Caixa.
@@ -5779,7 +5777,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360º.**
 
-### Manual PDV Trinks
+## Manual PDV Trinks
 
 Veja abaixo o passo a passo de como exportar o relatório do PDV Trinks.
 **Notas: Antes de Exportar as Vendas, verifique se os Meios de pagamento estão configurados na conta que você vai utilizar para exportação.**
@@ -5796,7 +5794,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360º.**
 
-### Como exportar o CC Residual do Gera - Venda Direta ( O Boticário)
+## Como exportar o CC Residual do Gera - Venda Direta ( O Boticário)
 
 O passo a passo a seguir, é para realizar a exportação do arquivo de CC Residual que é responsável em aplicar o desconto nas vendas de seu fechamento de caixa, então após a importação do arquivo de PDV, realize a exportação e importação do CC Residual.
  
@@ -5817,7 +5815,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360.**
 
-### Manual de PDV Linx UX
+## Manual de PDV Linx UX
 
 Veja abaixo o passo a passo de como exportar o relatório de PDV Linx Ux.
 ![mceclip0.png](https://f360.zendesk.com//hc/article_attachments/7755655743639/mceclip0.png)
@@ -5836,7 +5834,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360º.**
  
-### Manual de Importação de PDV Linx POS, Linx Full, Linx Franquias (Exportação pela Retaguarda)
+## Manual de Importação de PDV Linx POS, Linx Full, Linx Franquias (Exportação pela Retaguarda)
 
 Realizamos uma leitura nos arquivos de PDV LINX, a mudança vai impactar os lançamentos do Arquivo de PDV que estão com valor negativo, ou seja, normalmente devolução de vendas.
  Para que essas informações possam ser importadas em sua base, orientamos que seja criado uma nova modalidade em Fechamento de Caixa > Configuração > Criar, com a descrição **Dinheiro - Devolução,**fica á seu critério em configurar a modalidade para Apenas Informativo ( que não irá somar no seu caixa) ou para Somar no Caixa.
@@ -5880,7 +5878,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360.**
  
-### Manual PDV SW Fast
+## Manual PDV SW Fast
 
 Veja abaixo o passo a passo de como exportar o relatório de PDV SW Fast.
 ![mceclip0.png](https://f360.zendesk.com//hc/article_attachments/7755395555991/mceclip0.png)
@@ -5892,9 +5890,9 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360º.**
 
-## Pagamento Escritural
+# Pagamento Escritural
 
-### Como gerar o arquivo para pagamento escritural através do DDA
+## Como gerar o arquivo para pagamento escritural através do DDA
 
 Antes de prosseguir com o passo a passo de geração do DDA, é importante que o cadastro da conta que irá realizar a criação do arquivo, esteja configurada com o código escritural.
 Siga o passo a passo de como configurar a conta:
@@ -5930,7 +5928,7 @@ Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compar
 Um grande abraço,
 **Equipe F360.**
 
-### Como configurar o bloqueio de inserção do DDA 
+## Como configurar o bloqueio de inserção do DDA 
 
 Para clientes que utilizam pagamento escritural na plataforma, é possível configurar o bloqueio da inserção de DDAs no F360. Isso significa que ao realizar o *upload* de um arquivo de DDA, os registros não serão inseridos caso o período das contas estejam fechados na data de vencimento dos registros.
 Esse bloqueio é realizado por conta e evitará que ocorram mudanças em datas que já possuem o caixa conferido e o período fechado ao inserir um arquivo de DDA na plataforma. Para configurá-lo é simples:
