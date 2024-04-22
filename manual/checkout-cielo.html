@@ -2212,13 +2212,358 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
+<h2 id="consultando-uma-recorrência">Consultando uma Recorrência</h2>
+
+<p>Para consultar os dados de uma recorrência e as transações ligadas a ela, é necessário usar o ID de recorrência enviado após a criação de uma recorrência.</p>
+
+<p>A consulta deve ser feita enviando o access_token como autenticação.</p>
+
+<h3 id="requisição-4">Requisição</h3>
+
+<p><strong>Parâmetros no cabeçalho (header)</strong></p>
+<ul>
+  <li><strong>Authorization</strong>: Bearer {access_token}</li>
+  <li><strong>Content-type</strong>: application/json</li>
+</ul>
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/RecurrentPayment/</span></aside>
+
+<h3 id="resposta-3">Resposta</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w"> 
+
+</span><span class="err">    </span><span class="nl">"$id"</span><span class="p">:</span><span class="err"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">    </span><span class="nl">"id"</span><span class="p">:</span><span class="err"> </span><span class="mi">202</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">    </span><span class="nl">"pagadorRecurrentPaymentId"</span><span class="p">:</span><span class="err"> </span><span class="s2">"0207ce76-8144-48dc-8b17-876465bc3a6d"</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">    </span><span class="nl">"recurrentPaymentStatus"</span><span class="p">:</span><span class="err"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">    </span><span class="nl">"recurrentPaymentStatusEnum"</span><span class="p">:</span><span class="err"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">    </span><span class="nl">"isRecurrentPaymentExpired"</span><span class="p">:</span><span class="err"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">    </span><span class="nl">"allowEdit"</span><span class="p">:</span><span class="err"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">    </span><span class="nl">"startDate"</span><span class="p">:</span><span class="err"> </span><span class="s2">"2024-02-05T15:05:44.423"</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">    </span><span class="nl">"endDate"</span><span class="p">:</span><span class="err"> </span><span class="s2">"2026-03-30T00:00:00"</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">    </span><span class="nl">"formatedEndDate"</span><span class="p">:</span><span class="err"> </span><span class="s2">"30/03/2026"</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">    </span><span class="nl">"day"</span><span class="p">:</span><span class="err"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">    </span><span class="nl">"items"</span><span class="p">:</span><span class="err"> </span><span class="p">[</span><span class="w"> 
+
+</span><span class="err">        </span><span class="p">{</span><span class="w"> 
+
+</span><span class="err">            </span><span class="nl">"$id"</span><span class="p">:</span><span class="err"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">            </span><span class="nl">"name"</span><span class="p">:</span><span class="err"> </span><span class="s2">"teste leo"</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">            </span><span class="nl">"quantity"</span><span class="p">:</span><span class="err"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">            </span><span class="nl">"unitPrice"</span><span class="p">:</span><span class="err"> </span><span class="mi">1000</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">            </span><span class="nl">"totalPrice"</span><span class="p">:</span><span class="err"> </span><span class="mi">1000</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">            </span><span class="nl">"formattedUnitPrice"</span><span class="p">:</span><span class="err"> </span><span class="s2">"R$ 10,00"</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">            </span><span class="nl">"formattedTotalPrice"</span><span class="p">:</span><span class="err"> </span><span class="s2">"R$ 10,00"</span><span class="w"> 
+
+</span><span class="err">        </span><span class="p">}</span><span class="w"> 
+
+</span><span class="err">    </span><span class="p">],</span><span class="w"> 
+
+</span><span class="err">    </span><span class="nl">"item"</span><span class="p">:</span><span class="err"> </span><span class="p">{</span><span class="w"> 
+
+</span><span class="err">        </span><span class="nl">"$ref"</span><span class="p">:</span><span class="err"> </span><span class="s2">"2"</span><span class="w"> 
+
+</span><span class="err">    </span><span class="p">},</span><span class="w"> 
+
+</span><span class="err">    </span><span class="nl">"history"</span><span class="p">:</span><span class="err"> </span><span class="p">[</span><span class="w"> 
+
+</span><span class="err">        </span><span class="p">{</span><span class="w"> 
+
+</span><span class="err">            </span><span class="nl">"$id"</span><span class="p">:</span><span class="err"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">            </span><span class="nl">"orderId"</span><span class="p">:</span><span class="err"> </span><span class="s2">"c748ef42-d1e7-4db3-9633-8d057bf874b0"</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">            </span><span class="nl">"orderNumber"</span><span class="p">:</span><span class="err"> </span><span class="s2">"8245e94dcf4c4de3906118e38f376822"</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">            </span><span class="nl">"merchantOrderNumber"</span><span class="p">:</span><span class="err"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">            </span><span class="nl">"createdDate"</span><span class="p">:</span><span class="err"> </span><span class="s2">"2024-02-05T15:05:44.457"</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">            </span><span class="nl">"paymentStatus"</span><span class="p">:</span><span class="err"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">            </span><span class="nl">"paymentStatusDescription"</span><span class="p">:</span><span class="err"> </span><span class="s2">"Autorizado"</span><span class="w"> 
+
+</span><span class="err">        </span><span class="p">}</span><span class="w"> 
+
+</span><span class="err">    </span><span class="p">],</span><span class="w"> 
+
+</span><span class="err">    </span><span class="nl">"lastPaymentDate"</span><span class="p">:</span><span class="err"> </span><span class="s2">"0001-01-01T00:00:00"</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">    </span><span class="nl">"nextPaymentDate"</span><span class="p">:</span><span class="err"> </span><span class="s2">"2026-02-05T00:00:00"</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">    </span><span class="nl">"formatedNextPaymentDate"</span><span class="p">:</span><span class="err"> </span><span class="s2">"05/02/2026"</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">    </span><span class="nl">"intervalDescription"</span><span class="p">:</span><span class="err"> </span><span class="s2">"Mensal"</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">    </span><span class="nl">"recurrentPaymentStatusDescription"</span><span class="p">:</span><span class="err"> </span><span class="s2">"Ativa"</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">    </span><span class="nl">"amount"</span><span class="p">:</span><span class="err"> </span><span class="mf">4000.0</span><span class="w"> 
+
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <th>TIPO DO CAMPO</th>
+      <th>TAMANHO MÁXIMO</th>
+      <th>DESCRIÇÃO</th>
+      <th>FORMATO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">$id</code></td>
+      <td>número</td>
+      <td>10</td>
+      <td>Index da lista do payload.</td>
+      <td>Exemplo: 1</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">id</code></td>
+      <td>número</td>
+      <td>100</td>
+      <td>Index do registro de recorrência (desconsiderar valor para fins de consulta).</td>
+      <td>Exemplo: 202</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">pagadorRecurrentPaymentId</code></td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Número de identificação da recorrência no Checkout.</td>
+      <td>Exemplo: 0207ce76-8144-48dc-8b17-876465bc3a6d</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">recurrentPaymentStatus</code></td>
+      <td>número</td>
+      <td>1</td>
+      <td>Status da recorrência (se está ativa ou não).</td>
+      <td>Exemplo: 1</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">recurrentPaymentStatusEnum</code></td>
+      <td>número</td>
+      <td>1</td>
+      <td>Status da recorrência (se está ativa ou não)</td>
+      <td>Exemplo: 1</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">isRecurrentPaymentExpired</code></td>
+      <td>booleano</td>
+      <td>5</td>
+      <td>Informa se a recorrência está expirada.</td>
+      <td>Exemplo: false</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">allowEdit</code></td>
+      <td>número</td>
+      <td>1</td>
+      <td>Se permite a edição de recorrência ou não</td>
+      <td>Exemplo: true</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">startDate</code></td>
+      <td>texto</td>
+      <td>20</td>
+      <td>Data de início da recorrência.</td>
+      <td>Exemplo:  2024-02-05T15:05:44.423</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">endDate</code></td>
+      <td>texto</td>
+      <td>20</td>
+      <td>Data de encerramento da recorrência. Se não enviado, a recorrência se encerra somente se desativada pelo lojista.</td>
+      <td>Exemplo: 2026-03-30T00:00:00</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">formatedEndDate</code></td>
+      <td>texto</td>
+      <td>10</td>
+      <td>Data de encerramento da recorrência, formatada. Se não enviado, a recorrência se encerra somente se desativada pelo lojista.</td>
+      <td>Exemplo: 30/03/2026</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">day</code></td>
+      <td>número</td>
+      <td>2</td>
+      <td>Dia do mês em que a cobrança da recorrência é realizada.</td>
+      <td>Exemplo: 30</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items.$id</code></td>
+      <td>número</td>
+      <td>10</td>
+      <td>Index da lista de itens.</td>
+      <td>Exemplo: 2</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items.name</code></td>
+      <td>texto</td>
+      <td>256</td>
+      <td>Descrição do item do carrinho do pedido.</td>
+      <td>Exemplo: pacote de bolacha</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items.quantity</code></td>
+      <td>número</td>
+      <td>10</td>
+      <td>Quantidade de itens do carrinho.</td>
+      <td>Exemplo: 1</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items.unitPrice</code></td>
+      <td>número</td>
+      <td>10</td>
+      <td>Preço unitário do item, em centavos. (R$ 1,00 = 100)</td>
+      <td>Exemplo: 1000</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items.totalPrice</code></td>
+      <td>número</td>
+      <td>10</td>
+      <td>Preço total pela quantidade do mesmo item. (R$ 1,00 = 100)</td>
+      <td>Exemplo: 1000</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items.formattedUnitPrice</code></td>
+      <td>texto</td>
+      <td>10</td>
+      <td>Preço unitário do item, formatado.</td>
+      <td>Exemplo: R$ 10,00</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items.formattedTotalPrice</code></td>
+      <td>texto</td>
+      <td>10</td>
+      <td>Preço total pela quantidade do mesmo item, formatado.</td>
+      <td>Exemplo: R$ 10,00</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Item.$ref</code></td>
+      <td>texto</td>
+      <td>10</td>
+      <td>Retorna o index do primeiro item.</td>
+      <td>Exemplo: 2</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">history.$id</code></td>
+      <td>número</td>
+      <td>10</td>
+      <td>Index da lista de itens.</td>
+      <td>Exemplo: 3</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">history.orderId</code></td>
+      <td>texto</td>
+      <td>36</td>
+      <td>ID interno do pedido, não utilizado para consultas.</td>
+      <td>Exemplo: 8390bbdc-8c0a-42bb-a144-3712ee1a1fad</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">history.orderNumber</code></td>
+      <td>texto</td>
+      <td>32</td>
+      <td>Id do pedido gerado pela Cielo, utilizado para realizar as consultas. Também chamado de <code class="language-plaintext highlighter-rouge">checkout_cielo_order_number</code>.</td>
+      <td>Exemplo: 89e4b89c69ab4fca81f8e4e70d594181</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">history.merchantOrderNumber</code></td>
+      <td>texto</td>
+      <td>30</td>
+      <td>ID do pedido informado pelo lojista na criação do Checkout Cielo (se não informado, será gerado um número automaticamente).</td>
+      <td>Exemplo: 12345</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">history.createdDate</code></td>
+      <td>texto</td>
+      <td>23</td>
+      <td>Data de criação do pedido de recorrência.</td>
+      <td>Exemplo: 2024-02-08T17:56:29.51</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">history.paymentStatus</code></td>
+      <td>número</td>
+      <td>10</td>
+      <td>Código referente ao status de pagamento.</td>
+      <td>Exemplo: 7</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">history.paymentStatusDescription</code></td>
+      <td>texto</td>
+      <td>30</td>
+      <td>Descrição referente ao status de pagamento:<br />0 - Indefinido;<br />1 - Pendente;<br />2 - Pago;<br />3 - Negado;<br />4 - Expirado;<br />5 - Cancelado;<br />6 - Não Finalizado;<br />7 - Autorizado.</td>
+      <td>Exemplo: Autorizado</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">lastPaymentDate</code></td>
+      <td>texto</td>
+      <td>23</td>
+      <td>Data do último pagamento da recorrência. Caso ainda não exista um pagamento, retornará “0001-01-01T00:00:00”.</td>
+      <td>Exemplo: 2024-01-29T00:00:00</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">nextPaymentDate</code></td>
+      <td>texto</td>
+      <td>20</td>
+      <td>Data da próxima cobrança da recorrência, sem formatação.</td>
+      <td>Exemplo: 2026-02-05T00:00:00</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">formatedNextPaymentDate</code></td>
+      <td>texto</td>
+      <td>10</td>
+      <td>Data da próxima cobrança da recorrência, formatada.</td>
+      <td>Exemplo: 05/02/2026</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">intervalDescription</code></td>
+      <td>string</td>
+      <td>128</td>
+      <td>Intervalo de cobrança da recorrência.<br />“Monthly” - Mensal; <br />“Bimonthly” - Bimensal;<br />“Quarterly” - Trimestral;<br />“SemiAnnual” - Semestral;<br />“Annual” - Anual</td>
+      <td>Exemplo: Mensal</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">recurrentPaymentStatusDescription</code></td>
+      <td>texto</td>
+      <td>50</td>
+      <td>Descrição do status da recorrência. Veja a tabela de status da Recorrência.</td>
+      <td>Exemplo: Ativa</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">amount</code></td>
+      <td>número</td>
+      <td>10</td>
+      <td>Preço unitário da recorrência, em centavos. (R$ 1,00 = 100)</td>
+      <td>Exemplo: 4000.0</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="desativando-uma-recorrência">Desativando uma Recorrência</h2>
 
 <p>Para desativar uma recorrência, mande a seguinte requisição.</p>
 
 <aside class="warning">Após desativada uma recorrência, não é possível ativá-la novamente. Por isso, tenha certeza dessa ação antes de realizar a desativação.</aside>
 
-<h3 id="requisição-4">Requisição</h3>
+<h3 id="requisição-5">Requisição</h3>
 
 <aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/RecurrentPayment/Deactivate/</span></aside>
 
@@ -3025,7 +3370,7 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
 
 <p>A consulta de transações por <code class="language-plaintext highlighter-rouge">order_number</code> retorna uma lista de transações com o mesmo número de pedidos; isso ocorre pois o Checkout não impede a duplicação de <code class="language-plaintext highlighter-rouge">order_number</code>s por parte da loja. A resposta retornará o <code class="language-plaintext highlighter-rouge">checkout_cielo_order_number</code>, que deverá ser usado na consulta de uma transação específica.</p>
 
-<h4 id="requisição-5">Requisição</h4>
+<h4 id="requisição-6">Requisição</h4>
 
 <p>Para consultar uma transação pelo <code class="language-plaintext highlighter-rouge">order_number</code>, faça um <code class="language-plaintext highlighter-rouge">GET</code>.</p>
 
@@ -3054,7 +3399,7 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
   </tbody>
 </table>
 
-<h4 id="resposta-3">Resposta</h4>
+<h4 id="resposta-4">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -3151,7 +3496,7 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
 
 <h3 id="por-checkout_cielo_order_number">Por Checkout_Cielo_Order_Number</h3>
 
-<h4 id="requisição-6">Requisição</h4>
+<h4 id="requisição-7">Requisição</h4>
 
 <p>Para consultar uma transação pelo <code class="language-plaintext highlighter-rouge">Checkout_Cielo_Order_Number</code>, basta realizar um <code class="language-plaintext highlighter-rouge">GET</code>.</p>
 
@@ -3184,7 +3529,7 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
   </tbody>
 </table>
 
-<h4 id="resposta-4">Resposta</h4>
+<h4 id="resposta-5">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w"> 
     </span><span class="nl">"merchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c89fdfbb-dbe2-4e77-806a-6d75cd397dac"</span><span class="p">,</span><span class="w"> 
@@ -3556,7 +3901,7 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
 
 <p>A captura acontece após a autorização, para que a venda seja concretizada e a cobrança seja feita no cartão. Somente após a captura o portador do cartão poderá visualizá-la em seu extrato ou fatura.</p>
 
-<h3 id="requisição-7">Requisição</h3>
+<h3 id="requisição-8">Requisição</h3>
 
 <p>Para capturar uma transação de cartão de crédito pelo <code class="language-plaintext highlighter-rouge">Checkout_Cielo_Order_Number</code>, basta realizar um <code class="language-plaintext highlighter-rouge">PUT</code>.</p>
 
@@ -3580,7 +3925,7 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
   <p><strong>Observação</strong>: A captura parcial pode ser realizada apenas uma vez e é exclusiva para cartão de crédito.</p>
 </blockquote>
 
-<h3 id="resposta-5">Resposta</h3>
+<h3 id="resposta-6">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -3651,7 +3996,7 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
   <p><strong>Importante</strong>: Para realizar qualquer solicitação de cancelamento, é necessário que o estabelecimento possua saldo suficiente na transação/em agenda.</p>
 </blockquote>
 
-<h3 id="requisição-8">Requisição</h3>
+<h3 id="requisição-9">Requisição</h3>
 
 <blockquote>
   <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
@@ -3673,7 +4018,7 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
   <p><strong>Atenção</strong>: O cancelamento parcial pode ser realizado apenas após a captura. O cancelamento parcial pode ser realizado inúmeras vezes até que o valor total seja cancelado.</p>
 </blockquote>
 
-<h3 id="resposta-6">Resposta</h3>
+<h3 id="resposta-7">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
