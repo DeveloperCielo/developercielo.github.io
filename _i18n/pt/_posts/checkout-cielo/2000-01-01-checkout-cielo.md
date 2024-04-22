@@ -1083,6 +1083,147 @@ Para alterar dados de uma recorrêcia usando a API do Checkout Cielo, basta envi
 }
 ```
 
+## Consultando uma Recorrência
+
+Para consultar os dados de uma recorrência e as transações ligadas a ela, é necessário usar o ID de recorrência enviado após a criação de uma recorrência. 
+
+A consulta deve ser feita enviando o access_token como autenticação.
+
+### Requisição
+
+**Parâmetros no cabeçalho (header)**
+* **Authorization**: Bearer {access_token}
+* **Content-type**: application/json
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/RecurrentPayment/{{pagadorRecurrentPaymentId}}</span></aside>
+
+### Resposta
+
+```json
+{ 
+
+    "$id": "1", 
+
+    "id": 202, 
+
+    "pagadorRecurrentPaymentId": "0207ce76-8144-48dc-8b17-876465bc3a6d", 
+
+    "recurrentPaymentStatus": 1, 
+
+    "recurrentPaymentStatusEnum": 1, 
+
+    "isRecurrentPaymentExpired": false, 
+
+    "allowEdit": true, 
+
+    "startDate": "2024-02-05T15:05:44.423", 
+
+    "endDate": "2026-03-30T00:00:00", 
+
+    "formatedEndDate": "30/03/2026", 
+
+    "day": 10, 
+
+    "items": [ 
+
+        { 
+
+            "$id": "2", 
+
+            "name": "teste leo", 
+
+            "quantity": 1, 
+
+            "unitPrice": 1000, 
+
+            "totalPrice": 1000, 
+
+            "formattedUnitPrice": "R$ 10,00", 
+
+            "formattedTotalPrice": "R$ 10,00" 
+
+        } 
+
+    ], 
+
+    "item": { 
+
+        "$ref": "2" 
+
+    }, 
+
+    "history": [ 
+
+        { 
+
+            "$id": "3", 
+
+            "orderId": "c748ef42-d1e7-4db3-9633-8d057bf874b0", 
+
+            "orderNumber": "8245e94dcf4c4de3906118e38f376822", 
+
+            "merchantOrderNumber": "12345", 
+
+            "createdDate": "2024-02-05T15:05:44.457", 
+
+            "paymentStatus": 7, 
+
+            "paymentStatusDescription": "Autorizado" 
+
+        } 
+
+    ], 
+
+    "lastPaymentDate": "0001-01-01T00:00:00", 
+
+    "nextPaymentDate": "2026-02-05T00:00:00", 
+
+    "formatedNextPaymentDate": "05/02/2026", 
+
+    "intervalDescription": "Mensal", 
+
+    "recurrentPaymentStatusDescription": "Ativa", 
+
+    "amount": 4000.0 
+
+}
+```
+
+|PROPRIEDADE|TIPO DO CAMPO|TAMANHO MÁXIMO|DESCRIÇÃO|FORMATO|
+|-|-|-|-|-|
+|`$id`|número|10|Index da lista do payload.|Exemplo: 1|
+|`id`|número|100|Index do registro de recorrência (desconsiderar valor para fins de consulta).|Exemplo: 202|
+|`pagadorRecurrentPaymentId`|GUID|36|Número de identificação da recorrência no Checkout.|Exemplo: 0207ce76-8144-48dc-8b17-876465bc3a6d|
+|`recurrentPaymentStatus`|número|1|Status da recorrência (se está ativa ou não).|Exemplo: 1|
+|`recurrentPaymentStatusEnum`|número|1|Status da recorrência (se está ativa ou não)|Exemplo: 1|
+|`isRecurrentPaymentExpired`|booleano|5|Informa se a recorrência está expirada.|Exemplo: false|
+|`allowEdit`|número|1|Se permite a edição de recorrência ou não|Exemplo: true|
+|`startDate`|texto|20|Data de início da recorrência.|Exemplo:  2024-02-05T15:05:44.423|
+|`endDate`|texto|20|Data de encerramento da recorrência. Se não enviado, a recorrência se encerra somente se desativada pelo lojista.|Exemplo: 2026-03-30T00:00:00|
+|`formatedEndDate`|texto|10|Data de encerramento da recorrência, formatada. Se não enviado, a recorrência se encerra somente se desativada pelo lojista.|Exemplo: 30/03/2026|
+|`day`|número|2|Dia do mês em que a cobrança da recorrência é realizada.|Exemplo: 30|
+|`Items.$id`|número|10|Index da lista de itens.|Exemplo: 2|
+|`Items.name`|texto|256|Descrição do item do carrinho do pedido.|Exemplo: pacote de bolacha|
+|`Items.quantity`|número|10|Quantidade de itens do carrinho.|Exemplo: 1|
+|`Items.unitPrice`|número|10|Preço unitário do item, em centavos. (R$ 1,00 = 100)| Exemplo: 1000|
+|`Items.totalPrice`|número|10|Preço total pela quantidade do mesmo item. (R$ 1,00 = 100) |Exemplo: 1000|
+|`Items.formattedUnitPrice`|texto|10|Preço unitário do item, formatado.|Exemplo: R$ 10,00|
+|`Items.formattedTotalPrice`|texto|10|Preço total pela quantidade do mesmo item, formatado.|Exemplo: R$ 10,00|
+|`Item.$ref`|texto|10|Retorna o index do primeiro item.|Exemplo: 2|
+|`history.$id`|número|10|Index da lista de itens.|Exemplo: 3|
+|`history.orderId`|texto|36|ID interno do pedido, não utilizado para consultas.|Exemplo: 8390bbdc-8c0a-42bb-a144-3712ee1a1fad|
+|`history.orderNumber`|texto|32|Id do pedido gerado pela Cielo, utilizado para realizar as consultas. Também chamado de `checkout_cielo_order_number`.|Exemplo: 89e4b89c69ab4fca81f8e4e70d594181|
+|`history.merchantOrderNumber`|texto|30|ID do pedido informado pelo lojista na criação do Checkout Cielo (se não informado, será gerado um número automaticamente).|Exemplo: 12345|
+|`history.createdDate`|texto|23|Data de criação do pedido de recorrência.|Exemplo: 2024-02-08T17:56:29.51|
+|`history.paymentStatus`|número|10|Código referente ao status de pagamento.|Exemplo: 7|
+|`history.paymentStatusDescription`|texto|30|Descrição referente ao status de pagamento:<br>0 - Indefinido;<br>1 - Pendente;<br>2 - Pago;<br>3 - Negado;<br>4 - Expirado;<br>5 - Cancelado;<br>6 - Não Finalizado;<br>7 - Autorizado.|Exemplo: Autorizado|
+|`lastPaymentDate`|texto|23|Data do último pagamento da recorrência. Caso ainda não exista um pagamento, retornará "0001-01-01T00:00:00".|Exemplo: 2024-01-29T00:00:00|
+|`nextPaymentDate`|texto|20|Data da próxima cobrança da recorrência, sem formatação.|Exemplo: 2026-02-05T00:00:00|
+|`formatedNextPaymentDate`|texto|10|Data da próxima cobrança da recorrência, formatada.|Exemplo: 05/02/2026|
+|`intervalDescription`|string|128|Intervalo de cobrança da recorrência.<br>"Monthly" - Mensal; <br>"Bimonthly" - Bimensal;<br>"Quarterly" - Trimestral;<br>"SemiAnnual" - Semestral;<br>"Annual" - Anual|Exemplo: Mensal|
+|`recurrentPaymentStatusDescription`|texto|50|Descrição do status da recorrência. Veja a tabela de status da Recorrência.|Exemplo: Ativa|
+|`amount`|número|10|Preço unitário da recorrência, em centavos. (R$ 1,00 = 100)|Exemplo: 4000.0|
+
 ## Desativando uma Recorrência
 
 Para desativar uma recorrência, mande a seguinte requisição.
