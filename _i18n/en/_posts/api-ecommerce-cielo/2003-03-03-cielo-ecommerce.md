@@ -1,4 +1,4 @@
----
+![image](https://github.com/DeveloperCielo/developercielo.github.io/assets/160758357/148fad27-488d-4110-b34f-584ce4fbc63d)---
 layout: manual
 title: Integration Manual E-commerce Cielo
 description: The purpose of this documentation is to guide the developer on how to integrate with Cielo's API E-commerce Cielo.
@@ -614,7 +614,7 @@ curl
 | `Customer.Identity`                   | text         | 14   | No                 | Customer's RG, CPF or CNPJ.                                                                                                                                                                                                                                                                                |
 | `Customer.IdentityType`               | text         | 255  | No                 | Customer's type of identification (CPF/CNPJ).                                                                                                                                                                                                                                                              |
 | `Customer.Email`                      | text         | 255  | No                 | Customer's e-mail.                                                                                                                                                                                                                                                                                          |
-| `Customer.Birthdate`                  | date         | 10   | No                 | Customer's birth date.                                                                                                                                                                                                                                                                                      |
+| `Customer.Birthdate`                  | date         | 10   | No                 | Customer's birth date (AAAA/MM/DD).                                                                                                                                                                                                                                                                                      |
 | `Customer.Address.Street`             | text         | 255  | No                 | Customer's address.                                                                                                                                                                                                                                                                                        |
 | `Customer.Address.Number`             | text         | 15   | No                 | Customer's address number.                                                                                                                                                                                                                                                                                 |
 | `Customer.Address.Complement`         | text         | 50   | No                 | Customer's address complement.                                                                                                                                                                                                                                                                             |
@@ -1275,7 +1275,7 @@ curl
 | `Customer.Identity`                   | text         | 14      | No                 | Customer's RG, CPF or CNPJ.                                                                                                                                                                                                                                                                                |
 | `Customer.IdentityType`               | text         | 255     | No                 | Customer's type of identification (CPF/CNPJ).                                                                                                                                                                                                                                                              |
 | `Customer.Email`                      | text         | 255     | No                 | Customer's e-mail                                                                                                                                                                                                                                                                                          |
-| `Customer.Birthdate`                  | date         | 10      | No                 | Customer's birth date.                                                                                                                                                                                                                                                                                      |
+| `Customer.Birthdate`                  | date         | 10      | No                 | Customer's birth date (AAAA/MM/DD).                                                                                                                                                                                                                                                                                      |
 | `Customer.Address.Street`             | text         | 255     | No                 | Customer's address.                                                                                                                                                                                                                                                                                        |
 | `Customer.Address.Number`             | text         | 15      | No                 | Customer's address number.                                                                                                                                                                                                                                                                                 |
 | `Customer.Address.Complement`         | text         | 50      | No                 | Customer's address complement.                                                                                                                                                                                                                                                                             |
@@ -3511,7 +3511,7 @@ See an example of a Card on File credit transaction request.
 |`Customer.Name`|Text|255|No|Customer's name.|
 |`Customer.Status`|Text|255|No|The customer’s registration status on the store. (NEW / EXISTING)|
 |`Customer.Email`|Text|255|No|Customer's email|
-|`Customer.Birthdate`|Date|10|No|Customer's birthdate|
+|`Customer.Birthdate`|Date|10|No|Customer's birthdate (AAAA/MM/DD).|
 |`Payment.Type`|Text|100|Yes|Type of the Payment Method.|
 |`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents).|
 |`Payment.Currency`|Text|3|No|Currency in which the payment will be made (BRL).|
@@ -4328,7 +4328,7 @@ curl
 | `Customer.Name`                       | Shopper's name.                                                                          | Text | 255  | No       |
 | `Customer.Status`                     | Shopper registration status in store (NEW / EXISTING) - Used by fraud analysis           | Text | 255  | No       |
 | `Customer.Email`                      | Shopper's e-mail.                                                                        | Text | 255  | No       |
-| `Customer.Birthdate`                  | Shopper's date of birth.                                                                 | Date | 10   | No       |
+| `Customer.Birthdate`                  | Shopper's date of birth (AAAA/MM/DD).                                                                 | Date | 10   | No       |
 | `Customer.Identity`                   | Shopper's RG, CPF or CNPJ number.                                                        | Text | 14   | No       |
 | `Customer.Address.Street`             | Shopper's address.                                                                       | Text | 255  | No       |
 | `Customer.Address.Number`             | Shopper's address number.                                                                | Text | 15   | No       |
@@ -4615,7 +4615,7 @@ curl
 | `Customer.Name`                       | Shopper's name.                                                                          | Text | 255  | No                                      |
 | `Customer.Status`                     | Shopper registration status in store (NEW / EXISTING) - Used by fraud analysis           | Text | 255  | No                                      |
 | `Customer.Email`                      | Shopper's e-mail.                                                                        | Text | 255  | No                                      |
-| `Customer.Birthdate`                  | Shopper's date of birth.                                                                 | Date | 10   | No                                      |
+| `Customer.Birthdate`                  | Shopper's date of birth (AAAA/MM/DD).                                                                 | Date | 10   | No                                      |
 | `Customer.Identity`                   | Shopper's RG, CPF or CNPJ number.                                                        | Text | 14   | No                                      |
 | `Customer.IdentityType`               | Text                                                                                     | 255  | No   | Type of shopper ID document (CFP/CNPJ). |
 | `Customer.Address.Street`             | Shopper's address.                                                                       | Text | 255  | No                                      |
