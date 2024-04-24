@@ -4157,6 +4157,53 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
   <p><strong>Observação</strong>: Para consultas de pedido, o campo <code class="language-plaintext highlighter-rouge">payment.status</code> será retornado no formato texto, sempre em inglês (coluna Transaction Status).</p>
 </blockquote>
 
+<h2 id="status-da-recorrência">Status da Recorrência</h2>
+
+<p>Veja a lista de possíveis respostas de status de uma Recorrência com o Checkout.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><code class="language-plaintext highlighter-rouge">RecurrentPaymentStatus / recurrentPaymentStatusEnum</code></th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Pendente</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Ativa</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Negada</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Desativado pelo usuário</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Finalizada</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Desativado por cartão de crédito expirado</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Desativado por número máximo de tentativas</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Aguardando conciliação</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="programa-de-retentativa-das-bandeiras">Programa de Retentativa das Bandeiras</h2>
 
 <p>Quando uma pessoa tenta fazer uma compra com cartão no e-commerce a transação pode ser negada devido a uma série de fatores. As <strong>tentativas seguintes de concluir a transação</strong> usando o <strong>mesmo cartão</strong> são o que chamamos de <strong>retentativa</strong>.</p>
