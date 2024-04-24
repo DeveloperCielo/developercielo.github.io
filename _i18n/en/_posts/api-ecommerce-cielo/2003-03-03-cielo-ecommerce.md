@@ -7017,8 +7017,6 @@ When Velocity is active, the transaction response will bring a specific node cal
 | `VelocityAnalysis.Id`                    | Performed analysis identifier         | GUID   | 36   |
 | `VelocityAnalysis.ResultMessage`         | Accept ou Reject                      | Text   | 25   |
 | `VelocityAnalysis.Score`                 | 100                                   | Number | 10   |
-| `VelocityAnalysis.RejectReasons.RuleId`  | Code of the rule that rejected        | Number | 10   |
-| `VelocityAnalysis.RejectReasons.Message` | Description of the rule that rejected | Text   | 512  | 
 
 # API codes
 
