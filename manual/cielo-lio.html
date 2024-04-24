@@ -2124,6 +2124,8 @@ Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:</p>
 
 <h2 id="cancelamento">Cancelamento</h2>
 
+<aside class="warning">Hoje não é possivel realizar cancelamentos de pagamentos efetuados por PIX via integração.</aside>
+
 <p>Para tratar a resposta do cancelamento, você deverá utilizar o seguinte callback como parâmetro do método de <code class="language-plaintext highlighter-rouge">cancelOrder()</code> para receber os estados relacionados ao cancelamento.</p>
 
 <blockquote>
@@ -3369,6 +3371,8 @@ dGFpbHMiOiIiLCJpZCI6IjkzMzA5ODkyLWMyMGItNDUyYy1iYTZmLTY4Mjc5NmI0YTk2ZSIsIm5hbWUi
 </span></code></pre></div></div>
 
 <h2 id="cancelamento-na-integração-híbrida">Cancelamento na integração híbrida</h2>
+
+<aside class="warning">Hoje não é possivel realizar cancelamentos de pagamentos efetuados por PIX via integração.</aside>
 
 <p>Para realizar o cancelamento é preciso criar um json seguindo o formato definido abaixo e converte-lo para BASE64:</p>
 
@@ -5399,6 +5403,8 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/fluxogram-order-manager-slim.png" alt="fluxo_basico" /></p>
 
 <h3 id="notificações-de-mudanças-na-order">Notificações de Mudanças na Order</h3>
+
+<p>Para o cadastro da URL onde enviaremos as notificações <a href="https://devcielo.zendesk.com/hc/pt-br/requests/new">Entre em contato conosco</a> atráves do nosso time de Suporte a Desenvolvimento informando o seu endpoint</p>
 
 <p>O maior motivo da disponibilização da API RESTful do Order Manager é permitir que aplicações parceiras se integrem à plataforma da Cielo na cloud. Porém, uma vez que as aplicações parceiras submetem pedidos, estes devem ser pagos localmente na própria Cielo LIO. Sendo assim, as aplicações parceiras precisam de uma forma de receber notificações de mudanças do status e das transações realizadas na Order.</p>
 
