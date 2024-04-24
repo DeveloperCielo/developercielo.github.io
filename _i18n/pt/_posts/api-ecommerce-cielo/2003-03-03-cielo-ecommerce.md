@@ -6933,8 +6933,6 @@ Quando o Velocity está ativo, a resposta da transação trará um nó específi
 | `VelocityAnalysis.Id`                    | Identificador da análise efetuada | GUID   | 36      |
 | `VelocityAnalysis.ResultMessage`         | Accept ou Reject                  | Texto  | 25      |
 | `VelocityAnalysis.Score`                 | 100                               | Número | 10      |
-| `VelocityAnalysis.RejectReasons.RuleId`  | Código da Regra que rejeitou      | Número | 10      |
-| `VelocityAnalysis.RejectReasons.Message` | Descrição da Regra que rejeitou   | Texto  | 512     |
 
 # Códigos da API
 
