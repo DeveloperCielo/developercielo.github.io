@@ -1865,6 +1865,21 @@ O Checkout possui status próprios, diferente do site Cielo ou da API E-commerce
 
 > **Observação**: Para consultas de pedido, o campo `payment.status` será retornado no formato texto, sempre em inglês (coluna Transaction Status).
 
+## Status da Recorrência
+
+Veja a lista de possíveis respostas de status de uma Recorrência com o Checkout.
+
+|`RecurrentPaymentStatus / recurrentPaymentStatusEnum`|Descrição|
+|-|-|
+|0|Pendente|
+|1|Ativa|
+|2|Negada|
+|3|Desativado pelo usuário|
+|4|Finalizada|
+|5|Desativado por cartão de crédito expirado|
+|6|Desativado por número máximo de tentativas|
+|7|Aguardando conciliação|
+
 ## Programa de Retentativa das Bandeiras
 
 Quando uma pessoa tenta fazer uma compra com cartão no e-commerce a transação pode ser negada devido a uma série de fatores. As **tentativas seguintes de concluir a transação** usando o **mesmo cartão** são o que chamamos de **retentativa**.
