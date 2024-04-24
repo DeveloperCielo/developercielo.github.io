@@ -1,4 +1,3 @@
-![image](https://github.com/DeveloperCielo/developercielo.github.io/assets/160758357/148fad27-488d-4110-b34f-584ce4fbc63d)---
 layout: manual
 title: Integration Manual E-commerce Cielo
 description: The purpose of this documentation is to guide the developer on how to integrate with Cielo's API E-commerce Cielo.
