@@ -46,7 +46,7 @@ The Visa, Mastercard and Elo brands adjusted their rules to limit the number of 
 * [Elo](https://developercielo.github.io/en/tutorial/programa-retentativa-bandeiras#elo){:target="_blank"};
 * [Demais bandeiras](https://developercielo.github.io/en/tutorial/programa-retentativa-bandeiras#other-brands){:target="_blank"}.
 
-## Mastercard
+# Mastercard
 
 The Mastercard brand has the Transaction Processing Excellence (TPE) program, which includes two categories:
 
@@ -77,7 +77,7 @@ Monitoring is applied to retry transactions for denied and approved purchases, c
 
 > Note: The current rule of the Excessive Attempts program is valid until 01/31/2023, where only 10 attempts to approve the same transaction are allowed (on the same card, and same merchant number), with retry allowed after 24 hours.
 
-### 2. Merchant Advice Code Transaction Excellence (MAC)
+## 2. Merchant Advice Code Transaction Excellence (MAC)
 
 These are charges made when the establishment re-attempts to send authorization for irreversible response codes with the same valid card for a card not present.
 
@@ -159,64 +159,78 @@ The original codes will be replaced by the Merchant Advice Code (MAC), which wil
 |--|--|
 | As of the 1st attempt | BRL 2.50 (two reais and fifty cents) per attempt, as of the 1st |
 
-## Visa
+# Visa
 
-**What is it?**
+Visa may allow a certain number of new attempts to approve a transaction depending on the refusal code returned after the first declined attempt.
 
-A program instituted by the Visa Brand that generates charges when the merchant exceeds the retry rules.
+The goal is to create balance in the transactions ecosystem so to guarantee that both acquirers and merchants provide accurate information about retrying transactions and decrease unnecessary attempts.
 
-* Valid for transactions with a present card and a non-present card;
-* **Reversible codes:** Allows up to 15 attempts to approve the same transaction (same card, same establishment and amount) within 30 days. After the initial 30 days (from the 1st attempt), any retry will be charged.
-* **Irreversible codes:** Only 01 attempt to approve the same transaction is allowed (same card, same establishment), the 2nd attempt will be charged.
-* After an approved transaction, the counter is reset.
-<br>
+Visa demands that issuers present the correct and non-generic codes to make it easier to identify the reason why a transaction was declined.
 
-> **Fees**: When you exceed the attempt limits established by the brand, a fee will be charged for each transaction that exceeds it.<br>
-> <br>
-> * **Domestic**: USD 0.10 + 13.83% Tax
-> * **Foreign**: USD 0.25 + 13.83% Tax
+Visa classifies those codes in reversible and irreversible, both for card present and card not present transactions:
+
+* **Reversible codes**: Visa allows up to 15 attempts to approve the same transaction (with the same card, transaction, expiration date, amount and merchant) within 30 days. After 30 days, from the first attempt, any retry will be charged.
+
+* **Irreversible codes**: Visa allows only the first attempt to approve the transaction (with the same card, transaction, expiry date, amount and merchant). From the second attempt, every retry will be charged, at any period of time.
+
 <br>
 <br>
 
-Authorization rules already in force. Fee charges apply from April 2021.
+> **Fess**: when the attempts limit for Visa is reached, every excessive attempt will be charged:
+>
+> - **Brazilian card**: USD 0,10 + 13,83% taxes;
+> - **Foreign card**: USD 0,25 + 13,83% taxes.
 
-**Visa has grouped return codes into 4 Categories.**
+<br>
+\* *Fees have been charged since April, 2021.*
+<br>
+<br>
 
-* **Category 1 - Issuer will never approve.**
+Visa grouped the response codes into four categories:
 
-For this category, it indicates that the card was canceled or never existed or that the non-approval is the result of a permanent restriction or error condition that will prevent future approval.
+* **Category 1: issuer will never approve**
 
-* **Category 2 - Issuer cannot approve at this time.**
+    The card was cancelled or never existed or the refusal is the result of a permanent restriction or error that prevents an approval in the future.
 
-Indicates that the denial is the result of a temporary condition such as credit risk, issuer speed controls, or other card restrictions that may allow a retry transaction to be approved. In some cases, denial requires action by the shopper or issuer to remove the restriction before an approval can be obtained.
+* **Category 2: the issuer cannot approve at the moment**
 
-* **Category 3 - Data Quality/Review Data.**
+    The refusal is the result of a temporary condition such as credit risk, issuers velocity controls or other card restrictions that may allow the transaction authorization when retried. In some cases, the refusal requires an action from the cardholder or the issuer to remove the restriction before authorization is granted.
 
-When a data error is identified by the issuer, this transaction is declined accordingly. Merchants must revalidate payment data before retrying. Merchants and Acquirers should monitor these negative codes due to potential exposure to fraud.
+* **Category 3: data quality**
 
-> **Attention**: Category 3 has, in addition to the limits considered in category 2, a different limit, where it is cumulative. An establishment can carry out up to 10,000 transactions in a period of 30 days (in this case, considering only the establishment number and denial codes). If you exceed the limit, all category 3 declined transactions will be charged.
+    When a data error is identified by the issuer, the transaction is declined. The merchant must check the payment data before retrying the transaction. Merchants and acquirers must monitor the refusal codes due to potential exposure to frauds.
 
-* **Category 4 - Generic Response Codes.**
+        > **Warning**: category 3 has a cumulative limit. A merchant can perform up to 25,000 transactions within 30 days (considering the merchant number and refusal codes). If the limit is surpassed, all declined transactions due to a category 3 response code will be charged.
 
-Category 4 includes all other decline response codes, many of which provide little or no value to Acquirers/Merchants as part of their retry strategy. Issuer usage should remain minimal.
+* **Category 4: generic response codes**
 
-Most non-approval conditions have descriptive response codes in Categories 1, 2, and 3 to indicate the reason for denying. However, there may be circumstances where there is no response code value for a specific denial condition. Issuers may use other response code values ​​defined in the VisaNet Technical Specifications; however, usage should remain minimal.
+    Category 4 includes all the refusal codes not included in categories 1, 2, or 3, because it is possible that a specific condition does not present a response code. Issuer may use other response codes defined in especifications.
 
-Issuers should use response codes that more accurately reflect the reason for denials. Categories 1 (issuer never approves), 2 (issuer cannot approve at this time), and 3 (Data Quality) should be used, and issuers should limit the use of Category 4 (Generic Response Code) to transactions where none another value applies. The Generic Response Code Fee is charged to ensure that no more than the regionally approved percentage of the issuer's total denials are categorized as Category 4. Issuers exceeding the regionally defined threshold will receive the Generic Response Code Fee per base of transaction for each decline in excess of the defined limit.
 
-**Table with rules and refusal codes.**
+Issuers must use response codes that reflect more precisely the refusal reason.
 
-![Tabela Retentativa Visa]({{ site.baseurl }}/images/apicieloecommerce/retentativa-visa-en.png)
+**Table with rules and refusal codes (action codes) for Visa:**
 
-**Note:** Response code 14 appears in categories 1 and 3, but the accounting is as follows:
+The rules presented in the table below are valid for both sale and Zero Auth transactions:
 
-In category 1, EC is charged from the 2nd attempt to (same establishment and same card) **retry not allowed.**
 
-Category 3 comprises the group of codes for accounting for 10,001 transactions, after the EC reaches 10,000 retries with this group of codes, any transaction will be accounted for independently of the card.
+| **Category**   | **Type**     | **Codes**    | **Rules**   |
+|-----------|--------------|-------------|-------------|
+| **Category 1**<br> **Issuer will never approve new attempts**   | **Irreversible** | 04 - Pick up card <br>07 - Pick up card, special condition <br>12 - Invalid transaction  <br>14* - Invalid account number<br>15 - No such issuer<br> 41 - Lost card, pick up <br>  43 - Stolen card, pick up  <br>  46 - Closed account  <br> 57 - Transaction not permitted to cardholder    <br> R0 - Stop Payment Order   <br>  R1 - Revocation of authorization order  <br>  R3 - Revocation of all authorizations order  <br>   | Fees are charged from the second attempt. |
+| **Category 2**<br> **Issuer will not approve at the moment; retries allowed** | **Reversible**   | 03 - Invalid merchant <br> 19 - Re-enter transaction   <br>  39** - No credit account  <br>  51 - Not sufficient funds  <br>  52** - No checking account  <br>  53** - No savings account  <br>  59 - Suspected fraud  <br>   61 - Exceeds approval amount limit <br>  62 - Restricted card (card invalid in this region or country)  <br>   65 - Exceeds withdrawal frequency limit  <br>  75 - Allowable number of PIN entry tries exceeded    <br>  78 - “Blocked, first used”—Transaction from new cardholder, and card not properly unblocked  <br>  86 - Cannot verify PIN; for example, no PVV  <br>  91 - Issuer or switch inoperative  <br>  93 - Transaction cannot be completed - violation of law  <br>  96 - System malfunction  <br>   N3 - Cash service not available   <br>  N4 - Cash request exceeds issuer or approved limit   <br>   Z5*** - Valid account, amount not supported  <br> |The merchant can retry the same transaction 15 times.<br> Fees will be charged from the 16th attempt for the same transaction (with the same card, transaction, expiration date, amount and merchant) within a period of 30 consecutive days (from the 1st attempt). After the initial 30 days (from the 1st attempt) any retry of the same transaction will be charged.|
+| **Category 3** <br>**Data quality** | **Reversible**   | 54 - Expired card  <br>   55 - Incorrect PIN  <br>    70 - PIN data required (only Europe)    <br>   82 - Negative CAM, dCVV, iCVV, or CVV results  <br>    1A - Additional customer authentication required (only Europe)    <br>  6P - Verification data failed (cardholder identification dos not correspond to issuer records) <br>    N7 - Decline for CVV2 failure (Visa) |The merchant can retry the same transaction 15 times.<br> Fees will be charged from the 16th attempt for the same transaction (with the same card, transaction, expiration date, amount and merchant) within a period of 30 consecutive days (from the 1st attempt). After the initial 30 days (from the 1st attempt) any retry of the same transaction will be charged.|
+| **Category 4**<br>**Generic response codes**  | **Reversible**   | Generic response codes not listed in categories 1,2, or 3 |The merchant can retry the same transaction 15 times.<br> Fees will be charged from the 16th attempt for the same transaction (with the same card, transaction, expiration date, amount and merchant) within a period of 30 consecutive days (from the 1st attempt). After the initial 30 days (from the 1st attempt) any retry of the same transaction will be charged.|
 
-**Example:** We had 10,000 transactions denied in a CE with category 3 codes, if transaction 10,001 is in code 14 or in any category 3 group code, it will be charged regardless of the card.
+\* *Code **14** will be reclassified from 04/24/24, but remains on category 1*.
 
-## Elo
+\** *Codes **39, 52, and 53** will migrate from category 4 to category 2*.
+
+\*** *Code **Z5** is a new code and is in category 2*.
+
+> **Important**:<br>
+> Since April, 2023, the limit for the total of declines for category 3 went from 10,000 to 25,000 declines in a 30-day billing cycle.
+
+# Elo
 
 **What is it?**
 
@@ -293,7 +307,7 @@ The response codes below are listed according to the brand's authorization manua
 |P5|PASSWORD CHANGE / UNLOCKING FAILURE|- This code will be used by the issuer when there is a password change or unlocking failure.|Irreversible|
 |P6|NEW PASSWORD NOT ACCEPTED|- This code will be used by the issuer when the new password chosen by the customer does not meet the minimum criteria established by the Issuer.|Reversible|
 
-## Other brands
+# Other brands
 
 * **Reversible codes:** New attempts will be allowed for the same customer and card. There is no limit and pre-established period;
 
