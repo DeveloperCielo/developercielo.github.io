@@ -6236,9 +6236,9 @@ curl
 
 # Consulta BIN
 
-A **Consulta BIN** é um serviço de **pesquisa de dados do cartão**, seja ele de crédito ou débito, que identifica características do cartão com base nos primeiros dígitos e retorna informações que permitem validar os dados preenchidos na tela de pagamento.
+**O que é a Consulta BIN?**
 
-A Consulta BIN retorna os seguintes dados sobre o cartão:
+A **Consulta BIN** é um serviço de **pesquisa de dados do cartão**, que identifica características do cartão de crédito ou débito com base no BIN (6 a 9 primeiros dígitos) e retorna informações que permitem validar os dados preenchidos na tela de pagamento.
 
 - **Bandeira do cartão:** nome da bandeira;
 - **Tipo de cartão:** crédito, débito ou múltiplo (crédito e débito);
@@ -6246,13 +6246,18 @@ A Consulta BIN retorna os seguintes dados sobre o cartão:
 - **Cartão Corporativo:** se o cartão é ou não é corporativo;
 - **Banco Emissor:** código e nome do emissor;
 - **Cartão pré-pago:** se o cartão é ou não é pré-pago.
-  <br/>
-  <br/>
-  Essas informações permitem tomar ações no momento do pagamento para melhorar a conversão da loja.
 
-<aside class="warning">Para habilitar a Consulta Bin, entre em contato com a equipe de suporte da Cielo.</aside>
+**Qual é o impacto do uso no meu negócio?**
 
-## Casos de Uso
+Com as informações retornadas pela Consulta BIN o estabelecimento pode tomar ações como:
+
+* Oferecer descontos e promoções para cartões específicos;
+* Deixar a página de pagamento mais moderna com a identificação automática da bandeira do cartão a partir da digitação do BIN e evitar erros por preenchimento indevido da bandeira,
+* Confirmar o tipo de cartão, como por exemplo identificar um cartão que é puro débito e notificar o portador caso ele tente passar uma transação no crédito.
+
+Como vantagens temos: fornece dados para o estabelecimento tomar ações para converter vendas e pode ser utilizado antes da autorização.
+
+**Como usar a Consulta BIN?**
 
 Com base no resultado da Consulta BIN você pode desenvolver funcionalidades no seu checkout para melhorar a usabilidade para quem está comprando e, assim, ajudar na recuperação de carrinhos e na melhor conversão da sua loja.
 
@@ -6269,6 +6274,14 @@ Você pode desenvolver um fluxo no seu checkout para que, caso um cartão inform
 **3. Alertar sobre cartões internacionais ou pré-pagos**
 
 A Consulta BIN no carrinho pode indicar a tentativa de uso de um cartão internacional ou pré-pago. Se a sua loja não deseja receber pagamentos internacionais ou de cartões pré-pagos, você pode configurar o seu checkout para informar ao consumidor que a loja não aceita o cartão informado.
+
+**O que não fazer?**
+
+Não realize a consulta de forma excessiva, sem estar vinculada a uma transação ou armazenamento do cartão.
+
+<aside class="warning">IMPORTANTE: Para habilitar a Consulta Bin, entre em contato com a equipe de suporte da Cielo.</aside>
+
+<aside class="warning">IMPORTANTE: Alguns bins ou bandeiras podem não ter o retorno das informações do cartão.</aside>
 
 ## Integração
 
