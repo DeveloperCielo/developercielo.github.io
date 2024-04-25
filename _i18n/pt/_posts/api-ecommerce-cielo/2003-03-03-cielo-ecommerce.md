@@ -3448,9 +3448,24 @@ São exemplos de segmentos que usam esse tipo de modalidade os serviços de stre
 
 <aside class="notice">A transação com Card On File pode ser recorrente ou não.</aside>
 
-**Por que usar o Card On File?**
+**Qual é o impacto do uso no meu negócio?**
 
-O Card On File permite maior agilidade na compra online, uma vez que não solicita que o portador do cartão envie novamente todos os dados (inclusive o CVV); também é possível notar uma melhor taxa de conversão de vendas uma vez que no processo para utilização do COF iniciada pelo estabelecimento comercial, obrigatoriamente, já existe uma transação anterior iniciada pelo portador de cartão que já auxilia na autorização da transação pelo emissor.
+O **Card On File** permite maior agilidade na compra online, uma vez que não solicita que o portador do cartão envie novamente todos os dados (inclusive o CVV); também é possível notar uma melhor taxa de conversão de vendas uma vez que no processo para utilização do COF iniciada pelo estabelecimento comercial, obrigatoriamente, já existe uma transação anterior iniciada pelo portador de cartão que já auxilia na autorização da transação pelo emissor.
+
+> O uso do Card On File pode melhorar a conversão de transações recorrentes e de retentativas de cartão não presente.
+
+**Como usar o Card On File?**
+
+Primeiro é necessário armazenar o cartão, e então já é possível utilizar a marcação de **Card On File**.
+
+* Caso seja a primeira transação (com ou sem valor financeiro) de um cartão armazenado, envie o campo `CardOnFile.Usage` com o valor "First";
+* A partir da segunda transação, envie o campo `CardOnFile.Usage` com o valor "Used";
+
+**O que não fazer?**
+
+Não envie a marcação de Card On File para transações sem o cartão armazenado.
+
+<aside class="notice">IMPORTANTE: Antes de armazenar o cartão, é muito importante utilizar o Zero Auth com CVV, para validar os dados do cartão.</aside>
 
 **Bandeiras Suportadas**
 
