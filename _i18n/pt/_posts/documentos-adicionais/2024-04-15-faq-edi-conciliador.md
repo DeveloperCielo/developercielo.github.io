@@ -1,12 +1,12 @@
 ---
 layout: faq
-title: FAQ
+title: FAQ - Cielo Conciliador
 description: Respostas para dúvidas referente a doc EDI Conciliador
 search: true
 categories: faq
-sort_order: 3
+sort_order: 7
 tags:
-  - 6. EDI Cielo
+  - Documentos Adicionais
 search: true
 ---
 
