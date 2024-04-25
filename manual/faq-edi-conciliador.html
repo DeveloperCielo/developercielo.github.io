@@ -14,7 +14,7 @@
   />
 
   <title>
-     FAQ - Cielo Conciliador &middot; Documentações e tutoriais 
+     FAQ -Cielo Conciliador &middot; Documentações e tutoriais 
   </title>
 
   <link rel="shortcut icon" href="https://developercielo.github.io/assets/favicon.ico" />
@@ -37,13 +37,13 @@
   <link
     rel="alternate"
     hreflang="pt"
-    href="https://developercielo.github.io/faq/faq-edi-conciliador"
+    href="https://developercielo.github.io/manual/faq-edi-conciliador"
   />
     
   <link
     rel="alternate"
     hreflang="en"
-    href="https://developercielo.github.io/en/faq/faq-edi-conciliador"
+    href="https://developercielo.github.io/en/manual/faq-edi-conciliador"
   />
    
 
@@ -58,7 +58,19 @@
 
     <body>
         
-        <div class="content-container no-dark-box">
+        <div class="content-container">
+            <div class="language-tabs">
+                <a class='hide-btn' id="hide-button" title="Comutar"><i class="fa fa-bars" aria-hidden="true"></i></a>
+                <ul class="language-buttons">
+                    
+                    <li><a data-language-name='json'>JSON</a></li>
+                    
+                    <li><a data-language-name='shell'>cURL</a></li>
+                    
+                </ul>
+            </div>
+            <div class="dark-box"></div>
+            <div class="overlay"></div>
         
             <div id="submenu">
                 <div class="submenu-container">
@@ -105,7 +117,7 @@
                             
                                 
                                     
-                                    <li class="active">&gt; <a href="https://developercielo.github.io/faq/faq-edi-conciliador">FAQ - Cielo Conciliador</a></li>
+                                    <li class="active">&gt; <a href="https://developercielo.github.io/manual/faq-edi-conciliador">FAQ -Cielo Conciliador</a></li>
                                     
                                 
                             
@@ -6396,6 +6408,47 @@ Um grande abraço,
 
     <div class="fixed-footer">
       
+      <div class="toc-footer">
+        <h2 class="no-toc toc-footer-title">Materiais complementares</h2>
+           
+
+        <ul class="toc-footer">
+            
+          <li>
+            <a
+              href="https://developercielo.github.io/tutorial/abecs-e-outros-codigos"
+              
+              >Códigos de retorno ABECS</a
+            >
+          </li>
+             
+          <li>
+            <a
+              href="https://developercielo.github.io/tutorial/programa-retentativa-bandeiras"
+              
+              >Programa de Retentativa das Bandeiras</a
+            >
+          </li>
+             
+          <li>
+            <a
+              href="https://developercielo.github.io/tutorial/habilitacao-meios-de-pagamento"
+              
+              >Configurando Boletos e Débito Online</a
+            >
+          </li>
+             
+          <li>
+            <a
+              href="https://developercielo.github.io/tutorial/manual-boleto"
+              
+              >Manual Boletos</a
+            >
+          </li>
+               
+        </ul>
+      </div>
+      
 
       <div class="toc-contact">
         <div class="contact">
@@ -6422,7 +6475,7 @@ Um grande abraço,
         <script src="https://developercielo.github.io/assets/bundles/js/bundle.min.js"></script>
         <script>
             
-            var selectors = 'h1';
+            var selectors = 'h1,h2,h3,h4,h5,h6';
             
         </script>
 
@@ -6430,6 +6483,23 @@ Um grande abraço,
         <script src="https://developercielo.github.io/assets/bundles/js/search.min.js"></script>
         
 
+        
+        <script>
+            let langs = '';
+            let langsArray = [];
+
+            
+            langs += "<a data-language-name='json'>JSON</a>";
+            langsArray.push('json');
+            
+            langs += "<a data-language-name='shell'>cURL</a>";
+            langsArray.push('shell');
+            
+
+            var toggleCode = 'Comutar';
+        </script>
+
+        <script src='https://developercielo.github.io/assets/bundles/js/language_buttons.min.js'></script>
         
 
         <!-- Hotjar Tracking Code for https://developercielo.github.io/ -->
