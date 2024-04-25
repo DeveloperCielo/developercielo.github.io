@@ -1,13 +1,17 @@
 ---
-layout: faq
-title: FAQ - Cielo Conciliador
-description: Respostas para dúvidas referente a doc EDI Conciliador
+layout: manual
+title: FAQ -Cielo Conciliador
+description: Instruções EDI
 search: true
-categories: faq
+translated: false
+toc_footers: true
+categories: manual
 sort_order: 7
 tags:
   - Documentos Adicionais
-search: true
+language_tabs:
+  json: JSON
+  shell: cURL
 ---
 
 # Dashboard
