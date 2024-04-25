@@ -6446,9 +6446,28 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
 
 <aside class="notice">A transação com Card On File pode ser recorrente ou não.</aside>
 
-<p><strong>Por que usar o Card On File?</strong></p>
+<p><strong>Qual é o impacto do uso no meu negócio?</strong></p>
 
-<p>O Card On File permite maior agilidade na compra online, uma vez que não solicita que o portador do cartão envie novamente todos os dados (inclusive o CVV); também é possível notar uma melhor taxa de conversão de vendas uma vez que no processo para utilização do COF iniciada pelo estabelecimento comercial, obrigatoriamente, já existe uma transação anterior iniciada pelo portador de cartão que já auxilia na autorização da transação pelo emissor.</p>
+<p>O <strong>Card On File</strong> permite maior agilidade na compra online, uma vez que não solicita que o portador do cartão envie novamente todos os dados (inclusive o CVV); também é possível notar uma melhor taxa de conversão de vendas uma vez que no processo para utilização do COF iniciada pelo estabelecimento comercial, obrigatoriamente, já existe uma transação anterior iniciada pelo portador de cartão que já auxilia na autorização da transação pelo emissor.</p>
+
+<blockquote>
+  <p>O uso do Card On File pode melhorar a conversão de transações recorrentes e de retentativas de cartão não presente.</p>
+</blockquote>
+
+<p><strong>Como usar o Card On File?</strong></p>
+
+<p>Primeiro é necessário armazenar o cartão, e então já é possível utilizar a marcação de <strong>Card On File</strong>.</p>
+
+<ul>
+  <li>Caso seja a primeira transação (com ou sem valor financeiro) de um cartão armazenado, envie o campo <code class="language-plaintext highlighter-rouge">CardOnFile.Usage</code> com o valor “First”;</li>
+  <li>A partir da segunda transação, envie o campo <code class="language-plaintext highlighter-rouge">CardOnFile.Usage</code> com o valor “Used”;</li>
+</ul>
+
+<p><strong>O que não fazer?</strong></p>
+
+<p>Não envie a marcação de Card On File para transações sem o cartão armazenado.</p>
+
+<aside class="notice">IMPORTANTE: Antes de armazenar o cartão, é muito importante utilizar o Zero Auth com CVV, para validar os dados do cartão.</aside>
 
 <p><strong>Bandeiras Suportadas</strong></p>
 
