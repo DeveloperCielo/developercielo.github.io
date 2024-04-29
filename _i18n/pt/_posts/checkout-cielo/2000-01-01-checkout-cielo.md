@@ -1070,7 +1070,7 @@ Para alterar dados de uma recorrêcia usando a API do Checkout Cielo, basta envi
 |`Amount`|Valor da recorrência em centavos (ex: R$ 1,00 = 100)|número|10|Não|
 |`interval`|Intervalo de cobrança da recorrência em meses.<br>"Monthly" - 1<br>"Bimonthly" - 2<br>"Quarterly" - 3<br>"SemiAnnual" - 6<br>"Annual" - 12|número|10|Não|
 |`EndDate`|Data de encerramento da recorrência. Se não enviado, a recorrência se encerra somente se cancelada.|data (YYYY-MM-DD)|255|Não|
-|`Day`|Dia do mês em que a cobrança da recorrência é realizada.|
+|`Day`|Dia do mês em que a cobrança da recorrência é realizada.|data (DD)|2|Não|
 |`NextPaymentDate`|Data da próxima cobrança da recorrência. Se alterada, as próximas cobranças seguirão essa data.<br>Exemplo: em uma recorrência de intervalo mensal, o dia do mês em que é feita a cobrança é sempre dia 10. A primeira cobrança foi no dia 10/01/2024, então a próxima cobrança seria 10/02/2024. Se essa data de próxima cobrança for alterada para 20/02/2024, a partir dela, as próximas cobranças serão no dia 20 do mês, mensalmente.|data (YYYY-MM-DD)|10|Não|
 
 #### Resposta
