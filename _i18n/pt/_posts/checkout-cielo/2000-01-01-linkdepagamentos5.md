@@ -1598,6 +1598,21 @@ O **Link de Pagamento** possui status próprios, diferente do site Cielo ou da A
 |6|Não Finalizado|Todos os meios de pagamento|Pagamento esperando novo Status.Pode indicar erro ou falha de processamento. Entre em contato com o Suporte Cielo E-commerce.|
 |7|Autorizado|Cartão de crédito e débito|Transação autorizada pelo emissor do cartão. Deve ser capturada para que o dinheiro seja depositado em conta (por padrão, a transação pode ser capturada até 15 dias após autorização).|
 
+## Status da Recorrência
+
+Veja a lista de possíveis respostas de status de uma Recorrência com o Checkout.
+
+|`RecurrentPaymentStatus / recurrentPaymentStatusEnum`|Descrição|
+|-|-|
+|0|Pendente|
+|1|Ativa|
+|2|Negada|
+|3|Desativado pelo usuário|
+|4|Finalizada|
+|5|Desativado por cartão de crédito expirado|
+|6|Desativado por número máximo de tentativas|
+|7|Aguardando conciliação|
+
 ## Programa de Retentativa das Bandeiras
 
 Quando uma pessoa tenta fazer uma compra com cartão no e-commerce a transação pode ser negada devido a uma série de fatores. As **tentativas seguintes de concluir a transação** usando o **mesmo cartão** são o que chamamos de **retentativa**.
