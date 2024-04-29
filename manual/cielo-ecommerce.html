@@ -2206,16 +2206,77 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <h3 id="autenticação-3ds">Autenticação 3DS</h3>
 
-<p>A Cielo oferece o serviço do 3DS 2.0, um protocolo de autenticação de transações. A autenticação é opcional para transações de cartão de crédito e obrigatória para cartão de débito, por determinação das bandeiras e emissores.</p>
+<p><strong>O que é?</strong></p>
+
+<p>É um protocolo de autenticação que confirma se o comprador é de fato o portador do cartão (de crédito ou débito). O objetivo do 3DS (também chamado de EMV 3DS) é evitar fraudes em transações de cartão não presente (CNP).</p>
+
+<p>Por meio do 3DS, os dados do comprador são enviados para as bandeiras e emissores do cartão, que irão realizar a autenticação. Para uma transação autenticada pelo 3DS, a responsabilidade em caso de chargeback será das bandeiras ou emissores.</p>
+
+<blockquote>
+  <p>Todas as transações de cartão de débito devem ser autenticadas pelo protocolo 3DS.</p>
+</blockquote>
+
+<p><strong>Qual é o objetivo?</strong></p>
+
+<p>O 3DS realiza a autenticação validando dados do portador. A autenticação pode ser silenciosa ou com desafio (o desafio é uma interface para autenticação, ou seja, o cliente será submetido a uma validação adicional do emissor).</p>
+
+<p><strong>Qual é o impacto do uso no meu negócio?</strong></p>
+
+<p>Ao autenticar transações pelo protocolo 3DS, a responsabilidade em caso de chargeback será das bandeiras ou emissores.</p>
+
+<p><strong>Como usar o 3DS?</strong></p>
+
+<p>O processo de autorização de cartão autenticada via 3D Secure 2 ocorre em duas etapas:</p>
+
+<ol>
+  <li><strong>Etapa de autenticação</strong>: por meio do protocolo 3DS, a bandeira ou o emissor autentica que o comprador é de fato o titular do cartão. O protocolo é integrado ao e-commerce por meio de um script em JavaScript, que retorna o resultado da autenticação e alguns parâmetros (como o ECI) que devem ser enviados na autorização. Saiba mais em <a href="https://developercielo.github.io/manual/3ds#integra%C3%A7%C3%A3o-do-script">Integração do script</a>;</li>
+  <li><strong>Etapa de autorização</strong>: a loja submete a transação para autorização, informando os parâmetros retornados pelo script na etapa de autenticação. Saiba mais em <a href="https://developercielo.github.io/manual/3ds#autoriza%C3%A7%C3%A3o-com-autentica%C3%A7%C3%A3o">Autorização com Autenticação</a>.</li>
+</ol>
+
+<p>O fluxo a seguir descreve as etapas de autenticação em alto nível:</p>
+
+<p><img src="https://developercielo.github.io/images/fluxo-3ds-novo-pt.png" alt="Fluxo 3DS 2.0" /></p>
+
+<p><strong>1.</strong> O comprador escolhe pagar com cartão de crédito ou débito;<br />
+<strong>2.</strong> A loja executa um script, solicitando à Cielo autenticação através da solução 3DS 2.0;<br />
+<strong>3.</strong> A loja envia requisição com dados do comprador para a bandeira;<br />
+<strong>4.</strong> A bandeira envia a requisição para avaliação de risco do emissor;<br />
+<strong>5.</strong> O emissor avalia as informações e determina se fluxo será com ou sem desafio ao portador;<br />
+<strong>5.1.</strong> Se o emissor solicitar desafio, cria e envia a URL para a loja;<br />
+<strong>5.2.</strong> A loja apresenta lightbox do desafio na página de checkout para obter resposta do comprador;<br />
+<strong>5.3.</strong> O comprador responde o desafio, completando a autenticação;<br />
+<strong>6.</strong> O emissor envia o resultado da autenticação para o 3DS Server;<br />
+<strong>7.</strong> O 3DS Server envia resultado da autenticação no campo ECI. A loja decide seguir ou não para autorização.</p>
+
+<blockquote>
+  <p>A loja pode optar por submeter uma transação não autenticada para autorização; no entanto, nesse caso, a loja será responsável em caso de chargeback.</p>
+</blockquote>
+
+<p><strong>Como não utilizar? O que não fazer?</strong></p>
+
+<ul>
+  <li>Não realizar transações de débito sem autenticação ou utilização de senha;</li>
+  <li>Não realizar transações de débito sem CVV.</li>
+</ul>
+
+<p><strong>Detalhes importantes</strong></p>
+
+<p>O ECI (Eletronic Commerce Indicator) retornado na resposta da autenticação indica se o portador foi autenticado ou não pela bandeira ou emissor.</p>
+
+<p>Se o ECI retornado indicar que o portador não foi autenticado, recomendamos a utilização de Antifraude para analisar o risco da transação.</p>
+
+<p>Caso a loja envie suas transações primeiro para o Antifraude e a análise indique alto risco, recomendamos que o pedido seja encaminhado para autenticação no 3DS 2.</p>
+
+<p><strong>Integração do 3DS 2</strong></p>
 
 <p>Para integrar a autenticação às suas transações:</p>
 
 <ol>
-  <li><strong>Integre o script do 3DS 2.0</strong> na sua página de pagamento, conforme <a href="https://developercielo.github.io/manual/3ds" target="\_blank">manual do 3DS</a>;</li>
+  <li><strong>Integre o script do 3DS 2</strong> na sua página de pagamento, conforme <a href="https://developercielo.github.io/manual/3ds" target="\_blank">manual do 3DS</a>;</li>
   <li>Na <strong>requisição das transações</strong> de crédito ou débito, <strong>envie o nó adicional</strong> <code class="language-plaintext highlighter-rouge">ExternalAuthentication</code>, conforme exemplos a seguir.</li>
 </ol>
 
-<aside class="notice">A autenticação via 3DS 1.0 está sendo descontinuada pelas bandeiras. As novas integrações devem seguir o protocolo 3DS 2.0.</aside>
+<aside class="notice">A autenticação via 3DS 1.0 foi descontinuada pelas bandeiras. As novas integrações devem seguir o protocolo 3DS 2.</aside>
 
 <h4 id="cartão-de-crédito-com-autenticação">Cartão de crédito com autenticação</h4>
 
