@@ -13240,26 +13240,38 @@ Abaixo vamos explica-los na ordem em que podem ocorrer:</p>
 
 <h2 id="programa-de-retentativa-das-bandeiras">Programa de Retentativa das Bandeiras</h2>
 
-<p>Quando uma pessoa tenta fazer uma compra com cartão no e-commerce a transação pode ser negada devido a uma série de fatores. As <strong>tentativas seguintes de concluir a transação</strong> usando o <strong>mesmo cartão</strong> são o que chamamos de <strong>retentativa</strong>.</p>
+<p><strong>O que é retentativa?</strong></p>
 
-<p><strong>Como funciona?</strong></p>
+<p>Quando uma pessoa tenta fazer uma compra com cartão na sua loja, a transação pode ser negada devido a uma série de fatores. As tentativas seguintes de concluir a transação usando o mesmo cartão é o que chamamos de retentativa.</p>
 
-<p>As transações negadas são classificadas como:</p>
+<p>A retentativa será permitida ou não dependendo da classificação do código de recusa da primeira transação, que varia para cada bandeira:</p>
 
-<ul>
-  <li><strong>Irreversíveis</strong>: quando a retentativa não é permitida;</li>
-  <li><strong>Reversíveis</strong>: quando a retentativa é permitida mediante as regras de cada bandeira.</li>
-</ul>
+<blockquote>
+  <ul>
+    <li><strong>Irreversível</strong>: não é permitido realizar a retentativa (o emissor nunca aprovará);</li>
+    <li><strong>Reversível</strong>: é possível realizar a retentativa, de acordo com as regras de cada bandeira;</li>
+  </ul>
+</blockquote>
 
-<p><br />
-As retentativas podem ser cobradas pela bandeira e a quantidade de vezes que uma transação pode ser retentada antes da cobrança também varia de acordo com a bandeira.</p>
+<p>As retentativas podem ser cobradas pela bandeira e a quantidade de vezes que uma transação pode ser retentada antes da cobrança também varia de acordo com a bandeira.</p>
+
+<p><strong>Qual é o impacto do uso no meu negócio?</strong></p>
+
+<p>A retentativa pode trazer um resultado positivo e converter transações que foram previamente negadas, porém o uso excessivo pode acabar prejudicando o EC perante aos emissores. O excesso de retentativas pode diminuir o índice de aprovação do estabelecimento e/ou gerar multa ao retentar de maneira incorreta.</p>
+
+<p><strong>Como usar a retentativa?</strong></p>
+
+<p>Siga as regras do <a href="https://developercielo.github.io/tutorial/programa-retentativa-bandeiras">Programa de Retentativa das Bandeiras</a>, não excedendo as quantidades de acordo com as regras das bandeiras.</p>
+
+<p><strong>O que não fazer?</strong>
+Não retentar em excesso, descumprindo qualquer norma descrita no <a href="https://developercielo.github.io/tutorial/programa-retentativa-bandeiras">Programa de Retentativa das Bandeiras</a>.</p>
+
+<p><strong>Detalhes importantes</strong></p>
+
+<p>Os e-commerces que não seguirem as regras podem ser penalizados com a cobrança de tarifas por transações excedidas, de acordo com o programa de cada bandeira.</p>
 
 <blockquote>
   <p>A bandeira Mastercard possui o programa Merchant Advice Code (MAC), que determina se a transação é reversível ou irreversível e qual ação a loja pode realizar para tentar aprovar a transação. Para saber mais sobre os códigos MAC, acesse <a href="https://developercielo.github.io/tutorial/programa-retentativa-bandeiras#2.-merchant-advice-code-transaction-excellence-(mac)" target="_blank">Merchant Advice Code Transaction Excellence (MAC)</a></p>
-</blockquote>
-
-<blockquote>
-  <p>Para ver as regras de retentativa de cada bandeira, acesse o manual <a href="https://developercielo.github.io/tutorial/programa-retentativa-bandeiras" target="_blank">Programa de Retentativa das Bandeiras</a></p>
 </blockquote>
 
 <h2 id="códigos-de-retorno-abecs">Códigos de retorno ABECS</h2>
