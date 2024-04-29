@@ -6908,9 +6908,43 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
 
 <h1 id="recorrência">Recorrência</h1>
 
-<p>Pagamentos recorrentes são transações de cartão de crédito que devem se repetir após um determinado período de tempo.</p>
+<p><strong>O que é a recorrência?</strong></p>
 
-<p>São pagamentos normalmente encontrados em serviços de streaming, serviços de educação, academias e assinaturas, nas quais o comprador deseja ser cobrado automaticamente mas não quer informar novamente os dados do cartão de crédito.</p>
+<p>A recorrência é um modelo de cobrança periódica, geralmente mensal, e usada para serviços ou produtos programados/contínuos, como serviços de streaming, assinaturas e mensalidades para cobrar seus clientes de forma mais prática.</p>
+
+<p><strong>Qual é o impacto do uso no meu negócio?</strong></p>
+
+<p>Ao usar a recorrência, a loja tem a facilidade de gerar cobranças periódicas sem a necessidade do portador do cartão participar do processo mais do que uma vez. Com isso, a recorrência pode aumentar a conversão.</p>
+
+<p><strong>Como usar a recorrência?</strong></p>
+
+<p>Existem dois modelos de recorrência:</p>
+
+<ul>
+  <li><strong>Recorrência programada Cielo</strong>: a loja envia os detalhes de cobrança, período (mensal, semestral, anual etc) e a data de final de recorrência. Com estas informações, a Cielo cria a recorrência e o valor da transação será cobrado na periodicidade escolhida até a data final;</li>
+  <li><strong>Recorrência própria</strong>: o controle de envio da recorrência é responsabilidade da loja, que deve enviar a transação recorrente nas datas acordadas com o comprador. As transações enviadas pela loja precisam ter a marcação de recorrência.</li>
+</ul>
+
+<blockquote>
+  <p>Saiba mais sobre <a href="https://developercielo.github.io/manual/cielo-ecommerce#recorr%C3%AAncia-pr%C3%B3pria">Recorrência Própria</a> e <a href="https://developercielo.github.io/manual/cielo-ecommerce#recorr%C3%AAncia-programada">Recorrência Programada</a>.</p>
+</blockquote>
+
+<blockquote>
+  <p>Solicite a habilitação da funcionalidade para <a href="https://developercielo.github.io/manual/cielo-ecommerce#suporte-cielo">Suporte E-commerce</a>.</p>
+</blockquote>
+
+<p><strong>O que não fazer?</strong></p>
+
+<ul>
+  <li>Não envie a primeira transação da recorrência sem o CVV ou o <code class="language-plaintext highlighter-rouge">CardOnFile</code>: a primeira transação da recorrência deve obrigatoriamente informar o CVV ou o <code class="language-plaintext highlighter-rouge">CardOnFile</code>;</li>
+  <li>Não envie a transação com a função parcelada (mais de uma parcela) e recorrente ao mesmo tempo;</li>
+  <li>Não envie pedidos recorrentes sem a marcação de recorrência (<code class="language-plaintext highlighter-rouge">Payment.Recurrent</code> para recorrência própria e <code class="language-plaintext highlighter-rouge">RecurrentPayment</code> para recorrência programada);</li>
+  <li>Não envie uma transação recorrente usando cartão inválido: sempre valide o cartão no Zero Auth antes de criar a recorrência.</li>
+</ul>
+
+<p><strong>Detalhes importantes</strong></p>
+
+<p>O motor de recorrência Cielo possui configurações de retentativas, podendo reprocessar transações negadas (exceto as irreversíveis) já considerando as regras do <a href="https://developercielo.github.io/tutorial/programa-retentativa-bandeiras" target="_blank">Programa de Retentativa das Bandeiras</a>.</p>
 
 <h2 id="tipos-de-recorrências">Tipos de recorrências</h2>
 
