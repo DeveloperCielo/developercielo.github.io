@@ -676,6 +676,358 @@ Header: `Authorization`: `Bearer {access_token}`
 
 `HTTP Status: 204 – No Content`
 
+# Recorrência
+
+A **recorrência** é o processo de agendamento automático de transações de crédito, ou seja, é uma transação que se repetirá automaticamente de acordo com as regras definidas no momento do agendamento, sem a necessidade do comprador acessar a tela transacional novamente.
+
+> Caso uma das transações não seja autorizada, o Checkout Cielo executa a retentativa automaticamente; para mais detalhes sobre a retentativa automática, veja a seção [Retentativa de Recorrências](https://developercielo.github.io/manual/checkout-cielo#retentativa-de-recorr%C3%AAncias).
+
+Transações recorrentes são ideais para modelos de negócios que envolvam o **conceito de assinatura, plano ou mensalidade** na sua forma de **cobrança**, como:
+
+* Escolas;
+* Academias;
+* Editoras;
+* Serviços de hospedagem.
+
+> A transação recorrente não é uma transação parcelada. O valor total da venda compromete o limite do cartão de crédito do comprador independentemente do valor da parcela inicial.
+
+## Criando um Link de Pagamento recorrente
+
+Um Link de Pagamento recorrente possui duas configurações: **Intervalo** e **Data de encerramento**.
+
+* **Intervalo**: padrão de repetição e intervalo de tempo entre cada transação. Esse intervalo temporal entre as transações pode ser mensal, bimestral, trimestral, semestral e anual;
+* **Data de encerramento**: data que o processo de recorrência deixa de ocorrer.
+
+```json
+}, 
+
+  "recurrent": { 
+
+    "interval": "Monthly", 
+
+    "endDate": "2024-02-06" 
+
+  }, 
+```
+
+|PARÂMETRO|DESCRIÇÃO|TIPO|TAMANHO|OBRIGATÓRIO?|
+|---|---|---|---|---|
+| `recurrent.interval` | Intervalo entre cada transação da recorrência<br>"Monthly" para mensal;<br>"Bimonthly" para bimestral<br>"Quarterly" para trimestral<br>"SemiAnnual" para semestral<br>"Annual" para anual|string | 128 |Não<br>Se não for enviado, será considerado o intervalo mensal.|
+| `recurrrent.endDate`  | Data de encerramento da recorrência. Se não enviado, a recorrência se encerra somente se cancelada. | string (formato YYYY-MM-DD)   |  10| Não |
+
+Os dados do cartão de crédito do comprador ficam armazenados de forma segura na Cielo, permitindo sua reutilização em uma transação recorrente. Esses dados não são acessados pelo lojista e essa inteligência é controlada pelo Link de Pagamento Cielo.
+
+### Requisição
+
+```json
+{ 
+
+  "OrderNumber": "123456",   
+
+  "type": "Digital", 
+
+  "name": "Pedido", 
+
+  "description": "teste description", 
+
+  "price": "1000000", 
+
+  "weight": 2000000, 
+
+  "expirationDate": "2027-06-19", 
+
+  "maxNumberOfInstallments": "1", 
+
+  "quantity": 2, 
+
+  "sku": "teste", 
+
+  "shipping": { 
+
+    "type": "WithoutShipping", 
+
+    "name": "teste", 
+
+    "price": "1000000000" 
+
+  }, 
+
+  "recurrent": { 
+
+    "interval": "Monthly", 
+
+    "endDate": "2024-02-06" 
+
+  }, 
+
+  "softDescriptor": "Pedido1234" 
+```
+
+**Exemplo**: bem físico
+
+Se o tipo de produto for material físico (`Cart.Items.Type` = "Asset"), a **API obriga o envio do tipo de frete** (`Shipping.Type`).
+
+Se no contrato técnico existir o nó da recorrência, é obrigatório enviar o tipo `WithoutShipping`, caso contrário, a seguinte resposta será apresentada:
+
+```json
+{ 
+
+  "message": "The request is invalid.", 
+
+  "modelState": { 
+
+    "[Shipping.Type]": [ 
+
+      "[Shipping.Type] pedidos com recorrência devem possuir o Shipping.Type 'WithoutShipping'." 
+
+    ] 
+
+  } 
+
+} 
+```
+
+> **Importante:** A recorrência é criada apenas se a transação for **autorizada**. Independente de captura ou não, uma vez autorizada, o processo de recorrência se inicia.
+
+## Retentativa de recorrências
+
+Caso uma das transações da recorrência não seja autorizada, o Link de PAgamento Cielo executa a retentativa automaticamente, o envio de uma nova transação, considerando:
+
+* **Intervalo de tempo entre as tentativas**: quatro dias;
+* **Quantidade de retentativas**: quatro retentativas, uma por dia, por quatro dias corridos a partir do dia seguinte da transação original não autorizada.
+
+**Observação**: Esse processo visa obter uma resposta positiva do processo de autorização, impedindo o lojista de perder a venda. O processo de retentativa gera pedidos duplicados dentro do Backoffice, pois o pedido original negado será apresentado na lista de Pedidos, junto com a nova transação autorizada.
+
+**Atenção:** A regra da retentativa não pode ser modificada pelo lojista.
+
+> É possível consultar e cancelar transações recorrentes no site Cielo.
+
+## Alterando dados da recorrência
+
+O lojista pode alterar dados da recorrência gerada após a criação do pagamento. Confira quais dados é possível alterar: 
+
+* **Intervalo**: intervalo de execução;
+* **Dia da recorrência**: dia de execução da transação recorrente;
+* **Data da próxima cobrança**: data em que a próxima cobrança será realizada, seguindo a configuração de intervalo configurada e o dia da recorrência;
+* **Valor da recorrência**: valor da cobrança recorrente no cartão do cliente;
+* **Data final da recorrência**: data em que a recorrência é desativada.
+<br/>
+
+Essas alteração podem ser feitas por dois canais. Confira abaixo quais são e as respectivas orientações:
+
+* **Site Cielo** (alteração manual): Acesse o [Tutorial do Backoffice Checkout Cielo](https://developercielo.github.io/tutorial/checkout-tutoriais) para mais informações.
+* **API do Link de Pagamento** (alteração integrada): siga os passos a seguir para enviar requisições de edição de recorrência de forma integrada pela API do Link de Pagamento.
+
+### Alteração Integrada
+
+Para alterar dados de uma recorrêcia usando a API do Link de Pagamento Cielo, basta enviar uma requisição com as informações a serem alteradas. Confira um exemplo dessa requisição.
+
+#### Requisição
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/RecurrentPayment/Update </span></aside>
+
+**Parâmetros no cabeçalho (header)**
+* **Authorization**: Bearer {access_token}
+* **Content-type**: application/json
+
+```json
+{ 
+
+  "PagadorRecurrentPaymentId": "0207CE76-8144-48DC-8B17-876465BC3A6D", 
+
+  "EndDate": "2030-12-31", 
+
+  "Interval": 1, 
+
+  "NextPaymentDate": "2024-12-31", 
+
+  "Amount": "33333.33", 
+
+  "Day": "31" 
+
+} 
+```
+
+**Parâmetros no corpo (body)**
+
+|PARÂMETRO|DESCRIÇÃO|TIPO|TAMANHO MÁXIMO|OBRIGATÓRIO|
+|-|-|-|-|-|
+|`PagadorRecurrentPaymentI`|Número de identificação da recorrência no Link de Pagamento.|GUID|36|Sim|
+|`Amount`|Valor da recorrência em centavos (ex: R$ 1,00 = 100)|número|10|Não|
+|`interval`|Intervalo de cobrança da recorrência em meses.<br>"Monthly" - 1<br>"Bimonthly" - 2<br>"Quarterly" - 3<br>"SemiAnnual" - 6<br>"Annual" - 12|número|10|Não|
+|`EndDate`|Data de encerramento da recorrência. Se não enviado, a recorrência se encerra somente se cancelada.|data (YYYY-MM-DD)|255|Não|
+|`Day`|Dia do mês em que a cobrança da recorrência é realizada.|data (DD)|2|Não|
+|`NextPaymentDate`|Data da próxima cobrança da recorrência. Se alterada, as próximas cobranças seguirão essa data.<br>Exemplo: em uma recorrência de intervalo mensal, o dia do mês em que é feita a cobrança é sempre dia 10. A primeira cobrança foi no dia 10/01/2024, então a próxima cobrança seria 10/02/2024. Se essa data de próxima cobrança for alterada para 20/02/2024, a partir dela, as próximas cobranças serão no dia 20 do mês, mensalmente.|data (YYYY-MM-DD)|10|Não|
+
+#### Resposta
+
+`HTTP Status: 200 - OK`
+
+```json
+{ 
+" Recurrent Payment - {id} Updated Successfully" 
+}
+```
+
+## Consultando uma recorrência
+
+Para consultar os dados de uma recorrência e as transações ligadas a ela, é necessário usar o ID de recorrência enviado após a criação de uma recorrência. 
+
+A consulta deve ser feita enviando o access_token como autenticação.
+
+### Requisição
+
+**Parâmetros no cabeçalho (header)**
+* **Authorization**: Bearer {access_token}
+* **Content-type**: application/json
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/RecurrentPayment/{{pagadorRecurrentPaymentId}}</span></aside>
+
+### Resposta
+
+```json
+{ 
+
+    "$id": "1", 
+
+    "id": 202, 
+
+    "pagadorRecurrentPaymentId": "0207ce76-8144-48dc-8b17-876465bc3a6d", 
+
+    "recurrentPaymentStatus": 1, 
+
+    "recurrentPaymentStatusEnum": 1, 
+
+    "isRecurrentPaymentExpired": false, 
+
+    "allowEdit": true, 
+
+    "startDate": "2024-02-05T15:05:44.423", 
+
+    "endDate": "2026-03-30T00:00:00", 
+
+    "formatedEndDate": "30/03/2026", 
+
+    "day": 10, 
+
+    "items": [ 
+
+        { 
+
+            "$id": "2", 
+
+            "name": "teste leo", 
+
+            "quantity": 1, 
+
+            "unitPrice": 1000, 
+
+            "totalPrice": 1000, 
+
+            "formattedUnitPrice": "R$ 10,00", 
+
+            "formattedTotalPrice": "R$ 10,00" 
+
+        } 
+
+    ], 
+
+    "item": { 
+
+        "$ref": "2" 
+
+    }, 
+
+    "history": [ 
+
+        { 
+
+            "$id": "3", 
+
+            "orderId": "c748ef42-d1e7-4db3-9633-8d057bf874b0", 
+
+            "orderNumber": "8245e94dcf4c4de3906118e38f376822", 
+
+            "merchantOrderNumber": "12345", 
+
+            "createdDate": "2024-02-05T15:05:44.457", 
+
+            "paymentStatus": 7, 
+
+            "paymentStatusDescription": "Autorizado" 
+
+        } 
+
+    ], 
+
+    "lastPaymentDate": "0001-01-01T00:00:00", 
+
+    "nextPaymentDate": "2026-02-05T00:00:00", 
+
+    "formatedNextPaymentDate": "05/02/2026", 
+
+    "intervalDescription": "Mensal", 
+
+    "recurrentPaymentStatusDescription": "Ativa", 
+
+    "amount": 4000.0 
+
+}
+```
+
+**Parâmetros no corpo (body)**
+
+|PROPRIEDADE|TIPO DO CAMPO|TAMANHO MÁXIMO|DESCRIÇÃO|FORMATO|
+|-|-|-|-|-|
+|`$id`|número|10|Index da lista do payload.|Exemplo: 1|
+|`id`|número|100|Index do registro de recorrência (desconsiderar valor para fins de consulta).|Exemplo: 202|
+|`pagadorRecurrentPaymentId`|GUID|36|Número de identificação da recorrência no Checkout.|Exemplo: 0207ce76-8144-48dc-8b17-876465bc3a6d|
+|`recurrentPaymentStatus`|número|1|Status da recorrência (se está ativa ou não).|Exemplo: 1|
+|`recurrentPaymentStatusEnum`|número|1|Status da recorrência (se está ativa ou não)|Exemplo: 1|
+|`isRecurrentPaymentExpired`|booleano|5|Informa se a recorrência está expirada.|Exemplo: false|
+|`allowEdit`|número|1|Se permite a edição de recorrência ou não|Exemplo: true|
+|`startDate`|texto|20|Data de início da recorrência.|Exemplo:  2024-02-05T15:05:44.423|
+|`endDate`|texto|20|Data de encerramento da recorrência. Se não enviado, a recorrência se encerra somente se desativada pelo lojista.|Exemplo: 2026-03-30T00:00:00|
+|`formatedEndDate`|texto|10|Data de encerramento da recorrência, formatada. Se não enviado, a recorrência se encerra somente se desativada pelo lojista.|Exemplo: 30/03/2026|
+|`day`|número|2|Dia do mês em que a cobrança da recorrência é realizada.|Exemplo: 30|
+|`Items.$id`|número|10|Index da lista de itens.|Exemplo: 2|
+|`Items.name`|texto|256|Descrição do item do carrinho do pedido.|Exemplo: pacote de bolacha|
+|`Items.quantity`|número|10|Quantidade de itens do carrinho.|Exemplo: 1|
+|`Items.unitPrice`|número|10|Preço unitário do item, em centavos. (R$ 1,00 = 100)| Exemplo: 1000|
+|`Items.totalPrice`|número|10|Preço total pela quantidade do mesmo item. (R$ 1,00 = 100) |Exemplo: 1000|
+|`Items.formattedUnitPrice`|texto|10|Preço unitário do item, formatado.|Exemplo: R$ 10,00|
+|`Items.formattedTotalPrice`|texto|10|Preço total pela quantidade do mesmo item, formatado.|Exemplo: R$ 10,00|
+|`Item.$ref`|texto|10|Retorna o index do primeiro item.|Exemplo: 2|
+|`history.$id`|número|10|Index da lista de itens.|Exemplo: 3|
+|`history.orderId`|texto|36|ID interno do pedido, não utilizado para consultas.|Exemplo: 8390bbdc-8c0a-42bb-a144-3712ee1a1fad|
+|`history.orderNumber`|texto|32|Id do pedido gerado pela Cielo, utilizado para realizar as consultas. Também chamado de `checkout_cielo_order_number`.|Exemplo: 89e4b89c69ab4fca81f8e4e70d594181|
+|`history.merchantOrderNumber`|texto|30|ID do pedido informado pelo lojista na criação do Checkout Cielo (se não informado, será gerado um número automaticamente).|Exemplo: 12345|
+|`history.createdDate`|texto|23|Data de criação do pedido de recorrência.|Exemplo: 2024-02-08T17:56:29.51|
+|`history.paymentStatus`|número|10|Código referente ao status de pagamento.|Exemplo: 7|
+|`history.paymentStatusDescription`|texto|30|Descrição referente ao status de pagamento:<br>0 - Indefinido;<br>1 - Pendente;<br>2 - Pago;<br>3 - Negado;<br>4 - Expirado;<br>5 - Cancelado;<br>6 - Não Finalizado;<br>7 - Autorizado.|Exemplo: Autorizado|
+|`lastPaymentDate`|texto|23|Data do último pagamento da recorrência. Caso ainda não exista um pagamento, retornará "0001-01-01T00:00:00".|Exemplo: 2024-01-29T00:00:00|
+|`nextPaymentDate`|texto|20|Data da próxima cobrança da recorrência, sem formatação.|Exemplo: 2026-02-05T00:00:00|
+|`formatedNextPaymentDate`|texto|10|Data da próxima cobrança da recorrência, formatada.|Exemplo: 05/02/2026|
+|`intervalDescription`|string|128|Intervalo de cobrança da recorrência.<br>"Monthly" - Mensal; <br>"Bimonthly" - Bimensal;<br>"Quarterly" - Trimestral;<br>"SemiAnnual" - Semestral;<br>"Annual" - Anual|Exemplo: Mensal|
+|`recurrentPaymentStatusDescription`|texto|50|Descrição do status da recorrência. Veja a tabela de status da Recorrência.|Exemplo: Ativa|
+|`amount`|número|10|Preço unitário da recorrência, em centavos. (R$ 1,00 = 100)|Exemplo: 4000.0|
+
+## Desativando uma recorrência
+
+Para desativar uma recorrência, mande a seguinte requisição.
+
+<aside class="warning">Após desativada uma recorrência, não é possível ativá-la novamente. Por isso, tenha certeza dessa ação antes de realizar a desativação.</aside>
+
+### Requisição 
+
+<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/RecurrentPayment/Deactivate/{{pagadorRecurrentPaymentId}}</span></aside>
+
+**Parâmetros no cabeçalho (header)**
+* **Authorization**: Bearer {access_token}
+* **Content-type**: application/json
+
+Não é necessário envio de nenhum parâmetro no corpo (body).
+
 # Notificações da transação
 
 O processo de notificação transacional ocorre em duas etapas, que são a notificação de finalização da transação e a notificação de mudança de status.
