@@ -2910,9 +2910,35 @@ Além disso, precisam enviar alguns dados adicionais na transação, para que as
 
 # Tokenização de cartões
 
-**O que é a *tokenização* de cartões?**
+**O que é a tokenização de cartões?**
 
-É uma criptografia que permite o armazenamento seguro de dados sensíveis de cartão de crédito. Estes dados são transformados em um código criptografado chamado de *token*, que poderá ser armazenado em banco de dados. Com a tokenização, a loja poderá oferecer recursos como "Compra com um clique” e compras com **recorrência**, sempre preservando a integridade e a confidencialidade das informações.
+A **tokenização** é um serviço de criptografia que permite o armazenamento seguro de dados sensíveis de cartão de crédito (com exceção do CVV), em ambiente PCI, relacionando essas informações a um token. Desta forma, a loja pode utilizar o token nas próximas compras ao invés de solicitar que o comprador digite novamente todas as informações de pagamento (compra com um clique), oferecendo melhor experiência para seu cliente e melhor conversão.
+
+**Qual é o impacto do uso no meu negócio?**
+
+O uso de cartões tokenizados pode auxiliar na agilidade da compra, possibilitando a compra com um clique e, se combinada com o uso do **Card On File** (indicador para cartões armazenados), pode auxiliar no aumento da conversão, aumentando a confiabilidade da transação.
+
+Para saber como informar que o cartão já foi armazenado, vá para [Card On File](https://developercielo.github.io/manual/cielo-ecommerce#card-on-file).
+
+**Como usar a tokenização?**
+
+É importante que, antes da tokenização, o cartão seja validado no [Zero Auth](https://developercielo.github.io/manual/cielo-ecommerce#zero-auth). Somente cartões válidos devem seguir para o processo de criptografia no cofre.
+
+> Saiba mais sobre [Zero Auth](https://developercielo.github.io/manual/cielo-ecommerce#zero-auth).
+
+Os próximos pedidos realizados com o cartão armazenado podem conter as informações de **Card On File**, confirmando as recomendações de validação e tokenização. 
+
+**O que não fazer?**
+
+* Não crie tokens para cartões inválidos: sempre valide o cartão no Zero Auth antes de tokenizar o cartão;
+* não crie token para o cartão se o retorno do Zero Auth for uma recusa com [código irreversível](https://developercielo.github.io/tutorial/programa-retentativa-bandeiras);
+* Não tokenize os cartões sem indicar que é um cartão armazenado: use sempre em conjunto com **CardOnFile**;
+* Não armazene cartões sem o consentimento do portador;
+* Não tokenize cartões que estejam vinculados a qualquer tipo de fraude confirmada: ao receber uma notificação de chargeback por fraude, exclua o cartão relacionado à fraude da base de cartões.
+
+**Detalhes importantes**
+
+Recomendamos a atualização dos cartões do cofre quando estes recebam negativas irreversíveis das bandeiras, quando forem inválidos ou quando estiverem relacionados à uma fraude confirmada.
 
 ## Criando um cartão tokenizado antes da autorização
 
