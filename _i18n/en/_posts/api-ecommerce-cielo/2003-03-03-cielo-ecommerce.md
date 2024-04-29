@@ -6983,12 +6983,6 @@ When Velocity is active, the transaction response will bring a specific node cal
       "Id": "2d5e0463-47be-4964-b8ac-622a16a2b6c4",
       "ResultMessage": "Reject",
       "Score": 100,
-      "RejectReasons": [
-        {
-          "RuleId": 49,
-          "Message": "Bloqueado pela regra CardNumber. Name: Máximo de 3 Hits de Cartão em 1 dia. HitsQuantity: 3\. HitsTimeRangeInSeconds: 1440\. ExpirationBlockTimeInSeconds: 1440"
-        }
-      ]
     },
     "PaymentId": "2d5e0463-47be-4964-b8ac-622a16a2b6c4",
     "Type": "CreditCard",
