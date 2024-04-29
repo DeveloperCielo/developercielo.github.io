@@ -7014,21 +7014,33 @@ Para cada status teremos diferentes cenários, veja alguns exemplos de situaçõ
 
 ## Programa de Retentativa das Bandeiras
 
-Quando uma pessoa tenta fazer uma compra com cartão no e-commerce a transação pode ser negada devido a uma série de fatores. As **tentativas seguintes de concluir a transação** usando o **mesmo cartão** são o que chamamos de **retentativa**.
+**O que é retentativa?**
 
-**Como funciona?**
+Quando uma pessoa tenta fazer uma compra com cartão na sua loja, a transação pode ser negada devido a uma série de fatores. As tentativas seguintes de concluir a transação usando o mesmo cartão é o que chamamos de retentativa.
 
-As transações negadas são classificadas como:
+A retentativa será permitida ou não dependendo da classificação do código de recusa da primeira transação, que varia para cada bandeira:
 
-* **Irreversíveis**: quando a retentativa não é permitida;
-* **Reversíveis**: quando a retentativa é permitida mediante as regras de cada bandeira.
+> * **Irreversível**: não é permitido realizar a retentativa (o emissor nunca aprovará);
+> * **Reversível**: é possível realizar a retentativa, de acordo com as regras de cada bandeira;
 
-<br/>
 As retentativas podem ser cobradas pela bandeira e a quantidade de vezes que uma transação pode ser retentada antes da cobrança também varia de acordo com a bandeira.
 
-> A bandeira Mastercard possui o programa Merchant Advice Code (MAC), que determina se a transação é reversível ou irreversível e qual ação a loja pode realizar para tentar aprovar a transação. Para saber mais sobre os códigos MAC, acesse [Merchant Advice Code Transaction Excellence (MAC)](https://developercielo.github.io/tutorial/programa-retentativa-bandeiras#2.-merchant-advice-code-transaction-excellence-(mac)){:target="_blank"}
+**Qual é o impacto do uso no meu negócio?**
 
-> Para ver as regras de retentativa de cada bandeira, acesse o manual [Programa de Retentativa das Bandeiras](https://developercielo.github.io/tutorial/programa-retentativa-bandeiras){:target="_blank"}
+A retentativa pode trazer um resultado positivo e converter transações que foram previamente negadas, porém o uso excessivo pode acabar prejudicando o EC perante aos emissores. O excesso de retentativas pode diminuir o índice de aprovação do estabelecimento e/ou gerar multa ao retentar de maneira incorreta.
+
+**Como usar a retentativa?**
+
+Siga as regras do [Programa de Retentativa das Bandeiras](https://developercielo.github.io/tutorial/programa-retentativa-bandeiras), não excedendo as quantidades de acordo com as regras das bandeiras.
+
+**O que não fazer?**
+Não retentar em excesso, descumprindo qualquer norma descrita no [Programa de Retentativa das Bandeiras](https://developercielo.github.io/tutorial/programa-retentativa-bandeiras).
+
+**Detalhes importantes**
+
+Os e-commerces que não seguirem as regras podem ser penalizados com a cobrança de tarifas por transações excedidas, de acordo com o programa de cada bandeira.
+
+> A bandeira Mastercard possui o programa Merchant Advice Code (MAC), que determina se a transação é reversível ou irreversível e qual ação a loja pode realizar para tentar aprovar a transação. Para saber mais sobre os códigos MAC, acesse [Merchant Advice Code Transaction Excellence (MAC)](https://developercielo.github.io/tutorial/programa-retentativa-bandeiras#2.-merchant-advice-code-transaction-excellence-(mac)){:target="_blank"}
 
 ## Códigos de retorno ABECS
 
