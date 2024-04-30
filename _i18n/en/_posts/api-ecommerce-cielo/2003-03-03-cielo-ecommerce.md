@@ -7309,6 +7309,17 @@ Codes returned in case of error, identifying the reason for the error and its re
 |98|InvalidRequest|
 |99|InternalError|
 
+### BP Errors
+
+| RESPONSE CODE | DEFINITION                                | DESCRIPTION| ACTION| RETRY ALLOWED? |
+|-----------------|-------------------------------------------|----------------------------------------------------------------------------------------------------------------|------------------------------|---------------------|
+| BP 171          | Rejected due to fraud risk (Velocity). | It is related to Velocity rules. | Try again after one hour. | Yes|
+| BP 900          | Operation fail.                        | Operation fail (request submission process).                                 | Try again.             | Sim                 |
+| BP 901          | Operation fail                       | Authorization fail.                                                                | Try again.               | Yes                 |
+| BP 902          | Wait for the response from previous operation.     |Capture fail.                                                                   | Try again.             | Yes                 |
+| BP 903          | Cancellation fail.                    | Cancellation fail.                                                               | Try again.               | Yes                 |
+| BP 904          | Query fail.                        | Query fail.                                                                   | Try again.               | Yes                 |
+
 ### Error messages and codes - Pix
 
 | CODE | EVENT | MESSAGE | DESCRIPTION/ACTION |
