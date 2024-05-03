@@ -21,7 +21,7 @@ The purpose of this documentation is to guide the developer on how to integrate 
 
 We recommend intermediate knowledge in web programming language, HTTP/HTTPS requests and JSON file manipulation are required to successfully deploy the E-commerce Cielo solution.
 
-In this guide, you will find information on all operations available on API REST of API E-commerce Cielo. These operations must be performed using its specific key (Merchant ID and Merchant Key) in the respective environment endpoints
+In this guide, you will find information on all operations available on API REST of API E-commerce Cielo. These operations must be performed using your credentials (Merchant ID and Merchant Key) in the respective environment endpoints
 
 |              |                       SandBox                       |                  Production                   |
 | :----------- | :-------------------------------------------------: | :-------------------------------------------: |
@@ -30,7 +30,7 @@ In this guide, you will find information on all operations available on API REST
 
 To perform an operation, combine the base URL of the environment with the URL of the desired operation and send it using the HTTP verb as described in the operation.
 
-> [Download the tutorial]({{ site.baseurl }}/attachment/merchantid-merchantkey-cielo-2023.pdf){:target="\_blank"} to learn how to generate your **MerchantId** and **MerchantKey** on [Cielo portal](https://www.cielo.com.br/){:target="\_blank"}.
+> [Download the tutorial]({{ site.baseurl }}/attachment/merchantid-merchantkey-cielo-2023.pdf){:target="\_blank"} to learn how to generate your **MerchantId** and **MerchantKey** credentials on [Cielo portal](https://www.cielo.com.br/){:target="\_blank"}.
 
 ## Solution features
 
