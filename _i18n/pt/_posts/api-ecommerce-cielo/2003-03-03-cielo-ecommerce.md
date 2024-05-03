@@ -22,7 +22,7 @@ O objetivo desta documentação é orientar sobre a integração da **API E-comm
 
 **Conhecimentos necessários**: recomendamos conhecimentos intermediários em linguagem de programação para web, requisições HTTP/HTTPS e manipulação de arquivos JSON.
 
-Para executar as operações da API E-commerce Cielo você deverá usar sua chave específica (`MerchantId` e `MerchantKey`) nos respectivos endpoints dos ambientes:
+Para executar as operações da API E-commerce Cielo você deverá usar suas credenciais (`MerchantId` e `MerchantKey`) nos respectivos endpoints dos ambientes:
 
 |                  |                       Sandbox                       |                   Produção                    |
 | :--------------- | :-------------------------------------------------: | :-------------------------------------------: |
@@ -31,7 +31,7 @@ Para executar as operações da API E-commerce Cielo você deverá usar sua chav
 
 Para executar uma operação, combine a URL base do ambiente com a URL da operação desejada e envie utilizando o verbo HTTP conforme descrito na operação.
 
-> [Faça o download do tutorial]({{ site.baseurl }}/attachment/merchantid-merchantkey-cielo-2023.pdf){:target="\_blank"} para saber como gerar seu **MerchantId** e **MerchantKey** no [portal da Cielo](https://www.cielo.com.br/){:target="\_blank"}.
+> [Faça o download do tutorial]({{ site.baseurl }}/attachment/merchantid-merchantkey-cielo-2023.pdf){:target="\_blank"} para saber como gerar as credenciais **MerchantId** e **MerchantKey** no [portal da Cielo](https://www.cielo.com.br/){:target="\_blank"}.
 
 ## Características da solução
 
