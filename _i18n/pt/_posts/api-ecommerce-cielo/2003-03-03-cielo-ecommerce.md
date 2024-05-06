@@ -7330,7 +7330,7 @@ Códigos retornados em caso de erro, identificando o motivo do erro e suas respe
 
 #### Erros BP
 
-São códigos de erros retornados no campo `ReturnCode`; para esses códigos, o status da transação fica como "0" - **Not finished** (não finlaizado).
+São códigos de erros retornados no campo `ReturnCode`; para esses códigos, o status da transação fica como "0" - **Not finished** (não finalizado).
 
 | CÓDIGO RESPOSTA | DEFINIÇÃO                                 | SIGNIFICADO                                                                                                    | AÇÃO                         | PERMITE RETENTATIVA |
 |-----------------|-------------------------------------------|----------------------------------------------------------------------------------------------------------------|------------------------------|---------------------|
