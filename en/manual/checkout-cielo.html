@@ -1849,7 +1849,7 @@ Check out more details about how the API works in the following flow:</p>
 
 <ul>
   <li><strong>Interval</strong>: repetition pattern and time interval between each transaction. This time interval between transactions can be monthly, bimonthly, quarterly, semi-annual and annual;</li>
-  <li><strong>Closing date</strong>: date on which the recurrence process stops occurring.</li>
+  <li><strong>End date</strong>: date on which the recurrence process stops occurring.</li>
 </ul>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1859,8 +1859,6 @@ Check out more details about how the API works in the following flow:</p>
         </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
-
-<p><strong><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment</code></strong></p>
 
 <table>
   <thead>
@@ -1991,17 +1989,465 @@ Check out more details about how the API works in the following flow:</p>
   <p>It is possible to query and cancel recurring transactions on the Cielo website.</p>
 </blockquote>
 
-<h2 id="changing-recurrence-data">Changing recurrence data</h2>
+<h2 id="altering-recurrence-data">Altering recurrence data</h2>
 
 <p>To change recurrence data, access the <strong>Cielo website</strong>, where you can change:</p>
 
 <ul>
-  <li><strong>Activation</strong>: a recurrence can be activated or canceled;</li>
-  <li><strong>Interval</strong>: it is possible to modify the execution interval;</li>
-  <li><strong>Recurrence day</strong>: it is possible to modify the execution day of the recurring transaction.
-<br />
-Access the <a href="https://developercielo.github.io/en/tutorial/checkout-tutoriais">Backoffice Checkout Cielo Tutorial</a> for more information.</li>
+  <li><strong>Interval</strong>: interval between transactions;</li>
+  <li><strong>Recurrence day</strong>: day of the recurring transaction;</li>
+  <li><strong>Date of next transaction</strong>: date on which the next transaction will be made, following the configured interval setting and the day of recurrence;</li>
+  <li><strong>Recurrence value</strong>: value of the recurring charge on the shopper’s card;</li>
+  <li><strong>Recurrence end date</strong>: date on which the recurrence is deactivated.
+<br /></li>
 </ul>
+
+<p>These changes can be made through two channels. Check below what they are and the respective guidelines:</p>
+
+<ul>
+  <li><strong>Cielo website</strong> (manual alteration): Access the <a href="https://developercielo.github.io/tutorial/checkout-tutoriais">Cielo Checkout Backoffice Tutorial</a> for more information.</li>
+  <li><strong>Checkout API</strong> (integrated alteration): follow the steps below to send recurrence edit requests in an integrated manner via the Cielo Checkout API.</li>
+</ul>
+
+<h3 id="integrated-alteration">Integrated alteration</h3>
+
+<p>To change data from a recurrence using the Cielo Checkout API, simply send a request with the information to be changed. Check out an example of this request.</p>
+
+<h4 id="request-3">Request</h4>
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/RecurrentPayment/Update </span></aside>
+
+<p><strong>Parameters in the header</strong></p>
+<ul>
+  <li><strong>Authorization</strong>: Bearer {access_token}</li>
+  <li><strong>Content-type</strong>: application/json</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w"> 
+  </span><span class="nl">"PagadorRecurrentPaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0207CE76-8144-48DC-8B17-876465BC3A6D"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nl">"EndDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2030-12-31"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nl">"Interval"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> 
+  </span><span class="nl">"NextPaymentDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-12-31"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33333.33"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nl">"Day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31"</span><span class="w"> 
+</span><span class="p">}</span><span class="w"> 
+</span></code></pre></div></div>
+
+<p><strong>Parameters in the body</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>PARAMETER</th>
+      <th>DESCRIPTION</th>
+      <th>TYPE</th>
+      <th>MAXIMUM SIZE</th>
+      <th>REQUIRED</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PagadorRecurrentPaymentI</code></td>
+      <td>Recurrence identification number at Checkout.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Amount</code></td>
+      <td>Recurrence value in cents (ex: R$ 1.00 = 100)</td>
+      <td>number</td>
+      <td>10</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">interval</code></td>
+      <td>Recurrence billing interval in months.<br />“Monthly” - 1<br />“Bimonthly” - 2<br />“Quarterly” - 3<br />“SemiAnnual” - 6<br />“Annual “ - 12</td>
+      <td>number</td>
+      <td>10</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">EndDate</code></td>
+      <td>Recurrence end date. If not sent, the recurrence ends only if cancelled.</td>
+      <td>date (YYYY-MM-DD)</td>
+      <td>255</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Day</code></td>
+      <td>Day of the month on which the recurrence charge is made.</td>
+      <td>date (DD)</td>
+      <td>2</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">NextPaymentDate</code></td>
+      <td>Date of the next recurring charge. If changed, the next charges will follow this date.<br />Example: in a monthly interval recurrence, the day of the month on which the charge is made is always the 10th. The first charge was on 10/01/2024, so the next billing would be 10/02/2024. If this next billing date is changed to 20/02/2024, from then on, the next charges will be on the 20th of the month, monthly.</td>
+      <td>date (YYYY-MM-DD)</td>
+      <td>10</td>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="response-2">Response</h4>
+
+<p><code class="language-plaintext highlighter-rouge">HTTP Status: 200 - OK</code></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w"> 
+</span><span class="s2">" Recurrent Payment - {id} Updated Successfully"</span><span class="w"> 
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="querying-a-recurrence">Querying a recurrence</h2>
+
+<p>To query the data for a recurrence and the transactions linked to it, you must use the recurrence ID sent after creating a recurrence.</p>
+
+<p>The query must be made by sending the access_token as authentication.</p>
+
+<h3 id="request-4">Request</h3>
+
+<p><strong>Parameters in the header</strong></p>
+<ul>
+  <li><strong>Authorization</strong>: Bearer {access_token}</li>
+  <li><strong>Content-type</strong>: application/json</li>
+</ul>
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/RecurrentPayment/</span></aside>
+
+<h3 id="response-3">Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w"> 
+
+</span><span class="err">    </span><span class="nl">"$id"</span><span class="p">:</span><span class="err"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">    </span><span class="nl">"id"</span><span class="p">:</span><span class="err"> </span><span class="mi">202</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">    </span><span class="nl">"pagadorRecurrentPaymentId"</span><span class="p">:</span><span class="err"> </span><span class="s2">"0207ce76-8144-48dc-8b17-876465bc3a6d"</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">    </span><span class="nl">"recurrentPaymentStatus"</span><span class="p">:</span><span class="err"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">    </span><span class="nl">"recurrentPaymentStatusEnum"</span><span class="p">:</span><span class="err"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">    </span><span class="nl">"isRecurrentPaymentExpired"</span><span class="p">:</span><span class="err"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">    </span><span class="nl">"allowEdit"</span><span class="p">:</span><span class="err"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">    </span><span class="nl">"startDate"</span><span class="p">:</span><span class="err"> </span><span class="s2">"2024-02-05T15:05:44.423"</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">    </span><span class="nl">"endDate"</span><span class="p">:</span><span class="err"> </span><span class="s2">"2026-03-30T00:00:00"</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">    </span><span class="nl">"formatedEndDate"</span><span class="p">:</span><span class="err"> </span><span class="s2">"30/03/2026"</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">    </span><span class="nl">"day"</span><span class="p">:</span><span class="err"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">    </span><span class="nl">"items"</span><span class="p">:</span><span class="err"> </span><span class="p">[</span><span class="w"> 
+
+</span><span class="err">        </span><span class="p">{</span><span class="w"> 
+
+</span><span class="err">            </span><span class="nl">"$id"</span><span class="p">:</span><span class="err"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">            </span><span class="nl">"name"</span><span class="p">:</span><span class="err"> </span><span class="s2">"teste leo"</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">            </span><span class="nl">"quantity"</span><span class="p">:</span><span class="err"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">            </span><span class="nl">"unitPrice"</span><span class="p">:</span><span class="err"> </span><span class="mi">1000</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">            </span><span class="nl">"totalPrice"</span><span class="p">:</span><span class="err"> </span><span class="mi">1000</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">            </span><span class="nl">"formattedUnitPrice"</span><span class="p">:</span><span class="err"> </span><span class="s2">"R$ 10,00"</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">            </span><span class="nl">"formattedTotalPrice"</span><span class="p">:</span><span class="err"> </span><span class="s2">"R$ 10,00"</span><span class="w"> 
+
+</span><span class="err">        </span><span class="p">}</span><span class="w"> 
+
+</span><span class="err">    </span><span class="p">],</span><span class="w"> 
+
+</span><span class="err">    </span><span class="nl">"item"</span><span class="p">:</span><span class="err"> </span><span class="p">{</span><span class="w"> 
+
+</span><span class="err">        </span><span class="nl">"$ref"</span><span class="p">:</span><span class="err"> </span><span class="s2">"2"</span><span class="w"> 
+
+</span><span class="err">    </span><span class="p">},</span><span class="w"> 
+
+</span><span class="err">    </span><span class="nl">"history"</span><span class="p">:</span><span class="err"> </span><span class="p">[</span><span class="w"> 
+
+</span><span class="err">        </span><span class="p">{</span><span class="w"> 
+
+</span><span class="err">            </span><span class="nl">"$id"</span><span class="p">:</span><span class="err"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">            </span><span class="nl">"orderId"</span><span class="p">:</span><span class="err"> </span><span class="s2">"c748ef42-d1e7-4db3-9633-8d057bf874b0"</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">            </span><span class="nl">"orderNumber"</span><span class="p">:</span><span class="err"> </span><span class="s2">"8245e94dcf4c4de3906118e38f376822"</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">            </span><span class="nl">"merchantOrderNumber"</span><span class="p">:</span><span class="err"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">            </span><span class="nl">"createdDate"</span><span class="p">:</span><span class="err"> </span><span class="s2">"2024-02-05T15:05:44.457"</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">            </span><span class="nl">"paymentStatus"</span><span class="p">:</span><span class="err"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">            </span><span class="nl">"paymentStatusDescription"</span><span class="p">:</span><span class="err"> </span><span class="s2">"Autorizado"</span><span class="w"> 
+
+</span><span class="err">        </span><span class="p">}</span><span class="w"> 
+
+</span><span class="err">    </span><span class="p">],</span><span class="w"> 
+
+</span><span class="err">    </span><span class="nl">"lastPaymentDate"</span><span class="p">:</span><span class="err"> </span><span class="s2">"0001-01-01T00:00:00"</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">    </span><span class="nl">"nextPaymentDate"</span><span class="p">:</span><span class="err"> </span><span class="s2">"2026-02-05T00:00:00"</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">    </span><span class="nl">"formatedNextPaymentDate"</span><span class="p">:</span><span class="err"> </span><span class="s2">"05/02/2026"</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">    </span><span class="nl">"intervalDescription"</span><span class="p">:</span><span class="err"> </span><span class="s2">"Mensal"</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">    </span><span class="nl">"recurrentPaymentStatusDescription"</span><span class="p">:</span><span class="err"> </span><span class="s2">"Ativa"</span><span class="p">,</span><span class="w"> 
+
+</span><span class="err">    </span><span class="nl">"amount"</span><span class="p">:</span><span class="err"> </span><span class="mf">4000.0</span><span class="w"> 
+
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPERTY</th>
+      <th>TYPE</th>
+      <th>MAXIMUM SIZE</th>
+      <th>DESCRIPTION</th>
+      <th>FORMAT</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">$id</code></td>
+      <td>number</td>
+      <td>10</td>
+      <td>Payload list index.</td>
+      <td>Example: 1</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">id</code></td>
+      <td>number</td>
+      <td>100</td>
+      <td>Recurrence record index (disregard value for query purposes).</td>
+      <td>Example: 202</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">pagadorRecurrentPaymentId</code></td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Recurrence identification number at Checkout.</td>
+      <td>Example: 0207ce76-8144-48dc-8b17-876465bc3a6d</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">recurrentPaymentStatus</code></td>
+      <td>number</td>
+      <td>1</td>
+      <td>Status of the recurrence (whether it is active or not).</td>
+      <td>Example: 1</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">recurrentPaymentStatusEnum</code></td>
+      <td>number</td>
+      <td>1</td>
+      <td>Status of the recurrence (whether it is active or not)</td>
+      <td>Example: 1</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">isRecurrentPaymentExpired</code></td>
+      <td>boolean</td>
+      <td>5</td>
+      <td>Informs whether the recurrence is expired.</td>
+      <td>Example: false</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">allowEdit</code></td>
+      <td>number</td>
+      <td>1</td>
+      <td>Whether to allow recurrence editing or not</td>
+      <td>Example: true</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">startDate</code></td>
+      <td>text</td>
+      <td>20</td>
+      <td>Recurrence start date.</td>
+      <td>Example: 2024-02-05T15:05:44.423</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">endDate</code></td>
+      <td>text</td>
+      <td>20</td>
+      <td>Recurrence end date. If not sent, the recurrence ends only if deactivated by the merchant.</td>
+      <td>Example: 2026-03-30T00:00:00</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">formatedEndDate</code></td>
+      <td>text</td>
+      <td>10</td>
+      <td>Recurrence end date, formatted. If not sent, the recurrence ends only if deactivated by the merchant.</td>
+      <td>Example: 30/03/2026</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">day</code></td>
+      <td>number</td>
+      <td>2</td>
+      <td>Day of the month on which the recurrence charge is made.</td>
+      <td>Example: 30</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items.$id</code></td>
+      <td>number</td>
+      <td>10</td>
+      <td>Item list index.</td>
+      <td>Example: 2</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items.name</code></td>
+      <td>text</td>
+      <td>256</td>
+      <td>Description of the item in the order cart.</td>
+      <td>Example: bag of cookies</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items.quantity</code></td>
+      <td>number</td>
+      <td>10</td>
+      <td>Quantity of items in the cart.</td>
+      <td>Example: 1</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items.unitPrice</code></td>
+      <td>number</td>
+      <td>10</td>
+      <td>Unit price of the item, in cents. (R$ 1.00 = 100)</td>
+      <td>Example: 1000</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items.totalPrice</code></td>
+      <td>number</td>
+      <td>10</td>
+      <td>Total price for the quantity of the same item. (R$ 1.00 = 100)</td>
+      <td>Example: 1000</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items.formattedUnitPrice</code></td>
+      <td>text</td>
+      <td>10</td>
+      <td>Unit price of the item, formatted.</td>
+      <td>Example: R$10.00</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items.formattedTotalPrice</code></td>
+      <td>text</td>
+      <td>10</td>
+      <td>Total price for the quantity of the same item, formatted.</td>
+      <td>Example: R$10.00</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Item.$ref</code></td>
+      <td>text</td>
+      <td>10</td>
+      <td>Returns the index of the first item.</td>
+      <td>Example: 2</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">history.$id</code></td>
+      <td>number</td>
+      <td>10</td>
+      <td>Item list index.</td>
+      <td>Example: 3</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">history.orderId</code></td>
+      <td>text</td>
+      <td>36</td>
+      <td>Internal order ID, not used for queries.</td>
+      <td>Example: 8390bbdc-8c0a-42bb-a144-3712ee1a1fad</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">history.createdDate</code></td>
+      <td>text</td>
+      <td>23</td>
+      <td>Recurrence request creation date.</td>
+      <td>Example: 2024-02-08T17:56:29.51</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">history.paymentStatus</code></td>
+      <td>number</td>
+      <td>10</td>
+      <td>Code referring to the payment status.</td>
+      <td>Example: 7</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">history.paymentStatusDescription</code></td>
+      <td>text</td>
+      <td>30</td>
+      <td>Description regarding the payment status:<br />0 - Undefined;<br />1 - Pending;<br />2 - Paid;<br />3 - Denied;<br />4 - Expired;<br />5 - Canceled;<br />6 - Not Finalized;<br />7 - Authorized.</td>
+      <td>Example: Authorized</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">lastPaymentDate</code></td>
+      <td>text</td>
+      <td>23</td>
+      <td>Date of the last payment of the recurrence. If there is no payment yet, it will return “0001-01-01T00:00:00”.</td>
+      <td>Example: 2024-01-29T00:00:00</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">nextPaymentDate</code></td>
+      <td>text</td>
+      <td>20</td>
+      <td>Date of the next recurrence charge, without formatting.</td>
+      <td>Example: 2026-02-05T00:00:00</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">formattedNextPaymentDate</code></td>
+      <td>text</td>
+      <td>10</td>
+      <td>Date of the next recurrence charge, formatted.</td>
+      <td>Example: 05/02/2026</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">intervalDescription</code></td>
+      <td>string</td>
+      <td>128</td>
+      <td>Recurrence billing interval.<br />“Monthly”; <br />“Bimonthly”;<br />“Quarterly”;<br />“SemiAnnual”;<br />“Annual”</td>
+      <td>Example: Monthly</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">recurrentPaymentStatusDescription</code></td>
+      <td>text</td>
+      <td>50</td>
+      <td>Description of the recurrence status. See the Recurrence status table.</td>
+      <td>Example: Active</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">amount</code></td>
+      <td>number</td>
+      <td>10</td>
+      <td>Unit price of the recurrence, in cents. (R$ 1.00 = 100)</td>
+      <td>Example: 4000.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="deactivating-a-recurrence">Deactivating a recurrence</h2>
+
+<p>To deactivate a recurrence, send the following request.</p>
+
+<aside class="warning">Once a recurrence has been deactivated, it cannot be activated again. Therefore, be sure of this action before deactivating.</aside>
+
+<h3 id="request-5">Request</h3>
+
+<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/RecurrentPayment/Deactivate/</span></aside>
+
+<p><strong>Parameters in the header</strong></p>
+<ul>
+  <li><strong>Authorization</strong>: Bearer {access_token}</li>
+  <li><strong>Content-type</strong>: application/json</li>
+</ul>
+
+<p>It is not necessary to send any parameters in the body.</p>
 
 <h1 id="transaction-notifications">Transaction notifications</h1>
 
@@ -2588,7 +3034,7 @@ Access the <a href="https://developercielo.github.io/en/tutorial/checkout-tutori
 
 <p>Querying transactions by <code class="language-plaintext highlighter-rouge">order_number</code> returns a list of transactions with the same order number; This occurs because Checkout does not prevent the store from duplicating <code class="language-plaintext highlighter-rouge">order_number</code>s. The response will return <code class="language-plaintext highlighter-rouge">checkout_cielo_order_number</code>, which must be used when querying a specific transaction.</p>
 
-<h4 id="request-3">Request</h4>
+<h4 id="request-6">Request</h4>
 
 <p>To query a transaction by <code class="language-plaintext highlighter-rouge">order_number</code>, do a <code class="language-plaintext highlighter-rouge">GET</code>.</p>
 
@@ -2617,7 +3063,7 @@ Access the <a href="https://developercielo.github.io/en/tutorial/checkout-tutori
   </tbody>
 </table>
 
-<h4 id="response-2">Response</h4>
+<h4 id="response-4">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -2714,7 +3160,7 @@ Access the <a href="https://developercielo.github.io/en/tutorial/checkout-tutori
 
 <h3 id="by-checkout_cielo_order_number">By Checkout_Cielo_Order_Number</h3>
 
-<h4 id="request-4">Request</h4>
+<h4 id="request-7">Request</h4>
 
 <p>To query a transaction using <code class="language-plaintext highlighter-rouge">Checkout_Cielo_Order_Number</code>, simply perform a <code class="language-plaintext highlighter-rouge">GET</code>.</p>
 
@@ -2747,7 +3193,7 @@ Access the <a href="https://developercielo.github.io/en/tutorial/checkout-tutori
   </tbody>
 </table>
 
-<h4 id="response-3">Response</h4>
+<h4 id="response-5">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w"> 
     </span><span class="nl">"merchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c89fdfbb-dbe2-4e77-806a-6d75cd397dac"</span><span class="p">,</span><span class="w"> 
@@ -3119,7 +3565,7 @@ Access the <a href="https://developercielo.github.io/en/tutorial/checkout-tutori
 
 <p>The capture takes place after authorization, so that the sale can be completed and the card will be charged. Only after capture will the cardholder be able to view it on their statement or invoice.</p>
 
-<h3 id="request-5">Request</h3>
+<h3 id="request-8">Request</h3>
 
 <p>To capture a credit card transaction via <code class="language-plaintext highlighter-rouge">Checkout_Cielo_Order_Number</code>, simply perform a <code class="language-plaintext highlighter-rouge">PUT</code>.</p>
 
@@ -3143,7 +3589,7 @@ Access the <a href="https://developercielo.github.io/en/tutorial/checkout-tutori
   <p><strong>Note</strong>: Partial capture can only be performed once and is exclusive to credit cards.</p>
 </blockquote>
 
-<h3 id="response-4">Response</h3>
+<h3 id="response-6">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -3214,7 +3660,7 @@ Access the <a href="https://developercielo.github.io/en/tutorial/checkout-tutori
   <p><strong>Important</strong>: To make any cancellation request, the establishment must have a sufficient balance in the transaction/book.</p>
 </blockquote>
 
-<h3 id="request-6">Request</h3>
+<h3 id="request-9">Request</h3>
 
 <blockquote>
   <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
@@ -3236,7 +3682,7 @@ Access the <a href="https://developercielo.github.io/en/tutorial/checkout-tutori
   <p><strong>Attention</strong>: Partial cancellation can only be carried out after capture. Partial cancellation can be carried out numerous times until the total amount is cancelled.</p>
 </blockquote>
 
-<h3 id="response-5">Response</h3>
+<h3 id="response-7">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
