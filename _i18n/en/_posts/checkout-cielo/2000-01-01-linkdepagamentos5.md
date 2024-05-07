@@ -626,6 +626,352 @@ Header: `Authorization`: `Bearer {access_token}`
 
 `HTTP Status: 204 – No Content`
 
+# Recurrence
+
+**Recurrence** is an automatic scheduling process for credit transactions, that is, it is a transaction that will be repeated automatically, without the need for the shopper to access the transactional screen, in accordance with the rules defined at the time of scheduling.
+
+> If one of the transactions is not authorized, Checkout Cielo automatically retrys; for more details about automatic retry, see the [Recurrence Retry](https://developercielo.github.io/en/manual/checkout-cielo#retry-of-recurrences) section
+
+Recurring transactions are ideal for business models that involve the **concept of subscription, plan or monthly fee** in their form of **billing**, such as:
+
+* Schools;
+* Gyms;
+* Publishers;
+* Hosting services.
+
+> The recurring transaction is not an installment transaction. The total value of the sale compromises the shopper's credit card limit, regardless of the value of the initial installment.
+
+## Creating a recurring Payment Link
+
+A recurring Payment Link has two settings: **Interval** and **End date**.
+
+* **Interval**: repetition pattern and time interval between each transaction. This time interval between transactions can be monthly, bimonthly, quarterly, semi-annual and annual;
+* **End date**: date on which the recurrence process stops occurring.
+
+```json
+}, 
+
+  "recurrent": { 
+
+    "interval": "Monthly", 
+
+    "endDate": "2024-02-06" 
+
+  }, 
+```
+
+|PARAMETER|DESCRIPTION|TYPE|SIZE|REQUIRED|
+|---|---|---|---|---|
+| `recurrent.interval` | Interval between each recurring transaction|"Monthly";<br>"Bimonthly";<br>"Quarterly";<br>"SemiAnnual";<br>"Annual"| string | 128 |No <br> If not sent, defaults to monthly.|
+| `recurrent.endDate` | Recurrence end date. If not sent, the recurrence ends only if cancelled. | string (YYYY-MM-DD format) | 10 | No |
+
+The shopper's credit card data is stored securely at Cielo, allowing it to be reused in a recurring transaction. This data is not accessed by the retailer and this intelligence is controlled by Link de Pagamento Cielo.
+
+### Request
+
+```json
+{ 
+
+  "OrderNumber": "123456",   
+
+  "type": "Digital", 
+
+  "name": "Pedido", 
+
+  "description": "teste description", 
+
+  "price": "1000000", 
+
+  "weight": 2000000, 
+
+  "expirationDate": "2027-06-19", 
+
+  "maxNumberOfInstallments": "1", 
+
+  "quantity": 2, 
+
+  "sku": "teste", 
+
+  "shipping": { 
+
+    "type": "WithoutShipping", 
+
+    "name": "teste", 
+
+    "price": "1000000000" 
+
+  }, 
+
+  "recurrent": { 
+
+    "interval": "Monthly", 
+
+    "endDate": "2024-02-06" 
+
+  }, 
+
+  "softDescriptor": "Pedido1234" 
+```
+
+**Example**: physical asset
+
+If the product type is physical asset (`Cart.Items.Type` = "Asset"), the **API requires the shipping type** (`Shipping.Type`) to be sent.
+
+If there is a recurrence node in the technical contract, it is required to send the type `WithoutShipping`, otherwise the following response will be presented:
+
+```json
+{ 
+
+  "message": "The request is invalid.", 
+
+  "modelState": { 
+
+    "[Shipping.Type]": [ 
+
+      "[Shipping.Type] pedidos com recorrência devem possuir o Shipping.Type 'WithoutShipping'." 
+
+    ] 
+
+  } 
+
+} 
+```
+
+> **Important:** The recurrence is only created if the transaction is **authorized**. Regardless of capture or not, once authorized, the recurrence process begins.
+
+## Recurrence Retry
+
+If one of the recurrence transactions is not authorized, Checkout Cielo automatically performs the retry, sending a new transaction, considering:
+
+* **Time interval between attempts**: four days;
+* **Number of retries**: four retries, one per day, for four calendar days from the day following the original unauthorized transaction.
+
+**Note**: This process aims to obtain a positive response from the authorization process, preventing the retailer from losing the sale. The retry process generates duplicate orders within the Backoffice, as the original denied order will be displayed in the Orders list, along with the new authorized transaction.
+
+**Attention:** The retry rule cannot be modified by the merchant.
+
+> It is possible to query and cancel recurring transactions on the Cielo website.
+
+## Altering recurrence data
+
+To change recurrence data, access the **Cielo website**, where you can change:
+
+* **Interval**: interval between transactions;
+* **Recurrence day**: day of the recurring transaction;
+* **Date of next transaction**: date on which the next transaction will be made, following the configured interval setting and the day of recurrence;
+* **Recurrence value**: value of the recurring charge on the shopper's card;
+* **Recurrence end date**: date on which the recurrence is deactivated.
+<br/>
+
+These changes can be made through two channels. Check below what they are and the respective guidelines:
+
+* **Cielo website** (manual alteration): Access the [Cielo Checkout Backoffice Tutorial](https://developercielo.github.io/tutorial/checkout-tutoriais) for more information.
+* **Link de Pagamento API** (integrated alteration): follow the steps below to send recurrence edit requests in an integrated manner via the Link de Pagamento API.
+
+### Integrated alteration
+
+To change data from a recurrence using the Link de Pagamento API, simply send a request with the information to be changed. Check out an example of this request.
+
+#### Request
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/RecurrentPayment/Update </span></aside>
+
+**Parameters in the header**
+* **Authorization**: Bearer {access_token}
+* **Content-type**: application/json
+
+```json
+{ 
+
+  "PagadorRecurrentPaymentId": "0207CE76-8144-48DC-8B17-876465BC3A6D", 
+
+  "EndDate": "2030-12-31", 
+
+  "Interval": 1, 
+
+  "NextPaymentDate": "2024-12-31", 
+
+  "Amount": "33333.33", 
+
+  "Day": "31" 
+
+} 
+```
+
+|PARAMETER|DESCRIPTION|TYPE|MAXIMUM SIZE|REQUIRED|
+|-|-|-|-|-|
+|`PagadorRecurrentPaymentI`|Recurrence identification number at Link de Pagamento.|GUID|36|Yes|
+|`Amount`|Recurrence value in cents (ex: R$ 1.00 = 100)|number|10|No|
+|`interval`|Recurrence billing interval in months.<br>"Monthly" - 1<br>"Bimonthly" - 2<br>"Quarterly" - 3<br>"SemiAnnual" - 6<br>"Annual " - 12|number|10|No|
+|`EndDate`|Recurrence end date. If not sent, the recurrence ends only if cancelled.|date (YYYY-MM-DD)|255|No|
+|`Day`|Day of the month on which the recurrence charge is made.|date (DD)|2|No|
+|`NextPaymentDate`|Date of the next recurring charge. If changed, the next charges will follow this date.<br>Example: in a monthly interval recurrence, the day of the month on which the charge is made is always the 10th. The first charge was on 10/01/2024, so the next billing would be 10/02/2024. If this next billing date is changed to 20/02/2024, from then on, the next charges will be on the 20th of the month, monthly.|date (YYYY-MM-DD)|10|No|
+
+#### Response 
+
+`HTTP Status: 200 - OK`
+
+```json
+{ 
+" Recurrent Payment - {id} Updated Successfully" 
+}
+```
+
+## Querying a recurrence
+
+To query the data for a recurrence and the transactions linked to it, you must use the recurrence ID sent after creating a recurrence.
+
+The query must be made by sending the access_token as authentication.
+
+### Request
+
+**Parameters in the header**
+* **Authorization**: Bearer {access_token}
+* **Content-type**: application/json
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/RecurrentPayment/{{pagadorRecurrentPaymentId}}</span></aside>
+
+### Response
+
+```json
+{ 
+
+    "$id": "1", 
+
+    "id": 202, 
+
+    "pagadorRecurrentPaymentId": "0207ce76-8144-48dc-8b17-876465bc3a6d", 
+
+    "recurrentPaymentStatus": 1, 
+
+    "recurrentPaymentStatusEnum": 1, 
+
+    "isRecurrentPaymentExpired": false, 
+
+    "allowEdit": true, 
+
+    "startDate": "2024-02-05T15:05:44.423", 
+
+    "endDate": "2026-03-30T00:00:00", 
+
+    "formatedEndDate": "30/03/2026", 
+
+    "day": 10, 
+
+    "items": [ 
+
+        { 
+
+            "$id": "2", 
+
+            "name": "teste leo", 
+
+            "quantity": 1, 
+
+            "unitPrice": 1000, 
+
+            "totalPrice": 1000, 
+
+            "formattedUnitPrice": "R$ 10,00", 
+
+            "formattedTotalPrice": "R$ 10,00" 
+
+        } 
+
+    ], 
+
+    "item": { 
+
+        "$ref": "2" 
+
+    }, 
+
+    "history": [ 
+
+        { 
+
+            "$id": "3", 
+
+            "orderId": "c748ef42-d1e7-4db3-9633-8d057bf874b0", 
+
+            "orderNumber": "8245e94dcf4c4de3906118e38f376822", 
+
+            "merchantOrderNumber": "12345", 
+
+            "createdDate": "2024-02-05T15:05:44.457", 
+
+            "paymentStatus": 7, 
+
+            "paymentStatusDescription": "Autorizado" 
+
+        } 
+
+    ], 
+
+    "lastPaymentDate": "0001-01-01T00:00:00", 
+
+    "nextPaymentDate": "2026-02-05T00:00:00", 
+
+    "formatedNextPaymentDate": "05/02/2026", 
+
+    "intervalDescription": "Mensal", 
+
+    "recurrentPaymentStatusDescription": "Ativa", 
+
+    "amount": 4000.0 
+
+}
+```
+
+|PROPERTY|TYPE|MAXIMUM SIZE|DESCRIPTION|FORMAT|
+|-|-|-|-|-|
+|`$id`|number|10|Payload list index.|Example: 1|
+|`id`|number|100|Recurrence record index (disregard value for query purposes).|Example: 202|
+|`pagadorRecurrentPaymentId`|GUID|36|Recurrence identification number at Checkout.|Example: 0207ce76-8144-48dc-8b17-876465bc3a6d|
+|`recurrentPaymentStatus`|number|1|Status of the recurrence (whether it is active or not).|Example: 1|
+|`recurrentPaymentStatusEnum`|number|1|Status of the recurrence (whether it is active or not)|Example: 1|
+|`isRecurrentPaymentExpired`|boolean|5|Informs whether the recurrence is expired.|Example: false|
+|`allowEdit`|number|1|Whether to allow recurrence editing or not|Example: true|
+|`startDate`|text|20|Recurrence start date.|Example: 2024-02-05T15:05:44.423|
+|`endDate`|text|20|Recurrence end date. If not sent, the recurrence ends only if deactivated by the merchant.|Example: 2026-03-30T00:00:00|
+|`formatedEndDate`|text|10|Recurrence end date, formatted. If not sent, the recurrence ends only if deactivated by the merchant.|Example: 30/03/2026|
+|`day`|number|2|Day of the month on which the recurrence charge is made.|Example: 30|
+|`Items.$id`|number|10|Item list index.|Example: 2|
+|`Items.name`|text|256|Description of the item in the order cart.|Example: bag of cookies|
+|`Items.quantity`|number|10|Quantity of items in the cart.|Example: 1|
+|`Items.unitPrice`|number|10|Unit price of the item, in cents. (R$ 1.00 = 100)| Example: 1000|
+|`Items.totalPrice`|number|10|Total price for the quantity of the same item. (R$ 1.00 = 100) |Example: 1000|
+|`Items.formattedUnitPrice`|text|10|Unit price of the item, formatted.|Example: R$10.00|
+|`Items.formattedTotalPrice`|text|10|Total price for the quantity of the same item, formatted.|Example: R$10.00|
+|`Item.$ref`|text|10|Returns the index of the first item.|Example: 2|
+|`history.$id`|number|10|Item list index.|Example: 3|
+|`history.orderId`|text|36|Internal order ID, not used for queries.|Example: 8390bbdc-8c0a-42bb-a144-3712ee1a1fad|
+|`history.createdDate`|text|23|Recurrence request creation date.|Example: 2024-02-08T17:56:29.51|
+|`history.paymentStatus`|number|10|Code referring to the payment status.|Example: 7|
+|`history.paymentStatusDescription`|text|30|Description regarding the payment status:<br>0 - Undefined;<br>1 - Pending;<br>2 - Paid;<br>3 - Denied;<br>4 - Expired;<br>5 - Canceled;<br>6 - Not Finalized;<br>7 - Authorized.|Example: Authorized|
+|`lastPaymentDate`|text|23|Date of the last payment of the recurrence. If there is no payment yet, it will return "0001-01-01T00:00:00".|Example: 2024-01-29T00:00:00|
+|`nextPaymentDate`|text|20|Date of the next recurrence charge, without formatting.|Example: 2026-02-05T00:00:00|
+|`formattedNextPaymentDate`|text|10|Date of the next recurrence charge, formatted.|Example: 05/02/2026|
+|`intervalDescription`|string|128|Recurrence billing interval.<br>"Monthly"; <br>"Bimonthly";<br>"Quarterly";<br>"SemiAnnual";<br>"Annual"|Example: Monthly|
+|`recurrentPaymentStatusDescription`|text|50|Description of the recurrence status. See the Recurrence status table.|Example: Active|
+|`amount`|number|10|Unit price of the recurrence, in cents. (R$ 1.00 = 100)|Example: 4000.0|
+
+## Deactivating a recurrence
+
+To deactivate a recurrence, send the following request.
+
+<aside class="warning">Once a recurrence has been deactivated, it cannot be activated again. Therefore, be sure of this action before deactivating.</aside>
+
+### Request
+
+<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/RecurrentPayment/Deactivate/{{pagadorRecurrentPaymentId}}</span></aside>
+
+**Parameters in the header**
+* **Authorization**: Bearer {access_token}
+* **Content-type**: application/json
+
+It is not necessary to send any parameters in the body.
+
 # Transaction notifications
 
 The transactional notification process takes place in two steps, which are transaction completion notification and status change notification.
