@@ -12160,10 +12160,11 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
 
 <ul>
   <li>Melhor conversão, uma vez que a loja consegue criar pagamentos somente se o cartão estiver válido;</li>
-  <li>Evitar a validação de cartões enviando transações com valor financeiro.</li>
+  <li>Evitar a validação de cartões enviando transações com valor financeiro.
+<br />
+<br />
+<strong>Como usar o Zero Auth?</strong></li>
 </ul>
-
-<p><strong>Como usar o Zero Auth?</strong></p>
 
 <ol>
   <li>Habilite o Zero Auth com o Suporte E-commerce;</li>
@@ -12174,19 +12175,19 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
 
 <ul>
   <li>Indicado para transações únicas e recorrentes;</li>
-  <li>Essencial para anteceder o armazenamento de cartões em cofres seguros (tokenizar apenas cartões válidos).</li>
-</ul>
-
-<p><strong>O que não fazer?</strong></p>
-
-<ul>
+  <li>
+    <p>Essencial para anteceder o armazenamento de cartões em cofres seguros (tokenizar apenas cartões válidos).
+<br />
+<br />
+<strong>O que não fazer?</strong></p>
+  </li>
   <li>Na ocorrência de transações com valor <em>diferente de zero</em> e <em>inferior a um dólar</em>, seguidas do cancelamento da transação, as bandeiras aplicarão tarifas à Cielo, que serão repassadas aos estabelecimentos que estiverem em inconformidade. A bandeira Mastercard por exemplo, está cobrando uma tarifa no valor de R$ 0,21 centavos por transação;</li>
-  <li>As transações Zero Auth também estão sujeitas as regras definidas nos programas de retentativas das bandeiras. O excesso de tentativas pode implicar em tarifas. Leia mais em <a href="https://developercielo.github.io/tutorial/programa-retentativa-bandeiras" target="_blank">Programa de Retentativa das Bandeiras</a>.</li>
-</ul>
-
-<p><strong>Detalhes importantes</strong></p>
-
-<ul>
+  <li>
+    <p>As transações Zero Auth também estão sujeitas as regras definidas nos programas de retentativas das bandeiras. O excesso de tentativas pode implicar em tarifas. Leia mais em <a href="https://developercielo.github.io/tutorial/programa-retentativa-bandeiras" target="_blank">Programa de Retentativa das Bandeiras</a>.
+<br />
+<br />
+<strong>Detalhes importantes</strong></p>
+  </li>
   <li>O Zero Auth não informa o limite disponível para o cartão validado e não apresenta as características do cartão ou do portador, apenas simula uma autorização com valor de zero reais;</li>
   <li>Para melhor desempenho, é importante informar o CVV;</li>
   <li>Não há custo para a loja.</li>
