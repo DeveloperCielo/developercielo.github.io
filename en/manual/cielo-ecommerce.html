@@ -5737,15 +5737,13 @@
 <p>Cielo provides these services to clients in three ways:</p>
 
 <ul>
-  <li><strong>Cielo Transparent Tokenization</strong>: When the merchant sends an online transaction with card data (PAN) to our APIs, Cielo will automatically create a token for that card so that Visa will receive the tokenized card data and the merchant does not need to create any additional intergation. Currently, Cielo is not charging for transparent tokenization in order to enable the tokenization experience for our clients and to avoid the 0.05% fee over the transaction amount. Cielo may start charging for this service at any point in the future. In this solution, both the card data and the tokens are managed/owned by Cielo. Transparent tokenization is currently unavailable.</li>
-</ul>
+  <li>
+    <p><strong>Cielo Transparent Tokenization</strong>: When the merchant sends an online transaction with card data (PAN) to our APIs, Cielo will automatically create a token for that card so that Visa will receive the tokenized card data and the merchant does not need to create any additional intergation. Currently, Cielo is not charging for transparent tokenization in order to enable the tokenization experience for our clients and to avoid the 0.05% fee over the transaction amount. Cielo may start charging for this service at any point in the future. In this solution, both the card data and the tokens are managed/owned by Cielo.</p>
 
-<aside class="warning">Transparent tokenization is currently unavailable. We estimate this option might be available again after May 2024.</aside>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; **Card brand available**: Visa
-</code></pre></div></div>
-
-<ul>
+    <blockquote>
+      <p><strong>Card brand available</strong>: Visa</p>
+    </blockquote>
+  </li>
   <li>
     <p><strong>Simple Integration:</strong> The merchant integrates with Cielo’s conventional tokenization functionality, which performs the tokenization of the brand behind it, and links these two tokens in Cielo’s vault. In this way, merchants will always have a single token for that card, but Cielo will have the brand’s tokens and cryptograms internally. To see how the integration with Cielo’s conventional tokenization is like, go back to the <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#tokenization-of-cards" target="\_blank">Card Tokenization</a> menu</p>
 
