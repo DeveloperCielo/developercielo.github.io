@@ -12152,23 +12152,49 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
 
 <h1 id="zero-auth">Zero Auth</h1>
 
-<p>O <strong>Zero Auth</strong> é uma ferramenta da Cielo que permite verificar se um cartão está válido para realizar uma compra antes que o pedido seja finalizado. O Zero Auth simula uma autorização sem afetar o limite de crédito ou alertar o portador do cartão sobre o teste.</p>
+<p><strong>O que é o Zero Auth?</strong></p>
+
+<p>O Zero Auth é uma ferramenta da Cielo que permite verificar se um cartão está válido para realizar uma compra antes que o pedido seja finalizado. O Zero Auth simula uma autorização sem afetar o limite de crédito ou alertar o portador do cartão sobre o teste.</p>
+
+<p><strong>Qual é o impacto do uso no meu negócio?</strong></p>
+
+<ul>
+  <li>Melhor conversão, uma vez que a loja consegue criar pagamentos somente se o cartão estiver válido;</li>
+  <li>Evitar a validação de cartões enviando transações com valor financeiro.</li>
+</ul>
+
+<p><strong>Como usar o Zero Auth?</strong></p>
+
+<ol>
+  <li>Habilite o Zero Auth com o Suporte E-commerce;</li>
+  <li>Envie a requisição do Zero Auth para validar o cartão.</li>
+</ol>
+
+<p>O Zero Auth é:</p>
+
+<ul>
+  <li>Indicado para transações únicas e recorrentes;</li>
+  <li>Essencial para anteceder o armazenamento de cartões em cofres seguros (tokenizar apenas cartões válidos).</li>
+</ul>
+
+<p><strong>O que não fazer?</strong></p>
+
+<ul>
+  <li>Na ocorrência de transações com valor <em>diferente de zero</em> e <em>inferior a um dólar</em>, seguidas do cancelamento da transação, as bandeiras aplicarão tarifas à Cielo, que serão repassadas aos estabelecimentos que estiverem em inconformidade. A bandeira Mastercard por exemplo, está cobrando uma tarifa no valor de R$ 0,21 centavos por transação;</li>
+  <li>As transações Zero Auth também estão sujeitas as regras definidas nos programas de retentativas das bandeiras. O excesso de tentativas pode implicar em tarifas. Leia mais em <a href="https://developercielo.github.io/tutorial/programa-retentativa-bandeiras" target="_blank">Programa de Retentativa das Bandeiras</a>.</li>
+</ul>
+
+<p><strong>Detalhes importantes</strong></p>
+
+<ul>
+  <li>O Zero Auth não informa o limite disponível para o cartão validado e não apresenta as características do cartão ou do portador, apenas simula uma autorização com valor de zero reais;</li>
+  <li>Para melhor desempenho, é importante informar o CVV;</li>
+  <li>Não há custo para a loja.</li>
+</ul>
 
 <blockquote>
-  <p>O Zero Auth não informa o limite ou características do cartão ou do portador, apenas simula uma autorização Cielo.</p>
+  <p>O <strong>ZeroAuth</strong> faz a validação de <strong>cartões abertos ou tokenizados</strong> (envio do <code class="language-plaintext highlighter-rouge">CardToken</code> criado na API Cielo E-commerce).</p>
 </blockquote>
-
-<p>O Zero Auth é a forma correta de validar cartões de acordo com as recomendações das bandeiras e bancos. Antes da criação do Zero Auth, as lojas costumavam criar transações de valores baixos, como um real ou um dólar, e fazer o cancelamento em seguida; é importante saber que essa prática hoje é penalizada pelas bandeiras.</p>
-
-<blockquote>
-  <p><strong>Atenção</strong>:<br /></p>
-  <ul>
-    <li>Na ocorrência de transações com valor <em>diferente de zero</em> e <em>inferior a um dólar</em>, seguidas do cancelamento da transação, as bandeiras aplicarão tarifas à Cielo, que serão repassadas aos estabelecimentos que estiverem em inconformidade. A bandeira Mastercard por exemplo, está cobrando uma tarifa no valor de R$ 0,21 centavos por transação.<br /></li>
-    <li>As transações Zero Auth também estão sujeitas as regras definidas nos programas de retentativas das bandeiras. O excesso de tentativas pode implicar em tarifas. Leia mais em <a href="https://developercielo.github.io/tutorial/programa-retentativa-bandeiras" target="_blank">Programa de Retentativa das Bandeiras</a>.</li>
-  </ul>
-</blockquote>
-
-<p>O <strong>ZeroAuth</strong> faz a validação de <strong>cartões abertos ou tokenizados</strong> (envio do <code class="language-plaintext highlighter-rouge">CardToken</code> criado na API Cielo E-commerce).</p>
 
 <p><strong>Bandeiras suportadas</strong></p>
 
