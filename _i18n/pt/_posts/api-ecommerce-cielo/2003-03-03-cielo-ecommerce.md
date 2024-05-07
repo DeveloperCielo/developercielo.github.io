@@ -6449,17 +6449,37 @@ https://apiquerysandbox.cieloecommerce.cielo.com.br/1/cardBin/420020
 
 # Zero Auth
 
-O **Zero Auth** é uma ferramenta da Cielo que permite verificar se um cartão está válido para realizar uma compra antes que o pedido seja finalizado. O Zero Auth simula uma autorização sem afetar o limite de crédito ou alertar o portador do cartão sobre o teste.
+**O que é o Zero Auth?**
 
-> O Zero Auth não informa o limite ou características do cartão ou do portador, apenas simula uma autorização Cielo.
+O Zero Auth é uma ferramenta da Cielo que permite verificar se um cartão está válido para realizar uma compra antes que o pedido seja finalizado. O Zero Auth simula uma autorização sem afetar o limite de crédito ou alertar o portador do cartão sobre o teste.
 
-O Zero Auth é a forma correta de validar cartões de acordo com as recomendações das bandeiras e bancos. Antes da criação do Zero Auth, as lojas costumavam criar transações de valores baixos, como um real ou um dólar, e fazer o cancelamento em seguida; é importante saber que essa prática hoje é penalizada pelas bandeiras.
+**Qual é o impacto do uso no meu negócio?**
 
-> **Atenção**:<br>
-> * Na ocorrência de transações com valor *diferente de zero* e *inferior a um dólar*, seguidas do cancelamento da transação, as bandeiras aplicarão tarifas à Cielo, que serão repassadas aos estabelecimentos que estiverem em inconformidade. A bandeira Mastercard por exemplo, está cobrando uma tarifa no valor de R$ 0,21 centavos por transação.<br>
-> * As transações Zero Auth também estão sujeitas as regras definidas nos programas de retentativas das bandeiras. O excesso de tentativas pode implicar em tarifas. Leia mais em [Programa de Retentativa das Bandeiras](https://developercielo.github.io/tutorial/programa-retentativa-bandeiras){:target="_blank"}.
+* Melhor conversão, uma vez que a loja consegue criar pagamentos somente se o cartão estiver válido;
+* Evitar a validação de cartões enviando transações com valor financeiro.
 
-O **ZeroAuth** faz a validação de **cartões abertos ou tokenizados** (envio do `CardToken` criado na API Cielo E-commerce).
+**Como usar o Zero Auth?**
+
+1. Habilite o Zero Auth com o Suporte E-commerce;
+2. Envie a requisição do Zero Auth para validar o cartão.
+
+O Zero Auth é:
+
+* Indicado para transações únicas e recorrentes;
+* Essencial para anteceder o armazenamento de cartões em cofres seguros (tokenizar apenas cartões válidos).
+
+**O que não fazer?**
+
+* Na ocorrência de transações com valor *diferente de zero* e *inferior a um dólar*, seguidas do cancelamento da transação, as bandeiras aplicarão tarifas à Cielo, que serão repassadas aos estabelecimentos que estiverem em inconformidade. A bandeira Mastercard por exemplo, está cobrando uma tarifa no valor de R$ 0,21 centavos por transação;
+* As transações Zero Auth também estão sujeitas as regras definidas nos programas de retentativas das bandeiras. O excesso de tentativas pode implicar em tarifas. Leia mais em [Programa de Retentativa das Bandeiras](https://developercielo.github.io/tutorial/programa-retentativa-bandeiras){:target="_blank"}.
+
+**Detalhes importantes**
+
+* O Zero Auth não informa o limite disponível para o cartão validado e não apresenta as características do cartão ou do portador, apenas simula uma autorização com valor de zero reais;
+* Para melhor desempenho, é importante informar o CVV;
+* Não há custo para a loja.
+
+> O **ZeroAuth** faz a validação de **cartões abertos ou tokenizados** (envio do `CardToken` criado na API Cielo E-commerce).
 
 **Bandeiras suportadas**
 
