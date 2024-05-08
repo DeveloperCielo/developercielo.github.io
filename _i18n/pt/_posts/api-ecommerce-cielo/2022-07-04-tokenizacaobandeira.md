@@ -34,8 +34,6 @@ A Cielo oferece as opções abaixo para que a loja se prepare e evite as cobran�
 
 ### Opção 1: Tokenização Transparente Cielo
 
-<aside class="warning">No momento a tokenização transparente Cielo está indisponível. A previsão de retorno é a partir de maio de 2024.</aside>
-
 Com o objetivo de reduzir esse impacto financeiro para nossos clientes, a Cielo desenvolveu uma solução própria que irá tokenizar todas as transações elegíveis automaticamente.
 
 > **Produtos Elegíveis**: API E-commerce Cielo, API 1.5 (legado), Link de Pagamento e Checkout Cielo.
