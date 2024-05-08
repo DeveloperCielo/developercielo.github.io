@@ -9,7 +9,8 @@ sort_order: 1
 tags:
   - Documentos Adicionais
 ---
-<aside class="notice">Última atualização em 08 de maio de 2024</aside>
+<aside class="notice">Última atualização em 08 de maio de 2024.</aside>
+
 # Códigos de retorno ABECS
 
 A Associação Brasileira das Empresas de Cartão de Crédito e Serviços (ABECS) estabeleceu em 15 de Julho de 2020 a padronização do código de retorno das autorizações de vendas recusadas tanto para as soluções pagamento do mundo físico e e-commerce do mercado brasileiro.
@@ -18,7 +19,7 @@ Essa medida normativa busca trazer benefícios para todo o mercado de pagamentos
 
 A Cielo informa seus clientes que está preparada para processar as transações seguindo esse novo padrão do mercado, segue abaixo a tabela de códigos padronizados pela ABECS.
 
-Para acessar a tabela oficial no site da ABECs, vá para [Normativo ABECS](https://api.abecs.org.br/wp-content/uploads/2023/04/20230406-Normativo-21-V3-aprovado-publicacao.pdf){:target="_blank"}.
+> Para acessar a tabela oficial no site da ABECs, vá para [Normativo ABECS](https://api.abecs.org.br/wp-content/uploads/2023/04/20230406-Normativo-21-V3-aprovado-publicacao.pdf){:target="_blank"}.
 
 > Para uma melhor performance na autorização, consulte o manual [Programa de Retentativa de Bandeiras](https://developercielo.github.io/manual/cielo-ecommerce#programa-de-retentativa-das-bandeiras){:target="_blank"} para saber qual a ação tomar caso a retentativa seja permitida.
 
