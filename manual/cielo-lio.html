@@ -2523,7 +2523,7 @@ Assim que possuir a instância da Order, utilize o método abaixo passando os pa
     </tr>
     <tr>
       <td>Data</td>
-      <td>Em caso de operação de leitura, o parâmetro retorna o que foi lido do cartão, para outras operações o retorno é nul</td>
+      <td>No contexto de uma operação de leitura, o parâmetro devolve os dados lidos do cartão. Se a operação for de detecção do cartão, o parâmetro retorna o identificador dele. Para todas as outras operações, o retorno é nulo</td>
       <td><code class="language-plaintext highlighter-rouge">ByteArray</code></td>
     </tr>
     <tr>
@@ -3605,7 +3605,7 @@ no arquivo de manifesto a seguinte permissão:</p>
 
 <h4 id="detect-1">Detect</h4>
 
-<p>Operação responsável por ligar a antena e esperar pela aproximação do cartão. Para chamadas com sucesso, dentro da intent de retorno teremos o parâmetro esult com valor R00, caso encontre outro valor será um retorno de erro.</p>
+<p>A operação tem a responsabilidade de ativar a antena e aguardar a aproximação de um cartão. Em caso de sucesso na operação, a intent de retorno conterá o parâmetro <code class="language-plaintext highlighter-rouge">result</code>, que é uma String com o valor <code class="language-plaintext highlighter-rouge">R00</code>, e o parâmetro <code class="language-plaintext highlighter-rouge">data</code>, que é um ByteArray contendo o identificador do cartão. Se a operação resultar em erro, o parâmetro <code class="language-plaintext highlighter-rouge">result</code> retornará uma String com um valor diferente de <code class="language-plaintext highlighter-rouge">R00</code>, e o identificador do cartão não será retornado no parâmetro <code class="language-plaintext highlighter-rouge">data</code>.</p>
 
 <p>Exemplo de chamada <strong><em>detect</em></strong>:</p>
 
