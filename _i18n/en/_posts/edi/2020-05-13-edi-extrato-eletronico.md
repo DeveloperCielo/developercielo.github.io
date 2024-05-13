@@ -11,113 +11,27 @@ tags:
   - 7. EDI Cielo
 ---
 
-# Important
+# ELECTRONIC STATEMENT v15
 
-## V15 - New version of electronic statements - Documentation and test files
+**Documentation**
 
-Aiming to bring greater transparency and fluidity in the conciliation of extracts, our files will have a new structure in their demonstration.
+[CIELO_Extrato_Eletronico_Manual_Versao_15.8](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Eletronic_Statement_Manual_Version_15.8.pdf)
 
-> This change is expected to be implemented in 19/03/2024.
+* Productive version: **15.6**
+* Next update: ***06/03/2024 for version 15.8**
+  
+**Test files**
 
-Below is the communication sent with the details of the changes, test files and complementary documentation to support the homologation.
+[Test Files](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Arquivos_Testes.zip)
 
-[PT-BR](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_PT-BR_Fev24.zip)
+**Last updates**
 
-[EN](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_english_Fev24.zip)
-
-[ES](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_espanol_Fev24.zip)
-
-[Arquivos de Teste](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Arquivos_Testes.zip)
-
-It is important that the approval of the new structure takes place by the indicated date so as not to impact the reading of the extracts.
-
-> Important! The current version of the extracts will no longer be supported and generated from 03/06/2024.
-
-![update](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/20231222_atualizacoes_V15_EN.JPG)
-
-## V14/ V15 – New Elo Voucher
-
-As established by Law No. **14,442, of September 2, 2022**, the **Elo Voucher** is a card that is part of the **new Open Benefit Arrangement** and offers a variety of benefits to the worker, such as meal, food, culture, transportation
-
-> This change is scheduled for implementation on 04/15/2024.
-
-**Detailed Announcement:**
-
-![Elo Voucher: New Product Code/Payment Method](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/20240219-Novo-PAT-Voucher-Elo-EN.JPG)
-
-**Manual V14:**
-
-[CIELO_Extrato_Eletronico_-_Manual_-_Versao_14.5](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Manual-Versao-14.5-Voucher-Elo.pdf)
-
-[CIELO_Electronic_Statement_-_English_-_Version_14.5](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/English-Version-14.5-Voucher-Elo.pdf)
-
-**Manual V15:**
-
-[CIELO-Extrato-Eletronico-Manual-Versao-15.6](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO-Extrato-Eletronico-Manual-Versao-15.6.pdf)
-
-[CIELO-Eletronic-Statement-Manual-Version-15.6](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO-Eletronic-Statement-Manual-Version-15.6.pdf)
-
-[CIELO-Extracto-Electronico-Manual-Version-15.6](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO-Extracto-Electronico-Manual-Version-15.6.pdf)
-
-## V15.7 - Financial Reserve in the Electronic Statement
-
-The **Financial Reserve** is basically an amount previously defined by Cielo that is reserved/blocked and is not available for negotiations/advances, and can be used to cover debts (such as fines, refunds, compensations, etc.), if there are no values ​​available in the agenda, in order to manage the risk inherent to the contractual relationship (Accreditor and Recipient/Client).
-
-> This change is scheduled for implementation on 06/03/2024.
-
-For more information, see the updates regarding the new version 15.7 in the Manual:
-
-[Manual](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO_Extrato_Eletronico_Manual_Versao_15.8.pdf)
-
-> NOTE: Version 15.8 includes both updates (15.7 and 15.8)
-
-![Communication (EN)](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/20240330ReservaFinanceira_EN.JPG)
-
-## V15.8 - New update rules in the demonstration of Receivables Negotiations entries in the Electronic Statement
-
-Since receivables negotiations may undergo changes, cancellations and recalculations by the card receivables registration system, or by the responsible financial institutions, from version 15.8 onwards the V15 Capture/Forecast Statement **(CIELO03)** will be demonstrating updates regarding expected payment amounts.
-
-> This change is scheduled for implementation on 06/03/2024.
-
-For more information, see the Manual for updates regarding the new version 15.8:
-
-[Manual](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO_Extrato_Eletronico_Manual_Versao_15.8.pdf)
-
-> NOTE: Version 15.8 includes both updates (15.7 and 15.8)
-
-![Communication (EN)](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/20240330AtualizacaoNegociacoes_Cielo_EN.JPG)
-
-# Change History
-
-## Production Version V14
-
-> Here you will find the documentation relating to the productive version of the EDI Statement, updated on: 02/23/2024
-
-[Manual Portuguese version](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Manual-Versao-14.5-Voucher-Elo.pdf)
-
-[Manual English version](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/English-Version-14.5-Voucher-Elo.pdf)
-
-## 01/09/2023 - V14 - Inclusion of new Pix fields (CIELO16) - Documentation and test files
-
-> This change was implemented in 9/1/2023
-
-[CIELO_Electronic_Statement_-_English_-_Version_14_v2(pix)](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/English_Version_14_v2pix.pdf)
-
-[Massa_PIX_Cenarios_EDI_V2](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Massa_PIX_Cenarios_EDI_V2.rar)
-
-![PIX](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Slide6.JPG)
-
-## 09/12/2022 – V14 – Receivables Negotiation + pix
-
-> Note: the updates mentioned below will be available from June 7, 2021.
-
-[Manual de Extrato Eletrônico](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_14_1_0.pdf)
-
-[Electronic Statement Manual - English version](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Electronic_Statement_-_English_-_Version_14_1_0.pdf)
-
-[Atualização de Layout EE - Registro de Recebíveis + PIX](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Atualizacao_layout_EE_-_Registro_de_Recebiveis_PIX_0.pdf)
-
-[Arquivos de teste – Comunicado 09/12/2022](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Arquivos_de_teste_-_Comunicado_09122022.rar)
+* Version: 15.7 – Financial Reserve Statement
+   * Changes to the CIELO03 Capture/Prediction file, in the topic FILE TYPOLOGY (FORMAT AND STRUCTURE)
+   * Inclusion of the new type of Record R – Financial Reserve, in the topic TYPES OF RECORDS AND STRUCTURE
+   * Inclusion of the FINANCIAL RESERVE item in the FINANCIAL CONCEPTS topic
+* Version: 15.8 – New update rules in the demonstration of releases related to Receivables Negotiations
+   * Inclusion of the item New update rules in the statement of entries related to Receivables Negotiations in the topic CONCILIATION THROUGH ELECTRONIC STATEMENT.
 
 # Introduction
 
