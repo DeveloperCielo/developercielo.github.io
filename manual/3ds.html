@@ -261,13 +261,41 @@ Além das bandeiras, o emissor do cartão também precisa processar o protocolo 
 
 <h2 id="o-que-é-o-data-only--somente-notificação">O que é o Data Only – somente notificação</h2>
 
-<p>O Data Only é um campo opcional que poderá ser utilizado exclusivamente para cartões Mastercard. Para esses casos, <strong>o ECI será sempre 4</strong>.</p>
+<p><strong>O que é?</strong></p>
 
-<p>Para usar o Data Only, na <a href="https://developercielo.github.io/manual/3ds#integra%C3%A7%C3%A3o-do-script">Integração do script</a> parametrize o campo <code class="language-plaintext highlighter-rouge">bpmpi_auth_notifyonly</code> descrito no item <strong>Etapa de Autenticação – passo 3 – Mapeamento de classes</strong>. No modelo Data Only, os campos adicionais do 3DS 2.0 são mapeados da mesma forma, e enviados para a Mastercard, porém, sem solicitar a autenticação.</p>
+<p>O Data Only é um campo opcional que poderá ser utilizado para contribuir para o banco de dados da bandeira e emissor, melhorando a performance da autenticação.</p>
 
-<p>O benefício do uso do Data Only é enriquecer o banco de dados da bandeira, que passará a receber mais informações sobre os portadores de cada lojista. Esse campo busca aprimorar a autenticação silenciosa e o índice de aprovação da transação.</p>
+<p>O Data Only pode ser usado quando o emissor não realiza a autenticação. Nesse caso, se o campo Data only foi parametrizado no script, a bandeira vai receber os dados parametrizados e vai compartilhar essas informações com o emissor. Com o tempo, o emissor terá mais dados de transações daquele cartão e da pessoa titular do cartão e terá mais elementos para realizar a autenticação.</p>
 
-<p>Vale destacar que nesse modelo, visto que não há autenticação do emissor, o risco de chargeback por fraude permanece com o lojista.</p>
+<p><strong>Como usar o Data Only?</strong></p>
+
+<p>Basta parametrizar o <code class="language-plaintext highlighter-rouge">bpmpi_auth_notifyonly</code>. A autorização ocorre da mesma forma que qualquer [Autorização com Autenticação].</p>
+
+<p>Para usar o Data Only, na <a href="https://braspag.github.io//manual/emv3ds#integra%C3%A7%C3%A3o-do-script-via-javascript">Integração do script</a> parametrize o campo <code class="language-plaintext highlighter-rouge">bpmpi_auth_notifyonly</code> descrito no item <strong>Etapa de Autenticação – passo 3 – Mapeamento de classes</strong>.</p>
+
+<p>No modelo Data Only, os campos adicionais do 3DS 2.0 são mapeados da mesma forma, e enviados para a bandeira, porém, sem solicitar a autenticação.</p>
+
+<blockquote>
+  <p>O <strong>Data Only</strong> é válido para as bandeiras Mastercard e Visa.<br />
+<br />
+Para <strong>Data Only Mastercard, o ECI será sempre 4</strong>;<br />
+Para <strong>Data Only Visa, o ECI será sempre 7</strong>.</p>
+</blockquote>
+
+<p><strong>Qual é o benefício?</strong></p>
+
+<ul>
+  <li>Zerar qualquer tipo de fricção com o comprador, que não visualiza nenhuma alteração;</li>
+  <li>Melhorar a conversão por enriquecimento da base de dados do emissor.</li>
+</ul>
+
+<blockquote>
+  <p><strong>Importante:</strong><br /></p>
+  <ul>
+    <li>Nas transações Data Only o risco de chargeback por fraude permanece com a loja;<br /></li>
+    <li>É possível usar Antifraude nas transações de Autenticação 3DS com Data Only.</li>
+  </ul>
+</blockquote>
 
 <h1 id="integração-do-script">Integração do script</h1>
 
