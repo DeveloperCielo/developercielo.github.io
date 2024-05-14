@@ -9666,9 +9666,87 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
 
 <h2 id="transação-com-renova-fácil">Transação com Renova Fácil</h2>
 
-<p>O Renova Fácil é um serviço desenvolvido pela Cielo em conjunto com os emissores, cujo objetivo é aumentar a taxa de conversão de vendas recorrentes com cartão de crédito.</p>
+<p><strong>O que é e para que serve?</strong></p>
 
-<p>O uso desta funcionalidade permite a substituição automática de um cartão de crédito que foi substituído pelo banco emissor por algum motivo (vencimento atingido, troca etc). Dessa forma, quando uma transação com marcação de recorrência for submetida para a API e a Cielo identificar que o cartão enviado foi substituído, sua autorização será negada e a API retornará os dados do novo cartão no nó <code class="language-plaintext highlighter-rouge">NewCard</code>. Quando receber os dados do novo cartão, será necessário enviar uma nova requisição de autorização com os dados do novo cartão.</p>
+<p>O Renova Fácil é um serviço desenvolvido pela Cielo em conjunto com os Emissores, cujo objetivo é substituir um cartão vencido, e assim aumentar a taxa de conversão de vendas de crédito recorrentes (recorrência própria ou recorrência programada Cielo).</p>
+
+<p>Caso haja um cartão atualizado, a API E-commerce irá informar no retorno da requisição técnica que existe um <strong>novo número de cartão</strong>, <strong>validade</strong> ou <strong>token da bandeira</strong>. Numa próxima autorização, a loja deverá enviar os dados do novo cartão.</p>
+
+<p><strong>Qual é o impacto do uso no meu negócio?</strong></p>
+
+<p>Ao substituir automaticamente os dados de um cartão vencido pelos dados do novo cartão, o Renova Fácil ajuda manter a possibilidade de converter a autorização.</p>
+
+<p><strong>Como usar o Renova Fácil?</strong></p>
+
+<p>Para recorrências programadas pela Cielo essa substituição será transparente. Para recorrência própria, a tentativa de criar uma transação com o cartão vencido será negada, e a API E-commerce irá retornar na resposta da transação os dados do novo cartão no nó <code class="language-plaintext highlighter-rouge">NewCard</code> junto com o código de retorno 57; em seguida, será necessário enviar uma nova transação para autorização, já informando os dados do novo cartão.</p>
+
+<blockquote>
+  <p>Saiba mais sobre <a href="https://developercielo.github.io/manual/cielo-ecommerce#recorr%C3%AAncia-pr%C3%B3pria">Recorrência Própria</a> e <a href="https://developercielo.github.io/manual/cielo-ecommerce#recorr%C3%AAncia-programada">Recorrência Programada</a>.</p>
+</blockquote>
+
+<p><strong>Como não usar/que não fazer?</strong></p>
+
+<p>O cartão que foi substituído não deve ser mais usado. Não recomendamos utilizar o novo cartão atualizado em outra adquirência.</p>
+
+<p><strong>Detalhes importantes</strong></p>
+
+<ul>
+  <li>Recomendamos que o novo cartão seja armazenado de maneira segura seguindo as boas práticas descritas neste guia;</li>
+  <li>O cartão que foi substituído deve ser excluído da base de cartões armazenados;</li>
+  <li>Para usar o Renova Fácil, é necessário habilitar o serviço na Cielo;</li>
+  <li>Consulte as bandeiras e emissores habilitados.</li>
+</ul>
+
+<p><strong>Bandeiras e emissores</strong> que já habilitaram o <strong>Renova Fácil</strong>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Emissores</th>
+      <th>VISA</th>
+      <th>MASTER</th>
+      <th>ELO</th>
+      <th>Amex</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BRADESCO</code></td>
+      <td>Sim</td>
+      <td>Sim</td>
+      <td>Sim</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BANCO DO BRASIL</code></td>
+      <td>Sim</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SANTANDER</code></td>
+      <td>Sim</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CITI</code></td>
+      <td>Sim</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BANCO PAN</code></td>
+      <td>Sim</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+  </tbody>
+</table>
 
 <aside class="notice">Para usar o Renova Fácil, é necessário habilitar o serviço na Cielo. Nenhuma informação extra é enviada na requisição de autorização, porém a resposta terá o nó `NewCard`.</aside>
 
@@ -9890,59 +9968,6 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
       <td>Booleano</td>
       <td>—</td>
       <td>Sim</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="bandeiras-e-emissores-habilitados">Bandeiras e emissores habilitados</h3>
-
-<p>Bandeiras e emissores que já habilitaram o Renova Fácil:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Emissores</th>
-      <th>VISA</th>
-      <th>MASTER</th>
-      <th>ELO</th>
-      <th>Amex</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">BRADESCO</code></td>
-      <td>Sim</td>
-      <td>Sim</td>
-      <td>Sim</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">BANCO DO BRASIL</code></td>
-      <td>Sim</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">SANTANDER</code></td>
-      <td>Sim</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CITI</code></td>
-      <td>Sim</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">BANCO PAN</code></td>
-      <td>Sim</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
     </tr>
   </tbody>
 </table>
