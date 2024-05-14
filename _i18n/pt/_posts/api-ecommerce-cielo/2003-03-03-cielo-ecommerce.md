@@ -5148,9 +5148,42 @@ Para a Recorrência Programada, é possível deixar até quatro retentativas hab
 
 ## Transação com Renova Fácil
 
-O Renova Fácil é um serviço desenvolvido pela Cielo em conjunto com os emissores, cujo objetivo é aumentar a taxa de conversão de vendas recorrentes com cartão de crédito.
+**O que é e para que serve?**
 
-O uso desta funcionalidade permite a substituição automática de um cartão de crédito que foi substituído pelo banco emissor por algum motivo (vencimento atingido, troca etc). Dessa forma, quando uma transação com marcação de recorrência for submetida para a API e a Cielo identificar que o cartão enviado foi substituído, sua autorização será negada e a API retornará os dados do novo cartão no nó `NewCard`. Quando receber os dados do novo cartão, será necessário enviar uma nova requisição de autorização com os dados do novo cartão.
+O Renova Fácil é um serviço desenvolvido pela Cielo em conjunto com os Emissores, cujo objetivo é substituir um cartão vencido, e assim aumentar a taxa de conversão de vendas de crédito recorrentes (recorrência própria ou recorrência programada Cielo).
+
+Caso haja um cartão atualizado, a API E-commerce irá informar no retorno da requisição técnica que existe um **novo número de cartão**, **validade** ou **token da bandeira**. Numa próxima autorização, a loja deverá enviar os dados do novo cartão.
+
+**Qual é o impacto do uso no meu negócio?**
+
+Ao substituir automaticamente os dados de um cartão vencido pelos dados do novo cartão, o Renova Fácil ajuda manter a possibilidade de converter a autorização.
+
+**Como usar o Renova Fácil?**
+
+Para recorrências programadas pela Cielo essa substituição será transparente. Para recorrência própria, a tentativa de criar uma transação com o cartão vencido será negada, e a API E-commerce irá retornar na resposta da transação os dados do novo cartão no nó `NewCard` junto com o código de retorno 57; em seguida, será necessário enviar uma nova transação para autorização, já informando os dados do novo cartão.
+
+> Saiba mais sobre [Recorrência Própria](https://developercielo.github.io/manual/cielo-ecommerce#recorr%C3%AAncia-pr%C3%B3pria) e [Recorrência Programada](https://developercielo.github.io/manual/cielo-ecommerce#recorr%C3%AAncia-programada).
+
+**Como não usar/que não fazer?**
+
+O cartão que foi substituído não deve ser mais usado. Não recomendamos utilizar o novo cartão atualizado em outra adquirência.
+
+**Detalhes importantes**
+
+* Recomendamos que o novo cartão seja armazenado de maneira segura seguindo as boas práticas descritas neste guia;
+* O cartão que foi substituído deve ser excluído da base de cartões armazenados;
+* Para usar o Renova Fácil, é necessário habilitar o serviço na Cielo;
+* Consulte as bandeiras e emissores habilitados.
+
+**Bandeiras e emissores** que já habilitaram o **Renova Fácil**:
+
+| Emissores         | VISA | MASTER | ELO | Amex |
+| ----------------- | ---- | ------ | --- | ---- |
+| `BRADESCO`        | Sim  | Sim    | Sim | Sim  |
+| `BANCO DO BRASIL` | Sim  | ---    | --- | ---  |
+| `SANTANDER`       | Sim  | ---    | --- | ---  |
+| `CITI`            | Sim  | ---    | --- | ---  |
+| `BANCO PAN`       | Sim  | ---    | --- | ---  |
 
 <aside class="notice">Para usar o Renova Fácil, é necessário habilitar o serviço na Cielo. Nenhuma informação extra é enviada na requisição de autorização, porém a resposta terá o nó `NewCard`.</aside>
 
@@ -5301,18 +5334,6 @@ Veja a seguir o exemplo de resposta de uma transação de crédito com o nó `Ne
 | `NewCard.ExpirationDate` | nova data de validade do cartão.                           | Texto    | 7       | Sim         |
 | `NewCard.Brand`          | Bandeira do cartão.                                        | Texto    | 10      | Sim         |
 | `NewCard.SaveCard`       | Identifica se o cartão gerou Cardtoken durante a transação. Saiba mais sobre [Tokenização](https://developercielo.github.io/manual/cielo-ecommerce#tokeniza%C3%A7%C3%A3o-de-cart%C3%B5es). | Booleano | ---     | Sim         |
-
-### Bandeiras e emissores habilitados
-
-Bandeiras e emissores que já habilitaram o Renova Fácil:
-
-| Emissores         | VISA | MASTER | ELO | Amex |
-| ----------------- | ---- | ------ | --- | ---- |
-| `BRADESCO`        | Sim  | Sim    | Sim | Sim  |
-| `BANCO DO BRASIL` | Sim  | ---    | --- | ---  |
-| `SANTANDER`       | Sim  | ---    | --- | ---  |
-| `CITI`            | Sim  | ---    | --- | ---  |
-| `BANCO PAN`       | Sim  | ---    | --- | ---  |
 
 # Consulta, Captura e Cancelamento
 
