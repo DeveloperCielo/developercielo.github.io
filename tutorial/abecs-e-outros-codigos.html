@@ -789,7 +789,7 @@
   </tbody>
 </table>
 
-<h1 id="outros-códigos-de-retorno">Outros códigos de retorno</h1>
+<h1 id="outros-códigos-retornados-em-returncode">Outros códigos retornados em ReturnCode</h1>
 
 <table>
   <thead>
@@ -880,31 +880,10 @@
       <td>Não</td>
     </tr>
     <tr>
-      <td>79</td>
-      <td>TRANSAÇÃO MASTERCARD NÃO PERMITIDA PARA O CARTÃO</td>
-      <td>Transação não autorizada. Não é possível processar a transação devido a erro relacionado ao cartão do portador. Solicite ao portador que entre em contato com o banco emissor.</td>
-      <td>Entre em contato com o seu banco</td>
-      <td>Não</td>
-    </tr>
-    <tr>
       <td>80</td>
       <td>Transação não autorizada. Divergencia na data de transação/pagamento.</td>
       <td>Transação não autorizada. Data da transação ou data do primeiro pagamento inválida.</td>
       <td>Transação não autorizada. Refazer a transação confirmando os dados.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>82</td>
-      <td>TRANSAÇÃO MASTERCARD NÃO AUTORIZADA. LIGUE PARA O EMISSOR</td>
-      <td>Transação não autorizada devido a regras do emissor. Oriente o portador a entrar em contato com o banco emissor.</td>
-      <td>Entre em contato com o seu banco</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>83</td>
-      <td>TRANSAÇÃO MASTERCARD SUSPEITA DE FRAUDE</td>
-      <td>Transação não autorizada. Suspeita de fraude pelo banco emissor.</td>
-      <td>Entre em contato com o seu banco</td>
       <td>Não</td>
     </tr>
     <tr>
@@ -1048,11 +1027,53 @@
       <td>Não</td>
     </tr>
     <tr>
-      <td>BP176</td>
+      <td>BP 171</td>
+      <td>Rejeitada por risco de fraude (Velocity).</td>
+      <td>Está relacionado a regras do Velocity</td>
+      <td>Tente novamente após 1 hora.</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>BP 176</td>
       <td>Transação não permitida.</td>
       <td>Parceiro deve checar se o processo de integração foi concluído com sucesso.</td>
       <td>Parceiro deve checar se o processo de integração foi concluído com sucesso.</td>
       <td>—</td>
+    </tr>
+    <tr>
+      <td>BP 900</td>
+      <td>Falha na operação.</td>
+      <td>Está relacionado a alguma falha na operação (processo de envio da requisição).</td>
+      <td>Tente novamente.</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>BP 901</td>
+      <td>Falha na operação.</td>
+      <td>Está relacionado a alguma falha na autorização.</td>
+      <td>Tente novamente.</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>BP 902</td>
+      <td>Aguarde resposta da operação anterior.</td>
+      <td>Está relacionado a alguma falha na captura.</td>
+      <td>Tente novamente.</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>BP 903</td>
+      <td>Falha no Cancelamento.</td>
+      <td>Está relacionado a alguma falha no cancelamento.</td>
+      <td>Tente novamente.</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>BP 904</td>
+      <td>Falha na Consulta.</td>
+      <td>Está relacionado a alguma falha na consulta.</td>
+      <td>Tente novamente.</td>
+      <td>Sim</td>
     </tr>
     <tr>
       <td>BR</td>
