@@ -133,7 +133,7 @@ Quando a transação é iniciada pelo portador do cartão e o cartão ainda não
 
 > Se o cartão for armazenado a partir dessa primeira transação e a bandeira for Mastercard, é necessário enviar o [Indicador de Início da Transação Mastercard](https://developercielo.github.io/manual/cielo-ecommerce#indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard)
 
-## Cenário: transação recorrente iniciada pelo portador com armazenamento do cartão
+### Cenário: transação recorrente iniciada pelo portador com armazenamento do cartão
 
 Nesse cenário o portador está realizando uma compra de produto ou serviço recorrente (com cobrança periódica) e o cartão ainda não foi armazenado.
 
