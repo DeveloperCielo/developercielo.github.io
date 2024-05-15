@@ -16,7 +16,7 @@ language_tabs:
 
 # API E-commerce Cielo
 
-# Sobre essa documentação
+## Sobre essa documentação
 
 O objetivo desta documentação é orientar sobre a integração da **API E-commerce Cielo**, descrevendo as funcionalidades e os métodos HTTP, listando informações a serem enviadas e recebidas e provendo exemplos.
 
@@ -103,6 +103,92 @@ A versão atual da API E-commerce Cielo possui suporte às seguintes bandeiras e
 | Hipercard        | Sim             | Sim                    | _Não_  | _Não_   | _Não_         |
 
 <aside class="warning">Cartões emitidos no exterior não possuem permissão de parcelamento.</aside>
+
+## Como melhorar a performance de aprovação
+
+A combinação apropriada de parâmetros e produtos podem melhorar a taxa de aprovação das suas transações. Por exemplo, antes de salvar um cartão tokenizado, é possível validar o cartão pelo Zero Auth e apenas armazenar o cartão se estiver válido.
+
+Confira a seguir alguns cenários com a indicação de informações que podem ser enviadas para auxiliar na aprovação junto aos emissores.
+
+### Cenário: validação de cartão
+
+A validação do cartão no Zero Auth é o primeiro passo antes do armazenamento do cartão ou do envio da transação.
+
+1. Envie o código de segurança do cartão (CVV) no parâmetro `Payment.CreditCard.SecurityCode`: emissores e bandeiras recomendam o envio do campo para assertividade na validação dos dados do cartão;
+2. Envie o parâmetro `Payment.CreditCard.CardOnFile.Usage` como "First" (se for a primeira vez que armazena o cartão);
+3. Realize o tratamento dos códigos de retorno – armazene o cartão (tokenizado) apenas se o retorno da validação for “0 - aprovada”.
+
+### Cenário: onboarding/armazenamento do cartão
+
+Antes de salvar um cartão para uma compra futura do portador (compra com um clique ou envio de recorrências, por exemplo), a validação do cartão é recomendada.
+
+1. Valide o cartão pelo Zero Auth, conforme cenário validação de cartão;
+2. Se a validação foi positiva, salve o cartão para compras futuras ou recorrência.
+
+### Cenário: transação iniciada pelo portador
+
+Quando a transação é iniciada pelo portador do cartão e o cartão ainda não está armazenado.
+
+1. Envie o código de segurança do cartão (CVV) no parâmetro `Payment.CreditCard.SecurityCode`;
+
+> Se o cartão for armazenado a partir dessa primeira transação e a bandeira for Mastercard, é necessário enviar o [Indicador de Início da Transação Mastercard](https://developercielo.github.io/manual/cielo-ecommerce#indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard)
+
+### Cenário: transação recorrente iniciada pelo portador com armazenamento do cartão
+
+Nesse cenário o portador está realizando uma compra de produto ou serviço recorrente (com cobrança periódica) e o cartão ainda não foi armazenado.
+
+1. Valide o cartão utilizando o Zero Auth – antes do armazenamento do cartão, conforme cenário de **validação do cartão**;
+2. Envie o parâmetro `Payment.Recurrent` como "true";
+3. Envie o parâmetro `CardOnFile.Usage` como "First";
+4. Envie o parâmetro `IssuerTransactionId` a partir da 2ª transação recorrente. O `IssuerTransactionId` é retornado pelos emissores/bandeiras na 1ª transação recorrente e funciona como um agrupador de recorrências.
+
+### Cenário: transação não recorrente iniciada pelo portador com cartão previamente armazenado
+
+Nesse cenário o portador está iniciando a transação usando um cartão previamente salvo na loja, como a compra com um clique.
+
+1. Envie o parâmetro `Payment.Recurrent` como "false";
+2. Envie o parâmetro `CardOnFile.Usage` como "Used";
+3. Envie o código de segurança do cartão (CVV) no parâmetro `Payment.CreditCard.SecurityCode`.
+
+### Cenário: transação não recorrente iniciada pela loja
+
+Nesse cenário entende-se que o cartão já está armazenado com a validação pelo Zero Auth.
+
+1. Envie o parâmetro `Payment.Recurrent` como "false";
+2. Envie o parâmetro `CardOnFile.Usage` como "Used".
+
+O cartão deve ser excluído da base caso o emissor retorne um código irreversível.
+
+### Cenário: transação recorrente iniciada pela loja
+
+Nesse cenário entende-se que o cartão já está armazenado com a validação pelo Zero Auth.
+
+1. Envie o parâmetro `Payment.Recurrent` como "true";
+2. Envie o parâmetro `CardOnFile.Usage` como "Used";
+3. Envie o parâmetro `IssuerTransactionId` a partir da 2ª transação recorrente. O `IssuerTransactionId` é retornado pelos emissores/bandeiras na 1ª transação recorrente e funciona como um agrupador de recorrências.
+
+O cartão deve ser excluído da base caso o emissor retorne um código irreversível.
+
+### Cenário: transação recorrente iniciada pela loja com cartão armazenado não utilizado ou sem validação
+
+Nesse cenário trata-se a primeira transação iniciada pela loja com cartão previamente armazenado (base antiga, por exemplo).
+
+1. Valide o cartão pelo Zero Auth, conforme cenário validação de cartão;
+2. Envie o parâmetro `Payment.Recurrent` como "true";
+3. Envie o parâmetro `CardOnFile.Usage` como "Used".
+
+O cartão deve ser excluído da base caso a validação pelo Zero Auth retorne um código irreversível.
+
+### Cenário: transação não recorrente, iniciada pelo portador, com armazenamento de cartão não utilizado ou sem validação
+
+Nesse caso trata-se a primeira transação iniciada pelo portador com cartão previamente armazenado (base antiga, por exemplo).
+
+1. Valide o cartão pelo Zero Auth antes de armazenar o cartão, conforme cenário validação de cartão;
+2. Envie o parâmetro `Payment.Recurrent` como "false";
+3. Envie o parâmetro `CardOnFile.Usage` como "Used";
+4. Envie o código de segurança do cartão (CVV) no parâmetro `Payment.CreditCard.SecurityCode`.
+
+O cartão deve ser excluído da base caso a validação pelo Zero Auth retorne um código irreversível.
 
 ## Suporte Cielo
 
@@ -5148,9 +5234,42 @@ Para a Recorrência Programada, é possível deixar até quatro retentativas hab
 
 ## Transação com Renova Fácil
 
-O Renova Fácil é um serviço desenvolvido pela Cielo em conjunto com os emissores, cujo objetivo é aumentar a taxa de conversão de vendas recorrentes com cartão de crédito.
+**O que é e para que serve?**
 
-O uso desta funcionalidade permite a substituição automática de um cartão de crédito que foi substituído pelo banco emissor por algum motivo (vencimento atingido, troca etc). Dessa forma, quando uma transação com marcação de recorrência for submetida para a API e a Cielo identificar que o cartão enviado foi substituído, sua autorização será negada e a API retornará os dados do novo cartão no nó `NewCard`. Quando receber os dados do novo cartão, será necessário enviar uma nova requisição de autorização com os dados do novo cartão.
+O Renova Fácil é um serviço desenvolvido pela Cielo em conjunto com os Emissores, cujo objetivo é substituir um cartão vencido, e assim aumentar a taxa de conversão de vendas de crédito recorrentes (recorrência própria ou recorrência programada Cielo).
+
+Caso haja um cartão atualizado, a API E-commerce irá informar no retorno da requisição técnica que existe um **novo número de cartão**, **validade** ou **token da bandeira**. Numa próxima autorização, a loja deverá enviar os dados do novo cartão.
+
+**Qual é o impacto do uso no meu negócio?**
+
+Ao substituir automaticamente os dados de um cartão vencido pelos dados do novo cartão, o Renova Fácil ajuda manter a possibilidade de converter a autorização.
+
+**Como usar o Renova Fácil?**
+
+Para recorrências programadas pela Cielo essa substituição será transparente. Para recorrência própria, a tentativa de criar uma transação com o cartão vencido será negada, e a API E-commerce irá retornar na resposta da transação os dados do novo cartão no nó `NewCard` junto com o código de retorno 57; em seguida, será necessário enviar uma nova transação para autorização, já informando os dados do novo cartão.
+
+> Saiba mais sobre [Recorrência Própria](https://developercielo.github.io/manual/cielo-ecommerce#recorr%C3%AAncia-pr%C3%B3pria) e [Recorrência Programada](https://developercielo.github.io/manual/cielo-ecommerce#recorr%C3%AAncia-programada).
+
+**Como não usar/que não fazer?**
+
+O cartão que foi substituído não deve ser mais usado. Não recomendamos utilizar o novo cartão atualizado em outra adquirência.
+
+**Detalhes importantes**
+
+* Recomendamos que o novo cartão seja armazenado de maneira segura seguindo as boas práticas descritas neste guia;
+* O cartão que foi substituído deve ser excluído da base de cartões armazenados;
+* Para usar o Renova Fácil, é necessário habilitar o serviço na Cielo;
+* Consulte as bandeiras e emissores habilitados.
+
+**Bandeiras e emissores** que já habilitaram o **Renova Fácil**:
+
+| Emissores         | VISA | MASTER | ELO | Amex |
+| ----------------- | ---- | ------ | --- | ---- |
+| `BRADESCO`        | Sim  | Sim    | Sim | Sim  |
+| `BANCO DO BRASIL` | Sim  | ---    | --- | ---  |
+| `SANTANDER`       | Sim  | ---    | --- | ---  |
+| `CITI`            | Sim  | ---    | --- | ---  |
+| `BANCO PAN`       | Sim  | ---    | --- | ---  |
 
 <aside class="notice">Para usar o Renova Fácil, é necessário habilitar o serviço na Cielo. Nenhuma informação extra é enviada na requisição de autorização, porém a resposta terá o nó `NewCard`.</aside>
 
@@ -5301,18 +5420,6 @@ Veja a seguir o exemplo de resposta de uma transação de crédito com o nó `Ne
 | `NewCard.ExpirationDate` | nova data de validade do cartão.                           | Texto    | 7       | Sim         |
 | `NewCard.Brand`          | Bandeira do cartão.                                        | Texto    | 10      | Sim         |
 | `NewCard.SaveCard`       | Identifica se o cartão gerou Cardtoken durante a transação. Saiba mais sobre [Tokenização](https://developercielo.github.io/manual/cielo-ecommerce#tokeniza%C3%A7%C3%A3o-de-cart%C3%B5es). | Booleano | ---     | Sim         |
-
-### Bandeiras e emissores habilitados
-
-Bandeiras e emissores que já habilitaram o Renova Fácil:
-
-| Emissores         | VISA | MASTER | ELO | Amex |
-| ----------------- | ---- | ------ | --- | ---- |
-| `BRADESCO`        | Sim  | Sim    | Sim | Sim  |
-| `BANCO DO BRASIL` | Sim  | ---    | --- | ---  |
-| `SANTANDER`       | Sim  | ---    | --- | ---  |
-| `CITI`            | Sim  | ---    | --- | ---  |
-| `BANCO PAN`       | Sim  | ---    | --- | ---  |
 
 # Consulta, Captura e Cancelamento
 

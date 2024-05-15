@@ -11,117 +11,27 @@ tags:
   - 6. EDI Cielo
 ---
 
-# Importante
+# EXTRATO ELETRÔNICO v15
 
-## V15 - Nova versão dos extratos eletrônicos - Documentação e arquivos de teste
+**Documentação**
 
-Visando trazer maior transparência e fluidez na conciliação dos extratos, os nossos arquivos terão uma nova estrutura em sua demonstração.
+[CIELO_Extrato_Eletronico_Manual_Versao_15.8](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_Manual_Versao_15.8.pdf)
 
-> Esta mudança está prevista para implantação em 19/03/2024.
-
-Abaixo segue o comunicado enviado com os detalhes das alterações, arquivos de teste e documentação complementar para apoiar com a homologação.
-
-[Material versão português](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_PT-BR_Fev24.zip)
-
-[Material version english](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_english_Fev24.zip)
-
-[Material versión español](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Material_espanol_Fev24.zip)
+* Versão produtiva: **15.6**
+* Próxima atualização: ***03/06/2024 para a versão 15.8**
+  
+**Arquivos de teste**
 
 [Arquivos de Teste](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Arquivos_Testes.zip)
 
-É importante que a homologação da nova estrutura ocorra até a data indicada para não impactar a leitura dos extratos.
+**Últimas atualizações**
 
-> Importante! A versão atual dos extratos não terá mais suporte e geração a partir de 03/06/2024.
-
-![Atualizacao](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/20231222_atualizacoes_V15_PT.JPG)
-
-## V14/ V15 – Novo Voucher Elo
-
-Conforme estabelecido pela Lei N° **14.442, de 2 de setembro de 2022**, o **Voucher Elo** é um cartão que faz parte do **novo Arranjo Aberto de Benefícios** e oferece uma variedade de benefícios para o trabalhador, como refeição, alimentação, cultura, transporte
-
-> Esta mudança está prevista para implantação em 15/04/2024.
-
-**Comunicado Detalhado:**
-
-![Elo Voucher: New Product Code/Payment Method](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/20240219_Novo_PAT_Voucher_Elo_PT.JPG)
-
-**Manual V14:**
-
-[CIELO_Extrato_Eletronico_-_Manual_-_Versao_14.5](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Manual-Versao-14.5-Voucher-Elo.pdf)
-
-[CIELO_Electronic_Statement_-_English_-_Version_14.5](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/English-Version-14.5-Voucher-Elo.pdf)
-
-**Manual V15:**
-
-[CIELO-Extrato-Eletronico-Manual-Versao-15.6](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO-Extrato-Eletronico-Manual-Versao-15.6.pdf)
-
-[CIELO-Eletronic-Statement-Manual-Version-15.6](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO-Eletronic-Statement-Manual-Version-15.6.pdf)
-
-[CIELO-Extracto-Electronico-Manual-Version-15.6](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO-Extracto-Electronico-Manual-Version-15.6.pdf)
-
-## V15.7 - Reserva Financeira No Extrato Eletrônico
-
-A **Reserva Financeira**, basicamente é um montante previamente definido pela Cielo que é reservado/bloqueado e não fica disponível para negociações/antecipações, podendo ser utilizada para cobrir débitos (tais como multas, estornos, compensações, etc.), caso não existam valores disponíveis em agenda, a fim de gerenciar o risco inerente à relação contratual (Credenciadora e Recebedor/Cliente).
-
-> Esta mudança está prevista para implantação em 03/06/2024.
-
-Para maiores informações consulte no Manual, as atualizações referentes à nova versão 15.8.1:
-
-[Manual](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_15.8.1.pdf) 
-
-> OBS: A versão 15.8 contempla ambas as atualizações (15.7 e 15.8)
-
-![Comunicado (PT)](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/20240330ReservaFinanceira_PT.JPG)
-
-![Comunicado (EN)](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/20240330ReservaFinanceira_EN.JPG)
-
-## V15.8.1 - Novas regras de atualização na demonstração de lançamentos de Negociações de Recebíveis no Extrato Eletrônico
-
-Uma vez que as negociações de recebíveis podem sofrer alterações, cancelamentos e recálculos pelo sistema de registro de recebíveis de cartões, ou pelas instituições financeiras responsáveis, a partir da versão 15.8 o Extrato V15 de Captura/Previsão **(CIELO03)**, passará a demonstrar as atualizações referentes aos valores previstos para pagamento.
-
-> Esta mudança está prevista para implantação em 03/06/2024.
-
-Para maiores informações consulte no Manual, as atualizações referentes à nova versão 15.8.1:
-
-[Manual](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_15.8.1.pdf) 
-
-> OBS: A versão 15.8 contempla ambas as atualizações (15.7 e 15.8)
-
-![Comunicado (PT)](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/20240330AtualizacaoNegociacoes_Cielo_PT.JPG)
-
-![Comunicado (EN)](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/20240330AtualizacaoNegociacoes_Cielo_EN.JPG)
-
-# Histórico de Alterações
-
-## Versão Produtiva V14
-
-> Aqui você encontra as documentações referentes a versão produtiva do Extrato EDI, atualizada em: 23/02/2024
-
-[Manual versão português](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Manual-Versao-14.5-Voucher-Elo.pdf)
-
-[Manual versão inglês](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/English-Version-14.5-Voucher-Elo.pdf)
-
-## 01/09/2023 - V14 - Inclusão de novos campos Pix (CIELO16) - Documentação e arquivos de teste
-
-> Esta mudança foi implantada em 01/09/2023
-
-[CIELO_Extrato_Eletronico_-_Manual_-_Versao_14_v2(pix)](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Manual_Versao_14_v2pix.pdf)
-
-[Massa_PIX_Cenarios_EDI_V2](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Massa_PIX_Cenarios_EDI_V2.rar)
-
-![PIX](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Slide5.JPG)
-
-## 09/12/2022 – V14 – Negociação de Recebíveis + pix 
-
-> Observação: as atualizações citadas abaixo, estarão disponíveis a partir do dia 07 de junho de 2021.
-
-[Manual de Extrato Eletrônico](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_14_1_0.pdf)
-
-[Electronic Statement Manual - English version](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Electronic_Statement_-_English_-_Version_14_1_0.pdf)
-
-[Atualização de Layout EE - Registro de Recebíveis + PIX](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Atualizacao_layout_EE_-_Registro_de_Recebiveis_PIX_0.pdf)
-
-[Arquivos de teste – Comunicado 09/12/2022](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Arquivos_de_teste_-_Comunicado_09122022.rar)
+* Versão: 15.7 – Demonstração da Reserva financeira
+  * Alterações no arquivo CIELO03 Captura/Previsão, no tópico TIPOLOGIA DOS ARQUIVOS (FORMATO E ESTRUTURA)
+  * Inclusão do novo tipo de Registro R – Reserva Financeira, no tópico TIPOS DE REGISTROS E ESTRUTURA
+  * Inclusão do item RESERVA FINANCEIRA no tópico CONCEITOS FINANCEIROS
+* Versão: 15.8 – Novas regras de atualização na demonstração de lançamentos relacionados à Negociações de Recebíveis
+  * Inclusão do item Novas regras de atualização na demonstração de lançamentos relacionados à Negociações de Recebíveis no tópico CONCILIAÇÃO ATRAVÉS DO EXTRATO ELETRÔNICO.
 
 # Introdução
 
