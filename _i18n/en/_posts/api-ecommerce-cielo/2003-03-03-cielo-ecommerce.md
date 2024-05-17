@@ -6357,14 +6357,14 @@ The BIN query may indicate an attempt to use an international or prepaid card. I
 
 A `GET` request must be sent containing the BIN to be checked:
 
-<aside class="request"><span class="method get">GET</span><span class="endpoint">/1/cardBin/`BIN`</span></aside>
+<aside class="request"><span class="method get">GET</span><span class="endpoint">{API Query}/1/cardBin/`BIN`</span></aside>
 
 | Field | Description                                    |
 | ----- | ---------------------------------------------- |
 | `BIN` | It's the first six or nine digits of the card. |
 
 ```json
-https://apiquerysandbox.cieloecommerce.cielo.com.br/1/cardBin/420020
+https://apiquery.cieloecommerce.cielo.com.br/1/cardBin/420020
 ```
 
 ### Response
