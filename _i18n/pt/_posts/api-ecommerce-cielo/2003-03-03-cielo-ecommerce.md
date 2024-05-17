@@ -6514,14 +6514,14 @@ Não realize a consulta de forma excessiva, sem estar vinculada a uma transaçã
 
 Basta realizar um `GET` enviando o BIN à nossa URL de consulta:
 
-<aside class="request"><span class="method get">GET</span><span class="endpoint">/1/cardBin/`BIN`</span></aside>
+<aside class="request"><span class="method get">GET</span><span class="endpoint">{API Query}/1/cardBin/`BIN`</span></aside>
 
 | Campo | Descrição                                        |
 | ----- | ------------------------------------------------ |
 | `BIN` | São os seis ou nove primeiros dígitos do cartão. |
 
 ```json
-https://apiquerysandbox.cieloecommerce.cielo.com.br/1/cardBin/420020
+https://apiquery.cieloecommerce.cielo.com.br/1/cardBin/420020
 ```
 
 ### Resposta
