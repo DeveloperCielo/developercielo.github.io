@@ -93,7 +93,7 @@ Cielo informs its customers that it's prepared to process transactions following
 |ID VALIDATION FAILURE|IRREVERSIBLE|NO CORRESPONDING CODE|6P|NO CORRESPONDING CODE|NO CORRESPONDING CODE|NO CORRESPONDING CODE|ID VERIFICATION FAILED|
 |USE THE CHIP|IRREVERSIBLE|FM|NO CORRESPONDING CODE|NO CORRESPONDING CODE|NO CORRESPONDING CODE|NO CORRESPONDING CODE|USE THE CHIP|
 
-### Other return codes
+# Other return codes
 
 | Response Code   | Definition                                     | Meaning                                                                     | Action                                                            | Allows Retry |
 |-----------------|-----------------------------------------------|-----------------------------------------------------------------------------|-------------------------------------------------------------------|---------------------|
