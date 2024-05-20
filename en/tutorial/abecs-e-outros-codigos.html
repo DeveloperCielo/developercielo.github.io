@@ -134,19 +134,25 @@
                 </div>
             </div>
 
-            <div class="post"><h1 id="return-codes-abecs">Return codes ABECS</h1>
+            <div class="post"><aside class="notice">Last updated in May 20th 2024.</aside>
 
-<blockquote>
-  <p>You can access information about the card brand rules for retrying transactions at <a href="" target="_blank">Card Brands Retry Program</a>.</p>
-</blockquote>
+<h1 id="return-codes-abecs">Return codes ABECS</h1>
 
-<p>The <strong>Brazilian Association of Credit Card and Services Companies (ABECS)</strong> establishes as of July 15, 2020, the standardization of the return code of refused sales authorizations for both the physical payment and e-commerce solutions of the Brazilian market .</p>
+<p>The <strong>Brazilian Association of Credit Card and Services Companies (ABECS)</strong> established as of July 15, 2020, the standardization of the return code of refused sales authorizations for both the physical payment and e-commerce solutions of the Brazilian market .</p>
 
 <p>This normative measure seeks to bring benefits to the entire payment market, providing greater transparency in the understanding of the reason for the refusal of transactions, in addition to enabling greater assertiveness in the adoption of sales retentive strategies.</p>
 
 <p>Cielo informs its customers that it’s prepared to process transactions following this new market standard, below is the table of codes standardized by ABECS.</p>
 
+<blockquote>
+  <p>To access the official table on the ABECs website, go to <a href="https://api.abecs.org.br/wp-content/uploads/2023/04/20230406-Normativo-21-V3-aprovado-publication.pdf" target="_blank">ABECS Normative</a>.</p>
+</blockquote>
+
 <aside class="notice">The AMEX flag codes have undergone a to/from in order to maintain two digits. We reinforce that this measure does not change the reasons for return.</aside>
+
+<blockquote>
+  <p>For better authorization performance, consult the manual <a href="https://developercielo.github.io/manual/cielo-ecommerce#programa-de-retentativa-das-bandeiras" target="_blank">Card Brands Retry Program</a> to know what action to take if the retry is allowed.</p>
+</blockquote>
 
 <table>
   <thead>
@@ -159,7 +165,6 @@
       <th style="text-align: center">AMEX</th>
       <th>AMEX - From/To Cielo</th>
       <th>Message POS/Ecommerce</th>
-      <th>Did ABECS change anything in 2022?</th>
     </tr>
   </thead>
   <tbody>
@@ -172,7 +177,6 @@
       <td style="text-align: center">100</td>
       <td>FA</td>
       <td>CONTACT YOUR CARD CENTER</td>
-      <td>No</td>
     </tr>
     <tr>
       <td>INSUFFICIENT BALANCE/LIMIT</td>
@@ -183,7 +187,6 @@
       <td style="text-align: center">116</td>
       <td>5</td>
       <td>NOT AUTHORIZED</td>
-      <td>No</td>
     </tr>
     <tr>
       <td>INSUFFICIENT BALANCE/LIMIT</td>
@@ -194,7 +197,6 @@
       <td style="text-align: center">121</td>
       <td>A5</td>
       <td>NOT AUTHORIZED</td>
-      <td>Only in our documentation</td>
     </tr>
     <tr>
       <td>INVALID PASSWORD</td>
@@ -205,7 +207,6 @@
       <td style="text-align: center">117</td>
       <td>A6</td>
       <td>INVALID PASSWORD</td>
-      <td>No</td>
     </tr>
     <tr>
       <td>TRANSACTION NOT ALLOWED FOR CARD</td>
@@ -216,7 +217,6 @@
       <td style="text-align: center">-</td>
       <td>FD</td>
       <td>TRANSACTION NOT ALLOWED FOR CARD</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>TRANSACTION NOT ALLOWED FOR CARD</td>
@@ -227,7 +227,6 @@
       <td style="text-align: center">200</td>
       <td>-</td>
       <td>TRANSACTION NOT ALLOWED FOR CARD - DON’T TRY AGAIN</td>
-      <td>New</td>
     </tr>
     <tr>
       <td>CARD NUMBER DOESN’T BELONG TO THE ISSUER / INVALID CARD NUMBER</td>
@@ -238,7 +237,6 @@
       <td style="text-align: center">122</td>
       <td>8</td>
       <td>CHECK THE CARD DATA</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>SECURITY BREACH</td>
@@ -249,7 +247,6 @@
       <td style="text-align: center">122</td>
       <td>8</td>
       <td>CHECK THE CARD DATA</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>SECURITY BREACH</td>
@@ -260,7 +257,6 @@
       <td style="text-align: center">-</td>
       <td>-</td>
       <td>CHECK THE CARD DATA</td>
-      <td>New</td>
     </tr>
     <tr>
       <td>SUSPECTED FRAUD/TRAVEL WARNING</td>
@@ -271,7 +267,6 @@
       <td style="text-align: center">100</td>
       <td>FA</td>
       <td>CONTACT YOUR CARD CENTER</td>
-      <td>No</td>
     </tr>
     <tr>
       <td>INVALID MERCHANT</td>
@@ -282,7 +277,6 @@
       <td style="text-align: center">109</td>
       <td>DA</td>
       <td>TRANSACTION NOT ALLOWED - DO NOT TRY AGAIN</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>REDO THE TRANSACTION (ISSUER REQUESTS RETRY)</td>
@@ -293,7 +287,6 @@
       <td style="text-align: center">NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>REDO THE TRANSACTION</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>CONSULT ACCREDITATOR</td>
@@ -304,7 +297,6 @@
       <td style="text-align: center">NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>MERCHANT, CONTACT THE ACQUIRER</td>
-      <td> </td>
     </tr>
     <tr>
       <td>PROBLEM IN THE ACQUIRER</td>
@@ -315,7 +307,6 @@
       <td style="text-align: center">NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>CARD ERROR - DON’T TRY AGAIN</td>
-      <td>No</td>
     </tr>
     <tr>
       <td>CARD ERROR</td>
@@ -326,7 +317,6 @@
       <td style="text-align: center">115</td>
       <td>A2</td>
       <td>CHECK THE CARD DATA</td>
-      <td>No</td>
     </tr>
     <tr>
       <td>FORMAT ERROR (MESSAGE)</td>
@@ -337,7 +327,6 @@
       <td style="text-align: center">181</td>
       <td>A3</td>
       <td>CARD ERROR - DON’T TRY AGAIN</td>
-      <td>No</td>
     </tr>
     <tr>
       <td>TRANSACTION AMOUNT INVALD</td>
@@ -348,7 +337,6 @@
       <td style="text-align: center">110</td>
       <td>JB</td>
       <td>TRANSACTION VALUE NOT ALLOWED - DON’T TRY AGAIN</td>
-      <td>No</td>
     </tr>
     <tr>
       <td>VALUE OF INVALID PARCEL</td>
@@ -359,7 +347,6 @@
       <td style="text-align: center">115</td>
       <td>A2</td>
       <td>INVALID INSTALLMENT - DON’T TRY AGAIN</td>
-      <td>No</td>
     </tr>
     <tr>
       <td>PASSWORD ATTEMPTS EXCEEDED / SHOPPING</td>
@@ -370,7 +357,6 @@
       <td style="text-align: center">106</td>
       <td>A4</td>
       <td>PASSWORD TRYING EXCEEDED. CONTACT YOUR CARD CENTER</td>
-      <td> </td>
     </tr>
     <tr>
       <td>LOST CARD</td>
@@ -381,7 +367,6 @@
       <td style="text-align: center">200</td>
       <td>FD</td>
       <td>TRANSACTION NOT ALLOWED - DO NOT TRY AGAIN</td>
-      <td>No</td>
     </tr>
     <tr>
       <td>STOLEN CARD</td>
@@ -392,7 +377,6 @@
       <td style="text-align: center">200</td>
       <td>FD</td>
       <td>TRANSACTION NOT ALLOWED - DO NOT TRY AGAIN</td>
-      <td>No</td>
     </tr>
     <tr>
       <td>EXPIRED CARD / INVALID EXPIRATION DATE</td>
@@ -403,7 +387,6 @@
       <td style="text-align: center">101</td>
       <td>BV</td>
       <td>CHECK THE CARD DATA</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>TRANSACTION NOT ALLOWED/TERMINAL CAPACITY</td>
@@ -414,7 +397,6 @@
       <td style="text-align: center">-</td>
       <td>-</td>
       <td>TRANSACTION NOT ALLOWED - DO NOT TRY AGAIN</td>
-      <td>No</td>
     </tr>
     <tr>
       <td>EXCESS VALUE/WITHDRAW</td>
@@ -425,7 +407,6 @@
       <td style="text-align: center">NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>EXCEEDED VALUE. CONTACT YOUR CARD CENTER</td>
-      <td>No</td>
     </tr>
     <tr>
       <td>TEMPORARY BLOCK (EX: NON-COMPLIANCE)</td>
@@ -436,7 +417,6 @@
       <td style="text-align: center">NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>CONTACT YOUR CARD CENTER</td>
-      <td>New</td>
     </tr>
     <tr>
       <td>DOMESTIC CARD - INTERNATIONAL TRANSACTION</td>
@@ -447,7 +427,6 @@
       <td style="text-align: center">WITHOUT CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>CARD DOESN’T ALLOW INTERNATIONAL TRANSACTION</td>
-      <td>Only in our documentation</td>
     </tr>
     <tr>
       <td>DOMESTIC CARD - INTERNATIONAL TRANSACTION</td>
@@ -458,7 +437,6 @@
       <td style="text-align: center">NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>CARD DOESN’T ALLOW INTERNATIONAL TRANSACTION</td>
-      <td>Only in our documentation</td>
     </tr>
     <tr>
       <td>MINIMUM TRANSACTION VALUE INVALID</td>
@@ -469,7 +447,6 @@
       <td style="text-align: center">NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>TRANSACTION VALUE NOT ALLOWED - DON’T TRY AGAIN</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>AMOUNT OF WITHDRAWALS EXCEEDED</td>
@@ -480,7 +457,6 @@
       <td style="text-align: center">NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>AMOUNT OF WITHDRAWALS EXCEEDED. CONTACT YOUR CARD CENTER</td>
-      <td>No</td>
     </tr>
     <tr>
       <td>PASSWORD EXPIRED / PASSWORD CRYPTOGRAPHY ERROR</td>
@@ -491,7 +467,6 @@
       <td style="text-align: center">180</td>
       <td>A7</td>
       <td>INVALID PASSWORD - DON’T TRY AGAIN</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>PASSWORD ATTEMPTS EXCEEDED/ WITHDRAW</td>
@@ -502,7 +477,6 @@
       <td style="text-align: center">106</td>
       <td>A4</td>
       <td>PASSWORD TRIES EXCEEDED. CONTACT YOUR CARD CENTER</td>
-      <td>No</td>
     </tr>
     <tr>
       <td>INVALID OR NON-EXISTING DESTINATION ACCOUNT</td>
@@ -513,7 +487,6 @@
       <td style="text-align: center">NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>INVALID DESTINATION ACCOUNT - DON’T TRY AGAIN</td>
-      <td>No</td>
     </tr>
     <tr>
       <td>ACCOUNT INVALID OR NON-EXISTING</td>
@@ -524,7 +497,6 @@
       <td style="text-align: center">NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>INVALID ORIGIN ACCOUNT - DON’T TRY AGAIN</td>
-      <td>No</td>
     </tr>
     <tr>
       <td>NEW CARD WITHOUT UNLOCKING (INCLUDES CARD BLOCKED BY THE CLIENT ON THE APP)</td>
@@ -535,7 +507,6 @@
       <td style="text-align: center">NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>UNLOCK THE CARD</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>INVALID CARD (cryptogram)</td>
@@ -546,7 +517,6 @@
       <td style="text-align: center">180</td>
       <td>A7</td>
       <td>CARD ERROR - DON’T TRY AGAIN</td>
-      <td>No</td>
     </tr>
     <tr>
       <td>ISSUER DOWN</td>
@@ -557,7 +527,6 @@
       <td style="text-align: center">912</td>
       <td>A1</td>
       <td>COMMUNICATION FAILURE - TRY LATER</td>
-      <td>No</td>
     </tr>
     <tr>
       <td>SYSTEM FAILURE</td>
@@ -568,7 +537,6 @@
       <td style="text-align: center">911</td>
       <td>AE</td>
       <td>COMMUNICATION FAILURE - TRY LATER</td>
-      <td>No</td>
     </tr>
     <tr>
       <td>DIFFERENCE - PRE-AUTHORIZATION</td>
@@ -579,7 +547,6 @@
       <td style="text-align: center">NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>DIFFERENT VALUE OF PRE-AUTHORIZATION - DON’T TRY AGAIN</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>INCORRECT FUNCTION (DEBIT)</td>
@@ -590,7 +557,6 @@
       <td style="text-align: center">NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>USE CREDIT FUNCTION</td>
-      <td>No</td>
     </tr>
     <tr>
       <td>INCORRECT FUNCTION (CREDIT)</td>
@@ -601,7 +567,6 @@
       <td style="text-align: center">NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>USE DEBIT FUNCTION</td>
-      <td>No</td>
     </tr>
     <tr>
       <td>PASSWORD CHANGE / UNLOCKING</td>
@@ -612,7 +577,6 @@
       <td style="text-align: center">NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>INVALID PASSWORD - DON’T TRY AGAIN</td>
-      <td>No</td>
     </tr>
     <tr>
       <td>NEW PASSWORD NOT ACCEPTED</td>
@@ -623,7 +587,6 @@
       <td style="text-align: center">NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>INVALID PASSWORD USE THE NEW PASSWORD</td>
-      <td>Sim</td>
     </tr>
     <tr>
       <td>COLLECT CARD (THERE IS NO FRAUD)</td>
@@ -634,7 +597,6 @@
       <td style="text-align: center">NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>CONTACT YOUR CARD CENTER - DON’T TRY AGAIN</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>DYNAMIC KEY CHANGE ERROR</td>
@@ -645,7 +607,6 @@
       <td style="text-align: center">NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>CARD ERROR - DON’T TRY AGAIN</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>CONFIRMED FRAUD</td>
@@ -656,7 +617,6 @@
       <td style="text-align: center">200</td>
       <td>FD</td>
       <td>TRANSACTION NOT ALLOWED FOR CARD - DON’T TRY AGAIN</td>
-      <td>No</td>
     </tr>
     <tr>
       <td>ISSUER NOT LOCATED - INCORRECT BIN (acquirer negative)</td>
@@ -667,7 +627,6 @@
       <td style="text-align: center">NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>INVALID CARD DATA - DON’T TRY AGAIN</td>
-      <td>No</td>
     </tr>
     <tr>
       <td>FAILURE TO COMPLY WITH THE LAWS OF ANTI MONEY LAUNDERING</td>
@@ -678,7 +637,6 @@
       <td style="text-align: center">NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>CONTACT YOUR CARD CENTER - DON’T TRY AGAIN</td>
-      <td>No</td>
     </tr>
     <tr>
       <td>INVALID REVERSION</td>
@@ -689,7 +647,6 @@
       <td style="text-align: center">NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>CONTACT YOUR CARD CENTER - DON’T TRY AGAIN</td>
-      <td>No</td>
     </tr>
     <tr>
       <td>NOT LOCATED BY ROUTER</td>
@@ -700,7 +657,6 @@
       <td style="text-align: center">NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>CONTACT YOUR CARD CENTER - DON’T TRY AGAIN</td>
-      <td>No</td>
     </tr>
     <tr>
       <td>TRANSACTION DENIED FOR INFRINGEMENT OF LAW</td>
@@ -711,7 +667,6 @@
       <td style="text-align: center">NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>TRANSACTION NOT ALLOWED FOR CARD - DON’T TRY AGAIN</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>DUPLICATE DATE OF TRACING DATE</td>
@@ -722,7 +677,6 @@
       <td style="text-align: center">NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>CONTACT YOUR CARD CENTER - DON’T TRY AGAIN</td>
-      <td>No</td>
     </tr>
     <tr>
       <td>SURCHARGE NOT SUPPORTED</td>
@@ -733,7 +687,6 @@
       <td style="text-align: center">NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>CONTACT YOUR CARD CENTER</td>
-      <td>No</td>
     </tr>
     <tr>
       <td>SURCHARGE NOT SUPPORTED BY THE DEBIT NETWORK</td>
@@ -744,7 +697,6 @@
       <td style="text-align: center">NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>CONTACT YOUR CARD CENTER</td>
-      <td>No</td>
     </tr>
     <tr>
       <td>FORCE STIP</td>
@@ -755,7 +707,6 @@
       <td style="text-align: center">NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>CONTACT YOUR CARD CENTER</td>
-      <td>No</td>
     </tr>
     <tr>
       <td>WITHDRAWAL NOT AVAILABLE</td>
@@ -766,7 +717,6 @@
       <td style="text-align: center">NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>WITHDRAWAL NOT AVAILABLE - DON’T TRY AGAIN</td>
-      <td>No</td>
     </tr>
     <tr>
       <td>RECURRENT PAYMENT SUSPENSION FOR A SERVICE</td>
@@ -777,7 +727,6 @@
       <td style="text-align: center">NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>RECURRING SERVICE PAYMENT SUSPENSION - DON’T TRY AGAIN</td>
-      <td>No</td>
     </tr>
     <tr>
       <td>RECURRENT PAYMENT SUSPENSION FOR ALL SERVICES</td>
@@ -788,7 +737,6 @@
       <td style="text-align: center">NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>RECURRING SERVICE PAYMENT SUSPENSION - DON’T TRY AGAIN</td>
-      <td>No</td>
     </tr>
     <tr>
       <td>TRANSACTION NOT QUALIFIED FOR VISA PIN</td>
@@ -799,7 +747,6 @@
       <td style="text-align: center">NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>TRANSACTION NOT ALLOWED FOR CARD - DON’T TRY AGAIN</td>
-      <td>No</td>
     </tr>
     <tr>
       <td>SUSPENSION OF ALL AUTHORIZATION ORDERS</td>
@@ -810,7 +757,6 @@
       <td style="text-align: center">NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>RECURRING SERVICE PAYMENT SUSPENSION - DON’T TRY AGAIN</td>
-      <td>No</td>
     </tr>
     <tr>
       <td>IT’S NOT POSSIBLE TO LOCATE THE REGISTRATION IN THE FILE</td>
@@ -821,7 +767,6 @@
       <td style="text-align: center">NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>CONTACT YOUR CARD CENTER - DON’T TRY AGAIN</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>FILE NOT AVAILABLE FOR UPDATE</td>
@@ -832,7 +777,6 @@
       <td style="text-align: center">NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>CONTACT YOUR CARD CENTER - DON’T TRY AGAIN</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>CLOSED ACCOUNT</td>
@@ -843,7 +787,6 @@
       <td style="text-align: center">NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>TRANSACTION NOT PERMITTED TO CARD - DO NOT TRY AGAIN</td>
-      <td>New</td>
     </tr>
     <tr>
       <td>ID VALIDATION FAILURE</td>
@@ -854,7 +797,6 @@
       <td style="text-align: center">NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>ID VERIFICATION FAILED</td>
-      <td>New</td>
     </tr>
     <tr>
       <td>USE THE CHIP</td>
@@ -865,7 +807,6 @@
       <td style="text-align: center">NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>USE THE CHIP</td>
-      <td>New</td>
     </tr>
   </tbody>
 </table>
@@ -961,31 +902,10 @@
       <td>No</td>
     </tr>
     <tr>
-      <td>79</td>
-      <td>Transaction not allowed / Mastercard</td>
-      <td>Unauthorized transaction. Unable to process transaction due to error related to cardholder. Ask the bearer to contact the issuing bank.</td>
-      <td>Contact your bank</td>
-      <td>No</td>
-    </tr>
-    <tr>
       <td>80</td>
       <td>Unauthorized transaction. Divergence on transaction/payment date.</td>
       <td>Unauthorized transaction. Invalid transaction date or first payment date.</td>
       <td>Unauthorized transaction. Redo the transaction confirming data.</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td>82</td>
-      <td>Transaction not allowed / Mastercard</td>
-      <td>Transaction not authorized due to issuer rules. Instruct the cardholder to contact the issuing bank.</td>
-      <td>Contact your bank</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td>83</td>
-      <td>Transaction not allowed / Mastercard</td>
-      <td>Unauthorized transaction. Suspicion of fraud by the issuing bank.</td>
-      <td>Contact your bank</td>
       <td>No</td>
     </tr>
     <tr>
@@ -1129,11 +1049,53 @@
       <td>No</td>
     </tr>
     <tr>
+      <td>BP 171</td>
+      <td>Rejected due to risk of fraud (Velocity).</td>
+      <td>Related to Velocity rules</td>
+      <td>Please try again after one hour.</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
       <td>BP176</td>
       <td>Transaction not allowed.</td>
       <td>Partner should check if the onboarding process has been completed successfully.</td>
       <td>Partner should check if the onboarding process has been completed successfully.</td>
       <td>—</td>
+    </tr>
+    <tr>
+      <td>BP 900</td>
+      <td>Operation failed.</td>
+      <td>Related to some failure in the operation (request sending process).</td>
+      <td>Try again.</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>BP 901</td>
+      <td>Operation failed.</td>
+      <td>Related to some authorization failure.</td>
+      <td>Try again.</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>BP 902</td>
+      <td>Wait for a response from the previous operation.</td>
+      <td>Related to a capture failure.</td>
+      <td>Try again.</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>BP 903</td>
+      <td>Cancellation Failed.</td>
+      <td>Related to a cancellation failure.</td>
+      <td>Try again.</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>BP 904</td>
+      <td>Query Failed.</td>
+      <td>Related to a failure in the query.</td>
+      <td>Try again.</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td>BR</td>
