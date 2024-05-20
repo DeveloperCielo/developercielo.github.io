@@ -22,7 +22,7 @@ tags:
   
 **Test files**
 
-[Test Files](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Arquivos_Testes.zip)
+[Test Files](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Arquivos_Testes_EDI.rar)
 
 **Last updates**
 
