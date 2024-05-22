@@ -1349,34 +1349,42 @@ Url: "https://cieloecommerce.cielo.com.br/api/public/v1/orders/799g0de8-89c3-5d1
 **Resposta**
 
 ```json
-{
-    "order_number": "1db9226geg8b54e6b2972e9b745b89c7",
-    "amount": 101,
-    "discount_amount": 0,
-    "checkout_cielo_order_number": "65930e7460bd4a849502ed14d7be6c03",
-    "created_date": "10-03-2023 14:38:56",
-    "customer_name": "Test Test",
-    "customer_phone": "11987654321",
-    "customer_identity": "445556667",
-    "customer_email": "shopper@email.com.br",
-    "shipping_type": 1,
-    "shipping_name": "Motoboy",
-    "shipping_price": 1,
-    "shipping_address_zipcode": "06455-030",
-    "shipping_address_district": "Alphaville",
-    "shipping_address_city": "Barueri",
-    "shipping_address_state": "SP",
-    "shipping_address_line1": "Alameda Xingu",
-    "shipping_address_line2": "Apto 25",
-    "shipping_address_number": "512",
-    "payment_method_type": 1,
-    "payment_method_brand": 1,
-    "payment_maskedcreditcard": "482852******6856",
-    "payment_installments": 1,
-    "payment_status": 3,
-    "tid": "10558590697J62OH9BPB",
-    "test_transaction": "False"
-}
+{ 
+    "order_number": "1db9226geg8b54e6b2972e9b745b89c7", 
+    "amount": 101, 
+    "discount_amount": 0, 
+    "checkout_cielo_order_number": "65930e7460bd4a849502ed14d7be6c03", 
+    "created_date": "10-03-2023 14:38:56", 
+    "customer_name": "Test Test", 
+    "customer_phone": "11987654321", 
+    "customer_identity": "445556667", 
+    "customer_email": "shopper@email.com.br", 
+    "shipping_type": 1, 
+    "shipping_name": "Motoboy", 
+    "shipping_price": 1, 
+    "shipping_address_zipcode": "06455-030", 
+    "shipping_address_district": "Alphaville", 
+    "shipping_address_city": "Barueri", 
+    "shipping_address_state": "SP", 
+    "shipping_address_line1": "Alameda Xingu", 
+    "shipping_address_line2": "Apto 25", 
+    "shipping_address_number": "512", 
+    "payment_method_type": 1, 
+    "payment_method_brand": 1, 
+    "payment_maskedcreditcard": "482852******6856", 
+    "payment_installments": 1, 
+    "payment_status": 3, 
+    "tid": "10558590697J62OH9BPB", 
+    "test_transaction": "False" 
+    "interval": "Monthly", 
+    "recurrent_status": "Ativa", 
+    "start_date": "20/02/2024", 
+    "end_date": "04/10/2028", 
+    "product_id": "adf8905e-68ef-4433-9692-9d63aa3d8f77", 
+    "product_type": 5, 
+    "nsu": "038002", 
+    "authorization_code": "039186" 
+} 
 ```
 
 Veja a descrição dos detalhes da venda na sessão [Conteúdo das notificações](https://developercielo.github.io/manual/linkdepagamentos5#conte%C3%BAdo-das-notifica%C3%A7%C3%B5es).
