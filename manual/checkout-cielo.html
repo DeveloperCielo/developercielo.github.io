@@ -67,6 +67,8 @@
                     
                     <li><a data-language-name='shell'>cURL</a></li>
                     
+                    <li><a data-language-name='formdata'>FormData</a></li>
+                    
                 </ul>
             </div>
             <div class="dark-box"></div>
@@ -2662,25 +2664,25 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
 
 <p><strong>Exemplo:</strong></p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">order_number:</span><span class="w"> </span><span class="s2">"40e00eefbf094763a147af713fa07ece"</span><span class="err">,</span><span class="w">
-</span><span class="err">amount:</span><span class="w"> </span><span class="s2">"5000"</span><span class="err">,</span><span class="w">
-</span><span class="err">checkout_cielo_order_number:</span><span class="w"> </span><span class="s2">"b9ab1956738d45cc88edf51d7d03b13e"</span><span class="err">,</span><span class="w">
-</span><span class="err">created_date:</span><span class="w"> </span><span class="s2">"02/02/2023 17:01:35"</span><span class="err">,</span><span class="w"> 
-</span><span class="err">customer_name:</span><span class="w"> </span><span class="s2">"nome do cliente"</span><span class="err">,</span><span class="w"> 
-</span><span class="err">customer_phone:</span><span class="w"> </span><span class="s2">"2222222222"</span><span class="err">,</span><span class="w"> 
-</span><span class="err">customer_identity:</span><span class="w"> </span><span class="s2">"12312312344"</span><span class="err">,</span><span class="w"> 
-</span><span class="err">customer_email:</span><span class="w"> </span><span class="s2">"nome@email.com.br"</span><span class="err">,</span><span class="w"> 
-</span><span class="err">shipping_type:</span><span class="w"> </span><span class="s2">"5"</span><span class="err">,</span><span class="w"> 
-</span><span class="err">shipping_price:</span><span class="w"> </span><span class="s2">"0"</span><span class="err">,</span><span class="w"> 
-</span><span class="err">payment_method_type:</span><span class="w"> </span><span class="s2">"6"</span><span class="err">,</span><span class="w"> 
-</span><span class="err">payment_installments:</span><span class="w"> </span><span class="s2">"1"</span><span class="err">,</span><span class="w"> 
-</span><span class="err">payment_status:</span><span class="w"> </span><span class="s2">"1"</span><span class="err">,</span><span class="w"> 
-</span><span class="err">test_transaction:</span><span class="w"> </span><span class="s2">"False"</span><span class="err">,</span><span class="w"> 
-</span><span class="err">product_id:</span><span class="w"> </span><span class="s2">"0f48e580-d0a2-4e3b-a748-6704927f1725"</span><span class="err">,</span><span class="w"> 
-</span><span class="err">product_type:</span><span class="w"> </span><span class="s2">"3"</span><span class="err">,</span><span class="w"> 
-</span><span class="err">product_description:</span><span class="w"> </span><span class="s2">"123"</span><span class="err">,</span><span class="w"> 
-</span><span class="err">nsu:</span><span class="w"> </span><span class="s2">"00339922"</span><span class="w">
-</span></code></pre></div></div>
+<pre><code class="language-formdata">order_number: "40e00eefbf094763a147af713fa07ece",
+amount: "5000",
+checkout_cielo_order_number: "b9ab1956738d45cc88edf51d7d03b13e",
+created_date: "02/02/2023 17:01:35", 
+customer_name: "nome do cliente", 
+customer_phone: "2222222222", 
+customer_identity: "12312312344", 
+customer_email: "nome@email.com.br", 
+shipping_type: "5", 
+shipping_price: "0", 
+payment_method_type: "6", 
+payment_installments: "1", 
+payment_status: "1", 
+test_transaction: "False", 
+product_id: "0f48e580-d0a2-4e3b-a748-6704927f1725", 
+product_type: "3", 
+product_description: "123", 
+nsu: "00339922"
+</code></pre>
 
 <p>Veja a descrição dos detalhes da transação na sessão <a href="https://developercielo.github.io/manual/checkout-cielo#conte%C3%BAdo-das-notifica%C3%A7%C3%B5es">Conteúdo das notificações</a>.</p>
 
@@ -4381,6 +4383,9 @@ As retentativas podem ser cobradas pela bandeira e a quantidade de vezes que uma
             
             langs += "<a data-language-name='shell'>cURL</a>";
             langsArray.push('shell');
+            
+            langs += "<a data-language-name='formdata'>FormData</a>";
+            langsArray.push('formdata');
             
 
             var toggleCode = 'Comutar';
