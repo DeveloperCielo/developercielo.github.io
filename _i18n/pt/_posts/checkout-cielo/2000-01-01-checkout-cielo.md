@@ -12,6 +12,7 @@ tags:
 language_tabs:
   json: JSON
   shell: cURL
+  formdata: FormData
 ---
 
 Este manual irá guiar o desenvolvedor na integração com a **API do Checkout Cielo**. Ao integrar a API do Checkout, você vai conseguir:
@@ -1288,7 +1289,7 @@ Contém todos os dados da transação, inclusive o `merchant_order_number` e o `
 
 **Exemplo:**
 
-```json
+```formdata
 order_number: "40e00eefbf094763a147af713fa07ece",
 amount: "5000",
 checkout_cielo_order_number: "b9ab1956738d45cc88edf51d7d03b13e",
