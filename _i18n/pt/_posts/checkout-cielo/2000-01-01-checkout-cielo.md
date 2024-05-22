@@ -1435,6 +1435,11 @@ Tanto na notificação via POST ou via JSON, o conteúdo dos dados retornados é
 |`product_description`|Descrição do link de pagamentos registrada pelo lojista|texto|256|
 |`nsu`|NSU - Número sequencial único da transação.|Alfanumérico|6|
 |`authorization_code`|Código de autorização.|Alfanumérico|8|
+|`pagador_recurrent_payment_id`|Identificador da recorrência gerada.|Alfanumérico|36|
+|`recurrent_status`|Status da recorrência.|texto|50|
+|`start_date`|Data de início da recorrência.|Alfanumérico|20|
+|`end_date`|Data de encerramento da recorrência. Se não enviado, a recorrência se encerra somente se cancelada.|Alfanumérico|20|
+|`interval`|Intervalo da recorrência:<br>Mensal;<br>Bimensal;<br>Trimestral;<br>Semestral;<br>Anual.|string|128|
 
 #### Tipos de productID
 
