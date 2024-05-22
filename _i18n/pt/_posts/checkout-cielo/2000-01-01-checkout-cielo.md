@@ -1286,7 +1286,9 @@ Caso a notificação não seja recebida, é possível solicitar o reenvio manual
 
 Contém todos os dados da transação, inclusive o `merchant_order_number` e o `checkout_cielo_order_number`, que poderão ser usados para a [consulta de transações](https://developercielo.github.io/manual/checkout-cielo#consultando-transa%C3%A7%C3%B5es).
 
-**Exemplo:**
+Exemplo:
+
+**FormData**
 
 ```formdata
 order_number: "40e00eefbf094763a147af713fa07ece",
