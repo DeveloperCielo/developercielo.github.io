@@ -2741,34 +2741,42 @@ pagador_recurrent_payment_id: "9cfc236e-8600-4306-9c83-d409d1f86937"
 
 <p><strong>Resposta</strong></p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1db9226geg8b54e6b2972e9b745b89c7"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"discount_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"checkout_cielo_order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65930e7460bd4a849502ed14d7be6c03"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"created_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10-03-2023 14:38:56"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"customer_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Test"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"customer_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11987654321"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"customer_identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"445556667"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"customer_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shopper@email.com.br"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"shipping_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"shipping_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Motoboy"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"shipping_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"shipping_address_zipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06455-030"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"shipping_address_district"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alphaville"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"shipping_address_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Barueri"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"shipping_address_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"shipping_address_line1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"shipping_address_line2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apto 25"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"shipping_address_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"512"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"payment_method_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"payment_method_brand"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"payment_maskedcreditcard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"482852******6856"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"payment_installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"payment_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10558590697J62OH9BPB"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"test_transaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="w">
-</span><span class="p">}</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w"> 
+    </span><span class="nl">"order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1db9226geg8b54e6b2972e9b745b89c7"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"discount_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"checkout_cielo_order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65930e7460bd4a849502ed14d7be6c03"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"created_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10-03-2023 14:38:56"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"customer_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Test"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"customer_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11987654321"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"customer_identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"445556667"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"customer_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shopper@email.com.br"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"shipping_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"shipping_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Motoboy"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"shipping_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"shipping_address_zipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06455-030"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"shipping_address_district"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alphaville"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"shipping_address_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Barueri"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"shipping_address_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"shipping_address_line1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"shipping_address_line2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apto 25"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"shipping_address_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"512"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"payment_method_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"payment_method_brand"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"payment_maskedcreditcard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"482852******6856"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"payment_installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"payment_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10558590697J62OH9BPB"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"test_transaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="w"> 
+    </span><span class="nl">"interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monthly"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"recurrent_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ativa"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20/02/2024"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"04/10/2028"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adf8905e-68ef-4433-9692-9d63aa3d8f77"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"product_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"nsu"</span><span class="p">:</span><span class="w"> </span><span class="s2">"038002"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"authorization_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"039186"</span><span class="w"> 
+</span><span class="p">}</span><span class="w"> 
 </span></code></pre></div></div>
 
 <p>Veja a descrição dos detalhes da venda na sessão <a href="https://developercielo.github.io/manual/linkdepagamentos5#conte%C3%BAdo-das-notifica%C3%A7%C3%B5es">Conteúdo das notificações</a>.</p>
