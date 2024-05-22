@@ -1291,24 +1291,33 @@ Exemplo:
 **FormData**
 
 ```formdata
-order_number: "40e00eefbf094763a147af713fa07ece",
-amount: "5000",
-checkout_cielo_order_number: "b9ab1956738d45cc88edf51d7d03b13e",
-created_date: "02/02/2023 17:01:35", 
-customer_name: "nome do cliente", 
-customer_phone: "2222222222", 
-customer_identity: "12312312344", 
-customer_email: "nome@email.com.br", 
-shipping_type: "5", 
-shipping_price: "0", 
-payment_method_type: "6", 
-payment_installments: "1", 
-payment_status: "1", 
-test_transaction: "False", 
-product_id: "0f48e580-d0a2-4e3b-a748-6704927f1725", 
-product_type: "3", 
-product_description: "123", 
-nsu: "00339922"
+order_number: "40e00eefbf094763a147af713fa07ece", 
+amount: "5000", 
+checkout_cielo_order_number: "b9ab1956738d45cc88edf51d7d03b13e", 
+created_date: "02/02/2023 17:01:35",  
+customer_name: "nome do cliente",  
+customer_phone: "2222222222",  
+customer_identity: "12312312344",  
+customer_email: "nome@email.com.br",  
+shipping_type: "5",  
+shipping_price: "0",  
+payment_method_type: "6",  
+payment_method_brand: "2",  
+payment_ maskedcreditcard: "550209******7201",  
+payment_installments: "1",  
+payment_antifraudresult: "1",  
+payment_status: "1",  
+tid: "28234896273NT8MFJBPE", 
+test_transaction: "False",  
+product_id: "0f48e580-d0a2-4e3b-a748-6704927f1725",  
+product_type: "3",  
+product_description: "123",  
+nsu: "00339922" 
+authorization_code: "913812" 
+start_date: "29/04/2024 09:38:53" 
+recurrent_status: "Ativa" 
+interval: "Mensal" 
+pagador_recurrent_payment_id: "9cfc236e-8600-4306-9c83-d409d1f86937" 
 ```
 
 Veja a descrição dos detalhes da transação na sessão [Conteúdo das notificações](https://developercielo.github.io/manual/checkout-cielo#conte%C3%BAdo-das-notifica%C3%A7%C3%B5es).
