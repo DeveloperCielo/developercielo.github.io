@@ -12,7 +12,6 @@ tags:
 language_tabs:
   json: JSON
   shell: cURL
-  formdata: FormData
 ---
 
 Este manual irá guiar o desenvolvedor na integração com a **API do Checkout Cielo**. Ao integrar a API do Checkout, você vai conseguir:
