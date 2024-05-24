@@ -7318,17 +7318,46 @@ A Associação Brasileira das Empresas de Cartão de Crédito e Serviços (ABECS
 Códigos retornados em caso de erro, identificando o motivo do erro e suas respectivas mensagens.
 
 | ReturnCode | ReturnMessage                                                                                                       | Descrição                                                                                     |
-| ------ | -------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --- |
+| ------ | -------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | 0      | Internal error                                                                                                 | Dado enviado excede o tamanho do campo                                                        |
+| 0      || Cancelamento aprovado com sucesso.                                                                        |
+| 3      || Transação inexistente.                                                                                     |
+| 5      || Erro de efetivação.                                                                                       |
+| 10     || Cancelamento não efetuado. Solicitação pendente com as mesmas informações.                                |
+| 17     || Cancelamento não executado. Existe cancelamento/contestação total ou parcial para esta venda.             |
+| 40     || O cancelamento nao pode ser realizado, pois o prazo esta vencido.                                          |
+| 41     || Status nao permite cancelamento ( Ex: Autorização sem captura).                                            |
+| 42     || Cancelamento da transação nao foi efetuado com sucesso.                                                    |
+| 51     || Cancelamento acima do valor original da venda.                                                              |
+| 52     || Venda original não encontrada para cancelar.                                                               |
+| 53     || Produto não permite cancelar.                                                                              |
+| 54     || Cancelamento não efetuado entre em contato com a Central de Atendimento.                                   |
+| 55     || Saldo da Venda Insuficiente para cancelar.                                                                 |
+| 56     || Saldo do Lojista Insuficiente para cancelar.                                                               |
+| 57     || Falha no processamento tente novamente.                                                                    |
+| 58     || Cartão divergente do informado na venda. Verifique também bandeira e cardtype.                            |
+| 60     || CardType divergente do informado na venda.                                                                |
+| 72     || Saldo na Agenda insuficiente para cancelamento da venda. Ligue para central ou seu gestor.                 |
+| 76     || EC nao possui saldo para cancelamento.                                                                    |
+| 77     || Venda original não encontrada para cancelamento.                                                          |
+| 97     || Sistema indisponível.                                                                                       |
+| 98     | |Timeout                                                                                                   |
+| 99     || Falha no processamento. Por favor tente novamente.                                                        |
 | 100    | RequestId is required                                                                                          | Campo enviado está vazio ou inválido                                                          |
+| 101    || Cancelamento não realizado, por estar acima do prazo permitido pela bandeira.                              |
 | 101    | MerchantId is required                                                                                         | Campo enviado está vazio ou inválido                                                          |
 | 102    | Payment Type is required                                                                                       | Campo enviado está vazio ou inválido                                                          |
+| 102    || Cancelamento solicitado acima do valor da transação original.                                             |
 | 103    | Payment Type can only contain letters                                                                          | Caracteres especiais não permitidos                                                           |
+| 103    || Restrição Cadastral. Cancelamento não permitido. Entre em contato com a Central de Cancelamento.          |
+| 104    || Restrição Cadastral. Cancelamento não permitido. Entre em contato com a Central de Cancelamento.          |
 | 104    | Customer Identity is required                                                                                  | Campo enviado está vazio ou inválido                                                          |
 | 105    | Customer Name is required                                                                                      | Campo enviado está vazio ou inválido                                                          |
+| 106    || Restrição Cadastral. Cancelamento não permitido. Entre em contato com a Central de Cancelamento.          |
 | 106    | Transaction ID is required                                                                                     | Campo enviado está vazio ou inválido                                                          |
 | 107    | OrderId is invalid or does not exists                                                                          | Campo enviado excede o tamanho ou contem caracteres especiais                                 |
 | 108    | Amount must be greater or equal to zero                                                                        | Valor da transação deve ser maior que "0"                                                     |
+| 108    ||Número do Estabelecimento (EC) não encontrado. Por favor verifique o número enviado.                      |
 | 109    | Payment Currency is required                                                                                   | Campo enviado está vazio ou inválido                                                          |
 | 110    | Invalid Payment Currency                                                                                       | Campo enviado está vazio ou inválido                                                          |
 | 111    | Payment Country is required                                                                                    | Campo enviado está vazio ou inválido                                                          |
@@ -7337,10 +7366,14 @@ Códigos retornados em caso de erro, identificando o motivo do erro e suas respe
 | 114    | The provided MerchantId is not in correct format                                                               | O MerchantId enviado não é um GUID                                                            |
 | 115    | The provided MerchantId was not found                                                                          | O MerchantID não existe ou pertence a outro ambiente (EX: Sandbox)                            |
 | 116    | The provided MerchantId is blocked                                                                             | Loja bloqueada, entre em contato com o suporte Cielo                                          |
+| 116    || Cancelamento não encontrado.                                                                              |
+| 117    || Erro na chamada ao serviço de Clearing.                                                                   |
 | 117    | Credit Card Holder is required                                                                                 | Campo enviado está vazio ou inválido                                                          |
 | 118    | Credit Card Number is required                                                                                 | Campo enviado está vazio ou inválido                                                          |
 | 119    | At least one Payment is required                                                                               | Nó "Payment" não enviado                                                                      |
 | 120    | Request IP not allowed. Check your IP White List                                                               | IP bloqueado por questões de segurança                                                        |
+| 120    || Produto da venda não permite cancelamento.                                                                |
+| 121    || Erro de Efetivação.  MCC’s 3000 ou 30001 não permite cancelamento de parcelado aberto.                    |
 | 121    | Customer is required                                                                                           | Nó "Customer" não enviado                                                                     |
 | 122    | MerchantOrderId is required                                                                                    | Campo enviado está vazio ou inválido                                                          |
 | 123    | Installments must be greater or equal to one                                                                   | Numero de parcelas deve ser superior a 1                                                      |
@@ -7351,6 +7384,7 @@ Códigos retornados em caso de erro, identificando o motivo do erro e suas respe
 | 128    | Card Number length exceeded                                                                                    | Numero do cartão superiro a 16 digitos                                                        |
 | 129    | Affiliation not found                                                                                          | Meio de pagamento não vinculado a loja ou Provider inválido                                   |
 | 130    | Could not get Credit Card                                                                                      | ---                                                                                           |
+| 130    || Bandeira não permite cancelamento. Já Existe um cancelamento ou chargeback efetivado para esta transação. |
 | 131    | MerchantKey is required                                                                                        | Campo enviado está vazio ou inválido                                                          |
 | 132    | MerchantKey is invalid                                                                                         | O Merchantkey enviado não é um válido                                                         |
 | 133    | Provider is not supported for this Payment Type                                                                | Provider enviado não existe                                                                   |
@@ -7381,6 +7415,7 @@ Códigos retornados em caso de erro, identificando o motivo do erro e suas respe
 | 158    | Customer Email length exceeded                                                                                 | Dado enviado excede o tamanho do campo                                                        |
 | 159    | ExtraData Name length exceeded                                                                                 | Dado enviado excede o tamanho do campo                                                        |
 | 160    | ExtraData Value length exceeded                                                                                | Dado enviado excede o tamanho do campo                                                        |
+| 160    || CardType divergente do informado na venda.                                                                 |
 | 161    | Boleto Instructions length exceeded                                                                            | Dado enviado excede o tamanho do campo                                                        |
 | 162    | Boleto Demostrative length exceeded                                                                            | Dado enviado excede o tamanho do campo                                                        |
 | 163    | Return Url is required                                                                                         | URL de retorno não é valida - Não é aceito paginação ou extenções (EX .PHP) na URL de retorno |
@@ -7425,16 +7460,22 @@ Códigos retornados em caso de erro, identificando o motivo do erro e suas respe
 | 204    | Cart item Quantity is required                                                                                 | Campo enviado está vazio ou inválido                                                          |
 | 205    | Cart item type is required                                                                                     | Campo enviado está vazio ou inválido                                                          |
 | 206    | Cart item name length exceeded                                                                                 |                                                                                               |
+| 206    || Cancelamento não efetuado. Não foi possivel localizar a venda com o valor enviado.               |
 | 207    | Cart item description length exceeded                                                                          |                                                                                               |
 | 208    | Cart item sku length exceeded                                                                                  |                                                                                               |
 | 209    | Shipping addressee sku length exceeded                                                                         |                                                                                               |
+| 209    || Cancelamento não efetuado. Não foi possivel localizar a venda com o produto enviado.                      |
 | 210    | Shipping data cannot be null                                                                                   |                                                                                               |
 | 211    | WalletKey is invalid                                                                                           |                                                                                               |
 | 212    | Merchant Wallet Configuration not found                                                                        |                                                                                               |
 | 213    | Credit Card Number is invalid                                                                                  |                                                                                               |
 | 214    | Credit Card Holder Must Have Only Letters                                                                      |                                                                                               |
 | 215    | Agency is required in Boleto Credential                                                                        |                                                                                               |
+| 215    || Cancelamento não efetuado. Não foi possivel localizar a venda com a bandeira enviada.                     |
 | 216    | Customer IP address is invalid                                                                                 |                                                                                               |
+| 217    || Cancelamento não efetuado. Foi localizado mais de uma venda com os dados enviados.                        |
+| 221    || Cancelamento não efetuado. Não foi possivel localizar a venda com o valor do cancelamento enviado.        |
+| 223    || Cancelamento não efetuado. Solicitação pendente com as mesmas informações.                                |
 | 300    | MerchantId was not found                                                                                       |                                                                                               |
 | 301    | Request IP is not allowed                                                                                      |                                                                                               |
 | 302    | Sent MerchantOrderId is duplicated                                                                             |                                                                                               |
@@ -7451,13 +7492,19 @@ Códigos retornados em caso de erro, identificando o motivo do erro e suas respe
 | 314    | Invalid Integration                                                                                            |                                                                                               |
 | 315    | Cannot change NextRecurrency with pending payment                                                              |                                                                                               |
 | 316    | Cannot set NextRecurrency to past date                                                                         |                                                                                               |
-| 317    | Invalid Recurrency Day                                                                                         |                                                                                               |     |
+| 317    | Invalid Recurrency Day                                                                                         |                                                                                               |
 | 318    | No transaction found                                                                                           |                                                                                               |
 | 319    | Smart recurrency is not enabled                                                                                |                                                                                               |
 | 320    | Can not Update Affiliation Because this Recurrency not Affiliation saved                                       |                                                                                               |
 | 321    | Can not set EndDate to before next recurrency                                                                  |                                                                                               |
 | 322    | Zero Dollar Auth is not enabled                                                                                |                                                                                               |
 | 323    | Bin Query is not enabled                                                                                       |                                                                                               |
+| 475    || Cancelamento da transação nao foi efetuado com sucesso.                                                    |
+| 476    || Cancelamento não realizado. Existe um cancelamento para esta venda em processamento.                      |
+| 477    || Cancelamento não efetivado.                                                                               |
+| 504    || Tempo limite excedido.                                                                                    |
+| 576    || Pré-autorização principal não localizada.                                                                 |
+| 9016   ||Desfeito                                                                                                  |
 
 #### Erros BP
 
