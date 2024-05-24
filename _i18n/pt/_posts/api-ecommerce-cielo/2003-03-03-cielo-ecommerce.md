@@ -6343,7 +6343,6 @@ https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/void?amount={
 | 0      | Cancelamento aprovado com sucesso.                                                                        |
 | 3      | Transação inexistente.                                                                                     |
 | 5      | Erro de efetivação.                                                                                       |
-| 6           | Solicitação de cancelamento parcial aprovada com sucesso.                                        |
 | 9           | Solicitação de cancelamento total aprovada com sucesso.                                          |
 | 10     | Cancelamento não efetuado. Solicitação pendente com as mesmas informações.                                |
 | 17     | Cancelamento não executado. Existe cancelamento/contestação total ou parcial para esta venda.             |
