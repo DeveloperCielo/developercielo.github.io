@@ -6340,20 +6340,58 @@ https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/void?amount={
 
 | RETURN CODE | DESCRIÇÃO                                                                                        |
 | ----------- | ------------------------------------------------------------------------------------------------ |
+| 0      | Cancelamento aprovado com sucesso.                                                                        |
+| 3      | Transação inexistente.                                                                                     |
+| 5      | Erro de efetivação.                                                                                       |
 | 6           | Solicitação de cancelamento parcial aprovada com sucesso.                                        |
 | 9           | Solicitação de cancelamento total aprovada com sucesso.                                          |
-| 72          | Erro: Saldo do lojista insuficiente para cancelamento de venda.                                  |
-| 77          | Erro: Venda original não encontrada para cancelamento.                                           |
+| 10     | Cancelamento não efetuado. Solicitação pendente com as mesmas informações.                                |
+| 17     | Cancelamento não executado. Existe cancelamento/contestação total ou parcial para esta venda.             |
+| 40     | O cancelamento não pode ser realizado, pois o prazo esta vencido.                                          |
+| 41     | Status não permite cancelamento ( Ex: Autorização sem captura).                                            |
+| 42     | Cancelamento da transação não foi efetuado com sucesso.                                                    |
+| 51     | Cancelamento acima do valor original da venda.                                                              |
+| 52     | Venda original não encontrada para cancelar.                                                               |
+| 53     | Produto não permite cancelar.                                                                              |
+| 54     | Cancelamento não efetuado entre em contato com a Central de Atendimento.                                   |
+| 55     | Saldo da Venda Insuficiente para cancelar.                                                                 |
+| 56     | Saldo do Lojista Insuficiente para cancelar.                                                               |
+| 57     | Falha no processamento tente novamente.                                                                    |
+| 58     | Cartão divergente do informado na venda. Verifique também bandeira e `CardType`.                            |
+| 60     |`CardType` divergente do informado na venda.                                                                |
+| 72     | Saldo na Agenda insuficiente para cancelamento da venda. Ligue para central de atendimento.                 |
+| 76     | EC não possui saldo para cancelamento.                                                                    |
+| 77     | Venda original não encontrada para cancelamento.                                                          |
+| 97     | Sistema indisponível.                                                                                       |
+| 98|    Timeout    |
+| 99     | Falha no processamento. Por favor tente novamente.                                                        |
 | 100         | Erro: Forma de pagamento e/ou Bandeira não permitem cancelamento.                                |
-| 101         | Erro: Valor de cancelamento solicitado acima do prazo permitido para cancelar.                   |
-| 102         | Erro: Cancelamento solicitado acima do valor da transação original.                              |
-| 103         | Restrição Cadastral. Cancelamento não permitido. Entre em contato com a Central de Cancelamento. |
-| 104         | Restrição Cadastral. Cancelamento não permitido. Entre em contato com a Central de Cancelamento. |
+| 101    | Cancelamento não realizado, por estar acima do prazo permitido pela bandeira.                              |
+| 102    | Cancelamento solicitado acima do valor da transação original.                                             |
+| 103    | Restrição Cadastral. Cancelamento não permitido. Entre em contato com a Central de Cancelamento.          |
+| 104    | Restrição Cadastral. Cancelamento não permitido. Entre em contato com a Central de Cancelamento.          |
 | 105         | Restrição Cadastral. Cancelamento não permitido. Entre em contato com a Central de Cancelamento. |
-| 106         | Restrição Cadastral. Cancelamento não permitido. Entre em contato com a Central de Cancelamento. |
+| 106    | Restrição Cadastral. Cancelamento não permitido. Entre em contato com a Central de Cancelamento.          |
 | 107         | Restrição Cadastral. Cancelamento não permitido. Entre em contato com a Central de Cancelamento. |
-| 108         | Erro: Número do Estabelecimento (EC) não encontrado. Por favor, verifique o número enviado.      |
-| 475         | Falha no processamento. Por favor, tente novamente.                                              |
+| 108    |Número do Estabelecimento (EC) não encontrado. Por favor verifique o número enviado.                      |
+| 116    | Cancelamento não encontrado.                                                                              |
+| 117    | Erro na chamada ao serviço de Clearing.                                                                   |
+| 120    | Produto da venda não permite cancelamento.                                                                |
+| 121    | Erro de Efetivação.  MCC’s 3000 ou 30001 não permite cancelamento de parcelado aberto.                    |
+| 130    | Bandeira não permite cancelamento. Já Existe um cancelamento ou chargeback efetivado para esta transação. |
+|160     | `CardType` divergente do informado na venda                                                       |
+| 206    | Cancelamento não efetuado. Não foi possível localizar a venda com o valor enviado.               |
+| 209    | Cancelamento não efetuado. Não foi possível localizar a venda com o produto enviado.                      |
+| 215    | Cancelamento não efetuado. Não foi possível localizar a venda com a bandeira enviada.                     |
+| 217    | Cancelamento não efetuado. Foi localizado mais de uma venda com os dados enviados.                        |
+| 221    | Cancelamento não efetuado. Não foi possível localizar a venda com o valor do cancelamento enviado.        |
+| 223    | Cancelamento não efetuado. Solicitação pendente com as mesmas informações.                                |
+| 475    | Cancelamento da transação nãoo foi efetuado com sucesso.                                                    |
+| 476    | Cancelamento não realizado. Existe um cancelamento para esta venda em processamento.                      |
+| 477    | Cancelamento não efetivado.                                                                               |
+| 504    | Tempo limite excedido.                                                                                    |
+| 576    | Pré-autorização principal não localizada.                                                                 |
+| 9016   |Desfeito                                                                                                  |                          
 
 ### Cancelamento via site Cielo
 
