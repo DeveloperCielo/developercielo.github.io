@@ -11846,6 +11846,18 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
   </thead>
   <tbody>
     <tr>
+      <td>0</td>
+      <td>Cancelamento aprovado com sucesso.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Transação inexistente.</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Erro de efetivação.</td>
+    </tr>
+    <tr>
       <td>6</td>
       <td>Solicitação de cancelamento parcial aprovada com sucesso.</td>
     </tr>
@@ -11854,12 +11866,84 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
       <td>Solicitação de cancelamento total aprovada com sucesso.</td>
     </tr>
     <tr>
+      <td>10</td>
+      <td>Cancelamento não efetuado. Solicitação pendente com as mesmas informações.</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>Cancelamento não executado. Existe cancelamento/contestação total ou parcial para esta venda.</td>
+    </tr>
+    <tr>
+      <td>40</td>
+      <td>O cancelamento não pode ser realizado, pois o prazo esta vencido.</td>
+    </tr>
+    <tr>
+      <td>41</td>
+      <td>Status não permite cancelamento ( Ex: Autorização sem captura).</td>
+    </tr>
+    <tr>
+      <td>42</td>
+      <td>Cancelamento da transação não foi efetuado com sucesso.</td>
+    </tr>
+    <tr>
+      <td>51</td>
+      <td>Cancelamento acima do valor original da venda.</td>
+    </tr>
+    <tr>
+      <td>52</td>
+      <td>Venda original não encontrada para cancelar.</td>
+    </tr>
+    <tr>
+      <td>53</td>
+      <td>Produto não permite cancelar.</td>
+    </tr>
+    <tr>
+      <td>54</td>
+      <td>Cancelamento não efetuado entre em contato com a Central de Atendimento.</td>
+    </tr>
+    <tr>
+      <td>55</td>
+      <td>Saldo da Venda Insuficiente para cancelar.</td>
+    </tr>
+    <tr>
+      <td>56</td>
+      <td>Saldo do Lojista Insuficiente para cancelar.</td>
+    </tr>
+    <tr>
+      <td>57</td>
+      <td>Falha no processamento tente novamente.</td>
+    </tr>
+    <tr>
+      <td>58</td>
+      <td>Cartão divergente do informado na venda. Verifique também bandeira e <code class="language-plaintext highlighter-rouge">CardType</code>.</td>
+    </tr>
+    <tr>
+      <td>60</td>
+      <td><code class="language-plaintext highlighter-rouge">CardType</code> divergente do informado na venda.</td>
+    </tr>
+    <tr>
       <td>72</td>
-      <td>Erro: Saldo do lojista insuficiente para cancelamento de venda.</td>
+      <td>Saldo na Agenda insuficiente para cancelamento da venda. Ligue para central de atendimento.</td>
+    </tr>
+    <tr>
+      <td>76</td>
+      <td>EC não possui saldo para cancelamento.</td>
     </tr>
     <tr>
       <td>77</td>
-      <td>Erro: Venda original não encontrada para cancelamento.</td>
+      <td>Venda original não encontrada para cancelamento.</td>
+    </tr>
+    <tr>
+      <td>97</td>
+      <td>Sistema indisponível.</td>
+    </tr>
+    <tr>
+      <td>98</td>
+      <td>Timeout</td>
+    </tr>
+    <tr>
+      <td>99</td>
+      <td>Falha no processamento. Por favor tente novamente.</td>
     </tr>
     <tr>
       <td>100</td>
@@ -11867,11 +11951,11 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
     </tr>
     <tr>
       <td>101</td>
-      <td>Erro: Valor de cancelamento solicitado acima do prazo permitido para cancelar.</td>
+      <td>Cancelamento não realizado, por estar acima do prazo permitido pela bandeira.</td>
     </tr>
     <tr>
       <td>102</td>
-      <td>Erro: Cancelamento solicitado acima do valor da transação original.</td>
+      <td>Cancelamento solicitado acima do valor da transação original.</td>
     </tr>
     <tr>
       <td>103</td>
@@ -11895,11 +11979,79 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
     </tr>
     <tr>
       <td>108</td>
-      <td>Erro: Número do Estabelecimento (EC) não encontrado. Por favor, verifique o número enviado.</td>
+      <td>Número do Estabelecimento (EC) não encontrado. Por favor verifique o número enviado.</td>
+    </tr>
+    <tr>
+      <td>116</td>
+      <td>Cancelamento não encontrado.</td>
+    </tr>
+    <tr>
+      <td>117</td>
+      <td>Erro na chamada ao serviço de Clearing.</td>
+    </tr>
+    <tr>
+      <td>120</td>
+      <td>Produto da venda não permite cancelamento.</td>
+    </tr>
+    <tr>
+      <td>121</td>
+      <td>Erro de Efetivação.  MCC’s 3000 ou 30001 não permite cancelamento de parcelado aberto.</td>
+    </tr>
+    <tr>
+      <td>130</td>
+      <td>Bandeira não permite cancelamento. Já Existe um cancelamento ou chargeback efetivado para esta transação.</td>
+    </tr>
+    <tr>
+      <td>160</td>
+      <td><code class="language-plaintext highlighter-rouge">CardType</code> divergente do informado na venda</td>
+    </tr>
+    <tr>
+      <td>206</td>
+      <td>Cancelamento não efetuado. Não foi possível localizar a venda com o valor enviado.</td>
+    </tr>
+    <tr>
+      <td>209</td>
+      <td>Cancelamento não efetuado. Não foi possível localizar a venda com o produto enviado.</td>
+    </tr>
+    <tr>
+      <td>215</td>
+      <td>Cancelamento não efetuado. Não foi possível localizar a venda com a bandeira enviada.</td>
+    </tr>
+    <tr>
+      <td>217</td>
+      <td>Cancelamento não efetuado. Foi localizado mais de uma venda com os dados enviados.</td>
+    </tr>
+    <tr>
+      <td>221</td>
+      <td>Cancelamento não efetuado. Não foi possível localizar a venda com o valor do cancelamento enviado.</td>
+    </tr>
+    <tr>
+      <td>223</td>
+      <td>Cancelamento não efetuado. Solicitação pendente com as mesmas informações.</td>
     </tr>
     <tr>
       <td>475</td>
-      <td>Falha no processamento. Por favor, tente novamente.</td>
+      <td>Cancelamento da transação nãoo foi efetuado com sucesso.</td>
+    </tr>
+    <tr>
+      <td>476</td>
+      <td>Cancelamento não realizado. Existe um cancelamento para esta venda em processamento.</td>
+    </tr>
+    <tr>
+      <td>477</td>
+      <td>Cancelamento não efetivado.</td>
+    </tr>
+    <tr>
+      <td>504</td>
+      <td>Tempo limite excedido.</td>
+    </tr>
+    <tr>
+      <td>576</td>
+      <td>Pré-autorização principal não localizada.</td>
+    </tr>
+    <tr>
+      <td>9016</td>
+      <td>Desfeito</td>
     </tr>
   </tbody>
 </table>
