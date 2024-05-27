@@ -6124,7 +6124,7 @@ curl
 | `ReturnCode`        | Código de retorno da adquirente.        | Texto | 32      | Texto alfanumérico |
 | `ReturnMessage`     | Mensagem de retorno da adquirente.      | Texto | 512     | Texto alfanumérico |
 
-<aside class="notice"><strong>Captura de Taxa de embarque</strong> Para realizar a captura da *taxa de embarque*, basta adicionar o valor do ServiveTaxAmount a ser capturado</aside>
+<aside class="notice"><strong>Captura de taxa de embarque:</strong> para realizar a captura da *taxa de embarque*, basta adicionar o valor do ServiceTaxAmount a ser capturado.</aside>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}&serviceTaxAmount=xxx</span></aside>
 
