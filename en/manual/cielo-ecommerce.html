@@ -11765,66 +11765,216 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
 <h3 id="cancellation-return-codes">Cancellation Return Codes</h3>
 
 <table>
+  <thead>
+    <tr>
+      <th>RETURN CODE</th>
+      <th>DESCRIPTION</th>
+    </tr>
+  </thead>
   <tbody>
     <tr>
-      <td>RETURN CODE</td>
-      <td>DESCRIPTION</td>
+      <td>0</td>
+      <td>Cancellation approved successfully.</td>
     </tr>
     <tr>
-      <td>6</td>
-      <td>Partial cancellation request successfully approved</td>
+      <td>3</td>
+      <td>Non-existent transaction.</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Execution error.</td>
     </tr>
     <tr>
       <td>9</td>
-      <td>Total cancellation request successfully approved</td>
+      <td>Total cancellation request successfully approved.</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Cancellation not made. Pending request with the same information.</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>Cancellation not executed. There is total or partial cancellation/dispute for this sale.</td>
+    </tr>
+    <tr>
+      <td>40</td>
+      <td>Cancellation cannot be carried out as the deadline has expired.</td>
+    </tr>
+    <tr>
+      <td>41</td>
+      <td>Status does not allow cancellation (Example: Authorization without capture).</td>
+    </tr>
+    <tr>
+      <td>42</td>
+      <td>Transaction cancellation was not successful.</td>
+    </tr>
+    <tr>
+      <td>51</td>
+      <td>Cancellation above the original sales price.</td>
+    </tr>
+    <tr>
+      <td>52</td>
+      <td>Original sale not found to cancel.</td>
+    </tr>
+    <tr>
+      <td>53</td>
+      <td>Product does not allow cancellation.</td>
+    </tr>
+    <tr>
+      <td>54</td>
+      <td>Cancellation not carried out, contact Customer Service.</td>
+    </tr>
+    <tr>
+      <td>55</td>
+      <td>Insufficient sale balance to cancel.</td>
+    </tr>
+    <tr>
+      <td>56</td>
+      <td>Insufficient retailer balance to cancel.</td>
+    </tr>
+    <tr>
+      <td>57</td>
+      <td>Processing failed, please try again.</td>
+    </tr>
+    <tr>
+      <td>58</td>
+      <td>Card differs from that stated in the sale. Check brand and <code class="language-plaintext highlighter-rouge">CardType</code>.</td>
+    </tr>
+    <tr>
+      <td>60</td>
+      <td><code class="language-plaintext highlighter-rouge">CardType</code> differs from that stated in the sale.</td>
     </tr>
     <tr>
       <td>72</td>
-      <td>Error: Insufficient merchant balance for sale cancellation</td>
+      <td>Balance in the Schedule insufficient to cancel the sale. Call the call center.</td>
+    </tr>
+    <tr>
+      <td>76</td>
+      <td>EC does not have a balance for cancellation.</td>
     </tr>
     <tr>
       <td>77</td>
-      <td>Error: Original sale not found for cancellation</td>
+      <td>Original sale not found for cancellation.</td>
+    </tr>
+    <tr>
+      <td>97</td>
+      <td>System unavailable.</td>
+    </tr>
+    <tr>
+      <td>98</td>
+      <td>Timeout</td>
+    </tr>
+    <tr>
+      <td>99</td>
+      <td>Processing failed. Please try again.</td>
     </tr>
     <tr>
       <td>100</td>
-      <td>Error: Payment method and/or flag do not allow cancellation</td>
+      <td>Error: Payment method and/or Brand do not allow cancellation.</td>
     </tr>
     <tr>
       <td>101</td>
-      <td>Error: Requested cancellation amount above the allowed cancellation deadline</td>
+      <td>Cancellation not carried out, as it was beyond the deadline allowed by the brand.</td>
     </tr>
     <tr>
       <td>102</td>
-      <td>Error: Requested cancellation above the original transaction amount</td>
+      <td>Cancellation requested above the original transaction amount.</td>
     </tr>
     <tr>
       <td>103</td>
-      <td>Cadastral Restriction. Cancellation not allowed. Contact the Cancellation Center</td>
+      <td>Registration Restriction. Cancellation not permitted. Contact the Cancellation Center.</td>
     </tr>
     <tr>
       <td>104</td>
-      <td>Cadastral Restriction. Cancellation not allowed. Contact the Cancellation Center</td>
+      <td>Registration Restriction. Cancellation not permitted. Contact the Cancellation Center.</td>
     </tr>
     <tr>
       <td>105</td>
-      <td>Cadastral Restriction. Cancellation not allowed. Contact the Cancellation Center</td>
+      <td>Registration Restriction. Cancellation not permitted. Contact the Cancellation Center.</td>
     </tr>
     <tr>
       <td>106</td>
-      <td>Cadastral Restriction. Cancellation not allowed. Contact the Cancellation Center</td>
+      <td>Registration Restriction. Cancellation not permitted. Contact the Cancellation Center.</td>
     </tr>
     <tr>
       <td>107</td>
-      <td>Cadastral Restriction. Cancellation not allowed. Contact the Cancellation Center</td>
+      <td>Registration Restriction. Cancellation not permitted. Contact the Cancellation Center.</td>
     </tr>
     <tr>
       <td>108</td>
-      <td>Error: Merchant Number (EC) not found. Please check the number sent</td>
+      <td>Establishment Code (EC) not found. Please check the number sent.</td>
+    </tr>
+    <tr>
+      <td>116</td>
+      <td>Cancellation not found.</td>
+    </tr>
+    <tr>
+      <td>117</td>
+      <td>Error in calling the Clearing service.</td>
+    </tr>
+    <tr>
+      <td>120</td>
+      <td>Sales proceeds cannot be canceled.</td>
+    </tr>
+    <tr>
+      <td>121</td>
+      <td>Execution Error. MCC’s 3000 or 30001 do not allow cancellation of open installments.</td>
+    </tr>
+    <tr>
+      <td>130</td>
+      <td>Brand does not allow cancellation. There is already a cancellation or chargeback effected for this transaction.</td>
+    </tr>
+    <tr>
+      <td>160</td>
+      <td><code class="language-plaintext highlighter-rouge">CardType</code> differs from that stated in the sale.</td>
+    </tr>
+    <tr>
+      <td>206</td>
+      <td>Cancellation not made. Unable to locate sale with the amount sent.</td>
+    </tr>
+    <tr>
+      <td>209</td>
+      <td>Cancellation not made. Unable to locate sale with the product sent.</td>
+    </tr>
+    <tr>
+      <td>215</td>
+      <td>Cancellation not made. Unable to locate sale with the brand sent.</td>
+    </tr>
+    <tr>
+      <td>217</td>
+      <td>Cancellation not made. More than one sale was found with the data sent.</td>
+    </tr>
+    <tr>
+      <td>221</td>
+      <td>Cancellation not made. We were unable to locate the sale with the cancellation amount sent.</td>
+    </tr>
+    <tr>
+      <td>223</td>
+      <td>Cancellation not made. Pending request with the same information.</td>
     </tr>
     <tr>
       <td>475</td>
-      <td>Processing failed. Please try again</td>
+      <td>Transaction cancellation was not successful.</td>
+    </tr>
+    <tr>
+      <td>476</td>
+      <td>Cancellation not carried out. There is a cancellation for this sale in process.</td>
+    </tr>
+    <tr>
+      <td>477</td>
+      <td>Cancellation not effected.</td>
+    </tr>
+    <tr>
+      <td>504</td>
+      <td>Timed out.</td>
+    </tr>
+    <tr>
+      <td>576</td>
+      <td>Main pre-authorization not found.</td>
+    </tr>
+    <tr>
+      <td>9016</td>
+      <td>Undone</td>
     </tr>
   </tbody>
 </table>
