@@ -205,7 +205,7 @@
 
 <p>Sim, mas o <strong>3DS autentica apenas a primeira transação de uma série de transações recorrentes</strong>. Se houver chargeback na primeira transação, a responsabilidade é da bandeira ou emissor.</p>
 
-<p>Já as transações seguintes (a partir da segunda) não são autenticadas na versão atual do 3DS (3DS 2.0). Assim, se houver chargeback a partir da segunda transação, a responsabilidade é da loja.</p>
+<p>Já as transações seguintes (a partir da segunda) não são autenticadas na versão atual do 3DS (3DS 2.2). Assim, se houver chargeback a partir da segunda transação, a responsabilidade é da loja.</p>
 
 <h2 id="tipos-de-autenticação-do-portador">Tipos de autenticação do portador</h2>
 
@@ -301,7 +301,7 @@ Para <strong>Data Only Visa, o ECI será sempre 7</strong>.</p>
 
 <aside class="warning">Atenção: Não oferecemos suporte para o desenvolvimento e implementação deste SDK.</aside>
 
-<p>O protocolo de autenticação 3DS 2.0 está disponível na versão <em>browser-based</em>, ou seja, a loja deverá incluir o script do 3DS no arquivo HTML da página de pagamento (checkout). O protocolo 3DS, ao processar o script, permite a troca de dados entre a loja e o emissor para autenticar o portador do cartão.</p>
+<p>O protocolo de autenticação 3DS 2.2 está disponível na versão <em>browser-based</em>, ou seja, a loja deverá incluir o script do 3DS no arquivo HTML da página de pagamento (checkout). O protocolo 3DS, ao processar o script, permite a troca de dados entre a loja e o emissor para autenticar o portador do cartão.</p>
 
 <p>A integração do script do protocolo de autenticação é composta pelas seguintes etapas:</p>
 
@@ -812,7 +812,7 @@ Para <strong>Data Only Visa, o ECI será sempre 7</strong>.</p>
       <td>Endereço de entrega</td>
       <td><code class="language-plaintext highlighter-rouge">bpmpi_shipTo_shippingmethod</code></td>
       <td>Tipo do método de envio</td>
-      <td>lowcost: envio econômico<br />sameday: envio no mesmo dia<br />oneday: envio no dia seguinte<br />twoday: envio em dois dias<br />threeday: envio em três dias<br />pickup: retirada na loja<br />other: outrosnone: não há envio</td>
+      <td>lowcost: envio econômico<br />sameday: envio no mesmo dia<br />oneday: envio no dia seguinte<br />twoday: envio em dois dias<br />threeday: envio em três dias<br />pickup: retirada na loja<br />other: outros<br />none: não há envio</td>
       <td>Não</td>
     </tr>
     <tr>
@@ -1145,7 +1145,7 @@ Para <strong>Data Only Visa, o ECI será sempre 7</strong>.</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">onUnsupportedBrand</code></td>
-      <td>É acionado quando a bandeira do cartão não é suportada pelo 3DS 2.0</td>
+      <td>É acionado quando a bandeira do cartão não é suportada pelo 3DS 2.2</td>
     </tr>
   </tbody>
 </table>
@@ -1213,7 +1213,7 @@ Para <strong>Data Only Visa, o ECI será sempre 7</strong>.</p>
       <td><code class="language-plaintext highlighter-rouge">Version</code></td>
       <td>Versão do 3DS aplicado</td>
       <td>Numérico</td>
-      <td>1 posição – 3DS 2.0</td>
+      <td>1 posição – 3DS 2</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReferenceID</code></td>
@@ -1470,14 +1470,14 @@ Para <strong>Data Only Visa, o ECI será sempre 7</strong>.</p>
       <td>Versão do 3DS utilizado no processo de autenticação.</td>
       <td>alfanumérico</td>
       <td>1 posição</td>
-      <td>Sim, quando a versão do 3DS for “2”.</td>
+      <td>Sim, quando a versão do 3DS for 2 ou superior.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.ReferenceID</code></td>
       <td>RequestID retornado no processo de autenticação.</td>
       <td>GUID</td>
       <td>36 posições</td>
-      <td>Sim, quando a versão do 3DS for “2”.</td>
+      <td>Sim, quando a versão do 3DS for 2 ou superior.</td>
     </tr>
   </tbody>
 </table>
