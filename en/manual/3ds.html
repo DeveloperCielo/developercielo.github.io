@@ -14,7 +14,7 @@
   />
 
   <title>
-     3DS 2.0 Authentication &middot; Documentações e tutoriais 
+     3DS 2.2 Authentication &middot; Documentações e tutoriais 
   </title>
 
   <link rel="shortcut icon" href="https://developercielo.github.io/en/assets/favicon.ico" />
@@ -137,7 +137,7 @@
                             
                                 
                                     
-                                    <li class="active">&gt; <a href="https://developercielo.github.io/en/manual/3ds">3DS 2.0 Authentication</a></li>
+                                    <li class="active">&gt; <a href="https://developercielo.github.io/en/manual/3ds">3DS 2.2 Authentication</a></li>
                                     
                                 
                             
@@ -146,11 +146,11 @@
                 </div>
             </div>
 
-            <div class="post"><h1 id="3ds-20-authentication">3DS 2.0 Authentication</h1>
+            <div class="post"><h1 id="3ds-22-authentication">3DS 2.2 Authentication</h1>
 
-<h2 id="what-is-3ds-20">What is 3DS 2.0?</h2>
+<h2 id="what-is-3ds-22">What is 3DS 2.2?</h2>
 
-<p><strong>EMV 3DS</strong>, also known as <strong>3DS 2.0</strong> is an authentication technology developed by the payments industry in order to reduce the risk of fraud without harming the conversion rate. This new version analyzes several variables used as a criteria to determine the cardholder authencity, allowing in some cases decreased cardholder authentication interactions (challenges), without risking the merchant’s <em>Liability Shift</em>.</p>
+<p><strong>EMV 3DS</strong>, also known as <strong>3DS 2.2</strong> is an authentication technology developed by the payments industry in order to reduce the risk of fraud without harming the conversion rate. This new version analyzes several variables used as a criteria to determine the cardholder authencity, allowing in some cases decreased cardholder authentication interactions (challenges), without risking the merchant’s <em>Liability Shift</em>.</p>
 
 <p><strong>Main benefits:</strong></p>
 
@@ -160,19 +160,19 @@
   <li>Minimize fraudulent transactions;</li>
 </ul>
 
-<p><strong>Key words:</strong> Credit and Debit Card Authentication, EMVCO, 3DS 2.0, Visa, Mastercard, E-Commerce</p>
+<p><strong>Key words:</strong> Credit and Debit Card Authentication, EMVCO, 3DS 2.2, Visa, Mastercard, E-Commerce</p>
 
-<h2 id="who-is-able-to-use-the-3ds-20">Who is able to use the 3DS 2.0?</h2>
+<h2 id="who-is-able-to-use-the-3ds-22">Who is able to use the 3DS 2.2?</h2>
 
-<p>3DS 2.0 is valid for all e-commerce transactions, whether debit, credit or prepaid. For segments that have a high rate of chargeback/fraud, the solution tends to be even more advantageous compared to the benefit of passing the liability shift to the issuing bank.</p>
+<p>3DS 2.2 is valid for all e-commerce transactions, whether debit, credit or prepaid. For segments that have a high rate of chargeback/fraud, the solution tends to be even more advantageous compared to the benefit of passing the liability shift to the issuing bank.</p>
 
-<h2 id="what-is-required-to-use-3ds-20">What is required to use 3DS 2.0?</h2>
+<h2 id="what-is-required-to-use-3ds-22">What is required to use 3DS 2.2?</h2>
 
-<p>The merchant must attend the below requirements to use 3DS 2.0:</p>
+<p>The merchant must attend the below requirements to use 3DS 2.2:</p>
 
 <ul>
   <li>API Cielo E-Commerce affiliation;</li>
-  <li>Have 3DS 2.0 registration (request to E-commerce Support);</li>
+  <li>Have 3DS 2.2 registration (request to E-commerce Support);</li>
   <li>Complete the technical integration of the authentication flow;</li>
   <li>Complete the technical integration of the authorization flow;</li>
 </ul>
@@ -193,7 +193,7 @@
 
 <p>To use Data Only, in <a href="https://braspag.github.io//manual/emv3ds#integra%C3%A7%C3%A3o-do-script-via-javascript">Integração do script</a> parameterize the field <code class="language-plaintext highlighter-rouge">bpmpi_auth_notifyonly</code> described in item <strong>Etapa de Autenticação – passo 3 – Mapeamento de classes</strong>.</p>
 
-<p>In the Data Only model, additional 3DS 2.0 fields are mapped in the same way and sent to the brand, however, authentication is not requested</p>
+<p>In the Data Only model, additional 3DS 2.2 fields are mapped in the same way and sent to the brand, however, authentication is not requested</p>
 
 <blockquote>
   <p><strong>Data Only</strong> is valid for Mastercard and Visa brands.<br />
@@ -217,50 +217,50 @@ For <strong>Data Only Visa, the ECI will always be 7</strong>.</p>
   </ul>
 </blockquote>
 
-<h2 id="payment-flow-3ds-20--with-challenge">Payment Flow 3DS 2.0 | With challenge</h2>
+<h2 id="payment-flow-3ds-22--with-challenge">Payment Flow 3DS 2.2 | With challenge</h2>
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/pagamento-com-desafio-01_0_-_en.jpg" alt="Flow with challenge 01" />
 <img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/pagamento-com-desafio-02_-_en.jpg" alt="Flow with challenge 02" /></p>
 
 <ol>
   <li>The holder fills the card details at the checkout of the merchant.</li>
-  <li>The merchant set the 3DS 2.0 solution from Cielo via script for authentication.</li>
-  <li>Cielo’s 3DS 2.0 solution sends the buyer’s information to the MPI (authentication platform).</li>
+  <li>The merchant set the 3DS 2.2 solution from Cielo via script for authentication.</li>
+  <li>Cielo’s 3DS 2.2 solution sends the buyer’s information to the MPI (authentication platform).</li>
   <li>MPI communicates with the card brand to process the authentication. The brand identifies the issuer of the card, and sends the buyer’s information for analysis. The issuer identifies the holder as a possible risk, then, requires the challenge and returns the Authentication URL.</li>
   <li>A card brand returns an authentication URL to MPI.</li>
-  <li>MPI returns the authentication URL to the 3DS 2.0 solution.</li>
-  <li>The 3DS 2.0 solution return the authentication URL to the merchant via script.</li>
+  <li>MPI returns the authentication URL to the 3DS 2.2 solution.</li>
+  <li>The 3DS 2.2 solution return the authentication URL to the merchant via script.</li>
   <li>The script shows the authentication screen via lightbox.</li>
   <li>The holder solve the challenge on the issuer screen.</li>
   <li>The issuer returns the authentication result to the card brand.</li>
   <li>The card brand return the authentication result to the MPI.</li>
-  <li>The MPI return the authentication result to the 3DS 2.0 solution.</li>
-  <li>The 3DS 2.0 solution return the authentication result to the merchant via script (CAVV, ECI e XID).</li>
+  <li>The MPI return the authentication result to the 3DS 2.2 solution.</li>
+  <li>The 3DS 2.2 solution return the authentication result to the merchant via script (CAVV, ECI e XID).</li>
   <li>The merchant sends an authentication request with the authentication data to the API Cielo 3.0.</li>
   <li>The API Cielo 3.0 returns the authentication result to the merchant.</li>
   <li>The merchant notifies the payment result.</li>
 </ol>
 
-<h2 id="payment-flow-3ds-20--without-challenge">Payment Flow 3DS 2.0 | Without challenge</h2>
+<h2 id="payment-flow-3ds-22--without-challenge">Payment Flow 3DS 2.2 | Without challenge</h2>
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/pagamento-sem-desafio_-_en.jpg" alt="Flow without challenge" /></p>
 
 <ol>
   <li>The holder fills the card details at the checkout of the merchant.</li>
-  <li>The merchant set the 3DS 2.0 solution from Cielo via script for authentication.</li>
-  <li>Cielo’s 3DS 2.0 solution sends the buyer’s information to the MPI (authentication platform).</li>
+  <li>The merchant set the 3DS 2.2 solution from Cielo via script for authentication.</li>
+  <li>Cielo’s 3DS 2.2 solution sends the buyer’s information to the MPI (authentication platform).</li>
   <li>MPI communicates with the card brand to process the authentication. The brand identifies the issuer of the card, and sends the buyer’s information for analysis. The issuer identifies the holder as a possible risk, then, requires the challenge and returns the Authentication URL.</li>
   <li>The card brand returns the silent authentication result (CAVV e ECI).</li>
-  <li>The MPI returns the silent authentication result to the 3DS 2.0 solution.</li>
-  <li>The 3DS 2.0 solution returns the silent authentication result to the merchant via script.</li>
+  <li>The MPI returns the silent authentication result to the 3DS 2.2 solution.</li>
+  <li>The 3DS 2.2 solution returns the silent authentication result to the merchant via script.</li>
   <li>The merchant sends an authentication request with the authentication data to the API Cielo 3.0.</li>
   <li>The API Cielo 3.0 returns the authentication result to the merchant.</li>
   <li>The merchant notifies the payment result.</li>
 </ol>
 
-<h2 id="how-does-the-authenticated-authorization-via-3ds-20-work">How does the authenticated authorization via 3DS 2.0 work?</h2>
+<h2 id="how-does-the-authenticated-authorization-via-3ds-22-work">How does the authenticated authorization via 3DS 2.2 work?</h2>
 
-<p>The authorization process using authentication through 3DS 2.0 occurs in two steps:</p>
+<p>The authorization process using authentication through 3DS 2.2 occurs in two steps:</p>
 
 <ol>
   <li>Authentication</li>
@@ -470,7 +470,7 @@ For <strong>Data Only Visa, the ECI will always be 7</strong>.</p>
     </tr>
     <tr>
       <td>onUnsupportedBrand</td>
-      <td>It is triggered when the card scheme is not supported by 3DS 2.0</td>
+      <td>It is triggered when the card scheme is not supported by 3DS 2.2</td>
     </tr>
   </tbody>
 </table>
