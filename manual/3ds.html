@@ -203,9 +203,9 @@
 
 <h2 id="o-3ds-autentica-o-portador-em-transações-recorrentes">O 3DS autentica o portador em transações recorrentes?</h2>
 
-<p>Sim, mas o <strong>3DS autentica apenas a primeira transação de uma série de transações recorrentes</strong>. Se houver chargeback na primeira transação, a responsabilidade é da bandeira ou emissor.</p>
+<p>Sim. Se todos os campos obrigatórios forem enviados corretamente, o 3DS 2.2 autentica todas as transações recorrentes. Se algum campo obrigatório não for enviado, acontece o downgrade para 3DS 2.0, que autentica apenas a primeira transação de uma série de transações recorrentes.</p>
 
-<p>Já as transações seguintes (a partir da segunda) não são autenticadas na versão atual do 3DS (3DS 2.2). Assim, se houver chargeback a partir da segunda transação, a responsabilidade é da loja.</p>
+<p>Como as transações seguintes (a partir da segunda) não são autenticadas no 3DS 2.0, se houver chargeback a partir da segunda transação, a responsabilidade é da loja. Usando o 3DS 2.2, a responsabilidade do chargeback é sempre do emissor.</p>
 
 <h2 id="tipos-de-autenticação-do-portador">Tipos de autenticação do portador</h2>
 
