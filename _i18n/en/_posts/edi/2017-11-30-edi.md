@@ -15,14 +15,18 @@ tags:
 
 **Documentation**
 
-[CIELO_Extrato_Eletronico_Manual_Versao_15.8](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Eletronic_Statement_Manual_Version_15.8.pdf)
+[CIELO_Extrato_Eletronico_Manual_Versao_15.8](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELOEletronicStatement-Manual-Version_15.8.pdf)
 
-* Productive version: **15.6**
-* Next update: ***06/03/2024 for version 15.8**
+* Current version: **15.7**
+* Next update: **07/02/2024 to version 15.8**
   
 **Test files**
 
-[Test Files](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Arquivos_Testes.zip)
+[Test Files](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Arquivos_Testes_EDI.rar)
+
+[15.7 Financial Reserve](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/15-7-Reserva-Financeira-Financial-Reserve_.zip)
+
+[15.8 Receivable negotiation update](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/15-8-Atualizacao-de-negociacoes-Receivable-negotiation-update.zip)
 
 **Last updates**
 

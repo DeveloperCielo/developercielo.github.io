@@ -6198,21 +6198,59 @@ https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/void?amount={
 
 ### Cancellation Return Codes
 
-| RETURN CODE | DESCRIPTION |
-| 6 | Partial cancellation request successfully approved |
-| 9 | Total cancellation request successfully approved |
-| 72 | Error: Insufficient merchant balance for sale cancellation |
-| 77 | Error: Original sale not found for cancellation |
-| 100 | Error: Payment method and/or flag do not allow cancellation |
-| 101 | Error: Requested cancellation amount above the allowed cancellation deadline |
-| 102 | Error: Requested cancellation above the original transaction amount |
-| 103 | Cadastral Restriction. Cancellation not allowed. Contact the Cancellation Center |
-| 104 | Cadastral Restriction. Cancellation not allowed. Contact the Cancellation Center |
-| 105 | Cadastral Restriction. Cancellation not allowed. Contact the Cancellation Center |
-| 106 | Cadastral Restriction. Cancellation not allowed. Contact the Cancellation Center |
-| 107 | Cadastral Restriction. Cancellation not allowed. Contact the Cancellation Center |
-| 108 | Error: Merchant Number (EC) not found. Please check the number sent |
-| 475 | Processing failed. Please try again |
+| RETURN CODE | DESCRIPTION                                                                                       |
+| ----------- | ------------------------------------------------------------------------------------------------ |
+| 0      | Cancellation approved successfully.                                                                        |
+| 3      | Non-existent transaction.                                                                                     |
+| 5      | Execution error.                                                                                       |
+| 9      | Total cancellation request successfully approved.                                          |
+| 10     | Cancellation not made. Pending request with the same information.                                |
+| 17     | Cancellation not executed. There is total or partial cancellation/dispute for this sale.             |
+| 40     | Cancellation cannot be carried out as the deadline has expired.                                          |
+| 41     | Status does not allow cancellation (Example: Authorization without capture).                                            |
+| 42     | Transaction cancellation was not successful.                                                    |
+| 51     | Cancellation above the original sales price.                                                              |
+| 52     | Original sale not found to cancel.                                                               |
+| 53     | Product does not allow cancellation.                                                                              |
+| 54     | Cancellation not carried out, contact Customer Service.                                   |
+| 55     | Insufficient sale balance to cancel.                                                                 |
+| 56     | Insufficient retailer balance to cancel.                                                               |
+| 57     | Processing failed, please try again.                                                                    |
+| 58     | Card differs from that stated in the sale. Check brand and `CardType`.                            |
+| 60     |`CardType` differs from that stated in the sale.                                                                |
+| 72     | Balance in the Schedule insufficient to cancel the sale. Call the call center.                 |
+| 76     | EC does not have a balance for cancellation.                                                                    |
+| 77     | Original sale not found for cancellation.                                                          |
+| 97     | System unavailable.                                                                                       |
+| 98|    Timeout    |
+| 99     | Processing failed. Please try again.                                                        |
+| 100         | Error: Payment method and/or Brand do not allow cancellation.                                |
+| 101    | Cancellation not carried out, as it was beyond the deadline allowed by the brand.                              |
+| 102    | Cancellation requested above the original transaction amount.                                             |
+| 103    | Registration Restriction. Cancellation not permitted. Contact the Cancellation Center.          |
+| 104    | Registration Restriction. Cancellation not permitted. Contact the Cancellation Center.          |
+| 105         | Registration Restriction. Cancellation not permitted. Contact the Cancellation Center. |
+| 106    | Registration Restriction. Cancellation not permitted. Contact the Cancellation Center.          |
+| 107         | Registration Restriction. Cancellation not permitted. Contact the Cancellation Center. |
+| 108    |Establishment Code (EC) not found. Please check the number sent.                      |
+| 116    | Cancellation not found.                                                                              |
+| 117    | Error in calling the Clearing service.                                                                   |
+| 120    | Sales proceeds cannot be canceled.                                                                |
+| 121    | Execution Error. MCC’s 3000 or 30001 do not allow cancellation of open installments.                    |
+| 130    | Brand does not allow cancellation. There is already a cancellation or chargeback effected for this transaction. |
+|160     | `CardType` differs from that stated in the sale.                                                      |
+| 206    | Cancellation not made. Unable to locate sale with the amount sent.               |
+| 209    | Cancellation not made. Unable to locate sale with the product sent.                      |
+| 215    | Cancellation not made. Unable to locate sale with the brand sent.                     |
+| 217    | Cancellation not made. More than one sale was found with the data sent.                        |
+| 221    | Cancellation not made. We were unable to locate the sale with the cancellation amount sent.        |
+| 223    |Cancellation not made. Pending request with the same information.                                |
+| 475    | Transaction cancellation was not successful.                                                   |
+| 476    | Cancellation not carried out. There is a cancellation for this sale in process.                      |
+| 477    | Cancellation not effected.                                                                               |
+| 504    | Timed out.                                                                                    |
+| 576    | Main pre-authorization not found.                                                                 |
+| 9016   |Undone                                                                                                  |
 
 ### Cancellation via Cielo website
 
@@ -6357,14 +6395,14 @@ The BIN query may indicate an attempt to use an international or prepaid card. I
 
 A `GET` request must be sent containing the BIN to be checked:
 
-<aside class="request"><span class="method get">GET</span><span class="endpoint">/1/cardBin/`BIN`</span></aside>
+<aside class="request"><span class="method get">GET</span><span class="endpoint">{API Query}/1/cardBin/`BIN`</span></aside>
 
 | Field | Description                                    |
 | ----- | ---------------------------------------------- |
 | `BIN` | It's the first six or nine digits of the card. |
 
 ```json
-https://apiquerysandbox.cieloecommerce.cielo.com.br/1/cardBin/420020
+https://apiquery.cieloecommerce.cielo.com.br/1/cardBin/420020
 ```
 
 ### Response

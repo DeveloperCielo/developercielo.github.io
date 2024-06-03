@@ -1074,27 +1074,38 @@ Caso a notificação não seja recebida, é possível solicitar o reenvio manual
 
 Contém todos os dados da transação, inclusive o `merchant_order_number` e o `checkout_cielo_order_number`, que poderão ser usados para a [consulta de transações](https://developercielo.github.io/manual/linkdepagamentos5#consulta-de-transa%C3%A7%C3%B5es).
 
-**Exemplo:**
+Exemplo:
 
-```json
-order_number: "40e00eefbf094763a147af713fa07ece",
-amount: "5000",
-checkout_cielo_order_number: "b9ab1956738d45cc88edf51d7d03b13e",
-created_date: "02/02/2023 17:01:35", 
-customer_name: "nome do cliente", 
-customer_phone: "2222222222", 
-customer_identity: "12312312344", 
-customer_email: "nome@email.com.br", 
-shipping_type: "5", 
-shipping_price: "0", 
-payment_method_type: "6", 
-payment_installments: "1", 
-payment_status: "1", 
-test_transaction: "False", 
-product_id: "0f48e580-d0a2-4e3b-a748-6704927f1725", 
-product_type: "3", 
-product_description: "123", 
-nsu: "00339922"
+**FormData**
+
+```
+order_number: "40e00eefbf094763a147af713fa07ece", 
+amount: "5000", 
+checkout_cielo_order_number: "b9ab1956738d45cc88edf51d7d03b13e", 
+created_date: "02/02/2023 17:01:35",  
+customer_name: "nome do cliente",  
+customer_phone: "2222222222",  
+customer_identity: "12312312344",  
+customer_email: "nome@email.com.br",  
+shipping_type: "5",  
+shipping_price: "0",  
+payment_method_type: "6",  
+payment_method_brand: "2",  
+payment_ maskedcreditcard: "550209******7201",  
+payment_installments: "1",  
+payment_antifraudresult: "1",  
+payment_status: "1",  
+tid: "28234896273NT8MFJBPE", 
+test_transaction: "False",  
+product_id: "0f48e580-d0a2-4e3b-a748-6704927f1725",  
+product_type: "3",  
+product_description: "123",  
+nsu: "00339922" 
+authorization_code: "913812" 
+start_date: "29/04/2024 09:38:53" 
+recurrent_status: "Ativa" 
+interval: "Mensal" 
+pagador_recurrent_payment_id: "9cfc236e-8600-4306-9c83-d409d1f86937"
 ```
 
 Veja a descrição dos detalhes da transação na sessão [Conteúdo das notificações](https://developercielo.github.io/manual/linkdepagamentos5#conte%C3%BAdo-das-notifica%C3%A7%C3%B5es).
@@ -1126,34 +1137,42 @@ Url: "https://cieloecommerce.cielo.com.br/api/public/v1/orders/799g0de8-89c3-5d1
 **Resposta**
 
 ```json
-{
-    "order_number": "1db9226geg8b54e6b2972e9b745b89c7",
-    "amount": 101,
-    "discount_amount": 0,
-    "checkout_cielo_order_number": "65930e7460bd4a849502ed14d7be6c03",
-    "created_date": "10-03-2023 14:38:56",
-    "customer_name": "Test Test",
-    "customer_phone": "11987654321",
-    "customer_identity": "445556667",
-    "customer_email": "shopper@email.com.br",
-    "shipping_type": 1,
-    "shipping_name": "Motoboy",
-    "shipping_price": 1,
-    "shipping_address_zipcode": "06455-030",
-    "shipping_address_district": "Alphaville",
-    "shipping_address_city": "Barueri",
-    "shipping_address_state": "SP",
-    "shipping_address_line1": "Alameda Xingu",
-    "shipping_address_line2": "Apto 25",
-    "shipping_address_number": "512",
-    "payment_method_type": 1,
-    "payment_method_brand": 1,
-    "payment_maskedcreditcard": "482852******6856",
-    "payment_installments": 1,
-    "payment_status": 3,
-    "tid": "10558590697J62OH9BPB",
-    "test_transaction": "False"
-}
+{ 
+    "order_number": "1db9226geg8b54e6b2972e9b745b89c7", 
+    "amount": 101, 
+    "discount_amount": 0, 
+    "checkout_cielo_order_number": "65930e7460bd4a849502ed14d7be6c03", 
+    "created_date": "10-03-2023 14:38:56", 
+    "customer_name": "Test Test", 
+    "customer_phone": "11987654321", 
+    "customer_identity": "445556667", 
+    "customer_email": "shopper@email.com.br", 
+    "shipping_type": 1, 
+    "shipping_name": "Motoboy", 
+    "shipping_price": 1, 
+    "shipping_address_zipcode": "06455-030", 
+    "shipping_address_district": "Alphaville", 
+    "shipping_address_city": "Barueri", 
+    "shipping_address_state": "SP", 
+    "shipping_address_line1": "Alameda Xingu", 
+    "shipping_address_line2": "Apto 25", 
+    "shipping_address_number": "512", 
+    "payment_method_type": 1, 
+    "payment_method_brand": 1, 
+    "payment_maskedcreditcard": "482852******6856", 
+    "payment_installments": 1, 
+    "payment_status": 3, 
+    "tid": "10558590697J62OH9BPB", 
+    "test_transaction": "False" 
+    "interval": "Monthly", 
+    "recurrent_status": "Ativa", 
+    "start_date": "20/02/2024", 
+    "end_date": "04/10/2028", 
+    "product_id": "adf8905e-68ef-4433-9692-9d63aa3d8f77", 
+    "product_type": 5, 
+    "nsu": "038002", 
+    "authorization_code": "039186" 
+} 
 ```
 
 Veja a descrição dos detalhes da venda na sessão [Conteúdo das notificações](https://developercielo.github.io/manual/linkdepagamentos5#conte%C3%BAdo-das-notifica%C3%A7%C3%B5es).
@@ -1203,6 +1222,11 @@ Tanto na notificação via POST ou via JSON, o conteúdo dos dados retornados é
 |`product_description`|Descrição do link de pagamentos registrada pelo lojista|texto|256|
 |`nsu`|NSU - Número sequencial único da transação.|Alfanumérico|6|
 |`authorization_code`|Código de autorização.|Alfanumérico|8|
+|`pagador_recurrent_payment_id`|Identificador da recorrência gerada.|Alfanumérico|36|
+|`recurrent_status`|Status da recorrência.|texto|50|
+|`start_date`|Data de início da recorrência.|Alfanumérico|20|
+|`end_date`|Data de encerramento da recorrência. Se não enviado, a recorrência se encerra somente se cancelada.|Alfanumérico|20|
+|`interval`|Intervalo da recorrência:<br>Mensal;<br>Bimensal;<br>Trimestral;<br>Semestral;<br>Anual.|string|128|
 
 #### Tipos de productID
 
