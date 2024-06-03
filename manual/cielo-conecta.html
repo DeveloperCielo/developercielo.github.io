@@ -7609,28 +7609,28 @@
       <td>Retorno da função PP_GetInfo() da biblioteca compartilhada</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.EncryptedCardData.EncryptionType</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.EncryptedCardData.EncryptionType</code></td>
       <td>String</td>
       <td>—</td>
       <td>Sim</td>
       <td>Tipo de encriptação utilizada <br />Enum: <br />“DukptDes” = 1, <br /> “MasterKey” = 2 <br />“Dukpt3Des” = 3, <br />“Dukpt3DesCBC = 4</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.EncryptedCardData.CardNumberKSN</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.EncryptedCardData.CardNumberKSN</code></td>
       <td>String</td>
       <td>—</td>
       <td>Sim</td>
       <td>Identificador KSN da criptografia do número do cartão</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.EncryptedCardData.IsDataInTLVFormat</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.EncryptedCardData.IsDataInTLVFormat</code></td>
       <td>Bool</td>
       <td>—</td>
       <td>Não</td>
       <td>Identifica se os dados criptografados estão no formato TLV (tag / length / value).</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.EncryptedCardData.InitializationVector</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.EncryptedCardData.InitializationVector</code></td>
       <td>String</td>
       <td>—</td>
       <td>Sim</td>
@@ -8063,6 +8063,38 @@
       <td> </td>
     </tr>
     <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.EncryptedCardData.EncryptionType</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Tipo de encriptação utilizada <br />Enum: <br />“DukptDes” = 1, <br /> “MasterKey” = 2 <br />“Dukpt3Des” = 3, <br />“Dukpt3DesCBC = 4</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.EncryptedCardData.CardNumberKSN</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Identificador KSN da criptografia do número do cartão</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.EncryptedCardData.IsDataInTLVFormat</code></td>
+      <td>Bool</td>
+      <td>—</td>
+      <td>Não</td>
+      <td>Identifica se os dados criptografados estão no formato TLV (tag / length / value).</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.EncryptedCardData.InitializationVector</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Vetor de inicialização da encriptação</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
       <td>String</td>
       <td>MM/yyyy</td>
@@ -8118,45 +8150,17 @@
       <td>Dados da transação EMV <br />Obtidos através do comando PP_GoOnChip na BC</td>
       <td> </td>
     </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.EncryptedCardData.EncryptionType</code></td>
-      <td>String</td>
-      <td>—</td>
-      <td>Sim</td>
-      <td>Tipo de encriptação utilizada <br />Enum: <br />“DukptDes” = 1, <br /> “MasterKey” = 2 <br />“Dukpt3Des” = 3, <br />“Dukpt3DesCBC = 4</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.EncryptedCardData.CardNumberKSN</code></td>
-      <td>String</td>
-      <td>—</td>
-      <td>Sim</td>
-      <td>Identificador KSN da criptografia do número do cartão</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.EncryptedCardData.IsDataInTLVFormat</code></td>
-      <td>Bool</td>
-      <td>—</td>
-      <td>Não</td>
-      <td>Identifica se os dados criptografados estão no formato TLV (tag / length / value).</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.EncryptedCardData.InitializationVector</code></td>
-      <td>String</td>
-      <td>—</td>
-      <td>Sim</td>
-      <td>Vetor de inicialização da encriptação</td>
-      <td> </td>
-    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PinBlock.EncryptedPinBlock</code></td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PinBlock.EncryptionType</code></td>
@@ -8164,7 +8168,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PinBlock.KsnIdentification</code></td>
@@ -8172,7 +8175,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.PanSequenceNumber</code></td>
@@ -8180,7 +8182,6 @@
       <td>—</td>
       <td>—</td>
       <td>Número sequencial do cartão, utilizado para identificar a conta corrente do cartão adicional. Mandatório para transações com cartões Chip EMV e que possuam PAN Sequence Number (Tag 5F34).</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.SaveCard</code></td>
@@ -8188,7 +8189,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.IsFallback</code></td>
@@ -8196,7 +8196,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentDateTime</code></td>
@@ -8204,7 +8203,6 @@
       <td>date-time</td>
       <td>Sim</td>
       <td>Data e Hora da captura da transação</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ServiceTaxAmount</code></td>
@@ -8212,7 +8210,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code></td>
@@ -8220,7 +8217,6 @@
       <td>13</td>
       <td>—</td>
       <td>Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ProductId</code></td>
@@ -8228,7 +8224,6 @@
       <td>—</td>
       <td>Sim</td>
       <td>Código do produto identificado através do bin do cartão.</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PinPadInformation.TerminalId</code></td>
@@ -8236,7 +8231,6 @@
       <td>—</td>
       <td>Sim</td>
       <td>Número Lógico definido no Concentrador Cielo.</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PinPadInformation.SerialNumber</code></td>
@@ -8244,7 +8238,6 @@
       <td>20</td>
       <td>Sim</td>
       <td>Número de Série do Equipamento.</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PinPadInformation.PhysicalCharacteristics</code></td>
@@ -8252,7 +8245,6 @@
       <td>—</td>
       <td>Sim</td>
       <td>Enum: <code class="language-plaintext highlighter-rouge">WithoutPinPad</code> <code class="language-plaintext highlighter-rouge">PinPadWithoutChipReader</code> <code class="language-plaintext highlighter-rouge">PinPadWithChipReaderWithoutSamModule</code> <code class="language-plaintext highlighter-rouge">PinPadWithChipReaderWithSamModule</code> <code class="language-plaintext highlighter-rouge">NotCertifiedPinPad</code> <code class="language-plaintext highlighter-rouge">PinPadWithChipReaderWithoutSamAndContactless</code> <code class="language-plaintext highlighter-rouge">PinPadWithChipReaderWithSamModuleAndContactless</code> <br /> Sem PIN-pad = <code class="language-plaintext highlighter-rouge">WithoutPinPad</code>; <br /> PIN-pad sem leitor de Chip = <code class="language-plaintext highlighter-rouge">PinpadWithoutChipReader</code>; <br />PIN-pad com leitor de Chip sem módulo SAM = <code class="language-plaintext highlighter-rouge">PinPadWithChipReaderWithoutSamModule</code>; <br /> PIN-pad com leitor de Chip com módulo SAM = <code class="language-plaintext highlighter-rouge">PinPadWithChipReaderWithSamModule</code>; <br /> PIN-pad não homologado = <code class="language-plaintext highlighter-rouge">NotCertifiedPinPad</code>; <br /> PIN-pad com leitor de Chip sem SAM e Cartão Sem Contato = <code class="language-plaintext highlighter-rouge">PinpadWithChipReaderWithoutSamAndContactless</code>; <br /> PIN-pad com leitor de Chip com SAM e Cartão Sem Contato = <code class="language-plaintext highlighter-rouge">PinpadWithChipReaderWithSamAndContactless</code>. <br /> Obs. Caso a aplicação não consiga informar os dados acima, deve obter tais informações através do retorno da função PP_GetInfo() da BC.</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PinPadInformation.ReturnDataInfo</code></td>
@@ -8260,7 +8252,6 @@
       <td>—</td>
       <td>Sim</td>
       <td>Retorno da função PP_GetInfo() da biblioteca compartilhada</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
@@ -8268,7 +8259,6 @@
       <td>—</td>
       <td>Sim</td>
       <td>Valor da transação (1079 = R$10,79)</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ReceivedDate</code></td>
@@ -8276,7 +8266,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CapturedAmount</code></td>
@@ -8284,7 +8273,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
@@ -8292,7 +8280,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ConfirmationStatus</code></td>
@@ -8300,7 +8287,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.InitializationVersion</code></td>
@@ -8308,7 +8294,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.EmvResponseData</code></td>
@@ -8316,7 +8301,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Status</code></td>
@@ -8324,7 +8308,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.IsSplitted</code></td>
@@ -8332,7 +8315,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ReturnCode</code></td>
@@ -8340,7 +8322,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ReturnMessage</code></td>
@@ -8348,7 +8329,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentId</code></td>
@@ -8356,7 +8336,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
@@ -8364,7 +8343,6 @@
       <td>—</td>
       <td>Sim</td>
       <td>Value: <code class="language-plaintext highlighter-rouge">PhysicalCreditCard</code> / Tipo da Transação</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Currency</code></td>
@@ -8372,7 +8350,6 @@
       <td>—</td>
       <td>—</td>
       <td>Default: “BRL” / Value: “BRL” / Moeda (Preencher com “BRL”)</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Country</code></td>
@@ -8380,7 +8357,6 @@
       <td>—</td>
       <td>—</td>
       <td>Default: “BRA” / Value: “BRA” / País (Preencher com “BRA”)</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Receipt.MerchantName</code></td>
@@ -8388,7 +8364,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Receipt.MerchantAddress</code></td>
@@ -8396,7 +8371,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Receipt.MerchantCity</code></td>
@@ -8404,7 +8378,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Receipt.MerchantState</code></td>
@@ -8412,7 +8385,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Receipt.MerchantCode</code></td>
@@ -8420,7 +8392,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Receipt.Terminal</code></td>
@@ -8428,7 +8399,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Receipt.Nsu</code></td>
@@ -8436,7 +8406,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Receipt.Date</code></td>
@@ -8444,7 +8413,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Receipt.Hour</code></td>
@@ -8452,7 +8420,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Receipt.IssuerName</code></td>
@@ -8460,7 +8427,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Receipt.CardNumber</code></td>
@@ -8468,7 +8434,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Receipt.TransactionType</code></td>
@@ -8476,7 +8441,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Receipt.AuthorizationCode</code></td>
@@ -8484,7 +8448,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Receipt.TransactionMode</code></td>
@@ -8492,7 +8455,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Receipt.InputMethod</code></td>
@@ -8500,7 +8462,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Receipt.Value</code></td>
@@ -8508,7 +8469,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Receipt.SoftDescriptor</code></td>
@@ -8516,7 +8476,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RecurrentPayment.RecurrentPaymentId</code></td>
@@ -8524,7 +8483,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RecurrentPayment.ReasonCode</code></td>
@@ -8532,7 +8490,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RecurrentPayment.ReasonMessage</code></td>
@@ -8540,7 +8497,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RecurrentPayment.NextRecurrency</code></td>
@@ -8548,7 +8504,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RecurrentPayment.EndDate</code></td>
@@ -8556,7 +8511,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RecurrentPayment.Interval</code></td>
@@ -8564,7 +8518,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">SplitPayments.SubordinateMerchantId</code></td>
@@ -8572,7 +8525,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">SplitPayments.Amount</code></td>
@@ -8580,7 +8532,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">SplitPayments.Fares.Mdr</code></td>
@@ -8588,7 +8539,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">SplitPayments.Fares.Fee</code></td>
@@ -8596,7 +8546,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">SplitErrors.Code</code></td>
@@ -8604,7 +8553,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">SplitErrors.Message</code></td>
@@ -8612,7 +8560,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td> </td>
     </tr>
   </tbody>
 </table>
