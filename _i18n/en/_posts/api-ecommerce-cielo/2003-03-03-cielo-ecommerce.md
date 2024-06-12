@@ -7204,7 +7204,7 @@ Codes returned in case of error, identifying the reason for the error and its re
 |127|You must provide CreditCard Number|Credit card number is required|
 |128|Card Number length exceeded|Card number greater than 16 digits|
 |129|Affiliation not found|Payment means not linked to store or invalid Provider|
-|130|Could not get Credit Card|---|
+|130|Could not get Credit Card|Can't find a card via the cardtoken sent|
 |131|MerchantKey is required|Sent field is empty or invalid|
 |132|MerchantKey is invalid|Sent Merchantkey is not a valid one|
 |133|Provider is not supported for this Payment Type|Sent Provider does not exist|
