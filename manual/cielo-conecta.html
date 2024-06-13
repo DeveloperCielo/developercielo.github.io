@@ -9817,60 +9817,67 @@
   </tbody>
 </table>
 
-<h3 id="pagamento-com-envio-dos-dados-do-facilitador">Pagamento com envio dos Dados do Facilitador</h3>
+<h3 id="pagamento-com-envio-dos-dados-do-subadquirente">Pagamento com envio dos Dados do Subadquirente</h3>
+
+<p><strong>Para operação de Subadquirente é obrigatório o envio dos dados indicados no objeto “PaymentFacilitator”.</strong></p>
 
 <h4 id="requisição-7">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"201904150001"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"SubordinatedMerchantId"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"SubordinatedMerchantId"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PhysicalCreditCard"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Description"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"PaymentDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-15T12:00:00Z"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15798</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Interest"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234567812345678</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2020"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"SecurityCodeStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Collected"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">1230</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"BrandId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"IssuerId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"InputMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Typed"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"AuthenticationMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NoPassword"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"TruncateCardNumberWhenPrinting"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"IsFallback"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"PinPadInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"TerminalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10000001"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"SerialNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC123"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"PhysicalCharacteristics"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PinPadWithChipReaderWithSamModule"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"ReturnDataInfo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"PaymentFacilitator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"EstablishmentCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00123"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"TerminalAcquirerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000001"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"SubEstablishment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"EstablishmentCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Mcc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3412"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Brasil"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"PostalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"PhoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890123"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"CountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"076"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"DocumentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cpf"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678901"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+</span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"201904150001123"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"SubordinatedMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PhysicalCreditCard"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loja Teste"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"PaymentDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-06-03T11:47:38.882Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Interest"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ByIssuer"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2035"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"BrandId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"IssuerId"</span><span class="p">:</span><span class="w"> </span><span class="mi">8080</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"InputMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emv"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"AuthenticationMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OfflineAuthentication"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"EmvData"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9F02060000000001009F1A020076950500000000015F2A0209869A03210322820219809F360200279F10120210A04003220000000000000000000000FF9F260857172EE678654C9F9F2701805F340100"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"TrackTwoData"</span><span class="p">:</span><span class="w"> </span><span class="s2">"45CC3FE120E73BEB67AF0E3E22EB7784DA8D4212C606C571"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"TruncateCardNumberWhenPrinting"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"EncryptedCardData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"EncryptionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dukpt3DesCBC"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"InitializationVector"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000000000"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"TrackTwoDataKSN"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FFFFF99995C18C80005E"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"PanSequenceNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"PinPadInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"TerminalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000001"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"SerialNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"006H017950"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"PhysicalCharacteristics"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PinPadWithChipReaderWithSamModuleAndContactless"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ReturnDataInfo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"PaymentFacilitator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"EstablishmentCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"TerminalAcquirerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"SubEstablishment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"EstablishmentCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10084487"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Mcc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8999"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"PostalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06455030"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"PhoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1198080202011"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"CountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"076"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"DocumentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cpf"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08470483064"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+
+        </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -10001,8 +10008,8 @@
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.TrackTwoData</code></td>
       <td>String</td>
       <td>—</td>
-      <td>Não</td>
-      <td>Dados da trilha 2<br />Obtidos através do comando PP_GetCard na BC no momento da captura da transação</td>
+      <td>Sim</td>
+      <td>Trilha dois do cartão criptografado</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.PinBlock.EncryptedPinBlock</code></td>
@@ -10024,6 +10031,41 @@
       <td>—</td>
       <td>Não</td>
       <td>Identificação do KSN - Para transações EMV esse campo é obtido através do retorno da função PP_GoOnChip() nas posições 023 até 042; - Para transações digitadas e com tarja magnética, verificar as posições 017 até 036 do retorno da função PP_GetPin().</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.EncryptedCardData.EncryptionType</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Tipo de encriptação utilizada <br />Enum: <br />“DukptDes” = 1, <br /> “MasterKey” = 2 <br />“Dukpt3Des” = 3, <br />“Dukpt3DesCBC = 4</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.EncryptedCardData.TrackOneDataKSN</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Identificador KSN da criptografia da trilha 1 do cartão</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.EncryptedCardData.TrackTwoDataKSN</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Identificador KSN da criptografia da trilha 2 do cartão</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.EncryptedCardData.IsDataInTLVFormat</code></td>
+      <td>Booleano</td>
+      <td>—</td>
+      <td>Não Identifica se os dados criptografados estão no formato TLV (tag / length / value).</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.EncryptedCardData.InitializationVector</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Vetor de inicialização da encryptação</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PinPadInformation.TerminalId</code></td>
@@ -10143,210 +10185,236 @@
 <h4 id="resposta-7">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20180204"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Interest"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2020"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"BrandId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"IssuerId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"TruncateCardNumberWhenPrinting"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"InputMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emv"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"AuthenticationMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OnlineAuthentication"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"EmvData"</span><span class="p">:</span><span class="w"> </span><span class="s2">"112233445566778899011AABBC012D3456789E0123FF45678AB901234C5D112233445566778800"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"PinBlock"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"EncryptedPinBlock"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2280F6BDFD0C038D"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"EncryptionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dukpt3Des"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"KsnIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1231vg31fv231313123"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nl">"PanSequenceNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"IsFallback"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"PaymentDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-15T12:00:00Z"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ServiceTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Description"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"PinPadInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"TerminalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10000001"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"SerialNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC123"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"PhysicalCharacteristics"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PinPadWithChipReaderWithSamModule"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"ReturnDataInfo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15798</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-15T12:00:00Z"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"CapturedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15798</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cielo"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ConfirmationStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"InitializationVersion"</span><span class="p">:</span><span class="w"> </span><span class="mi">1558708320029</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"EmvResponseData"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789ABCD1345DEA"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"IsSplitted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f15889ea-5719-4e1a-a2da-f4e50d5bd702"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PhysicalDebitCard"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"MerchantAcquirerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0010000244470001"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"TerminalAcquirerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"71000027"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702/confirmation"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"PrintMessage"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Position"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Top"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transação autorizada"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Position"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Middle"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Informação adicional"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Position"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bottom"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Obrigado e volte sempre!"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"ReceiptInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MERCHANT_NAME"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOME DO ESTABELECIMENTO"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Estabelecimento"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MERCHANT_ADDRESS"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ENDEREÇO DO ESTABELECIMENTO"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Sem Saida, 0"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MERCHANT_CITY"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CIDADE DO ESTABELECIMENTO"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cidade"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MERCHANT_STATE"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ESTADO DO ESTABELECIMENTO"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WA"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MERCHANT_CODE"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COD.ESTAB."</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234567890123456</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TERMINAL"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POS"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345678</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NSU"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DOC"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="mi">123456</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DATE"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DATA"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/20"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HOUR"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HORA"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01:01"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ISSUER_NAME"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EMISSOR"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOME DO EMISSOR"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CARD_NUMBER"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CARTÃO"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="mi">5432123454321234</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANSACTION_TYPE"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TIPO DE TRANSAÇÃO"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VENDA A CREDITO"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUTHORIZATION_CODE"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUTORIZAÇÃO"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="mi">123456</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANSACTION_MODE"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MODO DA TRANSAÇÃO"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ONL"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INPUT_METHOD"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MODO DE ENTRADA"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"X"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VALUE"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VALOR"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1,23"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOFT_DESCRIPTOR"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOFT DESCRIPTOR"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simulado"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"Receipt"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"MerchantName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Estabelecimento"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"MerchantAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Sem Saida, 0"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"MerchantCity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cidade"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"MerchantState"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WA"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"MerchantCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234567890123456</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Terminal"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345678</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Nsu"</span><span class="p">:</span><span class="w"> </span><span class="mi">123456</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/20"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01:01"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"IssuerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOME DO EMISSOR"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">5432123454321234</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"TransactionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VENDA A CREDITO"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">123456</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"TransactionMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ONL"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"InputMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"X"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1,23"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simulado"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-   </span><span class="nl">"PaymentFacilitator"</span><span class="p">:{</span><span class="w">
-   </span><span class="nl">"TerminalAcquirerId"</span><span class="p">:</span><span class="s2">"00000001"</span><span class="p">,</span><span class="w">
-   </span><span class="nl">"SubEstablishment"</span><span class="p">:{</span><span class="w">
-      </span><span class="nl">"DocumentType"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="s2">"12345678901"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"EstablishmentCode"</span><span class="p">:</span><span class="s2">"12345678"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Mcc"</span><span class="p">:</span><span class="s2">"3412"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Address"</span><span class="p">:</span><span class="s2">"Rua Brasil"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"City"</span><span class="p">:</span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"State"</span><span class="p">:</span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"PostalCode"</span><span class="p">:</span><span class="s2">"123456789"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"PhoneNumber"</span><span class="p">:</span><span class="s2">"1234567890123"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"CountryCode"</span><span class="p">:</span><span class="s2">"076"</span><span class="w">
-   </span><span class="p">},</span><span class="w">
-   </span><span class="nl">"EstablishmentCode"</span><span class="p">:</span><span class="s2">"00123"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+ </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"201904150001123"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[Guest]"</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">},</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Interest"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ByIssuer"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2035"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"BrandId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"IssuerId"</span><span class="p">:</span><span class="w"> </span><span class="mi">8080</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"TruncateCardNumberWhenPrinting"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"PanSequenceNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"InputMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emv"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"AuthenticationMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OfflineAuthentication"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"TrackTwoData"</span><span class="p">:</span><span class="w"> </span><span class="s2">"************************************************"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"EmvData"</span><span class="p">:</span><span class="w"> </span><span class="s2">"****************************************************************************************************************************************************************"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"IsFallback"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"BrandInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VENDA A CREDITO"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MASTERCARD"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PARCELADO EMISSOR EM 2 PARCELAS"</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">},</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"CardToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"696200f1-f788-4004-a48d-1889269746ff"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"EncryptedCardData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"EncryptionType"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"TrackTwoDataKSN"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FFFFF99995C18C80005E"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"InitializationVector"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000000000"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"IsDataInTLVFormat"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">}</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">},</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-06-03T15:09:29Z"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"CapturedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"CapturedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-06-03T15:09:31Z"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cielo"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"PhysicalTransactionStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"IsSplitted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"APROVADA 259345"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aed16b0d-33a6-48b5-af80-f6c7351590ba"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PhysicalCreditCard"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/physicalSales/aed16b0d-33a6-48b5-af80-f6c7351590ba"</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">},</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"confirm"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/aed16b0d-33a6-48b5-af80-f6c7351590ba/confirmation"</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">},</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reverse"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/aed16b0d-33a6-48b5-af80-f6c7351590ba"</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">}</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">],</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"PaymentDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-06-03T12:09:30.578Z"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"ServiceTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loja Teste"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"PinPadInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"TerminalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000001"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"SerialNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"006H017950"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"PhysicalCharacteristics"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PinPadWithChipReaderWithSamModuleAndContactless"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"ReturnDataInfo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">},</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"PrintMessage"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Position"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Top"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VALOR DA TARIFA:         0,00#TRIBUTOS:         2,41#SEGUROS:         0,00#OUTRAS DESPESAS:         0,00#T0TAL:         1,10#CET ANUAL:      0,00%"</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">}</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">],</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"ReceiptInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MERCHANT_NAME"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOME DO ESTABELECIMENTO"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Feira ACBR"</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">},</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MERCHANT_ADDRESS"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ENDEREÇO DO ESTABELECIMENTO"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alameda Xingu, 512"</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">},</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MERCHANT_CITY"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CIDADE DO ESTABELECIMENTO"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BARUERI"</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">},</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MERCHANT_STATE"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ESTADO DO ESTABELECIMENTO"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">},</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MERCHANT_CODE"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COD.ESTAB."</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0010255016990001"</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">},</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TERMINAL"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POS"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"42001001"</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">},</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NSU"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DOC"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"809102"</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">},</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DATE"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DATA"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"03/06/24"</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">},</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HOUR"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HORA"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12:09"</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">},</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ISSUER_NAME"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EMISSOR"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CIELO#MASTERCARD"</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">},</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CARD_NUMBER"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CARTÃO"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"546056-7843"</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">},</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRAND"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BANDEIRA"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MASTERCARD"</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">},</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANSACTION_TYPE"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TIPO DE TRANSAÇÃO"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VENDA A CREDITO"</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">},</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANSACTION_DESC"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DESCRIÇÃO DA TRANSAÇÃO"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PARCELADO EMISSOR EM 2 PARCELAS"</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">},</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUTHORIZATION_CODE"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUTORIZAÇÃO"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"259345"</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">},</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANSACTION_MODE"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MODO DA TRANSAÇÃO"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ONL"</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">},</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INPUT_METHOD"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MODO DE ENTRADA"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C"</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">},</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF_CNPJ"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF OU CNPJ"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24904219000183"</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">},</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VALUE"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VALOR"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1,00"</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">},</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOFT_DESCRIPTOR"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOFT DESCRIPTOR"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loja Teste"</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">}</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">],</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Receipt"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"MerchantName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Feira ACBR"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"MerchantAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alameda Xingu, 512"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"MerchantCity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BARUERI"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"MerchantState"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"MerchantCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0010255016990001"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Terminal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"42001001"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Nsu"</span><span class="p">:</span><span class="w"> </span><span class="s2">"809102"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"03/06/24"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12:09"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"IssuerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CIELO#MASTERCARD"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"546056-7843"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MASTERCARD"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"TransactionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VENDA A CREDITO"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"TransactionDesc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PARCELADO EMISSOR EM 2 PARCELAS"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"259345"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"TransactionMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ONL"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"InputMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"CpfCnpj"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24904219000183"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1,00"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loja Teste"</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">},</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"259345"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"809102"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"InitializationVersion"</span><span class="p">:</span><span class="w"> </span><span class="mi">1711483206145</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"ConfirmationStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"EmvResponseData"</span><span class="p">:</span><span class="w"> </span><span class="s2">"910a469327c2d6eff8a90012"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"SubordinatedMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddb891bf-73ae-41b0-8d37-380a9902438c"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"OfflinePaymentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Online"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"MerchantAcquirerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0010255016990001"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"TerminalAcquirerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"42001001"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"PaymentFacilitator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"TerminalAcquirerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"SubEstablishment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"DocumentType"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08470483064"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"EstablishmentCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10084487"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Mcc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8999"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"Address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"PostalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06455030"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"PhoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1198080202011"</span><span class="p">,</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"CountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"076"</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">},</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nl">"EstablishmentCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890"</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">}</span><span class="w">
+</span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -10358,6 +10426,7 @@
       <th>Tamanho</th>
       <th>Obrigatório</th>
       <th>Descrição</th>
+      <th> </th>
     </tr>
   </thead>
   <tbody>
@@ -10367,6 +10436,7 @@
       <td>15</td>
       <td>Sim</td>
       <td>Número do documento gerado automaticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal.</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
@@ -10374,6 +10444,7 @@
       <td>255</td>
       <td>Não</td>
       <td>Nome do comprador</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
@@ -10381,6 +10452,7 @@
       <td>—</td>
       <td>Sim</td>
       <td>Value: PhysicalCreditCard / Tipo da Transação</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code></td>
@@ -10388,6 +10460,7 @@
       <td>13</td>
       <td>Não</td>
       <td>Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentDateTime</code></td>
@@ -10395,6 +10468,7 @@
       <td>date-time</td>
       <td>Sim</td>
       <td>Data e Hora da captura da transação</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
@@ -10402,6 +10476,7 @@
       <td>15</td>
       <td>Sim</td>
       <td>Valor da transação (1079 = R$10,79)</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
@@ -10409,6 +10484,7 @@
       <td>—</td>
       <td>Não</td>
       <td>Default: false / Booleano que identifica que a autorização deve ser com captura automática. A autorização sem captura automática é conhecida também como pré-autorização.</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
@@ -10416,6 +10492,7 @@
       <td>2</td>
       <td>Sim</td>
       <td>Default: 1 / Quantidade de Parcelas: Varia de 2 a 99 para transação de financiamento. Deve ser verificado os atributos MaximumNumberOfInstallmentsWhenFinancingByCreditCardCompany, MaximumNumberOfInstallmentsWhenFinancingByStore, MaximumNumberOfinstallmentsForSaleAndCDCQuery e MinimumNumberOfInstallmentsWhenFinancingByStore da objeto ProductEntry da baixa de parametros.</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Interest</code></td>
@@ -10423,6 +10500,7 @@
       <td>10</td>
       <td>Não</td>
       <td>Default: ByMerchant<br />Enum: ByMerchant, ByIssuer<br />Tipo de Parcelamento:<br />- Se os campos AllowFinancingByStore presente nos objetos IssuerEntry, BinEntry e ProductEntry da baixa de parametros estiverem todos habilitados indica que o tipo de parcelamento sem juros pode ser efetuado.<br />- Se os campos AllowFinancingByCreditCardCompany presente nos objetos IssuerEntry, BinEntry e ProductEntry da baixa de parametros estiverem todos habilitados indica que o tipo de parcelamento com juros pode ser efetuado. Sem juros = “ByMerchant”; Com juros = “ByIssuer”.</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ProductId</code></td>
@@ -10430,6 +10508,7 @@
       <td>—</td>
       <td>Sim</td>
       <td>Código do produto identificado através do bin do cartão.</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ReceivedDate</code></td>
@@ -10437,6 +10516,7 @@
       <td>—</td>
       <td>Sim</td>
       <td>Data em que a transação foi recebida. Formato “AAAA-MM-DD HH:mm:SS”</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CapturedAmount</code></td>
@@ -10444,6 +10524,7 @@
       <td>15</td>
       <td>Sim</td>
       <td>Valor capturado, sem pontuação. 100 equivale a R$ 1,00</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">InitializationVersion</code></td>
@@ -10451,6 +10532,7 @@
       <td>—</td>
       <td>Sim</td>
       <td>Número de versão dos parametros baixados na inicialização do equipamento.</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ConfirmationStatus</code></td>
@@ -10458,6 +10540,15 @@
       <td>2</td>
       <td>Não</td>
       <td>Status da confirmação. 0 = Pendente 1 = Confirmado 2 = Desfeito</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.SubordinatedMerchantId</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Código identificador da loja.</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Status</code></td>
@@ -10465,6 +10556,7 @@
       <td>2</td>
       <td>Sim</td>
       <td>Status da transação 0 = Não Finalizado 1 = Autorizado 2 = Pago 3 = Negado 10 = Cancelado 13 = Abortado</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ReturnCode</code></td>
@@ -10472,6 +10564,7 @@
       <td>3</td>
       <td>Sim</td>
       <td>Código de erro/resposta da transação da Adquirência.</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ReturnMessage</code></td>
@@ -10479,6 +10572,7 @@
       <td>—</td>
       <td>Sim</td>
       <td>Mensagem de erro/resposta da transação da Adquirência.</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentId</code></td>
@@ -10486,6 +10580,7 @@
       <td>36</td>
       <td>Sim</td>
       <td>Código do Pagamento</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code></td>
@@ -10493,6 +10588,7 @@
       <td>13</td>
       <td>—</td>
       <td>Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.ExpirationDate</code></td>
@@ -10500,6 +10596,7 @@
       <td>MM/yyyy</td>
       <td>Sim</td>
       <td>Data de validade do cartão.<br />Dado obtido através do comando PP_GetCard na BC no momento da captura da transação.</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.BrandId</code></td>
@@ -10507,6 +10604,7 @@
       <td>—</td>
       <td>Sim</td>
       <td>Identificação da bandeira obtida através do campo BrandId da PRODUCT TABLE.</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.IssuerId</code></td>
@@ -10514,6 +10612,7 @@
       <td>—</td>
       <td>Sim</td>
       <td>Código do emissor obtido através do campo IssuerId da BIN TABLE.</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.InputMode</code></td>
@@ -10521,6 +10620,7 @@
       <td>—</td>
       <td>Sim</td>
       <td>Enum: Typed, MagStripe, Emv, ContactlessEmv<br />Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função PP_GetCard da BC.<br />“00” – Magnético<br />“01” - Moedeiro VISA Cash sobre TIBC v1<br />“02” - Moedeiro VISA Cash sobre TIBC v3<br />“03” – EMV com contato<br />“04” - Easy-Entry sobre TIBC v1<br />“05” - Chip sem contato simulando tarja<br />“06” - EMV sem contato.</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.AuthenticationMethod</code></td>
@@ -10528,6 +10628,7 @@
       <td>—</td>
       <td>Sim</td>
       <td>Enum: NoPassword OnlineAuthentication OfflineAuthentication<br />Método de autenticação<br />- Se o cartão foi lido a partir da digitação verificar o campo RequiresPasswordExceptForEMVCard dos objetos BinEntry, ParameterEntry e IssuerEntry da baixa de parametros. Se todos estiverem habilitados, a senha deve ser capturada e o authenticationMethod assume valor 2. Caso contrário, assume valor 1;<br />- Se o cartão foi lido a partir da trilha verificar o campo RequiresPassword dos objetos BinEntry, ParameterEntry e IssuerEntry da baixa de parametros. Se todos estiverem habilitados deve ser capturada a senha, se algum estiver desabilitado a captura da senha vai depender do último dígito do service code;<br />- Se o cartão foi lido através do chip EMV, o authenticationMethod será preenchido com base no retorno da função PP_GoOnChip(). No resultado PP_GoOnChip(), onde se o campo da posição 003 do retorno da PP_GoOnChip() estiver com valor 1 indica que o pin foi validado off-line, o authenticationMethod será 3. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valor 0, o authenticationMethod será 1. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valores 0 e 1 respectivamente, o authenticationMethod será 2.<br />1 - Sem senha = “NoPassword”;<br />2 - Senha online = “Online Authentication”;<br />3 - Senha off-line = “Offline Authentication”.</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.TrackOneData</code></td>
@@ -10535,13 +10636,15 @@
       <td>—</td>
       <td>Sim</td>
       <td>Dados da trilha 1<br />Obtidos através do comando PP_GetCard na BC no momento da captura da transação</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.TrackTwoData</code></td>
       <td>String</td>
       <td>—</td>
-      <td>Não</td>
-      <td>Dados da trilha 2<br />Obtidos através do comando PP_GetCard na BC no momento da captura da transação</td>
+      <td>Sim</td>
+      <td>Trilha dois do cartão criptografado</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.PinBlock.EncryptedPinBlock</code></td>
@@ -10549,6 +10652,7 @@
       <td>—</td>
       <td>Sim</td>
       <td>PINBlock Criptografado - Para transações EMV, esse campo é obtido através do retorno da função PP_GoOnChip(), mais especificamente das posições 007 até a posição 022; - Para transações digitadas e com tarja magnética, verificar as posições 001 até 016 do retorno da função PP_GetPin().</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.PinBlock.EncryptionType</code></td>
@@ -10556,6 +10660,7 @@
       <td>—</td>
       <td>Sim</td>
       <td>Tipo de Criptografia Enum: “DukptDes” “Dukpt3Des” “MasterKey”</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.PinBlock.KsnIdentification</code></td>
@@ -10563,6 +10668,47 @@
       <td>—</td>
       <td>Sim</td>
       <td>Identificação do KSN - Para transações EMV esse campo é obtido através do retorno da função PP_GoOnChip() nas posições 023 até 042; - Para transações digitadas e com tarja magnética, verificar as posições 017 até 036 do retorno da função PP_GetPin().</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.EncryptedCardData.EncryptionType</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Tipo de encriptação utilizada <br />Enum: <br />“DukptDes” = 1, <br /> “MasterKey” = 2 <br />“Dukpt3Des” = 3, <br />“Dukpt3DesCBC = 4</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.EncryptedCardData.TrackOneDataKSN</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Identificador KSN da criptografia da trilha 1 do cartão</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.EncryptedCardData.TrackTwoDataKSN</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Identificador KSN da criptografia da trilha 2 do cartão</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.EncryptedCardData.IsDataInTLVFormat</code></td>
+      <td>Booleano</td>
+      <td>—</td>
+      <td>Não Identifica se os dados criptografados estão no formato TLV (tag / length / value).</td>
+      <td>—</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.EncryptedCardData.InitializationVector</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Vetor de inicialização da encryptação</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PinPadInformation.TerminalId</code></td>
@@ -10570,6 +10716,7 @@
       <td>8</td>
       <td>Não</td>
       <td>Número Lógico definido no Concentrador Cielo.</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PinPadInformation.SerialNumber</code></td>
@@ -10577,6 +10724,7 @@
       <td>20</td>
       <td>Não</td>
       <td>Número de Série do Equipamento.</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PinPadInformation.PhysicalCharacteristics</code></td>
@@ -10584,6 +10732,7 @@
       <td>—</td>
       <td>Não</td>
       <td>Enum: WithoutPinPad, PinPadWithoutChipReader, PinPadWithChipReaderWithoutSamModule, PinPadWithChipReaderWithSamModule, NotCertifiedPinPad, PinPadWithChipReaderWithoutSamAndContactless, PinPadWithChipReaderWithSamModuleAndContactless<br />Sem PIN-pad = WithoutPinPad;<br />PIN-pad sem leitor de Chip = PinpadWithoutChipReader;<br />PIN-pad com leitor de Chip sem módulo SAM = PinPadWithChipReaderWithoutSamModule;<br />PIN-pad com leitor de Chip com módulo SAM = PinPadWithChipReaderWithSamModule;<br />PIN-pad não homologado = NotCertifiedPinPad;<br />PIN-pad com leitor de Chip sem SAM e Cartão Sem Contato = PinpadWithChipReaderWithoutSamAndContactless;<br />PIN-pad com leitor de Chip com SAM e Cartão Sem Contato = PinpadWithChipReaderWithSamAndContactless.<br />Obs. Caso a aplicação não consiga informar os dados acima, deve obter tais informações através do retorno da função PP_GetInfo() da BC.</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PinPadInformation.ReturnDataInfo</code></td>
@@ -10591,6 +10740,7 @@
       <td>—</td>
       <td>Não</td>
       <td>Retorno da função PP_GetInfo() da biblioteca compartilhada</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Receipt.MerchantName</code></td>
@@ -10598,6 +10748,7 @@
       <td>255</td>
       <td>Sim</td>
       <td>Nome da loja</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Receipt.MerchantAddress</code></td>
@@ -10605,6 +10756,7 @@
       <td>255</td>
       <td>Sim</td>
       <td>Endereço da loja</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Receipt.MerchantCity</code></td>
@@ -10612,6 +10764,7 @@
       <td>255</td>
       <td>Sim</td>
       <td>Cidade da loja</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Receipt.MerchantState</code></td>
@@ -10619,6 +10772,7 @@
       <td>2</td>
       <td>Sim</td>
       <td>Estado da loja</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Receipt.MerchantCode</code></td>
@@ -10626,6 +10780,7 @@
       <td>16</td>
       <td>Sim</td>
       <td>Codigo de identificação da loja</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Receipt.Terminal</code></td>
@@ -10633,6 +10788,7 @@
       <td>8</td>
       <td>Sim</td>
       <td>Identificação do Terminal</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Receipt.Nsu</code></td>
@@ -10640,6 +10796,7 @@
       <td>6</td>
       <td>Sim</td>
       <td>Numero de identificação da transação Cielo</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Receipt.Date</code></td>
@@ -10647,6 +10804,7 @@
       <td>dd/MM/yy</td>
       <td>Sim</td>
       <td>Data da transação</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Receipt.Hour</code></td>
@@ -10654,6 +10812,7 @@
       <td>HH:mm</td>
       <td>Sim</td>
       <td>Horario da transação</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Receipt.IssuerName</code></td>
@@ -10661,6 +10820,7 @@
       <td>255</td>
       <td>Sim</td>
       <td>Nome do emissor obtido através do campo IssuerId no objeto BinEntry.</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Receipt.CardHolder</code></td>
@@ -10668,6 +10828,7 @@
       <td>255</td>
       <td>Não</td>
       <td>Nome do titular do cartão.</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Receipt.CardNumber</code></td>
@@ -10675,6 +10836,7 @@
       <td>19</td>
       <td>Sim</td>
       <td>Número do cartão</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Receipt.Brand</code></td>
@@ -10682,6 +10844,7 @@
       <td>255</td>
       <td>Sim</td>
       <td>Bandeira do cartão</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Receipt.TransactionType</code></td>
@@ -10689,6 +10852,7 @@
       <td>255</td>
       <td>Sim</td>
       <td>Tipo de transação</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Receipt.AuthorizationCode</code></td>
@@ -10696,6 +10860,7 @@
       <td>6</td>
       <td>Sim</td>
       <td>Código da autorização</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Receipt.TransactionMode</code></td>
@@ -10703,6 +10868,7 @@
       <td>3</td>
       <td>Sim</td>
       <td>Modo da transação</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Receipt.InputMethod</code></td>
@@ -10710,6 +10876,7 @@
       <td>1</td>
       <td>Sim</td>
       <td>Metodo de entrada</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Receipt.Value</code></td>
@@ -10717,6 +10884,7 @@
       <td>15</td>
       <td>Sim</td>
       <td>Valor do pagamento</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Receipt.SoftDescriptor</code></td>
@@ -10724,6 +10892,7 @@
       <td>13</td>
       <td>Não</td>
       <td>Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Links</code></td>
@@ -10731,6 +10900,7 @@
       <td>-</td>
       <td>Não</td>
       <td>links de navegação.</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Links.Method</code></td>
@@ -10738,6 +10908,7 @@
       <td>-</td>
       <td>Sim</td>
       <td>Metodo do link de navegação.</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Links.Rel</code></td>
@@ -10745,6 +10916,7 @@
       <td>-</td>
       <td>Sim</td>
       <td>Links de retorno para navegação.</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Links.Href</code></td>
@@ -10752,6 +10924,7 @@
       <td>-</td>
       <td>Sim</td>
       <td>Endereço do links de navegação.</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PrintMessage</code></td>
@@ -10759,6 +10932,7 @@
       <td>-</td>
       <td>Não</td>
       <td>Dados para impressão.</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PrintMessage.Position</code></td>
@@ -10766,6 +10940,7 @@
       <td>-</td>
       <td>Sim</td>
       <td>Posição para impressão.</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PrintMessage.Message</code></td>
@@ -10773,6 +10948,7 @@
       <td>-</td>
       <td>Sim</td>
       <td>Mensagem para impressão.</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ReceiptInformation</code></td>
@@ -10780,6 +10956,7 @@
       <td>-</td>
       <td>Não</td>
       <td>Dados do recibo.</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ReceiptInformation.Field</code></td>
@@ -10787,6 +10964,7 @@
       <td>-</td>
       <td>Sim</td>
       <td>Nome do campo do recibo.</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ReceiptInformation.Label</code></td>
@@ -10794,6 +10972,7 @@
       <td>-</td>
       <td>Sim</td>
       <td>Titulo do campo do recibo.</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ReceiptInformation.Content</code></td>
@@ -10801,6 +10980,7 @@
       <td>-</td>
       <td>Sim</td>
       <td>conteúdo do campo do recibo.</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentFacilitator.EstablishmentCode</code></td>
@@ -10808,6 +10988,7 @@
       <td>10</td>
       <td>Sim</td>
       <td>Código do lojista - SMID - Obs: Informar o SMID do SubSeller que está realizando a transação</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentFacilitator.TerminalAcquirerId</code></td>
@@ -10815,6 +10996,7 @@
       <td>8</td>
       <td>Sim</td>
       <td>Código do TerminalID do SubSeller</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentFacilitator.SubEstablishment.EstablishmentCode</code></td>
@@ -10822,6 +11004,7 @@
       <td>15</td>
       <td>Sim</td>
       <td>Código do Subadquirente - PFID - Obs: Informar o PFID específico de cada bandeira</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentFacilitator.SubEstablishment.Mcc</code></td>
@@ -10829,6 +11012,7 @@
       <td>4</td>
       <td>Sim</td>
       <td>Ramo de atividade do SubSeller - MCC</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentFacilitator.SubEstablishment.Address</code></td>
@@ -10836,6 +11020,7 @@
       <td>50</td>
       <td>Sim</td>
       <td>Endereço do SubSeller</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentFacilitator.SubEstablishment.City</code></td>
@@ -10843,6 +11028,7 @@
       <td>50</td>
       <td>Sim</td>
       <td>Cidade do SubSellerr</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentFacilitator.SubEstablishment.State</code></td>
@@ -10850,6 +11036,7 @@
       <td>2</td>
       <td>Sim</td>
       <td>Estado do SubSeller</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentFacilitator.SubEstablishment.PostalCode</code></td>
@@ -10857,6 +11044,7 @@
       <td>9</td>
       <td>Sim</td>
       <td>CEP do SubSeller</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentFacilitator.SubEstablishment.PhoneNumber</code></td>
@@ -10864,6 +11052,7 @@
       <td>13</td>
       <td>Sim</td>
       <td>Telefone do SubSeller</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentFacilitator.SubEstablishment.CountryCode</code></td>
@@ -10871,6 +11060,7 @@
       <td>3</td>
       <td>Sim</td>
       <td>Código do País do SubSeller - Obs: 076 - Brasil</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentFacilitator.SubEstablishment.DocumentType</code></td>
@@ -10878,6 +11068,7 @@
       <td>4</td>
       <td>Sim</td>
       <td>Tipo do documento do SubSeller - CPF ou CNPJ</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentFacilitator.SubEstablishment.DocumentNumber</code></td>
@@ -10885,6 +11076,7 @@
       <td>14</td>
       <td>Sim</td>
       <td>Número do CPF ou CNPJ do SubSeller</td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
