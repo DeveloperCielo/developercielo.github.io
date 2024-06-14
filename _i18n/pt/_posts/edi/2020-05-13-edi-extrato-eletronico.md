@@ -18,33 +18,33 @@ tags:
 [CIELO_Extrato_Eletronico_Manual_Versao_15.9](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELOExtratoEletronico-Manual-Versao_15.9.pdf)
 
 * Versão produtiva: **15.7**
-* Próximas atualização: **02/07/2024 para a versão 15.8.1**
 * Próximas atualização: **23/07/2024 para a versão 15.9**
+* Próximas atualização: **02/07/2024 para a versão 15.8.1**
   
 **Arquivos de teste**
 
 [Arquivos de Teste](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Arquivos_Testes.zip)
 
-[15.7 Reserva Financeira-Financial Reserve](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/15-7-Reserva-Financeira-Financial-Reserve_.zip)
-
 [15.8 Atualização de negociações-Receivable negotiation update](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/15-8-Atualizacao-de-negociacoes-Receivable-negotiation-update.zip)
+
+[15.7 Reserva Financeira-Financial Reserve](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/15-7-Reserva-Financeira-Financial-Reserve_.zip)
 
 **Últimas atualizações**
 
-* Versão: 15.7 – Demonstração da Reserva financeira
-  * Alterações no arquivo CIELO03 Captura/Previsão, no tópico TIPOLOGIA DOS ARQUIVOS (FORMATO E ESTRUTURA)
-  * Inclusão do novo tipo de Registro R – Reserva Financeira, no tópico TIPOS DE REGISTROS E ESTRUTURA
-  * Inclusão do item RESERVA FINANCEIRA no tópico CONCEITOS FINANCEIROS
-* Versão: 15.8 – Novas regras de atualização na demonstração de lançamentos relacionados à Negociações de Recebíveis
-  * Inclusão do item Novas regras de atualização na demonstração de lançamentos relacionados à Negociações de Recebíveis no tópico CONCILIAÇÃO ATRAVÉS DO EXTRATO ELETRÔNICO.
-* Versão: 15.8.1 – Novas regras de atualização na demonstração de lançamentos relacionados à Negociações de Recebíveis
-  * Atualização do item Novas regras de atualização na demonstração de lançamentos relacionados à Negociações de Recebíveis. Para a informação preenchida na posição 526 a 540 do registro E, será apresentado um novo código para acréscimo da chave de conciliação das atualizações dos tipos de lançamento de negociações de recebíveis.
 * Versão: 15.9 – Inclusão de novos campos para demonstração de transações Pix
 	* Inclusão do campo NSU/DOC com 8 posições (a posição 62 a 67 continuará sendo preenchida)
 	* Indicativo de transferência programada para vendas Pix
 	* Inclusão de novos campos de identificação para transações Pix efetuadas no canal de venda e-commerce (TID e Código de pedido)
 	* Aumento de tamanho do registro tipo 8 de 250 para 400 posições
 	* Inclusão do item Serviço de transferência programada para vendas Pix no tópico CONCILIAÇÃO ATRAVÉS DO EXTRATO ELETRÔNICO
+* Versão: 15.8.1 – Novas regras de atualização na demonstração de lançamentos relacionados à Negociações de Recebíveis
+  * Atualização do item Novas regras de atualização na demonstração de lançamentos relacionados à Negociações de Recebíveis. Para a informação preenchida na posição 526 a 540 do registro E, será apresentado um novo código para acréscimo da chave de conciliação das atualizações dos tipos de lançamento de negociações de recebíveis.
+* Versão: 15.8 – Novas regras de atualização na demonstração de lançamentos relacionados à Negociações de Recebíveis
+  * Inclusão do item Novas regras de atualização na demonstração de lançamentos relacionados à Negociações de Recebíveis no tópico CONCILIAÇÃO ATRAVÉS DO EXTRATO ELETRÔNICO.
+* Versão: 15.7 – Demonstração da Reserva financeira
+  * Alterações no arquivo CIELO03 Captura/Previsão, no tópico TIPOLOGIA DOS ARQUIVOS (FORMATO E ESTRUTURA)
+  * Inclusão do novo tipo de Registro R – Reserva Financeira, no tópico TIPOS DE REGISTROS E ESTRUTURA
+  * Inclusão do item RESERVA FINANCEIRA no tópico CONCEITOS FINANCEIROS
 
 Também foram destacadas no manual informações adicionais dos campos **Tipo de lançamento, Forma de pagamento, Número do lote, Código de ajuste e tipo de dado no campo de Agência**.
 
