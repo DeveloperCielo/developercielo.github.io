@@ -15,10 +15,11 @@ tags:
 
 **Documentação**
 
-[CIELO_Extrato_Eletronico_Manual_Versao_15.8](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELOExtratoEletronico-Manual-Versao_15.8.pdf)
+[CIELO_Extrato_Eletronico_Manual_Versao_15.9](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELOExtratoEletronico-Manual-Versao_15.9.pdf)
 
 * Versão produtiva: **15.7**
-* Próxima atualização: **02/07/2024 para a versão 15.8**
+* Próximas atualização: **02/07/2024 para a versão 15.8.1**
+* Próximas atualização: **23/07/2024 para a versão 15.9**
   
 **Arquivos de teste**
 
