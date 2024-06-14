@@ -37,6 +37,16 @@ tags:
   * Inclusão do item RESERVA FINANCEIRA no tópico CONCEITOS FINANCEIROS
 * Versão: 15.8 – Novas regras de atualização na demonstração de lançamentos relacionados à Negociações de Recebíveis
   * Inclusão do item Novas regras de atualização na demonstração de lançamentos relacionados à Negociações de Recebíveis no tópico CONCILIAÇÃO ATRAVÉS DO EXTRATO ELETRÔNICO.
+* Versão: 15.8.1 – Novas regras de atualização na demonstração de lançamentos relacionados à Negociações de Recebíveis
+  * Atualização do item Novas regras de atualização na demonstração de lançamentos relacionados à Negociações de Recebíveis. Para a informação preenchida na posição 526 a 540 do registro E, será apresentado um novo código para acréscimo da chave de conciliação das atualizações dos tipos de lançamento de negociações de recebíveis.
+* Versão: 15.9 – Inclusão de novos campos para demonstração de transações Pix
+	* Inclusão do campo NSU/DOC com 8 posições (a posição 62 a 67 continuará sendo preenchida)
+	* Indicativo de transferência programada para vendas Pix
+	* Inclusão de novos campos de identificação para transações Pix efetuadas no canal de venda e-commerce (TID e Código de pedido)
+	* Aumento de tamanho do registro tipo 8 de 250 para 400 posições
+	* Inclusão do item Serviço de transferência programada para vendas Pix no tópico CONCILIAÇÃO ATRAVÉS DO EXTRATO ELETRÔNICO
+
+Também foram destacadas no manual informações adicionais dos campos **Tipo de lançamento, Forma de pagamento, Número do lote, Código de ajuste e tipo de dado no campo de Agência**.
 
 # Introdução
 
