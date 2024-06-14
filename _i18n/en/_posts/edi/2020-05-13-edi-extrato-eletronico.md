@@ -37,6 +37,16 @@ tags:
    * Inclusion of the FINANCIAL RESERVE item in the FINANCIAL CONCEPTS topic
 * Version: 15.8 – New update rules in the demonstration of releases related to Receivables Negotiations
    * Inclusion of the item New update rules in the statement of entries related to Receivables Negotiations in the topic CONCILIATION THROUGH ELECTRONIC STATEMENT.
+* Version: 15.8.1 – Update on the demonstration rules of posting types related to receivable negotiations
+	* Update on the topic Update on the demonstration rules of posting types related to receivable negotiations in the section CONCILIATION THROUGH THE ELECTRONIC STATEMENT. For the information filled in position 526 to 540 of Record Type E, a new code will be presented to add the reconciliation key for updates to the receivable negotiation posting types.
+* Version: 15.9 – Addition of new fields for Pix transaction demonstration
+	* Inclusion of the NSU/DOC field with 8 positions (positions 62 to 67 will continue to be filled)
+	* Identifier of scheduled transfer for Pix sales
+	* Inclusion of new identification fields for Pix transactions the e-commerce sales channel (TID and Order/Reference Code)
+	* Increase in the size of Record Type 8 from 250 to 400 positions
+	* Inclusion of the Scheduled transfer service for Pix transactions item in the topic RECONCILIATION THROUGH THE ELECTRONIC STATEMENT
+
+The manual also highlighted additional information about the fields **Posting types, Payment method, Batch number, Adjustment code, and data type in the Bank agency field**.
 
 # Introduction
 
