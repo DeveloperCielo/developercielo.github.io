@@ -15,10 +15,11 @@ tags:
 
 **Documentation**
 
-[CIELO_Extrato_Eletronico_Manual_Versao_15.8](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELOEletronicStatement-Manual-Version_15.8.pdf)
+[CIELO_Eletronic_Statement_-_Manual_-_Version_15.9](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELOEletronicStatement-Manual-Version_15.9.pdf)
 
 * Current version: **15.7**
-* Next update: **07/02/2024 to version 15.8**
+* Next update: **07/02/2024 to version 15.8.1**
+* Next update: **07/23/2024 to version 15.9**
   
 **Test files**
 
