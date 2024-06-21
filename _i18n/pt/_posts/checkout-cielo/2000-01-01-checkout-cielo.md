@@ -1422,7 +1422,7 @@ Tanto na notificação via POST ou via JSON, o conteúdo dos dados retornados é
 |`payment_installments`|Número de parcelas|Número|1|
 |`payment_antifrauderesult`|Status das transações de cartão de Crédito no Antifraude|Número|1|
 |`payment_boletonumber`|número do boleto gerado|String|1|
-|`payment_boletoexpirationdate`|Data de vencimento para transações realizadas com boleto bancário|Número|10|
+|`payment_boletoexpirationdate`|Data de vencimento para transações realizadas com boleto bancário|String|10|
 |`payment_status`|Status da transação|Número|1|
 |`tid`|TransactionId Cielo gerado no momento da autorização da transação|Alfanumérico|20|
 |`test_transaction`|Indica se a transação foi gerada com o Modo de teste ativado|Boolean|32
