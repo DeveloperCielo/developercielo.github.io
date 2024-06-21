@@ -5011,7 +5011,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 | `SplitErrors.Code`                          | ---            | ---       | ---         | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | `SplitErrors.Message`                       | ---            | ---       | ---         | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 
-### Voucher por chip e senha online
+### Voucher por chip
 
 #### Requisição
 
@@ -5019,37 +5019,43 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 
 ```json
 {
-  "MerchantOrderId": "201904150005",
-  "Payment": {
-    "SubordinatedMerchantId" : "SubordinatedMerchantId",
-    "Type": "PhysicalVoucherCard",
-    "SoftDescriptor": "Description",
-    "PaymentDateTime": "2019-04-15T12:00:00Z",
-    "Amount": 15798,
-    "ProductId": 1,
-    "VoucherCard": {
-      "ExpirationDate": "12/2020",
-      "BrandId": 1,
-      "IssuerId": 2,
-      "InputMode": "Emv",
-      "AuthenticationMethod": "OnlinePassword",
-      "EmvData": "112233445566778899011AABBC012D3456789E0123FF45678AB901234C5D112233445566778800",
-      "PinBlock": {
-        "EncryptedPinBlock": "2280F6BDFD0C038D",
-        "EncryptionType": "Dukpt3Des",
-        "KsnIdentification": "1231vg31fv231313123"
-      },
-      "PanSequenceNumber": 123,
-      "SaveCard": false,
-      "IsFallback": false
-    },
-    "PinPadInformation": {
-      "TerminalId": "10000001",
-      "SerialNumber": "ABC123",
-      "PhysicalCharacteristics": "PinPadWithChipReaderWithSamModule",
-      "ReturnDataInfo": "00"
+   "MerchantOrderId": "123456789123456",
+    "Payment": {
+        "SubordinatedMerchantId": "{{SubordinatedMerchantId}}",
+        "Type": "PhysicalVoucherCard",
+        "SoftDescriptor": "Teste API",
+        "PaymentDateTime": "2024-06-17T19:53:25.329Z",
+        "Amount": 600,
+        "ProductId": 6,
+        "VoucherCard": {
+            "InputMode": "Emv",
+            "BrandId": "4",
+            "IssuerId": 5003,
+            "TruncateCardNumberWhenPrinting": true,
+            "ExpirationDate": "12/2025",
+            "EmvSequenceNumber": 1,
+            "AuthenticationMethod": "OfflineAuthentication",
+            "PanSequenceNumber": 0,
+            "EmvData": "820220209F2701809F260844C4191381BE12429F36020001950500000000009F34031F03029F37047A9DBDA39F33030008C89F10201F220100A00000000000000000000000000000000000000000000000000000009A032005159F6E0420700000",
+            "trackTwoData": "09F1F2E63D9202911A5AD3F1B9595729A119339858E78323",
+            "encryptedCardData": {
+                "encryptionType": "Dukpt3DesCBC",
+                "trackTwoDataKSN": "FFFFF99995C26B20000D",
+                "initializationVector": "C9924827FADE0741"
+            },
+            "PinBlock": {
+                "EncryptedPinBlock": "43A59DD1AD5B81EF",
+                "EncryptionType": "Dukpt3Des",
+                "KsnIdentification": "FFFFF99999C19FC0006B"
+            }
+        },
+        "PinPadInformation": {
+            "TerminalId": "00000001",
+            "SerialNumber": "6C651996",
+            "PhysicalCharacteristics": "PinPadWithChipReaderWithSamModuleAndContactless",
+            "ReturnDataInfo": "00"
+        }
     }
-  }
 }
 ```
 
@@ -5074,6 +5080,10 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 | `VoucherCard.PanSequenceNumber`             | Number         | ---       | ---         | Número sequencial do cartão, utilizado para identificar a conta corrente do cartão adicional. Mandatório para transações com cartões Chip EMV e que possuam PAN Sequence Number (Tag 5F34).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | `VoucherCard.SaveCard`                      | Booleano       | ---       | ---         | Identifica se vai salvar/tokenizar o cartão.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | `VoucherCard.IsFallback`                    | Booleano       | ---       | ---         | Identifica se é uma transação de fallback.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| `Payment.VoucherCard.EncryptedCardData.EncryptionType`           | String         | ---       | Sim         | Tipo de encriptação utilizada <br>Enum: <br>“DukptDes” = 1, <br> “MasterKey” = 2 <br>“Dukpt3Des” = 3, <br>“Dukpt3DesCBC = 4                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `Payment.VoucherCard.EncryptedCardData.CardNumberKSN`           | String         | ---       | Sim         | Identificador KSN da criptografia do número do cartão                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `Payment.VoucherCard.EncryptedCardData.IsDataInTLVFormat`           | Bool         | ---       | Não         | Identifica se os dados criptografados estão no formato TLV (tag / length / value).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| `Payment.VoucherCard.EncryptedCardData.InitializationVector`           | String         | ---       | Sim         | Vetor de inicialização da encriptação                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | `PinPadInformation.TerminalId`              | String         | ---       | Sim         | Número Lógico definido no Concentrador Cielo.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | `PinPadInformation.SerialNumber`            | String         | 20       | Sim         | Número de Série do Equipamento.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | `PinPadInformation.PhysicalCharacteristics` | String         | ---       | Sim         | Enum: `WithoutPinPad` `PinPadWithoutChipReader` `PinPadWithChipReaderWithoutSamModule` `PinPadWithChipReaderWithSamModule` `NotCertifiedPinPad` `PinPadWithChipReaderWithoutSamAndContactless` `PinPadWithChipReaderWithSamModuleAndContactless` <br><br> Sem PIN-pad = `WithoutPinPad`; <br><br> PIN-pad sem leitor de Chip = `PinpadWithoutChipReader`; <br><br>PIN-pad com leitor de Chip sem módulo SAM = `PinPadWithChipReaderWithoutSamModule`; <br><br> PIN-pad com leitor de Chip com módulo SAM = `PinPadWithChipReaderWithSamModule`; <br><br> PIN-pad não homologado = `NotCertifiedPinPad`; <br><br> PIN-pad com leitor de Chip sem SAM e Cartão Sem Contato = `PinpadWithChipReaderWithoutSamAndContactless`; <br><br> PIN-pad com leitor de Chip com SAM e Cartão Sem Contato = `PinpadWithChipReaderWithSamAndContactless`. <br><br><br> Obs. Caso a aplicação não consiga informar os dados acima, deve obter tais informações através do retorno da função PP_GetInfo() da BC.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
@@ -5083,248 +5093,215 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 
 ```json
 {
-  "MerchantOrderId": "20180204",
-  "Customer": {
-    "Name": "Comprador crédito completo",
-    "Identity": "11225468954",
-    "IdentityType": "CPF",
-    "Email": "compradorteste@teste.com",
-    "Birthday": "1991-01-02",
-    "Address": {
-      "Street": "Rua Teste",
-      "Number": "123",
-      "Complement": "AP 123",
-      "ZipCode": "12345987",
-      "City": "São Paulo",
-      "State": "SP",
-      "Country": "BRA"
+      "MerchantOrderId": "123456789123456",
+    "Customer": {
+        "Name": "[Guest]"
     },
-    "DeliveryAddress": {
-      "Street": "Rua Teste",
-      "Number": "123",
-      "Complement": "AP 123",
-      "ZipCode": "12345987",
-      "City": "São Paulo",
-      "State": "SP",
-      "Country": "BRA"
+    "Payment": {
+        "VoucherCard": {
+            "ExpirationDate": "12/2025",
+            "BrandId": 4,
+            "IssuerId": 5003,
+            "TruncateCardNumberWhenPrinting": true,
+            "PanSequenceNumber": 0,
+            "InputMode": "Emv",
+            "AuthenticationMethod": "OfflineAuthentication",
+            "TrackTwoData": "************************************************",
+            "EmvData": "**************************************************************************************************************************************************************************************************",
+            "IsFallback": false,
+            "PinBlock": {
+                "EncryptedPinBlock": "43A59DD1AD5B81EF",
+                "EncryptionType": "Dukpt3Des",
+                "KsnIdentification": "FFFFF99999C19FC0006B"
+            },
+            "BrandInformation": {
+                "Type": "VENDA A VOUCHER",
+                "Name": "VISA VALE"
+            },
+            "SaveCard": false,
+            "EncryptedCardData": {
+                "EncryptionType": 4,
+                "TrackTwoDataKSN": "FFFFF99995C26B20000D",
+                "InitializationVector": "C9924827FADE0741",
+                "IsDataInTLVFormat": false
+            }
+        },
+        "Amount": 600,
+        "ReceivedDate": "2024-06-17T19:58:59Z",
+        "CapturedAmount": 600,
+        "CapturedDate": "2024-06-17T19:59:01Z",
+        "Provider": "Cielo",
+        "Status": 2,
+        "PhysicalTransactionStatus": 2,
+        "IsSplitted": false,
+        "ReturnMessage": "APROVADA 000928",
+        "ReturnCode": "000",
+        "PaymentId": "7f9106d6-fa51-4ffa-a339-e95c41267aaa",
+        "Type": "PhysicalVoucherCard",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/physicalSales/7f9106d6-fa51-4ffa-a339-e95c41267aaa"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "confirm",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/7f9106d6-fa51-4ffa-a339-e95c41267aaa/confirmation"
+            },
+            {
+                "Method": "DELETE",
+                "Rel": "reverse",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/7f9106d6-fa51-4ffa-a339-e95c41267aaa"
+            }
+        ],
+        "PaymentDateTime": "2024-06-17T16:59:00.667Z",
+        "ServiceTaxAmount": 0,
+        "SoftDescriptor": "Teste API",
+        "ProductId": 6,
+        "PinPadInformation": {
+            "TerminalId": "00000001",
+            "SerialNumber": "6C651996",
+            "PhysicalCharacteristics": "PinPadWithChipReaderWithSamModuleAndContactless",
+            "ReturnDataInfo": "00"
+        },
+        "PrintMessage": [],
+        "ReceiptInformation": [
+            {
+                "Field": "MERCHANT_NAME",
+                "Label": "NOME DO ESTABELECIMENTO",
+                "Content": "Loja Teste"
+            },
+            {
+                "Field": "MERCHANT_ADDRESS",
+                "Label": "ENDEREÇO DO ESTABELECIMENTO",
+                "Content": "Alameda Xingu, 512"
+            },
+            {
+                "Field": "MERCHANT_CITY",
+                "Label": "CIDADE DO ESTABELECIMENTO",
+                "Content": "BARUERI"
+            },
+            {
+                "Field": "MERCHANT_STATE",
+                "Label": "ESTADO DO ESTABELECIMENTO",
+                "Content": "SP"
+            },
+            {
+                "Field": "MERCHANT_CODE",
+                "Label": "COD.ESTAB.",
+                "Content": "0020123595019300"
+            },
+            {
+                "Field": "TERMINAL",
+                "Label": "POS",
+                "Content": "41099501"
+            },
+            {
+                "Field": "NSU",
+                "Label": "DOC",
+                "Content": "468338"
+            },
+            {
+                "Field": "DATE",
+                "Label": "DATA",
+                "Content": "17/06/24"
+            },
+            {
+                "Field": "HOUR",
+                "Label": "HORA",
+                "Content": "16:59"
+            },
+            {
+                "Field": "ISSUER_NAME",
+                "Label": "EMISSOR",
+                "Content": "CIELO#ALELO REFEICAO"
+            },
+            {
+                "Field": "CARD_NUMBER",
+                "Label": "CARTÃO",
+                "Content": "506761-0019"
+            },
+            {
+                "Field": "BRAND",
+                "Label": "BANDEIRA",
+                "Content": "VISA VALE"
+            },
+            {
+                "Field": "TRANSACTION_TYPE",
+                "Label": "TIPO DE TRANSAÇÃO",
+                "Content": "VENDA A VOUCHER"
+            },
+            {
+                "Field": "AUTHORIZATION_CODE",
+                "Label": "AUTORIZAÇÃO",
+                "Content": "000928"
+            },
+            {
+                "Field": "TRANSACTION_MODE",
+                "Label": "MODO DA TRANSAÇÃO",
+                "Content": "ONL"
+            },
+            {
+                "Field": "INPUT_METHOD",
+                "Label": "MODO DE ENTRADA",
+                "Content": "C"
+            },
+            {
+                "Field": "CPF_CNPJ",
+                "Label": "CPF OU CNPJ",
+                "Content": "34317937000107"
+            },
+            {
+                "Field": "VALUE",
+                "Label": "VALOR",
+                "Content": "6,00"
+            },
+            {
+                "Field": "SALDO",
+                "Label": "SALDO DISP",
+                "Content": "101,46"
+            },
+            {
+                "Field": "SOFT_DESCRIPTOR",
+                "Label": "SOFT DESCRIPTOR",
+                "Content": "Teste API"
+            }
+        ],
+        "Receipt": {
+            "MerchantName": "Loja Teste",
+            "MerchantAddress": "Alameda Xingu, 512",
+            "MerchantCity": "BARUERI",
+            "MerchantState": "SP",
+            "MerchantCode": "0020123595019300",
+            "Terminal": "41099501",
+            "Nsu": "468338",
+            "Date": "17/06/24",
+            "Hour": "16:59",
+            "IssuerName": "CIELO#ALELO REFEICAO",
+            "CardNumber": "506761-0019",
+            "Brand": "VISA VALE",
+            "TransactionType": "VENDA A VOUCHER",
+            "AuthorizationCode": "000928",
+            "TransactionMode": "ONL",
+            "InputMethod": "C",
+            "CpfCnpj": "34317937000107",
+            "Value": "6,00",
+            "Saldo": "101,46",
+            "SoftDescriptor": "Teste API"
+        },
+        "AuthorizationCode": "000928",
+        "ProofOfSale": "468338",
+        "InitializationVersion": 1718654122867,
+        "ConfirmationStatus": 0,
+        "EmvResponseData": "9108fa1f7a3500820000",
+        "SubordinatedMerchantId": "b3b70e63-4e94-4416-b99c-9c88df314328",
+        "OfflinePaymentType": "Online",
+        "MerchantAcquirerId": "0020123595019300",
+        "TerminalAcquirerId": "41099501"
     }
-  },
-  "Payment": {
-    "Installments": 1,
-    "Interest": "ByMerchant",
-    "Capture": true,
-    "CreditCard": {
-      "ExpirationDate": "12/2020",
-      "BrandId": 1,
-      "IssuerId": 2,
-      "TruncateCardNumberWhenPrinting": true,
-      "InputMode": "Emv",
-      "AuthenticationMethod": "OnlineAuthentication",
-      "EmvData": "112233445566778899011AABBC012D3456789E0123FF45678AB901234C5D112233445566778800",
-      "PinBlock": {
-        "EncryptedPinBlock": "2280F6BDFD0C038D",
-        "EncryptionType": "Dukpt3Des",
-        "KsnIdentification": "1231vg31fv231313123"
-      },
-      "PanSequenceNumber": 123,
-      "SaveCard": false,
-      "IsFallback": false
-    },
-    "PaymentDateTime": "2019-04-15T12:00:00Z",
-    "ServiceTaxAmount": 0,
-    "SoftDescriptor": "Description",
-    "ProductId": 1,
-    "PinPadInformation": {
-      "TerminalId": "10000001",
-      "SerialNumber": "ABC123",
-      "PhysicalCharacteristics": "PinPadWithChipReaderWithSamModule",
-      "ReturnDataInfo": "00"
-    },
-    "Amount": 15798,
-    "ReceivedDate": "2019-04-15T12:00:00Z",
-    "CapturedAmount": 15798,
-    "Provider": "Cielo",
-    "ConfirmationStatus": 0,
-    "InitializationVersion": 1558708320029,
-    "EmvResponseData": "123456789ABCD1345DEA",
-    "Status": 2,
-    "IsSplitted": false,
-    "ReturnCode": 0,
-    "ReturnMessage": "Successful",
-    "PaymentId": "f15889ea-5719-4e1a-a2da-f4e50d5bd702",
-    "Type": "PhysicalDebitCard",
-    "Currency": "BRL",
-    "Country": "BRA",
-    "Links": [
-      {
-        "Method": "GET",
-        "Rel": "self",
-        "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"
-      },
-      {
-        "Method": "DELETE",
-        "Rel": "self",
-        "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"
-      },
-      {
-        "Method": "PUT",
-        "Rel": "self",
-        "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702/confirmation"
-      }
-    ],
-    "PrintMessage": [
-      {
-        "Position": "Top",
-        "Message": "Transação autorizada"
-      },
-      {
-        "Position": "Middle",
-        "Message": "Informação adicional"
-      },
-      {
-        "Position": "Bottom",
-        "Message": "Obrigado e volte sempre!"
-      }
-    ],
-    "ReceiptInformation": [
-      {
-        "Field": "MERCHANT_NAME",
-        "Label": "NOME DO ESTABELECIMENTO",
-        "Content": "Estabelecimento"
-      },
-      {
-        "Field": "MERCHANT_ADDRESS",
-        "Label": "ENDEREÇO DO ESTABELECIMENTO",
-        "Content": "Rua Sem Saida, 0"
-      },
-      {
-        "Field": "MERCHANT_CITY",
-        "Label": "CIDADE DO ESTABELECIMENTO",
-        "Content": "Cidade"
-      },
-      {
-        "Field": "MERCHANT_STATE",
-        "Label": "ESTADO DO ESTABELECIMENTO",
-        "Content": "WA"
-      },
-      {
-        "Field": "MERCHANT_CODE",
-        "Label": "COD.ESTAB.",
-        "Content": 1234567890123456
-      },
-      {
-        "Field": "TERMINAL",
-        "Label": "POS",
-        "Content": 12345678
-      },
-      {
-        "Field": "NSU",
-        "Label": "DOC",
-        "Content": 123456
-      },
-      {
-        "Field": "DATE",
-        "Label": "DATA",
-        "Content": "01/01/20"
-      },
-      {
-        "Field": "HOUR",
-        "Label": "HORA",
-        "Content": "01:01"
-      },
-      {
-        "Field": "ISSUER_NAME",
-        "Label": "EMISSOR",
-        "Content": "NOME DO EMISSOR"
-      },
-      {
-        "Field": "CARD_NUMBER",
-        "Label": "CARTÃO",
-        "Content": 5432123454321234
-      },
-      {
-        "Field": "TRANSACTION_TYPE",
-        "Label": "TIPO DE TRANSAÇÃO",
-        "Content": "VENDA A CREDITO"
-      },
-      {
-        "Field": "AUTHORIZATION_CODE",
-        "Label": "AUTORIZAÇÃO",
-        "Content": 123456
-      },
-      {
-        "Field": "TRANSACTION_MODE",
-        "Label": "MODO DA TRANSAÇÃO",
-        "Content": "ONL"
-      },
-      {
-        "Field": "INPUT_METHOD",
-        "Label": "MODO DE ENTRADA",
-        "Content": "X"
-      },
-      {
-        "Field": "VALUE",
-        "Label": "VALOR",
-        "Content": "1,23"
-      },
-      {
-        "Field": "SOFT_DESCRIPTOR",
-        "Label": "SOFT DESCRIPTOR",
-        "Content": "Simulado"
-      }
-    ],
-    "Receipt": {
-      "MerchantName": "Estabelecimento",
-      "MerchantAddress": "Rua Sem Saida, 0",
-      "MerchantCity": "Cidade",
-      "MerchantState": "WA",
-      "MerchantCode": 1234567890123456,
-      "Terminal": 12345678,
-      "Nsu": 123456,
-      "Date": "01/01/20",
-      "Hour": "01:01",
-      "IssuerName": "NOME DO EMISSOR",
-      "CardNumber": 5432123454321234,
-      "TransactionType": "VENDA A CREDITO",
-      "AuthorizationCode": 123456,
-      "TransactionMode": "ONL",
-      "InputMethod": "X",
-      "Value": "1,23",
-      "SoftDescriptor": "Simulado"
-    },
-    "RecurrentPayment": {
-      "RecurrentPaymentId": "a6b719fa-a8df-ab11-4e1a-f4e50d5bd702",
-      "ReasonCode": 0,
-      "ReasonMessage": "Successful",
-      "NextRecurrency": "2019-12-01",
-      "EndDate": "2019-12-01",
-      "Interval": 6
-    },
-    "SplitPayments": [
-      {
-        "SubordinateMerchantId": "491daf20-35f2-4379-874c-e7552ae8dc10",
-        "Amount": 100,
-        "Fares": {
-          "Mdr": 5,
-          "Fee": 0
-        }
-      },
-      {
-        "SubordinateMerchantId": "7e2846be-4e80-4f86-8ca9-eb35db6aea00",
-        "Amount": 80,
-        "Fares": {
-          "Mdr": 3,
-          "Fee": 1
-        }
-      }
-    ],
-    "SplitErrors": [
-      {
-        "Code": 326,
-        "Message": "SubordinatePayment amount must be greater than zero"
-      }
-    ]
-  }
 }
 ```
 
@@ -5366,6 +5343,10 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 | `CreditCard.PanSequenceNumber`              | Number         | ---       | ---      | Número sequencial do cartão, utilizado para identificar a conta corrente do cartão adicional. Mandatório para transações com cartões Chip EMV e que possuam PAN Sequence Number (Tag 5F34).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | `VoucherCard.SaveCard`                      | Booleano       | ---       | ---      | Identifica se vai salvar/tokenizar o cartão.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | `VoucherCard.IsFallback`                    | Booleano       | ---       | ---      | Identifica se é uma transação de fallback.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| `Payment.VoucherCard.EncryptedCardData.EncryptionType`           | String         | ---       | Sim         | Tipo de encriptação utilizada <br>Enum: <br>“DukptDes” = 1, <br> “MasterKey” = 2 <br>“Dukpt3Des” = 3, <br>“Dukpt3DesCBC = 4                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `Payment.VoucherCard.EncryptedCardData.CardNumberKSN`           | String         | ---       | Sim         | Identificador KSN da criptografia do número do cartão                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `Payment.VoucherCard.EncryptedCardData.IsDataInTLVFormat`           | Bool         | ---       | Não         | Identifica se os dados criptografados estão no formato TLV (tag / length / value).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| `Payment.VoucherCard.EncryptedCardData.InitializationVector`           | String         | ---       | Sim         | Vetor de inicialização da encriptação                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | `Payment.PaymentDateTime`                   | String         | date-time | Sim      | Data e Hora da captura da transação                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | `Payment.ServiceTaxAmount`                  | ---            | ---       | ---      | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | `Payment.SoftDescriptor`                    | String         | 13        | ---      | Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
