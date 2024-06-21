@@ -7700,9 +7700,9 @@ A consulta de transação pode ser realizada utilizando os parâmetros PaymentId
 
 ### Requisição
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/physicalSales/{PaymentId}</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">https://apiquerysandbox.cieloecommerce.cielo.com.br/1/physicalSales/{PaymentId}</span></aside>
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/physicalSales/MerchantOrderId/{MerchantOrderId}</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">https://apiquerysandbox.cieloecommerce.cielo.com.br/1/physicalSales/MerchantOrderId/{MerchantOrderId}</span></aside>
 
 **Path Parameters:**
 
