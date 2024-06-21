@@ -3028,7 +3028,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 | `Customer.DeliveryAddress.State`                    | String            | 2         | Não         | Estado do endereço de entrega                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | `Customer.DeliveryAddress.Country`                  | String            | 35        | Não         | País do endereço de entrega                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 
-### Crédito por tarja e senha
+### Crédito por tarja com cartão criptografado
 
 #### Requisição
 
@@ -3036,38 +3036,46 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 
 ```json
 {
-  "MerchantOrderId": "201904150002",
-  "Payment": {
-    "SubordinatedMerchantId" : "SubordinatedMerchantId",
-    "Type": "PhysicalCreditCard",
-    "SoftDescriptor": "Description",
-    "PaymentDateTime": "2019-04-15T12:00:00Z",
-    "Amount": 15798,
-    "Installments": 1,
-    "Capture": true,
-    "Interest": "ByMerchant",
-    "ProductId": 1,
-    "CreditCard": {
-      "ExpirationDate": "12/2020",
-      "BrandId": 1,
-      "IssuerId": 2,
-      "InputMode": "MagStripe",
-      "AuthenticationMethod": "OnlineAuthentication",
-      "TrackOneData": "A1234567890123456^FULANO OLIVEIRA SA ^12345678901234567890123",
-      "TrackTwoData": "0123456789012345=012345678901234",
-      "PinBlock": {
-        "EncryptedPinBlock": "2280F6BDFD0C038D",
-        "EncryptionType": "Dukpt3Des",
-        "KsnIdentification": "1231vg31fv231313123"
-      }
-    },
-    "PinPadInformation": {
-      "TerminalId": "10000001",
-      "SerialNumber": "ABC123",
-      "PhysicalCharacteristics": "PinPadWithChipReaderWithSamModuleAndContactless",
-      "ReturnDataInfo": "00"
-    }
-  }
+   "MerchantOrderId": "123456789123456",
+    "Payment": {
+        "SubordinatedMerchantId": "{{SubordinatedMerchantId}}",
+        "Type": "PhysicalCreditCard",
+        "SoftDescriptor": "Teste API",
+        "PaymentDateTime": "2020-06-18T17:16:16-03:00",
+        "Amount": 1200,
+        "Installments": 1,
+        "Capture": true,
+        "Interest": "ByMerchant",
+        "ProductId": 80,
+        "CreditCard": {
+            "InputMode": "MagStripe",
+            "ExpirationDate": "07/2007",
+            "SecurityCodeStatus": "Collected",
+            "SecurityCode": "123",
+            "TrackOneData": "428AB8C3C05369D9095A9145BC75FFD638EEEA6FAE5A18E7DCEE686872AEA55AA33718CEC97A5DA615C5E91E2DEA4842937273919942838C2E",
+            "TrackTwoData": "37855871F6661FC30C6E5320A18EBEBE44BD1BBB15D87932",
+            "EncryptedCardData": {
+                "EncryptionType": "Dukpt3Des",
+                "TrackOneDataKSN": "FFFFF99995C18C800023",
+                "TrackTwoDataKSN": "FFFFF99995C18C800023"
+            },
+            "PanSequenceNumber": "0",
+            "BrandId": 2,
+            "IssuerId": 2580,
+            "AuthenticationMethod": "OnlineAuthentication",
+            "PinBlock": {
+                "EncryptedPinBlock": "30AFE7D2A93201B7",
+                "EncryptionType": "Dukpt3Des",
+                "KsnIdentification": "fffff99999C19FC0004F"
+            }
+        },
+        "PinPadInformation": {
+            "TerminalId": "00000001",
+            "SerialNumber": "6C651996",
+            "PhysicalCharacteristics": "PinPadWithChipReaderWithSamModuleAndContactless",
+            "ReturnDataInfo": "00"
+        }
+    }
 }
 ```
 
@@ -3090,6 +3098,10 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 | `Payment.CreditCard.AuthenticationMethod`           | String         | —         | Sim         | Enum: NoPassword OnlineAuthentication OfflineAuthentication<br>Método de autenticação<br>- Se o cartão foi lido a partir da digitação verificar o campo RequiresPasswordExceptForEMVCard dos objetos BinEntry, ParameterEntry e IssuerEntry da baixa de parametros. Se todos estiverem habilitados, a senha deve ser capturada e o authenticationMethod assume valor 2. Caso contrário, assume valor 1;<br>- Se o cartão foi lido a partir da trilha verificar o campo RequiresPassword dos objetos BinEntry, ParameterEntry e IssuerEntry da baixa de parametros. Se todos estiverem habilitados deve ser capturada a senha, se algum estiver desabilitado a captura da senha vai depender do último dígito do service code;<br>- Se o cartão foi lido através do chip EMV, o authenticationMethod será preenchido com base no retorno da função PP_GoOnChip(). No resultado PP_GoOnChip(), onde se o campo da posição 003 do retorno da PP_GoOnChip() estiver com valor 1 indica que o pin foi validado off-line, o authenticationMethod será 3. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valor 0, o authenticationMethod será 1. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valores 0 e 1 respectivamente, o authenticationMethod será 2.<br>1 - Sem senha = “NoPassword”;<br>2 - Senha online = “Online Authentication”;<br>3 - Senha off-line = “Offline Authentication”. |
 | `Payment.CreditCard.TrackOneData`                   | String         | —         | Sim         | Dados da trilha 1<br>Obtidos através do comando PP_GetCard na BC no momento da captura da transação                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | `Payment.CreditCard.TrackTwoData`                   | String         | —         | Não         | Dados da trilha 2<br>Obtidos através do comando PP_GetCard na BC no momento da captura da transação                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `Payment.CreditCard.EncryptedCardData.EncryptionType`           | String         | ---       | Sim         | Tipo de encriptação utilizada <br>Enum: <br>“DukptDes” = 1, <br> “MasterKey” = 2 <br>“Dukpt3Des” = 3, <br>“Dukpt3DesCBC = 4                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `Payment.CreditCard.EncryptedCardData.CardNumberKSN`           | String         | ---       | Sim         | Identificador KSN da criptografia do número do cartão                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `Payment.CreditCard.EncryptedCardData.IsDataInTLVFormat`           | Bool         | ---       | Não         | Identifica se os dados criptografados estão no formato TLV (tag / length / value).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| `Payment.CreditCard.EncryptedCardData.InitializationVector`           | String         | ---       | Sim         | Vetor de inicialização da encriptação                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | `Payment.CreditCard.PinBlock.EncryptedPinBlock`     | String         | —         | Não         | PINBlock Criptografado - Para transações EMV, esse campo é obtido através do retorno da função PP_GoOnChip(), mais especificamente das posições 007 até a posição 022; - Para transações digitadas e com tarja magnética, verificar as posições 001 até 016 do retorno da função PP_GetPin().                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | `Payment.CreditCard.PinBlock.EncryptionType`        | String         | —         | Não         | Tipo de Criptografia Enum: "DukptDes" "Dukpt3Des" "MasterKey"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | `Payment.CreditCard.PinBlock.KsnIdentification`     | String         | —         | Não         | Identificação do KSN - Para transações EMV esse campo é obtido através do retorno da função PP_GoOnChip() nas posições 023 até 042; - Para transações digitadas e com tarja magnética, verificar as posições 017 até 036 do retorno da função PP_GetPin().                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
@@ -3102,197 +3114,219 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 
 ```json
 {
-  "MerchantOrderId": "20180204",
-  "Customer": {
-    "Name": "[Guest]"
-  },
-  "Payment": {
-    "Installments": 1,
-    "Interest": "ByMerchant",
-    "Capture": true,
-    "CreditCard": {
-      "ExpirationDate": "12/2020",
-      "BrandId": 1,
-      "IssuerId": 2,
-      "InputMode": "MagStripe",
-      "AuthenticationMethod": "OnlineAuthentication",
-      "TrackOneData": "A1234567890123456^FULANO OLIVEIRA SA ^12345678901234567890123",
-      "TrackTwoData": "0123456789012345=012345678901234",
-      "SaveCard": false,
-      "IsFallback": false,
-      "BrandInformation": {
-        "Type": "VENDA A DEBITO",
-        "Name": "VISA"
-      }
-    },
-    "PinPadInformation": {
-      "TerminalId": "10000001",
-      "SerialNumber": "ABC123",
-      "PhysicalCharacteristics": "PinPadWithChipReaderWithSamModule",
-      "ReturnDataInfo": "00"
-    },
-    "Amount": 15798,
-    "ReceivedDate": "2019-04-15T12:00:00Z",
-    "CapturedAmount": 15798,
-    "CapturedDate": "2019-04-15T12:00:00Z",
-    "Provider": "Cielo",
-    "Status": 2,
-    "ReturnCode": 0,
-    "ReturnMessage": "Successful",
-    "PaymentId": "f15889ea-5719-4e1a-a2da-f4e50d5bd702",
-    "Type": "PhysicalCreditCard",
-    "Currency": "BRL",
-    "Country": "BRA",
-    "PaymentDateTime": "2021-09-16T11:42:57.555Z",
-    "ServiceTaxAmount": 0,
-    "SoftDescriptor": "Transação API",
-    "ProductId": 80,
-    "AuthorizationCode": "425871",
-    "ProofOfSale": "284537",
-    "InitializationVersion": 0,
-    "ConfirmationStatus": 0,
-    "OfflinePaymentType": "Online",
-    "MerchantAcquirerId": "0011110225820001",
-    "TerminalAcquirerId": "41168548",
-    "Links": [
-      {
-        "Method": "GET",
-        "Rel": "self",
-        "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"
-      },
-      {
-        "Method": "DELETE",
-        "Rel": "self",
-        "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"
-      },
-      {
-        "Method": "PUT",
-        "Rel": "self",
-        "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702/confirmation"
-      }
-    ],
-    "PrintMessage": [
-      {
-        "Position": "Top",
-        "Message": "Transação autorizada"
-      },
-      {
-        "Position": "Middle",
-        "Message": "Informação adicional"
-      },
-      {
-        "Position": "Bottom",
-        "Message": "Obrigado e volte sempre!"
-      }
-    ],
-    "ReceiptInformation": [
-      {
-        "Field": "MERCHANT_NAME",
-        "Label": "NOME DO ESTABELECIMENTO",
-        "Content": "Estabelecimento"
-      },
-      {
-        "Field": "MERCHANT_ADDRESS",
-        "Label": "ENDEREÇO DO ESTABELECIMENTO",
-        "Content": "Rua Sem Saida, 0"
-      },
-      {
-        "Field": "MERCHANT_CITY",
-        "Label": "CIDADE DO ESTABELECIMENTO",
-        "Content": "Cidade"
-      },
-      {
-        "Field": "MERCHANT_STATE",
-        "Label": "ESTADO DO ESTABELECIMENTO",
-        "Content": "WA"
-      },
-      {
-        "Field": "MERCHANT_CODE",
-        "Label": "COD.ESTAB.",
-        "Content": 1234567890123456
-      },
-      {
-        "Field": "TERMINAL",
-        "Label": "POS",
-        "Content": 12345678
-      },
-      {
-        "Field": "NSU",
-        "Label": "DOC",
-        "Content": 123456
-      },
-      {
-        "Field": "DATE",
-        "Label": "DATA",
-        "Content": "01/01/20"
-      },
-      {
-        "Field": "HOUR",
-        "Label": "HORA",
-        "Content": "01:01"
-      },
-      {
-        "Field": "ISSUER_NAME",
-        "Label": "EMISSOR",
-        "Content": "NOME DO EMISSOR"
-      },
-      {
-        "Field": "CARD_NUMBER",
-        "Label": "CARTÃO",
-        "Content": 5432123454321234
-      },
-      {
-        "Field": "TRANSACTION_TYPE",
-        "Label": "TIPO DE TRANSAÇÃO",
-        "Content": "VENDA A CREDITO"
-      },
-      {
-        "Field": "AUTHORIZATION_CODE",
-        "Label": "AUTORIZAÇÃO",
-        "Content": 123456
-      },
-      {
-        "Field": "TRANSACTION_MODE",
-        "Label": "MODO DA TRANSAÇÃO",
-        "Content": "ONL"
-      },
-      {
-        "Field": "INPUT_METHOD",
-        "Label": "MODO DE ENTRADA",
-        "Content": "X"
-      },
-      {
-        "Field": "VALUE",
-        "Label": "VALOR",
-        "Content": "1,23"
-      },
-      {
-        "Field": "SOFT_DESCRIPTOR",
-        "Label": "SOFT DESCRIPTOR",
-        "Content": "Simulado"
-      }
-    ],
-    "Receipt": {
-      "MerchantName": "Estabelecimento",
-      "MerchantAddress": "Rua Sem Saida, 0",
-      "MerchantCity": "Cidade",
-      "MerchantState": "WA",
-      "MerchantCode": 1234567890123456,
-      "Terminal": 12345678,
-      "Nsu": 123456,
-      "Date": "01/01/20",
-      "Hour": "01:01",
-      "IssuerName": "NOME DO EMISSOR",
-      "CardNumber": 5432123454321234,
-      "TransactionType": "VENDA A CREDITO",
-      "AuthorizationCode": 123456,
-      "CardHolder": "holder",
-      "TransactionMode": "ONL",
-      "InputMethod": "X",
-      "Value": "1,23",
-      "SoftDescriptor": "Simulado"
-    }
-  }
+    "MerchantOrderId": "123456789123456",
+    "Customer": {
+        "Name": "[Guest]"
+    },
+    "Payment": {
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": true,
+        "CreditCard": {
+            "ExpirationDate": "07/2007",
+            "SecurityCodeStatus": "Collected",
+            "SecurityCode": "***",
+            "BrandId": 2,
+            "IssuerId": 2580,
+            "TruncateCardNumberWhenPrinting": false,
+            "PanSequenceNumber": 0,
+            "InputMode": "MagStripe",
+            "AuthenticationMethod": "OnlineAuthentication",
+            "TrackOneData": "428AB8C3C05369D9095A9145BC75FFD638EEEA6FAE5A18E7DCEE686872AEA55AA33718CEC97A5DA615C5E91E2DEA4842937273919942838C2E",
+            "TrackTwoData": "************************************************",
+            "IsFallback": false,
+            "PinBlock": {
+                "EncryptedPinBlock": "30AFE7D2A93201B7",
+                "EncryptionType": "Dukpt3Des",
+                "KsnIdentification": "fffff99999C19FC0004F"
+            },
+            "BrandInformation": {
+                "Type": "VENDA A CREDITO",
+                "Name": "MASTERCARD"
+            },
+            "SaveCard": false,
+            "EncryptedCardData": {
+                "EncryptionType": 3,
+                "TrackOneDataKSN": "FFFFF99995C18C800023",
+                "TrackTwoDataKSN": "FFFFF99995C18C800023",
+                "IsDataInTLVFormat": false
+            }
+        },
+        "Amount": 1200,
+        "ReceivedDate": "2024-06-03T18:55:09Z",
+        "CapturedAmount": 1200,
+        "CapturedDate": "2024-06-03T18:55:10Z",
+        "Provider": "Cielo",
+        "Status": 2,
+        "PhysicalTransactionStatus": 2,
+        "IsSplitted": false,
+        "ReturnMessage": "APROVADA 316736",
+        "ReturnCode": "000",
+        "PaymentId": "146bc3a5-50ff-44b3-bd81-392c3bda6b16",
+        "Type": "PhysicalCreditCard",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/physicalSales/146bc3a5-50ff-44b3-bd81-392c3bda6b16"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "confirm",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/146bc3a5-50ff-44b3-bd81-392c3bda6b16/confirmation"
+            },
+            {
+                "Method": "DELETE",
+                "Rel": "reverse",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/146bc3a5-50ff-44b3-bd81-392c3bda6b16"
+            }
+        ],
+        "PaymentDateTime": "2024-06-03T15:55:10.082Z",
+        "ServiceTaxAmount": 0,
+        "SoftDescriptor": "Teste API",
+        "ProductId": 80,
+        "PinPadInformation": {
+            "TerminalId": "00000001",
+            "SerialNumber": "6C651996",
+            "PhysicalCharacteristics": "PinPadWithChipReaderWithSamModuleAndContactless",
+            "ReturnDataInfo": "00"
+        },
+        "PrintMessage": [],
+        "ReceiptInformation": [
+            {
+                "Field": "MERCHANT_NAME",
+                "Label": "NOME DO ESTABELECIMENTO",
+                "Content": "Loja Teste"
+            },
+            {
+                "Field": "MERCHANT_ADDRESS",
+                "Label": "ENDEREÇO DO ESTABELECIMENTO",
+                "Content": "Alameda Xingu, 512"
+            },
+            {
+                "Field": "MERCHANT_CITY",
+                "Label": "CIDADE DO ESTABELECIMENTO",
+                "Content": "BARUERI"
+            },
+            {
+                "Field": "MERCHANT_STATE",
+                "Label": "ESTADO DO ESTABELECIMENTO",
+                "Content": "SP"
+            },
+            {
+                "Field": "MERCHANT_CODE",
+                "Label": "COD.ESTAB.",
+                "Content": "0023137868169300"
+            },
+            {
+                "Field": "TERMINAL",
+                "Label": "POS",
+                "Content": "41786816"
+            },
+            {
+                "Field": "NSU",
+                "Label": "DOC",
+                "Content": "506017"
+            },
+            {
+                "Field": "DATE",
+                "Label": "DATA",
+                "Content": "03/06/24"
+            },
+            {
+                "Field": "HOUR",
+                "Label": "HORA",
+                "Content": "15:55"
+            },
+            {
+                "Field": "ISSUER_NAME",
+                "Label": "EMISSOR",
+                "Content": "CIELO#MAESTRO"
+            },
+            {
+                "Field": "CARD_HOLDER",
+                "Label": "NOME DO CLIENTE",
+                "Content": "CUST IMP MC 351/"
+            },
+            {
+                "Field": "CARD_NUMBER",
+                "Label": "CARTÃO",
+                "Content": "541333-3511"
+            },
+            {
+                "Field": "BRAND",
+                "Label": "BANDEIRA",
+                "Content": "MASTERCARD"
+            },
+            {
+                "Field": "TRANSACTION_TYPE",
+                "Label": "TIPO DE TRANSAÇÃO",
+                "Content": "VENDA A CREDITO"
+            },
+            {
+                "Field": "AUTHORIZATION_CODE",
+                "Label": "AUTORIZAÇÃO",
+                "Content": "910253"
+            },
+            {
+                "Field": "TRANSACTION_MODE",
+                "Label": "MODO DA TRANSAÇÃO",
+                "Content": "ONL"
+            },
+            {
+                "Field": "INPUT_METHOD",
+                "Label": "MODO DE ENTRADA",
+                "Content": "D"
+            },
+            {
+                "Field": "CPF_CNPJ",
+                "Label": "CPF OU CNPJ",
+                "Content": "73096766000195"
+            },
+            {
+                "Field": "VALUE",
+                "Label": "VALOR",
+                "Content": "12,00"
+            },
+            {
+                "Field": "SOFT_DESCRIPTOR",
+                "Label": "SOFT DESCRIPTOR",
+                "Content": "Teste API"
+            }
+        ],
+        "Receipt": {
+            "MerchantName": "Loja Teste",
+            "MerchantAddress": "Alameda Xingu, 512",
+            "MerchantCity": "BARUERI",
+            "MerchantState": "SP",
+            "MerchantCode": "0023137868169300",
+            "Terminal": "41786816",
+            "Nsu": "506017",
+            "Date": "03/06/24",
+            "Hour": "15:55",
+            "IssuerName": "CIELO#MAESTRO",
+            "CardHolder": "CUST IMP MC 351/",
+            "CardNumber": "541333-3511",
+            "Brand": "MASTERCARD",
+            "TransactionType": "VENDA A CREDITO",
+            "AuthorizationCode": "910253",
+            "TransactionMode": "ONL",
+            "InputMethod": "D",
+            "CpfCnpj": "73096766000195",
+            "Value": "12,00",
+            "SoftDescriptor": "Teste API"
+        },
+        "AuthorizationCode": "910253",
+        "ProofOfSale": "506017",
+        "InitializationVersion": 1716234911942,
+        "ConfirmationStatus": 0,
+        "SubordinatedMerchantId": "{{SubordinatedMerchantId}}",
+        "OfflinePaymentType": "Online",
+        "MerchantAcquirerId": "0023137868169300",
+        "TerminalAcquirerId": "41786816"
+    }
 }
 ```
 
@@ -3335,6 +3369,10 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 | `Payment.CreditCard.AuthenticationMethod`           | String            | —       | Sim         | Enum: NoPassword OnlineAuthentication OfflineAuthentication<br>Método de autenticação<br>- Se o cartão foi lido a partir da digitação verificar o campo RequiresPasswordExceptForEMVCard dos objetos BinEntry, ParameterEntry e IssuerEntry da baixa de parametros. Se todos estiverem habilitados, a senha deve ser capturada e o authenticationMethod assume valor 2. Caso contrário, assume valor 1;<br>- Se o cartão foi lido a partir da trilha verificar o campo RequiresPassword dos objetos BinEntry, ParameterEntry e IssuerEntry da baixa de parametros. Se todos estiverem habilitados deve ser capturada a senha, se algum estiver desabilitado a captura da senha vai depender do último dígito do service code;<br>- Se o cartão foi lido através do chip EMV, o authenticationMethod será preenchido com base no retorno da função PP_GoOnChip(). No resultado PP_GoOnChip(), onde se o campo da posição 003 do retorno da PP_GoOnChip() estiver com valor 1 indica que o pin foi validado off-line, o authenticationMethod será 3. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valor 0, o authenticationMethod será 1. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valores 0 e 1 respectivamente, o authenticationMethod será 2.<br>1 - Sem senha = “NoPassword”;<br>2 - Senha online = “Online Authentication”;<br>3 - Senha off-line = “Offline Authentication”. |
 | `Payment.CreditCard.TrackOneData`                   | String            | —       | Sim         | Dados da trilha 1<br>Obtidos através do comando PP_GetCard na BC no momento da captura da transação                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | `Payment.CreditCard.TrackTwoData`                   | String            | —       | Não         | Dados da trilha 2<br>Obtidos através do comando PP_GetCard na BC no momento da captura da transação                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `Payment.CreditCard.EncryptedCardData.EncryptionType`           | String         | ---       | Sim         | Tipo de encriptação utilizada <br>Enum: <br>“DukptDes” = 1, <br> “MasterKey” = 2 <br>“Dukpt3Des” = 3, <br>“Dukpt3DesCBC = 4                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `Payment.CreditCard.EncryptedCardData.CardNumberKSN`           | String         | ---       | Sim         | Identificador KSN da criptografia do número do cartão                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `Payment.CreditCard.EncryptedCardData.IsDataInTLVFormat`           | Bool         | ---       | Não         | Identifica se os dados criptografados estão no formato TLV (tag / length / value).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| `Payment.CreditCard.EncryptedCardData.InitializationVector`           | String         | ---       | Sim         | Vetor de inicialização da encriptação                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | `Payment.CreditCard.PinBlock.EncryptedPinBlock`     | String            | —       | Sim         | PINBlock Criptografado - Para transações EMV, esse campo é obtido através do retorno da função PP_GoOnChip(), mais especificamente das posições 007 até a posição 022; - Para transações digitadas e com tarja magnética, verificar as posições 001 até 016 do retorno da função PP_GetPin().                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | `Payment.CreditCard.PinBlock.EncryptionType`        | String            | —       | Sim         | Tipo de Criptografia Enum: "DukptDes" "Dukpt3Des" "MasterKey"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | `Payment.CreditCard.PinBlock.KsnIdentification`     | String            | —       | Sim         | Identificação do KSN - Para transações EMV esse campo é obtido através do retorno da função PP_GoOnChip() nas posições 023 até 042; - Para transações digitadas e com tarja magnética, verificar as posições 017 até 036 do retorno da função PP_GetPin().                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
