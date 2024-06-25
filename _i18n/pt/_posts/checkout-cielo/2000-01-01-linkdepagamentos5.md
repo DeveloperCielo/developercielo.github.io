@@ -689,7 +689,11 @@ Transações recorrentes são ideais para modelos de negócios que envolvam o **
 * Editoras;
 * Serviços de hospedagem.
 
-> A transação recorrente não é uma transação parcelada. O valor total da venda compromete o limite do cartão de crédito do comprador independentemente do valor da parcela inicial.
+> **A transação recorrente é diferente de uma transação parcelada**. Na transação recorrente, o limite do cartão do comprador é comprometido pelo valor da assinatura no período escolhido, ou seja, se for mensal, só será cobrado o valor da mensalidade no cartão do comprador. 
+> - Assinatura de seguro no valor de R$ 100,00 e com cobrança mensal por um ano: será cobrado R$ 100,00 por mês.<br>
+>
+> Na transação parcelada, o valor total da venda afetará o limite do cartão de crédito do comprador:
+> - Venda de uma geladeira no valor de R$ 2000,00 parcelado em 10x de R$ 200,00: o valor total da compra (R$ 2000,00) – afetará o limite do cartão do comprador, mas na fatura será cobrado apenas R$ 200,00 por mês.
 
 ## Criando um Link de Pagamento recorrente
 
