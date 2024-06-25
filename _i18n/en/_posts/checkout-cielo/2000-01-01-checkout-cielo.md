@@ -1365,7 +1365,7 @@ Whether notifying via POST or via JSON, the content of the data returned is the 
 |`payment_installments`|Number of installments| numeric| 1|
 | `payment_antifrauderesult`| Status of Credit Card Transactions in Antifraude| numeric| 1|
 | `payment_boletonumber`| Number of boleto generated| string| 1|
-| `payment_boletoexpirationdate` | Due date for transactions made with boleto| numeric| 10|
+| `payment_boletoexpirationdate` | Due date for transactions made with boleto| string| 10|
 | `payment_status`|Transaction status| numeric| 1|
 | `tid`| TransactionId Cielo generated at the time of transaction authorization | alphanumeric | 20|
 | `test_transaction`| Indicates whether the transaction was generated with 'Test Mode' enabled | boolean| 32|
