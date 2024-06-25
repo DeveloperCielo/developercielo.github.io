@@ -1132,7 +1132,7 @@ Both in the notification via POST or via JSON, the content of the returned data 
 |`payment_installments`|Number of installments.|Number|1|
 |`payment_antifrauderesult`|Status of credit card transactions in Antifraude|Number|1|
 |`payment_boletonumber`|Generated boleto number.|String|1|
-|`payment_boletoexpirationdate`|Expiration date for transactions carried out with boleto.|Number|10|
+|`payment_boletoexpirationdate`|Expiration date for transactions carried out with boleto.|String|10|
 |`payment_status`|Transaction status.|Number|1|
 |`tid`|TransactionId Cielo generated at the time of transaction authorization.|Alphanumeric|20|
 |`test_transaction`|Indicates whether the transaction was generated with Test Mode enabled.|Boolean|32
