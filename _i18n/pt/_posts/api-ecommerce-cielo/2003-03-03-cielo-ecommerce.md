@@ -1741,6 +1741,11 @@ As subcategorias devem ser informadas no parâmetro `Payment.InitiatedTransactio
 
 No **Pix**, a transmissão da ordem de pagamento e a disponibilidade de fundos para o recebedor ocorrem em tempo real, 24 horas por dia e sem a necessidade de intermediários. Sendo assim, é um meio que viabiliza pagamentos rápidos e com menores custos de transação.
 
+Antes de usar o Pix em produção, certifique-se de que o pix está liberado em seu cadastro. Para confirmar basta acessar o [portal Cielo](https://www.cielo.com.br/){:target="\_blank"} na área logada em **Meu Cadastro** > **Autorizações** > **PIX**
+> ![Geração do QR Code Pix]({{ site.baseurl_root }}/images/apicieloecommerce/adesao-pix.png)
+
+Para habilitar o Pix no ambiente sandbox entre em contato com nosso canal de suporte e-commerce pelo e-mail *cieloecommerce@cielo.com.br*;
+
 Conheça o ciclo de vida de uma transação **Pix**:
 
 | SEQUÊNCIA | RESPONSÁVEL | DESCRIÇÃO                                                                                     | STATUS DA TRANSAÇÃO |
@@ -1753,11 +1758,6 @@ Conheça o ciclo de vida de uma transação **Pix**:
 | 6         | Loja        | Caso necessário, solicitação da devolução da transação Pix (semelhante ao estorno do cartão). | 2 - Pago            |
 | 7         | Loja        | Recebimento da notificação de confirmação de devolução.                                       | 11 - Estornado      |
 | 8         | Loja        | Consulta ao status da transação.                                                              | 11 - Estornado      |
-
-> **ATENÇÃO**:
-> - Para habilitar o Pix no ambiente sandbox entre em contato com nosso canal de suporte e-commerce pelo e-mail *cieloecommerce@cielo.com.br*;
-> - Antes de usar o Pix em produção, certifique-se de que o pix está liberado em seu cadastro. Para confirmar basta acessar o [portal Cielo](https://www.cielo.com.br/){:target="\_blank"} na área logada em **Meu Cadastro** > **Autorizações** > **PIX**
-> ![Geração do QR Code Pix]({{ site.baseurl_root }}/images/apicieloecommerce/adesao-pix.png)
 
 ### Criando uma transação com QR Code Pix
 
