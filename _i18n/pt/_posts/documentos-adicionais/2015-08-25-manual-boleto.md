@@ -147,8 +147,8 @@ Serão necessárias as credenciais do Bradesco:
 Em caso de dúvidas em qualquer etapa ou outras informações técnicas, entre em contato com o Suporte Web do Cielo e-Commerce nos seguintes canais:
 
 - **E-mail:** cieloeCommerce@cielo.com.br
-- **Capitais:** 4002-9700
-- **Demais Cidades:** 0800 570 1700
+- **Capitais:** 4002-5472
+- **Demais Cidades:** 0800 570 8472
 - **\*Horário de atendimento:** 24h por dia, 7 dias por semana.
 
 ### Atualização de Status
