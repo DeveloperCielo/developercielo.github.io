@@ -1609,6 +1609,11 @@ The subcategories must be sent in parameter `Payment.InitiatedTransactionIndicat
 
 For **Pix**, the transmission for the payment order and the availability of funds for the receiver happens in real time, 24 hours a day and without the need of intermediaries. It is a payment method that allows fast and low cost transactions.
 
+Before using Pix in production, certify that Pix is allowed in your account. To confirm, you just have to access [Cielo portal](https://www.cielo.com.br/){:target="\_blank"} in the logged in area go to **Meu Cadastro** > **Autorizações** > **PIX**
+> ![Geração do QR Code Pix]({{ site.baseurl_root }}/images/apicieloecommerce/adesao-pix.png)
+
+To enable Pix for the sandbox environment, get in touch with our E-commerce support e-mail: *cieloecommerce@cielo.com.br*;
+
 Get to know the cycle of a **Pix** transaction:
 
 | SEQUENCE | RESPONSIBLE | DESCRIPTION                                                                              | TRANSACTION STATUS |
@@ -1621,11 +1626,6 @@ Get to know the cycle of a **Pix** transaction:
 | 6     | E-commerce          | If it's necessary, requesting the Pix transaction refund (similar to a card refund). | 2 - Paid           |
 | 7     | E-commerce          | Getting notified of the payment refund.                                                  | 11 - Refunded      |
 | 8     | E-commerce          | Consulting the transaction status.                                                       | 11 - Refunded      |
-
-> **WARNING**:
-> - To enable Pix for the sandbox environment, get in touch with our E-commerce support e-mail: *cieloecommerce@cielo.com.br*;
-> - Before using Pix in production, certify that Pix is allowed in your account. To confirm, you just have to access [Cielo portal](https://www.cielo.com.br/){:target="\_blank"} in the logged in area go to **Meu Cadastro** > **Autorizações** > **PIX**
-> ![Geração do QR Code Pix]({{ site.baseurl_root }}/images/apicieloecommerce/adesao-pix.png)
 
 ### Creating a transaction with Pix QR Code
 
