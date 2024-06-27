@@ -196,8 +196,8 @@ Caso tenha dúvidas envie um e-mail para: **cieloecommerce@cielo.com.br**
 
 Ou, se preferir, entre em contato com a gente pela **Central de Atendimento**:
 
-- Capitais e regiões metropolitanas: **(11) 4002-9700**
-- Demais localidades: **0800 570 1700**
+- Capitais e regiões metropolitanas: **(11) 4002-5472**
+- Demais localidades: **0800 570 8472**
 
 # Certificados e segurança
 
