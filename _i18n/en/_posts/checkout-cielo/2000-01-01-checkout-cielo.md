@@ -870,11 +870,11 @@ Recurring transactions are ideal for business models that involve the **concept 
 * Publishers;
 * Hosting services.
 
-> The recurring transaction is different from an installment transaction. In the recurring transaction, the limit of the customer's card is only committed by the amount of the subscription in the chosen period, that is, if it is monthly, only the amount of the monthly fee on the customer's card will be committed.
->**Insurance subscription in the amount of R$ 100.00 and with monthly billing for one year: every month, only R$ 100.00 of the card limit will be committed.**
+> **The recurring transaction is different from an installment transaction.** In the recurring transaction, the limit of the customer's card is only committed by the amount of the subscription in the chosen period, that is, if it is monthly, only the amount of the monthly fee on the customer's card will be committed.
+> -Insurance subscription in the amount of R$ 100.00 and with monthly billing for one year: every month, only R$ 100.00 of the card limit will be committed.<br>
 > 
->In the installment transaction, the limit committed on the customer's card is the  It is the total amount of the sale, regardless of the amount of the value of each installment.
->**Sale of a refrigerator in the amount of R$ 2000.00 in 10 installments of R$ 200.00: the entire amount of the purchase will be committed - R$ 2000.00 - even if only R$ 200.00 per month is charged on the customer's card statement.**
+> In the installment transaction, the limit committed on the customer's card is the  It is the total amount of the sale, regardless of the amount of the value of each installment.
+> -Sale of a refrigerator in the amount of R$ 2000.00 in 10 installments of R$ 200.00: the entire amount of the purchase will be committed - (R$ 2000.00) - even if only R$ 200.00 per month is charged on the customer's card statement.
 
 ## Creating a recurring payment
 
