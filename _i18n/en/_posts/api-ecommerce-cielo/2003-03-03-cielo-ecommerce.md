@@ -7313,19 +7313,6 @@ Codes returned in case of error, identifying the reason for the error and its re
 |322|Zero Dollar Auth is not enabled|Zero Dollar not linked to the merchant's registration|
 |323|Bin Query is not enabled|Bins query not linked to the merchant's registration|
 
-#### BP Errors
-
-BP error codes may be returned in `ReturnCode` parameter; when the API returns BP errors, the transaction status is "0" - **Not finished**.
-
-| RESPONSE CODE | DEFINITION                                | DESCRIPTION| ACTION| RETRY ALLOWED? |
-|-----------------|-------------------------------------------|----------------------------------------------------------------------------------------------------------------|------------------------------|---------------------|
-| BP 171          | Rejected due to fraud risk (Velocity). | It is related to Velocity rules. | Try again after one hour. | Yes|
-| BP 900          | Operation fail.                        | Operation fail (request submission process).                                 | Try again.             | Sim                 |
-| BP 901          | Operation fail                       | Authorization fail.                                                                | Try again.               | Yes                 |
-| BP 902          | Wait for the response from previous operation.     |Capture fail.                                                                   | Try again.             | Yes                 |
-| BP 903          | Cancellation fail.                    | Cancellation fail.                                                               | Try again.               | Yes                 |
-| BP 904          | Query fail.                        | Query fail.                                                                   | Try again.               | Yes                 |
-
 ### Reason Code and Reason Message
 
 |Reason Code|Reason Message|
