@@ -9,7 +9,7 @@ sort_order: 1
 tags:
   - Documentos Adicionais
 ---
-<aside class="notice">Última atualização em 08 de maio de 2024.</aside>
+<aside class="notice">Última atualização em 18 de Junho de 2024.</aside>
 
 # Códigos de retorno ABECS
 
