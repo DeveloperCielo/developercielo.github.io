@@ -14518,66 +14518,6 @@ Se um código de erro for exibido, a requisição contém erros (como tamanho, c
   </tbody>
 </table>
 
-<h4 id="erros-bp">Erros BP</h4>
-
-<p>São códigos de erros retornados no campo <code class="language-plaintext highlighter-rouge">ReturnCode</code>; para esses códigos, o status da transação fica como “0” - <strong>Not finished</strong> (não finalizado).</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>CÓDIGO RESPOSTA</th>
-      <th>DEFINIÇÃO</th>
-      <th>SIGNIFICADO</th>
-      <th>AÇÃO</th>
-      <th>PERMITE RETENTATIVA</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>BP 171</td>
-      <td>Rejeitada por risco de fraude (Velocity).</td>
-      <td>Está relacionado a regras do Velocity</td>
-      <td>Tente novamente após 1 hora.</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td>BP 900</td>
-      <td>Falha na operação.</td>
-      <td>Está relacionado a alguma falha na operação (processo de envio da requisição).</td>
-      <td>Tente novamente.</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td>BP 901</td>
-      <td>Falha na operação.</td>
-      <td>Está relacionado a alguma falha na autorização.</td>
-      <td>Tente novamente.</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td>BP 902</td>
-      <td>Aguarde resposta da operação anterior.</td>
-      <td>Está relacionado a alguma falha na captura.</td>
-      <td>Tente novamente.</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td>BP 903</td>
-      <td>Falha no Cancelamento.</td>
-      <td>Está relacionado a alguma falha no cancelamento.</td>
-      <td>Tente novamente.</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td>BP 904</td>
-      <td>Falha na Consulta.</td>
-      <td>Está relacionado a alguma falha na consulta.</td>
-      <td>Tente novamente.</td>
-      <td>Sim</td>
-    </tr>
-  </tbody>
-</table>
-
 <h3 id="códigos-de-motivo-de-retorno">Códigos de Motivo de Retorno</h3>
 
 <table>
