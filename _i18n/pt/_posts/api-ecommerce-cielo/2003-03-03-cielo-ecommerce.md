@@ -7495,19 +7495,6 @@ Códigos retornados em caso de erro, identificando o motivo do erro e suas respe
 | 322    | Zero Dollar Auth is not enabled                                                                                |                                                                                               |
 | 323    | Bin Query is not enabled                                                                                       |                                                                                               |
 
-#### Erros BP
-
-São códigos de erros retornados no campo `ReturnCode`; para esses códigos, o status da transação fica como "0" - **Not finished** (não finalizado).
-
-| CÓDIGO RESPOSTA | DEFINIÇÃO                                 | SIGNIFICADO                                                                                                    | AÇÃO                         | PERMITE RETENTATIVA |
-|-----------------|-------------------------------------------|----------------------------------------------------------------------------------------------------------------|------------------------------|---------------------|
-| BP 171          | Rejeitada por risco de fraude (Velocity). | Está relacionado a regras do Velocity | Tente novamente após 1 hora. | Sim                 |
-| BP 900          | Falha na operação.                        | Está relacionado a alguma falha na operação (processo de envio da requisição).                                 | Tente novamente.             | Sim                 |
-| BP 901          | Falha na operação.                        | Está relacionado a alguma falha na autorização.                                                                | Tente novamente.             | Sim                 |
-| BP 902          | Aguarde resposta da operação anterior.    | Está relacionado a alguma falha na captura.                                                                    | Tente novamente.             | Sim                 |
-| BP 903          | Falha no Cancelamento.                    | Está relacionado a alguma falha no cancelamento.                                                               | Tente novamente.             | Sim                 |
-| BP 904          | Falha na Consulta.                        | Está relacionado a alguma falha na consulta.                                                                   | Tente novamente.             | Sim                 |
-
 ### Códigos de Motivo de Retorno
 
 | Reason Code | Reason Message               |
