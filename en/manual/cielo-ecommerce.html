@@ -14439,66 +14439,6 @@ If an error code is displayed, the requisition contains errors (such as size, co
   </tbody>
 </table>
 
-<h4 id="bp-errors">BP Errors</h4>
-
-<p>BP error codes may be returned in <code class="language-plaintext highlighter-rouge">ReturnCode</code> parameter; when the API returns BP errors, the transaction status is “0” - <strong>Not finished</strong>.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>RESPONSE CODE</th>
-      <th>DEFINITION</th>
-      <th>DESCRIPTION</th>
-      <th>ACTION</th>
-      <th>RETRY ALLOWED?</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>BP 171</td>
-      <td>Rejected due to fraud risk (Velocity).</td>
-      <td>It is related to Velocity rules.</td>
-      <td>Try again after one hour.</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td>BP 900</td>
-      <td>Operation fail.</td>
-      <td>Operation fail (request submission process).</td>
-      <td>Try again.</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td>BP 901</td>
-      <td>Operation fail</td>
-      <td>Authorization fail.</td>
-      <td>Try again.</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td>BP 902</td>
-      <td>Wait for the response from previous operation.</td>
-      <td>Capture fail.</td>
-      <td>Try again.</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td>BP 903</td>
-      <td>Cancellation fail.</td>
-      <td>Cancellation fail.</td>
-      <td>Try again.</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td>BP 904</td>
-      <td>Query fail.</td>
-      <td>Query fail.</td>
-      <td>Try again.</td>
-      <td>Yes</td>
-    </tr>
-  </tbody>
-</table>
-
 <h3 id="reason-code-and-reason-message">Reason Code and Reason Message</h3>
 
 <table>
