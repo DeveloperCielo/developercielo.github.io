@@ -15,38 +15,32 @@ tags:
 
 **Documentation**
 
-[CIELO_Eletronic_Statement_-_Manual_-_Version_15.9](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELOEletronicStatement-Manual-Version_15.9.pdf)
+[CIELO_Extrato_Eletronico_Manual_Versao_15.9-erratum](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO_Eletronic_Statement_Manual_Version_15.9-erratum.pdf)
 
-* Current version: **15.7**
-* Next update: **07/23/2024 to version 15.9**
-* Next update: **07/02/2024 to version 15.8.1**
+* Current version: **15.8.1**
+* Next update: **07/23/2024 to version 15.9.erratum**
   
 **Test files**
 
 [Test Files](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Arquivos_Testes_EDI.rar)
 
+[15.7 Financial Reserve](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/15-7-Reserva-Financeira-Financial-Reserve_.zip)
+
 [15.8 Receivable negotiation update](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/15-8-Atualizacao-de-negociacoes-Receivable-negotiation-update.zip)
 
-[15.7 Financial Reserve](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/15-7-Reserva-Financeira-Financial-Reserve_.zip)
+<aside class="warning">ERRATUM - Consider this as a communication of a layout update of the Electronic Statement to version 15.9 with implementation on 07/23/2024. has undergone a small change.</aside>
+
+The inclusion of the fields TID and Order/Reference Code will not happen in the Record Type 8. The size increase to 400 positions is maintained. Therefore, from position 240 to 400, it will be reserved for Uso Cielo.
 
 **Last updates**
 
 * Version: 15.9 – Addition of new fields for Pix transaction demonstration
-	* Inclusion of the NSU/DOC field with 8 positions (positions 62 to 67 will continue to be filled)
-	* Identifier of scheduled transfer for Pix sales
-	* Inclusion of new identification fields for Pix transactions the e-commerce sales channel (TID and Order/Reference Code)
-	* Increase in the size of Record Type 8 from 250 to 400 positions
-	* Inclusion of the Scheduled transfer service for Pix transactions item in the topic RECONCILIATION THROUGH THE ELECTRONIC STATEMENT
-* Version: 15.8.1 – Update on the demonstration rules of posting types related to receivable negotiations
-	* Update on the topic Update on the demonstration rules of posting types related to receivable negotiations in the section CONCILIATION THROUGH THE ELECTRONIC STATEMENT. For the information filled in position 526 to 540 of Record Type E, a new code will be presented to add the reconciliation key for updates to the receivable negotiation posting types.	
-* Version: 15.8 – New update rules in the demonstration of releases related to Receivables Negotiations
-   * Inclusion of the item New update rules in the statement of entries related to Receivables Negotiations in the topic CONCILIATION THROUGH ELECTRONIC STATEMENT.
-* Version: 15.7 – Financial Reserve Statement
-   * Changes to the CIELO03 Capture/Prediction file, in the topic FILE TYPOLOGY (FORMAT AND STRUCTURE)
-   * Inclusion of the new type of Record R – Financial Reserve, in the topic TYPES OF RECORDS AND STRUCTURE
-   * Inclusion of the FINANCIAL RESERVE item in the FINANCIAL CONCEPTS topic
+   * Inclusion of the NSU/DOC field with 8 positions (positions 62 to 67 will continue to be filled)
+   * Identifier of scheduled transfer for Pix sales
+   * Increase in the size of Record Type 8 from 250 to 400 positions
+   * Inclusion of the Scheduled transfer service for Pix transactions item in the topic RECONCILIATION THROUGH THE ELECTRONIC STATEMENT
 
-The manual also highlighted additional information about the fields **Posting types, Payment method, Batch number, Adjustment code, and data type in the Bank agency field**.
+The manual also highlighted additional information about the fields **Posting types, Payment method, Batch number, Adjustment code**, and data type in the **Bank agency** field.
 
 # Introduction
 
