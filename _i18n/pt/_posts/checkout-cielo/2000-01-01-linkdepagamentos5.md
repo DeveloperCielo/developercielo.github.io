@@ -416,7 +416,7 @@ Para que o seu número de pedido seja enviado na transação até o extrato para
 |`type`|Tipo de venda a ser realizada através do link de pagamento:<br>Asset – Material Físico<br>Digital – Produto Digital<br>Service – Serviço<br>Payment – Pagamentos Simples<br>Recurrent – Pagamento Recorrente|String|255|Sim|
 |`name`|Nome do produto|String|128|Sim|
 |`description`|Descrição do produto que será exibida na tela de pagamento caso a opção show_description seja verdadeira. É permitido usar o caracter pipe `|` caso seja desejável quebrar a linha ao apresentar a descrição na tela de pagamento.|String|256|Não|
-|`showDescription`|Flag indicando se a descrição deve ou não ser exibida na tela de pagamento.|String|–|Não|
+|`showDescription`|Flag indicando se a descrição deve ou não ser exibida na tela de pagamento.|Booleano|–|Não|
 |`price`|Valor do produto em centavos.|Int|1000000|Sim|
 |`expirationDate`|Data de expiração do link. Caso uma data seja informada, o link se torna indisponível na data informada. Se nenhuma data for informada, o link não expira. O campo permite incluir um horário de expiração, mas não é obrigatório. Se um horário não for incluso, o padrão considerado é 00:00:00. |String (YYYY-MM-DD HH:MM:SS)|10|Não|
 |`weight`|Peso do produto em gramas.|String|2000000|Não|
