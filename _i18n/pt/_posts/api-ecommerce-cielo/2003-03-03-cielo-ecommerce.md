@@ -3440,6 +3440,7 @@ Para criar uma venda de cartão de crédito tokenizado, envie uma requisição d
     "Type": "CreditCard",
     "Amount": 100,
     "Installments": 1,
+    "Capture":false,
     "SoftDescriptor": "123456789ABCD",
     "CreditCard": {
       "CardToken": "6e1bf77a-b28b-4660-b14f-455e2a1c95e9",
@@ -3467,6 +3468,7 @@ curl
      "Type":"CreditCard",
      "Amount":100,
      "Installments":1,
+     "Capture":false,
      "SoftDescriptor":"123456789ABCD",
      "CreditCard":{
          "CardToken":"6e1bf77a-b28b-4660-b14f-455e2a1c95e9",
