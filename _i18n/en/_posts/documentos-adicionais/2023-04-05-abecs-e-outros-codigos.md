@@ -134,8 +134,8 @@ Cielo informs its customers that it's prepared to process transactions following
 |BP|Unauthorized transaction. Non-existent checking account.|Unauthorized transaction. The transaction could not be processed due to an error related to the carrier's card or account. Ask the carrier to contact the issuing bank.|Unauthorized transaction. Could not process the transaction due to an error related to the carrier's card or account. Contact the issuing bank.|No|
 | BP 171 | Rejected due to risk of fraud (Velocity). | Related to Velocity rules | Please try again after one hour. | Yes |
 |BP176|Transaction not allowed.|Partner should check if the onboarding process has been completed successfully.|Partner should check if the onboarding process has been completed successfully.|---|
-| BP 900 | Operation failed. | Related to some failure in the operation (request sending process). | Try again. | Yes |
-| BP 901 | Operation failed. | Related to some authorization failure. | Try again. | Yes |
+| BP 900 | Operation failed. | Related to some failure in the operation (request sending process). | Try again in 30 minutes. *We recommend querying the transaction to check for a status update before trying  authorization again*.| Yes |
+| BP 901 | Operation failed. | Related to some authorization failure. | Try again in 30 minutes. *We recommend querying the transaction to check for a status update before trying  authorization again*. | Yes |
 | BP 902 | Wait for a response from the previous operation. | Related to a capture failure. | Try again. | Yes |
 | BP 903 | Cancellation Failed. | Related to a cancellation failure. | Try again. | Yes |
 | BP 904 | Query Failed. | Related to a failure in the query. | Try again. | Yes |
