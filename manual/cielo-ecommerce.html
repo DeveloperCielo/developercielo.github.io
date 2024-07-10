@@ -1232,350 +1232,7 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>texto</td>
       <td>50</td>
       <td>Sim</td>
-      <td>Número de identificação do pedido.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Nome do comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
-      <td>texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Status de cadastro do comprador na loja (NEW / EXISTING)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
-      <td>texto</td>
-      <td>14</td>
-      <td>Não</td>
-      <td>Número do RG, CPF ou CNPJ do comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
-      <td>texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Tipo de documento de identificação do comprador (CFP/CNPJ).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
-      <td>texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>E-mail do comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Birthdate</code></td>
-      <td>data</td>
-      <td>10</td>
-      <td>Não</td>
-      <td>Data de nascimento do comprador (AAAA/MM/DD).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
-      <td>texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Endereço do comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
-      <td>texto</td>
-      <td>15</td>
-      <td>Não</td>
-      <td>Número do endereço do comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code></td>
-      <td>texto</td>
-      <td>50</td>
-      <td>Não</td>
-      <td>Complemento do endereço do comprador</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.ZipCode</code></td>
-      <td>texto</td>
-      <td>9</td>
-      <td>Não</td>
-      <td>CEP do endereço do comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
-      <td>texto</td>
-      <td>50</td>
-      <td>Não</td>
-      <td>Cidade do endereço do comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.State</code></td>
-      <td>texto</td>
-      <td>2</td>
-      <td>Não</td>
-      <td>Estado do endereço do comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Country</code></td>
-      <td>texto</td>
-      <td>35</td>
-      <td>Não</td>
-      <td>País do endereço do comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Street</code></td>
-      <td>texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Endereço do comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
-      <td>texto</td>
-      <td>15</td>
-      <td>Não</td>
-      <td>Número do endereço do comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Complement</code></td>
-      <td>texto</td>
-      <td>50</td>
-      <td>Não</td>
-      <td>Complemento do endereço do comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.ZipCode</code></td>
-      <td>texto</td>
-      <td>9</td>
-      <td>Não</td>
-      <td>CEP do endereço do comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.City</code></td>
-      <td>texto</td>
-      <td>50</td>
-      <td>Não</td>
-      <td>Cidade do endereço do comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.State</code></td>
-      <td>texto</td>
-      <td>2</td>
-      <td>Não</td>
-      <td>Estado do endereço do comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Country</code></td>
-      <td>texto</td>
-      <td>35</td>
-      <td>Não</td>
-      <td>País do endereço do comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Billing.Street</code></td>
-      <td>string</td>
-      <td>24</td>
-      <td>não</td>
-      <td>Logradouro do endereço de cobrança.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Billing.Number</code></td>
-      <td>string</td>
-      <td>5</td>
-      <td>não</td>
-      <td>Número do endereço de cobrança.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Billing.Complement</code></td>
-      <td>string</td>
-      <td>14</td>
-      <td>não</td>
-      <td>Complemento do endereço de cobrança.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Billing.Neighborhood</code></td>
-      <td>string</td>
-      <td>15</td>
-      <td>não</td>
-      <td>Bairro do endereço de cobrança.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Billing.City</code></td>
-      <td>string</td>
-      <td>20</td>
-      <td>não</td>
-      <td>Cidade do endereço de cobrança.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Billing.State</code></td>
-      <td>string</td>
-      <td>2</td>
-      <td>não</td>
-      <td>Estado do endereço de cobrança.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Billing.Country</code></td>
-      <td>string</td>
-      <td>2</td>
-      <td>não</td>
-      <td>País do endereço de cobrança. Mais informações em <a href="https://www.iso.org/obp/ui" target="\_blank">ISO 2-Digit Alpha Country Code</a></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Billing.ZipCode</code></td>
-      <td>string</td>
-      <td>9</td>
-      <td>não</td>
-      <td>Código postal do endereço de cobrança.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>texto</td>
-      <td>100</td>
-      <td>Sim</td>
-      <td>Tipo do meio de pagamento.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
-      <td>número</td>
-      <td>15</td>
-      <td>Sim</td>
-      <td>Valor do pedido (ser enviado em centavos).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Currency</code></td>
-      <td>texto</td>
-      <td>3</td>
-      <td>Não</td>
-      <td>Moeda na qual o pagamento será feito (BRL).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Country</code></td>
-      <td>texto</td>
-      <td>3</td>
-      <td>Não</td>
-      <td>País na qual o pagamento será feito.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>texto</td>
-      <td>15</td>
-      <td>—</td>
-      <td>Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.ServiceTaxAmount</code></td>
-      <td>número</td>
-      <td>15</td>
-      <td>Não</td>
-      <td>Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code></td>
-      <td>texto</td>
-      <td>13</td>
-      <td>Não</td>
-      <td>O complemento do nome da loja que aparecerá na fatura do cartão. Não permite caracteres especiais.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
-      <td>número</td>
-      <td>2</td>
-      <td>Sim</td>
-      <td>Número de parcelas. Se a transação for uma recorrência, o número de parcelas será 1. Para transações parceladas, o número de parcelas será sempre maior que 1.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Interest</code></td>
-      <td>texto</td>
-      <td>10</td>
-      <td>Não</td>
-      <td>Tipo de parcelamento - Loja (ByMerchant) ou Cartão (ByIssuer).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
-      <td>booleano</td>
-      <td>—</td>
-      <td>Não (Default false)</td>
-      <td>Booleano que identifica que a autorização deve ser com <strong>captura automática (“true”)</strong> ou <strong><a href="https://developercielo.github.io/manual/cielo-ecommerce#captura">captura posterior</a> (“false”)</strong>.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
-      <td>booleano</td>
-      <td>—</td>
-      <td>Não (Default false)</td>
-      <td>Define se o comprador será direcionado ao banco emissor para autenticação do cartão.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Recurrent</code></td>
-      <td>booleano</td>
-      <td>-</td>
-      <td>Condicional</td>
-      <td>Indica se a transação é do tipo recorrente (“true”) ou não (“false”). O valor “true” não originará uma nova recorrência, apenas permitirá a realização de uma transação sem a necessidade de envio do CVV. Authenticate deve ser “false” quando Recurrent é “true”. Saiba mais sobre <a href="https://developercielo.github.io/manual/cielo-ecommerce#recorr%C3%AAncia">Recorrência</a>.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.IsCryptocurrencyNegotiation</code></td>
-      <td>booleano</td>
-      <td>-</td>
-      <td>Não (default false)</td>
-      <td>Deve ser enviado com valor “true” caso se trate de uma transação de compra ou venda de Criptomoeda.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.AirlineData.TicketNumber</code></td>
-      <td>alfanumérico</td>
-      <td>13</td>
-      <td>Não</td>
-      <td>Informar o número do principal bilhete aéreo da transação.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.CardNumber</code></td>
-      <td>texto</td>
-      <td>19</td>
-      <td>Sim</td>
-      <td>Número do cartão do comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Holder</code></td>
-      <td>texto</td>
-      <td>25</td>
-      <td>Não</td>
-      <td>Nome do comprador impresso no cartão. Não aceita caracteres especiais ou acentuação.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.ExpirationDate</code></td>
-      <td>texto</td>
-      <td>7</td>
-      <td>Sim</td>
-      <td>Data de validade impressa no cartão. Ex. MM/AAAA.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.SecurityCode</code></td>
-      <td>texto</td>
-      <td>4</td>
-      <td>Não</td>
-      <td>Código de segurança impresso no verso do cartão.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.SaveCard</code></td>
-      <td>booleano</td>
-      <td>—</td>
-      <td>Não (Default false)</td>
-      <td>Booleano que identifica se o cartão será salvo para gerar o <code class="language-plaintext highlighter-rouge">CardToken</code>. Saiba mais sobre <a href="https://developercielo.github.io/manual/cielo-ecommerce#tokeniza%C3%A7%C3%A3o-de-cart%C3%B5es">Tokenização</a>.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Brand</code></td>
-      <td>texto</td>
-      <td>10</td>
-      <td>Sim</td>
-      <td>Bandeira do cartão. Valores possíveis: Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.CardOnFile.Usage</code></td>
-      <td>texto</td>
-      <td>-</td>
-      <td>Não</td>
-      <td><strong>First</strong> se o cartão foi armazenado e é seu primeiro uso.<br /><strong>Used</strong> se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação. Saiba mais em <a href="https://developercielo.github.io/manual/cielo-ecommerce#card-on-file" target="_blank">Card On File</a></td>
+      <td>Número de identificação do pedido. Atenção: Não são permitidos os caracteres especiais &gt; (maior), <strong>Used</strong> se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação. Saiba mais em <a href="https://developercielo.github.io/manual/cielo-ecommerce#card-on-file" target="_blank">Card On File</a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.CardOnFile.Reason</code></td>
@@ -2015,98 +1672,7 @@ Abaixo especificamos qualquer diferença existente:</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
-      <td>Número de identificação do Pedido.</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Nome do comprador.</td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
-      <td>Status de cadastro do comprador na loja (NEW / EXISTING) - Utilizado pela análise de fraude</td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>Tipo do meio de pagamento.</td>
-      <td>Texto</td>
-      <td>100</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
-      <td>Valor do pedido (ser enviado em centavos).</td>
-      <td>Número</td>
-      <td>15</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
-      <td>Define se o comprador será direcionado ao Banco emissor para autenticação do cartão</td>
-      <td>Booleano</td>
-      <td>—</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.ReturnUrl</code></td>
-      <td>URL para onde o usuário será redirecionado após o fim do pagamento</td>
-      <td>Texto</td>
-      <td>1024</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.IsCryptocurrencyNegotiation</code></td>
-      <td>Deve ser enviado com valor “true” caso se trate de uma transação de compra ou venda de Criptomoeda</td>
-      <td>Booleano</td>
-      <td>-</td>
-      <td>Não (default false)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.DebitCard.CardNumber</code></td>
-      <td>Número do cartão do comprador.</td>
-      <td>Texto</td>
-      <td>19</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.DebitCard.Holder</code></td>
-      <td>Nome do comprador impresso no cartão.</td>
-      <td>Texto</td>
-      <td>25</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.DebitCard.ExpirationDate</code></td>
-      <td>Data de validade impresso no cartão.</td>
-      <td>Texto</td>
-      <td>7</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.DebitCard.SecurityCode</code></td>
-      <td>Código de segurança impresso no verso do cartão.</td>
-      <td>Texto</td>
-      <td>4</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.DebitCard.Brand</code></td>
-      <td>Bandeira do cartão.</td>
-      <td>Texto</td>
-      <td>10</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Category</code></td>
-      <td>Categoria do indicador de início da transação. Válido apenas para bandeira Mastercard.<br />Valores possíveis:<br />- “C1”: transação inciada pelo portador do cartão;<br />- “M1”: transação recorrente ou parcelada iniciada pela loja;<br />- “M2”: transação iniciada pela loja.</td>
+      <td>Número de identificação do Pedido. Atenção: Não são permitidos os caracteres especiais &gt; (maior), Valores possíveis:<br />- “C1”: transação inciada pelo portador do cartão;<br />- “M1”: transação recorrente ou parcelada iniciada pela loja;<br />- “M2”: transação iniciada pela loja.</td>
       <td>string</td>
       <td>2</td>
       <td>Condicional. Obrigatório apenas para bandeira Mastercard</td>
@@ -2576,294 +2142,7 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>texto</td>
       <td>50</td>
       <td>Sim</td>
-      <td>Número de identificação do Pedido.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Nome do comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
-      <td>texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Status de cadastro do comprador na loja (NEW / EXISTING)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
-      <td>texto</td>
-      <td>14</td>
-      <td>Não</td>
-      <td>Número do RG, CPF ou CNPJ do cliente.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
-      <td>texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Tipo de documento de identificação do comprador (CFP/CNPJ).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
-      <td>texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Email do comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Birthdate</code></td>
-      <td>date</td>
-      <td>10</td>
-      <td>Não</td>
-      <td>Data de nascimento do comprador (AAAA/MM/DD).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
-      <td>texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Endereço do comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
-      <td>texto</td>
-      <td>15</td>
-      <td>Não</td>
-      <td>Número do endereço do comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code></td>
-      <td>texto</td>
-      <td>50</td>
-      <td>Não</td>
-      <td>Complemento do endereço do Comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.ZipCode</code></td>
-      <td>texto</td>
-      <td>9</td>
-      <td>Não</td>
-      <td>CEP do endereço do comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
-      <td>texto</td>
-      <td>50</td>
-      <td>Não</td>
-      <td>Cidade do endereço do comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.State</code></td>
-      <td>texto</td>
-      <td>2</td>
-      <td>Não</td>
-      <td>Estado do endereço do comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Country</code></td>
-      <td>texto</td>
-      <td>35</td>
-      <td>Não</td>
-      <td>País do endereço do comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Street</code></td>
-      <td>texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Endereço do comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
-      <td>texto</td>
-      <td>15</td>
-      <td>Não</td>
-      <td>Número do endereço do comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Complement</code></td>
-      <td>texto</td>
-      <td>50</td>
-      <td>Não</td>
-      <td>Complemento do endereço do comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.ZipCode</code></td>
-      <td>texto</td>
-      <td>9</td>
-      <td>Não</td>
-      <td>CEP do endereço do comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.City</code></td>
-      <td>texto</td>
-      <td>50</td>
-      <td>Não</td>
-      <td>Cidade do endereço do comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.State</code></td>
-      <td>texto</td>
-      <td>2</td>
-      <td>Não</td>
-      <td>Estado do endereço do comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Country</code></td>
-      <td>texto</td>
-      <td>35</td>
-      <td>Não</td>
-      <td>País do endereço do comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>texto</td>
-      <td>100</td>
-      <td>Sim</td>
-      <td>Tipo do meio de pagamento.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
-      <td>número</td>
-      <td>15</td>
-      <td>Sim</td>
-      <td>Valor do pedido (ser enviado em centavos).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Currency</code></td>
-      <td>texto</td>
-      <td>3</td>
-      <td>Não</td>
-      <td>Moeda na qual o pagamento será feito (BRL).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Country</code></td>
-      <td>texto</td>
-      <td>3</td>
-      <td>Não</td>
-      <td>País na qual o pagamento será feito.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>texto</td>
-      <td>15</td>
-      <td>—</td>
-      <td>Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.ServiceTaxAmount</code></td>
-      <td>número</td>
-      <td>15</td>
-      <td>Não</td>
-      <td>Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code></td>
-      <td>texto</td>
-      <td>13</td>
-      <td>Não</td>
-      <td>O complemento do nome da loja que aparecerá na fatura do cartão. Não permite caracteres especiais.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
-      <td>número</td>
-      <td>2</td>
-      <td>Sim</td>
-      <td>Número de parcelas. Se a transação for uma recorrência, o número de parcelas será 1. Para transações parceladas, o número de parcelas será sempre maior que 1.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Interest</code></td>
-      <td>texto</td>
-      <td>10</td>
-      <td>Não</td>
-      <td>Tipo de parcelamento - loja (ByMerchant) ou cartão (ByIssuer).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
-      <td>booleano</td>
-      <td>—</td>
-      <td>Não (Default false)</td>
-      <td>Booleano que identifica que a autorização deve ser com <strong>captura automática</strong> (“true”) ou <a href="https://developercielo.github.io/manual/cielo-ecommerce#captura">captura posterior</a> (“false”).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
-      <td>booleano</td>
-      <td>—</td>
-      <td>Não (Default false)</td>
-      <td>Define se o comprador será direcionado ao banco emissor para autenticação do cartão.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Recurrent</code></td>
-      <td>booleano</td>
-      <td>-</td>
-      <td>Condicional</td>
-      <td>Indica se a transação é do tipo recorrente (“true”) ou não (“false”). O valor “true” não originará uma nova recorrência, apenas permitirá a realização de uma transação sem a necessidade de envio do CVV. Authenticate deve ser “false” quando Recurrent é “true”. Saiba mais sobre <a href="https://developercielo.github.io/manual/cielo-ecommerce#recorr%C3%AAncia">Recorrência</a>.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.IsCryptocurrencyNegotiation</code></td>
-      <td>booleano</td>
-      <td>-</td>
-      <td>Não (default false)</td>
-      <td>Deve ser enviado com valor “true” caso se trate de uma transação de compra ou venda de Criptomoeda</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.AirlineData.TicketNumber</code></td>
-      <td>alfanumérico</td>
-      <td>13</td>
-      <td>Não</td>
-      <td>Informar o número do principal bilhete aéreo da transação.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
-      <td>texto</td>
-      <td>19</td>
-      <td>Sim</td>
-      <td>Número do cartão do comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.Holder</code></td>
-      <td>texto</td>
-      <td>25</td>
-      <td>Não</td>
-      <td>Nome do comprador impresso no cartão. Não aceita caracteres especiais ou acentuação.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
-      <td>texto</td>
-      <td>7</td>
-      <td>Sim</td>
-      <td>Data de validade impressa no cartão. Ex: MM/AAAA.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code></td>
-      <td>texto</td>
-      <td>4</td>
-      <td>Não</td>
-      <td>Código de segurança impresso no verso do cartão.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.SaveCard</code></td>
-      <td>booleano</td>
-      <td>—</td>
-      <td>Não (Default false)</td>
-      <td>Booleano que identifica se o cartão será salvo para gerar o <code class="language-plaintext highlighter-rouge">CardToken</code>. Saiba mais sobre <a href="https://developercielo.github.io/manual/cielo-ecommerce#tokeniza%C3%A7%C3%A3o-de-cart%C3%B5es">Tokenização</a>.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
-      <td>texto</td>
-      <td>10</td>
-      <td>Sim</td>
-      <td>Bandeira do cartão. Valores possíveis: Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.CardOnFile.Usage</code></td>
-      <td>texto</td>
-      <td>-</td>
-      <td>Não</td>
-      <td><strong>First</strong> se o cartão foi armazenado e é seu primeiro uso.<br /><strong>Used</strong> se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação</td>
+      <td>Número de identificação do Pedido. Atenção: Não são permitidos os caracteres especiais &gt; (maior), <strong>Used</strong> se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.CardOnFile.Reason</code></td>
@@ -3514,174 +2793,13 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
-      <td>Número de identificação do pedido.</td>
-      <td>texto</td>
-      <td>50</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Nome do pagador.</td>
-      <td>texto</td>
-      <td>255</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
-      <td>Número do CPF ou CNPJ do cliente.</td>
-      <td>texto</td>
-      <td>14</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
-      <td>Tipo de documento de identificação do comprador (CPF ou CNPJ).</td>
-      <td>texto</td>
-      <td>255</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>Tipo do meio de pagamento. Neste caso, “Pix”.</td>
-      <td>texto</td>
-      <td>-</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
-      <td>Valor do pedido, em centavos.</td>
-      <td>número</td>
-      <td>15</td>
-      <td>Sim</td>
+      <td>Número de identificação do pedido. Atenção: Não são permitidos os caracteres especiais &gt; (maior),</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
-
-<h4 id="resposta-5">Resposta</h4>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2020102601"</span><span class="p">,</span><span class="w">
-   </span><span class="nl">"Customer"</span><span class="p">:{</span><span class="w">
-      </span><span class="nl">"Name"</span><span class="p">:</span><span class="s2">"Nome do Pagador"</span><span class="w">
-   </span><span class="p">},</span><span class="w">
-   </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">
-      </span><span class="err">(...)</span><span class="w">
-      </span><span class="nl">"Paymentid"</span><span class="p">:</span><span class="s2">"1997be4d-694a-472e-98f0-e7f4b4c8f1e7"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"Pix"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"AcquirerTransactionId"</span><span class="p">:</span><span class="s2">"86c200c7-7cdf-4375-92dd-1f62dfa846ad"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"ProofOfSale"</span><span class="p">:</span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"QrcodeBase64Image"</span><span class="p">:</span><span class="s2">"rfhviy64ak+zse18cwcmtg==[...]"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"QrCodeString"</span><span class="p">:</span><span class="s2">"00020101021226880014br.gov.bcb.pix2566qrcodes-h.cielo.com.br/pix-qr/d05b1a34-ec52-4201-ba1e-d3cc2a43162552040000530398654041.005802BR5918Merchant Teste HML6009Sao Paulo62120508000101296304031C"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="s2">"2020-10-15 18:53:20"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Status"</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="s2">"Pix gerado com sucesso"</span><span class="p">,</span><span class="w">
-      </span><span class="err">(...)</span><span class="w">
-   </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--data-binary</span>
-<span class="o">{</span>
-   <span class="s2">"MerchantOrderId"</span>:<span class="s2">"2020102601"</span>,
-   <span class="s2">"Customer"</span>:<span class="o">{</span>
-      <span class="s2">"Name"</span>:<span class="s2">"Nome do Pagador"</span>
-   <span class="o">}</span>,
-   <span class="s2">"Payment"</span>:<span class="o">{</span>
-      <span class="o">(</span>...<span class="o">)</span>
-      <span class="s2">"PaymentId"</span>:<span class="s2">"1997be4d-694a-472e-98f0-e7f4b4c8f1e7"</span>,
-      <span class="s2">"Type"</span>:<span class="s2">"Pix"</span>,
-      <span class="s2">"AcquirerTransactionId"</span>:<span class="s2">"86c200c7-7cdf-4375-92dd-1f62dfa846ad"</span>,
-         <span class="s2">"ProofOfSale"</span>:<span class="s2">"123456"</span>,
-      <span class="s2">"QrcodeBase64Image"</span>:<span class="s2">"rfhviy64ak+zse18cwcmtg==[...]"</span>,
-      <span class="s2">"QrCodeString"</span>:<span class="s2">"00020101021226880014br.gov.bcb.pix2566qrcodes-h.cielo.com.br/pix-qr/d05b1a34-ec52-4201-ba1e-d3cc2a43162552040000530398654041.005802BR5918Merchant Teste HML6009Sao Paulo62120508000101296304031C"</span>,
-      <span class="s2">"Amount"</span>:100,
-      <span class="s2">"ReceivedDate"</span>:<span class="s2">"2020-10-15 18:53:20"</span>,
-      <span class="s2">"Status"</span>:12,
-      <span class="s2">"ReturnCode"</span>:<span class="s2">"0"</span>,
-      <span class="s2">"ReturnMessage"</span>:<span class="s2">"Pix gerado com sucesso"</span>,
-      <span class="o">(</span>...<span class="o">)</span>
-   <span class="o">}</span>
-<span class="o">}</span>
-<span class="nt">--verbose</span>
-</code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>PROPRIEDADE</th>
-      <th>DESCRIÇÃO</th>
-      <th>TIPO</th>
-      <th>TAMANHO</th>
-      <th>FORMATO</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.PaymentId</code></td>
-      <td>Campo identificador do pedido.</td>
-      <td>GUID</td>
-      <td>40</td>
-      <td>Texto</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.AcquirerTransactionId</code></td>
-      <td>Id da transação no provedor de meio de pagamento.</td>
-      <td>GUID</td>
-      <td>36</td>
-      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.ProofOfSale</code></td>
-      <td>NSU Pix.</td>
-      <td>texto</td>
-      <td>20</td>
-      <td>Texto alfanumérico</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.QrcodeBase64Image</code></td>
-      <td>Código em base64 da imagem do QR code.</td>
-      <td>texto</td>
-      <td>-</td>
-      <td>Texto</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.QrCodeString</code></td>
-      <td>Texto codificado para o comprador “copiar” e “colar” no campo do internet banking em pagamentos feitos no ambiente mobile. A disponibilização deste código é de responsabilidade do lojista. Recomendamos a exibição de um botão que, ao clicar, o comprador copie o código.</td>
-      <td>texto</td>
-      <td>Variável</td>
-      <td>Texto alfanumérico</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Status</code></td>
-      <td>Status da transação. Em caso de sucesso, o status inicial é “12” (<em>Pendente</em>). Veja a tabela completa de <a href="https://developercielo.github.io/manual/cielo-ecommerce#status-transacional">Status transacional</a></td>
-      <td>número</td>
-      <td>-</td>
-      <td>12</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.ReturnCode</code></td>
-      <td>Código retornado pelo provedor do meio de pagamento.</td>
-      <td>texto</td>
-      <td>32</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.ReturnMessage</code></td>
-      <td>Mensagem retornada pelo provedor do meio de pagamento.</td>
-      <td>texto</td>
-      <td>512</td>
-      <td>“Pix gerado com sucesso”</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="solicitando-uma-devolução-pix">Solicitando uma devolução Pix</h3>
-
-<p>Caso a sua loja precise cancelar uma transferência Pix, é possível realizar uma operação chamada de <strong>devolução</strong>. É importante ressaltar que a devolução não é uma operação instantânea, podendo ser acatada ou não pelo provedor Pix. Quando uma devolução é acatada, uma <a href="https://developercielo.github.io/manual/cielo-ecommerce#post-de-notifica%C3%A7%C3%A3o">notificação</a> será enviada para a sua loja.<br /></p>
 
 <blockquote>
   <p><strong>Importante:</strong><br /></p>
@@ -3753,7 +2871,7 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
   </tbody>
 </table>
 
-<h4 id="resposta-6">Resposta</h4>
+<h4 id="resposta-5">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
@@ -3961,10 +3079,10 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
-      <td>Número de identificação do Pedido.</td>
-      <td>texto</td>
-      <td>Bradesco: 27<br />Banco do Brasil: 50</td>
+      <td>Número de identificação do Pedido. Atenção: Não são permitidos os caracteres especiais &gt; (maior), Banco do Brasil: 50</td>
       <td>Sim</td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
@@ -4158,7 +3276,7 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
   </tbody>
 </table>
 
-<h3 id="resposta-7">Resposta</h3>
+<h3 id="resposta-6">Resposta</h3>
 
 <p>Na resposta da transação de boleto, a API Cielo E-commerce vai enviar a URL do boleto e o código de barras, que o e-commerce deverá exibir para o comprador.</p>
 
@@ -4682,56 +3800,7 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
       <td>texto</td>
       <td>50</td>
       <td>Sim</td>
-      <td>Numero de identificação do Pedido.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Nome do comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>texto</td>
-      <td>100</td>
-      <td>Sim</td>
-      <td>Tipo do meio de pagamento. Enviar <strong>qrcode</strong> para uma transação de QRCode.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
-      <td>número</td>
-      <td>15</td>
-      <td>Sim</td>
-      <td>Valor do pedido (ser enviado em centavos).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
-      <td>número</td>
-      <td>2</td>
-      <td>Sim</td>
-      <td>Número de parcelas. Se a transação for uma recorrência, o número de parcelas será 1. Para transações parceladas, o número de parcelas será sempre maior que 1.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
-      <td>booleano</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Enviar <strong>true</strong> para uma trasação de captura automática.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Modality</code></td>
-      <td>texto</td>
-      <td>10</td>
-      <td>Não</td>
-      <td>Indica se o pagamento será feito com crédito ou débito. Valores possíveis: “Credit” (padrão) ou “Debit”</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.EstablishmentCode</code></td>
-      <td>texto*</td>
-      <td>11</td>
-      <td>Obrigatório para facilitadores</td>
-      <td>Código do estabelecimento do Facilitador. “Facilitator ID” (Cadastro do facilitador com as bandeiras)<br />O código é diferente por bandeira, podendo variar inclusive o tamanho do campo:<br />Bandeira Mastercard –06 dígitos<br />Bandeira Visa –08 dígitos<br />Bandeira ELO –de 04 à 05 dígitos<br />Bandeira Hipercard –06 dígitos<br />Para demais bandeiras, como Amex e JCB, o campo pode ser preenchido com “0” zeros.</td>
+      <td>Numero de identificação do Pedido. Atenção: Não são permitidos os caracteres especiais &gt; (maior), O código é diferente por bandeira, podendo variar inclusive o tamanho do campo:<br />Bandeira Mastercard –06 dígitos<br />Bandeira Visa –08 dígitos<br />Bandeira ELO –de 04 à 05 dígitos<br />Bandeira Hipercard –06 dígitos<br />Para demais bandeiras, como Amex e JCB, o campo pode ser preenchido com “0” zeros.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.EstablishmentCode</code></td>
@@ -4801,7 +3870,7 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
 
 <p>*Evite utilizar acentos pois eles são considerados como dois caracteres.</p>
 
-<h4 id="resposta-8">Resposta</h4>
+<h4 id="resposta-7">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019010101"</span><span class="p">,</span><span class="w">
@@ -5255,7 +4324,7 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
 
 <aside class="warning">Atenção: Os campos não devem ser enviados com espaçamento a esquerda. Sujeito a rejeição na liquidação das transações.</aside>
 
-<h4 id="resposta-9">Resposta</h4>
+<h4 id="resposta-8">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111701"</span><span class="p">,</span><span class="w">
@@ -5856,7 +4925,7 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
   </tbody>
 </table>
 
-<h3 id="resposta-10">Resposta</h3>
+<h3 id="resposta-9">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"CardToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"db62dc71-d07b-4745-9969-42697b988ccb"</span><span class="p">,</span><span class="w">
@@ -6130,7 +5199,7 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
 
 <p><em>*Deve ser enviado caso a tokenização seja feita na bandeira (integração externa).</em></p>
 
-<h3 id="resposta-11">Resposta</h3>
+<h3 id="resposta-10">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -6450,7 +5519,7 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
   </tbody>
 </table>
 
-<h3 id="resposta-12">Resposta</h3>
+<h3 id="resposta-11">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -6733,147 +5802,7 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
       <td>Texto</td>
       <td>50</td>
       <td>Sim</td>
-      <td>Número de identificação do pedido.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Nome do comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Status de cadastro do comprador na loja (NEW / EXISTING)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>E-mail do comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Birthdate</code></td>
-      <td>Date</td>
-      <td>10</td>
-      <td>Não</td>
-      <td>Data de nascimento do comprador (AAAA/MM/DD).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>Texto</td>
-      <td>100</td>
-      <td>Sim</td>
-      <td>Tipo do meio de pagamento.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
-      <td>Número</td>
-      <td>15</td>
-      <td>Sim</td>
-      <td>Valor do pedido (ser enviado em centavos).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Currency</code></td>
-      <td>Texto</td>
-      <td>3</td>
-      <td>Não</td>
-      <td>Moeda na qual o pagamento será feito (BRL).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Country</code></td>
-      <td>Texto</td>
-      <td>3</td>
-      <td>Não</td>
-      <td>País na qual o pagamento será feito.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code></td>
-      <td>Texto</td>
-      <td>13</td>
-      <td>Não</td>
-      <td>O complemento do nome da loja que aparecerá na fatura do cartão. Não permite caracteres especiais.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
-      <td>Número</td>
-      <td>2</td>
-      <td>Sim</td>
-      <td>Número de parcelas. Se a transação for uma recorrência, o número de parcelas será 1. Para transações parceladas, o número de parcelas será sempre maior que 1.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Interest</code></td>
-      <td>Texto</td>
-      <td>10</td>
-      <td>Não</td>
-      <td>Tipo de parcelamento - Loja (ByMerchant) ou Cartão (ByIssuer).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
-      <td>Booleano</td>
-      <td>—</td>
-      <td>Não (Default false)</td>
-      <td>Booleano que identifica que a autorização deve ser com captura automática (“true”) ou captura posterior (“false”).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Recurrent</code></td>
-      <td>Booleano</td>
-      <td>-</td>
-      <td>Condicional</td>
-      <td>Indica se a transação é do tipo recorrente (“true”) ou não (“false”). O valor “true” não originará uma nova recorrência, apenas permitirá a realização de uma transação sem a necessidade de envio do CVV. Authenticate deve ser “false” quando Recurrent é “true”. Saiba mais sobre <a href="https://developercielo.github.io/manual/cielo-ecommerce#recorr%C3%AAncia">Recorrência</a>.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
-      <td>Texto</td>
-      <td>19</td>
-      <td>Sim</td>
-      <td>Número do cartão do comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.Holder</code></td>
-      <td>Texto</td>
-      <td>25</td>
-      <td>Não</td>
-      <td>Nome do comprador impresso no cartão. Não aceita caracteres especiais ou acentuação.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
-      <td>Texto</td>
-      <td>7</td>
-      <td>Sim</td>
-      <td>Data de validade impressa no cartão. Ex. MM/AAAA.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code></td>
-      <td>Texto</td>
-      <td>4</td>
-      <td>Não</td>
-      <td>Código de segurança impresso no verso do cartão.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.SaveCard</code></td>
-      <td>Booleano</td>
-      <td>—</td>
-      <td>Não (Default false)</td>
-      <td>Booleano que identifica se o cartão será salvo para gerar o <code class="language-plaintext highlighter-rouge">CardToken</code>. Saiba mais sobre <a href="https://developercielo.github.io/manual/cielo-ecommerce#tokeniza%C3%A7%C3%A3o-de-cart%C3%B5es">Tokenização</a>.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
-      <td>Texto</td>
-      <td>10</td>
-      <td>Sim</td>
-      <td>Bandeira do cartão. Valores possíveis: Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.CardOnFile.Usage</code></td>
-      <td>Texto</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>“First” se o cartão foi armazenado e é seu primeiro uso.<br />“Used” se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação</td>
+      <td>Número de identificação do pedido. Atenção: Não são permitidos os caracteres especiais &gt; (maior), “Used” se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.CardOnFile.Reason</code></td>
@@ -6885,7 +5814,7 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
   </tbody>
 </table>
 
-<h2 id="resposta-13">Resposta</h2>
+<h2 id="resposta-12">Resposta</h2>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111701"</span><span class="p">,</span><span class="w">
@@ -7429,345 +6358,13 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
-      <td>Numero de identificação do Pedido.</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Nome do Comprador.</td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>Tipo do Meio de Pagamento.</td>
-      <td>Texto</td>
-      <td>100</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
-      <td>Valor do Pedido (ser enviado em centavos).</td>
-      <td>Número</td>
-      <td>15</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
-      <td>Número de parcelas. Como se trata de uma recorrência, o número de parcelas será 1.</td>
-      <td>Número</td>
-      <td>2</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code></td>
-      <td>Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - não permite caracteres especiais</td>
-      <td>Texto</td>
-      <td>13</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Recurrent</code></td>
-      <td>Indica que uma transação é de recorrência própria.</td>
-      <td>boolean</td>
-      <td>5</td>
-      <td>Sim*</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
-      <td>Número do Cartão do Comprador.</td>
-      <td>Texto</td>
-      <td>19</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.Holder</code></td>
-      <td>Nome do Comprador impresso no cartão.</td>
-      <td>Texto</td>
-      <td>25</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
-      <td>Data de validade impresso no cartão.</td>
-      <td>Texto</td>
-      <td>7</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code></td>
-      <td>Código de segurança impresso no verso do cartão.</td>
-      <td>Texto</td>
-      <td>4</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
-      <td>Bandeira do cartão.</td>
-      <td>Texto</td>
-      <td>10</td>
-      <td>Sim</td>
+      <td>Numero de identificação do Pedido. Atenção: Não são permitidos os caracteres especiais &gt; (maior),  (maior), Atenção: Nessa modalidade de recorrência, a primeira transação deve ser capturada (<code class="language-plaintext highlighter-rouge">AuthorizeNow</code> = “true”). Todas as transações posteriores serão capturadas automaticamente.&lt;/aside&gt;</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
-
-<p>*Neste caso, o campo <code class="language-plaintext highlighter-rouge">Payment.Recurrent</code> é obrigatório, já que se trata de uma transação recorrente.</p>
-
-<h4 id="resposta-14">Resposta</h4>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014113245231706"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comprador rec propria"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"ServiceTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Interest"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Authenticate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123412******1231"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3827556"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0504043827555"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"149867"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"737a8d9a-88fe-4f74-931f-acf81149f4a0"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simulado"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ExtraDataCollection"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-        </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Link"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"recurrentPayment"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="nl">"AuthorizeNow"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"capture"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--data-binary</span>
-<span class="o">{</span>
-    <span class="s2">"MerchantOrderId"</span>: <span class="s2">"2014113245231706"</span>,
-    <span class="s2">"Customer"</span>: <span class="o">{</span>
-        <span class="s2">"Name"</span>: <span class="s2">"Comprador rec propria"</span>
-    <span class="o">}</span>,
-    <span class="s2">"Payment"</span>: <span class="o">{</span>
-        <span class="s2">"ServiceTaxAmount"</span>: 0,
-        <span class="s2">"Installments"</span>: 1,
-        <span class="s2">"Interest"</span>: <span class="s2">"ByMerchant"</span>,
-        <span class="s2">"Capture"</span>: <span class="nb">false</span>,
-        <span class="s2">"Authenticate"</span>: <span class="nb">false</span>,
-        <span class="s2">"Recurrent"</span>: <span class="nb">true</span>,
-        <span class="s2">"CreditCard"</span>: <span class="o">{</span>
-            <span class="s2">"CardNumber"</span>: <span class="s2">"123412******1231"</span>,
-            <span class="s2">"Holder"</span>: <span class="s2">"Teste Holder"</span>,
-            <span class="s2">"ExpirationDate"</span>: <span class="s2">"12/2030"</span>,
-            <span class="s2">"SaveCard"</span>: <span class="nb">false</span>,
-            <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>
-        <span class="o">}</span>,
-        <span class="s2">"ProofOfSale"</span>: <span class="s2">"3827556"</span>,
-        <span class="s2">"Tid"</span>: <span class="s2">"0504043827555"</span>,
-        <span class="s2">"AuthorizationCode"</span>: <span class="s2">"149867"</span>,
-        <span class="s2">"SoftDescriptor"</span>:<span class="s2">"123456789ABCD"</span>,
-        <span class="s2">"PaymentId"</span>: <span class="s2">"737a8d9a-88fe-4f74-931f-acf81149f4a0"</span>,
-        <span class="s2">"Type"</span>: <span class="s2">"CreditCard"</span>,
-        <span class="s2">"Amount"</span>: 1500,
-        <span class="s2">"Currency"</span>: <span class="s2">"BRL"</span>,
-        <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
-        <span class="s2">"ExtraDataCollection"</span>: <span class="o">[]</span>,
-        <span class="s2">"Status"</span>: 1,
-        <span class="s2">"ReturnCode"</span>: <span class="s2">"4"</span>,
-        <span class="s2">"ReturnMessage"</span>: <span class="s2">"Operation Successful"</span>,
-        <span class="s2">"Link"</span>: <span class="o">{</span>
-                <span class="s2">"Method"</span>: <span class="s2">"GET"</span>,
-                <span class="s2">"Rel"</span>: <span class="s2">"recurrentPayment"</span>,
-                <span class="s2">"Href"</span>: <span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}"</span>
-            <span class="o">}</span>,
-            <span class="s2">"AuthorizeNow"</span>: <span class="nb">true</span>
-        <span class="o">}</span>,
-        <span class="s2">"Links"</span>: <span class="o">[</span>
-            <span class="o">{</span>
-                <span class="s2">"Method"</span>: <span class="s2">"GET"</span>,
-                <span class="s2">"Rel"</span>: <span class="s2">"self"</span>,
-                <span class="s2">"Href"</span>: <span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"</span>
-            <span class="o">}</span>,
-            <span class="o">{</span>
-                <span class="s2">"Method"</span>: <span class="s2">"PUT"</span>,
-                <span class="s2">"Rel"</span>: <span class="s2">"capture"</span>,
-                <span class="s2">"Href"</span>: <span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"</span>
-            <span class="o">}</span>,
-            <span class="o">{</span>
-                <span class="s2">"Method"</span>: <span class="s2">"PUT"</span>,
-                <span class="s2">"Rel"</span>: <span class="s2">"void"</span>,
-                <span class="s2">"Href"</span>: <span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"</span>
-            <span class="o">}</span>
-        <span class="o">]</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Propriedade</th>
-      <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Identificador da loja na API E-commerce Cielo.</td>
-      <td>Guid</td>
-      <td>6</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Chave Publica para Autenticação Dupla na API E-commerce Cielo.</td>
-      <td>Texto</td>
-      <td>40</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT</td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
-      <td>Numero de identificação do Pedido.</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Nome do Comprador.</td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>Tipo do Meio de Pagamento.</td>
-      <td>Texto</td>
-      <td>100</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
-      <td>Valor do Pedido (ser enviado em centavos).</td>
-      <td>Número</td>
-      <td>15</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
-      <td>Número de parcelas. Como se trata de uma recorrência, o número de parcelas será 1.</td>
-      <td>Número</td>
-      <td>2</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code></td>
-      <td>Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - não permite caracteres especiais</td>
-      <td>Texto</td>
-      <td>13</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Recurrent</code></td>
-      <td>Indica que uma transação é de recorrência própria.</td>
-      <td>boolean</td>
-      <td>5</td>
-      <td>Sim*</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
-      <td>Número do Cartão do Comprador.</td>
-      <td>Texto</td>
-      <td>19</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.Holder</code></td>
-      <td>Nome do Comprador impresso no cartão.</td>
-      <td>Texto</td>
-      <td>25</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
-      <td>Data de validade impresso no cartão.</td>
-      <td>Texto</td>
-      <td>7</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code></td>
-      <td>Código de segurança impresso no verso do cartão.</td>
-      <td>Texto</td>
-      <td>4</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
-      <td>Bandeira do cartão.</td>
-      <td>Texto</td>
-      <td>10</td>
-      <td>Sim</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>*Neste caso, o campo <code class="language-plaintext highlighter-rouge">Payment.Recurrent</code> é obrigatório, já que se trata de uma transação recorrente.</p>
-
-<h3 id="criando-uma-recorrência-programada">Criando uma Recorrência Programada</h3>
-
-<p>Para criar uma venda recorrente cuja a primeira recorrência é autorizada com a forma de pagamento cartão de crédito, basta fazer um POST conforme o exemplo.</p>
-
-<aside class="warning">Atenção: Nessa modalidade de recorrência, a primeira transação deve ser capturada (`AuthorizeNow` = "true"). Todas as transações posteriores serão capturadas automaticamente.</aside>
 
 <h4 id="requisição-19">Requisição</h4>
 
@@ -7869,56 +6466,7 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
-      <td>Numero de identificação do Pedido.</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Nome do Comprador.</td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>Tipo do Meio de Pagamento.</td>
-      <td>Texto</td>
-      <td>100</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
-      <td>Valor do Pedido (ser enviado em centavos).</td>
-      <td>Número</td>
-      <td>15</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
-      <td>Número de parcelas. Como se trata de uma recorrência, o número de parcelas será 1.</td>
-      <td>Número</td>
-      <td>2</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code></td>
-      <td>Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - não permite caracteres especiais</td>
-      <td>Texto</td>
-      <td>13</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.EndDate</code></td>
-      <td>Data para termino da recorrência.</td>
-      <td>Texto</td>
-      <td>10</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.Interval</code></td>
-      <td>Intervalo da recorrência.<br />Monthly (Default) Bimonthly Quarterly SemiAnnual Annual</td>
+      <td>Numero de identificação do Pedido. Atenção: Não são permitidos os caracteres especiais &gt; (maior), Monthly (Default) Bimonthly Quarterly SemiAnnual Annual</td>
       <td>Texto</td>
       <td>10</td>
       <td>Não</td>
@@ -7968,7 +6516,7 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
   </tbody>
 </table>
 
-<h4 id="resposta-15">Resposta</h4>
+<h4 id="resposta-13">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014113245231706"</span><span class="p">,</span><span class="w">
@@ -8420,7 +6968,7 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
   </tbody>
 </table>
 
-<h4 id="resposta-16">Resposta</h4>
+<h4 id="resposta-14">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014113245231706"</span><span class="p">,</span><span class="w">
@@ -8650,98 +7198,7 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
       <td>Texto</td>
       <td>50</td>
       <td>Sim</td>
-      <td>Número de identificação do pedido.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>Texto</td>
-      <td>100</td>
-      <td>Sim</td>
-      <td>Tipo do meio de pagamento.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
-      <td>Número</td>
-      <td>15</td>
-      <td>Sim</td>
-      <td>Valor do pedido (ser enviado em centavos).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
-      <td>Número</td>
-      <td>2</td>
-      <td>Sim</td>
-      <td>Número de parcelas.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
-      <td>Booleano</td>
-      <td>—</td>
-      <td>Não (Default false)</td>
-      <td>Booleano que identifica que a autorização deve ser com captura automática (“true”) ou captura posterior (“false”).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.IssuerTransactionId</code></td>
-      <td>Texto</td>
-      <td>-</td>
-      <td>Condicional</td>
-      <td>Identificador de autenticação do emissor para transações de crédito e débito recorrentes. Este campo deve ser enviado nas transações subsequentes da primeira transação no modelo de recorrência própria. Já no modelo de recorrência programada, a Cielo será a responsável por enviar o campo nas transações subsequentes.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Recurrent</code></td>
-      <td>Booleano</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Indica se a transação é do tipo recorrente (“true”) ou não (“false”). O valor “true” não originará uma nova recorrência, apenas permitirá a realização de uma transação sem a necessidade de envio do CVV. Authenticate deve ser “false” quando Recurrent é “true”.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
-      <td>Texto</td>
-      <td>19</td>
-      <td>Sim</td>
-      <td>Número do cartão do comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.Holder</code></td>
-      <td>Texto</td>
-      <td>25</td>
-      <td>Não</td>
-      <td>Nome do comprador impresso no cartão. Não aceita caracteres especiais ou acentuação.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
-      <td>Texto</td>
-      <td>7</td>
-      <td>Sim</td>
-      <td>Data de validade impressa no cartão. Ex. MM/AAAA.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code></td>
-      <td>Texto</td>
-      <td>4</td>
-      <td>Não</td>
-      <td>Código de segurança impresso no verso do cartão.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.SaveCard</code></td>
-      <td>Booleano</td>
-      <td>—</td>
-      <td>Não (Default false)</td>
-      <td>Booleano que identifica se o cartão será salvo para gerar o CardToken.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
-      <td>Texto</td>
-      <td>10</td>
-      <td>Sim</td>
-      <td>Bandeira do cartão. Valores possíveis: Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.CardOnFile.Usage</code></td>
-      <td>Texto</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>First se o cartão foi armazenado e é seu primeiro uso.<br />Used se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação.</td>
+      <td>Número de identificação do pedido. Atenção: Não são permitidos os caracteres especiais &gt; (maior), Used se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.CardOnFile.Reason</code></td>
@@ -9023,7 +7480,7 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
   </tbody>
 </table>
 
-<h4 id="resposta-17">Resposta</h4>
+<h4 id="resposta-15">Resposta</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 HTTP Status 200
@@ -9103,7 +7560,7 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h4 id="resposta-18">Resposta</h4>
+<h4 id="resposta-16">Resposta</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 HTTP Status 200
@@ -9183,7 +7640,7 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h4 id="resposta-19">Resposta</h4>
+<h4 id="resposta-17">Resposta</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -9278,7 +7735,7 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
   </tbody>
 </table>
 
-<h4 id="resposta-20">Resposta</h4>
+<h4 id="resposta-18">Resposta</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -9358,7 +7815,7 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
 
 <aside class="warning">Essa alteração só afeta a data de pagamento da próxima recorrência.</aside>
 
-<h4 id="resposta-21">Resposta</h4>
+<h4 id="resposta-19">Resposta</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -9436,7 +7893,7 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
   </tbody>
 </table>
 
-<h4 id="resposta-22">Resposta</h4>
+<h4 id="resposta-20">Resposta</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -9598,7 +8055,7 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
   </tbody>
 </table>
 
-<h4 id="resposta-23">Resposta</h4>
+<h4 id="resposta-21">Resposta</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -9665,7 +8122,7 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
   </tbody>
 </table>
 
-<h4 id="resposta-24">Resposta</h4>
+<h4 id="resposta-22">Resposta</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -9732,7 +8189,7 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
   </tbody>
 </table>
 
-<h4 id="resposta-25">Resposta</h4>
+<h4 id="resposta-23">Resposta</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -9858,7 +8315,7 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
 
 <p>Veja a seguir o exemplo de resposta de uma transação de crédito com o nó <code class="language-plaintext highlighter-rouge">NewCard</code>.</p>
 
-<h3 id="resposta-26">Resposta</h3>
+<h3 id="resposta-24">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014113245231706"</span><span class="p">,</span><span class="w">
@@ -10144,7 +8601,7 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
   </tbody>
 </table>
 
-<h4 id="resposta-27">Resposta</h4>
+<h4 id="resposta-25">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">}</span><span class="w">
 </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="err">,</span><span class="w">
@@ -10292,180 +8749,13 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
-      <td>Número de identificação do pedido.</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Texto alfanumérico</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">AcquirerOrderId</code></td>
-      <td>Id da transação enviado ao autorizador, caso o MerchantOrderId seja maior que 20 caracteres ou tenha símbolos.</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Texto alfanumérico</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
-      <td>Código de autorização.</td>
-      <td>Texto</td>
-      <td>6</td>
-      <td>Texto alfanumérico</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Campo Identificador do Pedido.</td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Status da Transação.</td>
-      <td>Byte</td>
-      <td>—</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Nome do Comprador.</td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Texto</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
-      <td>Status de cadastro do comprador na loja (NEW / EXISTING)</td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Texto</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.ProofOfSale</code></td>
-      <td>Número da autorização, identico ao NSU.</td>
-      <td>Texto alfanumérico</td>
-      <td>6</td>
-      <td>Texto alfanumérico</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Tid</code></td>
-      <td>Id da transação no provedor do meio de pagamento.</td>
-      <td>Texto alfanumérico</td>
-      <td>40</td>
-      <td>Texto alfanumérico</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>Tipo do Meio de Pagamento.</td>
-      <td>Texto</td>
-      <td>100</td>
-      <td>Texto</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
-      <td>Valor do Pedido (ser enviado em centavos).</td>
-      <td>Número</td>
-      <td>15</td>
-      <td>10000</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.ReceivedDate</code></td>
-      <td>Data em que a transação foi recebida.</td>
-      <td>Texto</td>
-      <td>19</td>
-      <td>AAAA-MM-DD HH:mm:SS</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.CapturedAmount</code></td>
-      <td>Valor capturado.</td>
-      <td>Número</td>
-      <td>15</td>
-      <td>10000</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.CapturedDate</code></td>
-      <td>Data da captura.</td>
-      <td>Texto</td>
-      <td>19</td>
-      <td>AAAA-MM-DD HH:mm:SS</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.VoidedAmount</code></td>
-      <td>Valor cancelado/estornado, em centavos.</td>
-      <td>Número</td>
-      <td>15</td>
-      <td>10000</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.VoidedDate</code></td>
-      <td>Data do cancelamento/estorno.</td>
-      <td>Texto</td>
-      <td>19</td>
-      <td>AAAA-MM-DD HH:mm:SS</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.</td>
-      <td>Texto</td>
-      <td>15</td>
-      <td>Texto</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.EndToEndId</code></td>
-      <td>Número de identificação único de uma transação Pix.</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Texto alfanumérico</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
-      <td>Número do Cartão do Comprador.</td>
-      <td>Texto</td>
-      <td>19</td>
-      <td>Texto</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.Holder</code></td>
-      <td>Nome do Comprador impresso no cartão.</td>
-      <td>Texto</td>
-      <td>25</td>
-      <td>Texto</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
-      <td>Data de validade impresso no cartão.</td>
-      <td>Texto</td>
-      <td>7</td>
-      <td>MM/AAAA</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code></td>
-      <td>Código de segurança impresso no verso do cartão - Ver Anexo.</td>
-      <td>Texto</td>
-      <td>4</td>
-      <td>Texto</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
-      <td>Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).</td>
-      <td>Texto</td>
-      <td>10</td>
-      <td>Texto</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.PaymentAccountReference</code></td>
-      <td>O PAR(payment account reference) é o número que associa diferentes tokens a um mesmo cartão. Será retornado pelas bandeiras Master e Visa e repassado para os clientes do e-commerce Cielo. Caso a bandeira não envie a informação o campo não será retornado. Se for pra transação de débito, colocar o campo dentro do nó de DebitCard</td>
-      <td>Alfanumérico</td>
-      <td>29</td>
-      <td>Alfanumérico</td>
+      <td>Número de identificação do pedido. Atenção: Não são permitidos os caracteres especiais &gt; (maior), São elegíveis para a consulta apenas transações dentro dos últimos três meses.&lt;/aside&gt;</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
-
-<h3 id="consulta-por-tid">Consulta por TId</h3>
-
-<p>Para consultar uma venda através do número de referência único da transação na adquirente (TId), execute um GET conforme descrito a seguir.</p>
-
-<aside class="notice">São elegíveis para a consulta apenas transações dentro dos últimos três meses.</aside>
 
 <h4 id="requisição-30">Requisição</h4>
 
@@ -10530,7 +8820,7 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
   </tbody>
 </table>
 
-<h4 id="resposta-28">Resposta</h4>
+<h4 id="resposta-26">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">}</span><span class="w">
 </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="err">,</span><span class="w">
@@ -10678,184 +8968,13 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
-      <td>Número de identificação do pedido.</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Texto alfanumérico</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">AcquirerOrderId</code></td>
-      <td>Id da transação enviado ao autorizador, caso o MerchantOrderId seja maior que 20 caracteres ou tenha símbolos.</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Texto alfanumérico</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
-      <td>Código de autorização.</td>
-      <td>Texto</td>
-      <td>6</td>
-      <td>Texto alfanumérico</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Campo Identificador do Pedido.</td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Status da Transação.</td>
-      <td>Byte</td>
-      <td>—</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Nome do Comprador.</td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Texto</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
-      <td>Status de cadastro do comprador na loja (NEW / EXISTING)</td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Texto</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.ProofOfSale</code></td>
-      <td>Número da autorização, identico ao NSU.</td>
-      <td>Texto alfanumérico</td>
-      <td>6</td>
-      <td>Texto alfanumérico</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Tid</code></td>
-      <td>Id da transação no provedor do meio de pagamento.</td>
-      <td>Texto alfanumérico</td>
-      <td>40</td>
-      <td>Texto alfanumérico</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>Tipo do Meio de Pagamento.</td>
-      <td>Texto</td>
-      <td>100</td>
-      <td>Texto</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
-      <td>Valor do Pedido (ser enviado em centavos).</td>
-      <td>Número</td>
-      <td>15</td>
-      <td>10000</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.ReceivedDate</code></td>
-      <td>Data em que a transação foi recebida.</td>
-      <td>Texto</td>
-      <td>19</td>
-      <td>AAAA-MM-DD HH:mm:SS</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.CapturedAmount</code></td>
-      <td>Valor capturado.</td>
-      <td>Número</td>
-      <td>15</td>
-      <td>10000</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.CapturedDate</code></td>
-      <td>Data da captura.</td>
-      <td>Texto</td>
-      <td>19</td>
-      <td>AAAA-MM-DD HH:mm:SS</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.VoidedAmount</code></td>
-      <td>Valor cancelado/estornado, em centavos.</td>
-      <td>Número</td>
-      <td>15</td>
-      <td>10000</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.VoidedDate</code></td>
-      <td>Data do cancelamento/estorno.</td>
-      <td>Texto</td>
-      <td>19</td>
-      <td>AAAA-MM-DD HH:mm:SS</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.</td>
-      <td>Texto</td>
-      <td>15</td>
-      <td>Texto</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.EndToEndId</code></td>
-      <td>Número de identificação único de uma transação Pix.</td>
-      <td>Texto 50</td>
-      <td>Texto alfanumérico</td>
+      <td>Número de identificação do pedido. Atenção: Não são permitidos os caracteres especiais &gt; (maior), <span class="method get">GET</span> <span class="endpoint">/1/sales?merchantOrderId={merchantOrderId}</span>&lt;/aside&gt;</td>
       <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
-      <td>Número do Cartão do Comprador.</td>
-      <td>Texto</td>
-      <td>19</td>
-      <td>Texto</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.Holder</code></td>
-      <td>Nome do Comprador impresso no cartão.</td>
-      <td>Texto</td>
-      <td>25</td>
-      <td>Texto</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
-      <td>Data de validade impresso no cartão.</td>
-      <td>Texto</td>
-      <td>7</td>
-      <td>MM/AAAA</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code></td>
-      <td>Código de segurança impresso no verso do cartão - Ver Anexo.</td>
-      <td>Texto</td>
-      <td>4</td>
-      <td>Texto</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
-      <td>Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).</td>
-      <td>Texto</td>
-      <td>10</td>
-      <td>Texto</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.PaymentAccountReference</code></td>
-      <td>O PAR(payment account reference) é o número que associa diferentes tokens a um mesmo cartão. Será retornado pelas bandeiras Master e Visa e repassado para os clientes do e-commerce Cielo. Caso a bandeira não envie a informação o campo não será retornado. Se for pra transação de débito, colocar o campo dentro do nó de DebitCard</td>
-      <td>Alfanumérico</td>
-      <td>29</td>
-      <td>Alfanumérico</td>
+      <td> </td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
-
-<h3 id="consulta-por-merchantorderid">Consulta por MerchantOrderId</h3>
-
-<p>Para alguns estabelecimentos, o <code class="language-plaintext highlighter-rouge">MerchantOrderId</code> pode ter várias transações. A consulta por <code class="language-plaintext highlighter-rouge">MerchantOrderId</code> retorna o <code class="language-plaintext highlighter-rouge">PaymentId</code> de todas as transações associadas a um <code class="language-plaintext highlighter-rouge">MerchantOrderId</code>.</p>
-
-<p>A partir disso, é possível consultar detalhes de cada transação pela <a href="https://developercielo.github.io/manual/cielo-ecommerce#consulta-por-paymentid">consulta por <code class="language-plaintext highlighter-rouge">PaymentId</code></a>.</p>
-
-<h4 id="requisição-31">Requisição</h4>
-
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales?merchantOrderId={merchantOrderId}</span></aside>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curls
 <span class="nt">--request</span> GET <span class="s2">" https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales?merchantOrderId={merchantOrderId}"</span>
@@ -10901,77 +9020,13 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
-      <td>Campo identificador do pedido na loja.</td>
-      <td>Texto</td>
-      <td>36</td>
-      <td>Sim</td>
+      <td>Campo identificador do pedido na loja. Atenção: Não são permitidos os caracteres especiais &gt; (maior), <span class="method get">GET</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}</span>&lt;/aside&gt;</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
-
-<h4 id="resposta-29">Resposta</h4>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fb4d606-bb63-4423-a683-c966e15399e8"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"ReceveidDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-04-06T10:13:39.42"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6c1d45c3-a95f-49c1-a626-1e9373feecc2"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"ReceveidDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-12-19T20:23:28.847"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--data-binary</span>
-<span class="o">{</span>
-    <span class="s2">"Payment"</span>: <span class="o">[</span>
-        <span class="o">{</span>
-            <span class="s2">"PaymentId"</span>: <span class="s2">"5fb4d606-bb63-4423-a683-c966e15399e8"</span>,
-            <span class="s2">"ReceveidDate"</span>: <span class="s2">"2015-04-06T10:13:39.42"</span>
-        <span class="o">}</span>,
-        <span class="o">{</span>
-            <span class="s2">"PaymentId"</span>: <span class="s2">"6c1d45c3-a95f-49c1-a626-1e9373feecc2"</span>,
-            <span class="s2">"ReceveidDate"</span>: <span class="s2">"2014-12-19T20:23:28.847"</span>
-        <span class="o">}</span>
-    <span class="o">]</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Propriedade</th>
-      <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Formato</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Número de identificação do pagamento, necessário para futuras operações como Consulta, Captura e Cancelamento.</td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="consulta-de-recorrência">Consulta de Recorrência</h3>
-
-<p>A Consulta de Recorrência traz dados sobre o agendamento e sobre o processo de transações que se repetem. A Consulta de Recorrência não retorna dados sobre as transações em si.</p>
-
-<p>Para obter informações sobre cada transação, faça a <a href="https://developercielo.github.io/manual/cielo-ecommerce#consulta-por-paymentid">Consulta por PaymentId</a>.</p>
-
-<h4 id="requisição-32">Requisição</h4>
-
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}</span></aside>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
 <span class="nt">--request</span> GET <span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}"</span>
@@ -11025,7 +9080,7 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
   </tbody>
 </table>
 
-<h4 id="resposta-30">Resposta</h4>
+<h4 id="resposta-27">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -11248,7 +9303,7 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
 
 <p><strong>Após a captura, não é possível realizar capturas adicionais no mesmo pedido.</strong></p>
 
-<h4 id="requisição-33">Requisição</h4>
+<h4 id="requisição-31">Requisição</h4>
 
 <ul>
   <li>Para <strong>captura parcial</strong>, envie o campo <code class="language-plaintext highlighter-rouge">Amount</code>na requisição de captura com o valor desejado a capturar;</li>
@@ -11329,7 +9384,7 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
   </tbody>
 </table>
 
-<h4 id="resposta-31">Resposta</h4>
+<h4 id="resposta-28">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -11464,7 +9519,7 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
 
 <aside class="notice">Atenção: O cancelamento por MerchantOrderId afeta sempre a transação mais nova, ou seja, caso haja pedidos com o número do pedido duplicado, somente o pedido mais atual será cancelado. O pedido anterior não poderá ser cancelado por esse método.</aside>
 
-<h4 id="requisição-34">Requisição</h4>
+<h4 id="requisição-32">Requisição</h4>
 
 <p><strong>Cancelamento via PaymentId</strong></p>
 
@@ -11536,7 +9591,7 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
   </tbody>
 </table>
 
-<h4 id="resposta-32">Resposta</h4>
+<h4 id="resposta-29">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
@@ -11641,7 +9696,7 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
 
 <aside class="notice">Atenção: A API retorna a soma do total de cancelamentos parciais, ou seja, se você fizer três cancelamentos parciais de R$10,00, a API apresentará na resposta um total de R$30,00 cancelados.</aside>
 
-<h4 id="requisição-35">Requisição</h4>
+<h4 id="requisição-33">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/void?amount=XXX </span></aside>
 
@@ -11703,7 +9758,7 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
   </tbody>
 </table>
 
-<h4 id="resposta-33">Resposta</h4>
+<h4 id="resposta-30">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -12323,7 +10378,7 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
 
 <h2 id="integração">Integração</h2>
 
-<h3 id="requisição-36">Requisição</h3>
+<h3 id="requisição-34">Requisição</h3>
 
 <p>Basta realizar um <code class="language-plaintext highlighter-rouge">GET</code> enviando o BIN à nossa URL de consulta:</p>
 
@@ -12347,7 +10402,7 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">https://apiquery.cieloecommerce.cielo.com.br/</span><span class="mi">1</span><span class="err">/cardBin/</span><span class="mi">420020</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="resposta-34">Resposta</h3>
+<h3 id="resposta-31">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="p">,</span><span class="w">
@@ -12494,7 +10549,7 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
 
 <h2 id="cartão-aberto">Cartão aberto</h2>
 
-<h3 id="requisição-37">Requisição</h3>
+<h3 id="requisição-35">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/zeroauth</span></aside>
 
@@ -12600,7 +10655,7 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
 
 <h2 id="cartão-tokenizado">Cartão tokenizado</h2>
 
-<h3 id="requisição-38">Requisição</h3>
+<h3 id="requisição-36">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/zeroauth</span></aside>
 
@@ -12645,7 +10700,7 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
 
 <p>Para validar uma e-wallet com o Zero Auth, é necessário que a loja tenha integração com uma das <a href="https://developercielo.github.io/manual/cielo-ecommerce#e-wallets-dispon%C3%ADveis">e-wallets disponíveis</a>.</p>
 
-<h3 id="requisição-39">Requisição</h3>
+<h3 id="requisição-37">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/2/zeroauth</span></aside>
 
@@ -12761,7 +10816,7 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
   </tbody>
 </table>
 
-<h2 id="resposta-35">Resposta</h2>
+<h2 id="resposta-32">Resposta</h2>
 
 <p>A resposta sempre retorna se o cartão pode ser autorizado no momento. Essa informação apenas significa que o <em>cartão está válido para transacionar</em>, mas não indica que um determinado valor será autorizado.</p>
 
@@ -13340,7 +11395,7 @@ proteger os dados do titular do cartão.</p>
 
 <p>Exemplo: https://transaction.cieloecommerce.cielo.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000</p>
 
-<h3 id="requisição-40">Requisição</h3>
+<h3 id="requisição-38">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v1/accesstoken?merchantid={mid_loja}</span></aside>
 
@@ -13372,7 +11427,7 @@ proteger os dados do titular do cartão.</p>
   </tbody>
 </table>
 
-<h3 id="resposta-36">Resposta</h3>
+<h3 id="resposta-33">Resposta</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
