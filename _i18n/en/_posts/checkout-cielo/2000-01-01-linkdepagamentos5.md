@@ -292,7 +292,7 @@ To gain access to Cielo services that use **Cielo Oauth**, you will need to obta
 | **ClientId**              | b521b6b2-b9b4-4a30-881d-3b63dece0006                                                             |
 | **ClientSecret**          | 08Qkje79NwWRx5BdgNJsIkBuITt5cIVO                                                                 |
 | **ClientId:ClientSecret** | _b521b6b2-b9b4-4a30-881d-3b63dece0006:08Qkje79NwWRx5BdgNJsIkBuITt5cIVO_                          |
-| **Base64**                | _YjUyMWI2YjItYjliNC00YTMwLTg4MWQtM2I2M2RlY2UwMDA2OiAwOFFramU3OU53V1J4NUJkZ05Kc0lrQnVJVHQ1Y0lWTw_ |
+| **Base64**                | _YjUyMWI2YjItYjliNC00YTMwLTg4MWQtM2I2M2RlY2UwMDA2OjA4UWtqZTc5TndXUng1QmRnTkpzSWtCdUlUdDVjSVZP_   |
 
 ### Request
 
