@@ -608,7 +608,7 @@ curl
 | `MerchantKey`                         | text         | 40   | Yes                | Public Key for Double Authentication in Cielo.                                                                                                                                                                                                                                                             |
 | `Content-Type`                        | header       | 40   | Yes                | application/json (required).                                                                                                                                                                                                                                                                               |
 | `RequestId`                           | GUID         | 36   | No                 | Request identifier, used when the merchant uses different servers for each GET/POST/PUT.                                                                                                                                                                                                                   |
-| `MerchantOrderId`                     | text         | 50   | Yes                | Order identification number. Warning: Allowed characters are a-z, A-Z, 0-9. Special characters and blank spaces are not allowed                                                                                                                                   |
+| `MerchantOrderId`                     | text         | 50   | Yes                | Order identification number. *Warning: Allowed characters are a-z, A-Z, 0-9. Special characters and blank spaces are not allowed*.                                                                                                                                   |
 | `Customer.Name`                       | text         | 255  | No                 | Customer's name.                                                                                                                                                                                                                                                                                            |
 | `Customer.Status`                     | text         | 255  | No                 | The customer's registration status on the store. (NEW / EXISTING).                                                                                                                                                                                                                                          |
 | `Customer.Identity`                   | text         | 14   | No                 | Customer's RG, CPF or CNPJ.                                                                                                                                                                                                                                                                                |
@@ -966,7 +966,7 @@ curl
 | `MerchantId`                                 | Store identifier in API E-commerce Cielo.                                                        | Guid    | 36   | Yes                |
 | `MerchantKey`                                | Public Key for Double Authentication in API E-commerce Cielo.                                    | Text    | 40   | Yes                |
 | `RequestId`                                  | Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.        | Guid    | 36   | No                 |
-| `MerchantOrderId`                            | Order identification number. Warning: Allowed characters are a-z, A-Z, 0-9. Special characters and blank spaces are not allowed.                                                                                             | Text    | 50   | Yes                |
+| `MerchantOrderId`                            | Order identification number. *Warning: Allowed characters are a-z, A-Z, 0-9. Special characters and blank spaces are not allowed*.                                                                                             | Text    | 50   | Yes                |
 | `Customer.Name`                              | Shopper’s name.                                                                                 | Text    | 255  | No                 |
 | `Customer.Status`                            | Shopper registration status in store (NEW / EXISTING) - Used for fraud analysis                 | Text    | 255  | No                 |
 | `Payment.Type`                               | Type of the payment method.                                                                     | Text    | 100  | Yes                |
@@ -1269,7 +1269,7 @@ curl
 | `MerchantKey`                         | text         | 40      | Yes                | Public key for double authentication at Cielo.                                                                                                                                                                                                                                                             |
 | `Content-Type`                        | header       | 40      | Yes                | application/json (required).                                                                                                                                                                                                                                                                               |
 | `RequestId`                           | GUID         | 36      | No                 | Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.                                                                                                                                                                                                                   |
-| `MerchantOrderId`                     | text         | 50      | Yes                | Order identification number. Warning: Allowed characters are a-z, A-Z, 0-9. Special characters and blank spaces are not allowed.                                                                                                                                                                                                                                                                                           |
+| `MerchantOrderId`                     | text         | 50      | Yes                | Order identification number. *Warning: Allowed characters are a-z, A-Z, 0-9. Special characters and blank spaces are not allowed*.                                                                                                                                                                                                                                                                                           |
 | `Customer.Name`                       | text         | 255     | No                 | Customer's name                                                                                                                                                                                                                                                                                            |
 | `Customer.Status`                     | text         | 255     | No                 | The customer's registration status on the store. (NEW / EXISTING)                                                                                                                                                                                                                                          |
 | `Customer.Identity`                   | text         | 14      | No                 | Customer's RG, CPF or CNPJ.                                                                                                                                                                                                                                                                                |
@@ -1688,7 +1688,7 @@ See the request and response examples for generating Pix QR Code:
 
 | PROPERTY                | DESCRIPTION                         | TYPE   | SIZE | REQUIRED |
 | ----------------------- | ----------------------------------- | ------ | ---- | -------- |
-| `MerchantOrderId`       | Order identification number. Warning: Allowed characters are a-z, A-Z, 0-9. Special characters and blank spaces are not allowed.                                   | text   | 50   | Yes      |
+| `MerchantOrderId`       | Order identification number. *Warning: Allowed characters are a-z, A-Z, 0-9. Special characters and blank spaces are not allowed*.                                   | text   | 50   | Yes      |
 | `Customer.Name`         | Shopper name.                       | text   | 255  | Yes      |
 | `Customer.Identity`     | Shopper's ID number (CPF/CNPJ)      | text   | 14   | Yes      |
 | `Customer.IdentityType` | Shopper's type of ID (CPF or CNPJ). | text   | 255  | Yes      |
@@ -1942,7 +1942,7 @@ curl
 | `MerchantId`                    | Store identifier in API E-commerce Cielo                                                | GUID   | 36                                  | Yes                                                                                                                                     |
 | `MerchantKey`                   | Public key for double authentication in API E-commerce Cielo                            | text   | 40                                  | Yes                                                                                                                                     |
 | `RequestId`                     | Request Identifier, used when the merchant uses different servers for each GET/POST/PUT | GUID   | 36                                  | No                                                                                                                                      |
-| `MerchantOrderId`               | Order identification number. Warning: Allowed characters are a-z, A-Z, 0-9. Special characters and blank spaces are not allowed                                                                        | text   | Bradesco: 27<BR>Banco do Brasil: 50 | Yes                                                                                                                                     |
+| `MerchantOrderId`               | Order identification number. *Warning: Allowed characters are a-z, A-Z, 0-9. Special characters and blank spaces are not allowed*                                                                        | text   | Bradesco: 27<BR>Banco do Brasil: 50 | Yes                                                                                                                                     |
 | `Customer.Name`                 | Shopper's name.                                                                           | text   | Bradesco: 34<BR>Banco do Brasil: 60 | No                                                                                                                                      |
 | `Customer.Status`               | Shopper registration status in store(NEW / EXISTING) - Used by fraud analysis             | text   | 255                                 | No                                                                                                                                      |
 | `Customer.Address.ZipCode`      | Shopper's address zip code.                                                               | text   | 9                                   | Yes                                                                                                                                     |
@@ -2111,7 +2111,7 @@ Number of characters per field and Provider:
 | Property                      | Notes                                                    | Size      |
 | ----------------------------- | -------------------------------------------------------- | --------- |
 | `Provider`                    | N/a                                                      | Bradesco2 |
-| `MerchantOrderId`             | Only letters, numbers, and characters like "\_" and "$". | 27        |
+| `MerchantOrderId`             | Order identification number. *Warning: Allowed characters are a-z, A-Z, 0-9. Special characters and blank spaces are not allowed*. | 27        |
 | `Payment.BoletoNumber`        | The value is validated by the bank.                      | 11        |
 | `Customer.Name`               | The API Cielo truncates automatically.                   | 34        |
 | `Customer.Address.Street`     | The value is validated by API Cielo.                     | 70        |
@@ -2274,7 +2274,7 @@ curl
 | `MerchantKey`          | text    | 40   | Yes      | Public key for double authentication in Cielo.                                                               |
 | `Content-Type`         | header  | 40   | Yes      | application/json (required).                                                                                 |
 | `RequestId`            | GUID    | 36   | No       | Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.                     |
-| `MerchantOrderId`      | text    | 50   | Yes      | Order identification number. Warning: Allowed characters are a-z, A-Z, 0-9. Special characters and blank spaces are not allowed.                                                                                             |
+| `MerchantOrderId`      | text    | 50   | Yes      | Order identification number. *Warning: Allowed characters are a-z, A-Z, 0-9. Special characters and blank spaces are not allowed*.                                                                                             |
 | `Customer.Name`        | text    | 255  | No       | Shopper's name                                                                                               |
 | `Payment.Type`         | text    | 100  | Yes      | Type of payment method. Send **qrcode** for a QR Code transaction.                                           |
 | `Payment.Amount`       | number  | 15   | Yes      | Order amount (to be sent in cents).                                                                          |
@@ -3507,7 +3507,7 @@ See an example of a Card on File credit transaction request.
 
 |PROPERTY|TYPE|SIZE|REQUIRED|DESCRIPTION|
 |-----------|----|-------|-----------|---------|
-|`MerchantOrderId`|Text|50|Yes|Order identification number. Warning: Allowed characters are a-z, A-Z, 0-9. Special characters and blank spaces are not allowed.|
+|`MerchantOrderId`|Text|50|Yes|Order identification number. *Warning: Allowed characters are a-z, A-Z, 0-9. Special characters and blank spaces are not allowed*.|
 |`Customer.Name`|Text|255|No|Customer's name.|
 |`Customer.Status`|Text|255|No|The customer’s registration status on the store. (NEW / EXISTING)|
 |`Customer.Email`|Text|255|No|Customer's email|
@@ -3842,7 +3842,7 @@ curl
 | `MerchantId`                | Merchant identifier in API E-commerce Cielo.                                                                                 | Guid    | 6    | Yes      |
 | `MerchantKey`               | Public Key for Double Authentication in API E-commerce Cielo.                                                                | Text    | 40   | Yes      |
 | `RequestId`                 | Request identifier, used when the merchant uses different servers for each GET/POST/PUT.                                     | Guid    | 36   | No       |
-| `MerchantOrderId`           | Order identification number. Warning: Allowed characters are a-z, A-Z, 0-9. Special characters and blank spaces are not allowed.                                                                                                             | Text    | 50   | Yes      |
+| `MerchantOrderId`           | Order identification number. *Warning: Allowed characters are a-z, A-Z, 0-9. Special characters and blank spaces are not allowed*.                                                                                                             | Text    | 50   | Yes      |
 | `Customer.Name`             | Shopper's name.                                                                                                              | Text    | 255  | Yes      |
 | `Payment.Type`              | Type of the Payment Method.                                                                                                  | Text    | 100  | Yes      |
 | `Payment.Amount`            | Order Amount (to be sent in cents).                                                                                          | Number  | 15   | Yes      |
@@ -3988,7 +3988,7 @@ curl
 | `MerchantId`                | Store identifier in API E-commerce Cielo.                                                                                    | Guid    | 6    | Yes      |
 | `MerchantKey`               | Public Key for Double Authentication in API E-commerce Cielo.                                                                | Text    | 40   | Yes      |
 | `RequestId`                 | Request identifier, used when the merchant uses different servers for each GET/POST/PUT.                                     | Guid    | 36   | No       |
-| `MerchantOrderId`           | Order identification number. Warning: Allowed characters are a-z, A-Z, 0-9. Special characters and blank spaces are not allowed.                                                                                                          | Text    | 50   | Yes      |
+| `MerchantOrderId`           | Order identification number. *Warning: Allowed characters are a-z, A-Z, 0-9. Special characters and blank spaces are not allowed*.                                                                                                          | Text    | 50   | Yes      |
 | `Customer.Name`             | Shopper's name.                                                                                                              | Text    | 255  | No       |
 | `Payment.Type`              | Type of the Payment Method.                                                                                                  | Text    | 100  | Yes      |
 | `Payment.Amount`            | Order Amount (to be sent in cents).                                                                                          | Number  | 15   | Yes      |
@@ -4080,7 +4080,7 @@ curl
 | `MerchantId`                            | Store identifier in API E-commerce Cielo.                                                                                               | Guid    | 6    | Yes      |
 | `MerchantKey`                           | Public Key for Double Authentication in API E-commerce Cielo.                                                                           | Text    | 40   | Yes      |
 | `RequestId`                             | Request identifier, used when the merchant uses different servers for each GET/POST/PUT.                                                | Guid    | 36   | No       |
-| `MerchantOrderId`                       | Order identification number. Warning: Allowed characters are a-z, A-Z, 0-9. Special characters and blank spaces are not allowed.                                                                                                                        | Text    | 50   | Yes      |
+| `MerchantOrderId`                       | Order identification number. *Warning: Allowed characters are a-z, A-Z, 0-9. Special characters and blank spaces are not allowed*.                                                                                                                        | Text    | 50   | Yes      |
 | `Customer.Name`                         | Shopper's name.                                                                                                                         | Text    | 255  | Yes      |
 | `Payment.Type`                          | Type of the Payment Method.                                                                                                             | Text    | 100  | Yes      |
 | `Payment.Amount`                        | Order Amount (to be sent in cents).                                                                                                     | Number  | 15   | Yes      |
@@ -4514,7 +4514,7 @@ See below a response example for a credit card transaction returning the `Issuer
 
 |PROPRIERTY|TYPE|SIZE|REQUIRED|DESCRIPTION|
 |---|---|---|---|---|
-|`MerchantOrderId`|text|50|Yes|Order identification number. Warning: Allowed characters are a-z, A-Z, 0-9. Special characters and blank spaces are not allowed.|
+|`MerchantOrderId`|text|50|Yes|Order identification number. *Warning: Allowed characters are a-z, A-Z, 0-9. Special characters and blank spaces are not allowed*.|
 |`Payment.Type`|text|100|Yes|Type of the payment method.|
 |`Payment.Amount`|number|15|Sim|Order Amount (to be sent in cents).|
 |`Payment.Installments`|number|2|Sim|Number of installments. If the transaction is a recurrence, the number of installments will be 1. For installment transactions, the number of installments will be greater than 1.|
@@ -5112,7 +5112,7 @@ curl
 | `MerchantId`                            | Store identifier in API E-commerce Cielo.                                                                                               | Guid    | 6    | Yes      |
 | `MerchantKey`                           | Public Key for Double Authentication in API E-commerce Cielo.                                                                           | Text    | 40   | Yes      |
 | `RequestId`                             | Request Identifier, used when the merchant uses different servers for each GET/POST/PUT                                                 | Guid    | 36   | No       |
-| `MerchantOrderId`                       | Order identification number. Warning: Allowed characters are a-z, A-Z, 0-9. Special characters and blank spaces are not allowed.                                        | Text    | 50   | Yes      |
+| `MerchantOrderId`                       | Order identification number. *Warning: Allowed characters are a-z, A-Z, 0-9. Special characters and blank spaces are not allowed*.                                        | Text    | 50   | Yes      |
 | `Customer.Name`                         | Shopper's name.                                                                                                                         | Text    | 255  | No       |
 | `Customer.Status`                       | Shopper's registration status in store (NEW / EXISTING) - Used by fraud analysis                                                        | Text    | 255  | No       |
 | `Payment.Type`                          | Type of the Payment Method.                                                                                                             | Text    | 100  | Yes      |
@@ -5456,7 +5456,7 @@ curl
 ```
 
 |Property|Description|Type|Size|Format|
-|`MerchantOrderId`|Order identification number. Warning: Allowed characters are a-z, A-Z, 0-9. Special characters and blank spaces are not allowed.|Text|50|Text alphanumeric|
+|`MerchantOrderId`|Order identification number. *Warning: Allowed characters are a-z, A-Z, 0-9. Special characters and blank spaces are not allowed*.|Text|50|Text alphanumeric|
 |`AcquirerOrderId`|Transaction Id sent to the authorizer if the MerchantOrderId is longer than 20 characters or has symbols.|Text|50|Text alphanumeric|
 |`AuthorizationCode`|Authorization code.|Text|6|Text alphanumeric|
 |`PaymentId`|Order Identifier Field.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
@@ -5648,7 +5648,7 @@ curl
 ```
 
 |Property|Description|Type|Size|Format|
-|`MerchantOrderId`|Order identification number. Warning: Allowed characters are a-z, A-Z, 0-9. Special characters and blank spaces are not allowed.|Text|50|Alphanumeric|
+|`MerchantOrderId`|Order identification number. *Warning: Allowed characters are a-z, A-Z, 0-9. Special characters and blank spaces are not allowed*.|Text|50|Alphanumeric|
 |`AcquirerOrderId`|Transaction Id sent to the authorizer if the MerchantOrderId is longer than 20 characters or has symbols.|Text|50|Alphanumeric|
 |`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric|
 |`PaymentId`|Order Identifier Field.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
@@ -5699,7 +5699,7 @@ curls
 | `MerchantId`      | Store identifier in API E-commerce Cielo.                                               | Guid | 36   | Yes      |
 | `MerchantKey`     | Public Key for Double Authentication in API E-commerce Cielo.                           | Text | 40   | Yes      |
 | `RequestId`       | Request Identifier, used when the merchant uses different servers for each GET/POST/PUT | Guid | 36   | No       |
-| `MerchantOrderId` | Order identification number. Warning: Allowed characters are a-z, A-Z, 0-9. Special characters and blank spaces are not allowed.                                                   | Text | 36   | Yes      |
+| `MerchantOrderId` | Order identification number. *Warning: Allowed characters are a-z, A-Z, 0-9. Special characters and blank spaces are not allowed*.                                                   | Text | 36   | Yes      |
 
 #### Response
 
