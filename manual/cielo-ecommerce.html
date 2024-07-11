@@ -2016,9 +2016,9 @@ Abaixo especificamos qualquer diferença existente:</p>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
       <td>Número de identificação do pedido. <em>Atenção: Os caracteres permitidos são apenas a-z, A-Z, 0-9. Não são permitidos caracteres especiais e espaços em branco.</em></td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
@@ -7843,6 +7843,7 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
       <th>Tipo</th>
       <th>Tamanho</th>
       <th>Obrigatório</th>
+      <th> </th>
     </tr>
   </thead>
   <tbody>
@@ -7852,6 +7853,7 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
       <td>Guid</td>
       <td>6</td>
       <td>Sim</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
@@ -7859,6 +7861,7 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
       <td>Texto</td>
       <td>40</td>
       <td>Sim</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
@@ -7866,13 +7869,71 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
       <td>Guid</td>
       <td>36</td>
       <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
-      <td>Numero de identificação do Pedido. Atenção: Não são permitidos os caracteres especiais &gt; (maior), Monthly (Default) Bimonthly Quarterly SemiAnnual Annual</td>
+      <td>Número de identificação do pedido. <em>Atenção: Os caracteres permitidos são apenas a-z, A-Z, 0-9. Não são permitidos caracteres especiais e espaços em branco.</em></td>
+      <td> </td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
+      <td>Nome do Comprador.</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Sim</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>Tipo do Meio de Pagamento.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>Valor do Pedido (ser enviado em centavos).</td>
+      <td>Número</td>
+      <td>15</td>
+      <td>Sim</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
+      <td>Número de parcelas. Como se trata de uma recorrência, o número de parcelas será 1.</td>
+      <td>Número</td>
+      <td>2</td>
+      <td>Sim</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code></td>
+      <td>Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - não permite caracteres especiais</td>
+      <td>Texto</td>
+      <td>13</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.EndDate</code></td>
+      <td>Data para termino da recorrência.</td>
       <td>Texto</td>
       <td>10</td>
       <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.Interval</code></td>
+      <td>Intervalo da recorrência.<br />Monthly (Default) Bimonthly Quarterly SemiAnnual Annual</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.AuthorizeNow</code></td>
@@ -7880,6 +7941,7 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
       <td>Booleano</td>
       <td>—</td>
       <td>Sim</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
@@ -7887,6 +7949,7 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
       <td>Texto</td>
       <td>19</td>
       <td>Sim</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Holder</code></td>
@@ -7894,6 +7957,7 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
       <td>Texto</td>
       <td>25</td>
       <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
@@ -7901,6 +7965,7 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
       <td>Texto</td>
       <td>7</td>
       <td>Sim</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code></td>
@@ -7908,6 +7973,7 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
       <td>Texto</td>
       <td>4</td>
       <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
@@ -7915,6 +7981,7 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
       <td>Texto</td>
       <td>10</td>
       <td>Sim</td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
@@ -10624,18 +10691,214 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
       <th>Tipo</th>
       <th>Tamanho</th>
       <th>Formato</th>
+      <th> </th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
-      <td>Número de identificação do pedido. Atenção: Não são permitidos os caracteres especiais &gt; (maior), <span class="method get">GET</span> <span class="endpoint">/1/sales?merchantOrderId={merchantOrderId}</span>&lt;/aside&gt;</td>
+      <td>Número de identificação do pedido. <em>Atenção: Os caracteres permitidos são apenas a-z, A-Z, 0-9. Não são permitidos caracteres especiais e espaços em branco.</em></td>
+      <td> </td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AcquirerOrderId</code></td>
+      <td>Id da transação enviado ao autorizador, caso o MerchantOrderId seja maior que 20 caracteres ou tenha símbolos.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Texto alfanumérico</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
+      <td>Código de autorização.</td>
+      <td>Texto</td>
+      <td>6</td>
+      <td>Texto alfanumérico</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
+      <td>Campo Identificador do Pedido.</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td>Status da Transação.</td>
+      <td>Byte</td>
+      <td>—</td>
+      <td>2</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
+      <td>Nome do Comprador.</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Texto</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
+      <td>Status de cadastro do comprador na loja (NEW / EXISTING)</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Texto</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ProofOfSale</code></td>
+      <td>Número da autorização, identico ao NSU.</td>
+      <td>Texto alfanumérico</td>
+      <td>6</td>
+      <td>Texto alfanumérico</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Tid</code></td>
+      <td>Id da transação no provedor do meio de pagamento.</td>
+      <td>Texto alfanumérico</td>
+      <td>40</td>
+      <td>Texto alfanumérico</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>Tipo do Meio de Pagamento.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Texto</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>Valor do Pedido (ser enviado em centavos).</td>
+      <td>Número</td>
+      <td>15</td>
+      <td>10000</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ReceivedDate</code></td>
+      <td>Data em que a transação foi recebida.</td>
+      <td>Texto</td>
+      <td>19</td>
+      <td>AAAA-MM-DD HH:mm:SS</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CapturedAmount</code></td>
+      <td>Valor capturado.</td>
+      <td>Número</td>
+      <td>15</td>
+      <td>10000</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CapturedDate</code></td>
+      <td>Data da captura.</td>
+      <td>Texto</td>
+      <td>19</td>
+      <td>AAAA-MM-DD HH:mm:SS</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.VoidedAmount</code></td>
+      <td>Valor cancelado/estornado, em centavos.</td>
+      <td>Número</td>
+      <td>15</td>
+      <td>10000</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.VoidedDate</code></td>
+      <td>Data do cancelamento/estorno.</td>
+      <td>Texto</td>
+      <td>19</td>
+      <td>AAAA-MM-DD HH:mm:SS</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
+      <td>Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.</td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Texto</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.EndToEndId</code></td>
+      <td>Número de identificação único de uma transação Pix.</td>
+      <td>Texto 50</td>
+      <td>Texto alfanumérico</td>
       <td> </td>
       <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
+      <td>Número do Cartão do Comprador.</td>
+      <td>Texto</td>
+      <td>19</td>
+      <td>Texto</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.Holder</code></td>
+      <td>Nome do Comprador impresso no cartão.</td>
+      <td>Texto</td>
+      <td>25</td>
+      <td>Texto</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
+      <td>Data de validade impresso no cartão.</td>
+      <td>Texto</td>
+      <td>7</td>
+      <td>MM/AAAA</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code></td>
+      <td>Código de segurança impresso no verso do cartão - Ver Anexo.</td>
+      <td>Texto</td>
+      <td>4</td>
+      <td>Texto</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
+      <td>Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Texto</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.PaymentAccountReference</code></td>
+      <td>O PAR(payment account reference) é o número que associa diferentes tokens a um mesmo cartão. Será retornado pelas bandeiras Master e Visa e repassado para os clientes do e-commerce Cielo. Caso a bandeira não envie a informação o campo não será retornado. Se for pra transação de débito, colocar o campo dentro do nó de DebitCard</td>
+      <td>Alfanumérico</td>
+      <td>29</td>
+      <td>Alfanumérico</td>
       <td> </td>
     </tr>
   </tbody>
 </table>
+
+<h3 id="consulta-por-merchantorderid">Consulta por MerchantOrderId</h3>
+
+<p>Para alguns estabelecimentos, o <code class="language-plaintext highlighter-rouge">MerchantOrderId</code> pode ter várias transações. A consulta por <code class="language-plaintext highlighter-rouge">MerchantOrderId</code> retorna o <code class="language-plaintext highlighter-rouge">PaymentId</code> de todas as transações associadas a um <code class="language-plaintext highlighter-rouge">MerchantOrderId</code>.</p>
+
+<p>A partir disso, é possível consultar detalhes de cada transação pela <a href="https://developercielo.github.io/manual/cielo-ecommerce#consulta-por-paymentid">consulta por <code class="language-plaintext highlighter-rouge">PaymentId</code></a>.</p>
+
+<h4 id="requisição-31">Requisição</h4>
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales?merchantOrderId={merchantOrderId}</span></aside>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curls
 <span class="nt">--request</span> GET <span class="s2">" https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales?merchantOrderId={merchantOrderId}"</span>
@@ -10681,13 +10944,77 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
-      <td>Campo identificador do pedido na loja. Atenção: Não são permitidos os caracteres especiais &gt; (maior), <span class="method get">GET</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}</span>&lt;/aside&gt;</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
+      <td>Número de identificação do pedido. <em>Atenção: Os caracteres permitidos são apenas a-z, A-Z, 0-9. Não são permitidos caracteres especiais e espaços em branco.</em></td>
+      <td>Texto</td>
+      <td>36</td>
+      <td>Sim</td>
     </tr>
   </tbody>
 </table>
+
+<h4 id="resposta-29">Resposta</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fb4d606-bb63-4423-a683-c966e15399e8"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ReceveidDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-04-06T10:13:39.42"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6c1d45c3-a95f-49c1-a626-1e9373feecc2"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ReceveidDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-12-19T20:23:28.847"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+    <span class="s2">"Payment"</span>: <span class="o">[</span>
+        <span class="o">{</span>
+            <span class="s2">"PaymentId"</span>: <span class="s2">"5fb4d606-bb63-4423-a683-c966e15399e8"</span>,
+            <span class="s2">"ReceveidDate"</span>: <span class="s2">"2015-04-06T10:13:39.42"</span>
+        <span class="o">}</span>,
+        <span class="o">{</span>
+            <span class="s2">"PaymentId"</span>: <span class="s2">"6c1d45c3-a95f-49c1-a626-1e9373feecc2"</span>,
+            <span class="s2">"ReceveidDate"</span>: <span class="s2">"2014-12-19T20:23:28.847"</span>
+        <span class="o">}</span>
+    <span class="o">]</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Formato</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
+      <td>Número de identificação do pagamento, necessário para futuras operações como Consulta, Captura e Cancelamento.</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="consulta-de-recorrência">Consulta de Recorrência</h3>
+
+<p>A Consulta de Recorrência traz dados sobre o agendamento e sobre o processo de transações que se repetem. A Consulta de Recorrência não retorna dados sobre as transações em si.</p>
+
+<p>Para obter informações sobre cada transação, faça a <a href="https://developercielo.github.io/manual/cielo-ecommerce#consulta-por-paymentid">Consulta por PaymentId</a>.</p>
+
+<h4 id="requisição-32">Requisição</h4>
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}</span></aside>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
 <span class="nt">--request</span> GET <span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}"</span>
@@ -10741,7 +11068,7 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
   </tbody>
 </table>
 
-<h4 id="resposta-29">Resposta</h4>
+<h4 id="resposta-30">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -10964,7 +11291,7 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
 
 <p><strong>Após a captura, não é possível realizar capturas adicionais no mesmo pedido.</strong></p>
 
-<h4 id="requisição-31">Requisição</h4>
+<h4 id="requisição-33">Requisição</h4>
 
 <ul>
   <li>Para <strong>captura parcial</strong>, envie o campo <code class="language-plaintext highlighter-rouge">Amount</code>na requisição de captura com o valor desejado a capturar;</li>
@@ -11045,7 +11372,7 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
   </tbody>
 </table>
 
-<h4 id="resposta-30">Resposta</h4>
+<h4 id="resposta-31">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -11180,7 +11507,7 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
 
 <aside class="notice">Atenção: O cancelamento por MerchantOrderId afeta sempre a transação mais nova, ou seja, caso haja pedidos com o número do pedido duplicado, somente o pedido mais atual será cancelado. O pedido anterior não poderá ser cancelado por esse método.</aside>
 
-<h4 id="requisição-32">Requisição</h4>
+<h4 id="requisição-34">Requisição</h4>
 
 <p><strong>Cancelamento via PaymentId</strong></p>
 
@@ -11252,7 +11579,7 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
   </tbody>
 </table>
 
-<h4 id="resposta-31">Resposta</h4>
+<h4 id="resposta-32">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
@@ -11357,7 +11684,7 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
 
 <aside class="notice">Atenção: A API retorna a soma do total de cancelamentos parciais, ou seja, se você fizer três cancelamentos parciais de R$10,00, a API apresentará na resposta um total de R$30,00 cancelados.</aside>
 
-<h4 id="requisição-33">Requisição</h4>
+<h4 id="requisição-35">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/void?amount=XXX </span></aside>
 
@@ -11419,7 +11746,7 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
   </tbody>
 </table>
 
-<h4 id="resposta-32">Resposta</h4>
+<h4 id="resposta-33">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -12039,7 +12366,7 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
 
 <h2 id="integração">Integração</h2>
 
-<h3 id="requisição-34">Requisição</h3>
+<h3 id="requisição-36">Requisição</h3>
 
 <p>Basta realizar um <code class="language-plaintext highlighter-rouge">GET</code> enviando o BIN à nossa URL de consulta:</p>
 
@@ -12063,7 +12390,7 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">https://apiquery.cieloecommerce.cielo.com.br/</span><span class="mi">1</span><span class="err">/cardBin/</span><span class="mi">420020</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="resposta-33">Resposta</h3>
+<h3 id="resposta-34">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="p">,</span><span class="w">
@@ -12210,7 +12537,7 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
 
 <h2 id="cartão-aberto">Cartão aberto</h2>
 
-<h3 id="requisição-35">Requisição</h3>
+<h3 id="requisição-37">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/zeroauth</span></aside>
 
@@ -12316,7 +12643,7 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
 
 <h2 id="cartão-tokenizado">Cartão tokenizado</h2>
 
-<h3 id="requisição-36">Requisição</h3>
+<h3 id="requisição-38">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/zeroauth</span></aside>
 
@@ -12361,7 +12688,7 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
 
 <p>Para validar uma e-wallet com o Zero Auth, é necessário que a loja tenha integração com uma das <a href="https://developercielo.github.io/manual/cielo-ecommerce#e-wallets-dispon%C3%ADveis">e-wallets disponíveis</a>.</p>
 
-<h3 id="requisição-37">Requisição</h3>
+<h3 id="requisição-39">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/2/zeroauth</span></aside>
 
@@ -12477,7 +12804,7 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
   </tbody>
 </table>
 
-<h2 id="resposta-34">Resposta</h2>
+<h2 id="resposta-35">Resposta</h2>
 
 <p>A resposta sempre retorna se o cartão pode ser autorizado no momento. Essa informação apenas significa que o <em>cartão está válido para transacionar</em>, mas não indica que um determinado valor será autorizado.</p>
 
@@ -13056,7 +13383,7 @@ proteger os dados do titular do cartão.</p>
 
 <p>Exemplo: https://transaction.cieloecommerce.cielo.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000</p>
 
-<h3 id="requisição-38">Requisição</h3>
+<h3 id="requisição-40">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v1/accesstoken?merchantid={mid_loja}</span></aside>
 
@@ -13088,7 +13415,7 @@ proteger os dados do titular do cartão.</p>
   </tbody>
 </table>
 
-<h3 id="resposta-35">Resposta</h3>
+<h3 id="resposta-36">Resposta</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
