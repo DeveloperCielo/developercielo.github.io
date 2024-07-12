@@ -3681,16 +3681,34 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
 
 <h3 id="solicitando-uma-devolução-pix">Solicitando uma devolução Pix</h3>
 
-<p>Caso a sua loja precise cancelar uma transferência Pix, é possível realizar uma operação chamada de <strong>devolução</strong>. É importante ressaltar que a devolução não é uma operação instantânea, podendo ser acatada ou não pelo provedor Pix. Quando uma devolução é acatada, uma <a href="https://developercielo.github.io/manual/cielo-ecommerce#post-de-notifica%C3%A7%C3%A3o">notificação</a> será enviada para a sua loja.<br /></p>
+<p>Caso a sua loja precise cancelar uma transferência Pix, é possível realizar uma operação chamada de <strong>devolução</strong>. É importante ressaltar que a devolução não é uma operação instantânea, podendo ser acatada ou não pelo provedor Pix. Quando uma devolução é acatada, uma <a href="https://developercielo.github.io/manual/cielo-ecommerce#post-de-notifica%C3%A7%C3%A3o">notificação</a> será enviada para a sua loja.</p>
 
 <blockquote>
-  <p><strong>Importante:</strong><br /></p>
-
   <ul>
-    <li>A devolução ocorrerá somente se houver saldo;<br /></li>
-    <li>O prazo para cancelamento é de 90 dias, conforme especificação do BACEN.</li>
+    <li>É necessário que o comprador (usuário pagador) solicite para a loja (usuário recebedor) a devolução total ou parcial de um pagamento realizado, via algum meio de comunicação adequado;<br /></li>
+    <li>A loja (usuário recebedor) concorda e identifica o pagamento original realizado pelo Pix.</li>
   </ul>
 </blockquote>
+
+<p><strong>Quando posso solicitar uma devolução Pix?</strong></p>
+
+<p>É possível solicitar uma devolução Pix quando, por exemplo, houver devolução do produto, erro na cobrança e indisponibilidade do produto em estoque.</p>
+
+<p><strong>Quem solicita a devolução Pix pela API E-commerce Cielo?</strong></p>
+
+<p>A loja (vendedor que recebeu a transação Pix) é quem solicita a devolução à API E-commerce Cielo, em acordo com o comprador. É importante se atentar aos prazos (de acordo com regulamento do Banco Central).</p>
+
+<p><strong>Como solicitar à devolução Pix?</strong></p>
+
+<p>Via <a href="https://developercielo.github.io/manual/cielo-ecommerce#requisi%C3%A7%C3%A3o66">API E-commerce Cielo</a> ou App Cielo Gestão.</p>
+
+<p><strong>Regras para devolução Pix</strong></p>
+
+<ul>
+  <li>A devolução ocorrerá somente se houver saldo;</li>
+  <li>Para transferências, vendas e demais transações com o Pix o prazo para cancelamento é de 90 dias, conforme especificação do BACEN;</li>
+  <li>Os clientes que optarem pela transferência automática não terão saldo em conta de pagamento. Com isso não será possível efetuar a devolução com sucesso, e o retorno será “Lojista com saldo insuficiente para devolução”.</li>
+</ul>
 
 <h4 id="requisição-6">Requisição</h4>
 
