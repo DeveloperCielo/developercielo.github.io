@@ -3523,16 +3523,34 @@
 
 <h3 id="requesting-pix-refund">Requesting Pix refund</h3>
 
-<p>If your store needs to cancel a pix transaction, it’s possible to ask for a <strong>refund</strong>. It’s important to point out that the refund is not immediate and it needs to be approved by the Pix provider. When it is approved, your store will get <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#notification-post" target="\_blank">notified</a>.<br /></p>
+<p>If your store needs to cancel a pix transaction, it is possible to ask for a refund. It is important to point out that the refund is not immediate and it needs to be approved by the Pix provider. When it is approved, your store will get <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#notification-post">notified via Notification Post</a>.</p>
 
 <blockquote>
-  <p><strong>Warning:</strong><br /></p>
-
   <ul>
-    <li>The refund will only happen if there are funds available;<br /></li>
-    <li>The deadline for cancellation is 90 days, as specified by BACEN.</li>
+    <li>The shopper must require to the store (merchant) the partial or total refund, through the store’s support channels;<br /></li>
+    <li>The merchant agrees with the refund and identifies the original Pix payment.</li>
   </ul>
 </blockquote>
+
+<p><strong>When to ask for a Pix refund?</strong></p>
+
+<p>Some example scenarios for requesting a Pix refund are product return, charge errors, and product not available in stock.</p>
+
+<p><strong>Who should request a Pix refund via API E-commerce Cielo</strong></p>
+
+<p>The store (seller who received the Pix transaction amount) should request the Pix refund for API E-commerce Cielo, in agreement with the shopper. Important: Be aware of time limits (regulated by Banco Central do Brasil).</p>
+
+<p><strong>How to ask for a Pix refund?</strong></p>
+
+<p>Via <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#request56">API E-commerce Cielo</a> or App Cielo Gestão.</p>
+
+<p><strong>Pix refund rules</strong></p>
+
+<ul>
+  <li>Refund will be effective only if the merchant has a positive balance;</li>
+  <li>For transfers, sales and other Pix transactions, the time limit for refund is 90 days, according to Banco Central do Brasil;</li>
+  <li>Clients that opt for automatic transfer will not have a positive balance in the payments account, therefore the refund will not be possible. The expected return is “Merchant with insufficient funds for refund” (“Lojista com saldo insuficiente para devolução”).</li>
+</ul>
 
 <h4 id="request-6">Request</h4>
 
