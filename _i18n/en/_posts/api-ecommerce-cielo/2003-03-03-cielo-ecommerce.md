@@ -1762,12 +1762,28 @@ See the request and response examples for generating Pix QR Code:
 
 ### Requesting Pix refund
 
-If your store needs to cancel a pix transaction, it's possible to ask for a **refund**. It's important to point out that the refund is not immediate and it needs to be approved by the Pix provider. When it is approved, your store will get [notified](https://developercielo.github.io/en/manual/cielo-ecommerce#notification-post){:target="\_blank"}.<br/>
+If your store needs to cancel a pix transaction, it is possible to ask for a refund. It is important to point out that the refund is not immediate and it needs to be approved by the Pix provider. When it is approved, your store will get [notified via Notification Post](https://developercielo.github.io/en/manual/cielo-ecommerce#notification-post).
 
-> **Warning:**<br/>
->
-> - The refund will only happen if there are funds available;<br/>
-> - The deadline for cancellation is 90 days, as specified by BACEN.
+> * The shopper must require to the store (merchant) the partial or total refund, through the store's support channels;<br/>
+> * The merchant agrees with the refund and identifies the original Pix payment.
+
+**When to ask for a Pix refund?**
+
+Some example scenarios for requesting a Pix refund are product return, charge errors, and product not available in stock.
+
+**Who should request a Pix refund via API E-commerce Cielo**
+
+The store (seller who received the Pix transaction amount) should request the Pix refund for API E-commerce Cielo, in agreement with the shopper. Important: Be aware of time limits (regulated by Banco Central do Brasil).
+
+**How to ask for a Pix refund?**
+
+Via [API E-commerce Cielo](https://developercielo.github.io/en/manual/cielo-ecommerce#request56) or App Cielo Gestão.
+
+**Pix refund rules**
+
+* Refund will be effective only if the merchant has a positive balance;
+* For transfers, sales and other Pix transactions, the time limit for refund is 90 days, according to Banco Central do Brasil;
+* Clients that opt for automatic transfer will not have a positive balance in the payments account, therefore the refund will not be possible. The expected return is "Merchant with insufficient funds for refund" ("Lojista com saldo insuficiente para devolução").
 
 #### Request
 
