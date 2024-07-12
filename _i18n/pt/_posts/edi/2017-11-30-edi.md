@@ -15,7 +15,7 @@ tags:
 
 **Documentação**
 
-[CIELO_Extrato_Eletronico_Manual_Versao_15.9-errata](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_Manual_Versao_15.9-errata.pdf)
+[CIELO_Extrato_Eletronico_Manual_Versao_15.9-errata](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_Manual_Versao_15.9.zip)
 
 * Versão produtiva: **15.8.1**
 * Próxima atualização: **23/07/2024 para a versão 15.9.errata**
