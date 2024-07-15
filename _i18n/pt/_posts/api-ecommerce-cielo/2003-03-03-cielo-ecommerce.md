@@ -1235,16 +1235,16 @@ O ECI (Eletronic Commerce Indicator) retornado na resposta da autenticação ind
 
 Se o ECI retornado indicar que o portador não foi autenticado, recomendamos a utilização de Antifraude para analisar o risco da transação. 
 
-Caso a loja envie suas transações primeiro para o Antifraude e a análise indique alto risco, recomendamos que o pedido seja encaminhado para autenticação no 3DS 2.
+Caso a loja envie suas transações primeiro para o Antifraude e a análise indique alto risco, recomendamos que o pedido seja encaminhado para autenticação no 3DS 2.2.
 
-**Integração do 3DS 2**
+**Integração do 3DS 2.2**
 
 Para integrar a autenticação às suas transações:
 
-1. **Integre o script do 3DS 2** na sua página de pagamento, conforme [manual do 3DS](https://developercielo.github.io/manual/3ds){:target="\_blank"};
+1. **Integre o script do 3DS 2.2** na sua página de pagamento, conforme [manual do 3DS](https://developercielo.github.io/manual/3ds){:target="\_blank"};
 2. Na **requisição das transações** de crédito ou débito, **envie o nó adicional** `ExternalAuthentication`, conforme exemplos a seguir.
 
-<aside class="notice">A autenticação via 3DS 1.0 foi descontinuada pelas bandeiras. As novas integrações devem seguir o protocolo 3DS 2.</aside>
+<aside class="notice">A autenticação via 3DS 1.0 foi descontinuada pelas bandeiras. As novas integrações devem seguir o protocolo 3DS 2.2.</aside>
 
 #### Cartão de crédito com autenticação
 
