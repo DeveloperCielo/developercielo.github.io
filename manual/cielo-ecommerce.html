@@ -812,7 +812,7 @@
 <br />
 A transação de débito precisa passar por uma autenticação:</p>
   </li>
-  <li><strong>Autenticação via 3DS 2.0</strong>: aprenda a simular a autenticação 3DS 2.0 em sandbox na <a href="https://developercielo.github.io/manual/3ds">documentação do 3DS</a>;</li>
+  <li><strong>Autenticação via 3DS 2.2</strong>: aprenda a simular a autenticação 3DS 2.2 em sandbox na <a href="https://developercielo.github.io/manual/3ds">documentação do 3DS</a>;</li>
   <li><strong>URL de Autenticação</strong>: está sendo descontinuada. Nesse tipo de autenticação, o fluxo transacional do cartão de débito funciona com a Resposta da transação retornando uma URL de Autenticação. Na tela de autenticação a opção escolhida define o status da transação:
 <br /></li>
 </ul>
@@ -1889,9 +1889,9 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <p>Todas as transações de débito devem ser autenticadas por exigência dos bancos emissores e bandeiras, com o objetivo de promover maior segurança.</p>
 
-<p>Para autenticar uma transação de débito, usamos o protocolo EMV 3DS 2.0; esse protocolo é um script integrado ao seu e-commerce que verifica a identidade do portador do cartão enquanto mantém uma boa experiência de compra ao consumidor e reduz o risco de fraude.</p>
+<p>Para autenticar uma transação de débito, usamos o protocolo EMV 3DS 2.2; esse protocolo é um script integrado ao seu e-commerce que verifica a identidade do portador do cartão enquanto mantém uma boa experiência de compra ao consumidor e reduz o risco de fraude.</p>
 
-<p>Para integrar o método de autenticação, consulte a <a href="https://developercielo.github.io/manual/3ds" target="\_blank">documentação do 3DS 2.0</a>.</p>
+<p>Para integrar o método de autenticação, consulte a <a href="https://developercielo.github.io/manual/3ds" target="\_blank">documentação do 3DS 2.2</a>.</p>
 
 <aside class="warning">IMPORTANTE: A Cielo não disponibiliza mais a primeira versão do protocolo de autenticação (3DS 1.0) já que as bandeiras e emissores estão descontinuando essa solução.</aside>
 
@@ -2332,7 +2332,7 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <p><strong>Como usar o 3DS?</strong></p>
 
-<p>O processo de autorização de cartão autenticada via 3D Secure 2 ocorre em duas etapas:</p>
+<p>O processo de autorização de cartão autenticada via 3D Secure 2.2 ocorre em duas etapas:</p>
 
 <ol>
   <li><strong>Etapa de autenticação</strong>: por meio do protocolo 3DS, a bandeira ou o emissor autentica que o comprador é de fato o titular do cartão. O protocolo é integrado ao e-commerce por meio de um script em JavaScript, que retorna o resultado da autenticação e alguns parâmetros (como o ECI) que devem ser enviados na autorização. Saiba mais em <a href="https://developercielo.github.io/manual/3ds#integra%C3%A7%C3%A3o-do-script">Integração do script</a>;</li>
@@ -2341,10 +2341,10 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <p>O fluxo a seguir descreve as etapas de autenticação em alto nível:</p>
 
-<p><img src="https://developercielo.github.io/images/fluxo-3ds-novo-pt.png" alt="Fluxo 3DS 2.0" /></p>
+<p><img src="https://developercielo.github.io/images/fluxo-3ds-novo-pt.png" alt="Fluxo 3DS 2.2" /></p>
 
 <p><strong>1.</strong> O comprador escolhe pagar com cartão de crédito ou débito;<br />
-<strong>2.</strong> A loja executa um script, solicitando à Cielo autenticação através da solução 3DS 2.0;<br />
+<strong>2.</strong> A loja executa um script, solicitando à Cielo autenticação através da solução 3DS 2.2;<br />
 <strong>3.</strong> A loja envia requisição com dados do comprador para a bandeira;<br />
 <strong>4.</strong> A bandeira envia a requisição para avaliação de risco do emissor;<br />
 <strong>5.</strong> O emissor avalia as informações e determina se fluxo será com ou sem desafio ao portador;<br />
@@ -4981,7 +4981,7 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó <code clas
 
 <p>Essa modalidade pode ser utilizada por lojistas que <strong>emitem carnês próprios e faturas de cartões Private Label</strong>. O produto carnê permite a <strong>separação das vendas</strong> relacionadas à <strong>compra de produtos e pagamento de serviços</strong>, facilitando reporte de valores junto ao Fisco.</p>
 
-<p>Como qualquer transação de débito no e-commerce, as transações de carnê precisam ser autenticadas via protocolo 3DS 2.0. Obtenha mais informações sobre o protocolo de autenticação no <a href="https://developercielo.github.io/manual/3ds#autentica%C3%A7%C3%A3o-3ds-2.0" target="\_blank"><strong>manual do 3DS 2.0</strong></a>.</p>
+<p>Como qualquer transação de débito no e-commerce, as transações de carnê precisam ser autenticadas via protocolo 3DS 2.2. Obtenha mais informações sobre o protocolo de autenticação no <a href="https://developercielo.github.io/manual/3ds" target="\_blank"><strong>manual do 3DS 2.2</strong></a>.</p>
 
 <h3 id="requisição-9">Requisição</h3>
 
