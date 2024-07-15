@@ -225,10 +225,10 @@
 
 <p>O fluxo a seguir descreve as etapas de autenticação em alto nível:</p>
 
-<p><img src="https://developercielo.github.io/images/fluxo-3ds-novo-pt.png" alt="Fluxo 3DS 2.0" /></p>
+<p><img src="https://developercielo.github.io/images/fluxo-3ds-novo-pt.png" alt="Fluxo 3DS 2.2" /></p>
 
 <p><strong>1.</strong> O comprador escolhe pagar com cartão de crédito ou débito;<br />
-<strong>2.</strong> A loja executa um script, solicitando à Cielo autenticação através da solução 3DS 2.0;<br />
+<strong>2.</strong> A loja executa um script, solicitando à Cielo autenticação através da solução 3DS 2.2;<br />
 <strong>3.</strong> A loja envia requisição com dados do comprador para a bandeira;<br />
 <strong>4.</strong> A bandeira envia a requisição para avaliação de risco do emissor;<br />
 <strong>5.</strong> O emissor avalia as informações e determina se fluxo será com ou sem desafio ao portador;<br />
@@ -244,7 +244,7 @@
 
 <h2 id="bandeiras-disponíveis">Bandeiras disponíveis</h2>
 
-<p>As <strong>bandeiras</strong> disponíveis para autenticação via 3DS 2.0 são:</p>
+<p>As <strong>bandeiras</strong> disponíveis para autenticação via 3DS 2.2 são:</p>
 
 <ul>
   <li>Visa;</li>
@@ -258,7 +258,7 @@
 
 <blockquote>
   <p><strong>Stand-in pela bandeira (válido para Visa e Mastercard)</strong>:
-Além das bandeiras, o emissor do cartão também precisa processar o protocolo 3DS 2.0. Caso o emissor ainda não esteja apto a responder um pedido de autenticação usando 3DS 2.0, a bandeira avalia os dados enviados, como por exemplo o histórico transacional e comportamental do portador do cartão, classificando os pedidos de autenticação como “Baixo Risco” e “Não Baixo Risco”. A partir dessas informações, os emissores poderão contar com uma proteção mesmo não possuindo uma solução própria de 3DS 2.0, e terão uma maior confiança nas transações autenticadas. Em casos de <em>stand-in</em>, a autenticação ocorre de forma silenciosa (sem desafio para o portador) e, uma vez que a transação foi autenticada, o <em>liability</em> em caso de fraude ficará com o emissor.</p>
+Além das bandeiras, o emissor do cartão também precisa processar o protocolo 3DS 2.2. Caso o emissor ainda não esteja apto a responder um pedido de autenticação usando 3DS 2.2, a bandeira avalia os dados enviados, como por exemplo o histórico transacional e comportamental do portador do cartão, classificando os pedidos de autenticação como “Baixo Risco” e “Não Baixo Risco”. A partir dessas informações, os emissores poderão contar com uma proteção mesmo não possuindo uma solução própria de 3DS 2.2, e terão uma maior confiança nas transações autenticadas. Em casos de <em>stand-in</em>, a autenticação ocorre de forma silenciosa (sem desafio para o portador) e, uma vez que a transação foi autenticada, o <em>liability</em> em caso de fraude ficará com o emissor.</p>
 </blockquote>
 
 <h2 id="o-que-é-o-data-only--somente-notificação">O que é o Data Only – somente notificação</h2>
@@ -275,7 +275,7 @@ Além das bandeiras, o emissor do cartão também precisa processar o protocolo 
 
 <p>Para usar o Data Only, na <a href="https://braspag.github.io//manual/emv3ds#integra%C3%A7%C3%A3o-do-script-via-javascript">Integração do script</a> parametrize o campo <code class="language-plaintext highlighter-rouge">bpmpi_auth_notifyonly</code> descrito no item <strong>Etapa de Autenticação – passo 3 – Mapeamento de classes</strong>.</p>
 
-<p>No modelo Data Only, os campos adicionais do 3DS 2.0 são mapeados da mesma forma, e enviados para a bandeira, porém, sem solicitar a autenticação.</p>
+<p>No modelo Data Only, os campos adicionais do 3DS 2.2 são mapeados da mesma forma, e enviados para a bandeira, porém, sem solicitar a autenticação.</p>
 
 <blockquote>
   <p>O <strong>Data Only</strong> é válido para as bandeiras Mastercard e Visa.<br />
@@ -1110,7 +1110,7 @@ Para <strong>Data Only Visa, o ECI será sempre 7</strong>.</p>
 
 <p>A imagem mostra um trecho HTML de uma implementação básica:</p>
 
-<p><img src="https://developercielo.github.io/images/exemplo-html.jpg" alt="Fluxo 3DS 2.0" /></p>
+<p><img src="https://developercielo.github.io/images/exemplo-html.jpg" alt="Fluxo 3DS 2.2" /></p>
 
 <h3 id="descrição-dos-eventos">Descrição dos eventos</h3>
 
