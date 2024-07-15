@@ -2371,18 +2371,18 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <p>Se o ECI retornado indicar que o portador não foi autenticado, recomendamos a utilização de Antifraude para analisar o risco da transação.</p>
 
-<p>Caso a loja envie suas transações primeiro para o Antifraude e a análise indique alto risco, recomendamos que o pedido seja encaminhado para autenticação no 3DS 2.</p>
+<p>Caso a loja envie suas transações primeiro para o Antifraude e a análise indique alto risco, recomendamos que o pedido seja encaminhado para autenticação no 3DS 2.2.</p>
 
-<p><strong>Integração do 3DS 2</strong></p>
+<p><strong>Integração do 3DS 2.2</strong></p>
 
 <p>Para integrar a autenticação às suas transações:</p>
 
 <ol>
-  <li><strong>Integre o script do 3DS 2</strong> na sua página de pagamento, conforme <a href="https://developercielo.github.io/manual/3ds" target="\_blank">manual do 3DS</a>;</li>
+  <li><strong>Integre o script do 3DS 2.2</strong> na sua página de pagamento, conforme <a href="https://developercielo.github.io/manual/3ds" target="\_blank">manual do 3DS</a>;</li>
   <li>Na <strong>requisição das transações</strong> de crédito ou débito, <strong>envie o nó adicional</strong> <code class="language-plaintext highlighter-rouge">ExternalAuthentication</code>, conforme exemplos a seguir.</li>
 </ol>
 
-<aside class="notice">A autenticação via 3DS 1.0 foi descontinuada pelas bandeiras. As novas integrações devem seguir o protocolo 3DS 2.</aside>
+<aside class="notice">A autenticação via 3DS 1.0 foi descontinuada pelas bandeiras. As novas integrações devem seguir o protocolo 3DS 2.2.</aside>
 
 <h4 id="cartão-de-crédito-com-autenticação">Cartão de crédito com autenticação</h4>
 
