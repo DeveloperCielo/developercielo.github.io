@@ -294,12 +294,8 @@ Retorna configurações existentes agrupadas por mainMerchantID.
   "type": [
     "SELL",
     "PAYMENT",
-    "ANTECIPATION_CIELO",
-    "ASSIGNMENT",
     "BALANCE",
-    "ANTECIPATION_ALELO",
-    "NRC",
-    "PIX"
+    "NRC"
   ],
   "editStatus": "AVAILABLE"
 }
@@ -308,8 +304,6 @@ Retorna configurações existentes agrupadas por mainMerchantID.
 ## **POST** Registrar merchantID
 
 Registre o ID do lojista(apenas um, uma lista ou todos), com base no número da entidade.
-
-<aside class="warning"><b>Importante! A partir de 22/04/2024, como parte das ações relacionadas à Migração do Extrato Eletrônico da versão 14 para a versão 15, a API de Registro do Extrato (Registrar merchantID - POST /registers) será desabilitada. Qualquer nova ativação deverá ser realizada pelo time de Atendimento EDI diretamente na versão 15. </aside>
 
 ### Request
 
@@ -335,7 +329,7 @@ Registre o ID do lojista(apenas um, uma lista ou todos), com base no número da 
 | `mainMerchantId` | ID principal do cliente.                                                                                                                                        | String |         |             |
 | `merchants`      | Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista ["9999111111", "9999111333"] |        |         |             |
 | `merchantEMail`  | Endereço de e-mail do cliente                                                                                                                                   |        |         |             |
-| `type`           | Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, ANTECIPATION_CIELO                                     |        |         |             |
+| `type`           | Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, BALANCE e NRC                                     |        |         |             |
 
 ### Response
 
@@ -423,7 +417,7 @@ Consulte o MerchantID com base no registerID ou no mainMerchantID.
 | `mainMerchantId`    | ID principal do cliente.                                                                                                                                                                                                                                               | String |         |             |
 | `registerID`        | ID do registro. O mesmo fornecido por /edi/registers                                                                                                                                                                                                                   | String |         |             |
 | `merchants`         | Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista ["9999111111", "9999111333"]                                                                                                        |        |         |             |
-| `type`              | Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, ANTECIPATION_CIELO                                                                                                                                            |        |         |             |
+| `type`              | Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, BALANCE e NRC                                                                                                                                            |        |         |             |
 
 ## **PUT** Atualizar o Registro do merchantID
 
@@ -453,7 +447,7 @@ Atualize o merchantID com base no registerID ou mainMerchantID.
 | `registerID`     | ID do registro. O mesmo fornecido por /edi/registers                                                                                                            | String |         |             |
 | `mainMerchantId` | ID principal do cliente.                                                                                                                                        | String |         |             |
 | `merchants`      | Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista ["9999111111", "9999111333"] |        |         |             |
-| `type`           | Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, ANTECIPATION_CIELO                                     |        |         |             |
+| `type`           | Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, BALANCE e NRC                                     |        |         |             |
 
 ### Response
 
@@ -540,7 +534,7 @@ Com isso, será necessário efetuar um novo GET para saber se você pode ou não
     "registerID": "38724",
     "mainMerchantID": "2006907071",
     "merchants": ["2006907071"],
-    "type": ["SELL", "ASSIGNMENT", "BALANCE"],
+    "type": ["SELL", "BALANCE"],
     "editStatus": "AVAILABLE"
   }
 ]
@@ -557,7 +551,7 @@ Com isso, deverá ser feita uma chamada de PUT /edi no qual, irá fazer a duplic
   "mainMerchantID": "2006907071",
   "registerID": "38724",
   "merchants": ["2006907071"],
-  "type": ["SELL", "ASSIGNMENT"]
+  "type": ["SELL", "PAYMENT"]
 }
 ```
 
