@@ -571,12 +571,8 @@ Em todas as chamadas para as APIs.</p>
   </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="s2">"SELL"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"PAYMENT"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ANTECIPATION_CIELO"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ASSIGNMENT"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"BALANCE"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ANTECIPATION_ALELO"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"NRC"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"PIX"</span><span class="w">
+    </span><span class="s2">"NRC"</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nl">"editStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AVAILABLE"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -585,8 +581,6 @@ Em todas as chamadas para as APIs.</p>
 <h2 id="post-registrar-merchantid"><strong>POST</strong> Registrar merchantID</h2>
 
 <p>Registre o ID do lojista(apenas um, uma lista ou todos), com base no número da entidade.</p>
-
-<aside class="warning">Importante! A partir de 22/04/2024, como parte das ações relacionadas à Migração do Extrato Eletrônico da versão 14 para a versão 15, a API de Registro do Extrato (Registrar merchantID - POST /registers) será desabilitada. Qualquer nova ativação deverá ser realizada pelo time de Atendimento EDI diretamente na versão 15. </aside>
 
 <h3 id="request-2">Request</h3>
 
@@ -653,7 +647,7 @@ Em todas as chamadas para as APIs.</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">type</code></td>
-      <td>Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, ANTECIPATION_CIELO</td>
+      <td>Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, BALANCE e NRC</td>
       <td> </td>
       <td> </td>
       <td> </td>
@@ -896,7 +890,7 @@ Em todas as chamadas para as APIs.</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">type</code></td>
-      <td>Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, ANTECIPATION_CIELO</td>
+      <td>Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, BALANCE e NRC</td>
       <td> </td>
       <td> </td>
       <td> </td>
@@ -973,7 +967,7 @@ Em todas as chamadas para as APIs.</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">type</code></td>
-      <td>Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, ANTECIPATION_CIELO</td>
+      <td>Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, BALANCE e NRC</td>
       <td> </td>
       <td> </td>
       <td> </td>
@@ -1161,7 +1155,7 @@ Em todas as chamadas para as APIs.</p>
     </span><span class="nl">"registerID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"38724"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"mainMerchantID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2006907071"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"merchants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"2006907071"</span><span class="p">],</span><span class="w">
-    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"SELL"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ASSIGNMENT"</span><span class="p">,</span><span class="w"> </span><span class="s2">"BALANCE"</span><span class="p">],</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"SELL"</span><span class="p">,</span><span class="w"> </span><span class="s2">"BALANCE"</span><span class="p">],</span><span class="w">
     </span><span class="nl">"editStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AVAILABLE"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
@@ -1181,7 +1175,7 @@ Em todas as chamadas para as APIs.</p>
   </span><span class="nl">"mainMerchantID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2006907071"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"registerID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"38724"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"merchants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"2006907071"</span><span class="p">],</span><span class="w">
-  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"SELL"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ASSIGNMENT"</span><span class="p">]</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"SELL"</span><span class="p">,</span><span class="w"> </span><span class="s2">"PAYMENT"</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
