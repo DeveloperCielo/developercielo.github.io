@@ -178,7 +178,7 @@ Somente quando clicar em aplicar é que os filtros serão de fato computados par
 
 ## Cadastro de taxas acordadas com a adquirente
 
-Você sabia que além de todas as funcionalidades de gestão e eficiência financeira, o F360 Finanças também possui um recurso que possibilita a conciliação automática de cartões de débito e crédito que permitem uma **apuração real das taxas cobradas pelas administradoras, realizando uma conferência entre as taxas combinadas com as cobradas**?
+Você sabia que além de todas as funcionalidades de gestão e eficiência financeira, o Cielo Conciliador também possui um recurso que possibilita a conciliação automática de cartões de débito e crédito que permitem uma **apuração real das taxas cobradas pelas administradoras, realizando uma conferência entre as taxas combinadas com as cobradas**?
 
 Para utilizar esse recurso, basta fazer o **cadastro das taxas de cartões corretamente**! O processo é super simples e prático, e caso apareça alguma divergência, você pode reunir estas informações para solicitar a correção diretamente com a operadora. 
 Além de disso, há diversos outros benefícios desse recurso, como:
@@ -212,23 +212,23 @@ Durante o cadastro de uma taxa, você também pode criar taxas diferentes para c
  
 ## ATENÇÃO:
 
-Quando o cadastro da taxa é criado ou modificado, o módulo F360 Finanças irá rodar uma rotina em segundo plano em todos os registros do histórico de vendas para calcular a diferença entre a taxa acordada e a taxa realizada pelas adquirentes.   
+Quando o cadastro da taxa é criado ou modificado, o Cielo Conciliador irá rodar uma rotina em segundo plano em todos os registros do histórico de vendas para calcular a diferença entre a taxa acordada e a taxa realizada pelas adquirentes.   
 Esse processo poderá levar até **24h dia para ser concluído**. Somente após esse período o sistema irá atualizar as pendências indicadas na dashboard no indicador de “Adquirente e Taxas“.
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós!
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós!
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Como configurar sua regra de usuários1. **O que são regras de usuários?**
 
-Regras de usuários são configurações que permitem ao administrador do seu grupo empresarial definir o que cada usuário terá acesso dentro da plataforma F360 - Finanças.
+Regras de usuários são configurações que permitem ao administrador do seu grupo empresarial definir o que cada usuário terá acesso terá acesso ao Cielo Conciliador.
 Por meio dessas configurações é possível definir que um grupo X de usuários terá acesso apenas à tela de Fechamento de Caixa, enquanto um grupo Y terá acesso às telas de Conciliação de Cartões e Conciliação Bancária, por exemplo.
 Os níveis de especificação das regras irão variar de acordo com as necessidades de cada grupo. Será possível, por exemplo, dizer que um grupo de usuários tem acesso a tela de Contas a Receber, mas não pode editar uma receita, enquanto outro grupo também tem acesso à mesma tela, porém pode editar lançamentos.
-Com isso, as variações de perfis de usuários são quase ilimitadas, dando total liberdade ao gestor em definir o que cada pessoa tem acesso dentro da F360 - Finanças. 2. **Como cadastrar uma regra de usuário:**
+Com isso, as variações de perfis de usuários são quase ilimitadas, dando total liberdade ao gestor em definir o que cada pessoa tem acesso dentro do Cielo Conciliador. 2. **Como cadastrar uma regra de usuário:**
 O cadastro de Regras de Usuários é bem simples e intuitivo, porém o tempo para criar uma regra de usuário pode variar bastante de acordo com o nível de critérios que serão adotados durante o cadastro.
 Para facilitar o cadastro, nós criamos três perfis de usuários padrões no sistema: **operador**, **aprovador**e **administrador**. Esses três perfis seguem uma configuração bem parecida com a forma antiga que o sistema tratava as regras de usuários.
-Segue o passo a passo de como cadastrar uma nova regra de usuário: 1. Entre na plataforma F360 - Finanças com um **perfil de administrador**. Acesse a barra superior de cadastros e clique na opção “Regra de Usuários” para abrir a tela de perfis de usuários. 2. No lado inferior esquerdo da página, clique no botão “Criar”. A seguinte tela irá aparecer para você:
+Segue o passo a passo de como cadastrar uma nova regra de usuário: 1. Entre no Cielo Conciliador  com um **perfil de administrador**. Acesse a barra superior de cadastros e clique na opção “Regra de Usuários” para abrir a tela de perfis de usuários. 2. No lado inferior esquerdo da página, clique no botão “Criar”. A seguinte tela irá aparecer para você:
 ![mceclip0.png](https://f360.zendesk.com//hc/article_attachments/360054990734/mceclip0.png)
 
 **Figura 1**. Tela de configuração de regras de usuários.
@@ -252,9 +252,9 @@ Segue um exemplo de como fica um perfil de usuário 100% configurado:
 
 **Figura 5**. Detalhando as opções disponíveis nas telas de relatórios.5. Após completar o preenchimento da regra conforme sua necessidade, clique no botão “Salvar”.Pronto! Agora você já tem uma regra de usuário personalizada na plataforma.3. 
 
-**Como vincular uma regra com um usuário da F360 - Finanças:**
+**Como vincular uma regra com um usuário do Cielo Conciliador:**
 Fazer o vinculo de uma regra cadastrada com um usuário do sistema é muito simples. Para isso, faça:
-1. Com um **perfil de administrador** da F360 - Finanças, acesse a barra superior de cadastros e clique na opção “Usuários”. Será aberta a tela de cadastro de usuários do sistema.
+1. Com um **perfil de administrador** do Cielo Conciliador, acesse a barra superior de cadastros e clique na opção “Usuários”. Será aberta a tela de cadastro de usuários do sistema.
 2. Localize e selecione o usuário desejado e clique no botão “Perfil” localizado na barra inferior do sistema.
 3. Na página de edição do usuário, informe o perfil desejado e clique em “Salvar”.
 ![](https://f360.zendesk.com//hc/article_attachments/13142983689623.png)
@@ -269,21 +269,21 @@ Segue uma descrição de outras facilidades disponibilizadas pela tela de cadast
 * **Excluir regra de usuário**: Caso uma regra não esteja mais sendo utilizada, o sistema também permite que ela seja excluída. 
  -----
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
- ## Centro de Custos - Franqueadores DisponíveisAlgumas lojas são de Marcas Homologadas F360. Como exemplo, podemos incluir Boticário, Havaianas, Usaflex e mais. Essas marcas são parceiras estratégicas que possuem uma plataforma própria chamada Painel da Franqueadora que nada mais é que um consolidador de informações de suas franquias que permitem a transferência de dados.
+**Equipe Cielo Conciliador**
+ ## Centro de Custos - Franqueadores DisponíveisAlgumas lojas são de Marcas Homologadas Cielo Conciliador. Como exemplo, podemos incluir Boticário, Havaianas, Usaflex e mais. Essas marcas são parceiras estratégicas que possuem uma plataforma própria chamada Painel da Franqueadora que nada mais é que um consolidador de informações de suas franquias que permitem a transferência de dados.
 Esses dados alimentam a análise da franqueadora ao passo que não interfere na usabilidade e independência do franqueado em se tratando de suas próprias informações. Desta maneira, a comunicação entre as duas partes se torna mais fácil e sem atritos.
 Nas Configurações de Centro de Custo também podemos realizar o vínculo com diretamente com a Franqueadora para aqueles centros de custos que não são de apenas uma loja específica. Ou seja, os valores que anteriormente eram de uma marca específica, mas que não eram vinculados a um único CNPJ (Como por exemplo, central administrativa), agora poderão passar para o controle da franqueadora. **Somente os valores desta marca passarão para a Franqueadora.**
 Assim, entramos no assunto. A inclusão da Franqueadora no campo Franqueadores Disponíveis na hora de criar um centro de custo é crucial para a passagem de informações entre franquia e franqueadora. Com este campo preenchido, a franqueadora conseguiria analisar os DREs de um grupo de franquias, por exemplo.
  
 ![1.jpg](https://f360.zendesk.com//hc/article_attachments/8865578980503/1.jpg)
-Para os grupos que possuem lojas de uma dessas marcas parceiras F360, ao criar um centro de custo, esse último campo *"Franqueadores disponíveis'*aparecerá e pedirá que seja preenchido. Deste modo, levando as informações deste centro de custo automaticamente para a franqueadora.
+Para os grupos que possuem lojas de uma dessas marcas parceiras Cielo Conciliador, ao criar um centro de custo, esse último campo *"Franqueadores disponíveis'*aparecerá e pedirá que seja preenchido. Deste modo, levando as informações deste centro de custo automaticamente para a franqueadora.
  
 ## Menu de cadastro - Empresas e filiaisCadastro de Empresas
 
 Tem como objetivo o cadastro de cada empresa do grupo, assim como a configuração dos seus dados dos cartões e outras informações.   
-O cadastramento inicial da sua empresa é feito pelo BackOffice da F360° - Finanças, porém quando você abre uma nova Empresa, é preciso que envie a solicitação para o nosso [suporte@f360.com.br,](mailto:suporte@f360.com.br,) para o Pré-Onboarding realizar a liberação de Cadastro. Mas, o cadastro a ser realizado é pelo usuário, visto que após a implantação não temos mais acesso a base de clientes.
+O cadastramento inicial da sua empresa é feito pelo BackOffice do Cielo Conciliador, porém quando você abre uma nova Empresa, é preciso que envie a solicitação para o nosso [cieloconciliador@cielo.com.br,](mailto:cieloconciliador@cielo.com.br,) para o Pré-Onboarding realizar a liberação de Cadastro. Mas, o cadastro a ser realizado é pelo usuário, visto que após a implantação não temos mais acesso a base de clientes.
  
 Para realizar o cadastro de uma empresa, o primeiro passo é criar um centro de custo, abaixo segue o link de como realizar esse cadastro.
 [Menu de Cadastro - Centros de custo](https://f360.zendesk.com//hc/pt-br/articles/360044673214)
@@ -296,9 +296,9 @@ Após a criação de centro de custos e contas, você já pode realizar o cadast
 <https://youtu.be/jGfGyw9v4xg>
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360.**
+**Equipe Cielo Conciliador.**
  
 ## Como cadastrar o Aluguel de POS 
 
@@ -309,9 +309,9 @@ Acesse Menu de Cadastros > Empresas e Filiais > Selecione a empresa e clique aba
 ![Cadastro_POS.gif](https://f360.zendesk.com//hc/article_attachments/360094231074/Cadastro_POS.gif)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360°.**
+**Equipe Cielo Conciliador.**
  
 ## Menu de Cadastro - Regra de rateio
 
@@ -335,9 +335,9 @@ A regra pode ser com o mesmo centro de custo e planos de contas diferentes.
 ![mceclip2.png](https://f360.zendesk.com//hc/article_attachments/360061202914/mceclip2.png)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360.**
+**Equipe Cielo Conciliador.**
 
 ## Regra de Usuário Nova Dashboard
 
@@ -345,10 +345,10 @@ Neste artigo vamos explicar como funcionam as regras de usuários para a nova Da
 
 **2. O que são regras de usuários?**
  
-Regras de usuários são configurações que permitem ao administrador do seu grupo empresarial definir o que cada usuário terá acesso dentro da plataforma F360 Finanças.
+Regras de usuários são configurações que permitem ao administrador do seu grupo empresarial definir o que cada usuário terá acesso ao Cielo Conciliador.
 Por meio dessas configurações é possível definir que um grupo X de usuários terá acesso apenas à tela de Fechamento de Caixa, enquanto um grupo Y terá acesso às telas de Conciliação de Cartões e Conciliação Bancária, por exemplo.
 Os níveis de especificação das regras irão variar de acordo com as necessidades de cada grupo. Será possível, por exemplo, dizer que um grupo de usuários tem acesso a tela de Contas a Receber, mas não pode editar uma receita, enquanto outro grupo também tem acesso à mesma tela, porém pode editar lançamentos.
-Com isso, as variações de perfis de usuários são quase ilimitadas, dando total liberdade ao gestor em definir o que cada pessoa tem acesso dentro da F360 Finanças.
+Com isso, as variações de perfis de usuários são quase ilimitadas, dando total liberdade ao gestor em definir o que cada pessoa tem acesso dentro da Cielo Conciliador.
 Se não souber como configurar as regras de usuários, por favor consulte este artigo antes de configurar as regras de acesso da dashboard.
  
 Como configurar suas regras de usuários:
@@ -365,7 +365,7 @@ Para liberar a visualização do usuário que possui essa regra, na coluna de **
  
 ![](https://lh5.googleusercontent.com/x7Mu65v-XKZ0igrPS6qorcwRS2r-ic3bPupn3AESklhjO0oMwt-X-ndq1z5FQRw_R1dnb8MWjxqfUbRbwj78ZZKLEXyqHwuSrRuNyrhwXM5VxGRsZOHwSttEaetz-781VAZx-PC425-DKTjjP6Yft_fNuC4Y4iW-.html; charset=UTF-8)
  
-**Importante**: após criar ou fazer alterações nas regras de usuários é necessário que o usuário conectado ao F360 Finanças, **desconecte** e **conecte** novamente para que as alterações sejam aplicadas.
+**Importante**: após criar ou fazer alterações nas regras de usuários é necessário que o usuário conectado ao Cielo Conciliador, **desconecte** e **conecte** novamente para que as alterações sejam aplicadas.
  
 **3. Como estão configuradas as regras da nova Dashboard?**
  
@@ -481,13 +481,13 @@ Você tem a opção de ocultar esta conta para algum tipo de perfil de usuário,
 Em Menu de Cadastros > Empresas e Filiais > Selecione a Empresa e clique abaixo em editar e na aba de Outras Informações no campo de Contas, vincule a conta recém criada.
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail [suporte@f360.com.br](mailto:suporte@f360.com.br) e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail [cieloconciliador@cielo.com.br](mailto:cieloconciliador@cielo.com.br) e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360°.**
+**Equipe Cielo Conciliador.**
 
 ## Importação de Clientes e Fornecedores
 
-É possível manipular os dados de Clientes e Fornecedores através da importação de planilhas Excel na plataforma F360.
+É possível manipular os dados de Clientes e Fornecedores através da importação de planilhas Excel no Cielo Conciliador.
 Para realizar o upload da planilha para inserir Clientes e Fornecedores, basta acessar no menu a opção "Upload de Arquivos" e baixar o novo modelo de importação:
 ![](https://f360.zendesk.com//hc/article_attachments/21411437256855.png)
 No arquivo, cada coluna possui em suas observações os detalhes do preenchimento:
@@ -503,7 +503,7 @@ O sistema vai considerar os filtros em tela para geração do relatório. É pos
 **Coluna "ação"**Agora o arquivo de "Clientes e Fornecedores" poderá tanto inserir ou editar um "cliente e fornecedor"
 **![](https://f360.zendesk.com//hc/article_attachments/21411437269783.png)**
 ![](https://f360.zendesk.com//hc/article_attachments/21411525166871.png)
-## Criar Plano de Contas por importação de arquivoNa Plataforma do F360 Finanças é possível realizar cadastro de Planos de Contas à partir da importação de uma planilha.
+## Criar Plano de Contas por importação de arquivoNa Plataforma do Cielo Conciliador é possível realizar cadastro de Planos de Contas à partir da importação de uma planilha.
 Para baixar a planilha, basta ir em ***Menu de Cadastros*** e ***Upload de Arquivos*** realizar o download:
 ![](https://f360.zendesk.com//hc/article_attachments/14123290844823.png)
  
@@ -529,16 +529,16 @@ Caso precise criar um novo, vá em Menu de cadastros > Centros de custos > cliqu
 ![centro_de_custos.gif](https://f360.zendesk.com//hc/article_attachments/360092782774.gif)
  
 **Para lojas que pertencem a alguma Marca Homologada:**
-Um novo campo poderá aparecer para você caso a loja escolhida pertença a uma Marca que é Homologada F360. O campo é o de *'Franqueadores disponíveis'.*
+Um novo campo poderá aparecer para você caso a loja escolhida pertença a uma Marca que é Homologada Cielo Conciliador. O campo é o de *'Franqueadores disponíveis'.*
 ![image__13_.png](https://f360.zendesk.com//hc/article_attachments/8854133868311.png)
 É importante preencher este campo quando possível. Ao preencher, o Centro de Custo será relacionado àquela franqueadora selecionada e isso permitirá que as informações pertencentes a este CC poderão ser enviadas de modo mais facilitado para a Marca.
  
 Para entender melhor, [entre aqui](https://f360.zendesk.com//hc/pt-br/articles/8865364018583)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360.**
+**Equipe Cielo Conciliador.**
 
 ## Menu de Cadastro - Clientes e fornecedores 
 Esta é a tela aonde você pode cadastrar todos os seus clientes e fornecedores, sendo pessoa física ou jurídica. Podem ser cadastrados também com a opção de “ambos” onde a pessoa física ou jurídica é cliente e fornecedor ao mesmo tempo (dessa maneira, você consegue lançar tanto contas á receber como contas á pagar selecionando esse cliente/fornecedor).
@@ -552,9 +552,9 @@ Os planos de contas possíveis são os demais planos que estarão disponíveis p
 ![mceclip0.png](https://f360.zendesk.com//hc/article_attachments/360062094413/mceclip0.png)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360°.**
+**Equipe Cielo Conciliador.**
 
 ## Como converter o certificado de P12 para PFX?* 
 
@@ -591,13 +591,13 @@ Feito isso, você poderá realizar a **Inclusão do Certificado Digital no Finan
 Menu de cadastro **>** Integrações **>** Criar > Selecione WebService NFe > Selecione o certificado salvo em seu computador, digite a senha e selecione a empresa que se refere esse certificado.
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360.**
+**Equipe Cielo Conciliador.**
 
 ## Cadastro de Adquirente
 
-O primeiro passo para liberação de arquivos da sua adquirente, é preciso que entre em contato com o nosso suporte através do chat ou e-mail: [suporte@f360.com.br](mailto:suporte@f360.com.br) informando os seguintes dados:
+O primeiro passo para liberação de arquivos da sua adquirente, é preciso que entre em contato com o nosso suporte através do chat ou e-mail: [cieloconciliador@cielo.com.br](mailto:cieloconciliador@cielo.com.br) informando os seguintes dados:
 * **Razão Social.**
 * **CNPJ.**
 * **Data da primeira venda.**
@@ -617,9 +617,9 @@ Após preencher a aba de Dados dos Cartões, acesse a aba de Outras Informaçõe
 **![mceclip5.png](https://f360.zendesk.com//hc/article_attachments/11787831668119.png)**
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail [suporte@f360.com.br](mailto:suporte@f360.com.br) e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail [cieloconciliador@cielo.com.br](mailto:cieloconciliador@cielo.com.br) e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360°.**
+**Equipe Cielo Conciliador.**
 
 ## Como configurar o Finanças Flex 
 
@@ -658,9 +658,9 @@ A qualquer momento você pode criar um plano de contas,  indo em Menu de cadast
 ![plano_de_contas.gif](https://f360.zendesk.com//hc/article_attachments/360095539413/plano_de_contas.gif)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail [suporte@f360.com.br](mailto:suporte@f360.com.br) e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail [cieloconciliador@cielo.com.br](mailto:cieloconciliador@cielo.com.br) e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360°.**
+**Equipe Cielo Conciliador.**
 
 # DRE
 
@@ -696,9 +696,9 @@ E-mail quando aprovar a(s) solicitação(ões).
 E-mail quando rejeitar a(s) solicitação(ões).
 ![mceclip15.png](https://f360.zendesk.com//hc/article_attachments/11437403082903.png)
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360.**
+**Equipe Cielo Conciliador.**
 
 ## Solicitação de ajuste de De-Para
 
@@ -745,22 +745,22 @@ E-mail quando rejeitar a(s) solicitação(ões).
 ![emailRejeitado.png](https://f360.zendesk.com//hc/article_attachments/11319011192471.png)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360°.**
+**Equipe Cielo Conciliador.**
 
 ## Como configurar e utilizar a DRE1. **Introdução**
-Esse documento possui a finalidade de demonstrar todos os processos de configuração e utilização da DRE dentro da plataforma F360.
-A  (DRE) é um relatório dinâmico destinado a evidenciar a formação do resultado líquido em um exercício, por meio do confronto das receitas, custos e resultados.    2.**1. Como Funciona**Na F360, a DRE pode ser obtida em **Regime de Competência** ou **Regime de Caixa**. Na primeira opção, o relatório utiliza a data de competência das receitas e das despesas para demonstrar os resultados. Já na segunda opção, o parâmetro de pesquisa é a data de vencimento ou pagamento dos títulos. Para garantir dinamismo, o usuário pode selecionar sua preferência no momento da pesquisa.
+Esse documento possui a finalidade de demonstrar todos os processos de configuração e utilização da DRE dentro do Cielo Conciliador.
+A  (DRE) é um relatório dinâmico destinado a evidenciar a formação do resultado líquido em um exercício, por meio do confronto das receitas, custos e resultados.    2.**1. Como Funciona**no Cielo Conciliador, a DRE pode ser obtida em **Regime de Competência** ou **Regime de Caixa**. Na primeira opção, o relatório utiliza a data de competência das receitas e das despesas para demonstrar os resultados. Já na segunda opção, o parâmetro de pesquisa é a data de vencimento ou pagamento dos títulos. Para garantir dinamismo, o usuário pode selecionar sua preferência no momento da pesquisa.
 Também é possível informar a Data Inicial e da Data Final da pesquisa, selecionar as Empresas, os Centros de Custos e o Status dos registros. Outra facilidade encontrada na DRE é a possibilidade de realização de Analise Horizontal, onde a plataforma, conforme a necessidade e escolha dos usuários, realiza uma comparação entre períodos, empresas ou centros de custos.
-Para garantir que os resultados sejam obtidos e visualizados conforme a necessidade de cada Grupo Empresarial, a DRE é 100% configurada e personalizada pelos usuários da própria rede. Após a parametrização inicial, os usuários poderão aproveitar de todas as facilidades da demonstração de resultados que a F360 pode oferecer. 
+Para garantir que os resultados sejam obtidos e visualizados conforme a necessidade de cada Grupo Empresarial, a DRE é 100% configurada e personalizada pelos usuários da própria rede. Após a parametrização inicial, os usuários poderão aproveitar de todas as facilidades da demonstração de resultados que o Cielo Conciliador pode oferecer. 
 A tela da DRE é dividida em três abas, conforme descrição a seguir:* **DRE**: Nessa aba, o usuário poderá realizar todas as pesquisas da DRE e utilizar os filtros disponíveis na tela para garantir o relatório seja exibido da maneira desejada.
 * **Configurações da DRE**: Nessa aba, o usuário poderá criar ou editar um modelo da DRE. Por meio dessas configurações é possível definir níveis hierárquicos para cada linha, selecionar os Planos de Contas a serem somados, e muitas outras parametrizações.
 * **Valores da DRE**: Nessa aba, o usuário pode informar manualmente o valor que deseja visualizar em determinada linha da DRE. Para isso é necessário selecionar a empresa, o centro de custo e a data de competência do valor informado.
 3. **Configuração da DRE**
 A seguir serão demonstrados os passos para criar um novo modelo de DRE, criar linhas hierárquicas, configurar as linhas e definir os estilos de visualização das DREs.
 3. **1. Criar Novo Modelo**
-Segue as etapas a serem seguidas para criar uma nova DRE na plataforma F360: 1. Entre na tela da nova DRE e acesse a aba “Configurações da DRE”.
+Segue as etapas a serem seguidas para criar uma nova DRE no Cielo Conciliador: 1. Entre na tela da nova DRE e acesse a aba “Configurações da DRE”.
 2. Clique no botão “Nova DRE” localizado no canto esquerdo da barra inferior da plataforma.
 3. Defina um nome para seu modelo de DRE e clique em “Salvar”. 3. **2. Cadastrar Linhas para o Modelo**
 Após a criação de um novo modelo da DRE, escolha o modelo da DRE que você deseja configurar. Clique no botão “Novo” localizado no centro da barra inferior do sistema. Essa opção irá abrir a tela de configuração de uma nova linha para o seu modelo de DRE.![mceclip0.png](https://f360.zendesk.com//hc/article_attachments/11402082563607.png)Para continuar a criação de uma nova linha, faça:
@@ -826,9 +826,9 @@ mceclip15.pngE a seguir, segue um exemplo de preenchimento da Analise Vertical, 
  mceclip17.png
 -----
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360º.**
+**Equipe Cielo Conciliador.**
 
 ## Exportar Detalhes do DRE
 
@@ -852,13 +852,13 @@ Ao visualizar os detalhes de um valor, é permitido aos usuários com permissõe
 **![gif_de_detalhes_da_DRE.gif](https://f360.zendesk.com//hc/article_attachments/5972906576407/gif_de_detalhes_da_DRE.gif)**
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360°**
+**Equipe Cielo Conciliador**
  
 ## Como utilizar os movimentos do PDV no relatório da DRE
 
-Esse artigo irá demonstrar todas as etapas de configurações no módulo F360 Finanças para que você consiga utilizar os registros que estão do **Fechamento de Caixa** em sua **DRE**. Vamos lá?
+Esse artigo irá demonstrar todas as etapas de configurações no Cielo Conciliador para que você consiga utilizar os registros que estão do **Fechamento de Caixa** em sua **DRE**. Vamos lá?
  
 1 - Faça a parametrização dos planos de contas dentro das empresas:
 ![configuracao-empresa.gif](https://f360.zendesk.com//hc/article_attachments/360100273193/configuracao-empresa.gif)
@@ -867,21 +867,21 @@ Esse artigo irá demonstrar todas as etapas de configurações no módulo F360 F
 3. Informe um plano de contas padrão que deverá ser usado para todas as modalidades dos seus registros de PDV e depois clique no botão **Editar plano de contas por modalidade** caso deseje selecionar um plano de contas diferente para os registros de alguma modalidade.
 4. Nessa tela de edição de plano de contas por modalidade você também poderá selecionar a opção para ignorar todas as vendas de uma determinada modalidade para que esses registros não vão para a DRE (exemplo: você deseja que as vendas da modalidade **Outras Receitas** não entrem em sua DRE, então você poderá selecionar essa última opção da tabela para ignorar essas vendas).
 5. Depois de fazer as parametrizações necessárias, clique em **Salvar** a empresa e repita o processo para as empresas desejadas.
-**ATENÇÃO:** Após salvar as alterações, a plataforma da F360 irá atualizar em *background* todo o histórico de lançamentos das suas vendas de PDV para refletir os planos de contas selecionados. Essa primeira atualização poderá levar algumas horas para concluir, mas não se preocupe que iremos enviar um *e-mail* assim que o processo for finalizado.
+**ATENÇÃO:** Após salvar as alterações, o Cielo Conciliador irá atualizar em *background* todo o histórico de lançamentos das suas vendas de PDV para refletir os planos de contas selecionados. Essa primeira atualização poderá levar algumas horas para concluir, mas não se preocupe que iremos enviar um *e-mail* assim que o processo for finalizado.
  
 2 - Faça a parametrização da sua DRE:
 ![dre_pdv_2__1_.gif](https://f360.zendesk.com//hc/article_attachments/9215820280087/dre_pdv_2__1_.gif)
 1. Entre na tela de **DRE**, acesse a aba **Configurações da DRE** e selecione a linha da DRE desejada (ou crie uma nova).
 2. Na aba **Configurações da Linha**, informe os planos de contas desejados e selecione a opção **Deseja que esses valores sejam buscados pelos PDV's importados na tela de fechamento de caixa** e no campo de **Considerar na linha da DRE os seguintes Tipos de Operação,** selecione o tipo de operação para ser apresentada na linha.
 3. Clique no botão **Salvar** e a partir disso os valores dos lançamentos do PDV estarão presentes em sua DRE nas linhas onde foi feita essa parametrização.
-**ATENÇÃO:** Ao fazer essa parametrização, o sistema irá computar o valor dessas linhas pela soma dos lançamentos do PDV conforme os planos de contas que foram configurados na tela de empresas e filiais. Por padrão, o módulo F360 Finanças utiliza os dados das telas de contas a receber e contas a pagar para computar a DRE, mas iremos ignorar os registros dessas telas e considerar apenas as informações disponíveis na aba **Movimentos** do **Fechamento de Caixa** *(apenas para as linhas onde foram feitas essas parametrizações, as outras linhas da DRE irão continuar com o comportamento padrão da plataforma)*.
+**ATENÇÃO:** Ao fazer essa parametrização, o sistema irá computar o valor dessas linhas pela soma dos lançamentos do PDV conforme os planos de contas que foram configurados na tela de empresas e filiais. Por padrão, o Cielo Conciliador utiliza os dados das telas de contas a receber e contas a pagar para computar a DRE, mas iremos ignorar os registros dessas telas e considerar apenas as informações disponíveis na aba **Movimentos** do **Fechamento de Caixa** *(apenas para as linhas onde foram feitas essas parametrizações, as outras linhas da DRE irão continuar com o comportamento padrão da plataforma)*.
 
 ## Lançamento CMV manual 
 
-Nesse artigo vamos abordar a configuração e lançamento do CMV na plataforma F360 Finanças.
+Nesse artigo vamos abordar a configuração e lançamento do CMV na plataforma Cielo Conciliador.
  
 É recomendado que o valor do CMV seja lançado manualmente na plataforma. O cálculo dele envolve alguns conceitos de estoque e por isso não se deve simplesmente vincular o plano de contas de "Compras de mercadorias" na sua linha de CMV da DRE.
-Este cálculo deve ser feito à parte e depois inserido na DRE da plataforma F360 Finanças. Para realizar o lançamento, basta seguir os passos abaixo:
+Este cálculo deve ser feito à parte e depois inserido na DRE do Cielo Conciliador. Para realizar o lançamento, basta seguir os passos abaixo:
  
 **O primeiro passo é ativar o "valor manual" a linha de CMV na aba de Configurações.**
 Vá em DRE > Aba Configuração da DRE > selecione o modelo da sua DRE > encontre sua linha de CMV > selecione-a e clique em editar > Aba configuração da linha > Ative o valor manual e marque a opção "apenas valores negativos" (isso garante a segurança para que não seja possível realizar lançamentos positivos nessa linha).
@@ -895,7 +895,7 @@ Em seguida, selecione o valor zerado na frente da empresa que deseja lançar o v
 ![Lan_amento_CMV.gif](https://f360.zendesk.com//hc/article_attachments/4404188991767/Lan_amento_CMV.gif)  
   Assim que o valor aparecer na frente da empresa nesta tela, o valor também já estará na sua pesquisa da DRE na aba Principal.
  
-Qualquer dúvida estamos à disposição no chat integrado na plataforma ou no [suporte@f360.com.br](mailto:suporte@f360.com.br) 🚀
+Qualquer dúvida estamos à disposição no chat integrado na plataforma ou no [cieloconciliador@cielo.com.br](mailto:cieloconciliador@cielo.com.br) 🚀
 
  * [config CMV.gif](https://f360.zendesk.com//hc/pt-br/article_attachments/4404188423831)2 MB
 [Baixar](https://f360.zendesk.com//hc/pt-br/article_attachments/4404188423831)
@@ -921,9 +921,9 @@ Preparamos um passo a passo de como você pode extrair esse arquivo de sua conta
 ![mceclip4.png](https://f360.zendesk.com//hc/article_attachments/360062452653/mceclip4.png)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360.**
+**Equipe Cielo Conciliador.**
  
 ## Como alterar a senha de acesso 
 
@@ -932,20 +932,20 @@ Para realizar a alteração da senha do seu perfil, você pode realizar o proces
 ![alterando_a_senha_de_acesso.gif](https://f360.zendesk.com//hc/article_attachments/360096500053/alterando_a_senha_de_acesso.gif)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Como configurar sua base para inserir Folha de Pagamento Manad
 
-Para inserir o arquivo de Folha Manad, você deve primeiramente configurar sua base e pensando na melhor forma de ensinar, a F360 preparou os vídeos explicativos abaixo:
-**Manual Folha de Pagamento Manad - F360° - Parte 01/03**
-**Manual Folha de Pagamento Manad - F360° - Parte 02/03**
-**Manual Folha de Pagamento Manad - F360° - Parte 03/03**
+Para inserir o arquivo de Folha Manad, você deve primeiramente configurar sua base e pensando na melhor forma de ensinar, o Cielo Conciliador preparou os vídeos explicativos abaixo:
+**Manual Folha de Pagamento Manad - Cielo Conciliador - Parte 01/03**
+**Manual Folha de Pagamento Manad - Cielo Conciliador - Parte 02/03**
+**Manual Folha de Pagamento Manad - Cielo Conciliador - Parte 03/03**
 ---------------------------------------------------------------Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Como exportar o arquivo de Extrato Bancário (OFX) do Banco do Brasil
 
@@ -961,30 +961,30 @@ Preparamos um passo a passo de como você pode extrair esse arquivo de sua conta
 ![mceclip2.png](https://f360.zendesk.com//hc/article_attachments/360062003694/mceclip2.png)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360.**
+**Equipe Cielo Conciliador.**
 
 ## Compartilhamento de dados com o Painel do Franqueador
 
-O compartilhamento de dados entre F360 Finanças e F360 Painel facilita a colaboração e a parceria entre Franqueado e Franqueador. Na F360 os produtos estão sempre em evolução, passando por melhorias e mudanças para se aperfeiçoarem cada vez mais para proporcionar uma rotina de trabalho eficiente e colaborativa.
-A grande vantagem de usar a tecnologia da F360 voltada para o compartilhamento de dados é a possibilidade de automatizar grande parte de processos que tomam um tempo considerável quando feitos manualmente e reduzir erros.
+O compartilhamento de dados entre F360 e F360 Painel facilita a colaboração e a parceria entre Franqueado e Franqueador. no Cielo Conciliador os produtos estão sempre em evolução, passando por melhorias e mudanças para se aperfeiçoarem cada vez mais para proporcionar uma rotina de trabalho eficiente e colaborativa.
+A grande vantagem de usar a tecnologia do Cielo Conciliador voltada para o compartilhamento de dados é a possibilidade de automatizar grande parte de processos que tomam um tempo considerável quando feitos manualmente e reduzir erros.
 O franqueado ganha na otimização de processos e na rotina de trabalho no geral, reduzindo o volume de trabalho no envio desses dados solicitados pelas Franqueadoras e que fica sujeito a erros que podem causar vários problemas, como a confusão na digitação de um valor, ou de um dígito bancário além do trabalho. 
 Nós entendemos a dificuldade de extrair, filtrar e padronizar as informações para envio às franqueadoras.
-Então, se sua franqueadora utiliza o F360 Painel, o seu contrato de utilização do F360 Finanças possuirá uma cláusula de compartilhamento de dados com o objetivo de fornecer dados para que a franqueadora auxilie na gestão e verificação se os padrões da marca estão sendo seguidos. 
+Então, se sua franqueadora utiliza o F360 Painel, o seu contrato de utilização do Cielo Conciliador possuirá uma cláusula de compartilhamento de dados com o objetivo de fornecer dados para que a franqueadora auxilie na gestão e verificação se os padrões da marca estão sendo seguidos. 
 O cuidado com suas finanças é fundamental para o sucesso do seu grupo.
 Por meio das informações compartilhadas no F360 Painel, o franqueador pode avaliar os resultados do negócio. Tanto em relação à franquia, quanto considerando todo o espectro do grupo da franchising. Assim, o franqueador pode desenvolver novos métodos e aprimorar seus serviços baseado em dados.
 Outra grande vantagem do Compartilhamento de Dados que destacamos é que não tem custo adicional para que o Franqueado envie dados ao Painel. 
 As análises podem ajudar a consultoria de campo, o que normalmente utiliza um profissional com ampla visão do negócio, conhecimento das melhores práticas e das ações necessárias para que bons resultados sejam alcançados.
-Deste modo, o franqueado poderá se valer dos diferenciais competitivos desenvolvidos pela F360 para o compartilhamento de dados entre os módulos F360 Finanças e F360 Painel do Franqueador em tempo real. Isso acelera muito o processo de comunicação e ajuda as duas partes com agilidade, eficiência e facilidade no dia a dia.
+Deste modo, o franqueado poderá se valer dos diferenciais competitivos desenvolvidos pelo Cielo Conciliador para o compartilhamento de dados entre os módulos Cielo Conciliador e F360 Painel do Franqueador em tempo real. Isso acelera muito o processo de comunicação e ajuda as duas partes com agilidade, eficiência e facilidade no dia a dia.
  
 **Quais dados afinal são compartilhados com o F360 Painel do Franqueador?**
-* CNPJ e Razão Social de todas as lojas pertencentes às marcas da Franqueadora cadastradas no F360 Finanças;
-* Nome de todas as contas criadas a partir do Plano de Contas do F360 Finanças pelo Franqueado;
+* CNPJ e Razão Social de todas as lojas pertencentes às marcas da Franqueadora cadastradas no Cielo Conciliador;
+* Nome de todas as contas criadas a partir do Plano de Contas do Cielo Conciliador pelo Franqueado;
 * Detalhes dos títulos / cartões / meios de pagamento lançados no Plano de Contas relacionado;
-* Valores lançados nas contas criadas pelo Franqueado a partir do Plano de Contas ou linhas manuais do DRE do F360 Finanças.
+* Valores lançados nas contas criadas pelo Franqueado a partir do Plano de Contas ou linhas manuais do DRE do Cielo Conciliador.
 * Índice de Usabilidade do Finanças.
-A seguir detalhamos como funciona o compartilhamento de dados entre F360 Finanças e F360 Painel. É importante que a empresa utilize estrutura e organização interna de dados que a F360 proporciona e incentive seu uso da maneira correta para que sua equipe e o Franqueador sempre tenham acesso às informações importantes.
+A seguir detalhamos como funciona o compartilhamento de dados entre Cielo Conciliador e F360 Painel. É importante que a empresa utilize estrutura e organização interna de dados que o Cielo Conciliador proporciona e incentive seu uso da maneira correta para que sua equipe e o Franqueador sempre tenham acesso às informações importantes.
 O Franqueador pode verificar todas as contas do Plano de Contas por grupos com os status:
 - Configurações Pendentes
 - Configurações Justificadas
@@ -994,7 +994,7 @@ Dúvidas de como cadastrar contas no Plano de Contas acesse: [Menu de Cadastro -
 Dúvidas de como relacionar as contas com o Plano do Franqueador acesse:[https://f360.zendesk.comhttps://f360.zendesk.com//hc/pt-br/articles/11252387652375-Solicitação-de-ajuste-de-De-Para](https://f360.zendesk.com//hc/pt-br/articles/11252387652375-Solicita%C3%A7%C3%A3o-de-ajuste-de-De-Para)
 3) Linhas de valores manuais da DRE do Franqueado no mesmo modelo das contas cadastradas no Plano de Contas. Esse caso ocorre quando for ativado o "valor manual" de uma linha de DRE na aba de Configurações.
 3.1) Importante destacar que **o franqueador não tem acesso ao DRE do franqueado**. O Franqueador visualiza de forma padronizada os dados de todas as informações de todos os grupos, por isso da necessidade do De-Para (De plano de contas do Franqueado, Para plano de contas do Franqueador).
-4) O saldo e o lançamento realizado no F360 Finanças nas contas do plano de contas ou nas linhas de valores manuais relacionadas com algum plano de Contas do Franqueador são disponibilizados para o franqueador.
+4) O saldo e o lançamento realizado no Cielo Conciliador nas contas do plano de contas ou nas linhas de valores manuais relacionadas com algum plano de Contas do Franqueador são disponibilizados para o franqueador.
 A aprovação do Franqueador para o relacionamento é para controle interno somente para direcionar os valores para a linha correta da DRE do Franqueador. Mas ao relacionar uma conta, independente da aprovação do Franqueador, os dados são disponibilizados.
 5) São disponibilizados para o Franqueador todas as justificativas para o qual o saldo e lançamentos de contas não são compartilhados com o Franqueador. O Franqueador pode aprovar essa justificativa ou retornar a conta para o status de “Configurações Pendentes” solicitando que o Franqueado realize nova justificativa ou relacione com alguma conta do plano de contas do Franqueador para que o mesmo tenha visibilidade dos dados.
 5.1) O franqueado pode "solicitar ajustes" de De-Para já aprovados. Essas solicitações podem ser aprovadas ou rejeitadas pela franquia, que deve justificar em caso de rejeição 
@@ -1007,7 +1007,7 @@ A supervisão dos lançamentos que impactam a DRE – Demonstração do Resultad
 - Parâmetros: São alguns parâmetros que flexibilizam a visualização de suas informações. Assim, você poderá decidir se deseja ver as informações de finais de semanas em seus dias originais, adicionar um dia nos vencimentos dos boletos a receber e se deseja ocultar receitas e despesas vencidas
 - Período: É o período de visualização escolhido para visualizar as informações. Nos campos de datas, há possibilidade de selecionar os tipos de períodos para pesquisa: Diário, Mensal, Trimestral etc
 8) O Franqueador poderá ver detalhes dos lançamentos realizados no Plano de Contas que estejam relacionados com o plano de contas do franqueador.
-9) Para que o Franqueador possa ter acesso aos saldos das contas bancárias de um Franqueado, é necessário que o Franqueado dê o “consentimento”. O cliente terá a liberdade de escolher quando e quais contas bancárias cadastradas no F360 Finanças ele quer compartilhar.
+9) Para que o Franqueador possa ter acesso aos saldos das contas bancárias de um Franqueado, é necessário que o Franqueado dê o “consentimento”. O cliente terá a liberdade de escolher quando e quais contas bancárias cadastradas no Cielo Conciliador ele quer compartilhar.
 Dúvidas sobre autorização de acesso aos saldos bancários acesse: [Autorização de compartilhamento de saldo com o Painel do Franqueador – F360 (zendesk.com)](https://f360.zendesk.com//hc/pt-br/articles/12998722188183-Autoriza%C3%A7%C3%A3o-de-compartilhamento-de-saldo-com-o-Painel-do-Franqueador)
 10) A visão entregue da franqueadora engloba as EMPRESAS e CENTROS DE CUSTOS. Na visão centros de custos, o Franqueador tem acesso a lançamentos feitos com rateios nos centros de custos com a Marca desse Franqueador ou com compartilhamento para esse franqueador (Detalhamento no ponto 11).
 Exemplo:
@@ -1047,14 +1047,14 @@ R$ 1.000,00 no Centro de Custos 02 – FILIAL I (que compartilha dados)
 Da mesma forma que o exemplo anterior, o Franqueador não tem visibilidade dos R$ 1.000,00 rateado para o Centro de Custos 03 – FILIAL II, porque esse Centro de Custos / Empresa não compartilha dados
 **Nesse exemplo, quando o Franqueador puxar a DFC,** ele não vai visualizar nenhum valor, porque a DFC tem como base pesquisa por Empresa e não por Centro de Custos, no exemplo a Empresa 03 – FILIAL II não compartilha dados.
  
-11) São apresentadas somente as empresas com a marca da Franqueadora. O Escritório só aparecerá, nesse caso, se estiver com a marca cadastrada dentro do F360 Finanças.
-Para os grupos que possuem lojas de uma dessas marcas parceiras F360, ao criar um centro de custos, esse último campo "Franqueadores disponíveis” aparecerá e pedirá que seja preenchido. Se esse campo for preenchido para um centro de custos não vinculado à marca, ainda assim as informações deste centro de custo serão mostradas automaticamente para a franqueadora.
+11) São apresentadas somente as empresas com a marca da Franqueadora. O Escritório só aparecerá, nesse caso, se estiver com a marca cadastrada dentro do Cielo Conciliador.
+Para os grupos que possuem lojas de uma dessas marcas parceiras Cielo Conciliador, ao criar um centro de custos, esse último campo "Franqueadores disponíveis” aparecerá e pedirá que seja preenchido. Se esse campo for preenchido para um centro de custos não vinculado à marca, ainda assim as informações deste centro de custo serão mostradas automaticamente para a franqueadora.
 ![](https://f360.zendesk.com//hc/article_attachments/13994834558487.png)
 Dúvidas sobre a criação de centro de custos, acesse: [Centro de Custos - Franqueadores Disponíveis – F360 (zendesk.com)](https://f360.zendesk.com//hc/pt-br/articles/8865364018583-Centro-de-Custos-Franqueadores-Dispon%C3%ADveis)
  
 **Dados sensíveis:**
-A F360 utiliza protocolos que garantem um processo de compartilhamento de dados seguro, simples e ágil.
-Todos os módulos da F360 são regidos pela Lei Geral de Proteção de Dados (LGPD), o que faz com que todo o compartilhamento de informações seja feito de maneira extremamente segura.
+O Cielo Conciliador utiliza protocolos que garantem um processo de compartilhamento de dados seguro, simples e ágil.
+Todos os módulos do Cielo Conciliador são regidos pela Lei Geral de Proteção de Dados (LGPD), o que faz com que todo o compartilhamento de informações seja feito de maneira extremamente segura.
 O Franqueador **não** tem acesso:
 * Plano Orçamentário
 * DRE´s de outras marcas
@@ -1062,18 +1062,18 @@ O Franqueador **não** tem acesso:
 * Dados cadastrais de pessoas físicas e usuários do Franqueado
 * Cadastro de Clientes e Fornecedores
 * Acesso a documentos fiscais na íntegra
-* Acesso a detalhes de títulos cadastrados no F360 Finanças
+* Acesso a detalhes de títulos cadastrados no Cielo Conciliador
 * Cadastro de taxas acordadas com a adquirente
 * DRE e DFC no modelo estabelecido pelo cliente
 * Regras de rateio
 * Certificado Digital
-* Acesso (usuário e senha) a sua plataforma F360 Finanças
+* Acesso (usuário e senha) a sua plataforma Cielo Conciliador
  
 ## Segunda via de Boleto e Nota Fiscal de mensalidade
 
-Está precisando emitir a segunda via de boleto do F360 Finanças, mas não sabe o que fazer? Veja o passo a passo que preparamos para te ajudar nisso! 
+Está precisando emitir a segunda via de boleto do Cielo Conciliador, mas não sabe o que fazer? Veja o passo a passo que preparamos para te ajudar nisso! 
  
-Inicialmente, vale destacar que o boleto pode ser emitido dentro da própria plataforma do F360 Finanças, mas esse tipo de emissão só pode ser feito pelos usuários administradores ou com permissão habilitada. 
+Inicialmente, vale destacar que o boleto pode ser emitido dentro da própria plataforma do Cielo Conciliador, mas esse tipo de emissão só pode ser feito pelos usuários administradores ou com permissão habilitada. 
  
 **Passo a passo para emissão:**
  
@@ -1086,7 +1086,7 @@ Ao acessar esta opção, o sistema apresentará uma tela para consulta dos bolet
 **Caso o boleto já esteja vencido, você poderá realizar a atualização através desse link:**<https://bit.ly/3AAB7Ec>
 **Gestão de acessos**
 Caso você precise liberar este acesso para outros usuários, confira o passo a passo a seguir:
-Clique no menu de cadastro localizado no canto superior esquerdo da dashboard do F360 Finanças. Em seguida, clique no botão “regra de usuários”.
+Clique no menu de cadastro localizado no canto superior esquerdo da dashboard do Cielo Conciliador. Em seguida, clique no botão “regra de usuários”.
  
 ![2viadeboleto_03_-_Editado.png](https://f360.zendesk.com//hc/article_attachments/13140618510743.png)
 Depois selecione a opção financeiro.
@@ -1096,10 +1096,10 @@ Veja em seguida quais são as atividades que você deseja habilitar para o usuá
 Para finalizar, veja abaixo como realizar o download do boleto ou NFS-e:
  
  Gostou desse artigo? 
-Caso tenha alguma dúvida ou sugestão, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. 
+Caso tenha alguma dúvida ou sugestão, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. 
 Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
  
 ## Como consultar histórico de acessos ao sistema**Relatório de acesso ao sistema**
 Neste artigo vamos apresentar como o relatório de acesso ao sistema funciona.
@@ -1129,15 +1129,15 @@ Após a conclusão da geração do relatório (status finalizado), selecione e c
 ![mceclip3.png](https://f360.zendesk.com//hc/article_attachments/6574811472023/mceclip3.png)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360°**
+**Equipe Cielo Conciliador**
 
 ## Como configurar e exportar arquivos para TOTVS
 
-A exportação do arquivo TXT na F360 - Finanças deve seguir uma rotina especifica, pois são necessárias algumas diretrizes para que seja feita a correta leitura do arquivo por parte do sistema TOTVS.
+A exportação do arquivo TXT no Cielo Conciliador - Finanças deve seguir uma rotina especifica, pois são necessárias algumas diretrizes para que seja feita a correta leitura do arquivo por parte do sistema TOTVS.
 Segue o passo a passo para conseguir realizar o download do arquivo TXT:
-**Cadastro em F360 - Finanças**:1. No cadastro de “Empresas e Filiais” na aba “Outras Informações”, cadastrar no campo “Código Externo” o código referente ao cadastro da Filial titulo no sistema TOTVS.
+**Cadastro em Cielo Conciliador**:1. No cadastro de “Empresas e Filiais” na aba “Outras Informações”, cadastrar no campo “Código Externo” o código referente ao cadastro da Filial titulo no sistema TOTVS.
 ![](http://teekitstorage.blob.core.windows.net/financas360-attachments/a849853d-33d2-432b-b0ee-d9c53a299e42.png)
 **Figura 1**. Cadastro do Código Externo de Empresas
 
@@ -1178,9 +1178,9 @@ Opções de exportação: É possível exportar 4 tipos diferentes de relatório
 - Caso a opção “Exportar os títulos (csv)” não esteja visível, solicite ao responsável para que libere essa funcionalidade.
 ---------------------------------------------------------------
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Como exportar o arquivo de Extrato Bancário (OFX) do Banco Santander
 
@@ -1195,9 +1195,9 @@ O arquivo OFX, é o espelho do seu extrato bancário, para que você possa reali
 Pronto, seu arquivo será baixado com sucesso e após isso basta apenas inserir na tela de upload de arquivos.
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360.**
+**Equipe Cielo Conciliador.**
 
 ## Como exportar o arquivo de Extrato Bancário (OFX) do banco Caixa Econômica Federal
 
@@ -1212,27 +1212,27 @@ Preparamos um passo a passo de como você pode extrair esse arquivo de sua conta
 ![mceclip1.png](https://f360.zendesk.com//hc/article_attachments/360062884793/mceclip1.png)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360.**
+**Equipe Cielo Conciliador.**
  
-## Como solicitar inclusão de loja na F360°
+## Como solicitar inclusão de loja no Cielo Conciliador°
 
 Iremos listar a seguir os principais procedimentos que devem ser adotados sempre que você abrir uma nova loja. A solicitação de alguns arquivos para operadoras e bancos são demorados, então recomendamos que **você nos avise com 30 dias de antecedência da data de abertura** da loja para que tenhamos tempo hábil de trabalhar em todos os processos. **1° Passo – Cadastro de Empresas**
-Assim que a empresa estiver com CNPJ aberto, você precisará enviar um e-mail para: [suporte@financas360.com.br](mailto:suporte@financas360.com.br)com todos os dados cadastrais da loja para solicitar a liberação de mais uma empresa no seu perfil da F360 - Finanças. Se você precisar de ajuda durante o processo de inclusão da loja no sistema, chame nossos operadores no chat que eles poderão te ajudar em todas as etapas de preenchimento dos dados, que envolvem: criação de centro de custos, conta caixa e cadastro de operadoras e outras diversas parametrizações.
+Assim que a empresa estiver com CNPJ aberto, você precisará enviar um e-mail para: [suporte@financas360.com.br](mailto:suporte@financas360.com.br)com todos os dados cadastrais da loja para solicitar a liberação de mais uma empresa no seu perfil do Cielo Conciliador. Se você precisar de ajuda durante o processo de inclusão da loja no sistema, chame nossos operadores no chat que eles poderão te ajudar em todas as etapas de preenchimento dos dados, que envolvem: criação de centro de custos, conta caixa e cadastro de operadoras e outras diversas parametrizações.
 Não é um processo difícil, mas requer bastante atenção, pois precisa Criar um Novo Centro de Custo, Criar as novas contas Caixa e Bancária, para que possa efetuar o cadastro da loja na sua base. **2° Passo – Operadoras de Cartões**
 No momento em que você fizer a contratação das operadoras de cartão, deve enviar um e-mail para [suporte@financas360.com.br](mailto:suporte@financas360.com.br) com os dados da loja, o código de estabelecimento das operadoras para que possamos solicitar os arquivos EDI. Algumas operadoras solicitam um formulário de solicitação e nossa equipe já está acostumada com esses procedimentos, então iremos te ajudar em todos os processos para que no dia da inauguração da loja você já receba as vendas e possa conciliar os cartões desde o início. **3° Passo – Extratos da Conta Bancária**
 Se for aberta uma conta bancária para a nova loja, será necessário solicitar para o gerente do seu banco os arquivos EDI dos extratos da sua conta. Cada banco possui um procedimento diferente para essa solicitação, então recomendamos que você entre em contato com o gerente da sua conta pedindo as devidas orientações. Se você precisar da nossa ajuda estaremos disponíveis para te auxiliar no que for necessário durante a solicitação dos extratos, combinado?
-Em alguns casos a operação da conta no Finanças 360° poderá começar com os extratos disponíveis no próprio portal do banco, como o extrato OFX ou Excel, mas se o banco disponibilizar o extrato CNAB nós recomendamos fortemente que você faça a sua solicitação.
-Ah, lembrando que você deve cadastrar essa nova conta na F360 e vinculá-la ao cadastro da nova loja, ok?
+Em alguns casos a operação da conta no Cielo Conciliador poderá começar com os extratos disponíveis no próprio portal do banco, como o extrato OFX ou Excel, mas se o banco disponibilizar o extrato CNAB nós recomendamos fortemente que você faça a sua solicitação.
+Ah, lembrando que você deve cadastrar essa nova conta no Cielo Conciliador e vinculá-la ao cadastro da nova loja, ok?
  
 -----
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
-## Acesso as novidades F360° 
+## Acesso as novidades Cielo Conciliador 
 
 Na plataforma, no canto superior do lado direito da tela, você encontrará um 🔔 onde será possível visualizar as novidades relevantes sobre melhorias no produto e comunicados.
  
@@ -1242,9 +1242,9 @@ Todas as notificações possuem data de criação do conteúdo, ao clicar na ima
 ![teste_novidades.gif](https://f360.zendesk.com//hc/article_attachments/6910675488279/teste_novidades.gif)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360°**
+**Equipe Cielo Conciliador**
  
 ## Diagnóstico 
 
@@ -1311,11 +1311,11 @@ Objetivo - Validar se todas as vendas e cartões do período foram conciliadas, 
 [Como fechar o período na tela de 'Conciliação de Cartões'?](/knowledge/articles/360044359753/pt-br?brand_id=360003815913)
   
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360°**
+**Equipe Cielo Conciliador**
 **------------**
-Você sabia que a [F360 Contábil](https://www.f360.com.br/contabil/) fornece serviço contábil, fiscal e de departamento pessoal de forma fácil, rápida e econômica? Você pode economizar até 60% dos custos de honorários contábeis ao utilizar nossa contabilidade *online*. [Clique aqui e saiba mais.](https://www.f360.com.br/contabil/)
+Você sabia que a [Cielo Conciliador Contábil](https://www.f360.com.br/contabil/) fornece serviço contábil, fiscal e de departamento pessoal de forma fácil, rápida e econômica? Você pode economizar até 60% dos custos de honorários contábeis ao utilizar nossa contabilidade *online*. [Clique aqui e saiba mais.](https://www.f360.com.br/contabil/)
 
 # Nota Fiscal de Serviços
 
@@ -1343,13 +1343,13 @@ Acompanhe o status de cada lote:
 Caso deseje contratar o módulo Emissor, entre em contato com o nosso time Comercial através do endereço <https://www.f360.com.br/> para mais detalhes !
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360°**
+**Equipe Cielo Conciliador**
 
 ## Emissão de NFSe a partir do movimento PDV
 
-Na plataforma F360 é possível realizar a emissão de Notas Fiscais de Serviços (NFSe) através do Movimento PDV. Para realizar esta operação, acesse a nova aba de PDV na tela de Contas a Receber.
+No Cielo Conciliador é possível realizar a emissão de Notas Fiscais de Serviços (NFSe) através do Movimento PDV. Para realizar esta operação, acesse a nova aba de PDV na tela de Contas a Receber.
 Para usuários com permissão, a nova aba de PDV estará visível e permitirá ao cliente a pesquisa e visualização de Movimentos PDV de acordo com os filtros selecionados, similarmente à aba de “Movimentos” na tela de Fechamento de Caixa.
 ![mceclip0.png](https://f360.zendesk.com//hc/article_attachments/8339546593687/mceclip0.png)
 Ao realizar a pesquisa e selecionar um Movimento PDV retornado, algumas opções de ação estarão disponíveis:
@@ -1365,9 +1365,9 @@ A Emissão de Nota Fiscal de Serviço (NFSe) estará disponível para clientes q
 Caso deseje contratar o módulo Emissor, entre em contato com o nosso time Comercial para mais detalhes através do endereço: <https://www.f360.com.br/>
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360°.**
+**Equipe Cielo Conciliador.**
 
 # Upload de Arquivos
 
@@ -1378,14 +1378,14 @@ Obs: Quando o arquivo é reprocessado, na última coluna apresentará o número 
 Veja o exemplo abaixo:
 ![reprocessamento_de_arquivo.gif](https://f360.zendesk.com//hc/article_attachments/360061255293/reprocessamento_de_arquivo.gif)
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Inserindo arquivos e acompanhando processamento
 
 - Tela upload de arquivos
-**Onde inserir os arquivos**É na tela de [Upload de Arquivos](https://financas.f360.com.br/Arquivo) que são inserido os arquivos que alimentam a plataforma F360.  
+**Onde inserir os arquivos**É na tela de [Upload de Arquivos](https://financas.f360.com.br/Arquivo) que são inserido os arquivos que alimentam o Cielo Conciliador.  
 Após a inserção de um arquivo, seja manualmente ou automaticamente, na segunda aba da tela de Arquivos (Gerenciamento de Arquivos) será possível acompanhar o processo de importação dos arquivos. Nessa aba, poderá verificar se o arquivo foi lido, inserido, atualizou informações do sistema ou apresentou alguma nota.  
   
 ![](https://f360.zendesk.com//hc/article_attachments/21890858512407.gif)  
@@ -1399,7 +1399,7 @@ Ao abrir a aba Gerenciamento de Arquivos, uma seção no topo exibe o status atu
   
 ![](https://f360.zendesk.com//hc/article_attachments/21890899178263.gif)  
   
-\* Cada fila recebe arquivos de todos os clientes da F360, porém os dados citados acima são referentes somente ao cliente que está logado.  
+\* Cada fila recebe arquivos de todos os clientes do Cielo Conciliador, porém os dados citados acima são referentes somente ao cliente que está logado.  
   
 **Excluindo arquivos ainda não processados**
 Ao clicar no "X" ao lado do nome do próximo arquivo a ser processado, o seu processamento é cancelado.  
@@ -1430,15 +1430,15 @@ Para baixar um arquivo, basta apenas selecioná-lo e clicar em Baixar, veja o ex
 ![](https://f360.zendesk.com//hc/article_attachments/22016656007191.gif)  
   
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
  
 # Open Finance
 
 ## Open Finance - Contratação e Ativação
 
-Nesse artigo, vamos descrever o processo de contratação e ativação da automação bancário, sendo esse, um dos requisitos para ter acesso as funcionalidades que facilitam a comunicação entre as instituições bancárias e a F360, como a [obtenção de extrato bancário](/knowledge/articles/11856566986135/pt-br?brand_id=360003815913).
+Nesse artigo, vamos descrever o processo de contratação e ativação da automação bancário, sendo esse, um dos requisitos para ter acesso as funcionalidades que facilitam a comunicação entre as instituições bancárias e o Cielo Conciliador, como a [obtenção de extrato bancário](/knowledge/articles/11856566986135/pt-br?brand_id=360003815913).
 Para iniciar o fluxo de contratação clique no botão 'Automação Bancária', localizado no canto inferior esquerdo, presente na tela de 'Menu de Cadastro' > 'Contas' e na tela de 'Contas Movimento'. 
 ![mceclip0.png](https://f360.zendesk.com//hc/article_attachments/11863673995159.png)
  
@@ -1446,28 +1446,28 @@ Com isso será aberto uma nova janela, sendo que essa é a área de gerenciament
 ![mceclip1.png](https://f360.zendesk.com//hc/article_attachments/11863683186327.png)
  
 Nessa mesma aba, você deverá selecionar todas as contas que deseja contratar. É importante salientar que a conta deve estar vinculada a um CNPJ para que a contratação seja efetivada. Além disso, estão dipostos um resumo da quantidade de contas contradas, e o valor adicional de cobrança referente as contas que estão sendo contratadas.
-Para confirmar e finalizar a contratação você deverá inserir o e-mail e a senha de acesso a plataforma da F360 e selecionar a opção 'Li e aceito o termo de contratação'. Após isso, basta clicar em 'Contratar'.
+Para confirmar e finalizar a contratação você deverá inserir o e-mail e a senha de acesso do Cielo Conciliador e selecionar a opção 'Li e aceito o termo de contratação'. Após isso, basta clicar em 'Contratar'.
 ![mceclip2.png](https://f360.zendesk.com//hc/article_attachments/11863781961239.png)
  
 Ao finalizar a contratação, o sistema irá direcionar para a segunda aba desta mesma janela, onde estarão presentes todas as contas contradas, nesse momento será possível efetuar a conexão das contas com o banco, para isso, basta clicar no símbolo de "joinha".
 ![mceclip4.png](https://f360.zendesk.com//hc/article_attachments/11863890091543.png)
  
 Nesse momento, iremos abrir uma nova janela da nossa parceira [Pluggy](https://pluggy.ai/), esse é um ambiente totalmente seguro, no qual será necessário incluir as informações de conexão, sendo que cada banco possuí uma peculiaridade única. 
-Uma dica importante é efetuar a conexão com um usuário *operador*, pois, com ele já é possível realizar as operações básicas de leitura de movimentação da conta. Usuários operadores, normalmente não necessitam de fator duplo de autenticação, o que permite a F360 [obter os extratos bancários](/knowledge/articles/11856566986135/pt-br?brand_id=360003815913) de forma automática. Além de eficiência operacional, você cliente ganha em segurança de dados.
+Uma dica importante é efetuar a conexão com um usuário *operador*, pois, com ele já é possível realizar as operações básicas de leitura de movimentação da conta. Usuários operadores, normalmente não necessitam de fator duplo de autenticação, o que permite o Cielo Conciliador [obter os extratos bancários](/knowledge/articles/11856566986135/pt-br?brand_id=360003815913) de forma automática. Além de eficiência operacional, você cliente ganha em segurança de dados.
 ![mceclip5.png](https://f360.zendesk.com//hc/article_attachments/11863906674583.png)
  
 **Atenção:**
 * Como se trata de uma operação em que está envolvido assinatura de contrato e autorização para cobrança, somente perfis do tipo 'Administradores' podem efetuar a contratação.
-* Nós da F360 não fazemos guarda de informações de conexão com o banco. Essas informações são criptografadas e enviadas a [Pluggy](https://pluggy.ai/), uma empresa previamente autorizada pelos bancos para acessar os dados dos clientes mediante a posse dos dados de conexão.
+* Nós do Cielo Conciliador não fazemos guarda de informações de conexão com o banco. Essas informações são criptografadas e enviadas a [Pluggy](https://pluggy.ai/), uma empresa previamente autorizada pelos bancos para acessar os dados dos clientes mediante a posse dos dados de conexão.
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail [suporte@f360.com.br](mailto:suporte@f360.com.br) e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail [cieloconciliador@cielo.com.br](mailto:cieloconciliador@cielo.com.br) e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360°.**
+**Equipe Cielo Conciliador.**
 
 ## Open Finance - Extrato bancário
 
-Nesse artigo, vamos descrever o processo de obtenção do extrato bancário, sendo esse um dos processos de automação bancária, que consiste em uma funcionalidade que facilita a comunicação entre as instituições bancárias e a F360, permitindo obter as movimentações bancárias (entradas e saídas) da forma mais automatizada possível.
+Nesse artigo, vamos descrever o processo de obtenção do extrato bancário, sendo esse um dos processos de automação bancária, que consiste em uma funcionalidade que facilita a comunicação entre as instituições bancárias e o Cielo Conciliador, permitindo obter as movimentações bancárias (entradas e saídas) da forma mais automatizada possível.
 Para fazer o uso dessa funcionalidade será necessário a contratação e conexão das contas que pode ser realizada seguindo os passos do link: [**Contratação Open Finance**](/knowledge/articles/11858870902039/pt-br?brand_id=360003815913).
 A obtenção do extrato bancário é obtido através de nossa parceira [Pluggy](https://pluggy.ai/), e hoje é possível se conectar com contas correntes registradas em pessoas jurídicas das seguintes instituições bancárias:
 * Santander Empresas
@@ -1483,18 +1483,18 @@ Para obter o extrato acesse a tela de 'Menu de Cadastros' > 'Integrações', em 
  
 Na janela que abrir, selecione o período que deseja obter os extratos bancários e clique novamente em "Chamar Serviço. O período é limitado de acordo com o banco conectado, para a maioria dos bancos o limite de obtenção dos dados é de 1 ano, mas existem exceções como o Banco Santander, que atualmente só permite a obtenção do extrato bancário de 3 meses.![mceclip1.png](https://f360.zendesk.com//hc/article_attachments/11859347580183.png)
  
-Após a chamada, a F360, junto com a parceira Pluggy, poderá obter o extrato bancário (movimentações de entrada e saída) do período selecionado. Para verificar o resultado, ainda com a conta selecionada, você pode clicar em Histórico, e se desejar poderá verificar o arquivo do extrato bancário inserido na base do F360 Finanças na tela de 'Upload de Arquivos'
+Após a chamada, o Cielo Conciliador, junto com a parceira Pluggy, poderá obter o extrato bancário (movimentações de entrada e saída) do período selecionado. Para verificar o resultado, ainda com a conta selecionada, você pode clicar em Histórico, e se desejar poderá verificar o arquivo do extrato bancário inserido na base do Cielo Conciliador na tela de 'Upload de Arquivos'
 ![mceclip3.png](https://f360.zendesk.com//hc/article_attachments/11859443274903.png)
 ![mceclip2.png](https://f360.zendesk.com//hc/article_attachments/11859438768151.png)
  
-Sempre que for possível, a F360, irá realizar uma chamada automática diariamente (período entre 7hs e 10hs da manhã), que irá trazer o extrato bancário do dia anterior (d-1). Porém, alguns bancos ou mesmo contas específicas, por questões de segurança, exigem um duplo fator de autenticação, e como essa é uma informação crucial, a F360 não faz a chamada automática diária. 
+Sempre que for possível, o Cielo Conciliador, irá realizar uma chamada automática diariamente (período entre 7hs e 10hs da manhã), que irá trazer o extrato bancário do dia anterior (d-1). Porém, alguns bancos ou mesmo contas específicas, por questões de segurança, exigem um duplo fator de autenticação, e como essa é uma informação crucial, o Cielo Conciliador não faz a chamada automática diária. 
 Para facilitar, incluímos na tela de 'Contas Movimento' um botão chamado 'Sincronizar Banco', com ele é possível realizar a chamada de todo o período anterior que não foram feitas chamadas manuais.
 ![mceclip5.png](https://f360.zendesk.com//hc/article_attachments/11859706416279.png)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail [suporte@f360.com.br](mailto:suporte@f360.com.br) e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail [cieloconciliador@cielo.com.br](mailto:cieloconciliador@cielo.com.br) e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360°.**
+**Equipe Cielo Conciliador.**
 
 # Plano Orçamentário
 
@@ -1504,13 +1504,13 @@ A tela de plano orçamentário, é onde você consegue realizar provisões de pa
 Logo no vídeo abaixo, segue o exemplo de como realizar a configuração do orçamento sem histórico:
   
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
  
 ## Como configurar o plano orçamentário para receitas
 A configuração de um planejamento orçamentário é essencial para que você tenha uma visão de futuro do seu negócio e também para que você possa comparar as suas previsões com os valores realizados.
-Esse manual vai te explicar como configurar um orçamento para receitas na F360. Recomendamos que você leia com atenção e depois disso faça a configuração do seu orçamento para o ano de 2019.**Crie um novo orçamento ou uma nova hipótese:**
+Esse manual vai te explicar como configurar um orçamento para receitas no Cielo Conciliador. Recomendamos que você leia com atenção e depois disso faça a configuração do seu orçamento para o ano de 2019.**Crie um novo orçamento ou uma nova hipótese:**
 Você terá a possibilidade de criar quantos orçamentos desejar. Dessa forma você consegue criar diversas hipóteses de orçamento, como por exemplo uma hipótese otimista com um crescimento de receitas de 20% em relação ao ano anterior ou uma hipótese pessimista onde você simula uma queda de 5% no faturamento ou ainda uma hipótese realista para simular um crescimento de 7%.
 1. Para isso, entre na tela de Plano Orçamentário, acesse a aba “Receitas” e clique no botão “Novo Orçamento Receita” localizado no canto esquerdo da barra inferior do sistema.
 2. Na primeira aba, digite o nome do seu orçamento e informe se ele será a sua configuração de orçamento padrão. Recomendamos que o nome do orçamento seja de fácil identificação para você e sua equipe.
@@ -1554,7 +1554,7 @@ Agora que você já criou o seu primeiro orçamento, está na hora de efetuar a 
 | Crédito à Vista | 30 Dias |
 | Crédito Parcelado | Conforme Histórico |
 | Boleto | Conforme Histórico |
- 11. Após a configuração dos prazos e dos percentuais de representatividade de cada modalidade, você já pode voltar na tela de configuração dos percentuais diários do mês do orçamento. Você poderá clicar no botão “Avançar” para configurar os valores do próximo mês ou também poderá clicar no botão “Gerar Orçamento para esse mês”, onde a F360 irá utilizar todas as configurações informadas para realmente gerar o seu orçamento. Essa é a última etapa da sua configuração orçamentária e deverá ser feita para todos os meses desejados.12. Parabéns, agora o seu orçamento foi criado com sucesso!
+ 11. Após a configuração dos prazos e dos percentuais de representatividade de cada modalidade, você já pode voltar na tela de configuração dos percentuais diários do mês do orçamento. Você poderá clicar no botão “Avançar” para configurar os valores do próximo mês ou também poderá clicar no botão “Gerar Orçamento para esse mês”, onde o Cielo Conciliador irá utilizar todas as configurações informadas para realmente gerar o seu orçamento. Essa é a última etapa da sua configuração orçamentária e deverá ser feita para todos os meses desejados.12. Parabéns, agora o seu orçamento foi criado com sucesso!
 **Utilizando o orçamento nos seus relatórios:**
 * Para usar o orçamento no fluxo de caixa é muito simples. Acesse a tela de Fluxo de Caixa e nas opções de pesquisa selecione o plano orçamentário desejado.
 * Você poderá fazer diversas simulações de fluxo de caixa usando as suas previsões otimistas, realistas ou pessimistas.![mceclip15.png](https://f360.zendesk.com//hc/article_attachments/11402883228183.png)
@@ -1566,9 +1566,9 @@ Agora iremos te dar algumas dicas úteis para facilitar no seu processo de confi
 * **Fale conosco**: Essa é uma funcionalidade nova e você poderá ter dúvidas enquanto faz as configurações. Fique à vontade para nos chamar pelo chat, nossa equipe estará à disposição para auxiliá-lo. Além disso, queremos muito ouvir o seu feedback com suas dicas e sugestões para melhorarmos ainda mais o nosso sistema.
 -----
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail [suporte@f360.com.br](mailto:suporte@f360.com.br) e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail [cieloconciliador@cielo.com.br](mailto:cieloconciliador@cielo.com.br) e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Como configurar o plano orçamentário a partir das receitas
 
@@ -1576,26 +1576,26 @@ A tela de plano orçamentário, é onde você consegue realizar provisões de pa
 Logo no vídeo abaixo, segue o exemplo de como realizar a configuração do orçamento, a partir do plano orçamentário criado de receitas:
   
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail [suporte@f360.com.br](mailto:suporte@f360.com.br) e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail [cieloconciliador@cielo.com.br](mailto:cieloconciliador@cielo.com.br) e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
  
 ## Como configurar o plano orçamentário de despesas a partir do histórico do contas a pagar
 
 A tela de plano orçamentário, é onde você consegue realizar provisões de pagamentos sendo possível gerar títulos de contas á pagar, para o ano inteiro.
 Logo no vídeo abaixo, segue o exemplo de como realizar a configuração do orçamento, a partir do histórico existente na tela de contas á pagar: 
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail [suporte@f360.com.br](mailto:suporte@f360.com.br) e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail [cieloconciliador@cielo.com.br](mailto:cieloconciliador@cielo.com.br) e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
  
 ## Como configurar plano orçamentário de despesas a partir de outra despesa
 
 A tela de plano orçamentário, é onde você consegue realizar provisões de pagamentos sendo possível gerar títulos de contas á pagar, para o ano inteiro.
 Logo no vídeo abaixo, segue o exemplo de como realizar a configuração do orçamento, a partir de outra despesa:Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360.**
+**Equipe Cielo Conciliador.**
 
 # Nota Fiscal Eletrônica
 
@@ -1617,28 +1617,28 @@ Após salvar, é preciso clicar em "Chamar Serviço" no rodapé da página na pr
 ![Renova___ao_de_certificado.gif](https://f360.zendesk.com//hc/article_attachments/360099409634.gif)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360.**
+**Equipe Cielo Conciliador.**
 
 ## Como negar notas fiscais
 
-O botão de negar notas, significa que o destinatário desconhece a emissão da nota pelo fornecedor e lembrando que é irreversível pelo ponto da mensagem transmitida para o fornecedor, pois na plataforma F360 é possível gerar o título através da nota, mas para isso é preciso realizar o download XML da nota e em seguida realizar a exclusão da nota que foi negada:
+O botão de negar notas, significa que o destinatário desconhece a emissão da nota pelo fornecedor e lembrando que é irreversível pelo ponto da mensagem transmitida para o fornecedor, pois no Cielo Conciliador é possível gerar o título através da nota, mas para isso é preciso realizar o download XML da nota e em seguida realizar a exclusão da nota que foi negada:
 ![negar_notas.gif](https://f360.zendesk.com//hc/article_attachments/360060105734/negar_notas.gif)------------------------------------------------------------Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Como funciona o botão obter notas
 
-O botão de Obter Notas está localizado na tela de Nota Fiscal Eletrônica, no lado no rodapé da tela no lado direito, possui a função de realizar a busca das notas que estão disponíveis nos servidores da Sefaz ou até para identificar se o certificado digital A1 está vencido, para isso basta clicar no botão e o robô irá realizar a busca referente a empresa selecionada que possui cadastro do certificado na plataforma F360, em seguida clique em Ver Histórico e veja qual a mensagem apresentada após clicar em obter notas, veja o exemplo abaixo:
+O botão de Obter Notas está localizado na tela de Nota Fiscal Eletrônica, no lado no rodapé da tela no lado direito, possui a função de realizar a busca das notas que estão disponíveis nos servidores da Sefaz ou até para identificar se o certificado digital A1 está vencido, para isso basta clicar no botão e o robô irá realizar a busca referente a empresa selecionada que possui cadastro do certificado no Cielo Conciliador, em seguida clique em Ver Histórico e veja qual a mensagem apresentada após clicar em obter notas, veja o exemplo abaixo:
  
 ![obter_notas.gif](https://f360.zendesk.com//hc/article_attachments/360061043373/obter_notas.gif)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Leitura da Nota de Débito "Hering"
 
@@ -1664,95 +1664,95 @@ Inicialmente é preciso que realize algumas configurações em seu perfil, abaix
 Esse é o rateio por exemplo efetuado em relação a leitura da ND abaixo:
 ![image__13_.png](https://f360.zendesk.com//hc/article_attachments/360085371914/image__13_.png)
  Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Como excluir uma nota fiscal - Quando não tem título gerado
 
-Para realizar a exclusão de uma nota fiscal na plataforma F360, é apenas realizar a pesquisa da nota, selecionar e clicar no botão de excluir, localizado no rodapé da tela, veja o gif abaixo:
+Para realizar a exclusão de uma nota fiscal no Cielo Conciliador, é apenas realizar a pesquisa da nota, selecionar e clicar no botão de excluir, localizado no rodapé da tela, veja o gif abaixo:
 ![como_excluir_uma_nota_sem_o_titulo_estiver_gerado.gif](https://f360.zendesk.com//hc/article_attachments/360060101554/como_excluir_uma_nota_sem_o_titulo_estiver_gerado.gif)-----------------------------------------------------------------Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Como realizar o download do XML da nota e o download da DANFE para visualizar em PDF
 
 Para realizar o download do XML da nota e Danfe (espelho da nota fiscal), você irá pesquisar a nota com o filtro á seu critério, irá selecionar a nota e clicar abaixo em Download XML ou Download Danfe, lembrando que para realizar o download é preciso que a nota já tenha sido confirmada veja o gif abaixo:
 ![Download_xml_e_danfe.gif](https://f360.zendesk.com//hc/article_attachments/360060110754/Download_xml_e_danfe.gif)
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
  
 ## Como realizar configuração de NCM/CFOP
 
 Quando a nota possuir um alerta, é preciso verificar a mensagem apresentada, pois pode se tratar de uma pendência de configuração, no exemplo abaixo se trata de uma configuração de NCM/CFOP, para identificar o produto que possui a combinação que está pendente de configuração, o ideal é realizar o download da Danfe, para identificar o produto e verificar qual o plano de contas se enquadra na combinação de NCM/CFOP, veja o exemplo abaixo:
 ![Alertas_de_configura_ao.gif](https://f360.zendesk.com//hc/article_attachments/360061041093/Alertas_de_configura_ao.gif)
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Como excluir uma nota fiscal quando o título está gerado
 
 Para realizar a exclusão de uma nota que possua um título gerado, é preciso que primeiro seja excluído a nota fiscal na tela de nota fiscal eletrônica, pois como possui o vínculo com o título, após a exclusão da nota o título não é excluído automaticamente, veja o gif abaixo:
 ![Como_excluir_uma_nota_com_titulo_gerado.gif](https://f360.zendesk.com//hc/article_attachments/360060104254/Como_excluir_uma_nota_com_titulo_gerado.gif)
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
-## Como realizar a confirmação e download de uma NFEO Webservice de comunicação da F360 com a NFE é dividido em três partes:
+## Como realizar a confirmação e download de uma NFEO Webservice de comunicação do Cielo Conciliador com a NFE é dividido em três partes:
 * Obtenção da lista de notas emitidas contra o CNPJ das empresas cadastradas;
 * Confirmação do reconhecimento das notas recebidas;
-* Download das notas cujo reconhecimento foi efetuado com sucesso; O processo para a obtenção da lista das notas emitidas contra o CNPJ das empresas é feito em segundo plano pela F360 todos os dias durante a madrugada. Porém, os processos de confirmação e download das notas deve ser feito manualmente pelo usuário.
+* Download das notas cujo reconhecimento foi efetuado com sucesso; O processo para a obtenção da lista das notas emitidas contra o CNPJ das empresas é feito em segundo plano pelo Cielo Conciliador todos os dias durante a madrugada. Porém, os processos de confirmação e download das notas deve ser feito manualmente pelo usuário.
 A criação da despesa no sistema depende que o processo de confirmação e download da nota seja efetuado com sucesso. Caso seja necessário, também é possível efetuar a importação manual do XML da nota na F, mas recomendamos que isso seja feito apenas se a conexão com o webservice da SEFAZ apresentar muitas instabilidades.
 A seguir iremos demonstrar como realizar o processo de confirmação e *download* das notas:
 1. Entre na tela de NFe e procure todas as notas com o status “Notas Pendentes”.
 2. Selecione as notas desejadas e clique no botão “Confirmar Notas” localizado na barra inferior do sistema. A seguinte mensagem irá aparecer:
 ![mceclip0.png](https://f360.zendesk.com//hc/article_attachments/11329402450071.png)
-3. Clique em “Sim”. A F360 irá se comunicar com o sistema da SEFAZ para tentar realizar a confirmação das notas selecionadas. Durante esse processo, iremos abrir uma tela de controle para que você acompanhe o status de cada nota que foi selecionada na tela anterior:
+3. Clique em “Sim”. O Cielo Conciliador irá se comunicar com o sistema da SEFAZ para tentar realizar a confirmação das notas selecionadas. Durante esse processo, iremos abrir uma tela de controle para que você acompanhe o status de cada nota que foi selecionada na tela anterior:
 ![mceclip1.png](https://f360.zendesk.com//hc/article_attachments/11329388660119.png)
-4. Na imagem anterior, perceba que as notas continuaram com o status “Pendentes de Confirmação” e o sistema mostrou uma mensagem de erro para cada nota cujo processo de confirmação não funcionou. Nesse caso, é possível clicar no botão “Confirmar” novamente para que a F360 tente realizar mais uma tentativa de confirmação das notas.
+4. Na imagem anterior, perceba que as notas continuaram com o status “Pendentes de Confirmação” e o sistema mostrou uma mensagem de erro para cada nota cujo processo de confirmação não funcionou. Nesse caso, é possível clicar no botão “Confirmar” novamente para que o Cielo Conciliador tente realizar mais uma tentativa de confirmação das notas.
 5. Após a confirmação funcionar, as notas irão passar para o status “Pendentes de Download” (Download NFe), conforme a imagem a seguir:
 ![mceclip2.png](https://f360.zendesk.com//hc/article_attachments/11329405680663.png)
-6. Para fazer o *download* das notas, clique no botão “Download NFe”. A F360 irá se comunicar novamente com os servidores da SEFAZ para tentar obter a versão completa das notas. Só após esse procedimento será possível fazer a criação da despesa no sistema. Caso o processo de download apresente algum erro, iremos mostrar uma mensagem personalizada em cada nota, igual fizemos no processo de confirmação.
+6. Para fazer o *download* das notas, clique no botão “Download NFe”. O Cielo Conciliador irá se comunicar novamente com os servidores da SEFAZ para tentar obter a versão completa das notas. Só após esse procedimento será possível fazer a criação da despesa no sistema. Caso o processo de download apresente algum erro, iremos mostrar uma mensagem personalizada em cada nota, igual fizemos no processo de confirmação.
 7. Após o *download* funcionar, as notas irão passar para o status “Pendentes de Criação da Despesa”, conforme a imagem a seguir:
 ![mceclip3.png](https://f360.zendesk.com//hc/article_attachments/11329408068247.png)
 8. Agora é possível criar as despesas no sistema. Para isso, selecione a nota desejada e clique no botão “Gerar Título” para que o sistema abra a tela de preenchimento dos dados da despesa. Caso necessário, também é possível fechar a tela e fazer a criação da despesa depois.![mceclip4.png](https://f360.zendesk.com//hc/article_attachments/11329428083735.png) 
 -----
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail [suporte@f360.com.br](mailto:suporte@f360.com.br) e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail [cieloconciliador@cielo.com.br](mailto:cieloconciliador@cielo.com.br) e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360º.**
+**Equipe Cielo Conciliador.**
 
 ## Como funciona a tela de nota fiscal eletrônica 
 
 Criamos uma rotina que realiza conexão com os serviços da Fazenda com o intuito de buscar automaticamente todas as Notas Fiscais Eletrônicas de Produtos lançadas contra o CNPJ de suas empresas.
-Com isso, a F360 irá importar os XML’s automaticamente para o seu perfil do sistema, eliminando a necessidade de fazer o download dos arquivos XML’s e inseri-los no sistema.
-Para ativar esse processo, é necessário possuir o certificado digital A1 e cadastrar no F360º. A partir daí, todos os dias iremos buscar no site do SEFAZ as NFe’s de suas empresas. O processo é simples, rápido e seguro.1. **Como habilitar a plataforma F360 - Finanças para buscar os XML’s:**Para habilitar a F360 para fazer a busca automática de notas emitidas contra o CNPJ de suas empresas, faça:
-1. Entre na plataforma F360, acesse a barra superior de cadastros e clique na opção “Webservice” para abrir a tela de configuração de serviços automáticos do sistema.
+Com isso, o Cielo Conciliador irá importar os XML’s automaticamente para o seu perfil do sistema, eliminando a necessidade de fazer o download dos arquivos XML’s e inseri-los no sistema.
+Para ativar esse processo, é necessário possuir o certificado digital A1 e cadastrar no Cielo Conciliador. A partir daí, todos os dias iremos buscar no site do SEFAZ as NFe’s de suas empresas. O processo é simples, rápido e seguro.1. **Como habilitar a plataforma Cielo Conciliador para buscar os XML’s:**Para habilitar o Cielo Conciliador para fazer a busca automática de notas emitidas contra o CNPJ de suas empresas, faça:
+1. Entre no Cielo Conciliador, acesse a barra superior de cadastros e clique na opção “Webservice” para abrir a tela de configuração de serviços automáticos do sistema.
 2. No lado inferior esquerdo da página, clique no botão “Criar” e selecione a opção “Webservice da NFe”. A seguinte tela de configuração irá surgir:
 ![mceclip0.png](https://f360.zendesk.com//hc/article_attachments/360078740314/mceclip0.png)
 Figura 1. Tela de configuração de webservice da NFe.
 3. Selecione o certificado digital, informe a senha e a empresa ao qual pertence o certificado. Clique em “Salvar” e aguarde o carregamento da tela.
 4. Repita esse mesmo procedimento para todas as empresas que você queira habilitar o recebimento automático de XML’s. Normalmente o certificado digital das filiais é o mesmo utilizado na matriz. Pronto! Suas empresas já estão habilitadas para receber os XML’s automaticamente. 
 2. **Confirmando ou Negando notas recebidas via webservice**:Após fazer o rastreamento das notas de suas empresas, o sistema da SEFAZ precisa que o estabelecimento “Confirme” ou “Negue” a NFe recebida. Esse processo é importante por dois motivos:
-* Com isso, é possível descobrir se estão sendo lançadas notas falsas contra o CNPJ de suas empresas. Caso você encontre alguma NFe desconhecida você pode “Negar” a nota. Ao fazer isso, a F360 irá informar ao sistema da SEFAZ para marcar a nota como negada.
-* Já a confirmação da nota é importante, pois sem ela a F360 não tem acesso ao XML completo de suas NFe’s. Ou seja, você precisa confirmar as notas rastreadas automaticamente antes de poder lança-la como um contas a pagar do sistema. 
+* Com isso, é possível descobrir se estão sendo lançadas notas falsas contra o CNPJ de suas empresas. Caso você encontre alguma NFe desconhecida você pode “Negar” a nota. Ao fazer isso, o Cielo Conciliador irá informar ao sistema da SEFAZ para marcar a nota como negada.
+* Já a confirmação da nota é importante, pois sem ela o Cielo Conciliador não tem acesso ao XML completo de suas NFe’s. Ou seja, você precisa confirmar as notas rastreadas automaticamente antes de poder lança-la como um contas a pagar do sistema. 
  Para confirmar ou negar uma nota, faça o seguinte procedimento: 1. Na barra lateral do sistema clique na opção NFe para acessar a tela de Nota Fiscal Eletrônica.
 2. Na opção “Status” dos filtros da tela, selecione a opção “Notas Pendentes”. Clique em “Pesquisar” e o sistema irá listar todas as notas que rastreamos automaticamente, mas que ainda não foram confirmadas ou aprovadas.
 3. Você poderá selecionar uma ou mais notas para efetuar o processo de “Confirmar” ou “Negar”, conforme a imagem a seguir:
 ![mceclip1.png](https://f360.zendesk.com//hc/article_attachments/360079872633/mceclip1.png)
 Figura 2. “Confirmar” ou “Negar” notas.
-4. Caso você clique no botão “Negar”, o sistema enviará a informação ao SEFAZ e irá atualizar o status da nota para negada, tanto no SEFAZ quanto na plataforma F360.
-5. Ao clicar na opção “Confirmar”, o sistema também enviará a informação ao SEFAZ e irá inserir o XML completo dentro do Finanças 360°. A partir daí, será possível ao usuário criar o contas a pagar no sistema da mesma forma como é feito com um XML importado manualmente.
+4. Caso você clique no botão “Negar”, o sistema enviará a informação ao SEFAZ e irá atualizar o status da nota para negada, tanto no SEFAZ quanto no Cielo Conciliador.
+5. Ao clicar na opção “Confirmar”, o sistema também enviará a informação ao SEFAZ e irá inserir o XML completo dentro do Cielo Conciliador. A partir daí, será possível ao usuário criar o contas a pagar no sistema da mesma forma como é feito com um XML importado manualmente.
   
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail [suporte@f360.com.br](mailto:suporte@f360.com.br) e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail [cieloconciliador@cielo.com.br](mailto:cieloconciliador@cielo.com.br) e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Como inserir manualmente o XML de uma nota fiscal
 
@@ -1760,13 +1760,13 @@ Para casos em que a nota não está disponibilizada no sistema do Sefaz, você p
 ![inserir_xml_de_nota_fiscal.gif](https://f360.zendesk.com//hc/article_attachments/360060115194/inserir_xml_de_nota_fiscal.gif)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Criação automática de contas a pagar através da NFe 
 
-Aqui iremos lhe mostrar como realizar a configuração na sua sabe F360º Finanças, para que seja automatizado a criação de Títulos a pagar, apenas através da importação da Notas fiscal, seja ela importada através do xml ou pela Sefaz, e para as notas de débitos e de serviços em PDF (Verificar no nosso canal do suporte municípios e marcas homologadas).
+Aqui iremos lhe mostrar como realizar a configuração do Cielo Conciliador, para que seja automatizado a criação de Títulos a pagar, apenas através da importação da Notas fiscal, seja ela importada através do xml ou pela Sefaz, e para as notas de débitos e de serviços em PDF (Verificar no nosso canal do suporte municípios e marcas homologadas).
 Para realizar o **upload de forma manual** deste tipo de arquivo na plataforma, basta acessar a tela de "Upload de Arquivos" e selecionar os arquivos que deseja importar (conforme imagens abaixo). 
 O passo a passo abaixo detalha como configurar a geração de Despesas de forma automática.
 ![](https://f360.zendesk.com//hc/article_attachments/18528462817687.png)
@@ -1816,23 +1816,23 @@ Essa opção é para regra de usuário, caso possua usuários que operam na plat
 ![mceclip7.png](https://f360.zendesk.com//hc/article_attachments/4408543431447.png)
  
 Preparamos um vídeo com as instruções acima, que contém o exemplo de como será a criação do contas a pagar com essa configuração finalizada. 👇
-[Lançamento Automático NFE - F360° Finanças](https://www.youtube.com/watch?v=idXE3EJSZD4)
+[Lançamento Automático NFE - Cielo Conciliador](https://www.youtube.com/watch?v=idXE3EJSZD4)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360°**
+**Equipe Cielo Conciliador**
 
-## Como cadastrar fornecedores confiáveis em NFEA Webservice de comunicação da F360 - 
+## Como cadastrar fornecedores confiáveis em NFEA Webservice de comunicação do Cielo Conciliador - 
 
 Finanças com a NFE é dividido em três partes:
 
 * Obtenção da lista de notas emitidas contra o CNPJ das empresas cadastradas;
 * Confirmação do reconhecimento das notas recebidas;
-* Download das notas cujo reconhecimento foi efetuado com sucesso; Após a conclusão das três etapas é possível que os usuários utilizem a funcionalidade da NFE para criar a despesa na F360 - Finanças. A primeira etapa dessa rotina já é realizada em segundo plano pelo sistema, mas as outras partes dependem de interação com o usuário.
-Diante disso, para facilitar a rotina, criamos uma opção para que sejam cadastrados fornecedores confiáveis no cadastro da webservice em NFE. Sempre que a plataforma reconhecer alguma NF emita por algum dos fornecedores cadastrados como confiáveis, a F360 - Finanças irá realizar algumas tentativas automáticas de confirmação e download da nota, tudo em segundo plano sem a ação dos usuários.
+* Download das notas cujo reconhecimento foi efetuado com sucesso; Após a conclusão das três etapas é possível que os usuários utilizem a funcionalidade da NFE para criar a despesa no Cielo Conciliador - Finanças. A primeira etapa dessa rotina já é realizada em segundo plano pelo sistema, mas as outras partes dependem de interação com o usuário.
+Diante disso, para facilitar a rotina, criamos uma opção para que sejam cadastrados fornecedores confiáveis no cadastro da webservice em NFE. Sempre que a plataforma reconhecer alguma NF emita por algum dos fornecedores cadastrados como confiáveis, a Cielo Conciliador irá realizar algumas tentativas automáticas de confirmação e download da nota, tudo em segundo plano sem a ação dos usuários.
 Para realizar esse cadastro, siga o seguinte passo-a-passo:
-1. No menu de cadastros da F360 - Finanças selecione a opção “Webservice”;
+1. No menu de cadastros do Cielo Conciliador selecione a opção “Webservice”;
 2. Selecione o webservice de NFE da empresa desejada e clique em “Editar”. A seguinte tela irá aparecer:
 ![](http://teekitstorage.blob.core.windows.net/financas360-attachments/ec5d453f-d18c-4d21-94d3-17172c71e1fb.png)
 3. Informe os fornecedores que você deseja que o sistema faça a confirmação automática e clique em ‘Salvar’.
@@ -1840,9 +1840,9 @@ Para realizar esse cadastro, siga o seguinte passo-a-passo:
 5. Pronto! A partir do próximo dia, as novas notas que entrarem via webservice, cujos fornecedores estejam nessas listas, a plataforma tentará efetuar a confirmação automaticamente.
 ---
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail [suporte@f360.com.br](mailto:suporte@f360.com.br) e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail [cieloconciliador@cielo.com.br](mailto:cieloconciliador@cielo.com.br) e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
   
 ## Como corrigir os alertas das notas em NFE
 
@@ -1860,11 +1860,11 @@ Uma informação importante para destacar é que nenhum desses indicadores são 
  
 -----
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail [suporte@f360.com.br](mailto:suporte@f360.com.br) e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail [cieloconciliador@cielo.com.br](mailto:cieloconciliador@cielo.com.br) e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
-## Como configurar exceções de planos de contas diferentes que tem o mesmo NCM/CFOP na NFEDurante a parametrização de um NCM/CFOP na F360
+## Como configurar exceções de planos de contas diferentes que tem o mesmo NCM/CFOP na NFEDurante a parametrização de um NCM/CFOP no Cielo Conciliador
 
 Finanças às vezes a gente se depara com o seguinte problema:
 
@@ -1874,10 +1874,10 @@ Como lidar com essa situação no sistema?
 1. Entre na tela de NFE e vá até a aba “NCM e CFOP”. Localize a combinação de NCM/CFOP desejada e clique no botão “Editar”.
 2. No campo “Plano de Contas” adicione a classificação principal dessa combinação de NCM/CFOP. No exemplo citado, iremos usar o plano de contas “Compra de Mercadorias”.
 3. Ainda na tela de edição do NCM/CFOP, clique no botão de adicionar (+) localizado ao lado do campo de plano de contas. Com isso, será possível vincular o código do produto e o fornecedor das exceções de parametrização de plano de contas em relação a configuração principal, conforme a imagem a seguir:
-![](http://teekitstorage.blob.core.windows.net/financas360-attachments/8a684a7f-e362-4d31-8975-8ddd891e77d0.png)       No exemplo acima, a F360 - Finanças irá contabilizar todos os valores da combinação “CFOP 1202 / NCM 48221000” no plano de contas “Compra de Mercadorias”, porém quando o código do produto for igual à “123456” ou “456789” e o fornecedor da nota for igual a “Calamo”, a F360 irá contabilizar o valor referente a esses produtos no plano de contas “Compra de Mercadorias - Flaconetes”.-----------------------------------------------------------------Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+![](http://teekitstorage.blob.core.windows.net/financas360-attachments/8a684a7f-e362-4d31-8975-8ddd891e77d0.png)       No exemplo acima, o Cielo Conciliador irá contabilizar todos os valores da combinação “CFOP 1202 / NCM 48221000” no plano de contas “Compra de Mercadorias”, porém quando o código do produto for igual à “123456” ou “456789” e o fornecedor da nota for igual a “Calamo”, o Cielo Conciliador irá contabilizar o valor referente a esses produtos no plano de contas “Compra de Mercadorias - Flaconetes”.-----------------------------------------------------------------Gostou desse artigo? Tem alguma dúvida ou sugestão?  
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Manifestação de nota fiscal eletrônica
 
@@ -1895,9 +1895,9 @@ Ao selecionar a nota fiscal que deseja manifestar, no menu inferior irá aparece
 Na plataforma é possível realizar a inserção de notas de débitos e notas fiscais de serviços em PDF da marca O Boticário, mas antes de realizar a importação das notas é necessário realizar as configurações, veja no exemplo abaixo:
   
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
  
 # Fluxo de Caixa
 
@@ -1907,14 +1907,14 @@ Um grande abraço,
  
 ![mceclip0.png](https://f360.zendesk.com//hc/article_attachments/360096499573/mceclip0.png)
  
-Na F360-Finanças, poderá configurar sua página para detalhar por modalidades os totais de entradas e saídas. Para as contas em dinheiro, ela servirá como "um extrato" da conta, onde apresenta o saldo final do dia anterior, as entradas, saídas e o saldo ao final do dia. 
+no Cielo Conciliador-Finanças, poderá configurar sua página para detalhar por modalidades os totais de entradas e saídas. Para as contas em dinheiro, ela servirá como "um extrato" da conta, onde apresenta o saldo final do dia anterior, as entradas, saídas e o saldo ao final do dia. 
 Lembrando que as entradas e saídas na modalidade Dinheiro, é composta das liquidações em contas a receber, contas a pagar, depósitos e transferências efetuadas utilizando a conta caixa da loja.
 Temos tópicos em nossa Central de ajuda onde ensinará efetuar a configuração e pesquisa! 
  \_\_\_
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
  
 ## Como identificar diferença no saldo do caixa
 
@@ -1923,9 +1923,9 @@ O saldo da conta caixa é composto pelo saldo anterior e as vendas do dia, como 
 ![pesquisa_de_fluxo_de_caixa.gif](https://f360.zendesk.com//hc/article_attachments/360060012034/pesquisa_de_fluxo_de_caixa.gif)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## O que é o fluxo de caixa analítico / DFC?
 
@@ -1935,9 +1935,9 @@ Essa função do sistema está disponível na tela de Fluxo de Caixa na aba “F
 ![mceclip0.png](https://f360.zendesk.com//hc/article_attachments/360096499693/mceclip0.png)
 \_\_\_
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
  
 ## Como efetuar sua pesquisa no fluxo de caixa
 
@@ -1945,9 +1945,9 @@ Para efetuar a pesquisa na aba de Fluxo de Caixa, selecione o período, status: 
 Ao obter o resultado da pesquisa, clique no sinal de + ao lado da data, para que apareçam as linhas das contas (pois você pode selecionar mais de 1 conta), e no total de onde deseja efetuar a pesquisa para obter o detalhamento dos lançamentos, que está compondo o total.
 **\* Dica: Orientamos que a pesquisa no Fluxo de Caixa, sempre deverá ser selecionando conta e não empresa.**
 ![Pesquisa_em_Fluxo_de_Caixa.gif](https://f360.zendesk.com//hc/article_attachments/360060116534/Pesquisa_em_Fluxo_de_Caixa.gif)-----------------------------------------------------------------Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Como configurar seu fluxo de caixa
 
@@ -1955,9 +1955,9 @@ Vamos ensinar através do Gif, como configurar sua pesquisa no Fluxo de Caixa, p
 Clique no lápis no campo de Data para iniciar a configuração, depois no sinal de + nas linhas de entrada ou saídas para acrescentar a nova modalidade, selecione e clique em salvar. Após adicionar as modalidades clique em Salvar Configurações.
 ![Como_Configurar_Fluxo_de_Caixa.gif](https://f360.zendesk.com//hc/article_attachments/360061042113.gif)\_\_\_
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
  
 ## Como configurar seu fluxo de caixa analítico
 
@@ -1978,15 +1978,15 @@ Para os lançamentos não operacionais, todas as receitas lançadas alguns exemp
 ![mceclip7.png](https://f360.zendesk.com//hc/article_attachments/360061248833/mceclip7.png)
 \_\_
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 # Manuais  AdquirentesOperadoras
 
 ## Manual Adquirente Wizeo
 
-Preparamos o manual de exportação dos arquivos da Adquirente Wizeo, para que possa importar os arquivos e realizar a conciliação dos recebíveis na sua plataforma F360° Finanças, siga as instruções abaixo:
+Preparamos o manual de exportação dos arquivos da Adquirente Wizeo, para que possa importar os arquivos e realizar a conciliação dos recebíveis no Cielo Conciliador° Finanças, siga as instruções abaixo:
  
 **Nota importante**: Necessário cadastrar as taxas administrativas, no cadastro da adquirente, visto que o arquivo não possui tal informação.
   
@@ -2011,7 +2011,7 @@ Selecione a opção de exportação .CSV
 ![mceclip3.png](https://f360.zendesk.com//hc/article_attachments/1500014439881/mceclip3.png)
  
 Salve o Arquivo no local desejado, abra o arquivo e salve, depois importe para o   
-F360º, pela tela Contas a Receber>Cartões a Receber>botão outros, selecionado a   
+Cielo Conciliador, pela tela Contas a Receber>Cartões a Receber>botão outros, selecionado a   
 Adquirente e data de pagamento.  
 O arquivo disponibilizado pela adquirente não possui essas informações:
 ![mceclip4.png](https://f360.zendesk.com//hc/article_attachments/1500014166722/mceclip4.png)
@@ -2022,9 +2022,9 @@ vendas foram inseridas.
 [Manual de Consulta de Repasse Adquirente Wizeo](https://f360.zendesk.com//hc/pt-br/articles/1500009386561)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
  
 ## Manual OmniChannel Boleto - O Boticário
 
@@ -2054,19 +2054,19 @@ Em seguida faça a exportação do arquivo em Excel, salve o arquivo no local de
  
 ![mceclip3.png](https://f360.zendesk.com//hc/article_attachments/4403228215831.png)
  
-Acesse perfil da F360º, insira o arquivo pela tela de upload, não esqueça de acompanhar a   
+Acesse perfil do Cielo Conciliador, insira o arquivo pela tela de upload, não esqueça de acompanhar a   
 leitura na aba gerenciamento de arquivos.
  
 ![mceclip5.png](https://f360.zendesk.com//hc/article_attachments/4403232534679.png)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360º**
+**Equipe Cielo Conciliador**
 
 ## Manual de Exportação EcxCard
 
-Preparamos o manual de exportação dos arquivos da EcxCard, para que possa importar os arquivos e realizar a conciliação dos recebíveis na sua plataforma F360° Finanças, siga as instruções abaixo:
+Preparamos o manual de exportação dos arquivos da EcxCard, para que possa importar os arquivos e realizar a conciliação dos recebíveis no Cielo Conciliador° Finanças, siga as instruções abaixo:
  
 Acesse o site da Ecx Card > <https://www.ecx.com.br/acesso-rapido.php?pg=admin>
  
@@ -2089,19 +2089,19 @@ Abrirá a tela de Exportação de Arquivo TXT em seguida clique em Salvar Como:
 ![mceclip5.png](https://f360.zendesk.com//hc/article_attachments/360092837434/mceclip5.png)
 Abrirá o arquivo em TXT e em seguida com o botão direito clique em Salvar como:
 ![mceclip6.png](https://f360.zendesk.com//hc/article_attachments/360092837474/mceclip6.png)
-Em seguida > Acesse o Finanças 360° > Upload de Arquivos e importe o arquivo em TXT:
+Em seguida > Acesse o Cielo Conciliador > Upload de Arquivos e importe o arquivo em TXT:
 ![mceclip7.png](https://f360.zendesk.com//hc/article_attachments/360092837494/mceclip7.png)
 **Obs.:** Verifique a tela de gerenciamento de arquivos, se o arquivo foi lido e inserido corretamente.
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360.**
+**Equipe Cielo Conciliador.**
  
 ## Manual Operadora CREDZ
 
 Veja abaixo o passo a passo de como exportar o relatório da operadora Credz.
-**Nota: Antes de realizar esse processo, é importante que seja enviado o e-mail para o [suporte@f360.com.br,](mailto:suporte@f360.com.br,) solicitando o credenciamento da operadora.**
+**Nota: Antes de realizar esse processo, é importante que seja enviado o e-mail para o [cieloconciliador@cielo.com.br,](mailto:cieloconciliador@cielo.com.br,) solicitando o credenciamento da operadora.**
 **![mceclip0.png](https://f360.zendesk.com//hc/article_attachments/7759403285399/mceclip0.png)**
 **![mceclip1.png](https://f360.zendesk.com//hc/article_attachments/7759455814295/mceclip1.png)**
 **![mceclip2.png](https://f360.zendesk.com//hc/article_attachments/7759442615703/mceclip2.png)**
@@ -2109,15 +2109,15 @@ Veja abaixo o passo a passo de como exportar o relatório da operadora Credz.
  
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360º.**
+**Equipe Cielo Conciliador.**
 
 ## Manual de exportação Elavon
 
-Preparamos o manual de exportação dos arquivos da Elavon, para realizar a conciliação dos recebíveis na sua plataforma F360° Finanças, siga as instruções abaixo:
+Preparamos o manual de exportação dos arquivos da Elavon, para realizar a conciliação dos recebíveis no Cielo Conciliador° Finanças, siga as instruções abaixo:
  
-A importação dos arquivos da Elavon na F360° Finanças deve seguir  uma rotina especifica, pois os arquivos disponibilizados pela operadora possuem características bem distintas quando comparado com as outras  operadoras de cartão. 
+A importação dos arquivos da Elavon no Cielo Conciliador° Finanças deve seguir  uma rotina especifica, pois os arquivos disponibilizados pela operadora possuem características bem distintas quando comparado com as outras  operadoras de cartão. 
  
 **Elavon:**
 *Os arquivos devem ser buscados seguindo uma ordem especifica. Esse  procedimento deve ser feito DIARIAMENTE no portal da Elavon (**https://www.my-merchantconnect.com/reporting/pt\_BR/login)*
@@ -2134,16 +2134,16 @@ A importação dos arquivos da Elavon na F360° Finanças deve seguir  uma roti
 ![mceclip2.png](https://f360.zendesk.com//hc/article_attachments/360092844774/mceclip2.png)
 **Tarifas e Ajustes:** No menu principal no portal da Elavon, vá em “Relatórios” e selecione a opção “Tarifas e Ajustes”, em seguida selecione o período.
 ![mceclip3.png](https://f360.zendesk.com//hc/article_attachments/360095069673/mceclip3.png)
-Todos os arquivos devem ser exportados em formato CSV e importados para o sistema na mesma ordem descrita nesse manual. Após baixar os arquivos, importe-os para o sistema F360° Finanças.
+Todos os arquivos devem ser exportados em formato CSV e importados para o sistema na mesma ordem descrita nesse manual. Após baixar os arquivos, importe-os para o sistema Cielo Conciliador.
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360.**
+**Equipe Cielo Conciliador.**
  
 ## Manual de exportação Good Card
 
-Preparamos o manual de exportação dos arquivos Good Card, para que possa importar os arquivos e realizar a conciliação dos recebíveis na sua plataforma F360° Finanças, siga as instruções abaixo:
+Preparamos o manual de exportação dos arquivos Good Card, para que possa importar os arquivos e realizar a conciliação dos recebíveis no Cielo Conciliador° Finanças, siga as instruções abaixo:
  
 **\*O código de estabelecimento** para cadastro é o CNPJ sem caracteres especiais.
 Acesse o site: <https://www.goodcard.com.br/EstabelecimentoSSL/Login/Home.cfm> 
@@ -2160,7 +2160,7 @@ A tela a seguir vai ser aberta, primeiro vamos fazer o download do **Arquivo de 
 * **No campo Selecione o tipo de pesquisa desejado**: coloque Data da Transação para Arquivo de Vendas
 * **No campo Data da transação**: coloque o período desejado
 * **No campo status da transação:** Coloque Validadas
-* **No campo Visualização:** Coloque Excel, salve o arquivo em uma pasta desejada e insira na plataforma Finanças 360° pela tela de Upload de Arquivos
+* **No campo Visualização:** Coloque Excel, salve o arquivo em uma pasta desejada e insira no Cielo Conciliador pela tela de Upload de Arquivos
  
 Agora vamos fazer o download do **Arquivo de Pagamento**
 **![mceclip3.png](https://f360.zendesk.com//hc/article_attachments/360095081513/mceclip3.png)**
@@ -2168,17 +2168,17 @@ Agora vamos fazer o download do **Arquivo de Pagamento**
 * **No campo Selecione o tipo de pesquisa desejado**: coloque Data da Pagamento para Arquivo de Pagamento
 * **No campo Data da transação**: coloque o período desejado
 * **No campo status da transação:** Coloque Pagas
-* **No campo Visualização:** Coloque Excel, salve o arquivo em uma pasta desejada e insira na plataforma Finanças 360° pela tela de Upload de Arquivos  
+* **No campo Visualização:** Coloque Excel, salve o arquivo em uma pasta desejada e insira no Cielo Conciliador pela tela de Upload de Arquivos  
 **Obs.:** Verifique a tela de gerenciamento de arquivos, se o arquivo foi lido e inserido corretamente.
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360.**
+**Equipe Cielo Conciliador.**
 
 ## Manual de Exportação arquivos Ben Visa Vale
 
-Preparamos o manual de exportação dos arquivos da Ben Visa Vale, para que possa importar os arquivos e realizar a conciliação dos recebíveis na sua plataforma F360° Finanças, siga as instruções abaixo:
+Preparamos o manual de exportação dos arquivos da Ben Visa Vale, para que possa importar os arquivos e realizar a conciliação dos recebíveis no Cielo Conciliador° Finanças, siga as instruções abaixo:
  
 Entre no portal Bem Visa Vale (<https://estabelecimento.benvisavale.com.br/painel/login>)
 Acesse com o seu login e senha:
@@ -2200,15 +2200,15 @@ Selecione o formato CSV e clicar em gerar relatório:
 Salve o arquivo no local de sua preferência, e em seguida importe para a Finanças em Upload de arquivos. Veja na aba de gerenciamento de arquivos, se o mesmo foi lido e inserido sem notas.
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
  
  
  
 ## Manual de exportação FortBrasil
 
-Preparamos o manual de exportação dos arquivos da FortBrasil, para que possa importar os arquivos e realizar a conciliação dos recebíveis na sua plataforma F360° Finanças, siga as instruções abaixo:
+Preparamos o manual de exportação dos arquivos da FortBrasil, para que possa importar os arquivos e realizar a conciliação dos recebíveis no Cielo Conciliador° Finanças, siga as instruções abaixo:
  
 Acesse <https://www.fortbrasil.com.br/para-sua-loja>
 Clique em “Extrato”:
@@ -2231,19 +2231,19 @@ Em seguida clique em “Gerar dados em arquivo texto” e salve em uma pasta des
 ![mceclip3.png](https://f360.zendesk.com//hc/article_attachments/360095077913/mceclip3.png)
  
  
-Acesse o Finanças 360° > Upload de Arquivos e importe primeiro o Arquivo de Vendas e depois  o Arquivo de Pagamento. 
+Acesse o Cielo Conciliador > Upload de Arquivos e importe primeiro o Arquivo de Vendas e depois  o Arquivo de Pagamento. 
 ![mceclip4.png](https://f360.zendesk.com//hc/article_attachments/360092853774/mceclip4.png)
  
 **Obs.:** Verifique a tela de gerenciamento de arquivos, se o arquivo foi lido e inserido corretamente.
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360.**
+**Equipe Cielo Conciliador.**
 
 ## Manual de exportação VeroCard - (Refeição, Alimentação, Farmácia, Combustível, Cesta, Flex, Cult e Champ)
 
-Preparamos o manual de exportação dos arquivos da Verocard, para que possa importar os arquivos e realizar a conciliação dos recebíveis na sua plataforma F360° Finanças, siga as instruções abaixo:
+Preparamos o manual de exportação dos arquivos da Verocard, para que possa importar os arquivos e realizar a conciliação dos recebíveis no Cielo Conciliador° Finanças, siga as instruções abaixo:
  
 1. Acesse o site da Verocard > Área do Credenciado e faça login:
 <https://www.verocard.com.br/para-o-credenciado>
@@ -2263,16 +2263,16 @@ Clique em Produção > Consulta venda:
 ![mceclip3.png](https://f360.zendesk.com//hc/article_attachments/360103650753/mceclip3.png)
  
  
-**Em seguida realize a importação do arquivo na plataforma F360º - Finanças, e upload de arquivos, e analise a leitura do arquivo se será lido e inserido corretamente.**
+**Em seguida realize a importação do arquivo na plataforma Cielo Conciliador, e upload de arquivos, e analise a leitura do arquivo se será lido e inserido corretamente.**
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Manual de Exportação Adquirente Credpar
 
-Preparamos o manual de exportação dos arquivos da Adquirente Credpar, para que possa importar os arquivos e realizar a conciliação dos recebíveis na sua plataforma F360° Finanças, siga as instruções abaixo:
+Preparamos o manual de exportação dos arquivos da Adquirente Credpar, para que possa importar os arquivos e realizar a conciliação dos recebíveis no Cielo Conciliador° Finanças, siga as instruções abaixo:
  
 Acesse o portal da Credpar > <http://jetcard.marketpay.com.br/jetcard/LoginModuloAdministradora?acao=login>
  
@@ -2291,7 +2291,7 @@ Em tipo do Arquivo a gera, selecione o tipo de **arquivo**, e selecione os campo
  
 ![mceclip2.png](https://f360.zendesk.com//hc/article_attachments/1500005472522/mceclip2.png)
  
-Em seguida, clique no botão **confirmar** para exportar o Relatório, e importe na tela de upload de arquivos na plataforma  F360º Finanças.
+Em seguida, clique no botão **confirmar** para exportar o Relatório, e importe na tela de upload de arquivos na plataforma  Cielo Conciliador.
  
 **Arquivo de Pagamentos**
  
@@ -2307,14 +2307,14 @@ Você precisa preencher os campos de data inicial e final.
 Em tipo do Arquivo a gera, selecione o tipo de **arquivo**, e selecione os campos de **Gerar Título e Gerar Títulos Colunas,** no campo separador de colunas insira o ponto e virgula **(;)** conforme a imagem abaixo:
  
 ![mceclip5.png](https://f360.zendesk.com//hc/article_attachments/1500005474182/mceclip5.png)
-Em seguida, clique no botão **confirmar** para exportar o Relatório, e importe na tela de upload de arquivos na plataforma  F360º Finanças.
+Em seguida, clique no botão **confirmar** para exportar o Relatório, e importe na tela de upload de arquivos na plataforma  Cielo Conciliador.
  
 **Nota:** Caso, não tenha acesso aos relatórios, é preciso solicitar à CREDPAR, para que ela libere os relatórios em seu acesso.
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
  
 ## Manual de adquirente Getnet
 
@@ -2325,9 +2325,9 @@ Preparamos esse artigo, para que você saiba como realizar a importação de rel
 ![](https://f360.zendesk.com//hc/article_attachments/19586101377303.html)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360.**
+**Equipe Cielo Conciliador.**
  
 ## Manual de importação VR 
 
@@ -2348,13 +2348,13 @@ Os arquivos da VR são transmitidos pela a Nexxera automaticamente via API, mas 
 ![](https://f360.zendesk.com//hc/article_attachments/18983590822935.png)
 ![](https://f360.zendesk.com//hc/article_attachments/18983567668631.png)
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360.**
+**Equipe Cielo Conciliador.**
 
 ## Manual de exportação IfoodPay
 
-Preparamos o manual de exportação dos arquivos IfoodPay, para que possa importar os arquivos e realizar a conciliação dos recebíveis na sua plataforma F360° Finanças, siga as instruções abaixo:
+Preparamos o manual de exportação dos arquivos IfoodPay, para que possa importar os arquivos e realizar a conciliação dos recebíveis no Cielo Conciliador, siga as instruções abaixo:
  
 1. Acesse o portal : <https://portalmovilepay.ifood.com.br/>
 2. Clique em Vendas
@@ -2369,7 +2369,7 @@ Por conta disso a importação do Arquivo vai ser em um formato diferente e sele
 * **Data de Vencimento da Venda**
 **NOTA:** Devido a falta da data de Vencimento dentro do Arquivo você só pode exportar 1 dia de Venda por vez, isso acontece porque cada dia de venda, tem um vencimento diferente, essa não é uma limitação da plataforma, essa limitação é do arquivo da iFood Pay!
  
-**Importando o Arquivo na Finanças 360°**
+**Importando o Arquivo no Cielo Conciliador**
 * Acesse a Tela de Contas a Receber > Aba Cartões à Receber
 * No canto inferior direito do Rodapé clique em Outros
 * Selecione a Operadora iFood Pay
@@ -2380,21 +2380,21 @@ Por conta disso a importação do Arquivo vai ser em um formato diferente e sele
 ![mceclip2.png](https://f360.zendesk.com//hc/article_attachments/360092915354/mceclip2.png)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360.**
+**Equipe Cielo Conciliador.**
  
 ## Importação do arquivo Cielo 15
 
 A Cielo possui um arquivo que contém informações de parcelas antecipadas, porém não possui informações suficientes para realizarmos a antecipação na plataforma de forma arbitrária.   
   
-Para contornar este problema, a F360 realizou uma adaptação para o arquivo, onde através da importação via **upload de arquivos** serão gerados registros de antecipação manual no **contas a receber** do cliente, exibindo informações da parcela a ser antecipada para que o cliente confirme ou realize o cancelamento.
-Como o arquivo da Cielo (Cielo15) não possui a especificação de quais vendas foram antecipadas, a plataforma F360 utiliza outros critérios para identificar as vendas que precisam ser antecipadas, como valor, data de vencimento e bandeira do cartão. Mesmo assim, é possível que nem todas as vendas presentes no arquivo sejam antecipadas, em casos de ambiguidade considerando estes critérios, a plataforma F360 ignora o registro e não insere a venda.
+Para contornar este problema, o Cielo Conciliador realizou uma adaptação para o arquivo, onde através da importação via **upload de arquivos** serão gerados registros de antecipação manual no **contas a receber** do cliente, exibindo informações da parcela a ser antecipada para que o cliente confirme ou realize o cancelamento.
+Como o arquivo da Cielo (Cielo15) não possui a especificação de quais vendas foram antecipadas, o Cielo Conciliador utiliza outros critérios para identificar as vendas que precisam ser antecipadas, como valor, data de vencimento e bandeira do cartão. Mesmo assim, é possível que nem todas as vendas presentes no arquivo sejam antecipadas, em casos de ambiguidade considerando estes critérios, o Cielo Conciliador ignora o registro e não insere a venda.
  
 ![confirmar.gif](https://f360.zendesk.com//hc/article_attachments/6222797242775/confirmar.gif)
 **Veja a seguir como fazer esse procedimento:**
  
-1. Entre no módulo F360 Finanças e insira o arquivo através da tela de **Upload de Arquivos**.
+1. Entre no Cielo Conciliador e insira o arquivo através da tela de **Upload de Arquivos**.
 2. Vá até a tela de [Contas a Receber](https://financas.f360.com.br/Receita) e na sequência clique na sub aba **Antecipação Manual.**
 3. Selecione os filtros e clique em **Pesquisar.**
 4. Selecione o registro que deseja confirmar e clique no botão “**Confirmar Antecipação**”.
@@ -2405,11 +2405,11 @@ Você poderá reverter a antecipação realizada dentro do sistema desde que nen
 
 ## Manual de Webservice Adquirente Wirecard
 
-Preparamos o manual de criação da webservice referente a adquirente Wirecard, para que possa importar os arquivos de vendas e realizar a conciliação dos recebíveis na sua plataforma F360° Finanças, siga as instruções abaixo:
-* O Primeiro passo, é preciso que você envie um e-mail para a Wirecard solicitando liberação ao acesso dos arquivos/extratos de conciliação no conciliador F360°.
+Preparamos o manual de criação da webservice referente a adquirente Wirecard, para que possa importar os arquivos de vendas e realizar a conciliação dos recebíveis no Cielo Conciliador, siga as instruções abaixo:
+* O Primeiro passo, é preciso que você envie um e-mail para a Wirecard solicitando liberação ao acesso dos arquivos/extratos de conciliação no Cielo Conciliador.
 * Após isso, nós precisaremos ter acesso ao seu Token e Chave de integração da Wirecard.
 * Para obter essa informação, você poderá acessar o seu portal da Wirecard na opção **"Minha Conta"** -- > **"Configurações"** --> **"Chaves de Acesso".** Na mesma tela vai aparecer o Token, precisamos dele também.
-**Após seguir o primeiro passo, você pode realizar a configuração em sua base F360° Finanças, veja abaixo:**
+**Após seguir o primeiro passo, você pode realizar a configuração em sua base Cielo Conciliador, veja abaixo:**
 * Em Menu de Cadastros > Selecione a Empresa que utiliza a Wirecar > Clique abaixo em editar > Acesse a Aba Outras informações > Na área de Importação de Arquivo de Remessa, você precisa cadastrar no Campo **Código Convênio** o moipAccount (que é o código de estabelecimento).
 ![mceclip2.png](https://f360.zendesk.com//hc/article_attachments/360096140414/mceclip2.png)
 **Obs: O moipAccount, é o EC da Adquirente, que será descoberto quando for importado o primeiro arquivo, porque a Wirecard não informa esses Ec.**
@@ -2425,9 +2425,9 @@ Preparamos o manual de criação da webservice referente a adquirente Wirecard, 
 ![mceclip3.png](https://f360.zendesk.com//hc/article_attachments/360098436453/mceclip3.png)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
  
 ## Manual de Exportação Sodexo
 
@@ -2449,21 +2449,21 @@ Após a pesquisa realizada, clique no botão localizado no lado direito da tela 
  
 ![mceclip11.png](https://f360.zendesk.com//hc/article_attachments/5829442866583.png)
  
-Após exportar, salve o arquivo em uma pasta de seu computador e importe na tela de Upload de arquivos da F360º Finanças.
+Após exportar, salve o arquivo em uma pasta de seu computador e importe na tela de Upload de arquivos do Cielo Conciliador.
 **Obs.: Lembre-se de conferir a importação na aba de gerenciamento de arquivos.**
  
 ![mceclip5.png](https://f360.zendesk.com//hc/article_attachments/5829111689751.png)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360.**
+**Equipe Cielo Conciliador.**
 
 ## Manual Download Adquirente AME Digital
 
-Preparamos o manual de exportação dos arquivos da Adquirente Ame Digital, para que possa importar os arquivos e realizar a conciliação dos recebíveis na sua plataforma F360° Finanças, siga as instruções abaixo:
+Preparamos o manual de exportação dos arquivos da Adquirente Ame Digital, para que possa importar os arquivos e realizar a conciliação dos recebíveis no Cielo Conciliador, siga as instruções abaixo:
  
-**NOTA:** Antes de importar o primeiro arquivo, você precisa cadastrar a AME Digital como uma Adquirente dentro da Plataforma F360º Finanças.  
+**NOTA:** Antes de importar o primeiro arquivo, você precisa cadastrar a AME Digital como uma Adquirente dentro do Cielo Conciliador.  
 Acesse o Menu de Cadastros > Empresas e Filiais > Aba Dados dos Cartões e Adicione a AME Digital conforme   
 orientações abaixo  
 Link do Menu de Cadastros > Empresas e Filiais: <https://sistema.financas360.com.br/Empresa>
@@ -2489,18 +2489,18 @@ Link do Menu de Cadastros > Empresas e Filiais: <https://sistema.financas360.com
 **O site irá solicitar para que selecione o período novamente, selecione o período desejado e Exporte o Arquivo em Excel:**
  
 **![mceclip6.png](https://f360.zendesk.com//hc/article_attachments/1500013374341/mceclip6.png)**
-**Após salvar o Arquivo > Acesse a tela de Upload de Arquivos da F360° Finanças.**
+**Após salvar o Arquivo > Acesse a tela de Upload de Arquivos do Cielo Conciliador.**
 **<https://sistema.financas360.com.br/Arquivo>**
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Manual Operadora ACQIO
 
 Veja abaixo o passo a passo de como exportar o relatório da operadora ACQIO.
-**Nota: Antes de realizar esse processo, é importante que seja enviado o e-mail para o [suporte@f360.com.br,](mailto:suporte@f360.com.br,) solicitando o credenciamento da operadora.**
+**Nota: Antes de realizar esse processo, é importante que seja enviado o e-mail para o [cieloconciliador@cielo.com.br,](mailto:cieloconciliador@cielo.com.br,) solicitando o credenciamento da operadora.**
 **![mceclip0.png](https://f360.zendesk.com//hc/article_attachments/7759657598743/mceclip0.png)**
 **![mceclip1.png](https://f360.zendesk.com//hc/article_attachments/7759642604439/mceclip1.png)**
 **![mceclip2.png](https://f360.zendesk.com//hc/article_attachments/7759660471319/mceclip2.png)**
@@ -2510,16 +2510,16 @@ Veja abaixo o passo a passo de como exportar o relatório da operadora ACQIO.
 **![mceclip6.png](https://f360.zendesk.com//hc/article_attachments/7759701763991/mceclip6.png)**
 **![mceclip7.png](https://f360.zendesk.com//hc/article_attachments/7759720680343/mceclip7.png)**
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360º.**
+**Equipe Cielo Conciliador.**
 
 ## Credenciamento - Operadora Stone 
 
-Segue abaixo o passo a passo de como realizar o credenciamento da operadora Stone na plataforma F360° Finanças:
+Segue abaixo o passo a passo de como realizar o credenciamento da operadora Stone no Cielo Conciliador:
  
 **1º Passo:**
-Na F360, faça o passo a passo abaixo para cadastrar as informações da adquirente na empresa:
+no Cielo Conciliador, faça o passo a passo abaixo para cadastrar as informações da adquirente na empresa:
 * Na tela de Menu de Cadastro > Empresas e Filiais;
 * Selecione a empresa > Editar;
 * Na aba 'Dados dos Cartões' > Clique em '**Adicionar**';
@@ -2531,20 +2531,20 @@ Na F360, faça o passo a passo abaixo para cadastrar as informações da adquire
 * Clique em **+CRIAR**, no canto inferior esquerdo > No campo 'Selecione o webservice' digite **Stone (Novo)**;
 * Em '**StoneCode**' coloque o código de estabelecimento da Stone > Selecione a empresa;
 * Clique no botão '**Efetuar processo de credenciamento**';
-* Será enviado um e-mail para liberar o acesso da F360 para acessar as vendas. É enviado para o e-mail principal cadastrado no portal da Stone;  
+* Será enviado um e-mail para liberar o acesso do Cielo Conciliador para acessar as vendas. É enviado para o e-mail principal cadastrado no portal da Stone;  
  
 ![stone.png](https://f360.zendesk.com//hc/article_attachments/20002835283863.png)
  
 Após cadastrar a nova API da Stone, basta selecionar a API e clicar em '**Chamar Serviço**' para as vendas das datas que deseja. 
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360°**
+**Equipe Cielo Conciliador**
 
 ## Manual de Webservice Adquirente InfinitePay 
 
-Preparamos o manual de criação da webservice referente a adquirente InifinitePay, para que possa importar os arquivos e realizar a conciliação dos recebíveis na sua plataforma F360° Finanças, siga as instruções abaixo:
+Preparamos o manual de criação da webservice referente a adquirente InifinitePay, para que possa importar os arquivos e realizar a conciliação dos recebíveis no Cielo Conciliador, siga as instruções abaixo:
  
 Antes de realizar o cadastro da Web Service, é preciso que realize o contato com o Adquirente pelo e-mail: [dev@infinitepay.io](mailto:dev@infinitepay.io) solicitando a APIKEY, essa numeração  você irá inserir no momento do cadastro da Web service em Access\_token.
  
@@ -2559,13 +2559,13 @@ Acesse a tela de Menu de cadastros e em seguida Web service > Clique em Criar lo
 ![infinite_web_service.gif](https://f360.zendesk.com//hc/article_attachments/360096133994/infinite_web_service.gif)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Manual Adquirente Credz
 
-Preparamos o manual de exportação dos arquivos da Adquirente Credz, para que possa importar os arquivos e realizar a conciliação dos recebíveis na sua plataforma F360° Finanças, siga as instruções abaixo:
+Preparamos o manual de exportação dos arquivos da Adquirente Credz, para que possa importar os arquivos e realizar a conciliação dos recebíveis no Cielo Conciliador, siga as instruções abaixo:
  
 Primeiramente acesse o portal no link: <https://www.credz.com.br/areasegura/SGC/Login.>
 ![mceclip0.png](https://f360.zendesk.com//hc/article_attachments/1500014434541/mceclip0.png)
@@ -2577,15 +2577,15 @@ e Loja, é o desejado, depois clique em buscar:
 Em seguida selecione a opção de exportação em .XLSX, baixe o arquivo após ser processado, e   
 salve em no local desejado.
 ![mceclip2.png](https://f360.zendesk.com//hc/article_attachments/1500014161702/mceclip2.png)
-Em seguida importe o arquivo para a tela de upload de arquivos do F360º, não esquece de   
+Em seguida importe o arquivo para a tela de upload de arquivos do Cielo Conciliador, não esquece de   
 olhar a tela de gerenciamento de arquivos.
  
 ![mceclip3.png](https://f360.zendesk.com//hc/article_attachments/1500014161742/mceclip3.png)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
  
 ## Manual de importação Ticket
 
@@ -2601,16 +2601,16 @@ Os arquivos da Ticket são transmitidos pela a Nexxera automaticamente via API, 
 <https://sistema.financas360.com.br/Arquivo>
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360.**
+**Equipe Cielo Conciliador.**
 
 ## Credenciamento - Operadora Rede
 
-Segue abaixo o passo a passo de como realizar o credenciamento da operadora REDE na plataforma F360° Finanças:
+Segue abaixo o passo a passo de como realizar o credenciamento da operadora REDE no Cielo Conciliador:
  
 **1º Passo:**
-Na F360, faça o passo a passo abaixo para cadastrar as informações da adquirente na empresa:
+no Cielo Conciliador, faça o passo a passo abaixo para cadastrar as informações da adquirente na empresa:
 * Na tela de Menu de Cadastro > Empresas e Filiais;
 * Selecione a empresa > Editar;
 * Na aba 'Dados dos Cartões' > Clique em '**Adicionar**';
@@ -2622,9 +2622,9 @@ Na F360, faça o passo a passo abaixo para cadastrar as informações da adquire
 * Acesse o Menu de Cadastros > Integrações;
 * Clique em **+CRIAR**, no canto inferior esquerdo > No campo "Selecione o webservice" digite **Rede;**
 * No campo '**Estabelecimento Matriz**' coloque código de estabelecimento, caso tenha as filiais basta colocar os códigos no campo ao lado;
-* Clique em '**Solicitar liberação de acesso aos arquivos para a F360**'.
+* Clique em '**Solicitar liberação de acesso aos arquivos para o Cielo Conciliador**'.
  
-**Credenciamento quando só existe Matriz**: Coloque o seu estabelecimento Matriz, caso não tenha filiais clique em Solicitar liberação de acesso aos arquivos para a F360
+**Credenciamento quando só existe Matriz**: Coloque o seu estabelecimento Matriz, caso não tenha filiais clique em Solicitar liberação de acesso aos arquivos para o Cielo Conciliador
  
 **Credenciamento quando tem Matriz e Filiais**: Coloque o seu estabelecimento Matriz, e ao lado coloque os números das Filiais separados por vírgula e sem espaços:
  
@@ -2639,7 +2639,7 @@ Vá até o final da tela abaixo e encontre no menu de “dados gerais” o menu 
 **![image__12_.png](https://f360.zendesk.com//hc/article_attachments/360097156794.png)**
  
  
-Em seguida aparece a solicitação do compartilhamento das informações com a P2CR Serviços de Informática S.A que é a razão Social da F360.
+Em seguida aparece a solicitação do compartilhamento das informações com a P2CR Serviços de Informática S.A que é a razão Social do Cielo Conciliador.
 Clique em Compartilhar:
 **![image__16_.png](https://f360.zendesk.com//hc/article_attachments/360097156974.png)**
  
@@ -2647,7 +2647,7 @@ Aguarde aparecer a mensagem abaixo que o Conciliador foi Ativado:
 ![image__14_.png](https://f360.zendesk.com//hc/article_attachments/360099466953.png)
  
 **4º Passo:**
-Na F360:**<https://sistema.financas360.com.br/>**
+no Cielo Conciliador:**<https://sistema.financas360.com.br/>**
  
 * Acesse o Menu de Cadastros > Integrações
 * Acesse todos os Estabelecimentos, um por um e atualize o status, precisa aparecer o Status como **APROVADO**
@@ -2659,16 +2659,16 @@ Caso ainda apareça PENDENTE, refaça o processo na REDE e depois atualize o Sta
 Após cadastrar a nova API da Stone, basta selecionar a API e clicar em '**Chamar Serviço**' para as vendas das datas que deseja.
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail [suporte@f360.com.br](mailto:suporte@f360.com.br) e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail [cieloconciliador@cielo.com.br](mailto:cieloconciliador@cielo.com.br) e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-Equipe F360°Relativo a
+Equipe Cielo Conciliador°Relativo a
 * [Rede](https://f360.zendesk.com//hc/pt-br/search?content_tags=01HFVHWBZYJ9TV7EK281DT2RKT&utf8=%E2%9C%93 "Resultados da pesquisa")
 * [Credenciamento](https://f360.zendesk.com//hc/pt-br/search?content_tags=01HFVHWHZQDY1ZDKZ2AK1T5VV5&utf8=%E2%9C%93 "Resultados da pesquisa")## 
 
 ## Manual de Consulta de Repasse Adquirente Wizeo
 
 Nesse artigo, preparamos o passo a passo para realizar a consulta dos pagamentos da adquirente Wizeo.
-Lembrando que é apenas para consulta e não para importação do relatório na plataforma F360 Finanças, pois no momento da importação do arquivo de vendas da adquirente é preciso informar a data de vencimento dos registros que serão importados.
+Lembrando que é apenas para consulta e não para importação do relatório na plataforma Cielo Conciliador, pois no momento da importação do arquivo de vendas da adquirente é preciso informar a data de vencimento dos registros que serão importados.
  
 No link abaixo, é o nosso artigo de como realizar a exportação do arquivo de vendas, 
 [Manual Adquirente Wizeo](https://f360.zendesk.com//hc/pt-br/articles/1500009382622)
@@ -2700,9 +2700,9 @@ Nota: A Adquirente efetua os pagamentos toda quarta-feira.**
 **![mceclip6.png](https://f360.zendesk.com//hc/article_attachments/1500014218202/mceclip6.png)**
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Manual de Adquirente Sumup
 
@@ -2714,10 +2714,10 @@ https://api.sumup.com/authorize?response\_type=code&client\_id=NKIT8liPd16BPhmn5
 ![](https://f360.zendesk.com//hc/article_attachments/19806468694807.png)
 Ao acessar será direcionado para tela  abaixo, e deverá clicar em "Autorizar" o credenciamento.
 ![](https://f360.zendesk.com//hc/article_attachments/19806452393623.png)
-Após realizar o credenciamento o cliente será direcionado para a tela de acesso do F360.
+Após realizar o credenciamento o cliente será direcionado para a tela de acesso do Cielo Conciliador.
 ![](https://f360.zendesk.com//hc/article_attachments/19806421737623.png)
  
-Após acessar o perfil da plataforma F360, acesse o menu de cadastro > Empresas e filiais > Edite a empresa > Aba cadastro de cartões > Efetue o cadastro da adquirente > Código de estabelecimento  é o CNPJ da empresa sem caracteres especiais e selecione a conta bancária.
+Após acessar o perfil do Cielo Conciliador, acesse o menu de cadastro > Empresas e filiais > Edite a empresa > Aba cadastro de cartões > Efetue o cadastro da adquirente > Código de estabelecimento  é o CNPJ da empresa sem caracteres especiais e selecione a conta bancária.
 ![](https://f360.zendesk.com//hc/article_attachments/19806468702743.png)
 Em seguida, acesse o menu de cadastro > webservice e selecione a webservice da Sumup que foi criado automaticamente após o credenciamento > clique na opção chamar serviço > Selecionando o período desejado > após efetuar a chamada, verifique o histórico da chamada para identificar possíveis erros.
 ![](https://f360.zendesk.com//hc/article_attachments/19806452403351.png)
@@ -2726,13 +2726,13 @@ Verifique a tela de upload de arquivo > gerenciamento de arquivos para verificar
  
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
  
 ## Cadastro de adquirente GiftCard (Havaianas)
 
-Preparamos esse artigo para lhe auxiliar no cadastro da adquirente Giftcard em Empresas e Filiais, esse cadastro é essencial para que os arquivos sejam recebidos em sua base automaticamente, caso ainda não está recebendo os arquivos automaticamente, entre em contato com o nosso suporte através do chat ou e-mail: [suporte@f360.com.br.](suporte@f360.com.br)
+Preparamos esse artigo para lhe auxiliar no cadastro da adquirente Giftcard em Empresas e Filiais, esse cadastro é essencial para que os arquivos sejam recebidos em sua base automaticamente, caso ainda não está recebendo os arquivos automaticamente, entre em contato com o nosso suporte através do chat ou e-mail: [cieloconciliador@cielo.com.br.](cieloconciliador@cielo.com.br)
 * Acesse a tela de Menu de Cadastros e clique em Empresas e Filiais:
 * Selecione a empresa que deseja cadastrar a adquirente e clique em editar:
 * Acesse a aba de **Dados dos Cartões,** em seguida clique em Adicionar:
@@ -2745,13 +2745,13 @@ Preparamos esse artigo para lhe auxiliar no cadastro da adquirente Giftcard em E
 Depois de preencher a aba de Dados dos Cartões, acesse a aba de Outras Informações no campo **Conta,**para incluir a mesma conta que incluiu no campo de **Conta Crédito,** em seguida clique em salvar.
 ![mceclip1.png](https://f360.zendesk.com//hc/article_attachments/11792806284311.png)
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail [suporte@f360.com.br](mailto:suporte@f360.com.br) e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail [cieloconciliador@cielo.com.br](mailto:cieloconciliador@cielo.com.br) e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360°.**
+**Equipe Cielo Conciliador.**
 
 ## Manual de exportação - Convênios Card
 
-Preparamos o manual de exportação dos arquivos da Convênios card, para que possa importar os arquivos e realizar a conciliação dos recebíveis na sua plataforma F360° Finanças, siga as instruções abaixo:
+Preparamos o manual de exportação dos arquivos da Convênios card, para que possa importar os arquivos e realizar a conciliação dos recebíveis no Cielo Conciliador, siga as instruções abaixo:
  
 1. Acesse o link: [http://portal.convenioscard.com.br/webrun/open.do?action=open&sys=CVE](https://mailtrack.io/trace/link/6c080290465cb428493ad91140e03042f6cc7435?url=http%3A%2F%2Fportal.convenioscard.com.br%2Fwebrun%2Fopen.do%3Faction%3Dopen%26sys%3DCVE&userId=275156&signature=94c2bb65bdfc9ab8)
 Clique em Fornecedor > Extrato de Fornecedor:
@@ -2762,22 +2762,22 @@ Salve o relatório em uma pasta de seu computador:
  
 ![mceclip1.png](https://f360.zendesk.com//hc/article_attachments/1500002644461/mceclip1.png)
  
-**Em seguida realize a importação do arquivo na plataforma F360º - Finanças, e upload de arquivos, e analise a leitura do arquivo se será lido e inserido corretamente.**
+**Em seguida realize a importação do arquivo no Cielo Conciliador, e upload de arquivos, e analise a leitura do arquivo se será lido e inserido corretamente.**
 
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Manual de exportação CrediShop
 
-Preparamos o manual de importação dos arquivos da CrediShop, para realizar a conciliação dos recebíveis na sua plataforma F360° Finanças, siga as instruções abaixo:
+Preparamos o manual de importação dos arquivos da CrediShop, para realizar a conciliação dos recebíveis no Cielo Conciliador, siga as instruções abaixo:
  
-A importação dos arquivos da CrediShop na F360° Finanças deve seguir uma rotina especifica, pois os arquivos disponibilizados pela operadora possuem características bem distintas quando comparado com as outras operadoras de cartão. Segue o passo a passo para conseguir trabalhar com a CrediShop no  
+A importação dos arquivos da CrediShop no Cielo Conciliador° Finanças deve seguir uma rotina especifica, pois os arquivos disponibilizados pela operadora possuem características bem distintas quando comparado com as outras operadoras de cartão. Segue o passo a passo para conseguir trabalhar com a CrediShop no  
 sistema:
 **Finanças 360°:**
 1. Cadastre a operadora CrediShop em cada uma das empresas onde você a utiliza. Isso deve ser feito na aba “Dados dos Cartões” na tela de cadastro de empresas.
-2. Faça com que o nome fantasia da empresa na F360° Finanças seja igual ao nome fantasia do estabelecimento na CrediShop. Isso é necessário apenas para empresas que fazem antecipação de recebíveis. Nesse caso, o ideal é que você altere o nome **na CrediShop**, deixando-o legível e de fácil entendimento.
+2. Faça com que o nome fantasia da empresa no Cielo Conciliador° Finanças seja igual ao nome fantasia do estabelecimento na CrediShop. Isso é necessário apenas para empresas que fazem antecipação de recebíveis. Nesse caso, o ideal é que você altere o nome **na CrediShop**, deixando-o legível e de fácil entendimento.
 **CrediShop:**  
 Os arquivos devem ser buscados seguindo uma ordem especifica. Esse procedimento deve ser feito DIARIAMENTE no portal da CrediShop (http://www.credishop.com.br/estabelecimento/)
 1. Resumo de Vendas: No menu principal no portal da CrediShop, clique em “Vendas” e selecione a opção para visualizar todas as filiais. No campo data, sempre coloque D-1, ou seja, o dia de ontem. Exporte o relatório como CSV.
@@ -2801,9 +2801,9 @@ Para obter o relatório de antecipação, você deverá Clicar em ver detalhes, 
 ![mceclip4.png](https://f360.zendesk.com//hc/article_attachments/360095058193/mceclip4.png)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Manual de Importação PagSeguro 
 Preparamos esse artigo, para que você saiba como  realizar a importação de arquivos da adquirente PagSeguro:
@@ -2815,9 +2815,9 @@ Preparamos esse artigo, para que você saiba como  realizar a importação de a
 ![](https://f360.zendesk.com//hc/article_attachments/19583169163927.png)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360.**
+**Equipe Cielo Conciliador.**
 
 ## Adquirente Yapay (Link de Pagamento) - VIND
 
@@ -2834,19 +2834,19 @@ IVeja abaixo o passo a passo de como exportar o relatório da adquirente Yapay:
 ![](https://f360.zendesk.com//hc/article_attachments/13006000351255.png)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato conosco pelo e-mail suporte@f360.com.br ou através do nosso chat e whatsapp (11) 96541-3556 de seg a sex das 09:00h ás 18:00h e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato conosco pelo e-mail cieloconciliador@cielo.com.br ou através do nosso chat e whatsapp (11) 96541-3556 de seg a sex das 09:00h ás 18:00h e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360.**
+**Equipe Cielo Conciliador.**
 
 # Integrações
 
 ## Como cadastrar webservice da Mooz Cartões – Franquias Boticário e quem disse, Berenice?
 
-A Mooz Cartões junto com O Boticário e a F360° liberou uma API, onde capturamos as vendas das lojas automaticamente. Portanto, a partir de agora vocês não vão mais precisar inserir o arquivo de Vendas e Pagamentos que são extraídos manualmente do site da operadora.
+A Mooz Cartões junto com O Boticário e a Cielo Conciliador liberou uma API, onde capturamos as vendas das lojas automaticamente. Portanto, a partir de agora vocês não vão mais precisar inserir o arquivo de Vendas e Pagamentos que são extraídos manualmente do site da operadora.
 **Antes de iniciar o cadastro da Api Mooz Cartões, por gentileza siga abaixo o passo a passo para solicitação dos arquivos:**
 Para solicitar os arquivos da Mooz Cartões (Antiga Haganá), envie um e-mail para [atendimentomooz@grupoboticario.com.br](mailto:atendimentomooz@grupoboticario.com.br) solicitando para liberar os arquivos de venda e pagamento via API, depois o arquivo já fica disponível no site [www.hagana-adquirencia.com.br](http://www.hagana-adquirencia.com.br/). *Assim que os arquivos estiverem liberados*, solicitem a disponibilização dos movimentos de Venda e Pagamento dos últimos 12 meses, após a liberação dos arquivos, siga abaixo com o passo a passo de criação da API Mooz Cartões.
 1. **Como cadastrar o WebService da Mooz Cartões:**
-Veja a seguir como cadastrar para receber os seus Arquivos de Vendas e Pagamentos automaticamente na plataforma F360° Finanças:
+Veja a seguir como cadastrar para receber os seus Arquivos de Vendas e Pagamentos automaticamente no Cielo Conciliador:
 Acesse o site: https://www.hagana-adquirencia.com.br/portal/login/auth e Clique em “API Extrato Eletrônico”.
 ![mceclip0.png](https://f360.zendesk.com//hc/article_attachments/360094230234.png)
  
@@ -2858,7 +2858,7 @@ Em seguida vão aparecer o usuário e a senha fornecidos pelo site:
  
 ![mceclip2.png](https://f360.zendesk.com//hc/article_attachments/360094230454.png)
  
-Com estas informações, acesse a plataforma F360° Finanças, Clique em Menu de Cadastros e em seguida em Webservice:
+Com estas informações, acesse o Cielo Conciliador, Clique em Menu de Cadastros e em seguida em Webservice:
  
 ![mceclip3.png](https://f360.zendesk.com//hc/article_attachments/360094230474.png)
  
@@ -2885,9 +2885,9 @@ Você pode também clicar em Histórico para informações de horários que o se
 ![mceclip8.png](https://f360.zendesk.com//hc/article_attachments/360094230694.png)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360°.**
+**Equipe Cielo Conciliador.**
 
 ## Cadastro Web service PDV Business Shop (Marca Usaflex ou Luz da Lua) 
 
@@ -2918,16 +2918,16 @@ Host Luz da Lua - <http://bshop.luzdalua.com.br:9002>
 Host Usaflex - [http://server1.usaflexfranquias.com.br:9002](http://server1.usaflexfranquias.com.br:9002/)
 ![](https://f360.zendesk.com//hc/article_attachments/16969023938327.png)
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360°**
+**Equipe Cielo Conciliador**
 
-## Integração F360º e antecipação de Unidades de Recebível (Webhooks) 
+## Integração Cielo Conciliador e antecipação de Unidades de Recebível (Webhooks) 
 
-Os Webhooks permitem que sejam enviadas notificações via HTTP em tempo real de informações para o F360 Finanças, como por exemplo, notificação para acrescentar um registro de venda, entrada de cupons, entre outros. Com isso não há a necessidade de preencher certas informações manualmente, bastando apenas a chamada do Webhook para inserção do registro trazendo agilidade ao processo de integração.
+Os Webhooks permitem que sejam enviadas notificações via HTTP em tempo real de informações para o Cielo Conciliador, como por exemplo, notificação para acrescentar um registro de venda, entrada de cupons, entre outros. Com isso não há a necessidade de preencher certas informações manualmente, bastando apenas a chamada do Webhook para inserção do registro trazendo agilidade ao processo de integração.
  
 **Primeiros Passos**
-Inicialmente, você deverá entrar em contato com a **F360** e solicitar a criação de um novo serviço. Com isso você irá receber uma URL para o qual serão enviadas as mensagens. Esse processo é importante para mantermos a segurança dos nossos processos e identificarmos corretamente cada um de nossos parceiros.
+Inicialmente, você deverá entrar em contato com a **Cielo Conciliador** e solicitar a criação de um novo serviço. Com isso você irá receber uma URL para o qual serão enviadas as mensagens. Esse processo é importante para mantermos a segurança dos nossos processos e identificarmos corretamente cada um de nossos parceiros.
  
 **Consulta de disponibilidade de serviço**
 É possível realizar a consulta de status de todos os serviços disponíveis, para isso você pode utilizar a URL abaixo:
@@ -2970,12 +2970,12 @@ curl --location --globoff 'https://webhook.f360.com.br/{identificador-unico-do-s
 }'
 ```
 
-Por se tratar de uma requisição assíncrona não retornamos o status da operação realizada no F360 Finanças, logo, o processamento da informação enviada da requisição deve ser verificado na própria plataforma do F360 Finanças. Caso o sistema não localize o ‘cnpj-estabelecimento’ cadastrado, o sistema irá descartar a mensagem.
+Por se tratar de uma requisição assíncrona não retornamos o status da operação realizada no Cielo Conciliador, logo, o processamento da informação enviada da requisição deve ser verificado na própria plataforma do Cielo Conciliador. Caso o sistema não localize o ‘cnpj-estabelecimento’ cadastrado, o sistema irá descartar a mensagem.
  
 **Atenção:** Apesar de aceitarmos mais de uma unidade de recebível no mesmo corpo da request, é importante observar que o ‘cnpj-estabelecimento’ e o dia da 'data\_resgate' devem ser únicos dentro da mesma request.
  
 **Detalhamento dos campos**
-*estabelecimento* (string): Número do CNPJ da loja cadastrado no F360 Finanças e deve ser apresentado sem traço e sem pontos.
+*estabelecimento* (string): Número do CNPJ da loja cadastrado no Cielo Conciliador e deve ser apresentado sem traço e sem pontos.
 *data\_resgate* (string, formato: "yyyy-MM-dd"): Data de liquidação da unidade de recebível.
 *urs* (array): Nesse campo devem ser detalhadas as unidades de recebíveis.
 *credenciadora* (string): Nome da adquirente.
@@ -3098,20 +3098,20 @@ Caso o envio seja bem sucedido, o status HTTP 200 será retornado com um id de r
 | Sin Card | ValeFrota |  |
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360°**
+**Equipe Cielo Conciliador**
 
-## Como criar uma chave de API para integração com o módulo F360 Finanças
+## Como criar uma chave de API para integração com o Cielo Conciliador
 
 Através de uma chave de API é possível compartilhar informações entre sistemas. Para isso, a pessoa ou empresa que irá manipular essa chave de API deverá ter conhecimentos técnicos de integrações entre sistemas.
 Para consultar os *endpoints* disponíveis na API, acesse a nossa [Documentação Técnica](https://documenter.getpostman.com/view/68066/Tz5m8Kcb).
  
 ## Como criar uma chave de API?
 
-1. Entre na tela de [webservices](https://sistema.financas360.com.br/Webservice) do módulo F360 Finanças.
+1. Entre na tela de [webservices](https://sistema.financas360.com.br/Webservice) do Cielo Conciliador.
 2. Clique no botão **Criar** localizado no canto inferior esquerdo da tela.
-3. Selecione a opção **API Pública da F360** e informe o nome do fornecedor que você irá liberar a chave de API. Com isso você terá o controle de quais os fornecedores que você compartilhou a chave de API e, caso necessário, poderá fazer a revogação desses acessos quando necessário.
+3. Selecione a opção **API Pública do Cielo Conciliador** e informe o nome do fornecedor que você irá liberar a chave de API. Com isso você terá o controle de quais os fornecedores que você compartilhou a chave de API e, caso necessário, poderá fazer a revogação desses acessos quando necessário.
 4. Na opção de tipo de acesso, informe se a chave de API terá acesso total a todas as funções de API (listadas no início do artigo) ou se terá acesso apenas a funções determinadas por você. Caso você selecione que a chave de API terá acesso a todas as funções, qualquer nova função disponível na API, o fornecedor terá acesso automaticamente.![mceclip0.png](https://f360.zendesk.com//hc/article_attachments/1500003688741/mceclip0.png)
 5. Clique no botão **Salvar** e aguarde a confirmação da plataforma. Após a criação da chave de API, será aberta uma nova tela com a chave, conforme o exemplo a seguir:![mceclip1.png](https://f360.zendesk.com//hc/article_attachments/360102521614/mceclip1.png)
 6. Salve sua chave em um local seguro e compartilhe apenas com pessoas de confiança. Essa chave será exibida apenas 1 vez para você por medidas de segurança da plataforma.
@@ -3122,7 +3122,7 @@ A utilização da API deverá ser feita por pessoas técnicas com conhecimento d
 <https://documenter.getpostman.com/view/68066/Tz5m8Kcb>
  
 \* A chave de API gerada na etapa de criação do webservice deverá ser usada por pessoas de confiança e conhecimento técnico de integração entre sistemas. O detentor dessa chave terá acesso aos dados de API da sua rede de franquias conforme as liberações feitas no momento do cadastro da chave.
-\*\* A F360 não dá suporte de integração de API, mas todas as informações necessárias para a manipulação dos dados estão na documentação técnica.
+\*\* O Cielo Conciliador não dá suporte de integração de API, mas todas as informações necessárias para a manipulação dos dados estão na documentação técnica.
  
 ## Novo modelo de Arquivo de Adquirente (v 2.0)Este documento especifica a Importação do Arquivo Modelo Adquirente para o Sistema Finanças 360º.
 ![mceclip0.png](https://f360.zendesk.com//hc/article_attachments/7864774677271/mceclip0.png)
@@ -3153,8 +3153,8 @@ A utilização da API deverá ser feita por pessoas técnicas com conhecimento d
 **Valor Bruto\*:** Deve ser preenchida com o valor bruto da parcela. O valor deve ser positivo.
 **Desconto\*:** Deve ser preenchida com o valor da taxa de desconto da parcela. O valor deve ser positivo.
 **Valor Líquido\*:** Deve ser preenchida com o valor líquido da parcela. O valor deve ser positivo.
-**Descrição / Bandeira\*:** Deve ser preenchida com o nome da bandeira de acordo com a descrição presente na plataforma F360° Finanças. ‘**Ver Tabela 1**’.
-**Descrição / Operadora\*:** Deve ser preenchida com o nome da adquirente de acordo com a descrição presente na plataforma F360° Finanças. Ver ‘**Tabela 2**’.
+**Descrição / Bandeira\*:** Deve ser preenchida com o nome da bandeira de acordo com a descrição presente no Cielo Conciliador. ‘**Ver Tabela 1**’.
+**Descrição / Operadora\*:** Deve ser preenchida com o nome da adquirente de acordo com a descrição presente no Cielo Conciliador. Ver ‘**Tabela 2**’.
 **NSU:** Deve ser preenchido apenas com valores numéricos. Esta informação é opcional desde que uma das informações a seguir seja preenchida: Código de Autorização, Resumo de Operações ou NSU. Caso não possua nenhuma dessas informações o registro será ignorado.
 **Código de Autorização:** Esta informação é opcional desde que uma das informações a seguir seja preenchida: Código de Autorização, Resumo de Operações ou NSU. Caso não possua nenhuma dessas informações o registro será ignorado.
 **Resumo de Operações:** Esta informação é opcional desde que uma das informações a seguir seja preenchida: Código de Autorização, Resumo de Operações ou NSU. Caso não possua nenhuma dessas informações o registro será ignorado.
@@ -3341,13 +3341,13 @@ Segue exemplos de preenchimento **incorreto**:
 ![mceclip1.png](https://f360.zendesk.com//hc/article_attachments/12409001349399.png)
 ![mceclip2.png](https://f360.zendesk.com//hc/article_attachments/12409003132695.png)
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360.**
+**Equipe Cielo Conciliador.**
 
 ## Manual PDV Gestão Click via Webservice
 
-Agora as suas vendas do seu sistema de PDV Gestão Click, serão importado automaticamente via Web Service na plataforma F360° Finanças, onde também você poderá chamar serviço manualmente sempre que precisar.
+Agora as suas vendas do seu sistema de PDV Gestão Click, serão importado automaticamente via Web Service no Cielo Conciliador, onde também você poderá chamar serviço manualmente sempre que precisar.
 **Veja as instruções abaixo de como realizar a configuração da Web Service em sua base:**
 * Primeiro passo é obter as chaves de acesso do sistema Gestão Click
 1. Para poder obter as **chaves de acesso,** acesse <https://gestaoclick.com/login>e informe usuário e senha.
@@ -3355,12 +3355,12 @@ Agora as suas vendas do seu sistema de PDV Gestão Click, serão importado autom
 3. Clique em Token **(OBS: Seu usuário precisa ter permissão para geração).**
 4. Clique em gerar Token.
 5. **Copie o "Access Token" e o "Secret Access Token"**
-* Com o dados em mãos agora você irá realizar o cadastro diretamente na F360° Finanças:
+* Com o dados em mãos agora você irá realizar o cadastro diretamente no Cielo Conciliador° Finanças:
 1. Em Menu de Cadastros > Webservice > No canto inferior esquerdo clique em CRIAR
 2. "Em Selecione o webservice:" informe Gestão Click
 3. Informe o "Acess Token:" e o "Secret Access Token:" copiados anteriormente
 4. Clique em Validar Credenciais e Obter Lojas
-5. Selecione as lojas que o clique deseja que a F360° Finanças capture as informações na plataforma Gestão Click.
+5. Selecione as lojas que o clique deseja que o Cielo Conciliador capture as informações na plataforma Gestão Click.
 6. **NOTA**: O passo 6 é necessário por que pode ocorrer o cenário que o cliente possui 10 lojas no Gestão Click e na Finanças 360° ele só vai utilizar 5 empresas do Grupo. Caso o passo 6 não seja realizado nós iriámos puxar 10 lojas de forma desnecessária, onerando nosso sistema e só aproveitando 1 loja e fazendo 99 leituras desnecessárias.
 7. Clique em salvar.
 ![mceclip1.png](https://f360.zendesk.com//hc/article_attachments/360098430073/mceclip1.png)
@@ -3368,9 +3368,9 @@ Agora as suas vendas do seu sistema de PDV Gestão Click, serão importado autom
 **ATENÇÃO: Na primeira vez que chamar serviço, faça isso somente de 1 dia, em seguida vai até a tela de Upload de Arquivos e verifique quais são os códigos de Estabelecimento de cada loja, acesse o Menu de Cadastros > Empresas e Filiais > aba Outras Informações e cadastre o Código de Estabelecimento no campo “Cód. PDV do Estabelecimento (Principal):”**
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Manual PDV Linx Degust
 
@@ -3381,16 +3381,16 @@ Veja abaixo o passo a passo de como exportar o relatório de PDV Linx Degust.
 **![mceclip2.png](https://f360.zendesk.com//hc/article_attachments/7755558597399/mceclip2.png)**
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360º.**
+**Equipe Cielo Conciliador.**
 
-## Integração F360º e outras plataformas (Webhooks)
+## Integração Cielo Conciliador e outras plataformas (Webhooks)
 
-Os Webhooks permitem que sejam enviadas notificações via HTTP em tempo real de informações para o F360 Finanças, como por exemplo, notificação para acrescentar um registro de venda, entrada de cupons, entre outros. Com isso não há a necessidade de preencher certas informações manualmente, bastando apenas a chamada do Webhook para inserção do registro trazendo agilidade ao processo de integração.
+Os Webhooks permitem que sejam enviadas notificações via HTTP em tempo real de informações para o Cielo Conciliador, como por exemplo, notificação para acrescentar um registro de venda, entrada de cupons, entre outros. Com isso não há a necessidade de preencher certas informações manualmente, bastando apenas a chamada do Webhook para inserção do registro trazendo agilidade ao processo de integração.
  
 **Primeiros Passos**
-Inicialmente, você deverá entrar em contato com o usuário da plataforma F360 Finanças e solicitar a URL para o qual serão enviadas as mensagens. Esse processo é importante para mantermos a segurança dos nossos processos e identificarmos corretamente cada um de nossos parceiros. O cliente pode consultar esse processo na nossa [Documentação Técnica.](https://f360.zendesk.com//hc/pt-br/articles/6741290860567)
+Inicialmente, você deverá entrar em contato com o usuário do Cielo Conciliador e solicitar a URL para o qual serão enviadas as mensagens. Esse processo é importante para mantermos a segurança dos nossos processos e identificarmos corretamente cada um de nossos parceiros. O cliente pode consultar esse processo na nossa [Documentação Técnica.](https://f360.zendesk.com//hc/pt-br/articles/6741290860567)
  
 Na prática, foi desenvolvido um único endpoint para todos os fornecedores de dados que desejam enviar informações via Webhook, onde será possível enviar todas as informações necessárias, logo as informações abaixo são de extrema importância.
  
@@ -3404,7 +3404,7 @@ Modelo de endereço disponibilizado: 
 *webhook.f360.com.br/IDENTIFICADOR-UNICO-DO-SERVICO/f360-cupom-fiscal*
 ![mceclip0.png](https://f360.zendesk.com//hc/article_attachments/6442653135767.png)
  
-**Criação de Cupons Fiscais - (Webhook F360 - PDV)**
+**Criação de Cupons Fiscais - (Webhook Cielo Conciliador - PDV)**
 A request deve ser enviada por meio de solicitação HTTP POST e é obrigatório que o corpo da  
 requisição seja um JSON válido, e contenha todos os dados que descrevem o cupom fiscal ou  
 período de vendas. Detalharemos mais à frente os campos obrigatórios e opcionais desse  
@@ -3485,13 +3485,13 @@ cupom-fiscal' \
 ]  
 }'
 ``` 
-Por se tratar de uma requisição assíncrona não retornamos o status da operação realizada no F360 Finanças, logo, o processamento da informação enviada da requisição deve ser verificado na própria plataforma do F360 Finanças. Caso o sistema não localize a ‘CNPJEmitente’ cadastrado, o sistema irá descartar a mensagem.
+Por se tratar de uma requisição assíncrona não retornamos o status da operação realizada no Cielo Conciliador, logo, o processamento da informação enviada da requisição deve ser verificado no Cielo Conciliador. Caso o sistema não localize a ‘CNPJEmitente’ cadastrado, o sistema irá descartar a mensagem.
 **Atenção:** Apesar de aceitarmos mais de um cupom fiscal no mesmo corpo da request, é importante observar que o ‘CNPJEmitente’ e o dia das datas das vendas devem ser únicos dentro da mesma request. Já a informação da hora da venda (que complementa o campo ‘Data’) pode ser diferente dentre os cupons fiscais.
 **Lançamentos pertencentes ao mesmo cupom fiscal, devem ser enviados em uma única request, para evitar que esses registros sejam interpretados como vendas duplicadas, o que resultaria em não inserção dessas vendas.**
  
 **Detalhamento dos campos**
 \**NumeroCupom* (long): Número do cupom da venda.
-\**CNPJEmitente* (string): Número do CNPJ da loja cadastrado no F360 Finanças e deve ser apresentado sem traço e sem pontos.
+\**CNPJEmitente* (string): Número do CNPJ da loja cadastrado no Cielo Conciliador e deve ser apresentado sem traço e sem pontos.
 *Cliente* (object): Nesse campo devem ser informados Nome e CPF do cliente do cupom.
 \**Data* (string, formato: “yyyy-MM-ddTHH:mm:ss”): Data em que a venda foi realizada.*VendaCancelada* (bool)*:* O campo deve ser preenchido com um valor booleano (true/false) e caso não seja preenchido, o valor será considerado como false. Se o valor for preenchido como true, então a venda será buscada no sistema, e depois será cancelada. Se a venda não for encontrada, ela não será cancelada.
 *ValorFrete* (double, '0.00'): O campo é opcional, e pode ser preenchido com o valor do frete relacionado a venda, para que esta informação possa ser usada no sistema.\**MeioPagamento* (array):  Nesse campo deve ser detalhado as diversas formas de pagamento do cupom fiscal, ele é um array que deve conter os campos abaixo.
@@ -3506,11 +3506,11 @@ Por se tratar de uma requisição assíncrona não retornamos o status da opera�
 *Vencimento* (string, formato: “yyyy-MM-ddTHH:mm:ss”): Data de vencimento da parcela. 
 Campos marcados com \* são campos obrigatórios, porém o envio das informações adicionais traz benefícios à conciliação e rastreabilidade dos cupons fiscais.
  
-**Criação de Títulos (Contas a pagar/receber) - (Webhook F360 - Titulos)**
+**Criação de Títulos (Contas a pagar/receber) - (Webhook Cielo Conciliador - Titulos)**
 A request deve ser enviada por meio de solicitação HTTP POST e é obrigatório que o corpo da requisição seja um JSON válido, e contenha todos os dados que descrevem os títulos. Detalharemos mais à frente os campos obrigatórios e opcionais desse corpo.
 Tanto contas a pagar e a receber são tratados como Títulos no sistema, então este webhook pode ser usado para envio de ambos.
 Esta operação pode ser utilizada apenas para inserir novos registros. Não é possível realizar operação de "alteração" ou "exclusão" nesta integração.
-Algumas informações cadastradas no sistema, como Plano de Contas e Centro de Custo, podem ser consultadas em nossa API pública, cada uma em seu respectivo endpoint, conforme descrito na documentação, disponível no link a seguir: [F360 Finanças (getpostman.com)](https://documenter.getpostman.com/view/68066/Tz5m8Kcb#c7da357c-1e38-449c-a119-6da4b42f4566)
+Algumas informações cadastradas no sistema, como Plano de Contas e Centro de Custo, podem ser consultadas em nossa API pública, cada uma em seu respectivo endpoint, conforme descrito na documentação, disponível no link a seguir: [Cielo Conciliador (getpostman.com)](https://documenter.getpostman.com/view/68066/Tz5m8Kcb#c7da357c-1e38-449c-a119-6da4b42f4566)
 Abaixo há um exemplo de requisição para o webhook de títulos. A URL contém campos que variam para cada cadastro do webhook, realizado na tela de webservice. Os campos variáveis estão envolvidos por “{ }”. A URL completa é obtida na tela de webservices, após a criação do webservice deste webhook.
  
 Exemplo:```
@@ -3596,8 +3596,8 @@ Campos marcados com (\*) são de preenchimento obrigatório e caso não sejam pr
  
 **Objeto Rateio**
 \**competencia* (string, formato “MM-dd”) : Deve ser preenchido com a data de competência deste rateio.
-*centroDeCusto* (string) : Deve ser preenchido com o nome do centro de custo cadastrado no sistema, que será relacionado ao rateio. Caso o campo não seja preenchido, será utilizado o centro de custo padrão. Os centros de custo disponíveis podem ser obtidos na API pública, no seguinte endpoint da documentação: [F360 Finanças (getpostman.com)](https://documenter.getpostman.com/view/68066/Tz5m8Kcb#711dfa45-090e-4a33-97bb-2ac364d16e3e)
-\**planoDeContas* (string) : Deve ser preenchido com um plano de contas cadastrado no sistema, que será relacionado ao rateio. Os planos de contas disponíveis podem ser obtidos na API pública, no seguinte endpoint da documentação: [F360 Finanças (getpostman.com)](https://documenter.getpostman.com/view/68066/Tz5m8Kcb#03aae2d6-cd82-4aa3-923c-7a701efdb335)
+*centroDeCusto* (string) : Deve ser preenchido com o nome do centro de custo cadastrado no sistema, que será relacionado ao rateio. Caso o campo não seja preenchido, será utilizado o centro de custo padrão. Os centros de custo disponíveis podem ser obtidos na API pública, no seguinte endpoint da documentação: [Cielo Conciliador (getpostman.com)](https://documenter.getpostman.com/view/68066/Tz5m8Kcb#711dfa45-090e-4a33-97bb-2ac364d16e3e)
+\**planoDeContas* (string) : Deve ser preenchido com um plano de contas cadastrado no sistema, que será relacionado ao rateio. Os planos de contas disponíveis podem ser obtidos na API pública, no seguinte endpoint da documentação: [Cielo Conciliador (getpostman.com)](https://documenter.getpostman.com/view/68066/Tz5m8Kcb#03aae2d6-cd82-4aa3-923c-7a701efdb335)
 \**numeroParcela* (short) : Deve ser preenchido com o número da parcela à qual este rateio faz referência.
 \**valor* (double, formato “0.00”) : Deve ser preenchido com o valor do rateio.
  
@@ -3711,16 +3711,16 @@ Caso o envio seja bem sucedido, o status HTTP 200 será retornado com um id de r
 | Sin Card | ValeFrota |  |
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360°**
+**Equipe Cielo Conciliador**
 
 ## Manual PDV MVarandas Webservice 
 
-Agora as suas vendas do seu sistema de PDV MVarandas, serão importado automaticamente via Web Service na plataforma F360° Finanças, onde também você poderá chamar serviço manualmente sempre que precisar.
+Agora as suas vendas do seu sistema de PDV MVarandas, serão importado automaticamente via Web Service no Cielo Conciliador, onde também você poderá chamar serviço manualmente sempre que precisar.
 **Veja as instruções abaixo de como realizar a configuração da Web Service em sua base:**
 * Entre em contato com a MVarandas e solicite o **Código da sua Rede.**
-**Obs: Esse código é importante para que a MVarandas seja visível para a F360° Finanças, sem esse código as vendas não serão importadas.**
+**Obs: Esse código é importante para que a MVarandas seja visível para o Cielo Conciliador, sem esse código as vendas não serão importadas.**
 * O código será enviado para o seu e-mail
 * Com o código em mãos, acesse a tela de Menu de Cadastros > Webservice > Clique em Criar, localizado no lado esquerdo no rodapé da tela e em seguida em “Selecione o webservice:” digite “Mvarandas”
 * Informe o Código da Rede que recebeu da Mvarandas e clique em Salvar:
@@ -3728,22 +3728,22 @@ Agora as suas vendas do seu sistema de PDV MVarandas, serão importado automatic
 ![PDVMvarandas.gif](https://f360.zendesk.com//hc/article_attachments/360096133434/PDVMvarandas.gif)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Como criar uma URL para envio de mensagens via WebHook
 
- para integração com o módulo F360 FinançasOs Webhooks permitem que sejam enviadas notificações via HTTP em tempo real de informações para o F360 Finanças, como por exemplo, notificação para acrescentar um registro de venda, entrada de cupons, entre outros. Com isso não há a necessidade de preencher certas informações manualmente, bastando apenas a chamada do Webhook para inserção do registro trazendo agilidade ao processo de integração.
+ para integração com o Cielo ConciliadorOs Webhooks permitem que sejam enviadas notificações via HTTP em tempo real de informações para o Cielo Conciliador, como por exemplo, notificação para acrescentar um registro de venda, entrada de cupons, entre outros. Com isso não há a necessidade de preencher certas informações manualmente, bastando apenas a chamada do Webhook para inserção do registro trazendo agilidade ao processo de integração.
  
 Para consultar os padrões disponíveis de mensagens via webhook, acesse a nossa [Documentação Técnica](https://f360.zendesk.com//hc/pt-br/articles/6442659749911-Webhooks). A utilização dessa documentação deverá ser feita por pessoas técnicas com conhecimento de integração entre sistemas.
  
 ## Como criar uma URL para envio de mensagens?
 
-1. Entre na tela de [webservices](https://sistema.financas360.com.br/Webservice) do módulo F360 Finanças.
+1. Entre na tela de [webservices](https://sistema.financas360.com.br/Webservice) do Cielo Conciliador.
 2. Clique no botão **Criar** localizado no canto inferior esquerdo da tela.
 3. Selecione a opção de mensagens que deseja permitir o recebimento, atualmente temos as seguintes opções:
-	* **Webhook F360 - PDV**
+	* **Webhook Cielo Conciliador - PDV**
 4. Clique no botão **Salvar** e aguarde a confirmação da plataforma.
 5. Agora localize a webservice que você acabou de criar, na coluna 'Outros' encontra-se a URL para a qual seu fornecedor deverá enviar as mensagens via webhook.
 ![mceclip0.png](https://f360.zendesk.com//hc/article_attachments/6740116047511/mceclip0.png)
@@ -3751,9 +3751,9 @@ Para consultar os padrões disponíveis de mensagens via webhook, acesse a nossa
 Caso você queira desativar a URL, selecione o *webservice* e clique no botão "Inativar". Ao fazer isso, qualquer fornecedor que tenha sua chave de acesso não irá conseguir acessar novamente às API's.
  
 \* A URL para envio de mensagens via webhook gerada na etapa de criação do webservice deverá ser usada por pessoas de confiança e conhecimento técnico de integração entre sistemas. O detentor dessa chave terá acesso ao envio de mensagens e possíveis inserção de informações na sua base de dados.
-\*\* A F360 não dá suporte de integração via webhook, mas todas as informações necessárias para a manipulação dos dados estão na documentação técnica.
+\*\* O Cielo Conciliador não dá suporte de integração via webhook, mas todas as informações necessárias para a manipulação dos dados estão na documentação técnica.
  
-## Integração com a plataforma EducaAgora é possível acessar a plataforma Educa com apenas um clique através do seu F360 Finanças!
+## Integração com a plataforma EducaAgora é possível acessar a plataforma Educa com apenas um clique através do seu Cielo Conciliador!
 
 Após logar na plataforma, basta clicar no botão canto superior direito da tela, conforme indicado na imagem abaixo:
 ![](https://f360.zendesk.com//hc/article_attachments/12888420247575.png)
@@ -3767,16 +3767,16 @@ Ao clicar no botão, você será direcionado automaticamente para a plataforma E
 ![mceclip3.png](https://f360.zendesk.com//hc/article_attachments/12408849458071.png)
 ![mceclip4.png](https://f360.zendesk.com//hc/article_attachments/12408879510551.png)
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360.**
+**Equipe Cielo Conciliador.**
 
 ## Integração com a API do Ifood
 
-Com a integração do Ifood será possível realizar de forma automática o processo de conciliação de cartões e conciliação bancária de todas as vendas realizadas pelo aplicativo. Na F360, os recebíveis do Ifood são tratados como uma adquirente de cartão e para que as vendas entrem corretamente na plataforma, são necessárias algumas parametrizações que serão explicadas com mais detalhes a seguir.
+Com a integração do Ifood será possível realizar de forma automática o processo de conciliação de cartões e conciliação bancária de todas as vendas realizadas pelo aplicativo. no Cielo Conciliador, os recebíveis do Ifood são tratados como uma adquirente de cartão e para que as vendas entrem corretamente na plataforma, são necessárias algumas parametrizações que serão explicadas com mais detalhes a seguir.
 ***Pré-requisitos:***
 * Você precisará ter acesso ao [portal do parceiro do Ifood](https://portal.ifood.com.br/).
-* O seu usuário no módulo F360 Finanças precisará de:
+* O seu usuário no Cielo Conciliador precisará de:
 	+ Permissão de edição na tela de [Empresas e Filiais](https://financas.f360.com.br/Empresa).
 	+ Permissão para inclusão ou edição de [Planos de Contas](https://financas.f360.com.br/PlanoDeConta).
 	+ Permissão para inclusão ou edição de [Clientes / Fornecedores](https://financas.f360.com.br/Pessoa).
@@ -3784,15 +3784,15 @@ Com a integração do Ifood será possível realizar de forma automática o proc
 ---
 ## Primeira etapa:
 
-O primeiro passo para ativar a integração com o Ifood é a realização do credenciamento da API da F360 em sua conta do Ifood. Para isso, você deve seguir os seguintes passos:
+O primeiro passo para ativar a integração com o Ifood é a realização do credenciamento da API do Cielo Conciliador em sua conta do Ifood. Para isso, você deve seguir os seguintes passos:
 1. Entre no [portal do Ifood](https://portal.ifood.com.br/) e obtenha o seu **Id de Loja**. Essa informação pode ser obtida na barra lateral do portal do Ifood clicando na opção **Perfil**.
-2. Envie o seu Id de Loja para o e-mail [suporte@f360.com.br](mailto:suporte@f360.com.br) com o assunto "Liberação de Id de Loja do Ifood". No conteúdo do e-mail informe o seu Id de Loja e o nome do seu grupo na plataforma da F360. Nosso time fará uma solicitação de liberação do seu Id de Loja na conta do Ifood da F360. Esse processo de liberação tem um prazo máximo de 3 dias úteis e o time da F360 irá responder o seu e-mail quando estiver tudo certo.
-3. Após a liberação feita pelo time da F360, acesse novamente o portal do Ifood e clique na opção Aplicativos. Localize o aplicativo F360 (Conciliação) e clique no botão "Permitir" e depois clique em "Autorizar".
+2. Envie o seu Id de Loja para o e-mail [cieloconciliador@cielo.com.br](mailto:cieloconciliador@cielo.com.br) com o assunto "Liberação de Id de Loja do Ifood". No conteúdo do e-mail informe o seu Id de Loja e o nome do seu grupo no Cielo Conciliador. Nosso time fará uma solicitação de liberação do seu Id de Loja na conta do Ifood do Cielo Conciliador. Esse processo de liberação tem um prazo máximo de 3 dias úteis e o time do Cielo Conciliador irá responder o seu e-mail quando estiver tudo certo.
+3. Após a liberação feita pelo time do Cielo Conciliador, acesse novamente o portal do Ifood e clique na opção Aplicativos. Localize o aplicativo Cielo Conciliador (Conciliação) e clique no botão "Permitir" e depois clique em "Autorizar".
  
 ---
 ## Segunda etapa:
 
-Após a etapa de credenciamento da API do Ifood, a próxima etapa será fazer as devidas parametrizações dentro da plataforma da F360. Todas essas parametrizações devem ser feitas por um usuário autenticado na plataforma com todas as permissões explicitas no início deste artigo.
+Após a etapa de credenciamento da API do Ifood, a próxima etapa será fazer as devidas parametrizações dentro do do Cielo Conciliador. Todas essas parametrizações devem ser feitas por um usuário autenticado na plataforma com todas as permissões explicitas no início deste artigo.
 ***Configuração do webservice:***
 1. Entre na tela de [webservice](https://financas.f360.com.br/Webservice) disponível no menu de cadastros.
 2. Clique no botão **Criar** localizado no lado esquerdo da barra inferior.
@@ -3806,8 +3806,8 @@ Após a etapa de credenciamento da API do Ifood, a próxima etapa será fazer as
 5. Clique em **Salvar**.![cadastro-empresa.gif](https://f360.zendesk.com//hc/article_attachments/4410184782999/cadastro-empresa.gif)
 ***Inserção de contas a pagar e contas a receber:***
 Existem três situações especificas onde a nossa plataforma irá criar um contas a pagar ou um contas a receber para uma operação do Ifood.
-* **Taxa adicional de serviço:** O Ifood cobra uma taxa adicional pelo serviço quando o estabelecimento excede a cota de uso. Para essa taxa, a plataforma da F360 irá criar um contas a pagar com o plano de contas e fornecedor selecionado na configuração de empresas.
-* **Taxas de operações feitas em vouchers:** Operações feitas em adquirentes de vouchers não são pagas pelo Ifood, mas ainda assim são descontadas as taxas de serviço cobradas pelo Ifood. Como essas operações não podem entrar na conciliação de cartões, a plataforma da F360 irá criar um contas a pagar para o fornecedor selecionado na configuração de empresas e irá categorizar a despesa com o mesmo plano de contas configurado no campo *Taxas Administrativas*.
+* **Taxa adicional de serviço:** O Ifood cobra uma taxa adicional pelo serviço quando o estabelecimento excede a cota de uso. Para essa taxa, o Cielo Conciliador irá criar um contas a pagar com o plano de contas e fornecedor selecionado na configuração de empresas.
+* **Taxas de operações feitas em vouchers:** Operações feitas em adquirentes de vouchers não são pagas pelo Ifood, mas ainda assim são descontadas as taxas de serviço cobradas pelo Ifood. Como essas operações não podem entrar na conciliação de cartões, o Cielo Conciliador irá criar um contas a pagar para o fornecedor selecionado na configuração de empresas e irá categorizar a despesa com o mesmo plano de contas configurado no campo *Taxas Administrativas*.
 * **Devolução de imposto de renda:** O Ifood faz devolução de impostos de renda para o estabelecimento. Nessa situação, criamos um contas a receber para o plano de contas e cliente selecionado na configuração de empresas.
  
 ## Terceira etapa:
@@ -3815,7 +3815,7 @@ Existem três situações especificas onde a nossa plataforma irá criar um cont
 Por último, após a realização de todas as configurações feitas na [primeira etapa](#h_01FJCWYHZE70EY42F70955Y8MB) e feitas na [segunda etapa](#h_01FJCWYZ14AWV98FGDN9RWTB8F), a integração com o Ifood estará disponível para uso. A integração irá funcionar de duas formas:
 * **Automática:** Nossa plataforma fará a consulta no portal do Ifood de forma automática todas as quintas-feiras. O *range* de pesquisa será entre a segunda-feira da semana anterior e o domingo da semana atual, contabilizando o total de 7 dias de pesquisa. A integração foi feita neste modelo, pois o Ifood demora alguns dias para liberar os extratos na API, conforme a evidência a seguir:  
 ![mceclip1.png](https://f360.zendesk.com//hc/article_attachments/4414485937559/mceclip1.png)
-* **Manual:** Dentro da tela de cadastro de webservices na plataforma da F360, ao selecionar a integração com o Ifood, será possível clicar no botão **Chamar Serviço**. Ao clicar neste botão, selecione as opções disponíveis em tela e aguarde a conclusão do processamento. O processamento manual segue a mesma lógica de liberação descrita anteriormente, ou seja, o Ifood disponibiliza os relatórios de conciliação financeira toda quarta-feira referente os lançamentos da semana anterior.
+* **Manual:** Dentro da tela de cadastro de webservices no Cielo Conciliador, ao selecionar a integração com o Ifood, será possível clicar no botão **Chamar Serviço**. Ao clicar neste botão, selecione as opções disponíveis em tela e aguarde a conclusão do processamento. O processamento manual segue a mesma lógica de liberação descrita anteriormente, ou seja, o Ifood disponibiliza os relatórios de conciliação financeira toda quarta-feira referente os lançamentos da semana anterior.
 * ![mceclip0.png](https://f360.zendesk.com//hc/article_attachments/4411047974167/mceclip0.png)
  
 ## Tabela de Campos:
@@ -3859,15 +3859,15 @@ Segue uma tabela explicativa dos principais campos que utilizados para a configu
 ![mceclip1.png](https://f360.zendesk.com//hc/article_attachments/7766278881559/mceclip1.png)
 ![mceclip2.png](https://f360.zendesk.com//hc/article_attachments/7766303221143/mceclip2.png)
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360º.**
+**Equipe Cielo Conciliador.**
 
 ## Manual PDV Avec Integração via Webservice
 
-Agora as suas vendas do seu sistema de PDV Avec, serão importado automaticamente via Web Service na plataforma F360° Finanças, onde também você poderá chamar serviço manualmente sempre que precisar.
+Agora as suas vendas do seu sistema de PDV Avec, serão importado automaticamente via Web Service no Cielo Conciliador, onde também você poderá chamar serviço manualmente sempre que precisar.
 **Veja as instruções abaixo de como realizar a configuração da Web Service em sua base:**
-O primeiro passo é enviar um e-mail para [victor.sorroche@avecbrasil.com.br](mailto:victor.sorroche@avecbrasil.com.br) e nos copiando ([suporte@f360.com.br](mailto:suporte@f360.com.br)), informando o CNPJ, Razão Social  e ID que fica no rodapé do sistema Avec solicitando as seguintes informações abaixo:
+O primeiro passo é enviar um e-mail para [victor.sorroche@avecbrasil.com.br](mailto:victor.sorroche@avecbrasil.com.br) e nos copiando ([cieloconciliador@cielo.com.br](mailto:cieloconciliador@cielo.com.br)), informando o CNPJ, Razão Social  e ID que fica no rodapé do sistema Avec solicitando as seguintes informações abaixo:
 * Host (um por grupo)
 * Token de acesso (um por grupo)
 * Código das lojas do cliente (um por loja)
@@ -3882,13 +3882,13 @@ Selecione todas as empresas que usam o PDV Avec, insira o Host e Token para conc
 ![mceclip0.png](https://f360.zendesk.com//hc/article_attachments/360096138094/mceclip0.png)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Novo modelo de Arquivo Contas a Pagar / Contas a Receber Rateado
 
-Este documento especifica a Importação do Arquivo Modelo Contas a Pagar / Contas a Receber Rateado para o Sistema Finanças 360º.
+Este documento especifica a Importação do Arquivo Modelo Contas a Pagar / Contas a Receber Rateado para o Cielo Conciliador..
 ![print_seta.png](https://f360.zendesk.com//hc/article_attachments/11778883087895.png)
 **Veja a seguir como fazer esse procedimento:**
 1. Acesse a tela de Upload de Arquivos
@@ -3993,9 +3993,9 @@ Caso queira, ainda é possível adicionar comentários em dias e empresas espec�
 ![mceclip1.png](https://f360.zendesk.com//hc/article_attachments/12073087310103.png)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 
 ## O que é necessário para efetuar a conciliação de cartões?
@@ -4006,17 +4006,17 @@ Movimentos da Adquirente (lado direito da tela): alimentada pelo arquivo de oper
 ![Concilia__o_de_cart_o.png](https://f360.zendesk.com//hc/article_attachments/360060051493/Concilia__o_de_cart_o.png)
  ---
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Como efetuar uma conciliação de cartões utilizando o range de datas
 
 Quando ocorrer da venda ter sido registrada no seu sistema de PDV em uma data e o cartão cobrado em outra (POS), no lado de movimento do sistema, utilize o range de datas para selecionar um período e no lado do movimento da operadora selecione a data do registro do cartão, selecione os lançamentos e faça a conciliação manual (por se tratar de datas divergentes, obrigatoriamente você terá que descrever uma justificativa), veja o gif abaixo:
  ![Conciliando_com_Range_de_Datas.gif](https://f360.zendesk.com//hc/article_attachments/360060941753/Conciliando_com_Range_de_Datas.gif)-----------------------------------------------------------------Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Como efetuar uma conciliação manual criando o movimento da adquirente
 
@@ -4025,9 +4025,9 @@ Em conciliação de cartões, selecione o movimento da venda e clique no rodapé
  ![Conciliacao_manual.gif](https://f360.zendesk.com//hc/article_attachments/360060028294/Conciliacao_manual.gif)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Como desfazer uma conciliação de cartões
 
@@ -4036,9 +4036,9 @@ Na tela de conciliação de cartões, no campo de Status selecione Conciliados, 
 **Obs:** É preciso que o movimento não esteja conciliado com o banco, pois se estiver você não consegue desfazer a conciliação da adquirente com operadora.
  
 ![Desconciliar.gif](https://f360.zendesk.com//hc/article_attachments/360060941693/Desconciliar.gif)-----------------------------------------------------------------Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Conciliando cartões com ajuste de valor
 
@@ -4046,14 +4046,14 @@ Quando a venda é registrada com valor diferente ao que foi passado no cartão, 
  ![Concilia_ao_com_justificativa_de_valor.gif](https://f360.zendesk.com//hc/article_attachments/360060942013/Concilia_ao_com_justificativa_de_valor.gif)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Como fazer conciliação de PIX pelo arquivo do PDV
 
 Existem duas formas principais de vender em PIX atualmente:
-* Utilizando o QRCode pela máquina de POS e/ou TEF da sua adquirente. Normalmente esse tipo de transação PIX será inserida e conciliada pela F360 através do extrato de sua adquirente de cartão.
+* Utilizando o QRCode pela máquina de POS e/ou TEF da sua adquirente. Normalmente esse tipo de transação PIX será inserida e conciliada pelo Cielo Conciliador através do extrato de sua adquirente de cartão.
 * Ou as vendas PIX podem ser feitas sem a intervenção de uma adquirente de cartão. Ela poderá ocorrer por meio de um QRCode fornecido pelo seu sistema de PDV ou por um QRCode exposto em algum local de sua loja ou ainda por uma transferência verbal das chaves PIX entre você e seu consumidor. Nesse tipo de cenário as vendas do PIX não virão no extrato da adquirente, mas devem estar presentes em sua plataforma de PDV.
 Esse artigo irá focar nessa segunda opção de vendas em PIX, ou seja, quando a venda não está integrada com nenhuma adquirente de cartão. Iremos explicar aqui como fazer as parametrizações necessárias para que essas vendas entrem na plataforma já conciliadas.
 ## 1 - Faça a parametrização da modalidade no Fechamento de Caixa:
@@ -4075,7 +4075,7 @@ Após a configuração das modalidades, você precisará configurar as suas empr
 3. No campo **Operadora**, selecione a opção PIX. Informe a também a conta bancária em que você receberá as vendas em PIX e no campo **Código do Estabelecimento** você poderá colocar qualquer coisa, mas recomendamos que você use o mesmo código do seu sistema de PDV ou o CNPJ da loja.
 4. Após preencher todos os campos obrigatório, clique em **Salvar** para confirmar as edições da empresa.
 5. Faça o mesmo procedimento para todas as empresas que utilizam o PIX.
-Depois que essas duas parametrizações forem feitas, você poderá importar o seu arquivo de PDV com as transações PIX. A plataforma da F360 irá:
+Depois que essas duas parametrizações forem feitas, você poderá importar o seu arquivo de PDV com as transações PIX. A plataforma do Cielo Conciliador irá:
 * Ler essas transações e colocá-las em seu fechamento de caixa
 * Criar o registro da adquirente e conciliar esse registro com o PDV
 * Colocar as vendas PIX automaticamente em seu fluxo de caixa e DRE
@@ -4087,9 +4087,9 @@ Depois que essas duas parametrizações forem feitas, você poderá importar o s
 Quando utilizar a máquina de POS em outra filial, é necessário selecionar as 2 empresas para poder efetuar a conciliação de cartões, pois o movimento da operadora estará somente em 1 empresa, e justificar o motivo.
 Caso as contas de créditos sejam diferentes entre as empresas, precisa vincular a conta de crédito da POS no cadastro da empresa que onde registrou a venda. Acesse: Menu de Cadastro >  Empresas e Filiais > selecione a empresa onde registrou a venda e clique em Editar no rodapé > vá na aba de Outras Informações, vincule a conta de crédito da POS e clique em Salvar.
  ![Conciliacao_de_multipla_empresa.gif](https://f360.zendesk.com//hc/article_attachments/360060941953/Conciliacao_de_multipla_empresa.gif)-----------------------------------------------------------------Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Relatório de Conciliação de Cartões
 
@@ -4124,9 +4124,9 @@ Veja abaixo o vídeo rápido de como realizar o processo de exportação do rela
 ![gif_exporta_ao_concilia_ao_de_cartoes.gif](https://f360.zendesk.com//hc/article_attachments/5525291537943/gif_exporta_ao_concilia_ao_de_cartoes.gif)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360°**
+**Equipe Cielo Conciliador**
 
 ## Como efetuar o fechamento de período em conciliação de cartões
 
@@ -4135,9 +4135,9 @@ Caso permita a conciliação com pendências, se a mesma for no movimentos de ve
  ![Fechar_Periodo_em_Concilia_ao_de_Cartoes.gif](https://f360.zendesk.com//hc/article_attachments/360060942113/Fechar_Periodo_em_Concilia_ao_de_Cartoes.gif)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Como efetuar uma conciliação manual criando o movimento da venda
 
@@ -4145,9 +4145,9 @@ Quando houver o movimento da adquirente e faltar o movimento de venda, clique no
 Será criado o movimento de venda no fechamento de caixa de acordo com o valor e modalidade informada através do movimento da adquirente e conciliado.
 ![Criando_o_movimento_de_venda_em_conciliacao_de_cartoes.gif](https://f360.zendesk.com//hc/article_attachments/360060027314/Criando_o_movimento_de_venda_em_conciliacao_de_cartoes.gif)
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Como abrir período em conciliação de cartões 
 
@@ -4160,18 +4160,18 @@ Mas, caso deseje abrir o período do mês todo, você pode clicar no primeiro di
 **Nota:** Se no fechamento de período da tela de conciliação de cartões, existiam movimentos pendentes no lado de movimento de vendas, será preciso desfazer o cancelamento uma a uma em status Cancelados.
 
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
  
 ## Como efetuar a conciliação automática - Conciliação de cartões
 
 Acesse a tela de conciliação de cartões e clique em "Conciliação Automática" no rodapé a direita, dessa maneira ele irá realizar a conciliação de todas as lojas do grupo. Caso deseje realizar o procedimento para somente uma empresa, selecione-a e posteriormente clique em "Conciliação Automática". Informe o período desejado e clique em "Conciliar", aguarde em torno de 5 minutos e atualize a tela.
 ![Concilia_ao_Automatica.gif](https://f360.zendesk.com//hc/article_attachments/360060942073/Concilia_ao_Automatica.gif)
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Conciliação Automática para o Finanças Flex 
 
@@ -4207,18 +4207,18 @@ Fechamento de período conta bancária:
 ![Fechamento_de_periodo_conta_bancaria.gif](https://f360.zendesk.com//hc/article_attachments/360060317714/Fechamento_de_periodo_conta_bancaria.gif)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Como realizar a conciliação bancária manualmente
 
 Para realizar a conciliação bancária, é necessário que possua informações do lado do movimento do sistema, se tratando de um contas á receber ou á pagar, é necessário que o título esteja liquidado para que o mesmo possa constar na coluna de movimentos do sistema, e realizar a conciliação com o extrato bancário que foi importado na tela de upload de arquivos, veja o exemplo abaixo:
 ![como_realizar_uma_concilia_ao.gif](https://f360.zendesk.com//hc/article_attachments/360060141694/como_realizar_uma_concilia_ao.gif)
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Como efetuar o ajuste do saldo da conta caixa da loja
 
@@ -4226,9 +4226,9 @@ Para realizar o ajuste do Saldo do caixa, você precisará acessar a tela de con
 ![Atualizar_o_saldo_do_caixa_da_loja.gif](https://f360.zendesk.com//hc/article_attachments/360060926013/Atualizar_o_saldo_do_caixa_da_loja.gif)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Como criar um movimento diretamente na tela de conciliação bancária
 
@@ -4236,9 +4236,9 @@ Um grande abraço,
 ![Como_criar_um_movimento_atraves_da_tela_de_contas_movimentos.gif](https://f360.zendesk.com//hc/article_attachments/360060148134/Como_criar_um_movimento_atraves_da_tela_de_contas_movimentos.gif)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Como abrir período em Contas Movimentos 
 
@@ -4253,18 +4253,18 @@ Mas, caso deseje abrir o período do mês todo, você pode clicar no primeiro di
 ![abertura.gif](https://f360.zendesk.com//hc/article_attachments/360098272573/abertura.gif)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360.**
+**Equipe Cielo Conciliador.**
 
 ## Como realizar a exclusão de uma transferência
 
 A transferência não é possível realizar a edição, portanto se alguma transferência foi lançada erroneamente será preciso realizar a exclusão, veja o exemplo abaixo:
 ![excluir_transferencia.gif](https://f360.zendesk.com//hc/article_attachments/360061236633/excluir_transferencia.gif)
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Como configurar regras de conciliação bancária
 
@@ -4273,12 +4273,12 @@ Você irá cadastrar uma regra que é dividida em duas opções:
  * **Condicional**: Aqui serão informadas as condições para que a regra seja aplicada. Exemplo: sempre que o campo “Descrição do Extrato” for igual a ou contém “TED / DOC” e a conta bancária for igual a “Banco do Nordeste”, ou a condição for Maior que ou Menor que R$ 0,00, alguma ação será executada. Obs. A opção "Maior que" e "Menor que" será utilizado somente quando existir um débito e um crédito em conta com a mesma descrição, então condiciona a maior ou menor que Zero.
 * **Ação**: Nessa opção você informará qual a ação que o sistema fará quando encontrar um extrato bancário dentro das condições informadas anteriormente, como por exemplo, a criação de “Contas a Pagar”, “Contas a Receber” ou "Transferências entre contas". 
 **Criando uma regra de conciliação:**
-Segue os passos que devem ser realizados para a criação de uma regra de conciliação na F360: 
+Segue os passos que devem ser realizados para a criação de uma regra de conciliação no Cielo Conciliador: 
 1. Entre na tela de Contas Movimento e acesse a aba “Regras de Conciliação”.
 2. Clique no botão “Nova Regra” localizado no canto esquerdo da barra inferior do sistema.
 3. Na aba “Regras” informe o nome da regra e se ela é do tipo “Receita” ou “Despesa”. Selecione também as condições para que essa regra seja aplicada, conforme o exemplo a seguir:
 ![mceclip0.png](https://f360.zendesk.com//hc/article_attachments/360078737294/mceclip0.png)
-4. Agora vá até a aba “Ações” e informe qual a ação que a F360 fará quando encontrar um extrato bancário dentro das condições informadas anteriormente. Você deverá selecionar para que o sistema crie um título do tipo “Despesa” , “Receita” ou "Transferência". Informe as seguintes informações também: * Fornecedor
+4. Agora vá até a aba “Ações” e informe qual a ação que o Cielo Conciliador fará quando encontrar um extrato bancário dentro das condições informadas anteriormente. Você deverá selecionar para que o sistema crie um título do tipo “Despesa” , “Receita” ou "Transferência". Informe as seguintes informações também: * Fornecedor
 * Plano de Contas
 * Empresa
 * Centro de Custo
@@ -4288,9 +4288,9 @@ Segue os passos que devem ser realizados para a criação de uma regra de concil
 ![](http://teekitstorage.blob.core.windows.net/financas360-attachments/900e56cf-72c2-45ed-8f3e-772221c70b77.png) 5. Clique em “Salvar”. Na próxima importação de extrato bancário o sistema tentará executar a regra para criar automaticamente o título quando a condição do extrato for igual a alguma das regras cadastradas.
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail [suporte@f360.com.br](mailto:suporte@f360.com.br) e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail [cieloconciliador@cielo.com.br](mailto:cieloconciliador@cielo.com.br) e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Troca de conta bancária de parcelas de cartões
 
@@ -4310,19 +4310,19 @@ Adicionalmente é possível selecionar a opção se você deseja que a troca sej
 Obs: Na opção de alterar também a conta bancária das próximas parcelas, serão movidas *apenas parcelas pendentes de conciliação.*
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Como consultar o extrato bancário
 
-Na plataforma F360, é possível pesquisar o extrato bancário que já foi importado e verificar se possui movimentos que foram conciliados ou pendentes de conciliação. Nessa tela você também poderá exportar a pesquisa para o Excel, lembrando que o extrato apresentado nessa tela é um espelho do arquivo CNAB ou OFX que você inseriu na tela de upload de arquivos, veja o exemplo como realizar a pesquisa do extrato bancário:
+No Cielo Conciliador, é possível pesquisar o extrato bancário que já foi importado e verificar se possui movimentos que foram conciliados ou pendentes de conciliação. Nessa tela você também poderá exportar a pesquisa para o Excel, lembrando que o extrato apresentado nessa tela é um espelho do arquivo CNAB ou OFX que você inseriu na tela de upload de arquivos, veja o exemplo como realizar a pesquisa do extrato bancário:
 ![consultar_extrato_bancario.gif](https://f360.zendesk.com//hc/article_attachments/360061237633/consultar_extrato_bancario.gif)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
  
 ## Como desfazer uma conciliação bancári
 
@@ -4332,9 +4332,9 @@ Na tela de contas movimentos, selecione a conta que deseja realizar o processo, 
 ![como_desfazer_uma_concilia_ao.gif](https://f360.zendesk.com//hc/article_attachments/360065898114/como_desfazer_uma_concilia_ao.gif)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360.**
+**Equipe Cielo Conciliador.**
 
 ## Como realizar a criação de uma transferência na tela de contas movimentos
 
@@ -4345,9 +4345,9 @@ Na plataforma possui duas maneiras diferentes de realizar o lançamento de uma t
 **2º -** Na tela de contas movimentos, na aba de conciliação de contas, possui um botão localizado no lado direito no rodapé da tela sendo Nova Transferência, para realizar esse processo é preciso que seja realizado na conta origem, pois só é possível realizar esse lançamento para uma conta destino, veja o exemplo abaixo, a conta destino é a conta A.linhas Santander e a conta origem é a conta Caixa loja 19049 - Castro, preciso selecionar a conta origem para poder clicar no botão de Nova Transferência e realizar o lançamento:
 ![criando_nova_transferencia.gif](https://f360.zendesk.com//hc/article_attachments/360060152914/criando_nova_transferencia.gif)
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail [suporte@f360.com.br](mailto:suporte@f360.com.br) e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail [cieloconciliador@cielo.com.br](mailto:cieloconciliador@cielo.com.br) e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Como realizar a pesquisa de transferência
 
@@ -4356,9 +4356,9 @@ Para consultar transferências realizadas entre contas ou realizar uma pesquisa 
 ![Consultar_transferencias.gif](https://f360.zendesk.com//hc/article_attachments/360060313334/Consultar_transferencias.gif)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Lançamentos pendentes de conciliação de cartões - Conciliação Bancária 
 
@@ -4373,9 +4373,9 @@ Hoje, é possível realizar a conciliação do extrato com esses movimentos pend
 Entretanto, recomendamos fortemente que realize todas as etapas do sistema, para ter o máximo de controle financeiro sobre o seu grupo, combinado?
 
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail [suporte@f360.com.br](mailto:suporte@f360.com.br) e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail [cieloconciliador@cielo.com.br](mailto:cieloconciliador@cielo.com.br) e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 # Contas a Receber e Contas a pagar
 
@@ -4384,9 +4384,9 @@ Um grande abraço,
 Para realizar o agendamento de um título para ser liquidado, sendo um á pagar ou á receber, você precisa selecionar a data de quitação futura e selecionar abaixo a opção de Liquidar automaticamente no agendamento, assim que selecionar essa opção e clicar abaixo em Agendar o título ficará com um ícone de um relógio, com o status de agendado e será liquidado automaticamente na data de quitação que foi selecionada anteriormente, veja abaixo o exemplo:
 ![Gif___Liquida__o_autom_tica_agendada.gif](https://f360.zendesk.com//hc/article_attachments/360060929233/Gif___Liquida__o_autom_tica_agendada.gif)
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Como realizar a reabertura de parcelas de cartões
 
@@ -4409,9 +4409,9 @@ Além disso, existem alguns casos em que a reabertura de parcelas de cartões n�
 Quando alguma parcela não for reaberta por algum dos motivos citados, um alerta informativo será retornado.
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Como realizar a renegociação de receitas e despesas**Como fazer uma renegociação:**
 
@@ -4455,13 +4455,13 @@ Considerando as informações acima, o rateio do título dinheiro ficará:
 ![Renegocia_ao.gif](https://f360.zendesk.com//hc/article_attachments/360070957153/Renegocia_ao.gif)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360.**
+**Equipe Cielo Conciliador.**
 
 ## Como importar arquivo remessa com código de convênio
 
-A importação de arquivo de remessa é realizada para o preenchimento do contas a receber de boletos dentro da F360. Existem duas formas de fazer essa importação no sistema, pela tela de upload de arquivos ou pela tela de contas a receber. Para a importação do arquivo pela tela de upload de arquivos, o código de convênio deverá estar vinculado na empresa, caso o código de convênio ainda não esteja vinculado, essa configuração deverá ser realizada com os seguintes passos:1. Entre na tela de “Empresas e Filiais”, selecione a empresa desejada e clique em “Editar”.
+A importação de arquivo de remessa é realizada para o preenchimento do contas a receber de boletos dentro do Cielo Conciliador. Existem duas formas de fazer essa importação no sistema, pela tela de upload de arquivos ou pela tela de contas a receber. Para a importação do arquivo pela tela de upload de arquivos, o código de convênio deverá estar vinculado na empresa, caso o código de convênio ainda não esteja vinculado, essa configuração deverá ser realizada com os seguintes passos:1. Entre na tela de “Empresas e Filiais”, selecione a empresa desejada e clique em “Editar”.
 2. Vá até a aba “Outras Informações” e localize as opções “Importação de Arquivo de Remessa”.
 ![mceclip0.png](https://f360.zendesk.com//hc/article_attachments/12044021929751.png) 3. Preencha o campo “Código Convênio”\* que é o código referente a empresa. Cada banco trata esse número de uma forma diferente:
 * Itaú / Santander: Deve ser cadastrado nesse campo o CNPJ da empresa no banco sem pontos ou barra.
@@ -4474,18 +4474,18 @@ A outra forma para inserir o arquivo no sistema é ir até a tela de “Contas a
 ![mceclip2.png](https://f360.zendesk.com//hc/article_attachments/12044040028567.png)
 -----
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail [suporte@f360.com.br](mailto:suporte@f360.com.br) e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail [cieloconciliador@cielo.com.br](mailto:cieloconciliador@cielo.com.br) e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360.**
+**Equipe Cielo Conciliador.**
 
 ## Como realizar a liquidação de títulos em lote
 
 A liquidação em lote é uma opção caso o total de títulos que precisam ser liquidados ultrapasse o total de itens por página 75 e que possua mais de uma página de títulos para serem liquidados, veja o exemplo abaixo:
 ![Gif_de_liquida__o_com_mais_de_um_lote.gif](https://f360.zendesk.com//hc/article_attachments/360060929313/Gif_de_liquida__o_com_mais_de_um_lote.gif)
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Como criar um título à receber ou à pagar
 
@@ -4493,9 +4493,9 @@ Para criar um título á receber ou á pagar, você irá clicar no botão Criar 
 ![Gif_-_Criar_um_t_tulo___receber_ou___pagar.gif](https://f360.zendesk.com//hc/article_attachments/360060927773/Gif_-_Criar_um_t_tulo___receber_ou___pagar.gif)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360.**
+**Equipe Cielo Conciliador.**
 
 ## Emissão e envio de boletos
 
@@ -4544,17 +4544,17 @@ O sistema irá retornar um arquivo ZIP com todos os boletos em PDF e o arquivo d
 Caso essa opção seja selecionada, os e-mails serão enviados para o endereço de login da plataforma.
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360º**
+**Equipe Cielo Conciliador**
  
 ## Antecipação manual de cartões
 
 ![antecipacao2__1_.gif](https://f360.zendesk.com//hc/article_attachments/13739272222871.gif)
 
 O banco central liberou uma nova resolução, onde as instituições financeiras e adquirentes deverão registrar todos os recebíveis de cartões a fim de que a oferta de antecipações não fique restrita apenas às próprias adquirentes onde a venda foi realizada. Na prática, essa nova resolução dará mais liberdade para o lojista antecipar os seus recebíveis com a instituição que está praticando a melhor taxa.
-Visando essa nova pratica do banco central, a F360 se criou uma função dentro da plataforma para que você possa mapear a antecipação realizada e manter o seu fluxo de caixa atualizado. Veja a seguir como fazer esse procedimento:
-1. Entre no módulo F360 Finanças e vá até a tela de [Contas a Receber](https://financas.f360.com.br/Receita#).
+Visando essa nova pratica do banco central, o Cielo Conciliador se criou uma função dentro da plataforma para que você possa mapear a antecipação realizada e manter o seu fluxo de caixa atualizado. Veja a seguir como fazer esse procedimento:
+1. Entre no Cielo Conciliador e vá até a tela de [Contas a Receber](https://financas.f360.com.br/Receita#).
 2. Entre na aba **Cartões a Receber** e na sequência clique na sub aba **Antecipação Manual**.
 3. Clique no botão **Criar** localizado no canto inferior esquerdo da tela. Será aberta uma tela com alguns filtros necessários para que você faça a simulação da sua antecipação.
 4. Após informar todos os dados necessários, clique no botão **Simular Antecipação**. O sistema irá calcular a antecipação com base na taxa de juros informada e nos registros localizados.
@@ -4577,9 +4577,9 @@ Veja abaixo como realizar essa pesquisa :
 ![taxa_acordo.gif](https://f360.zendesk.com//hc/article_attachments/360094228874/taxa_acordo.gif)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Salvar Preferência de Pesquisa 
 
@@ -4589,9 +4589,9 @@ A preferência pode ser aplicada em contas á receber e contas á pagar, você p
 ![preferecnias.gif](https://f360.zendesk.com//hc/article_attachments/360095920354/preferecnias.gif)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Reabertura em massa de parcelas de cartões
 
@@ -4619,9 +4619,9 @@ Além disso, existem alguns casos em que a reabertura de parcelas de cartões n�
 Quando alguma parcela não for reaberta por algum dos motivos citados, um alerta informativo será retornado para o e-mail informado pelo cliente nos passos anteriores.
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Como reabrir uma parcela baixada em Contas Movimentos 
 
@@ -4632,9 +4632,9 @@ A data que deverá selecionar é a data de vencimento que o movimento deverá su
 ![reabrir_parcela_baixada.gif](https://f360.zendesk.com//hc/article_attachments/360096498993/reabrir_parcela_baixada.gif)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Rateio com desconto - 
 
@@ -4642,9 +4642,9 @@ Como criarCaso o rateio possua o valor sendo descontado no lançamento de um sal
  
 **![Gif_de_t_tulo_criado_com_desconto.gif](https://f360.zendesk.com//hc/article_attachments/360060012654/Gif_de_t_tulo_criado_com_desconto.gif)**
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Competência de Rateio com contexto da parcela
 
@@ -4691,9 +4691,9 @@ Quando a rotina chegar ao fim, você receberá um e-mail com o relatório de exc
 ![mceclip6.png](https://f360.zendesk.com//hc/article_attachments/8261986147991/mceclip6.png)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,  
-  **Equipe F360º.**
+  **Equipe Cielo Conciliador.**
 
 ## Planilha de renegociação de títulos a receber e a pagar
 
@@ -4763,9 +4763,9 @@ Os meios de pagamentos disponíveis para seleção são os mesmos presentes em t
 Para realizar um parcelamento de um título sendo um á pagar ou á receber, você irá clicar em Criar localizado no lado esquerdo no rodapé da tela, é preciso que seja preenchido primeiramente a aba de Dados Principais, e em seguida na aba de Parcelamento, selecione a quantidade de parcelas, é possível alterar as datas de vencimento e valor de cada parcela, pois o sistema calcula automaticamente o valor de cada parcela e insere a data de vencimento também, veja o exemplo abaixo:
 **![Gif_parcelamento_de_um_t_tulo.gif](https://f360.zendesk.com//hc/article_attachments/360060929253/Gif_parcelamento_de_um_t_tulo.gif)**
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Como excluir movimentos de cartões 
 
@@ -4776,9 +4776,9 @@ Você pode realizar o filtro de data á seu critério acessando a aba de Cartõe
 ![excluindo_cartoes.gif](https://f360.zendesk.com//hc/article_attachments/360096498793/excluindo_cartoes.gif)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Como liquidar um título
 
@@ -4789,9 +4789,9 @@ Para realizar a liquidação de um título, você irá pesquisa – lo com filtr
 **Obs:** Caso tenha recebido o pagamento de um cliente ou efetuado o pagamento de um fornecedor em dinheiro, a liquidação deve ser efetuada selecionando a conta que seja do tipo dinheiro. 
 
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360°.**
+**Equipe Cielo Conciliador.**
  
 ## Como exportar o arquivo de Retorno do Gera 
 
@@ -4811,7 +4811,7 @@ Preparamos o manual de como realizar a exportação do arquivo de Retorno da sua
  
 **![mceclip2.png](https://f360.zendesk.com//hc/article_attachments/360096086214/mceclip2.png)**
  
-**Na plataforma F360° Finanças > Acesse a tela de Upload de Arquivos > Clique em Selecionar e busque o arquivo na pasta salva. Assim que importar veja na aba de gerenciamento de arquivos, se a leitura foi finalizada e se houve notas.**
+**No Cielo Conciliador > Acesse a tela de Upload de Arquivos > Clique em Selecionar e busque o arquivo na pasta salva. Assim que importar veja na aba de gerenciamento de arquivos, se a leitura foi finalizada e se houve notas.**
  
 **![mceclip3.png](https://f360.zendesk.com//hc/article_attachments/360098382073/mceclip3.png)**
 
@@ -4829,9 +4829,9 @@ Se a conta para esses títulos for diferente da conta existente no arquivo de Re
 ![mceclip3.png](https://f360.zendesk.com//hc/article_attachments/12045846199575.png)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360.**
+**Equipe Cielo Conciliador.**
 
 ## Prorrogação em lote de vencimento de cartões
 
@@ -4850,9 +4850,9 @@ Segue um *gif* explicativo:
 ![Prorroga_ao_cartoes_a_receber.gif](https://f360.zendesk.com//hc/article_attachments/360064608414/Prorroga_ao_cartoes_a_receber.gif)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360.**
+**Equipe Cielo Conciliador.**
 
 ## Liquidação em Massa
 
@@ -4904,9 +4904,9 @@ E o botão Excluir, excluirá definitivamente o título do sistema, sem recupera
 **![Gif_-_Diferen_a_entre_Excluir_e_Baixar_na_tela_de_contas___receber_ou___pagar.gif](https://f360.zendesk.com//hc/article_attachments/360060928953/Gif_-_Diferen_a_entre_Excluir_e_Baixar_na_tela_de_contas___receber_ou___pagar.gif)**
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
  
 ## Como realizar rateio em um título - Sem desconto no lançamento
 
@@ -4914,15 +4914,15 @@ Para realizar o rateio em um título, é preciso que seja preenchido a primeira 
 
 **![Gif_do_rateio_sem_desconto.gif](https://f360.zendesk.com//hc/article_attachments/360060928873/Gif_do_rateio_sem_desconto.gif)**
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 # Contas
 
 ## Autorização de compartilhamento de saldo com o Painel do Franqueador
 
-Para que o Franqueador possa ter acesso aos saldos das contas de um Franqueado, é necessário que o **Franqueado** realize liberação dessa conta no **F360 Finanças**, seguindo o passo a passo:
+Para que o Franqueador possa ter acesso aos saldos das contas de um Franqueado, é necessário que o **Franqueado** realize liberação dessa conta no **Cielo Conciliador**, seguindo o passo a passo:
 
 **- Acesse o “Menu de Cadastros” e clique em “Contas”**
 ![1.png](https://f360.zendesk.com//hc/article_attachments/13145915081111.png)
@@ -4966,9 +4966,9 @@ Você irá seguir o mesmo caminho acima para criar, a diferença é que para cr�
 ![Criando_uma_venda_Cr_dito_Parcelado.gif](https://f360.zendesk.com//hc/article_attachments/360098458253/Criando_uma_venda_Cr_dito_Parcelado.gif)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360°**
+**Equipe Cielo Conciliador**
 
 ## Como editar o valor de uma venda no caixa ( Soma de PDV) 
 
@@ -4985,9 +4985,9 @@ O segundo exemplo, é para a venda com o meio de pagamento Crédito Parcelado. Q
 ![editando_o_valor_da_venda_de_credito_parcelado.gif](https://f360.zendesk.com//hc/article_attachments/360096162094/editando_o_valor_da_venda_de_credito_parcelado.gif)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360°**
+**Equipe Cielo Conciliador**
 
 ## Como excluir a venda no campo de Valor Real
 
@@ -5001,9 +5001,9 @@ A exclusão pode ser realizada na tela de contas á receber também, e para real
 ![excluindo_a_venda_em_valor_real__contas___a_receber.gif](https://f360.zendesk.com//hc/article_attachments/360096470913/excluindo_a_venda_em_valor_real__contas___a_receber.gif)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
  
 ## Como lançar falta ou sobra de caixa
 
@@ -5013,9 +5013,9 @@ O lançamento de sobra ou falta do caixa, é realizado na própria tela de fecha
 **![sobra_de_caixa.gif](https://f360.zendesk.com//hc/article_attachments/360060012154/sobra_de_caixa.gif)**
 **Falta**
  ![falta_de_caixa.gif](https://f360.zendesk.com//hc/article_attachments/360060012174/falta_de_caixa.gif)-----------------------------------------------------------------Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Fechamento de Caixa – Relatórios**Overview do Tema**
 
@@ -5057,17 +5057,17 @@ Veja o nosso artigo abaixo de como realizar a alteração de regras de usuários
 **![fechamento_de_caixa_-_relatorio_quebra_de_caixa.gif](https://f360.zendesk.com//hc/article_attachments/5671752609815/fechamento_de_caixa_-_relatorio_quebra_de_caixa.gif)**
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato conosco pelo e-mail suporte@f360.com.br ou através do nosso chat e whatsapp (11) 96541-3556 de seg a sex das 09:00h ás 18:00h e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato conosco pelo e-mail cieloconciliador@cielo.com.br ou através do nosso chat e whatsapp (11) 96541-3556 de seg a sex das 09:00h ás 18:00h e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360°**
+**Equipe Cielo Conciliador**
  
 ## Criação automática de receitas por arquivo de PDV1. **Contextualização do Problema**:
 
 Algumas empresas fazem muitos lançamentos de “Outras Receitas” em seus arquivos de PDV. Alguns exemplos seriam os pagamentos em “Cheque”, “Promissória” ou “Vale Funcionário”.
-Esses recebimentos entram na tela de “Fechamento de Caixa” na F360 na opção “Soma do PDV”, mas isso obriga os usuários a criarem manualmente uma ou várias receitas para preencher a coluna “Valor Real”. Caso isso não seja feito, o sistema apresenta uma diferença de caixa, conforme a imagem a seguir:
+Esses recebimentos entram na tela de “Fechamento de Caixa” no Cielo Conciliador na opção “Soma do PDV”, mas isso obriga os usuários a criarem manualmente uma ou várias receitas para preencher a coluna “Valor Real”. Caso isso não seja feito, o sistema apresenta uma diferença de caixa, conforme a imagem a seguir:
 ![](http://teekitstorage.blob.core.windows.net/financas360-attachments/01667cc9-3a3a-4596-9803-1f682d87adee.png)### **Figura 1**. Fechamento de Caixa com diferença nos valores de “Cheque” e “Outras Receitas”
 
-Quando existem poucos lançamentos diários em “Cheque” ou “Outras Receitas”, esse procedimento manual é fácil e rápido. Porém, conforme mencionado, algumas empresas têm um recebimento acima da média em uma dessas modalidades.Para facilitar o lançamento desse tipo de receita, criamos uma opção no sistema que permitirá a criação automática dessas receitas na F360. Isso significa que durante a importação do arquivo de PDV, caso exista algum lançamento em uma dessas modalidades, o sistema irá criar as receitas para os usuários sem a necessidade de intervenção do usuário. 
+Quando existem poucos lançamentos diários em “Cheque” ou “Outras Receitas”, esse procedimento manual é fácil e rápido. Porém, conforme mencionado, algumas empresas têm um recebimento acima da média em uma dessas modalidades.Para facilitar o lançamento desse tipo de receita, criamos uma opção no sistema que permitirá a criação automática dessas receitas no Cielo Conciliador. Isso significa que durante a importação do arquivo de PDV, caso exista algum lançamento em uma dessas modalidades, o sistema irá criar as receitas para os usuários sem a necessidade de intervenção do usuário. 
 2. **Como habilitar essa opção:**
 A criação automática de receitas para as modalidades “Cheque” e “Outras Receitas” não está habilitada por padrão no sistema. Para habilitar essa opção, faça o seguinte:
 1. Entre na tela de “Fechamento de Caixa” e vá até a aba “Configuração”. Selecione a aba “Modalidade” e clique em “Pesquisar”.
@@ -5080,12 +5080,12 @@ A criação automática de receitas para as modalidades “Cheque” e “Outras
 A configuração feita acima fará com que o sistema crie uma receita para cada registro da modalidade “Outras Receitas” cuja descrição no arquivo de PDV for igual a “VALE FUNCIONARIO”.Perceba que é possível que o sistema crie automaticamente uma receita para um tipo “X” de descrição, mas não faça isso para outro tipo. Isso dá maior flexibilidade para os usuários configurarem essa opção da maneira desejada.
 
 3. **Informações importantes**:
-* A F360 irá criar um contas a receber respeitando as informações digitadas no seu sistema de PDV. Caso as informações estejam erradas no PVD, isso também irá se refletir na F360.
+* O Cielo Conciliador irá criar um contas a receber respeitando as informações digitadas no seu sistema de PDV. Caso as informações estejam erradas no PVD, isso também irá se refletir no Cielo Conciliador.
 * As receitas importadas por meio dessa função irão entrar no sistema com o status “Aberto” e devem ser liquidadas manualmente na tela de “Contas a Receber”.
 * O sistema apenas irá inserir os registros que contêm o campo “Cliente” preenchido com o nome do cliente no sistema de PDV. Caso seu sistema de PDV não possua essa informação, essa opção de criar automaticamente as receitas não poderá ser utilizada.-----------------------------------------------------------------Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Como realizar depósito no fechamento de caixa 
 
@@ -5096,9 +5096,9 @@ Clique no botão "Fazer Depósito", informe o valor do depósito, selecione a co
 ![Realizar_dep_sito_no_fechamento_de_caixa.gif](https://f360.zendesk.com//hc/article_attachments/360060926633/Realizar_dep_sito_no_fechamento_de_caixa.gif)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Como abrir período de Fechamento de Caixa 
 
@@ -5109,9 +5109,9 @@ Mas, caso deseje abrir o período do mês todo, você pode clicar no primeiro di
 ![abrir_periodo_do_caixa.gif](https://f360.zendesk.com//hc/article_attachments/360094227854/abrir_periodo_do_caixa.gif)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Como editar uma venda no lado de Valor Real
 
@@ -5122,9 +5122,9 @@ Mas a edição pode ser realizada quando não foi liquidado no contas á receber
 ![editando_uma_venda_no_lado_de_valor_real_liquidada.gif](https://f360.zendesk.com//hc/article_attachments/360094203474/editando_uma_venda_no_lado_de_valor_real_liquidada.gif)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Fechamento de caixa**O que é o fechamento de caixa?**
 
@@ -5228,9 +5228,9 @@ Veja abaixo o vídeo de exemplo:
 ![editando_uma_despesa_no_caixa.gif](https://f360.zendesk.com//hc/article_attachments/360096161594/editando_uma_despesa_no_caixa.gif)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360°**
+**Equipe Cielo Conciliador**
 
 ## Como excluir uma venda do fechamento de caixa (Soma de PDV) 
 
@@ -5242,9 +5242,9 @@ Para realizar uma exclusão em massa de todos os movimentos do Fechamento de Cai
 ![excluindo_venda.gif](https://f360.zendesk.com//hc/article_attachments/360060011074/excluindo_venda.gif)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
  
 ## Como realizar o fechamento de período no fechamento de caixa
 
@@ -5254,9 +5254,9 @@ Para realizar o fechamento de período, você irá selecionar o dia em que desej
 ![Fechamento_de_periodo.gif](https://f360.zendesk.com//hc/article_attachments/360060923353/Fechamento_de_periodo.gif)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Como criar uma despesa no caixa 
 
@@ -5264,9 +5264,9 @@ A criação de despesa no fechamento de caixa, é quando o dinheiro do caixa é 
  ![criar_despesa_do_caixa.gif](https://f360.zendesk.com//hc/article_attachments/360060012134/criar_despesa_do_caixa.gif)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Como alterar a modalidade (forma de pagamento) da venda - Soma de PDV 
 
@@ -5278,9 +5278,9 @@ Você pode também selecionar várias vendas e realizar a edição de uma só ve
 ![editando_varios_movimentos.gif](https://f360.zendesk.com//hc/article_attachments/360095549993/editando_varios_movimentos.gif)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Como criar uma venda na coluna de valor real na forma de pagamento outras receitas ou cheque
 
@@ -5289,9 +5289,9 @@ O seu caixa está com diferença, sendo o valor á menor na coluna de valor real
  ![Criando_movimento_de_Outras_Receitas_ou_Cheque.gif](https://f360.zendesk.com//hc/article_attachments/360060925973/Criando_movimento_de_Outras_Receitas_ou_Cheque.gif)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Como incluir uma nova descrição de modalidade
 
@@ -5301,9 +5301,9 @@ Após incluir a modalidade, volte para a tela de Upload de Arquivos > Gerenciame
  ![Cria__o_de_Modalidade_.gif](https://f360.zendesk.com//hc/article_attachments/360060925713/Cria__o_de_Modalidade_.gif)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Conferência de Caixa
 
@@ -5379,9 +5379,9 @@ Quando finalizado, iremos enviar um e-mail de conclusão, como o exemplo abaixo:
 ![exclusao_massa.gif](https://f360.zendesk.com//hc/article_attachments/5576941842839/exclusao_massa.gif)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360°**
+**Equipe Cielo Conciliador**
 
 ## Manual de diferenças entre o antigo e o novo Fechamento de Caixa
 
@@ -5485,12 +5485,12 @@ Ao explorar as vendas por modalidade, os usuários podem classificar as transaç
 ![](https://f360.zendesk.com//hc/article_attachments/20176391342487.png)
           Esse indicador é projetado para reconhecer e destacar automaticamente os feriados comerciais mais relevantes (como dia das mães, dia dos pais, black friday, natal e outros) proporcionando uma visão clara dos dias em que as atividades comerciais podem ser afetadas e permitindo uma preparação proativa. O indicador de feriados é exibido como um ícone integrado ao calendário principal do fechamento de caixa, proporcionando uma visualização intuitiva e rápida dos feriados importantes. Os dias marcados são facilmente identificáveis, permitindo uma gestão eficiente do planejamento de operações e estratégias de vendas.
  
-Essas adaptações e novas funcionalidades na nova tela de Fechamento de Caixa visam simplificar a experiência do usuário, tornando a conferência de caixa mais acessível e eficiente com a missão de oferecer uma plataforma que não apenas atende, mas supere as expectativas dos usuários da F360.
+Essas adaptações e novas funcionalidades na nova tela de Fechamento de Caixa visam simplificar a experiência do usuário, tornando a conferência de caixa mais acessível e eficiente com a missão de oferecer uma plataforma que não apenas atende, mas supere as expectativas dos usuários do Cielo Conciliador.
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360.**
+**Equipe Cielo Conciliador.**
 ## Como exportar o arquivo Remessa do Gera 
 Preparamos o manual de como realizar a exportação do arquivo de Remessa da sua Venda Direta, para que seja alimentado o seu fechamento de caixa na coluna de Valor Real em Boletos e o seu contas á receber.
  
@@ -5506,15 +5506,15 @@ Preparamos o manual de como realizar a exportação do arquivo de Remessa da sua
  
 **![mceclip2.png](https://f360.zendesk.com//hc/article_attachments/360098333113/mceclip2.png)**
  
-**Na plataforma F360° Finanças > Acesse a tela de Upload de Arquivos > Clique em Selecionar e busque o arquivo na pasta salva. Assim que importar veja na aba de gerenciamento de arquivos, se a leitura foi finalizada e se houve notas.**
+**No Cielo Conciliador > Acesse a tela de Upload de Arquivos > Clique em Selecionar e busque o arquivo na pasta salva. Assim que importar veja na aba de gerenciamento de arquivos, se a leitura foi finalizada e se houve notas.**
  
  
 ![mceclip0.png](https://f360.zendesk.com//hc/article_attachments/360098382573/mceclip0.png)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360.**
+**Equipe Cielo Conciliador.**
 
 ## Mudança de leitura no Código de PDV do Gera (Venda Direta Boticário)
 
@@ -5529,13 +5529,13 @@ E para o cadastro da Hibrida **(Loja+VD)** que já é o código de cedente no ca
 **Atenção:** Esse processo de preenchimento só precisa ser realizado nas unidades que são Venda Direta ou Loja Hibrida, ou seja que estão cadastradas em sua base com o tipo de estabelecimento: VD ou LOJA+VD cadastrado na primeira aba de Dados Principais:
 ![mceclip0.png](https://f360.zendesk.com//hc/article_attachments/360086289233/mceclip0.png)
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360.**
+**Equipe Cielo Conciliador.**
 
 ## Configuração das Vendas do PDV - Vouchers e Aplicativos
 
-Preparamos o manual de configuração do PDV para as suas vendas de Vouchers e aplicativo, onde você conseguirá realizar a conciliação dos recebíveis na sua plataforma F360°, siga as instruções abaixo:
+Preparamos o manual de configuração do PDV para as suas vendas de Vouchers e aplicativo, onde você conseguirá realizar a conciliação dos recebíveis no Cielo Conciliador, siga as instruções abaixo:
  
 Acesse o nosso vídeo tutorial, sobre a explicação abaixo 😉
 <https://youtu.be/bH5VIy83KEk>
@@ -5568,9 +5568,9 @@ Após realizar a criação das modalidades, você pode importar o seu arquivo de
  
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360.**
+**Equipe Cielo Conciliador.**
 
 ## Como excluir uma despesa no caixa 
 
@@ -5581,9 +5581,9 @@ Veja abaixo, como realizar essa ação:
 ![excluindo_despesa.gif](https://f360.zendesk.com//hc/article_attachments/360096161674/excluindo_despesa.gif)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360°**
+**Equipe Cielo Conciliador**
 
 # Manuais  PDVs 
 
@@ -5601,19 +5601,19 @@ Acessando o alterdata:
 ![mceclip5.png](https://f360.zendesk.com//hc/article_attachments/7755252511511/mceclip5.png)
 ![mceclip6.png](https://f360.zendesk.com//hc/article_attachments/7755254768279/mceclip6.png)
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360º.**
+**Equipe Cielo Conciliador.**
 
 ## Manual PDV EVO - Com recorrência mensal 
 
-Veja a baixo o passo a passo para a criação de Token no PDV e Configuração de Webservice F360 Finanças, para clientes que**utilizam recorrência mensal:**
+Veja a baixo o passo a passo para a criação de Token no PDV e Configuração de Webservice Cielo Conciliador, para clientes que**utilizam recorrência mensal:**
 
 ![](https://f360.zendesk.com//hc/article_attachments/19542499313687.png)![](https://f360.zendesk.com//hc/article_attachments/19542514923671.png)![](https://f360.zendesk.com//hc/article_attachments/19542494863895.png)![](https://f360.zendesk.com//hc/article_attachments/19542482665367.png)
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360º.**
+**Equipe Cielo Conciliador.**
 
 ## Exportação de PDV Varejo Fácil - O Boticário
 
@@ -5628,20 +5628,20 @@ Veja abaixo o passo a passo:
  
 Após **salvar como** o arquivo no formato indicado, realize a importação diretamente na tela de Upload de Arquivos.
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360.**
+**Equipe Cielo Conciliador.**
 
 ## Como cadastrar webservice da Linx ERP Franquias - Alpargatas 
 
 **1. Como cadastrar o WebService da Linx ERP Franquias:** 
-A Linx junto com a Alpargatas e a Finanças 360 liberou uma API onde poderemos capturar as vendas das lojas automaticamente. Portanto, a partir de agora vocês não vão mais precisar inserir o arquivo de PDV que é extraído manualmente do servidor remoto.
-**Importante:** Você precisa ter inserido o seu arquivo de PDV com todas as vendas até o dia anterior ao cadastro do webservice, porque a partir disso iremos montar a integração para a recepção automática a partir do dia seguinte. Dessa forma, você não correrá o risco de duplicar informações dentro da Finanças 360.
-Veja a seguir como cadastrar para receber suas vendas automaticamente na F360:
+A Linx junto com a Alpargatas e o Cielo Conciliador liberou uma API onde poderemos capturar as vendas das lojas automaticamente. Portanto, a partir de agora vocês não vão mais precisar inserir o arquivo de PDV que é extraído manualmente do servidor remoto.
+**Importante:** Você precisa ter inserido o seu arquivo de PDV com todas as vendas até o dia anterior ao cadastro do webservice, porque a partir disso iremos montar a integração para a recepção automática a partir do dia seguinte. Dessa forma, você não correrá o risco de duplicar informações dentro do Cielo Conciliador.
+Veja a seguir como cadastrar para receber suas vendas automaticamente no Cielo Conciliador:
 * No menu de cadastros, selecione a opção “Webservice”. Quando a tela abrir, clique no botão “Criar” localizado na barra inferior esquerda do sistema.
 * Na nova tela, selecione a opção “Webservice Linx ERP Franquias”. Você deverá selecionar todas as suas lojas da Havaianas, conforme a imagem a seguir:
 ![mceclip0.png](https://f360.zendesk.com//hc/article_attachments/360096501173/mceclip0.png)
-* Clique em Salvar. A partir de agora a Finanças 360° irá obter automaticamente as vendas realizadas no sistema da Linx ERP Franquias da Havaianas. Esse processo é realizado todos os dias de manhã e irá importar para o nosso sistema as vendas realizadas no dia anterior.
+* Clique em Salvar. A partir de agora o Cielo Conciliador irá obter automaticamente as vendas realizadas no sistema da Linx ERP Franquias da Havaianas. Esse processo é realizado todos os dias de manhã e irá importar para o nosso sistema as vendas realizadas no dia anterior.
 **2. Como chamar o serviço manualmente:**
  
 Se por algum motivo for necessário chamar o serviço manualmente, há uma opção no sistema para fazê-lo. Para isso, siga esses passos:
@@ -5654,13 +5654,13 @@ Se por algum motivo for necessário chamar o serviço manualmente, há uma opç�
 ![mceclip3.png](https://f360.zendesk.com//hc/article_attachments/360096501313/mceclip3.png)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360**
+**Equipe Cielo Conciliador**
 
 ## Manual PDV Seta Digital
 
-Preparamos esse manual de como realizar a exportação do relatório do PDV SETA, possuímos a integração da API, que é necessário contratação com o PDV x Cliente, caso tenha interesse em contratar a API SETA, por gentileza entre em contato com o nosso suporte através do e-mail: [suporte@f360.com.br](mailto:suporte@f360.com.br).
+Preparamos esse manual de como realizar a exportação do relatório do PDV SETA, possuímos a integração da API, que é necessário contratação com o PDV x Cliente, caso tenha interesse em contratar a API SETA, por gentileza entre em contato com o nosso suporte através do e-mail: [cieloconciliador@cielo.com.br](mailto:cieloconciliador@cielo.com.br).
 Veja abaixo o passo a passo de como exportar o relatório do PDV Seta Digital:
 * Acesse o sistema SETA e em RETAGUARDA:
 ![mceclip0.png](https://f360.zendesk.com//hc/article_attachments/11733599940631.png)
@@ -5672,21 +5672,21 @@ Veja abaixo o passo a passo de como exportar o relatório do PDV Seta Digital:
 ![mceclip3.png](https://f360.zendesk.com//hc/article_attachments/11733694781591.png)
 * Com a DATA preenchida, EMPRESA (s) seleciona e o totaliza dor marcado em EMPRESA, basta clicar em da(s) “5 EXCEL” e o relatório será gerado em formato “. XLSX ” e será salvo onde você escolher.
 ![mceclip4.png](https://f360.zendesk.com//hc/article_attachments/11733742582423.png)
-**Nota: Antes de importar o Arquivo na F360° Finanças abra o arquivo salve e feche o arquivo, em seguida na tela de Upload de Arquivos.**
+**Nota: Antes de importar o Arquivo no Cielo Conciliador° Finanças abra o arquivo salve e feche o arquivo, em seguida na tela de Upload de Arquivos.**
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360º.**
+**Equipe Cielo Conciliador.**
 ## Manual PDV EVO - Sem recorrência mensal 
-Veja a baixo o passo a passo para a criação de Token no PDV e Configuração de Webservice F360 Finanças, para clientes que **não utilizam recorrência mensal:**
+Veja a baixo o passo a passo para a criação de Token no PDV e Configuração de Webservice Cielo Conciliador, para clientes que **não utilizam recorrência mensal:**
  
 **![](https://f360.zendesk.com//hc/article_attachments/19542403253911.png)![](https://f360.zendesk.com//hc/article_attachments/19542414008599.png)![](https://f360.zendesk.com//hc/article_attachments/19542382330775.png)![](https://f360.zendesk.com//hc/article_attachments/19542394150039.png)**
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360º.**
+**Equipe Cielo Conciliador.**
 
 ## Manual PDV Cigam
 
@@ -5697,9 +5697,9 @@ Veja abaixo o passo a passo de como exportar o relatório do PDV Cigam.
 ![mceclip3.png](https://f360.zendesk.com//hc/article_attachments/7766201303063/mceclip3.png)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360º.**
+**Equipe Cielo Conciliador.**
 
 ## Como exportar o arquivo de PDV Gera Venda Direta - (O Boticário)
 
@@ -5718,7 +5718,7 @@ Logo abaixo segue o passo a passo de como realizar essa exportação:
  
 ![mceclip2.png](https://f360.zendesk.com//hc/article_attachments/1500007281461.png)
  
-**No sistema Finanças 360° > Acesse a tela de Upload de Arquivos > Clique em Selecionar e busque o arquivo na pasta salva. Ou com a pasta já aberta, arraste o arquivo para dentro da Janela “Selecione”:**
+**No sistema Cielo Conciliador > Acesse a tela de Upload de Arquivos > Clique em Selecionar e busque o arquivo na pasta salva. Ou com a pasta já aberta, arraste o arquivo para dentro da Janela “Selecione”:**
  
 **![mceclip3.png](https://f360.zendesk.com//hc/article_attachments/1500007281741.png)**
  
@@ -5726,9 +5726,9 @@ Logo abaixo segue o passo a passo de como realizar essa exportação:
 **[Como exportar o CC Residual do Gera - Venda Direta ( O Boticário)](https://f360.zendesk.com//hc/pt-br/articles/1500005369522)**
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360.**
+**Equipe Cielo Conciliador.**
 
 ## Manual PDV Teknisa
 
@@ -5740,9 +5740,9 @@ Veja abaixo o passo a passo de como exportar o relatório do PDV Teknisa.
 ![mceclip4.png](https://f360.zendesk.com//hc/article_attachments/7766449599127/mceclip4.png)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360º.**
+**Equipe Cielo Conciliador.**
 
 ## Manual PDV Linx Microvix
 
@@ -5777,9 +5777,9 @@ Veja o nosso artigo abaixo de como realizar a criação da Modalidade:
 ![mceclip10.png](https://f360.zendesk.com//hc/article_attachments/10481435730327.png)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360º.**
+**Equipe Cielo Conciliador.**
 
 ## Manual PDV Trinks
 
@@ -5794,9 +5794,9 @@ Veja abaixo o passo a passo de como exportar o relatório do PDV Trinks.
 **![mceclip5.png](https://f360.zendesk.com//hc/article_attachments/7766133781783/mceclip5.png)**
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360º.**
+**Equipe Cielo Conciliador.**
 
 ## Como exportar o CC Residual do Gera - Venda Direta ( O Boticário)
 
@@ -5810,14 +5810,14 @@ O passo a passo a seguir, é para realizar a exportação do arquivo de CC Resid
  
 **![mceclip1.png](https://f360.zendesk.com//hc/article_attachments/1500007158082.png)**
  
-**No sistema Finanças 360° > Acesse a tela de Upload de Arquivos > Clique em Selecionar e busque o arquivo na pasta salva. Ou com a pasta já aberta, arraste o arquivo para dentro da Janela “Selecione”:**
+**No sistema Cielo Conciliador > Acesse a tela de Upload de Arquivos > Clique em Selecionar e busque o arquivo na pasta salva. Ou com a pasta já aberta, arraste o arquivo para dentro da Janela “Selecione”:**
  
 **![mceclip2.png](https://f360.zendesk.com//hc/article_attachments/1500007311121.png)**
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360.**
+**Equipe Cielo Conciliador.**
 
 ## Manual de PDV Linx UX
 
@@ -5834,9 +5834,9 @@ Veja abaixo o passo a passo de como exportar o relatório de PDV Linx Ux.
 ![mceclip9.png](https://f360.zendesk.com//hc/article_attachments/7755757762071/mceclip9.png)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360º.**
+**Equipe Cielo Conciliador.**
  
 ## Manual de Importação de PDV Linx POS, Linx Full, Linx Franquias (Exportação pela Retaguarda)
 
@@ -5874,13 +5874,13 @@ Veja o nosso artigo abaixo de como realizar a criação da Modalidade:
  
 **![mceclip5.png](https://f360.zendesk.com//hc/article_attachments/360101694954/mceclip5.png)**
  
-1. **Salve o Arquivo na Área de Trabalho do seu Servidor Remoto**2. **Copie o Arquivo e cole no seu Computador em uma Pasta desejada**3. **Importe o seu Arquivo de PDV na tela de Upload de Arquivos do Finanças 360°.**
+1. **Salve o Arquivo na Área de Trabalho do seu Servidor Remoto**2. **Copie o Arquivo e cole no seu Computador em uma Pasta desejada**3. **Importe o seu Arquivo de PDV na tela de Upload de Arquivos do Cielo Conciliador.**
 **NOTA 1****: Não esqueça de configurar o CODIGO\_FILIAL no Menu de Cadastros > Empresas e Filiais > Aba Outras Informações na opção: Cód. PDV do Estabelecimento****NOTA 2****: Não esqueça de verificar na tela de Gerenciamento de Arquivos o Status da leitura do seu arquivo para verificar se houve alguma nota e deve tomar alguma ação abrindo o detalhe do arquivo.**
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360.**
+**Equipe Cielo Conciliador.**
  
 ## Manual PDV SW Fast
 
@@ -5890,9 +5890,9 @@ Veja abaixo o passo a passo de como exportar o relatório de PDV SW Fast.
 ![mceclip2.png](https://f360.zendesk.com//hc/article_attachments/7755402914455/mceclip2.png)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360º.**
+**Equipe Cielo Conciliador.**
 
 # Pagamento Escritural
 
@@ -5911,16 +5911,16 @@ Siga o passo a passo de como configurar a conta:
 A seguir iremos demonstrar o passo a passo de como gerar o arquivo de remessa para pagamento escritural de fornecedores por meio do arquivo de rastreamento de DDA.
 **1 - Faça a importação do arquivo de rastreamento de DDA:**
 ![1_-_Importando_o_arquivo_de_rastreamento_de_DDA.gif](https://f360.zendesk.com//hc/article_attachments/360097651174.gif)
-O arquivo de rastreamento de DDA é um arquivo de retorno disponibilizado pela instituição bancária contendo todos os DDA's vinculados aos CNPJ's de suas empresas. Esse arquivo deve ser obtido diariamente no *internet banking* de sua instituição bancária e importado no módulo F360 Finanças.
+O arquivo de rastreamento de DDA é um arquivo de retorno disponibilizado pela instituição bancária contendo todos os DDA's vinculados aos CNPJ's de suas empresas. Esse arquivo deve ser obtido diariamente no *internet banking* de sua instituição bancária e importado no Cielo Conciliador.
 **Obs: Em caso de dúvidas, entre em contato com o seu gerente para lhe auxiliar qual o caminho para exportar o arquivo.**
 **2 - Crie um vinculo do DDA / Boleto com alguma despesa disponível na plataforma:**
 ![2_-_Vincular_o_DDA_com_uma_despesa.gif](https://f360.zendesk.com//hc/article_attachments/360097654794.gif)
-Nessa etapa, você deverá criar um vinculo entre o registro do DDA que você acabou de inserir com a despesa cadastrada na tela de contas a pagar. Isso é importante pois a despesa provavelmente foi (ou será) inserida com base na nota fiscal, então essa etapa garante que as informações presentes no arquivo de DDA sejam transferidas para a despesa já existente na tela de contas a pagar do módulo F360 Finanças.
+Nessa etapa, você deverá criar um vinculo entre o registro do DDA que você acabou de inserir com a despesa cadastrada na tela de contas a pagar. Isso é importante pois a despesa provavelmente foi (ou será) inserida com base na nota fiscal, então essa etapa garante que as informações presentes no arquivo de DDA sejam transferidas para a despesa já existente na tela de contas a pagar do Cielo Conciliador.
 Perceba que a nossa plataforma irá sugerir automaticamente o registro ideal para o vinculo com base em uma série de fatores. Além disso, a plataforma irá executar de tempos em tempos uma tentativa de vinculo automático entre o DDA e a despesa, reduzindo ainda mais o trabalho manual dos operadores.
 **3 - Faça o agendamento da despesa e gere o arquivo de remessa:**
 ![3_-_Agendando_os_pagamentos.gif](https://f360.zendesk.com//hc/article_attachments/360099930593.gif)
 Após vincular o DDA com a despesa, perceba que na tela de contas a pagar iremos mostrar um indicativo de que aquela despesa está vinculada com um DDA. Isso é um sinal que aquele registro está pronto para gerar o arquivo de pagamento escritural.
-Para isso, basta fazer o agendamento da despesa na data de pagamento desejada. Nessa etapa é importante que seja selecionada a opção para agrupar os pagamentos em um lote, pois é através do lote que iremos fazer o *download* do arquivo de pagamento escritural. Além disso, recomendamos que você não selecione a opção para liquidar o título automaticamente no agendamento, pois no processo de pagamento escritural a instituição bancária irá enviar um arquivo de retorno confirmando o pagamento das despesas. Ou seja, a plataforma da F360 deverá liquidar o título com base nesse arquivo de retorno, sendo esse um indicativo importante de que a funcionalidade de pagamento escritural funcionou 100%. Ao selecionar a opção para liquidar automaticamente a despesa, você perderia essa última validação do processo de pagamento escritural, reduzindo assim a segurança do processo.
+Para isso, basta fazer o agendamento da despesa na data de pagamento desejada. Nessa etapa é importante que seja selecionada a opção para agrupar os pagamentos em um lote, pois é através do lote que iremos fazer o *download* do arquivo de pagamento escritural. Além disso, recomendamos que você não selecione a opção para liquidar o título automaticamente no agendamento, pois no processo de pagamento escritural a instituição bancária irá enviar um arquivo de retorno confirmando o pagamento das despesas. Ou seja, o Cielo Conciliador deverá liquidar o título com base nesse arquivo de retorno, sendo esse um indicativo importante de que a funcionalidade de pagamento escritural funcionou 100%. Ao selecionar a opção para liquidar automaticamente a despesa, você perderia essa última validação do processo de pagamento escritural, reduzindo assim a segurança do processo.
 **4 - Importe o arquivo de remessa no *internet banking* da instituição bancária:**
 Agora que você já possui o arquivo de remessa, faça a importação dele no *internet banking* da sua instituição bancária para que os agendamentos sejam feitos com sucesso..
   
@@ -5928,13 +5928,13 @@ Agora que você já possui o arquivo de remessa, faça a importação dele no *i
 Atualmente essa funcionalidade está disponível apenas para o Bradesco, Banco do Brasil, Itaú, Santander e Caixa Econômica.
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360.**
+**Equipe Cielo Conciliador.**
 
 ## Como configurar o bloqueio de inserção do DDA 
 
-Para clientes que utilizam pagamento escritural na plataforma, é possível configurar o bloqueio da inserção de DDAs no F360. Isso significa que ao realizar o *upload* de um arquivo de DDA, os registros não serão inseridos caso o período das contas estejam fechados na data de vencimento dos registros.
+Para clientes que utilizam pagamento escritural na plataforma, é possível configurar o bloqueio da inserção de DDAs no Cielo Conciliador. Isso significa que ao realizar o *upload* de um arquivo de DDA, os registros não serão inseridos caso o período das contas estejam fechados na data de vencimento dos registros.
 Esse bloqueio é realizado por conta e evitará que ocorram mudanças em datas que já possuem o caixa conferido e o período fechado ao inserir um arquivo de DDA na plataforma. Para configurá-lo é simples:
 * Acesse o Menu de Cadastros e em seguida selecione a tela de "Contas":
 ![mceclip0.png](https://f360.zendesk.com//hc/article_attachments/19226703237911.png)
@@ -5949,6 +5949,6 @@ Esse bloqueio é realizado por conta e evitará que ocorram mudanças em datas q
 ![](https://f360.zendesk.com//hc/article_attachments/19226678339991.png)
  
 Gostou desse artigo? Tem alguma dúvida ou sugestão?  
-Por favor, entre em contato com a gente pelo e-mail suporte@f360.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
+Por favor, entre em contato com a gente pelo e-mail cieloconciliador@cielo.com.br e compartilhe suas experiências. Sua opinião é muito importante para nós.
 Um grande abraço,
-**Equipe F360.**
+**Equipe Cielo Conciliador.**
