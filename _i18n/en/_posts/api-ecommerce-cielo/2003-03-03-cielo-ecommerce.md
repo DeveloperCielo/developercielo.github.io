@@ -2780,7 +2780,7 @@ To run tests, you need to follow the [Sandbox and tools](https://developercielo.
 
 To send the merchant's MCC in the SDWO transaction, the market guidance is to use the ABECS (Brazilian Association of Credit Card and Services Companies) table, which makes the equivalence of CNAEs for MCCS across the industry. This table is constantly updated and is available online on the Abecs website at the following link: [ABECS](https://www.abecs.org.br/consulta-mcc-individual)
 
-**Important:** SDWO marking is only accepted for the following types and brands: Visa/Elo - credit and debit; Mastercard - credit only. Accepts foreign cards.
+**Important:** SDWO marking is only accepted for the following types and brands: Visa/Elo - credit and debit; Mastercard - credit and debit. Accepts foreign cards.
 
 <aside class="warning">Warning: For Visa transactions, the SDWO e-wallet should be located in the same country in which the seller receives their payment.</aside>
 
