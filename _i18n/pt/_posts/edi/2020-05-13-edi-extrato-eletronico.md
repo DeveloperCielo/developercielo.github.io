@@ -297,7 +297,7 @@ Retorna configurações existentes agrupadas por mainMerchantID.
     "BALANCE",
     "NRC"
   ],
-  "editStatus": "AVAILABLE"
+  "ediStatus": "AVAILABLE"
 }
 ```
 
@@ -350,7 +350,7 @@ Registre o ID do lojista(apenas um, uma lista ou todos), com base no número da 
 | `mainMerchantId`    | ID principal do cliente.                                                                                                                                                                                                                                               | String |         |             |
 | `registerID`        | ID do registro. O mesmo fornecido por /edi/registers                                                                                                                                                                                                                   | String |         |             |
 | `merchants`         | Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista ["9999111111", "9999111333"]                                                                                                        |        |         |             |
-| `type`              | Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, ANTECIPATION_CIELO                                                                                                                                            |        |         |             |
+| `type`              | Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, BALANCE e NRC                                                                                                                                           |        |         |             |
 | `status`            | Status de registro. Se concluído, os arquivos serão fornecidos no dia seguinte                                                                                                                                                                                         |        |         |             |
 
 ## **GET** Consultar o Status do Registro
@@ -467,7 +467,7 @@ Atualize o merchantID com base no registerID ou mainMerchantID.
 | `mainMerchantId`    | ID principal do cliente.                                                                                                                                                                                                                                               | String |         |             |
 | `registerID`        | ID do registro. O mesmo fornecido por /edi/registers                                                                                                                                                                                                                   | String |         |             |
 | `merchants`         | Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista ["9999111111", "9999111333"]                                                                                                        |        |         |             |
-| `type`              | Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, ANTECIPATION_CIELO                                                                                                                                            |        |         |             |
+| `type`              | Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, BALANCE e NRC                                                                                                                                            |        |         |             |
 
 <aside class="warning"><b>Importante!<br>Esta funcionalidade realiza a atualização do registro do Extrato e atribui ao Conciliador, portanto:<br>1 - Se a matriz possui, por exemplo, 10 estabelecimentos e for realizada a chamada informando apenas 3 estabelecimentos, o registro será atualizado mantendo apenas os 3 que foram informados e excluindo o registro dos 7 pré-existentes.<br>
 2 - O mesmo comportamento acima ocorre com relação a atualização de tipos de extratos</b></aside>
@@ -524,7 +524,7 @@ A duplicação de registro funciona com base no retorno do GET /merchantgroup, s
 }
 ```
 
-Com isso, será necessário efetuar um novo GET para saber se você pode ou não vincular essa cadeia de merchant a sua conciliadora, que nesse caso é o GET /mainmerchants, se você obter o status "available" no campo "editStatus", significa que você poderá fazer a duplicação de matriz via API.
+Com isso, será necessário efetuar um novo GET para saber se você pode ou não vincular essa cadeia de merchant a sua conciliadora, que nesse caso é o GET /mainmerchants, se você obter o status "available" no campo "ediStatus", significa que você poderá fazer a duplicação de matriz via API.
 
 > **GET** {{host}}/mainmerchants
 
@@ -535,7 +535,7 @@ Com isso, será necessário efetuar um novo GET para saber se você pode ou não
     "mainMerchantID": "2006907071",
     "merchants": ["2006907071"],
     "type": ["SELL", "BALANCE"],
-    "editStatus": "AVAILABLE"
+    "ediStatus": "AVAILABLE"
   }
 ]
 ```
