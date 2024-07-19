@@ -52,7 +52,7 @@ Confira as funcionalidades dos produtos Cielo que podem ajudar a mitigar riscos 
 
 - **Captura posterior**: permite que a loja virtual analise as transações antes de capturá-las. Caso identifique uma transação fraudulenta, permite não realizar a captura;
 - **Tokenização**: é processo que transforma o número do cartão em um código criptografado que auxilia a evitar vazamentos de dados no site e exposição de dados dos cartões de clientes;
-- **3DS 2.0**: o comprador virtual é autenticado pelo banco para concluir a transação mediante a análise de dados pelo banco ou desafio feito pelo comprador.
+- **3DS 2.2**: o comprador virtual é autenticado pelo banco para concluir a transação mediante a análise de dados pelo banco ou desafio feito pelo comprador.
 
 ### Antifraude
 
@@ -124,16 +124,16 @@ O fluxo do chargeback inicia quando a pessoa titular do cartão contesta uma com
 - Positivar o portador;
 - Usar uma ferramenta de análise de fraude, como o [Antifraude Gateway](https://braspag.github.io//manual/antifraude){:target="\_blank"};
 - Ter estrutura de backoffice para prevenção de fraudes e chargebacks;
-- Usar a API Cielo E-commerce e as funcionalidades destinadas ao controle de chargebacks, como o **SoftDescriptor** e a **autenticação 3DS 2.0**.
+- Usar a API Cielo E-commerce e as funcionalidades destinadas ao controle de chargebacks, como o **SoftDescriptor** e a **autenticação 3DS 2.2**.
 
 ## Como a Cielo ajuda a prevenir os chargebacks em seu estabelecimento
 
 A Cielo oferece melhores práticas para minimizar as ocorrências de chargebacks:
 
-- **SoftDescriptor** e **Autenticação 3DS 2.0** na API E-commerce Cielo:
+- **SoftDescriptor** e **Autenticação 3DS 2.2** na API E-commerce Cielo:
 
 > - **Soft Descriptor**: exibe o nome fantasia da sua loja na fatura do cartão de crédito do comprador, evitando contestações por não reconhecimento da compra;<br/>
-> - **Autenticação 3DS 2.0**: as transações autenticadas transferem a responsabilidade de chargeback para o banco.
+> - **Autenticação 3DS 2.2**: as transações autenticadas transferem a responsabilidade de chargeback para o banco.
 
 - Ferramentas de segurança;
 - Dicas ao estabelecimento sobre as melhores práticas no mercado;
