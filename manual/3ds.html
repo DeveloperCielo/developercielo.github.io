@@ -249,7 +249,8 @@
 <ul>
   <li>Visa;</li>
   <li>Mastercard;</li>
-  <li>Elo.</li>
+  <li>Elo;</li>
+  <li>Amex.</li>
 </ul>
 
 <aside class="warning">A partir de 1º de maio de 2024, a bandeira Mastercard identificará os estabelecimentos comerciais que não tiveram atividade de autenticação 3DS por 11 ou mais meses. Após 13 meses sem uso da autenticação, os estabelecimentos perderão seu registro.</aside>
@@ -1302,6 +1303,7 @@ Para <strong>Data Only Visa, o ECI será sempre 7</strong>.</p>
       <th>Mastercard</th>
       <th>Visa</th>
       <th>Elo</th>
+      <th>Amex</th>
       <th>Resultado da autenticação</th>
       <th>A transação foi autenticada?</th>
     </tr>
@@ -1311,11 +1313,13 @@ Para <strong>Data Only Visa, o ECI será sempre 7</strong>.</p>
       <td>02</td>
       <td>05</td>
       <td>05</td>
+      <td>05</td>
       <td>Autenticada pelo emissor – risco de chargeback passa a ser do emissor.</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td>01</td>
+      <td>06</td>
       <td>06</td>
       <td>06</td>
       <td>Autenticada pela bandeira – risco de chargeback passa a ser do emissor.</td>
@@ -1325,12 +1329,14 @@ Para <strong>Data Only Visa, o ECI será sempre 7</strong>.</p>
       <td>Diferente de 01, 02 e 04</td>
       <td>Diferente de 05 e 06</td>
       <td>Diferente de 05 e 06</td>
+      <td>Diferente de 05 e 06</td>
       <td>Não autenticada – risco de chargeback permanece com o estabelecimento.</td>
       <td>Não</td>
     </tr>
     <tr>
       <td>04</td>
       <td>07</td>
+      <td>-</td>
       <td>-</td>
       <td>Não autenticada, transação caracterizada como <em>Data Only</em> – risco de chargeback permanece com o estabelecimento.</td>
       <td>Não</td>
