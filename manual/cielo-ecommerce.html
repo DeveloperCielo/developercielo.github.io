@@ -2365,6 +2365,10 @@ Abaixo especificamos qualquer diferença existente:</p>
   <li>Não realizar transações de débito sem CVV.</li>
 </ul>
 
+<p><strong>Como saber se a transação foi autenticada?</strong></p>
+
+<p>Isso irá depender do resultado da <a href="https://braspag.github.io//manual/emv3ds#tabela-de-eci">Tabela de ECI</a>.</p>
+
 <p><strong>Detalhes importantes</strong></p>
 
 <p>O ECI (Eletronic Commerce Indicator) retornado na resposta da autenticação indica se o portador foi autenticado ou não pela bandeira ou emissor.</p>
@@ -2382,7 +2386,9 @@ Abaixo especificamos qualquer diferença existente:</p>
   <li>Na <strong>requisição das transações</strong> de crédito ou débito, <strong>envie o nó adicional</strong> <code class="language-plaintext highlighter-rouge">ExternalAuthentication</code>, conforme exemplos a seguir.</li>
 </ol>
 
-<aside class="notice">A autenticação via 3DS 1.0 foi descontinuada pelas bandeiras. As novas integrações devem seguir o protocolo 3DS 2.2.</aside>
+<blockquote>
+  <p>Acesse o padrão mais atual do autenticador em <a href="https://braspag.github.io//manual/emv3ds">3DS 2.2</a>, sendo que a versão 3DS 1.0 foi descontinuada.</p>
+</blockquote>
 
 <h4 id="cartão-de-crédito-com-autenticação">Cartão de crédito com autenticação</h4>
 
