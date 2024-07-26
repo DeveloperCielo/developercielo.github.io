@@ -1229,6 +1229,10 @@ O fluxo a seguir descreve as etapas de autenticação em alto nível:
 * Não realizar transações de débito sem autenticação ou utilização de senha;
 * Não realizar transações de débito sem CVV.
 
+**Como saber se a transação foi autenticada?**
+
+Isso irá depender do resultado da [Tabela de ECI](https://braspag.github.io//manual/emv3ds#tabela-de-eci).
+
 **Detalhes importantes**
 
 O ECI (Eletronic Commerce Indicator) retornado na resposta da autenticação indica se o portador foi autenticado ou não pela bandeira ou emissor.
@@ -1244,8 +1248,8 @@ Para integrar a autenticação às suas transações:
 1. **Integre o script do 3DS 2.2** na sua página de pagamento, conforme [manual do 3DS](https://developercielo.github.io/manual/3ds){:target="\_blank"};
 2. Na **requisição das transações** de crédito ou débito, **envie o nó adicional** `ExternalAuthentication`, conforme exemplos a seguir.
 
-<aside class="notice">A autenticação via 3DS 1.0 foi descontinuada pelas bandeiras. As novas integrações devem seguir o protocolo 3DS 2.2.</aside>
-
+>Acesse o padrão mais atual do autenticador em [3DS 2.2](https://braspag.github.io//manual/emv3ds), sendo que a versão 3DS 1.0 foi descontinuada.
+ 
 #### Cartão de crédito com autenticação
 
 ##### Requisição
