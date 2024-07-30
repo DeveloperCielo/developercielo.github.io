@@ -15,10 +15,9 @@ tags:
 
 **Documentation**
 
-[CIELO_Extrato_Eletronico_Manual_Versao_15.9-erratum](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO_Eletronic_Statement_Manual_-_Version_15.9.1.zip)
+[CIELO_Extrato_Eletronico_Manual_Versao_15.9.1](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO_Eletronic_Statement_Manual_-_Version_15.9.1.zip)
 
-* Current version: **15.8.1**
-* Next update: **07/23/2024 to version 15.9.erratum**
+* Current version: **15.9.1**
   
 **Test files**
 
@@ -32,15 +31,6 @@ tags:
 
 The inclusion of the fields TID and Order/Reference Code will not happen in the Record Type 8. The size increase to 400 positions is maintained. Therefore, from position 240 to 400, it will be reserved for Uso Cielo.
 
-**Last updates**
-
-* Version: 15.9 – Addition of new fields for Pix transaction demonstration
-   * Inclusion of the NSU/DOC field with 8 positions (positions 62 to 67 will continue to be filled)
-   * Identifier of scheduled transfer for Pix sales
-   * Increase in the size of Record Type 8 from 250 to 400 positions
-   * Inclusion of the Scheduled transfer service for Pix transactions item in the topic RECONCILIATION THROUGH THE ELECTRONIC STATEMENT
-
-The manual also highlighted additional information about the fields **Posting types, Payment method, Batch number, Adjustment code**, and data type in the **Bank agency** field.
 
 # Introduction
 
