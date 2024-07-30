@@ -15,10 +15,10 @@ tags:
 
 **Documentação**
 
-[CIELO_Extrato_Eletronico_Manual_Versao_15.9-errata](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO_Extrato_Eletronico_Manual_Versao_15.9.1.zip)
-[CIELO_Extrato_Eletronico_Manual_Versao_15.9.1](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO_Extrato_Eletronico_Manual_Versao_15.9.1.zip)
+[CIELO_Extrato_Eletronico_Manual_Versao_15.9.1](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO_Extrato_Eletronico_Manual_Versao_15.9.1.zip)  
 
 * Versão produtiva: **15.9.1**
+
   
 **Arquivos de teste**
 
