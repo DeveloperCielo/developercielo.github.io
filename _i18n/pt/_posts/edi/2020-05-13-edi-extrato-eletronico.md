@@ -16,9 +16,9 @@ tags:
 **Documentação**
 
 [CIELO_Extrato_Eletronico_Manual_Versao_15.9-errata](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO_Extrato_Eletronico_Manual_Versao_15.9.1.zip)
+[CIELO_Extrato_Eletronico_Manual_Versao_15.9.1](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO_Extrato_Eletronico_Manual_Versao_15.9.1.zip)
 
-* Versão produtiva: **15.8.1**
-* Próxima atualização: **23/07/2024 para a versão 15.9.errata**
+* Versão produtiva: **15.9.1**
   
 **Arquivos de teste**
 
@@ -28,21 +28,6 @@ tags:
 
 [15.8 Atualização de negociações-Receivable negotiation update](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/15-8-Atualizacao-de-negociacoes-Receivable-negotiation-update.zip)
 
-**Últimas atualizações**
-
-<aside class="warning">Comunicamos que a alteração do layout do Extrato Eletrônico para a versão 15.9 com implantação em 23/07/2024, sofreu uma pequena alteração.</aside>
-
-A inclusão de novos campos de identificação para transações Pix efetuadas no canal de venda e-commerce (TID e Código de pedido) não será realizada. O aumento do tamanho do registro tipo 8 para 400 posições está mantido. Sendo assim, a partir da posição 240 até a 400, será reservado para Uso Cielo.
-
-Demais alterações segue conforme previsto no último comunicado.
-
-* Versão: 15.9 – Inclusão de novos campos para demonstração de transações Pix
-  * Inclusão do campo NSU/DOC com 8 posições (a posição 62 a 67 continuará sendo preenchida)
-  * Indicativo de transferência programada para vendas Pix
-  * Aumento de tamanho do registro tipo 8 de 250 para 400 posições
-  * Inclusão do item Serviço de transferência programada para vendas Pix no tópico CONCILIAÇÃO ATRAVÉS DO EXTRATO ELETRÔNICO
-
-Também foram destacadas no manual informações adicionais dos campos **Tipo de lançamento, Forma de pagamento, Número do lote, Código de ajuste** e tipo de dado no campo de **Agência**.
 
 # Introdução
 
