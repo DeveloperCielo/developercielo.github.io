@@ -6226,7 +6226,7 @@ https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/void?amount={
 | 17     | Cancellation not executed. There is total or partial cancellation/dispute for this sale.             |
 | 40     | Cancellation cannot be carried out as the deadline has expired.                                          |
 | 41     | Status does not allow cancellation (Example: Authorization without capture).                                            |
-| 42     | Transaction cancellation was not successful.                                                    |
+| 42     | Transaction cancellation was not successful. There is total or partial cancellation/dispute for this sale.              |
 | 51     | Cancellation above the original sales price.                                                              |
 | 52     | Original sale not found to cancel.                                                               |
 | 53     | Product does not allow cancellation.                                                                              |

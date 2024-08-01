@@ -6370,7 +6370,7 @@ https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/void?amount={
 | 17     | Cancelamento não executado. Existe cancelamento/contestação total ou parcial para esta venda.             |
 | 40     | O cancelamento não pode ser realizado, pois o prazo esta vencido.                                          |
 | 41     | Status não permite cancelamento ( Ex: Autorização sem captura).                                            |
-| 42     | Cancelamento da transação não foi efetuado com sucesso.                                                    |
+| 42     | Cancelamento da transação não foi efetuado com sucesso. Existe cancelamento/contestação total ou parcial para esta venda.              |
 | 51     | Cancelamento acima do valor original da venda.                                                              |
 | 52     | Venda original não encontrada para cancelar.                                                               |
 | 53     | Produto não permite cancelar.                                                                              |
