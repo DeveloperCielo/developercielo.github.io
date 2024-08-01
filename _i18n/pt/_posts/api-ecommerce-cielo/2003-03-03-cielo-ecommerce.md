@@ -1231,7 +1231,7 @@ O fluxo a seguir descreve as etapas de autenticação em alto nível:
 
 **Como saber se a transação foi autenticada?**
 
-Isso irá depender do resultado da [Tabela de ECI](https://braspag.github.io//manual/emv3ds#tabela-de-eci).
+Isso irá depender do resultado da [Tabela de ECI](https://developercielo.github.io/manual/3ds#tabela-de-eci).
 
 **Detalhes importantes**
 
