@@ -27,10 +27,6 @@ tags:
 
 [15.8 Receivable negotiation update](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/15-8-Atualizacao-de-negociacoes-Receivable-negotiation-update.zip)
 
-<aside class="warning">ERRATUM - Consider this as a communication of a layout update of the Electronic Statement to version 15.9 with implementation on 07/23/2024. has undergone a small change.</aside>
-
-The inclusion of the fields TID and Order/Reference Code will not happen in the Record Type 8. The size increase to 400 positions is maintained. Therefore, from position 240 to 400, it will be reserved for Uso Cielo.
-
 
 # Introduction
 
