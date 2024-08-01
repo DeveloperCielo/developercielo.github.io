@@ -2923,6 +2923,8 @@ O método recebe como parâmetro o <code class="language-plaintext highlighter-r
 <span class="n">printerManager</span><span class="o">.</span><span class="na">printImage</span><span class="o">(</span><span class="n">bitmap</span><span class="o">,</span> <span class="n">alignCenter</span><span class="o">,</span> <span class="n">printerListener</span><span class="o">);</span>
 </code></pre></div></div>
 
+<aside class="warning">A factory BitmapFactory, usada para criação do bitmap, gera um bitmap que precisa ser arbitrariamente liberado após o uso, através do método bitmap.recycle(), caso contrário o garbage collector não liberará o recurso. Basta chamar o método recycle() do bitmap, após seu uso, para que o recurso seja liberado.</aside>
+
 <table>
   <thead>
     <tr>
