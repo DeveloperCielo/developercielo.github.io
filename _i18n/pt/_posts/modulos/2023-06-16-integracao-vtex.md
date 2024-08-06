@@ -230,8 +230,6 @@ Selecione o conector **Braspag** (Soluções Antifraude) e insira as informaçõ
 
 ## VerifyCard
 
-<aside class="warning">Essa funcionalidade está em homologação e não deve ser preenchida no momento.</aside>
-
 O **VerifyCard** é composto por dois serviços: **Zero Auth** e **Consulta BIN**.
 
 ### Zero Auth
