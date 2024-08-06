@@ -482,9 +482,9 @@ Para <strong>Data Only Visa, o ECI será sempre 7</strong>.</p>
     <tr>
       <td>Parametrização</td>
       <td><code class="language-plaintext highlighter-rouge">bpmpi_auth_notifyonly</code></td>
-      <td>Booleano que indica se a transação com cartão será submetida no modo “somente notificação”. Neste modo, o processo de autenticação não será acionado, porém, os dados serão submetidos à bandeira. <strong>VÁLIDO SOMENTE PARA CARTÕES MASTERCARD</strong></td>
+      <td>Booleano que indica se a transação com cartão será submetida no modo “somente notificação”. Neste modo, o processo de autenticação não será acionado, porém, os dados serão submetidos à bandeira. <strong>Válido para cartões Mastercard e Visa</strong></td>
       <td>Booleano: <br />true – modo somente notificação; <br />false – modo com autenticação</td>
-      <td>Recomendado</td>
+      <td>Condicional - obrigatório somente para transações Data Only</td>
     </tr>
     <tr>
       <td>Parametrização</td>
