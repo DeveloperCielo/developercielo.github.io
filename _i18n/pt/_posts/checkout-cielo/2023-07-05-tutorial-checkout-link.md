@@ -14,7 +14,7 @@ tags:
 
 # As documentações do Link de Pagamento e Checkout Cielo estão em um novo portal
 
-[![Novo portal de desenvolvedores e-commerce Braspag e Cielo]({{ site.baseurl_root }}/images/novo-docs.cielo.com.br.png)](https://docs.cielo.com.br/link/docs/checkout-e-link-cielo)
+[![Novo portal de desenvolvedores e-commerce Braspag e Cielo]({{ site.baseurl_root }}/images/apicieloecommerce/novo-docs.cielo.com.br.png)](https://docs.cielo.com.br/link/docs/checkout-e-link-cielo)
 
 Acesse o novo portal de desenvolvedores E-commerce **[docs.cielo.com.br](https://docs.cielo.com.br)**.
 
