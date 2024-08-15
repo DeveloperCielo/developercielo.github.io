@@ -10,6 +10,20 @@ tags:
   - 1. API E-commerce
 ---
 
+<aside class="warning"> O conteúdo deste manual foi descontinuado e não é atualizado desde 14/08/2024. Acesse o novo portal.</aside>
+
+# As documentações do conector para VTEX estão em um novo portal
+
+[![Novo portal de desenvolvedores e-commerce Braspag e Cielo]({{ site.baseurl_root }}/images/apicieloecommerce/novo-docs.cielo.com.br.png)](https://docs.cielo.com.br/conectores/docs/vtex)
+
+Acesse o novo portal de desenvolvedores E-commerce **[docs.cielo.com.br](https://docs.cielo.com.br/conectores/docs/vtex)**.
+
+> **Atenção**: O conteúdo desta página está sendo descontinuado e não receberá atualizações a partir de 14/08/2024. Visite a nova documentação em [docs.cielo.br](https://docs.cielo.com.br/conectores/docs/vtex).
+
+--------------------------------------------------------------------------------------------------------------------------
+
+<aside class="warning"> O conteúdo a seguir não é atualizado desde 14/08/2024.</aside>
+
 # Integração VTEX
 
 A Cielo desenvolveu um novo conector na plataforma de e-commerce VTEX para utilização dos meios de pagamento e recursos disponíveis através das APIs de pagamento online da Cielo.  A usabilidade da plataforma deve ser consultada no [tutorial da VTEX](https://help.vtex.com/tutorial/){:target="_blank"}.
