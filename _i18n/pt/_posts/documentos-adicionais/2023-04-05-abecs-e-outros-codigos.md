@@ -9,6 +9,21 @@ sort_order: 1
 tags:
   - Documentos Adicionais
 ---
+
+<aside class="warning"> O conteúdo deste manual foi descontinuado e não tem manutenção desde 14/08/2024. Acesse o novo portal.</aside>
+
+# As documentações da API E-commerce Cielo estão em um novo portal
+
+[![Novo portal de desenvolvedores e-commerce Braspag e Cielo]({{ site.baseurl_root }}/images/apicieloecommerce/novo-docs.cielo.com.br.png)](https://docs.cielo.com.br/ecommerce-cielo/page/abecs)
+
+Acesse o novo portal de desenvolvedores E-commerce **[docs.cielo.com.br](https://docs.cielo.com.br/ecommerce-cielo/page/abecs)**.
+
+> **Atenção**: O conteúdo desta página está sendo descontinuado e não receberá atualizações a partir de 14/08/2024. Visite a nova documentação em [docs.cielo.br](https://docs.cielo.com.br/ecommerce-cielo/page/abecs).
+
+--------------------------------------------------------------------------------------------------------------------------
+
+<aside class="warning"> O conteúdo a seguir não tem manutenção desde 14/08/2024.</aside>
+
 <aside class="notice">Última atualização em 18 de Junho de 2024.</aside>
 
 # Códigos de retorno ABECS
