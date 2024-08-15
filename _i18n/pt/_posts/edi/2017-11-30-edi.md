@@ -22,7 +22,7 @@ tags:
   
 **Arquivos de teste**
 
-[Arquivos de Teste](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Arquivos_Testes_EDI.rar)
+[Arquivos de Teste](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/ArquivosTeste.zip)
 
 [15.7 Reserva Financeira-Financial Reserve](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/15-7-Reserva-Financeira-Financial-Reserve_.zip)
 
