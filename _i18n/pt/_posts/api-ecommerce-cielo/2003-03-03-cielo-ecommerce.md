@@ -6395,6 +6395,7 @@ https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/void?amount={
 | 40     | O cancelamento não pode ser realizado, pois o prazo esta vencido.                                          |
 | 41     | Status não permite cancelamento ( Ex: Autorização sem captura).                                            |
 | 42     | Cancelamento da transação não foi efetuado com sucesso. Existe cancelamento/contestação total ou parcial para esta venda.              |
+| 43     | Saldo na Agenda insuficiente para cancelamento da venda. Ligue para Central ou Seu Gestor                   |
 | 51     | Cancelamento acima do valor original da venda.                                                              |
 | 52     | Venda original não encontrada para cancelar.                                                               |
 | 53     | Produto não permite cancelar.                                                                              |
