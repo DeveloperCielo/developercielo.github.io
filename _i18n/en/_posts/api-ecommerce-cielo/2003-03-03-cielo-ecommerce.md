@@ -2122,7 +2122,7 @@ For the boleto transaction response, API E-commerce Cielo will send the boleto U
 | `Url`            | Generated Boleto URL.                   | string | 256  | e.g.:https://.../pagador/reenvia.asp/8464a692-b4bd-41e7-8003-1611a2b8ef2d     |
 | `Number`         | "NossoNumero" generated.                     | text   | 50   | e.g.: 1000000012-8                                                            |
 | `BarCodeNumber`  | Barcode numerical representation.          | text   | 44   | e.g.: 00091628800000157000494250100000001200656560                            |
-| `DigitableLine`  | Digitable line.                            | text   | 256  | e.g.: 00090.49420 50100.000004 12006.565605 1 62880000015700                  |
+| `DigitableLine`  | Digitable line. The 'DigitableLine' parameter is not returned for Banco do Brasil boleto                            | text   | 256  | e.g.: 00090.49420 50100.000004 12006.565605 1 62880000015700                  |
 | `Assignor`       | Transferor's name.                         | text   | 256  | e.g.: Test Store                                                              |
 | `Address`        | Transferor's address.                      | text   | 256  | e.g.: 160 Test Avenue                                                         |
 | `Identification` | Identification document of the Transferor. | text   | 14   | CPF or CNPJ of the Transferor without the special characters (., /, -)        |
