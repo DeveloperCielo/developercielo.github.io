@@ -21,7 +21,7 @@ tags:
   
 **Test files**
 
-[Test Files](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Arquivos_Testes_EDI.rar)
+[Test Files](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/ArquivosTeste22082024.zip)
 
 [15.7 Financial Reserve](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/15-7-Reserva-Financeira-Financial-Reserve_.zip)
 
