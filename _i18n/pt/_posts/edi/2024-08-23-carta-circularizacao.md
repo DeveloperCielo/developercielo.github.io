@@ -11,12 +11,12 @@ tags:
   - 6. EDI Cielo
 ---
 
-# Carta de Circularização 
+# Circularization Letter 
 
-# Documentação
+# Documentation
 
-[Documentação e apoio](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Documentacaoeapoio.zip)
+[Documentation and support](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Documentacaoeapoio.zip)
 
-# Arquivos de teste
+# Test files
 
-[Arquivos de Teste](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Arquivosmodelo.zip)
+[Test Files](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Arquivosmodelo.zip)
