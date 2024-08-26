@@ -1,11 +1,11 @@
 ---
 layout: manual
-title: API de Chargeback
-description: API de Chargeback
+title: SDK Cielo Conecta
+description: SDK Cielo Conecta
 search: true
 translated: true
 categories: manual
-sort_order: 11
+sort_order: 10
 tags:
   - 1. API E-commerce
 ---
@@ -24,7 +24,7 @@ A seguir, temos a especificação detalhada das operações disponíveis.
 
 Para integração com a API de pagamentos, é fornecida a interface PaymentClient presente na biblioteca.
 
-![Material for MkDocs](Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.005.png)
+![Material for MkDocs](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.005.png)
 
 -----
 
@@ -41,13 +41,13 @@ A Plataforma Android da PayStore é composta por várias aplicações Android co
 
 A figura abaixo ilustra de forma macro a arquitetura da plataforma PayStore em cima dos terminais SmartPOS com sistema operacional Android:
 
-![assets/images/Arquitetura](Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.006.jpeg)
+![assets/images/Arquitetura](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.006.jpeg)
 
 -----
 # <a name="_toc173245713"></a>**Apks PayStore**
 A seguir, temos uma visão geral mostrando os principais tipos de aplicações participantes da plataforma bem como a forma como elas interagem entre si. Em diagramas específicos de cada aplicação, poderá ser visto o que exatamente cada aplicação disponibiliza é responsável por fazer.
 
-![](Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.007.jpeg)
+![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.007.jpeg)
 
 -----
 ## <a name="_toc173245714"></a>**Payments App (Payments.apk)**
@@ -93,7 +93,7 @@ A seguir, temos uma lista com as principais funcionalidades da aplicação:
 ## <a name="_toc173245715"></a>**Módulos de Payments**
 O módulo payments-app é responsável pela geração da aplicação Payments APP, referenciando dependências e fazendo a montagem dos componentes. Os demais são libs utilizadas pela aplicação ou módulos que agrupam funcionalidades que podem ser usadas em outras aplicações.
 
-![](Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.008.jpeg)
+![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.008.jpeg)
 
 **payments-api**: Lib disponibilizada para terceiros se integrarem com a plataforma para a realização de operações, tais como pagamento (débito/crédito/voucher), estorno, desfazimento, busca de informações de pagamentos realizados, etc.
 
@@ -111,7 +111,7 @@ A seguir, temos uma lista com as principais funcionalidades da aplicação:
 
 -----
 ## <a name="_toc173245717"></a>**Módulos de Acquirer**
-![](Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.009.jpeg)
+![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.009.jpeg)
 
 -----
 ## <a name="_toc173245718"></a>**Platform App (platform.apk)**
@@ -137,7 +137,7 @@ A seguir, temos uma lista com as principais funcionalidades da aplicação:
 
 -----
 ## <a name="_toc173245719"></a>**Módulos do Plataform**
-![](Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.010.jpeg)
+![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.010.jpeg)
 
 -----
 ## <a name="_toc173245720"></a>**Paystore Client App (paystore-client.apk)**
@@ -155,7 +155,7 @@ A seguir, temos uma lista com as principais funcionalidades da aplicação:
 
 -----
 ## <a name="_toc173245721"></a>**Módulos do PayStore Client**
-![](Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.011.jpeg)
+![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.011.jpeg)
 
 Esta aplicação possui um único módulo, ou seja, o paystore-client-app que contém todo o código dessa aplicação.
 
@@ -186,34 +186,34 @@ A seguir, temos uma lista com as principais funcionalidades da aplicação:
 # <a name="_toc173245724"></a>**Publicar Aplicativo**
 Para publicar um aplicativo, é necessário logar no Portal da PayStore como desenvolvedor. Para exemplificar usaremos o ambiente de desenvolvimento. Após realizar o login, acesse o menu Aplicativos -> Rascunhos.
 
-![](Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.012.jpeg)
+![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.012.jpeg)
 
 -----
 ## <a name="_toc173245725"></a>**Nova versão**
 Se for a primeira vez que o aplicativo é publicado, clique no botão Novo Aplicativo. Após isso, será exibida uma tela, conforme mostrado abaixo:
 
-![](Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.013.jpeg)
+![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.013.jpeg)
 
 Forneça as informações sobre o aplicativo. Ao preencher as palavras chaves, pressione **Enter** ao final, e clique em **Salvar rascunho**. Se tudo estiver certo, clique em **Publicar Aplicação**.
 
-![](Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.014.png)
+![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.014.png)
 
 |![(informação)]**Info**|
 | :- |
 |<h5>**Alguns fabricantes exigem que o aplicativo seja assinado por eles para que possa ser executado em terminais de produção. Desta forma, garanta que seu aplicativo esteja assinado para a tecnologia (Terminais Compatíveis) em que será utilizado.**</h5>|
 Será exibida uma tela para selecionar qual Facilitador deverá aprovar sua aplicação. Observe que, a cada nova etapa do fluxo de publicação da aplicação, será necessária uma aprovação do Facilitador indicado. A cada mudança de etapa, o desenvolvedor será notificado por email.
 
-![](Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.016.jpeg)
+![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.016.jpeg)
 
 Para o Facilitador, o aplicativo estará no menu Aplicativos -> Candidatos. O Facilitador deve aprovar ou reprovar o aplicativo. Em caso de aprovação, o aplicativo segue para a etapa de Homologação.
 
-![](Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.017.jpeg)
+![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.017.jpeg)
 
 Uma vez homologado, o aplicativo estará apto para ser publicado. Dessa forma, estará disponível para ser baixado pela rede de terminais do Facilitador. Para publicar a aplicação, selecione-a e clique no botão *Publicar*.
 
 Após publicar a aplicação, será exibida uma tela com os filtros de publicação. São esses filtros que vão definir que terminais irão receber a sua aplicação. Veja imagem abaixo:
 
-![](Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.018.png)
+![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.018.png)
 
 Parabéns, sua aplicação está publicada!
 
@@ -223,13 +223,13 @@ Se você possui uma aplicação já publicada e deseja atualizar sua versão, si
 
 1 - No projeto de sua aplicação, abra o arquivo build.gradle (Modulo App). Em *defaultConfig*, incremente o *VersionCode* e o *versionName*, dessa forma sua aplicação será aceita pelo Portal para substituir a versão já publicada.
 
-![](Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.019.jpeg)
+![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.019.jpeg)
 
 2 - Gere o apk da nova versão. Acesse o Portal da PayStore como descrito em Plubicar Aplicativo
 
 3 - Selecione a opção Nova versão do aplicativo, conforme imagem abaixo:
 
-![](Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.020.png)
+![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.020.png)
 
 4 - Faça o upload do novo apk que se deseja publicar e clique em *Publicar Aplicativo*
 
@@ -337,7 +337,7 @@ Criamos esse projeto demo para você ter liberdade de escolher qual tecnologia u
 ## <a name="_toc173245751"></a>**Parabéns!**
 Se você chegou até aqui, é porque já possui todas as informações necessárias de para iniciar o desenvolvimento do seu aplicativo integrado à nossa solução de pagamento. Caso tenha dúvidas, entre em contato com **a equipe de suporte**.
 
-![](Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.022.png)
+![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.022.png)
 
 -----
 
@@ -351,7 +351,7 @@ Após isso, abra o arquivo build.gradle (Module app) e adicione as seguintes dep
 | :-: |
 
 
-![](Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.023.jpeg)
+![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.023.jpeg)
 
 Pronto! Seu projeto já está configurado e terá acesso às classes disponíveis na lib.
 Vide [Referências API](#_referências_api).
@@ -372,7 +372,7 @@ Ao realizar a integração do seu app com a aplicação de pagamento da PayStore
 ## <a name="_toc173245756"></a>**Tela de captura de valor**
 Caso o aplicativo que chamou a integração de pagamento não informe o valor, este será solicitado ao usuário. Essa tela também possui uma calculadora integrada para outras operações.
 
-![](Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.024.jpeg)
+![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.024.jpeg)
 ## <a name="_toc173245757"></a>**Tela de seleção de tipo de pagamento**
 Essas opções também podem ser configuradas na integração.
 
@@ -382,17 +382,17 @@ Essas opções também podem ser configuradas na integração.
 
 
 
-![](Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.026.jpeg)
+![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.026.jpeg)
 ## <a name="_toc173245759"></a>**Tela de solicitação de leitura do cartão**
 O cliente ou o operador deve inserir ou passar o cartão.
 
 ![](Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.027.jpeg)
 ## <a name="_toc173245760"></a>**Tela de solicitação de digitação da senha do cartão**
-![](Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.028.jpeg)
+![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.028.jpeg)
 ## <a name="_toc173245761"></a>**Tela de solicitação para retirar o cartão inserido, se for este o caso**
 ![](Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.029.jpeg)
 ## <a name="_toc173245762"></a>**Tela de impressão da Via do Cliente**
-![](Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.030.jpeg)
+![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.030.jpeg)
 
 Ao final, o fluxo de pagamento será retornado para a aplicação que o chamou através do 
 ##### **onSuccess() ou onError().**
@@ -425,7 +425,7 @@ Aplicativo desenvolvido em Android integrado com a API de Pagamento da PayStore.
 ## <a name="_toc173245764"></a>**Tela principal com as opções possíveis do App Demo**
 No menu no canto superior direito, é possível definir a adquirente corrente. Os tipos de pagamento serão definidos de acordo com a adquirente selecionada.
 
-![](Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.031.jpeg)
+![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.031.jpeg)
 ### <a name="_toc173245765"></a>**Tela com opções para realizar o pagamento, onde é possível informar as seguintes informações:**
 ● Digitar o valor do pagamento. Caso o valor não seja digitado será solicitado pela integração;
 
@@ -439,11 +439,11 @@ Após realizar o pagamento através da opção Fazer Pagamento, é necessário f
 
 A opção Fazer Pagamento de ponta a ponta realiza o fluxo de pagamento completo ou seja pagamento, confirmação e impressão.
 
-![](Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.032.jpeg)![](Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.033.jpeg)
+![](Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.032.jpeg)![](Ahttps://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/spose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.033.jpeg)
 ## <a name="_toc173245766"></a>**Tela de seleção de operação de crédito**
 E essas opções também podem ser configuradas na integração.
 
-![](Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.034.jpeg)
+![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.034.jpeg)
 ## <a name="_toc173245767"></a>**Tela de confirmação e desfazimento do pagamento**
 Lista o pagamento com o *status* de pendente para ser confirmado.
 
@@ -451,7 +451,7 @@ Lista o pagamento com o *status* de pendente para ser confirmado.
 ## <a name="_toc173245768"></a>**Tela de estorno do pagamento**
 Lista todos os pagamentos confirmados. O usuário deve selecionar o pagamento que deseja estornar.
 
-![](Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.036.jpeg)![](Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.037.jpeg)
+![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.036.jpeg)![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.037.jpeg)
 ## <a name="_toc173245769"></a>**Tela de desfazimento do estorno**
 Lista todos os estornos. O usuário deve selecionar o estorno que deseja realizar o desfazimento.
 
@@ -462,17 +462,17 @@ Lista todos os estornos. O usuário deve selecionar o estorno que deseja realiza
 ## <a name="_toc173245770"></a>**Listar Pagamentos**
 Realiza uma consulta dos pagamentos de acordo com os filtros escolhidos.
 
-![](Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.039.jpeg)
+![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.039.jpeg)
 ## <a name="_toc173245771"></a>**Resolver Pendências**
 Realiza a confirmação de todos os pagamentos que estão pendentes.
 ## <a name="_toc173245772"></a>**Definir Tema da Aplicação**
 Define o Tema da aplicação de pagamentos. Dessa maneira, é possível mudar a cor da aplicação. As opções disponíveis são:
 
-![](Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.040.jpeg)
+![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.040.jpeg)
 ## <a name="_toc173245773"></a>**Definir Aplicação Principal**
 Através dessa opção, o Facilitador pode definir o apk desenvolvido por ele como o principal. Dessa forma, quando o terminal for ligado, a aplicação do Facilitador será chamada ao invés da aplicação padrão de pagamento da PayStore.
 
-![](Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.041.jpeg)
+![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.041.jpeg)
 
 -----
 
@@ -646,7 +646,7 @@ Para integração com a API de pagamentos, é fornecida a interface PaymentClien
 | :-: |
 |<h5>**O método PaymentClient.Bind(\_callback) deve ser chamado, obrigatoriamente, antes de chamar qualquer método da Integração de Pagamento. O bind é assíncrono, ou seja, a próxima linha após o bind() será executada antes de receber a sua resposta, por isso garanta que, antes de chamar os métodos de integração, o bind esteja conectado.**</h5>|
 ## <a name="_toc173245780"></a>**Fluxo de Pagamento**
-![](Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.042.jpeg)
+![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.042.jpeg)
 
 
 
@@ -1030,7 +1030,7 @@ A seguir, temos a especificação detalhada das operações disponíveis.
 
 Para integração com a API de pagamentos, é fornecida a interface PaymentClient.
 ## <a name="_toc173245795"></a>**Fluxo de Estorno**
-![](Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.043.jpeg)
+![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.043.jpeg)
 
 |**Passos**|**Sucesso**|**Erro**|
 | :- | :- | :- |
