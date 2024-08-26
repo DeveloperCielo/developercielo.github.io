@@ -542,7 +542,7 @@ Para que você possa disfrutar de todos os recursos disponíveis em nossa API, �
 
 #### Criando uma transação de crédito
 
-Para criar uma transação de cartão de crédito, envie uma requisição utilizando o método `POST` conforme o exemplo a seguir. Esse exemplo contempla todos os campos possíveis que você pode enviar; consulte quais campos são ou não obrigatórios na tabela de propriedades da requisição.
+Para criar uma transação de **cartão de crédito**, envie uma requisição utilizando o método `POST` conforme o exemplo a seguir. Esse exemplo contempla todos os campos possíveis que você pode enviar; consulte quais campos são ou não obrigatórios na tabela de propriedades da requisição.
 
 > A **captura** da transação da crédito pode ser **automática** ou **posterior**. Para captura automática, envie o campo `Payment.Capture` na requisição como “true”. Para captura posterior, envie o campo como "false" e, posteriormente, faça a [requisição de captura](https://developercielo.github.io/manual/cielo-ecommerce#captura).
 
