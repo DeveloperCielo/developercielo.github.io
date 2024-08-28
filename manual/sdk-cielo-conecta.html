@@ -333,10 +333,9 @@
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.014.png" alt="" /></p>
 
-<p>|<img src="Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.015.png" alt="(informação)" /><strong>Info</strong>|
-| :- |
-|<strong>Alguns fabricantes exigem que o aplicativo seja assinado por eles para que possa ser executado em terminais de produção. Desta forma, garanta que seu aplicativo esteja assinado para a tecnologia (Terminais Compatíveis) em que será utilizado.</strong>|
-Será exibida uma tela para selecionar qual Facilitador deverá aprovar sua aplicação. Observe que, a cada nova etapa do fluxo de publicação da aplicação, será necessária uma aprovação do Facilitador indicado. A cada mudança de etapa, o desenvolvedor será notificado por email.</p>
+<aside class="warning"> Info Alguns fabricantes exigem que o aplicativo seja assinado por eles para que possa ser executado em terminais de produção. Desta forma, garanta que seu aplicativo esteja assinado para a tecnologia (Terminais Compatíveis) em que será utilizado.</aside>
+
+<p>Será exibida uma tela para selecionar qual Facilitador deverá aprovar sua aplicação. Observe que, a cada nova etapa do fluxo de publicação da aplicação, será necessária uma aprovação do Facilitador indicado. A cada mudança de etapa, o desenvolvedor será notificado por email</p>
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.016.jpeg" alt="" /></p>
 
@@ -378,22 +377,62 @@ Será exibida uma tela para selecionar qual Facilitador deverá aprovar sua apli
 <p>Através do Portal da PayStore, é possível customizar o tema da aplicação de Pagamento, contudo isso também é possível via programação.</p>
 <h3 id="métodos"><strong>Métodos</strong></h3>
 
-<p>|<strong>Assinatura</strong> |<strong>Descrição</strong>|
-| :- | :- |
-|<strong>void setTheme(String theme,<br />PaymentCallback paymentCallback)</strong>|Define um tema para a aplicação de Pagamentos|</p>
-<h3 id="settheme"><strong>setTheme()</strong></h3>
-<p>Este método deve ser chamado para definir um tema com padrões de cores para as telas de captura na aplicação de Pagamentos.</p>
+<table>
+  <thead>
+    <tr>
+      <th><strong>Assinatura</strong></th>
+      <th><strong>Descrição</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>void setTheme(String theme, PaymentCallback paymentCallback)</strong></td>
+      <td>Define um tema para a aplicação de pagamentos.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>setTheme()</strong>
+Este método deve ser chamado para definir um tema com padrões de cores para as telas de captura na aplicação de Pagamentos.</p>
+
 <h3 id="parâmetros"><strong>Parâmetros</strong></h3>
 
-<p>|<strong>Nome</strong>|<strong>Tipo</strong>|<strong>Obrigatório</strong>|<strong>Descrição</strong>|
-| :- | :- | :- | :- |
-|<strong>theme</strong>|<strong>String</strong>|<strong>Sim</strong>|Nome do tema que será definido (<em>case-sensitive</em>).|
-|<strong>callback</strong>|<strong>PaymentCallback</strong>|<strong>Sim</strong>|Interface que será executada para notificações de sucesso ou erro.|</p>
+<table>
+  <thead>
+    <tr>
+      <th><strong>Nome</strong></th>
+      <th><strong>Tipo</strong></th>
+      <th><strong>Obrigatório</strong></th>
+      <th><strong>Descrição</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>theme</strong></td>
+      <td><strong>String</strong></td>
+      <td>Sim</td>
+      <td>Nome do tema que será definido (<em>case-sensitive</em>).</td>
+    </tr>
+    <tr>
+      <td><strong>callback</strong></td>
+      <td><strong>PaymentCallback</strong></td>
+      <td>Sim</td>
+      <td>Interface que será executada para notificações de sucesso ou erro.</td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="detalhe-dos-parâmetros"><strong>Detalhe dos parâmetros:</strong> </h3>
 <h3 id="theme"><em>theme</em></h3>
 
-<p>|<img src="Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.021.png" alt="" />|
-| :- |</p>
+<table>
+  <tbody>
+    <tr>
+      <td><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.021.png" alt="" /></td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="callback"><strong>Callback</strong></h3>
 
 <table>
@@ -433,10 +472,59 @@ Será exibida uma tela para selecionar qual Facilitador deverá aprovar sua apli
   </tbody>
 </table>
 
-<p>|<strong>Exemplo</strong>|
-| :- |
-|<strong>public class MyActivity extends Activity implements PaymentClient.PaymentCallback {</strong><code class="language-plaintext highlighter-rouge">    </code><strong>private PaymentClient paymentClient;</strong><code class="language-plaintext highlighter-rouge">    </code><strong>@Override<br /><code class="language-plaintext highlighter-rouge">    </code>protected void onCreate(Bundle savedInstanceState) {<br /><code class="language-plaintext highlighter-rouge">        </code>super.onCreate(savedInstanceState);<br /><code class="language-plaintext highlighter-rouge">        </code>setContentView(R.layout.activity_payment);</strong><code class="language-plaintext highlighter-rouge">        </code><strong>paymentClient = new PaymentClientImpl();<br /><code class="language-plaintext highlighter-rouge">    </code>}</strong><code class="language-plaintext highlighter-rouge">    </code><strong>@Override<br /><code class="language-plaintext highlighter-rouge">    </code>protected void onResume() {<br /><code class="language-plaintext highlighter-rouge">        </code>super.onResume();<br /><code class="language-plaintext highlighter-rouge">        </code>paymentClient.bind(this);<br /><code class="language-plaintext highlighter-rouge">    </code>}</strong><code class="language-plaintext highlighter-rouge">    </code><strong>@Override<br /><code class="language-plaintext highlighter-rouge">    </code>protected void onDestroy() {<br /><code class="language-plaintext highlighter-rouge">         </code>try {<br /><code class="language-plaintext highlighter-rouge">            </code>paymentClient.unbind(this);<br /><code class="language-plaintext highlighter-rouge">        </code>} catch (Exception e) {<br /><code class="language-plaintext highlighter-rouge">            </code>Log.e(TAG, e.getMessage());<br /><code class="language-plaintext highlighter-rouge">        </code>}<br /><code class="language-plaintext highlighter-rouge">        </code>super.onDestroy();<br /><code class="language-plaintext highlighter-rouge">    </code>}</strong><code class="language-plaintext highlighter-rouge">    </code><strong>public void doExecute(){<br /><code class="language-plaintext highlighter-rouge">        </code>ApplicationInfo appInfo = new ApplciationInfo();<br /><code class="language-plaintext highlighter-rouge">        </code>appInfo.setCredentials(new Credentials(“demo-app”, “TOKEN-KEY-DEMO”));<br /><code class="language-plaintext highlighter-rouge">        </code>appInfo.setSoftwareVersion(“1.0.0.0”);</strong><code class="language-plaintext highlighter-rouge">        </code><strong>try {<br /><code class="language-plaintext highlighter-rouge">            </code>paymentClient.setTheme(“GreyTheme”, this);<br /><code class="language-plaintext highlighter-rouge">        </code>} catch (ClientException e) {<br /><code class="language-plaintext highlighter-rouge">            </code>Log.e(TAG, “Error setting theme”, e);<br /><code class="language-plaintext highlighter-rouge">        </code>}<br /><code class="language-plaintext highlighter-rouge">    </code>}</strong><code class="language-plaintext highlighter-rouge">    </code><strong>@Override<br /><code class="language-plaintext highlighter-rouge">    </code>public void onError(Object data) {<br /><code class="language-plaintext highlighter-rouge">        </code>Log.e(TAG, “Error: “ + errorData.getResponseMessage());<br /><code class="language-plaintext highlighter-rouge">    </code>}</strong><code class="language-plaintext highlighter-rouge">    </code><strong>@Override<br /><code class="language-plaintext highlighter-rouge">    </code>public void onSuccess(Object data) {<br /><code class="language-plaintext highlighter-rouge">        </code>Log.i(TAG, “Success!”);<br /><code class="language-plaintext highlighter-rouge">    </code>}<br />}</strong>|
-—–</p>
+<p><strong>Exemplo</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyActivity</span> <span class="kd">extends</span> <span class="nc">Activity</span> <span class="kd">implements</span> <span class="nc">PaymentClient</span><span class="o">.</span><span class="na">PaymentCallback</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="nc">PaymentClient</span> <span class="n">paymentClient</span><span class="o">;</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="nc">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+        <span class="n">setContentView</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_payment</span><span class="o">);</span>
+        <span class="n">paymentClient</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PaymentClientImpl</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onResume</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onResume</span><span class="o">();</span>
+        <span class="n">paymentClient</span><span class="o">.</span><span class="na">bind</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onDestroy</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">paymentClient</span><span class="o">.</span><span class="na">unbind</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">Log</span><span class="o">.</span><span class="na">e</span><span class="o">(</span><span class="no">TAG</span><span class="o">,</span> <span class="n">e</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
+        <span class="o">}</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onDestroy</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">doExecute</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">ApplicationInfo</span> <span class="n">appInfo</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ApplicationInfo</span><span class="o">();</span>
+        <span class="n">appInfo</span><span class="o">.</span><span class="na">setCredentials</span><span class="o">(</span><span class="k">new</span> <span class="nc">Credentials</span><span class="o">(</span><span class="s">"demo-app"</span><span class="o">,</span> <span class="s">"TOKEN-KEY-DEMO"</span><span class="o">));</span>
+        <span class="n">appInfo</span><span class="o">.</span><span class="na">setSoftwareVersion</span><span class="o">(</span><span class="s">"1.0.0.0"</span><span class="o">);</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">paymentClient</span><span class="o">.</span><span class="na">setTheme</span><span class="o">(</span><span class="s">"GreyTheme"</span><span class="o">,</span> <span class="k">this</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">ClientException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">Log</span><span class="o">.</span><span class="na">e</span><span class="o">(</span><span class="no">TAG</span><span class="o">,</span> <span class="s">"Error setting theme"</span><span class="o">,</span> <span class="n">e</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="o">(</span><span class="nc">Object</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Log</span><span class="o">.</span><span class="na">e</span><span class="o">(</span><span class="no">TAG</span><span class="o">,</span> <span class="s">"Error: "</span> <span class="o">+</span> <span class="o">((</span><span class="nc">ErrorData</span><span class="o">)</span> <span class="n">data</span><span class="o">).</span><span class="na">getResponseMessage</span><span class="o">());</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSuccess</span><span class="o">(</span><span class="nc">Object</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="no">TAG</span><span class="o">,</span> <span class="s">"Success!"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="---">| :- |</h2>
 <h1 id="pré-requisitos"><strong>Pré-requisitos</strong></h1>
 <h2 id="ide"><strong>IDE</strong></h2>
 <h3 id="android-studio"><strong>Android Studio</strong></h3>
