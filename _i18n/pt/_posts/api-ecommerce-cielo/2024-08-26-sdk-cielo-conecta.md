@@ -198,10 +198,9 @@ Forneça as informações sobre o aplicativo. Ao preencher as palavras chaves, p
 
 ![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.014.png)
 
-|![(informação)]**Info**|
-| :- |
-|<h5>**Alguns fabricantes exigem que o aplicativo seja assinado por eles para que possa ser executado em terminais de produção. Desta forma, garanta que seu aplicativo esteja assinado para a tecnologia (Terminais Compatíveis) em que será utilizado.**</h5>|
-Será exibida uma tela para selecionar qual Facilitador deverá aprovar sua aplicação. Observe que, a cada nova etapa do fluxo de publicação da aplicação, será necessária uma aprovação do Facilitador indicado. A cada mudança de etapa, o desenvolvedor será notificado por email.
+<aside class="warning"> Info Alguns fabricantes exigem que o aplicativo seja assinado por eles para que possa ser executado em terminais de produção. Desta forma, garanta que seu aplicativo esteja assinado para a tecnologia (Terminais Compatíveis) em que será utilizado.</aside>
+
+Será exibida uma tela para selecionar qual Facilitador deverá aprovar sua aplicação. Observe que, a cada nova etapa do fluxo de publicação da aplicação, será necessária uma aprovação do Facilitador indicado. A cada mudança de etapa, o desenvolvedor será notificado por email
 
 ![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.016.jpeg)
 
@@ -245,22 +244,25 @@ Parabéns, sua versão foi atualizada!
 Através do Portal da PayStore, é possível customizar o tema da aplicação de Pagamento, contudo isso também é possível via programação.
 ### <a name="_toc173245729"></a>**Métodos**
 
-|**Assinatura** |**Descrição**|
-| :- | :- |
-|<h5>**void setTheme(String theme,</h5><br>PaymentCallback paymentCallback)**</h5>|Define um tema para a aplicação de Pagamentos|
-### <a name="_toc173245730"></a>**setTheme()**
+| **Assinatura** | **Descrição** |
+|----------------|---------------|
+| **void setTheme(String theme, PaymentCallback paymentCallback)** | Define um tema para a aplicação de pagamentos. |
+
+**setTheme()**
 Este método deve ser chamado para definir um tema com padrões de cores para as telas de captura na aplicação de Pagamentos.
+
 ### <a name="_toc173245731"></a>**Parâmetros**
 
-|**Nome**|**Tipo**|**Obrigatório**|**Descrição**|
-| :- | :- | :- | :- |
-|<h5>**theme**</h5>|<h5>**String**</h5>|**Sim**|Nome do tema que será definido (*case-sensitive*).|
-|<h5>**callback**</h5>|<h5>**PaymentCallback**</h5>|**Sim**|Interface que será executada para notificações de sucesso ou erro.|
+| **Nome**   | **Tipo**          | **Obrigatório** | **Descrição**                                                                 |
+|------------|-------------------|-----------------|-------------------------------------------------------------------------------|
+| **theme**  | **String**         | Sim             | Nome do tema que será definido (*case-sensitive*).                            |
+| **callback** | **PaymentCallback** | Sim             | Interface que será executada para notificações de sucesso ou erro.              |
+
 ### <a name="_toc173245732"></a>**Detalhe dos parâmetros:**  
 ### <a name="_toc173245733"></a>*theme*
 
-|![](Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.021.png)|
-| :- |
+|![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.021.png)
+
 ### <a name="_toc173245734"></a>**Callback**
 
 |**Nome**|**Tipo**|**Obrigatório**|**Descrição**|
@@ -270,9 +272,60 @@ Este método deve ser chamado para definir um tema com padrões de cores para as
 |<h5>**ErrorData.paymentsResponseCode**</h5>|<h5>**String**</h5>|**Sim**|Código de resposta para o erro ocorrido. Vide [Códigos de Resposta](#_códigos_de_resposta)|
 |<h5>**ErrorData.responseMessage**</h5>|<h5>**String**</h5>|**Sim**|Mensagem descritiva da causa do erro.|
 
-|**Exemplo**|
+**Exemplo**
+
+```java
+public class MyActivity extends Activity implements PaymentClient.PaymentCallback {
+
+    private PaymentClient paymentClient;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_payment);
+        paymentClient = new PaymentClientImpl();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        paymentClient.bind(this);
+    }
+
+    @Override
+    protected void onDestroy() {
+        try {
+            paymentClient.unbind(this);
+        } catch (Exception e) {
+            Log.e(TAG, e.getMessage());
+        }
+        super.onDestroy();
+    }
+
+    public void doExecute() {
+        ApplicationInfo appInfo = new ApplicationInfo();
+        appInfo.setCredentials(new Credentials("demo-app", "TOKEN-KEY-DEMO"));
+        appInfo.setSoftwareVersion("1.0.0.0");
+        try {
+            paymentClient.setTheme("GreyTheme", this);
+        } catch (ClientException e) {
+            Log.e(TAG, "Error setting theme", e);
+        }
+    }
+
+    @Override
+    public void onError(Object data) {
+        Log.e(TAG, "Error: " + ((ErrorData) data).getResponseMessage());
+    }
+
+    @Override
+    public void onSuccess(Object data) {
+        Log.i(TAG, "Success!");
+    }
+}
+```
+
 | :- |
-|<p><h5>**public class MyActivity extends Activity implements PaymentClient.PaymentCallback {**</h5></p><p><h5>`    `**private PaymentClient paymentClient;**</h5></p><p><h5>`    `**@Override</h5><br>`    `protected void onCreate(Bundle savedInstanceState) {</h5><br>`        `super.onCreate(savedInstanceState);</h5><br>`        `setContentView(R.layout.activity\_payment);**</h5></p><p><h5>`        `**paymentClient = new PaymentClientImpl();</h5><br>`    `}**</h5></p><p><h5>`    `**@Override</h5><br>`    `protected void onResume() {</h5><br>`        `super.onResume();</h5><br>`        `paymentClient.bind(this);</h5><br>`    `}**</h5></p><p><h5>`    `**@Override</h5><br>`    `protected void onDestroy() {</h5><br>`         `try {</h5><br>`            `paymentClient.unbind(this);</h5><br>`        `} catch (Exception e) {</h5><br>`            `Log.e(TAG, e.getMessage());</h5><br>`        `}</h5><br>`        `super.onDestroy();</h5><br>`    `}**</h5></p><p><h5>`    `**public void doExecute(){</h5><br>`        `ApplicationInfo appInfo = new ApplciationInfo();</h5><br>`        `appInfo.setCredentials(new Credentials("demo-app", "TOKEN-KEY-DEMO"));</h5><br>`        `appInfo.setSoftwareVersion("1.0.0.0");**</h5></p><p><h5>`        `**try {</h5><br>`            `paymentClient.setTheme("GreyTheme", this);</h5><br>`        `} catch (ClientException e) {</h5><br>`            `Log.e(TAG, "Error setting theme", e);</h5><br>`        `}</h5><br>`    `}**</h5></p><p><h5>`    `**@Override</h5><br>`    `public void onError(Object data) {</h5><br>`        `Log.e(TAG, "Error: " + errorData.getResponseMessage());</h5><br>`    `}**</h5></p><p><h5>`    `**@Override</h5><br>`    `public void onSuccess(Object data) {</h5><br>`        `Log.i(TAG, "Success!");</h5><br>`    `}</h5><br>}**</h5></p>|
 -----
 # <a name="_toc173245735"></a>**Pré-requisitos**
 ## <a name="_toc173245736"></a>**IDE**
