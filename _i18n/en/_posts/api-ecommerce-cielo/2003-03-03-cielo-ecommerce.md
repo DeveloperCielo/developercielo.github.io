@@ -21,7 +21,7 @@ The purpose of this documentation is to guide the developer on how to integrate 
 
 We recommend intermediate knowledge in web programming language, HTTP/HTTPS requests and JSON file manipulation are required to successfully deploy the E-commerce Cielo solution.
 
-In this guide, you will find information on all operations available on API REST of API E-commerce Cielo. These operations must be performed using your credentials (Merchant ID and Merchant Key) in the respective environment endpoints
+In this guide, you will find information on all operations available on API E-commerce Cielo. These operations must be performed using your credentials (`MerchantId` and `MerchantKey`) in the respective environment endpoints
 
 |              |                       SandBox                       |                  Production                   |
 | :----------- | :-------------------------------------------------: | :-------------------------------------------: |
