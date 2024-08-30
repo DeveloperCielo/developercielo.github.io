@@ -124,14 +124,11 @@
                 </div>
             </div>
 
-            <div class="post"><ol>
-  <li>
-    <h1 id="introdução"><strong>Introdução</strong></h1>
-    <p>Este documento destina-se a especificar o processo de integração entre um terminal de pagamento Cielo (“<strong>POS</strong>”) e um sistema de <em>checkout</em>, de forma a se poder cumprir exigências legais de alguns estados brasileiros.</p>
+            <div class="post"><h1 id="introdução">Introdução</h1>
 
-    <p>Por “<em>checkout</em>” entende-se um conjunto de hardware e software responsável por gerir o processo de venda de bens ou serviços em um estabelecimento através de um sistema de Automação Comercial, incluindo os processos de registro fiscal exigidos pelo governo (por exemplo, impressão de comprovante em uma impressora fiscal ou geração de Nota Fiscal Eletrônica).</p>
-  </li>
-</ol>
+<p>Este documento destina-se a especificar o processo de integração entre um terminal de pagamento Cielo (“POS”) e um sistema de checkout, de forma a se poder cumprir exigências legais de alguns estados brasileiros.</p>
+
+<p>Por “checkout” entende-se um conjunto de hardware e software responsável por gerir o processo de venda de bens ou serviços em um estabelecimento através de um sistema de Automação Comercial, incluindo os processos de registro fiscal exigidos pelo governo (por exemplo, impressão de comprovante em uma impressora fiscal ou geração de Nota Fiscal Eletrônica).</p>
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.5106fbda-7c74-4c82-a3a3-e0d058563a95.002.png" alt="" /></p>
 
@@ -142,851 +139,334 @@
   <li>O POS não imprime o comprovante, devolvendo suas informações para que o <em>checkout</em> efetue os processos ficais.</li>
 </ul>
 
-<p>Os capítulos a seguir descrevem de forma detalhada como o “<strong>Modo Integrado</strong>” funciona e quais são as informações trocadas entre os dois sistemas.</p>
+<p>Os capítulos a seguir descrevem de forma detalhada como o <strong>Modo Integrado</strong> funciona e quais são as informações trocadas entre os dois sistemas.</p>
+
+<p>Alternativamente, sistemas de checkout que têm implementado o processo de troca de
+arquivos definido para o antigo “Gerenciador Padrão TEF Discado” podem utilizar uma
+aplicação MS/Windows distribuída pela Cielo conforme descrito no Capítulo 4, dispensando a
+implementação especificada neste documento.</p>
+
+<blockquote>
+  <p>Alternativamente, sistemas de checkout que têm implementado o processo de troca de arquivos definido para o antigo “Gerenciador Padrão TEF Discado” podem utilizar uma aplicação MS/Windows distribuída pela Cielo conforme descrito no Capítulo 4, dispensando a implementação especificada neste documento.</p>
+</blockquote>
+
+<h2 id="referências">Referências</h2>
 
 <ul>
-  <li>
-    <p>Alternativamente, sistemas de <em>checkout</em> que têm implementado o processo de troca de arquivos definido para o antigo “<strong>Gerenciador Padrão TEF Discado</strong>” podem utilizar uma aplicação MS/Windows distribuída pela Cielo conforme descrito no <strong>Capítulo <a href="#mergeformat">4**</a></strong>, dispensando a implementação especificada neste documento.</p>
-  </li>
-  <li>
-    <p><strong>Referências</strong></p>
-  </li>
+  <li><a href="https://tools.ietf.org/html/rfc8259">RFC 8259: The JavaScript Object Notation (JSON) Data Interchange Format (2017)</a></li>
+  <li>ISO/IEC 21778: Information technology - The JSON data interchange syntax (2017)</li>
+  <li>TEF_DIAL: Guia Técnico da Solução TEF Discado - Versão 2.5 - março/2010 (ou versão superior)</li>
 </ul>
 
-<p><strong>&amp;RFC 8259</strong>	<em>The JavaScript Object Notation (JSON) Data Interchange Format (2017)</em></p>
+<h2 id="formatos-usados-neste-documento">Formatos usados neste documento</h2>
 
-<p><strong>&amp;ISO/IEC 21778</strong>	<em>Information technology - The JSON data interchange syntax (2017)</em></p>
+<p>Este documento menciona diversos dados em funções e tabelas, sendo que estes dados, por suas características, devem respeitar diferentes regras de codificação.</p>
 
-<p><strong>&amp;TEF_DIAL</strong>	Guia Técnico da Solução TEF Discado - Versão 2.5 - março/2010 (ou versão superior)</p>
+<p>A representação de um formato segue a seguinte regra: <strong>“[Caractere de Formato][..][Tamanho]”</strong></p>
 
+<p><strong>[Caractere de Formato]</strong> = Letra maiúscula que define o formato.</p>
+
+<p><strong>[..]</strong> = Opcional, indica que o dado é de tamanho variável, podendo ter de zero a <strong>[Tamanho]</strong> bytes.
+[Tamanho] = De um a quatro dígitos numéricos representando a quantidade de bytes utilizada pela informação, ou “var” para indicar tamanho indefinido.</p>
+
+<p>Exemplos:</p>
 <ul>
-  <li>
-    <p><strong>Formatos usados neste documento</strong></p>
-
-    <p>Este documento menciona diversos dados em funções e tabelas, sendo que estes dados, por suas características, devem respeitar diferentes regras de codificação.</p>
-
-    <p>A representação de um formato segue a seguinte regra: “<strong>[Caractere de Formato][..][Tamanho]”</strong></p>
-
-    <p><strong>[Caractere de Formato]</strong> = Letra maiúscula que define o formato.</p>
-
-    <p><strong>[..]</strong> = Opcional, indica que o dado é de tamanho variável, podendo ter de zero a <strong>[Tamanho]</strong> bytes.</p>
-
-    <p><strong>[Tamanho]</strong> = De um a quatro dígitos numéricos representando a quantidade de bytes utilizada pela informação, ou “var” para indicar tamanho indefinido.</p>
-
-    <p>Exemplos:</p>
-  </li>
+  <li>O código <code class="language-plaintext highlighter-rouge">A256</code> indica uma informação de 256 bytes codificada de acordo com o formato “A”.</li>
+  <li>O código <code class="language-plaintext highlighter-rouge">N..99</code> indica uma informação de tamanho variável (de 0 a 99 bytes) codificada de acordo com o formato “N”.</li>
+  <li>O código <code class="language-plaintext highlighter-rouge">A..var</code> indica uma informação de tamanho variável codificada de acordo com o formato “A”.</li>
 </ul>
-
-<ol>
-  <li>O código “A256” indica uma informação de 256 bytes codificada de acordo com o formato “A”.</li>
-  <li>O código “N..99” indica uma informação de tamanho variável (de 0 a 99 bytes) codificada de acordo com o formato “N”.</li>
-  <li>O código “A..var” indica uma informação de tamanho variável codificada de acordo com o formato “A”.</li>
-</ol>
 
 <p>A tabela seguir detalha os formatos adotados neste documento:</p>
 
 <table>
-  <thead>
-    <tr>
-      <th style="text-align: center"><strong>Formato</strong></th>
-      <th style="text-align: left"><strong>Descrição</strong></th>
-    </tr>
-  </thead>
   <tbody>
     <tr>
-      <td style="text-align: center"><strong>A</strong></td>
-      <td style="text-align: left">Alfanumérico codificado segundo tabela ASCII, podendo conter bytes de 20h (espaço) a 7Eh (~). Quando a informação for menor do que o campo definido, ela deverá ser alinhada à esquerda com espaços (20h) à direita.Exemplo: Se um campo de formato “A6” contém a informação “TEXTO”, ele é codificado como: 54h 45h 58h 54h 4Fh 20h.</td>
+      <td><strong>Formato</strong></td>
+      <td><strong>Descrição</strong></td>
     </tr>
     <tr>
-      <td style="text-align: center"><strong>N</strong></td>
-      <td style="text-align: left">Numérico decimal codificado segundo a tabela ASCII, podendo conter somente bytes de 30h (“0”) a 39h (“9”). Quando a informação for menor do que o campo definido, ela deverá ser alinhada à direita com zeros (30h) à esquerda.Exemplo: Se um campo de formato “N8” contém a informação numérica 1234, ele é codificado como: 30h 30h 30h 30h 31h 32h 33h 34h.</td>
+      <td><strong>A</strong></td>
+      <td>&lt;p&gt;Alfanumérico codificado segundo tabela ASCII, podendo conter bytes de 20h (espaço) a 7Eh (~). Quando a informação for menor do que o campo definido, ela deverá ser alinhada à esquerda com espaços (20h) à direita.&lt;/p&gt;&lt;p&gt;Exemplo: Se um campo de formato “A6” contém a informação “TEXTO”, ele é codificado como: 54h 45h 58h 54h 4Fh 20h.&lt;/p&gt;</td>
+    </tr>
+    <tr>
+      <td><strong>N</strong></td>
+      <td>&lt;p&gt;Numérico decimal codificado segundo a tabela ASCII, podendo conter somente bytes de 30h (“0”) a 39h (“9”). Quando a informação for menor do que o campo definido, ela deverá ser alinhada à direita com zeros (30h) à esquerda.&lt;/p&gt;&lt;p&gt;Exemplo: Se um campo de formato “N8” contém a informação numérica 1234, ele é codificado como: 30h 30h 30h 30h 31h 32h 33h 34h.&lt;/p&gt;</td>
     </tr>
   </tbody>
 </table>
 
-<ol>
-  <li>
-    <h1 id="visão-geral"><strong>Visão Geral</strong></h1>
-    <ol>
-      <li>
-        <h2 id="escopo"><strong>Escopo</strong></h2>
-        <p>A solução definida neste documento se aplica a estabelecimentos com poucos <em>checkouts</em>. Para estabelecimentos com muitos <em>checkouts</em> (um grande supermercado, por exemplo) recomenda-se o uso de soluções TEF com <em>pinpads</em>.</p>
-      </li>
-    </ol>
-  </li>
-</ol>
+<h2 id="visão-geral">Visão Geral</h2>
+
+<h2 id="escopo">Escopo</h2>
+
+<p>A solução definida neste documento se aplica a estabelecimentos com poucos checkouts. Paraestabelecimentos com muitos checkouts (um grande supermercado, por exemplo) recomenda-se o uso de soluções TEF com pinpads.</p>
 
 <p>São premissas desta solução:</p>
 
 <ul>
-  <li>Um POS Cielo é configurado para operar em Modo Integrado com um único <em>checkout</em>, de forma exclusiva.</li>
-  <li>É possível configurar mais de um POS Cielo para operar com um determinado <em>checkout</em>.</li>
+  <li>Um POS Cielo é configurado para operar em Modo Integrado com um único checkout, de forma exclusiva.</li>
+  <li>É possível configurar mais de um POS Cielo para operar com um determinado checkout.</li>
 </ul>
 
 <p>O diagrama a seguir ilustra o exemplo de um estabelecimento com dois checkouts e três POS Cielo, sendo que os POS #1 e #2 operam com o checkout A, enquanto o POS #3 opera com o checkout B.</p>
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.5106fbda-7c74-4c82-a3a3-e0d058563a95.003.png" alt="" /></p>
-<ol>
-  <li>
-    <h2 id="fluxo-simplificado"><strong>Fluxo simplificado</strong></h2>
-    <p>O diagrama a seguir ilustra, de forma simplificada, o fluxo de comunicação entre o POS e o <em>checkout</em>.</p>
-  </li>
-</ol>
+
+<h2 id="fluxo-simplificado">Fluxo simplificado</h2>
+
+<p>O diagrama a seguir ilustra, de forma simplificada, o fluxo de comunicação entre o POS e o checkout.</p>
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.5106fbda-7c74-4c82-a3a3-e0d058563a95.004.png" alt="" /></p>
 
-<p>O <strong>Modo Integrado</strong> pressupõe que o POS e o <em>checkout</em> estejam em uma mesma rede local, sendo que o POS usa conexão via Wi-Fi.</p>
+<p>O <strong>Modo Integrado</strong> pressupõe que o POS e o checkout estejam em uma mesma rede local, sendo que o POS usa conexão via Wi-Fi.</p>
 
 <p>A operação de pagamento segue o seguinte fluxo:</p>
 
-<ul>
-  <li>O <em>checkout</em> inicia um processo de pagamento via cartão (), aguardando a conexão de um terminal POS da CIELO via Wi-Fi (TCP/IP).</li>
-  <li>O lojista usa um POS da CIELO e inicia o pagamento via menu ou cartão (), da mesma forma como é operado um POS autônomo. Este POS deve estar previamente configurado para comunicar com o checkout em questão (ver <strong>seção <a href="#_ref153976726">2.3**</a></strong>).</li>
-  <li>Ao chegar na tela de captura do valor, o POS se conecta ao <em>checkout</em> () para receber essa informação que não poderá ser editada.</li>
-  <li>Ao concluir a operação, o POS não imprime o comprovante e devolve os dados para o <em>checkout</em> (), indicando sucesso ou fracasso, fornecendo também as informações para os procedimentos fiscais (ECF ou sistema de Nota Fiscal Eletrônica).</li>
-  <li>O <em>checkout</em> efetua os procedimentos fiscais, imprimindo comprovante na ECF (), por exemplo.</li>
-  <li>Ao final, o <em>checkout</em> devolve uma confirmação para o POS (), indicando se tudo correu bem ou se houve algum problema nos procedimentos fiscais ou outro erro fatal que implique na anulação da transação.
-    <ol>
-      <li>
-        <h2 id="alterações-no-pos"><strong>Alterações no POS</strong></h2>
-        <p>No <strong>“Modo Integrado”</strong>, o POS efetua todas as operações não financeiras da mesma forma que o POS convencional (inicialização, consultas, pré-autorização, reimpressão, relatórios, etc). Somente as transações financeiras (de pagamento) são afetadas neste modo.</p>
-      </li>
-    </ol>
-  </li>
-</ul>
+<ol>
+  <li>O checkout inicia um processo de pagamento via cartão (1), aguardando a conexão de um terminal POS da CIELO via Wi-Fi (TCP/IP).</li>
+  <li>O lojista usa um POS da CIELO e inicia o pagamento via menu ou cartão (2), da mesma forma como é operado um POS autônomo. Este POS deve estar previamente configurado para comunicar com o checkout em questão (ver seção 2.3).</li>
+  <li>Ao chegar na tela de captura do valor, o POS se conecta ao checkout (3) para receber essa informação que não poderá ser editada.</li>
+  <li>Ao concluir a operação, o POS não imprime o comprovante e devolve os dados para o checkout (4), indicando sucesso ou fracasso, fornecendo também as informações para os procedimentos fiscais (ECF ou sistema de Nota Fiscal Eletrônica).</li>
+  <li>O checkout efetua os procedimentos fiscais, imprimindo comprovante na ECF (5), por exemplo.</li>
+  <li>Ao final, o checkout devolve uma confirmação para o POS (6), indicando se tudo correu bem ou se houve algum problema nos procedimentos fiscais ou outro erro fatal que implique na anulação da transação.</li>
+</ol>
+
+<h2 id="alterações-no-pos">Alterações no POS</h2>
+
+<p>No <strong>“Modo Integrado”</strong>, o POS efetua todas as operações não financeiras da mesma forma que o POS convencional (inicialização, consultas, pré-autorização, reimpressão, relatórios, etc). Somente as transações financeiras (de pagamento) são afetadas neste modo.</p>
 
 <p>O cadastro do POS na Cielo indica se ele opera em <strong>“Modo Integrado”</strong> ou de forma “convencional” (autônomo), sendo que isso não pode ser modificado manualmente no equipamento.</p>
 
-<p>A aplicação do POS Cielo conta com as seguintes modificações quando opera em “<strong>Modo Integrado</strong>”:</p>
+<p>A aplicação do POS Cielo conta com as seguintes modificações quando opera em <strong>“Modo Integrado”:</strong></p>
+
+<p>A aplicação do POS Cielo conta com as seguintes modificações quando opera em “Modo Integrado”:</p>
 
 <ul>
-  <li>Permite a configuração do endereço IP e porta da máquina onde está instalada o <em>checkout</em>.</li>
-  <li>No momento da transação (seja com cartão, Pix, ou outro produto de pagamento da <strong>Cielo</strong>), o terminal efetua uma conexão via <em>socket</em> TCP com o <em>checkout</em> para receber o valor da transação, que não poderá ser alterado pelo operador.</li>
-  <li>Ao final da transação, o terminal efetua uma nova conexão via <em>socket</em> TCP com o <em>checkout</em> para enviar o resultado da transação e outras informações, como a imagem do comprovante, número lógico, código de autorização, NSU, etc. Em seguida, na mesma conexão <em>socket</em> TCP, o terminal POS fica aguardando a confirmação do <em>checkout</em> para, em caso de erro, poder desfazer a transação efetuada.
-    <ol>
-      <li>
-        <h1 id="comunicação"><strong>Comunicação</strong></h1>
-        <p>Este capítulo apresenta em detalhes como é feita a comunicação entre o POS e o <em>checkout</em>.</p>
-      </li>
-    </ol>
-    <ol>
-      <li>
-        <h2 id="fluxo-detalhado"><strong>Fluxo detalhado</strong></h2>
-        <p>O fluxo a seguir ilustra os processos envolvidos na comunicação entre as partes:</p>
-      </li>
-    </ol>
-  </li>
+  <li>Permite a configuração do endereço IP e porta da máquina onde está instalado o checkout.</li>
+  <li>No momento da transação (seja com cartão, Pix, ou outro produto de pagamento da Cielo), o terminal efetua uma conexão via socket TCP com o checkout para receber o valor da transação, que não poderá ser alterado pelo operador.</li>
+  <li>Ao final da transação, o terminal efetua uma nova conexão via socket TCP com o checkout para enviar o resultado da transação e outras informações, como a imagem do comprovante, número lógico, código de autorização, NSU, etc. Em seguida, na mesma conexão socket TCP, o terminal POS fica aguardando a confirmação do checkout para, em caso de erro, poder desfazer a transação efetuada.</li>
 </ul>
+
+<h1 id="comunicação">Comunicação</h1>
+
+<p>Este capítulo apresenta em detalhes como é feita a comunicação entre o POS e o checkout.</p>
+
+<h2 id="fluxo-detalhado">Fluxo detalhado</h2>
+
+<p>O fluxo a seguir ilustra os processos envolvidos na comunicação entre as partes:</p>
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.5106fbda-7c74-4c82-a3a3-e0d058563a95.005.png" alt="" /></p>
 
+<h3 id="fluxo-de-operação">Fluxo de Operação</h3>
+
 <ol>
-  <li>Ao finalizar o registro dos produtos sendo vendidos, o operador seleciona uma opção “Pagamento em Cartão” no <em>checkout</em>. Neste momento, esta abre uma tela indicando “Aguardando POS Cielo…” e entra em modo de espera por uma conexão <em>socket</em> TCP/IP (“<em>listen</em>”).</li>
-  <li>O operador inicia uma transação de pagamento no POS. Ao invés de solicitar o valor, o POS efetua uma conexão <em>socket</em> TCP com o <em>checkout</em> (“<em>connect</em>”).</li>
-  <li>O POS envia ao <em>checkout</em> uma mensagem de “início de sessão” e esta devolve algumas informações úteis, como o valor a ser pago.</li>
-  <li>O POS poderá desconectar o <em>socket</em> TCP para liberar recursos (“<em>closesocket</em>”). O <em>checkout</em> Apresenta uma mensagem de “Aguardando autorização…” e volta a ficar em modo “<em>listen</em>”, aguardando nova conexão <em>socket</em> TCP.</li>
+  <li>Ao finalizar o registro dos produtos sendo vendidos, o operador seleciona a opção “Pagamento em Cartão” no checkout. Neste momento, o checkout abre uma tela indicando “Aguardando POS Cielo…” e entra em modo de espera por uma conexão socket TCP/IP (“listen”).</li>
+  <li>O operador inicia uma transação de pagamento no POS. Ao invés de solicitar o valor, o POS efetua uma conexão socket TCP com o checkout (“connect”).</li>
+  <li>O POS envia ao checkout uma mensagem de “início de sessão” e este devolve algumas informações úteis, como o valor a ser pago.</li>
+  <li>O POS poderá desconectar o socket TCP para liberar recursos (“closesocket”). O checkout apresenta uma mensagem de “Aguardando autorização…” e volta a ficar em modo “listen”, aguardando nova conexão socket TCP.</li>
   <li>O POS se conecta à Cielo para efetuar a autorização financeira.</li>
-  <li>Independentemente do resultado da autorização (sucesso ou falha), o POS efetua uma nova conexão <em>socket</em> TCP com o <em>checkout</em> (“<em>connect</em>”), se necessário, e envia o resultado da autorização em uma mensagem de “fim de sessão”.</li>
-  <li>Se a transação financeira foi aprovada, o <em>checkout</em> efetua os procedimentos fiscais exigidos pelo governo e devolve uma resposta ao POS indicando se estes foram bem sucedidos.</li>
-  <li>O POS desconecta o <em>socket</em> TCP para liberar recursos (“<em>closesocket</em>”). Se a transação foi aprovada na Cielo mas o <em>checkout</em> indicou falha nos procedimentos fiscais, o POS marca a transação para ser desfeita em uma próxima conexão com a Cielo.
-    <ul>
-      <li><strong>Observações:</strong></li>
-      <li>Quem efetua a conexão e a desconexão do <em>socket</em> TCP/IP é sempre o POS, sendo que o <em>checkout</em> assume um comportamento passivo a esse respeito.</li>
-      <li>O processo pode ser cancelado no <em>checkout</em> a qualquer momento pelo operador. Neste caso, o <em>checkout</em> fecha o <em>socket</em> e deixa de aguardar conexões vindas dos POS.</li>
-      <li>Caso o <em>checkout</em> receba uma mensagem inconsistente do POS, ele fecha o <em>socket</em> e volta a esperar por uma nova conexão do POS (ver detalhamento na <strong>seção <a href="#mergeformat">3.4**</a></strong>).</li>
-      <li>O tempo máximo de espera para conexão socket (“<em>connect</em>”) é de <strong>5 (cinco) segundos</strong>. O POS deve tentar a conexão até <strong>6 (seis) vezes</strong>, totalizando <strong>30 (trinta) segundos</strong>.</li>
-      <li>O tempo máximo de espera pela resposta de início de sessão é de <strong>3 (três) segundos</strong>.</li>
-      <li>O tempo máximo de espera pela resposta de finalização de sessão é de <strong>60 (sessenta) segundos</strong>.</li>
-    </ul>
-  </li>
-  <li>
-    <h2 id="formato-das-mensagens"><strong>Formato das mensagens</strong></h2>
-    <p>As mensagens trocadas entre o POS e <em>checkout</em> utilizam o formato <strong>JSON</strong>. Além disso, para evitar fragmentação por conta da rede TCP/IP, as mensagens devem ser encabeçadas por dois bytes que indicam o tamanho.</p>
-  </li>
+  <li>Independentemente do resultado da autorização (sucesso ou falha), o POS efetua uma nova conexão socket TCP com o checkout (“connect”), se necessário, e envia o resultado da autorização em uma mensagem de “fim de sessão”.</li>
+  <li>Se a transação financeira for aprovada, o checkout efetua os procedimentos fiscais exigidos pelo governo e devolve uma resposta ao POS indicando se estes foram bem-sucedidos.</li>
+  <li>O POS desconecta o socket TCP para liberar recursos (“closesocket”). Se a transação foi aprovada na Cielo, mas o checkout indicou falha nos procedimentos fiscais, o POS marca</li>
 </ol>
+
+<p><strong>Observações:</strong></p>
+
+<ul>
+  <li>Quem efetua a conexão e a desconexão do socket TCP/IP é sempre o POS, sendo que o checkout assume um comportamento passivo a esse respeito.</li>
+  <li>O processo pode ser cancelado no checkout a qualquer momento pelo operador. Neste caso, o checkout fecha o socket e deixa de aguardar conexões vindas dos POS.</li>
+  <li>Caso o checkout receba uma mensagem inconsistente do POS, ele fecha o socket e volta a esperar por uma nova conexão do POS (ver detalhamento na seção 3.4).</li>
+  <li>O tempo máximo de espera para conexão socket (“connect”) é de 5 (cinco) segundos. O POS deve tentar a conexão até 6 (seis) vezes, totalizando 30 (trinta) segundos.</li>
+  <li>O tempo máximo de espera pela resposta de início de sessão é de 3 (três) segundos.</li>
+  <li>O tempo máximo de espera pela resposta de finalização de sessão é de 60 (sessenta) segundos.</li>
+</ul>
+
+<h2 id="formato-das-mensagens">Formato das mensagens</h2>
+
+<p>As mensagens trocadas entre o POS e checkout utilizam o formato JSON. Além disso, para evitar fragmentação por conta da rede TCP/IP, as mensagens devem ser encabeçadas por dois bytes que indicam o tamanho.</p>
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.5106fbda-7c74-4c82-a3a3-e0d058563a95.006.png" alt="" /></p>
 
 <p>Ao receber uma mensagem via <em>socket</em>, o receptor deve conferir os bytes de tamanho e, se estes indicarem uma quantidade de bytes maior do que foi recebido, isso indica que houve fragmentação. Neste caso, deve-se buscar mais bytes na camada TCP/IP até que a mensagem esteja completa.</p>
 
-<p>O tempo máximo de espera por um fragmento de mensagem é de <strong>1 (um) segundo</strong>.</p>
+<blockquote>
+  <p>O tempo máximo de espera por um fragmento de mensagem é de 1 (um) segundo.</p>
+</blockquote>
+
+<p><strong>Corpo da mensagem (JSON):</strong></p>
+
+<p>```json
+{
+  “msg_id”: “CmdInitSession”,
+  “pos_id”: “91746241”,
+  “seq_pos”: “00018725”
+}</p>
+
+<p>00 49 7B 93 6D 73 67 5F 69 64 94 3A
+20 93 43 6D 64 49 6E 69 74 53 65 73
+73 69 6F 6E 94 2C 20 93 70 6F 73 5F
+69 64 94 3A 20 93 39 31 37 34 36 32
+34 31 94 2C 20 93 73 65 71 5F 70 6F
+73 94 3A 20 93 30 30 30 31 38 37 32
+35 94 7D</p>
+
+<h2 id="comandos-e-respostas">Comandos e Respostas</h2>
+
+<p>Esta seção define o formato das mensagens trocadas entre o POS e o checkout.</p>
+
+<p>Observações</p>
 
 <ul>
-  <li>
-    <p><strong>Exemplo:</strong></p>
-
-    <p>|Corpo da mensagem (JSON)|Bytes trafegados|
-| :- | :- |
-|{“<strong>msg_id</strong>”: “CmdInitSession”, “<strong>pos_id</strong>”: “91746241”, “<strong>seq_pos</strong>”: “00018725”}|<strong>00 49</strong> 7B 93 6D 73 67 5F 69 64 94 3A 20 93 43 6D 64 49 6E 69 74 53 65 73 73 69 6F 6E 94 2C 20 93 70 6F 73 5F 69 64 94 3A 20 93 39 31 37 34 36 32 34 31 94 2C 20 93 73 65 71 5F 70 6F 73 94 3A 20 93 30 30 30 31 38 37 32 35 94 7D|</p>
-    <ol>
-      <li>
-        <h2 id="comandos-e-respostas"><strong>Comandos e Respostas</strong></h2>
-        <p>Esta seção define o formato das mensagens trocadas entre o POS e o <em>checkout</em>.</p>
-      </li>
-    </ol>
-  </li>
+  <li>A coluna “Presença” das tabelas desta seção indica se um campo deve ou não existir, usando a seguinte codificação:</li>
+  <li><strong>M</strong>: Campo é mandatório, deve ocasionar erro se não for recebido.</li>
+  <li><strong>O</strong>: Campo é opcional, a condição pela qual existe está informada na coluna “Descrição”.</li>
+  <li><strong>MO</strong>: Campo é mandatório dentro de um objeto, mas o objeto é opcional.</li>
 </ul>
 
-<p>Observações:</p>
+<h3 id="início-de-sessão">Início de sessão</h3>
 
-<ul>
-  <li>
-    <p>A coluna “<strong>Presença</strong>” das tabelas desta seção indica se um campo deve ou não existir, usando a seguinte codificação:</p>
+<p>Este comando é enviado pelo POS ao checkout para iniciar um processo de pagamento. Neste momento, o operador já deve ter selecionado a opção de “pagamento com cartão” no checkout, que fica em estado de espera para iniciar a sessão.</p>
 
-    <p><strong>M</strong> = Campo é mandatório, deve ocasionar erro se não for recebido;</p>
+<p>Na resposta a este comando, o checkout devolve o valor que será usado na transação, sendo que ele não poderá ser editado pelo operador do POS.</p>
 
-    <p><strong>O</strong> = Campo é opcional, a condição pela qual existe está informada na coluna “<strong>Descrição</strong>”; ou</p>
-
-    <p><strong>MO</strong> = Campo é mandatório dentro de um objeto, mas o objeto é opcional.</p>
-    <ol>
-      <li>
-        <h3 id="início-de-sessão"><strong>Início de sessão</strong></h3>
-        <p>Este comando é enviado pelo POS ao <em>checkout</em> para iniciar um processo de pagamento. Neste momento, o operador já deve ter selecionado a opção de “pagamento com cartão” no <em>checkout</em>, que fica em estado de espera para iniciar a sessão.</p>
-      </li>
-    </ol>
-  </li>
-</ul>
-
-<p>Na resposta a este comando, o <em>checkout</em> devolve o valor que será usado na transação, sendo que ele não poderá ser editado pelo operador do POS.</p>
-
-<ul>
-  <li><strong>Comando</strong></li>
-</ul>
+<p><strong>Comando</strong></p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left"><strong>Campo</strong></th>
-      <th style="text-align: center"><strong>Tipo</strong></th>
-      <th style="text-align: center"><strong>Formato</strong></th>
-      <th style="text-align: center"><strong>Presença</strong></th>
-      <th style="text-align: left"><strong>Descrição</strong></th>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Formato</th>
+      <th>Presença</th>
+      <th>Descrição</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><strong>“msg_id”</strong></td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">A..20</td>
-      <td style="text-align: center">M</td>
-      <td style="text-align: left">Identificação do comando: “<strong>CmdInitSession</strong>”.</td>
+      <td><code class="language-plaintext highlighter-rouge">msg_id</code></td>
+      <td>string</td>
+      <td>A..20</td>
+      <td>M</td>
+      <td>Identificação do comando: “CmdInitSession”.</td>
     </tr>
     <tr>
-      <td style="text-align: left"><strong>“pos_id”</strong></td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">A8</td>
-      <td style="text-align: center">M</td>
-      <td style="text-align: left">Código do POS na rede Cielo.</td>
+      <td><code class="language-plaintext highlighter-rouge">pos_id</code></td>
+      <td>string</td>
+      <td>A8</td>
+      <td>M</td>
+      <td>Código do POS na rede Cielo.</td>
     </tr>
     <tr>
-      <td style="text-align: left"><strong>“seq_pos”</strong></td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">N8</td>
-      <td style="text-align: center">M</td>
-      <td style="text-align: left">Número sequencial da sessão gerado pelo POS.</td>
+      <td><code class="language-plaintext highlighter-rouge">seq_pos</code></td>
+      <td>string</td>
+      <td>N8</td>
+      <td>M</td>
+      <td>Número sequencial da sessão gerado pelo POS.</td>
     </tr>
   </tbody>
 </table>
 
-<p>Observações:</p>
+<p>Observações</p>
 
 <ul>
-  <li>Para reforçar a integridade da comunicação entre o POS e o <em>checkout</em>, o POS gera um número sequencial (“<strong>seq_pos</strong>”) que deve ser devolvido pelo <em>checkout</em> na resposta.</li>
-  <li>O <em>checkout</em> deve esperar por este comando por <strong>tempo indeterminado</strong>. O sistema deve, entretanto, disponibilizar uma forma para que o operador possa cancelar o processo enquanto o <em>checkout</em> aguarda o início da sessão (mais detalhes na <strong>seção <a href="#_ref161327685">3.4**</a></strong>).</li>
-  <li><strong>Resposta</strong></li>
+  <li>Para reforçar a integridade da comunicação entre o POS e o checkout, o POS gera um número sequencial (<code class="language-plaintext highlighter-rouge">seq_pos</code>) que deve ser devolvido pelo checkout na resposta.</li>
+  <li>O checkout deve esperar por este comando por tempo indeterminado. O sistema deve, entretanto, disponibilizar uma forma para que o operador possa cancelar o processo enquanto o checkout aguarda o início da sessão (mais detalhes na seção 3.4).</li>
 </ul>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left"><strong>Campo</strong></th>
-      <th style="text-align: center"><strong>Tipo</strong></th>
-      <th style="text-align: center"><strong>Formato</strong></th>
-      <th style="text-align: center"><strong>Presença</strong></th>
-      <th style="text-align: left"><strong>Descrição</strong></th>
+      <th><strong>Campo</strong></th>
+      <th><strong>Tipo</strong></th>
+      <th><strong>Formato</strong></th>
+      <th><strong>Presença</strong></th>
+      <th><strong>Descrição</strong></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><strong>“msg_id”</strong></td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">A..20</td>
-      <td style="text-align: center">M</td>
-      <td style="text-align: left">Identificação da resposta: “<strong>RspInitSession</strong>”.</td>
+      <td><strong><code class="language-plaintext highlighter-rouge">msg_id</code></strong></td>
+      <td>string</td>
+      <td>A..20</td>
+      <td>M</td>
+      <td>Identificação da resposta: <strong>RspInitSession</strong>.</td>
     </tr>
     <tr>
-      <td style="text-align: left"><strong>“pos_id”</strong></td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">A8</td>
-      <td style="text-align: center">M</td>
-      <td style="text-align: left">Código do POS na rede Cielo.</td>
+      <td><strong><code class="language-plaintext highlighter-rouge">pos_id</code></strong></td>
+      <td>string</td>
+      <td>A8</td>
+      <td>M</td>
+      <td>Código do POS na rede Cielo.</td>
     </tr>
     <tr>
-      <td style="text-align: left"><strong>“seq_pos”</strong></td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">N8</td>
-      <td style="text-align: center">M</td>
-      <td style="text-align: left">Número sequencial da sessão gerado pelo POS.</td>
+      <td><strong><code class="language-plaintext highlighter-rouge">seq_pos</code></strong></td>
+      <td>string</td>
+      <td>N8</td>
+      <td>M</td>
+      <td>Número sequencial da sessão gerado pelo POS.</td>
     </tr>
     <tr>
-      <td style="text-align: left"><strong>“status”</strong></td>
-      <td style="text-align: center">number</td>
-      <td style="text-align: center">N..2</td>
-      <td style="text-align: center">M</td>
-      <td style="text-align: left"><strong>0</strong> ® O <em>checkout</em> iniciou a sessão com sucesso;<strong>1</strong> ® Parâmetro passado é inválido;<strong>2</strong> ® Parâmetro mandatório não foi recebido;<strong>3</strong> ® Operação cancelada pelo operador;<strong>10</strong> ® Processo de pagamento não foi iniciado no <em>checkout</em> pelo operador;<strong>11</strong> ® O <em>checkout</em> está ocupado atendendo outro terminal;<strong>99</strong> ® Outro erro.</td>
+      <td><strong><code class="language-plaintext highlighter-rouge">status</code></strong></td>
+      <td>number</td>
+      <td>N..2</td>
+      <td>M</td>
+      <td><strong>0</strong> → O checkout iniciou a sessão com sucesso;<br /><strong>1</strong> → Parâmetro passado é inválido;<br /><strong>2</strong> → Parâmetro mandatório não foi recebido;<br /><strong>3</strong> → Operação cancelada pelo operador;<br /><strong>10</strong> → Processo de pagamento não foi iniciado no checkout pelo operador;<br /><strong>11</strong> → O checkout está ocupado atendendo outro terminal;<br /><strong>99</strong> → Outro erro.</td>
     </tr>
     <tr>
-      <td style="text-align: left"><strong>“seq_ac”</strong></td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">N8</td>
-      <td style="text-align: center">O</td>
-      <td style="text-align: left">Número sequencial da sessão gerado pelo <em>checkout</em> (só é devolvido em caso de sucesso).</td>
+      <td><strong><code class="language-plaintext highlighter-rouge">seq_ac</code></strong></td>
+      <td>string</td>
+      <td>N8</td>
+      <td>O</td>
+      <td>Número sequencial da sessão gerado pelo checkout (só é devolvido em caso de sucesso).</td>
     </tr>
     <tr>
-      <td style="text-align: left"><strong>“transaction”</strong></td>
-      <td style="text-align: center">object</td>
-      <td style="text-align: center">–</td>
-      <td style="text-align: center">O</td>
-      <td style="text-align: left">Parâmetros da transação a ser efetuada no POS (só é devolvido em caso de sucesso).</td>
+      <td><strong><code class="language-plaintext highlighter-rouge">transaction</code></strong></td>
+      <td>object</td>
+      <td>–</td>
+      <td>O</td>
+      <td>Parâmetros da transação a ser efetuada no POS (só é devolvido em caso de sucesso).</td>
     </tr>
     <tr>
-      <td style="text-align: left"><strong>Ä “.amount”</strong></td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">N..12</td>
-      <td style="text-align: center">O</td>
-      <td style="text-align: left">Valor da transação, inteiro em centavos.</td>
+      <td><strong><code class="language-plaintext highlighter-rouge">transaction.amount</code></strong></td>
+      <td>string</td>
+      <td>N..12</td>
+      <td>O</td>
+      <td>Valor da transação, inteiro em centavos.</td>
     </tr>
     <tr>
-      <td style="text-align: left"><strong>“last_endsession”</strong></td>
-      <td style="text-align: center">object</td>
-      <td style="text-align: center">–</td>
-      <td style="text-align: center">O</td>
-      <td style="text-align: left">Dados da última resposta “<a href="#rspendsession"><strong>RspEndSession</strong></a>” devolvida para este POS em uma sessão anterior.Se for a primeira sessão deste POS com esto <em>checkout</em>, este objeto não é devolvido.</td>
+      <td><strong><code class="language-plaintext highlighter-rouge">last_endsession</code></strong></td>
+      <td>object</td>
+      <td>–</td>
+      <td>O</td>
+      <td>Dados da última resposta <a href="#rspendsession"><strong>RspEndSession</strong></a> devolvida para este POS em uma sessão anterior.<br />Se for a primeira sessão deste POS com este checkout, este objeto não é devolvido.</td>
     </tr>
     <tr>
-      <td style="text-align: left"><strong>Ä “.seq_pos”</strong></td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">N8</td>
-      <td style="text-align: center">MO</td>
-      <td style="text-align: left">Número sequencial gerado pelo POS para a sessão referida.</td>
+      <td><strong><code class="language-plaintext highlighter-rouge">last_endsession.seq_pos</code></strong></td>
+      <td>string</td>
+      <td>N8</td>
+      <td>MO</td>
+      <td>Número sequencial gerado pelo POS para a sessão referida.</td>
     </tr>
     <tr>
-      <td style="text-align: left"><strong>Ä “.seq_ac”</strong></td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">N8</td>
-      <td style="text-align: center">MO</td>
-      <td style="text-align: left">Número sequencial gerado pelo <em>checkout</em> para a sessão referida.</td>
+      <td><strong><code class="language-plaintext highlighter-rouge">last_endsession.seq_ac</code></strong></td>
+      <td>string</td>
+      <td>N8</td>
+      <td>MO</td>
+      <td>Número sequencial gerado pelo checkout para a sessão referida.</td>
     </tr>
     <tr>
-      <td style="text-align: left"><strong>Ä “.status”</strong></td>
-      <td style="text-align: center">number</td>
-      <td style="text-align: center">N..2</td>
-      <td style="text-align: center">MO</td>
-      <td style="text-align: left">Status devolvido pelo <em>checkout</em> ao finalizar a sessão referida.</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Observações:</p>
-
-<ul>
-  <li>Ao receber a resposta, o POS deve conferir <strong>“pos_id”</strong> e <strong>“seq_pos”</strong> e, caso estejam diferentes, a operação deve ser finalizada com erro.</li>
-  <li>O <em>checkout</em> devolve o resultado da última sessão efetuada pelo POS. Isso serve para garantir que o POS acerte suas pendências caso ele não tenha recebido a “<a href="#rspendsession"><strong>RspEndSession</strong></a>” da transação anterior.</li>
-  <li>O POS deve esperar a resposta do <em>checkout</em> por [<strong>3 (três)](#to_rspinitsession) **segundos</strong>. Se a resposta não for recebida neste tempo, o POS aborta o processo com erro de “TEMPO ESGOTADO”.</li>
-  <li>
-    <p><strong>Exemplo</strong></p>
-
-    <p>|O POS envia um comando para iniciar uma sessão.|||
-| :- | :- | :- |
-|<strong>POS Þ</strong>|{<code class="language-plaintext highlighter-rouge">  </code>“<strong>msg_id</strong>”: “CmdInitSession”,<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>pos_id</strong>”: “91746241”,<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>seq_pos</strong>”: “00018725”<br />}||
-|O <em>checkout</em> aceita a conexão e informa o valor de R$ 125,80:|||
-|<strong>Ü AC</strong>|{<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>msg_id</strong>”: “RspInitSession”,<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>pos_id</strong>”: “91746241”,<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>seq_pos</strong>”: “00018725”,<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>status</strong>”: 0,<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>seq_ac</strong>”: “00000098”,<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>transaction</strong>”: {<br /><code class="language-plaintext highlighter-rouge">    </code>“<strong>amount</strong>”: “12580”<br /><code class="language-plaintext highlighter-rouge">  </code>},<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>last_endsession</strong>”: {<br /><code class="language-plaintext highlighter-rouge">    </code>“<strong>seq_pos</strong>”: “00018724”,<br /><code class="language-plaintext highlighter-rouge">    </code>“<strong>seq_ac</strong>”: “00000097”,<br /><code class="language-plaintext highlighter-rouge">    </code>“<strong>status</strong>”: 0<br /><code class="language-plaintext highlighter-rouge">  </code>}<br />}||</p>
-    <ol>
-      <li>
-        <h3 id="finalização-de-sessão"><strong>Finalização de sessão</strong></h3>
-        <p>Este comando é enviado pelo POS ao <em>checkout</em> para indicar a conclusão do processo de pagamento, seja este bem ou malsucedido.</p>
-      </li>
-    </ol>
-  </li>
-</ul>
-
-<p>Em caso de sucesso, o POS envia uma série de informações referentes à transação efetuada, bem como imagens dos comprovantes que podem ser impressos pelo <em>checkout</em>.</p>
-
-<ul>
-  <li><strong>Comando</strong></li>
-</ul>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left"><strong>Campo</strong></th>
-      <th style="text-align: center"><strong>Tipo</strong></th>
-      <th style="text-align: center"><strong>Formato</strong></th>
-      <th style="text-align: center"><strong>Presença</strong></th>
-      <th style="text-align: left"><strong>Descrição</strong></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><strong>“msg_id”</strong></td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">A..20</td>
-      <td style="text-align: center">M</td>
-      <td style="text-align: left">Identificação do comando: “<strong>CmdEndSession</strong>”.</td>
+      <td><strong><code class="language-plaintext highlighter-rouge">last_endsession.status</code></strong></td>
+      <td>number</td>
+      <td>N..2</td>
+      <td>MO</td>
+      <td>Status devolvido pelo checkout ao finalizar a sessão referida.</td>
     </tr>
     <tr>
-      <td style="text-align: left"><strong>“pos_id”</strong></td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">A8</td>
-      <td style="text-align: center">M</td>
-      <td style="text-align: left">Código do POS na rede Cielo.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><strong>“seq_pos”</strong></td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">N8</td>
-      <td style="text-align: center">M</td>
-      <td style="text-align: left">Número sequencial da sessão gerado pelo POS.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><strong>“seq_ac”</strong></td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">N8</td>
-      <td style="text-align: center">M</td>
-      <td style="text-align: left">Número sequencial da sessão gerado pelo <em>checkout</em>, devolvido em <a href="#rspinitsession"><strong>RspInitSession</strong></a>.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><strong>“status”</strong></td>
-      <td style="text-align: center">number</td>
-      <td style="text-align: center">N..2</td>
-      <td style="text-align: center">M</td>
-      <td style="text-align: left"><strong>0</strong> ® Transação aprovada;<strong>1</strong> ® Parâmetro passado é inválido;<strong>2</strong> ® Parâmetro mandatório não foi recebido.<strong>3</strong> ® Operação cancelada pelo operador.<strong>20</strong> ® Problema de comunicação entre o POS e a rede Cielo.<strong>21</strong> ® Transação negada pela rede Cielo.<strong>99</strong> ® Outro erro.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><strong>“message”</strong></td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">A..64</td>
-      <td style="text-align: center">O</td>
-      <td style="text-align: left">Mensagem opcional gerada pelo POS, seja de sucesso ou de falha.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><strong>“pos_sn”</strong></td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">A..32</td>
-      <td style="text-align: center">M</td>
-      <td style="text-align: left">Número de série do terminal</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><strong>“transaction”</strong></td>
-      <td style="text-align: center">object</td>
-      <td style="text-align: center">–</td>
-      <td style="text-align: center">O</td>
-      <td style="text-align: left">Dados da transação financeira autorizada pelo POS (este objeto só é devolvido se a transação for aprovada).</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><strong>Ä “.amount”</strong></td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">N..12</td>
-      <td style="text-align: center">MO</td>
-      <td style="text-align: left">Valor aprovado da transação, inteiro em centavos.<strong>IMPORTANTE</strong>: Este valor pode ser menor do que o solicitado pelo <em>checkout</em> no caso de aprovação parcial.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><strong>Ä “.prod_pri”</strong></td>
-      <td style="text-align: center">number</td>
-      <td style="text-align: center">N..4</td>
-      <td style="text-align: center">MO</td>
-      <td style="text-align: left">Os códigos do produto (matriz e secundário) identificam o tipo de transação efetuada (por exemplo: cartão de crédito à vista, parcelado, cartão de débito, Pix, voucher, etc.) e não estão aqui especificados por serem dinâmicos e configuráveis nas tabelas do POS Cielo. Estas informações devem ser fornecidas pela Cielo em um documento à parte.Código do produto matriz (tabela Cielo[^1]).</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><strong>Ä “.prod_sec”</strong></td>
-      <td style="text-align: center">number</td>
-      <td style="text-align: center">N..4</td>
-      <td style="text-align: center">MO</td>
-      <td style="text-align: left">Código do produto secundário (tabela Cielo).</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><strong>Ä “.installments”</strong></td>
-      <td style="text-align: center">number</td>
-      <td style="text-align: center">N..2</td>
-      <td style="text-align: center">O</td>
-      <td style="text-align: left">Número de parcelas, para o caso de transação parcelada.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><strong>Ä “.nsu”</strong></td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">N6</td>
-      <td style="text-align: center">MO</td>
-      <td style="text-align: left">Número único gerado pelo POS para identificar a transação na rede Cielo.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><strong>Ä “.aut”</strong></td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">N6</td>
-      <td style="text-align: center">O</td>
-      <td style="text-align: left">Código de autorização gerado pela rede Cielo (se cartão crédito/débito).</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><strong>Ä “.timestamp”</strong></td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">A19</td>
-      <td style="text-align: center">MO</td>
-      <td style="text-align: left">Data e hora da transação, no formato<br />“aaaa-mm-ddThh:mm:ss”.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><strong>Ä “.id_pix”</strong></td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">A32</td>
-      <td style="text-align: center">O</td>
-      <td style="text-align: left">Identificador único da transação no Banco Central (somente para Pix).</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><strong>Ä “.receipt_gen”</strong></td>
-      <td style="text-align: center">string<br />array</td>
-      <td style="text-align: center">A..32</td>
-      <td style="text-align: center">MO</td>
-      <td style="text-align: left">Conjunto de <em>strings</em> correspondente ao comprovante da transação, via genérica que vale tanto para cliente quanto para o lojista (cada <em>string</em> representa uma linha do comprovante).</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><strong>Ä “.receipt_cli”</strong></td>
-      <td style="text-align: center">string<br />array</td>
-      <td style="text-align: center">A..32</td>
-      <td style="text-align: center">MO</td>
-      <td style="text-align: left">Conjunto de <em>strings</em> correspondente ao comprovante da transação, via do cliente (cada <em>string</em> representa uma linha do comprovante).</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><strong>Ä “.receipt_cli_sm”</strong></td>
-      <td style="text-align: center">string<br />array</td>
-      <td style="text-align: center">A..32</td>
-      <td style="text-align: center">MO</td>
-      <td style="text-align: left">Conjunto de <em>strings</em> correspondente ao comprovante da transação, via do cliente - comprovante reduzido (cada <em>string</em> representa uma linha do comprovante).</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><strong>Ä “.receipt_mch”</strong></td>
-      <td style="text-align: center">string<br />array</td>
-      <td style="text-align: center">A..32</td>
-      <td style="text-align: center">MO</td>
-      <td style="text-align: left">Conjunto de <em>strings</em> correspondente ao comprovante da transação, via do lojista (cada <em>string</em> representa uma linha do comprovante).</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Observações:</p>
-
-<ul>
-  <li>O <em>checkout</em> deve esperar por este comando por <strong>tempo indeterminado</strong>. O sistema deve, entretanto, disponibilizar uma forma para que o operador possa cancelar o processo enquanto o <em>checkout</em> aguarda a finalização da sessão (mais detalhes na <strong>seção <a href="#_ref161327685">3.4**</a></strong>).</li>
-  <li><strong>Resposta</strong></li>
-</ul>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left"><strong>Campo</strong></th>
-      <th style="text-align: center"><strong>Tipo</strong></th>
-      <th style="text-align: center"><strong>Formato</strong></th>
-      <th style="text-align: center"><strong>Presença</strong></th>
-      <th style="text-align: left"><strong>Descrição</strong></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><strong>“msg_id”</strong></td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">A..20</td>
-      <td style="text-align: center">M</td>
-      <td style="text-align: left">Identificação do comando: “<strong>RspEndSession</strong>”.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><strong>“pos_id”</strong></td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">A8</td>
-      <td style="text-align: center">M</td>
-      <td style="text-align: left">Código do POS na rede Cielo.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><strong>“seq_pos”</strong></td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">N8</td>
-      <td style="text-align: center">M</td>
-      <td style="text-align: left">Número sequencial da sessão gerado pelo POS.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><strong>“seq_ac”</strong></td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">N8</td>
-      <td style="text-align: center">M</td>
-      <td style="text-align: left">Número sequencial da sessão gerado pelo <em>checkout</em>, mesmo valor devolvido em <a href="#rspinitsession"><strong>RspInitSession</strong></a>.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><strong>“status”</strong></td>
-      <td style="text-align: center">number</td>
-      <td style="text-align: center">N..2</td>
-      <td style="text-align: center">M</td>
-      <td style="text-align: left"><strong>0</strong> ® Sessão finalizada (procedimentos fiscais efetuados com sucesso no caso de transação autorizada).<strong>1</strong> ® Parâmetro passado é inválido;<strong>2</strong> ® Parâmetro mandatório não foi recebido.<strong>3</strong> ® Operação cancelada pelo operador.<strong>4</strong> ® Inconsistência em “<strong>seq_ac</strong>”.<strong>12</strong> ® Erro ao efetuar os procedimentos fiscais (impressão de comprovante no ECF, por exemplo).<strong>99</strong> ® Outro erro.<strong>OBS</strong>: Se o status fornecido pelo POS em “<a href="#cmdendsession"><strong>CmdEndSession</strong></a>” for diferente de 0, o <em>checkout</em> deve replicar aqui o mesmo valor.</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Observações:</p>
-
-<ul>
-  <li>O <em>checkout</em> deve guardar os dados dessa resposta para envio numa próxima sessão que for estabelecida com o mesmo POS (ver <a href="#rspinitsession"><strong>RspInitSession</strong></a>).</li>
-  <li>Ao receber a resposta, o POS deve conferir <strong>“pos_id”</strong> e <strong>“seq_pos”</strong> e, caso estejam diferentes, a mensagem deve ser ignorada. Se a transação foi aprovada, deve-se mantê-la pendente de confirmação até a próxima sessão, momento em que o <em>checkout</em> informa o que aconteceu de fato com a finalização da sessão.</li>
-  <li>O POS deve esperar a resposta do <em>checkout</em> por [<strong>60 (sessenta) ](#to_rspendsession)</strong>segundos<em>*. Se a resposta não for recebida neste tempo, o POS aborta o processo com erro de “TEMPO ESGOTADO”. Se a transação foi aprovada, deve-se mantê-la pendente de confirmação até a próxima sessão, momento em que o *checkout</em> informa o que aconteceu de fato com a finalização da sessão.</li>
-  <li>Se a transação foi aprovada e o <em>checkout</em> responde com <strong>“status”</strong> diferente de 0 (zero), o POS deverá desfazer a transação.</li>
-  <li>O POS sempre devolve as imagens dos comprovantes da transação. Cabe ao <em>checkout</em> imprimir ou não de acordo com os desejos do lojista e do cliente.</li>
-  <li>
-    <p><strong>Exemplo</strong></p>
-
-    <table>
-      <thead>
-        <tr>
-          <th style="text-align: left">O POS envia um comando para finalizar a sessão, indicando sucesso na transação de pagamento.</th>
-          <th style="text-align: left"> </th>
-          <th style="text-align: left"> </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td style="text-align: left"><strong>POS Þ</strong></td>
-          <td style="text-align: left">{<code class="language-plaintext highlighter-rouge">  </code>“<strong>msg_id</strong>”: “CmdEndSession”,<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>pos_id</strong>”: “91746241”,<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>seq_pos</strong>”: “00018725”,<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>seq_ac</strong>”: “00000098”,<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>status</strong>”: 0,<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>pos_sn</strong>”: “987264BY3463-23”</td>
-          <td style="text-align: left"> </td>
-        </tr>
-        <tr>
-          <td style="text-align: left"> </td>
-          <td style="text-align: left"><code class="language-plaintext highlighter-rouge">  </code>“<strong>transaction</strong>”: {<br /><code class="language-plaintext highlighter-rouge">    </code>“<strong>amount</strong>”: “12580”,<br /><code class="language-plaintext highlighter-rouge">    </code>“<strong>prod_pri</strong>”: 1003,<br /><code class="language-plaintext highlighter-rouge">    </code>“<strong>prod_sec</strong>”: 14,<br /><code class="language-plaintext highlighter-rouge">    </code>“<strong>nsu</strong>”: “987654”,<br /><code class="language-plaintext highlighter-rouge">    </code>“<strong>aut</strong>”: “901782”,<br /><code class="language-plaintext highlighter-rouge">    </code>“<strong>installments</strong>”: 3,<br /><code class="language-plaintext highlighter-rouge">    </code>“<strong>timestamp</strong>”: “2023-11-29T15:02:18”,</td>
-          <td style="text-align: left"> </td>
-        </tr>
-        <tr>
-          <td style="text-align: left"> </td>
-          <td style="text-align: left">“<strong>receipt_gen</strong>”: [<code class="language-plaintext highlighter-rouge">      </code>“              CIELO”,<code class="language-plaintext highlighter-rouge">      </code>“29/11/2023              23:14:56”,<code class="language-plaintext highlighter-rouge">      </code>“”,<code class="language-plaintext highlighter-rouge">      </code>“LOJAS DA CHINA”,<code class="language-plaintext highlighter-rouge">      </code>“RUA 25 DE MARCO, 123”,<code class="language-plaintext highlighter-rouge">      </code>“SAO PAULO - SP”,<code class="language-plaintext highlighter-rouge">      </code>“EC:000237236782351  POS:91746241”,<code class="language-plaintext highlighter-rouge">      </code>“”,<code class="language-plaintext highlighter-rouge">      </code>“VALOR:                    125,80”,<code class="language-plaintext highlighter-rouge">      </code>“”,<code class="language-plaintext highlighter-rouge">      </code>“************6254           ONL-C”,<code class="language-plaintext highlighter-rouge">      </code>“DOC:987654            AUT:901782”,<code class="language-plaintext highlighter-rouge">      </code>“”,<code class="language-plaintext highlighter-rouge">      </code>“      AUTORIZADA COM SENHA”,<code class="language-plaintext highlighter-rouge">      </code>“          446353-6254”,<code class="language-plaintext highlighter-rouge">      </code>“A0000000031010-6FA837C30903A7D6”,<code class="language-plaintext highlighter-rouge">      </code>“         CREDITO VISA”<code class="language-plaintext highlighter-rouge">    </code>],</td>
-          <td style="text-align: left"> </td>
-        </tr>
-        <tr>
-          <td style="text-align: left"> </td>
-          <td style="text-align: left"><code class="language-plaintext highlighter-rouge">    </code>“<strong>receipt_cli</strong>”: [<code class="language-plaintext highlighter-rouge">      </code>“       CIELO – VIA CLIENTE”,<code class="language-plaintext highlighter-rouge">      </code>“29/11/2023              23:14:56”,<code class="language-plaintext highlighter-rouge">      </code>“”,<code class="language-plaintext highlighter-rouge">      </code>“LOJAS DA CHINA”,<code class="language-plaintext highlighter-rouge">      </code>“RUA 25 DE MARCO, 123”,<code class="language-plaintext highlighter-rouge">      </code>“SAO PAULO - SP”,<code class="language-plaintext highlighter-rouge">      </code>“EC:000237236782351  POS:91746241”,<code class="language-plaintext highlighter-rouge">      </code>“”,<code class="language-plaintext highlighter-rouge">      </code>“VALOR:                    125,80”,<code class="language-plaintext highlighter-rouge">      </code>“”,<code class="language-plaintext highlighter-rouge">      </code>“************6254    CREDITO VISA”,<code class="language-plaintext highlighter-rouge">      </code>“DOC:987654            AUT:901782”<code class="language-plaintext highlighter-rouge">    </code>],</td>
-          <td style="text-align: left"> </td>
-        </tr>
-        <tr>
-          <td style="text-align: left"> </td>
-          <td style="text-align: left"><code class="language-plaintext highlighter-rouge">   </code>“<strong>receipt_cli_sm</strong>”: [<code class="language-plaintext highlighter-rouge">      </code>“CIELO 29/11/2023 23:14:56”,<code class="language-plaintext highlighter-rouge">      </code>“POS:91746241 ETB:000237236782351”,<code class="language-plaintext highlighter-rouge">      </code>“VLR: 125,80 CREDITO VISA ***6254”,<code class="language-plaintext highlighter-rouge">      </code>“DOC:987654 AUT:901782”<code class="language-plaintext highlighter-rouge">    </code>],</td>
-          <td style="text-align: left"> </td>
-        </tr>
-        <tr>
-          <td style="text-align: left"> </td>
-          <td style="text-align: left"><code class="language-plaintext highlighter-rouge">   </code>“<strong>receipt_mch</strong>”: [<code class="language-plaintext highlighter-rouge">      </code>“        CIELO – VIA LOJA”,<code class="language-plaintext highlighter-rouge">      </code>“29/11/2023              23:14:56”,<code class="language-plaintext highlighter-rouge">      </code>“”,<code class="language-plaintext highlighter-rouge">      </code>“LOJAS DA CHINA”,<code class="language-plaintext highlighter-rouge">      </code>“RUA 25 DE MARCO, 123”,<code class="language-plaintext highlighter-rouge">      </code>“SAO PAULO - SP”,<code class="language-plaintext highlighter-rouge">      </code>“EC:000237236782351  POS:91746241”,<code class="language-plaintext highlighter-rouge">      </code>“”,<code class="language-plaintext highlighter-rouge">      </code>“VALOR:                    125,80”,<code class="language-plaintext highlighter-rouge">      </code>“”,<code class="language-plaintext highlighter-rouge">      </code>“************6254           ONL-C”,<code class="language-plaintext highlighter-rouge">      </code>“DOC:987654            AUT:901782”,<code class="language-plaintext highlighter-rouge">      </code>“”,<code class="language-plaintext highlighter-rouge">      </code>“      AUTORIZADA COM SENHA”,<code class="language-plaintext highlighter-rouge">      </code>“          446353-6254”,<code class="language-plaintext highlighter-rouge">      </code>“A0000000031010-6FA837C30903A7D6”,<code class="language-plaintext highlighter-rouge">      </code>“         CREDITO VISA”<code class="language-plaintext highlighter-rouge">    </code>]<code class="language-plaintext highlighter-rouge">  </code>}}</td>
-          <td style="text-align: left"> </td>
-        </tr>
-        <tr>
-          <td style="text-align: left">O <em>checkout</em> recebe os dados da transação, efetua os procedimentos fiscais e retorna indicação de sucesso para o POS.</td>
-          <td style="text-align: left"> </td>
-          <td style="text-align: left"> </td>
-        </tr>
-        <tr>
-          <td style="text-align: left"><strong>Ü AC</strong></td>
-          <td style="text-align: left">{<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>msg_id</strong>”: “RspEndSession”,<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>pos_id</strong>”: “91746241”,<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>seq_pos</strong>”: “00018725”,<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>seq_ac</strong>”: “00000098”,<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>status</strong>”: 0<br />}</td>
-          <td style="text-align: left"> </td>
-        </tr>
-      </tbody>
-    </table>
-
-    <ol>
-      <li>
-        <h2 id="fluxo-de-comunicação-no-checkout"><strong>Fluxo de comunicação no <em>checkout</em></strong></h2>
-        <p>Esta sessão detalha como o <em>checkout</em> deve tratar a comunicação TCP/IP com o POS, contemplando eventuais situações de erro.</p>
-      </li>
-    </ol>
-  </li>
-</ul>
-
-<p>O <em>checkout</em> adotar as seguintes premissas para trocar mensagens com o POS:</p>
-
-<ul>
-  <li>Caso o <em>checkout</em> receba uma mensagem inconsistente do POS (formato JSON inválido, mensagem incompleta, campos faltando, campo “seq_ac” inválido), ele deve fechar o <em>socket</em> e voltar a aguardar uma mensagem do POS.</li>
-  <li>Caso o <em>checkout</em> receba uma mensagem incompleta do POS (verificado através dos dois bytes de tamanho no início), ele deverá aguardar os fragmentos restantes da mensagem por no máximo 1 (um) segundo cada um. Se esse tempo se esgotar, a mensagem recebida é considerada inconsistente e, portanto, descartada.</li>
-  <li>O <em>checkout</em> deve permitir o cancelamento da operação pelo usuário. Se isso acontecer, o <em>checkout</em> deve fechar os sockets TCP/IP e voltar à tela de escolha da forma de pagamento.</li>
-  <li>Se a operação ocorreu normalmente (do ponto de vista do protocolo de comunicação), seja um “InitSession” ou “EndSession”, o <em>checkout</em> devolve a mensagem de resposta ao POS e não fecha o <em>socket</em>. A responsabilidade de fechar o <em>socket</em> de comunicação é do POS.</li>
-  <li>Depois de enviar a resposta do “EndSession”, o <em>checkout</em> deve esperar o POS desconectar o socket. Se isso não acontecer em até 10 (dez) segundos, então o <em>checkout</em> deverá fechar o <em>socket</em> para encerrar o processo.</li>
-  <li>O POS poderá, opcionalmente, desconectar o socket entre o “InitSession” e o “EndSession”. Se o <em>checkout</em> detectar uma desconexão enquanto aguarda uma mensagem do POS, ele deve voltar a aguardar a conexão do POS sem gerar nenhum tipo de erro.</li>
-</ul>
-
-<p>O fluxograma a seguir detalha o processo de comunicação a ser efetuado pelo <em>checkout</em> imediatamente após o operador solicitar pagamento usando a Cielo:</p>
-
-<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.5106fbda-7c74-4c82-a3a3-e0d058563a95.007.png" alt="" /></p>
-<ol>
-  <li>
-    <h2 id="situações-de-exceção"><strong>Situações de exceção</strong></h2>
-    <p>Esta sessão ilustra o comportamento esperado dos sistemas POS e <em>checkout</em> em situações de exceção.</p>
-  </li>
-  <li>
-    <h3 id="transação-negada"><strong>Transação negada</strong></h3>
-    <p>O diagrama a seguir mostra a situação em que a transação financeira não é aprovada na rede Cielo.</p>
-  </li>
-</ol>
-
-<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.5106fbda-7c74-4c82-a3a3-e0d058563a95.008.png" alt="" /></p>
-
-<p>|A Cielo nega a transação <strong>(1)</strong>. O POS envia um comando para finalizar a sessão, indicando que a transação foi negada <strong>(2)</strong> com a mensagem “SALDO INSUFICIENTE”.|||
-| :- | :- | :- |
-|<strong>POS Þ</strong>|{<code class="language-plaintext highlighter-rouge">  </code>“<strong>msg_id</strong>”: “CmdEndSession”,<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>pos_id</strong>”: “91746241”,<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>seq_pos</strong>”: “00018725”,<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>seq_ac</strong>”: “00000098”,<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>status</strong>”: <strong>21</strong>,<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>pos_sn</strong>”: “987264BY3463-23”,<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>message</strong>”: “SALDO INSUFICIENTE”<br />}||
-|O <em>checkout</em> recebe a informação de negação e fecha a sessão com sucesso <strong>(3)</strong>.|||
-|<strong>Ü AC</strong>|{<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>msg_id</strong>”: “RspEndSession”,<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>pos_id</strong>”: “91746241”,<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>seq_pos</strong>”: “00018725”,<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>seq_ac</strong>”: “00000098”,<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>status</strong>”: <strong>21</strong><br />}||</p>
-<ol>
-  <li>
-    <h3 id="checkout-ocupado"><strong><em>Checkout</em> ocupado</strong></h3>
-    <p>O diagrama a seguir mostra uma situação em que o <em>checkout</em> está ocupada atendendo um outro POS.</p>
-  </li>
-</ol>
-
-<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.5106fbda-7c74-4c82-a3a3-e0d058563a95.009.png" alt="" /></p>
-
-<p>|O POS envia um comando para iniciar uma sessão.|||
-| :- | :- | :- |
-|<strong>POS Þ</strong>|{<code class="language-plaintext highlighter-rouge">  </code>“<strong>msg_id</strong>”: “CmdInitSession”,<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>pos_id</strong>”: “91746241”,<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>seq_pos</strong>”: “43567484”<br />}||
-|O <em>checkout</em> não aceita a conexão, informando que está com uma sessão aberta com outro terminal.|||
-|<strong>Ü AC</strong>|{<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>msg_id</strong>”: “RspInitSession”,<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>pos_id</strong>”: “91746241”,<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>seq_pos</strong>”: “43567484”,<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>status</strong>”: <strong>11</strong><br />}||</p>
-<ol>
-  <li>
-    <h3 id="não-foi-possível-conectar-o-checkout"><strong>Não foi possível conectar o <em>checkout</em></strong></h3>
-    <p>O diagrama a seguir ilustra a situação em que a transação é efetuada com sucesso na rede Cielo, mas o POS não consegue a conexão <em>socket</em> para finalizar a sessão com o <em>checkout</em>. Esta situação pode ocorrer com facilidade se o operador cancelar o processo.</p>
-  </li>
-</ol>
-
-<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.5106fbda-7c74-4c82-a3a3-e0d058563a95.010.png" alt="" /></p>
-
-<p>Se o POS não conseguir conexão <em>socket</em> com o <em>checkout</em> em [<strong>5 (cinco)](#to_connect) **segundos</strong>, ele deve desfazer a transação com a rede Cielo.</p>
-<ol>
-  <li>
-    <h3 id="erro-no-procedimento-fiscal"><strong>Erro no procedimento fiscal</strong></h3>
-    <p>O diagrama a seguir mostra a situação em que a transação financeira é aprovada na rede Cielo, mas o <em>checkout</em> não consegue efetuar os procedimentos fiscais e decide cancelar o pagamento.</p>
-  </li>
-</ol>
-
-<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.5106fbda-7c74-4c82-a3a3-e0d058563a95.011.png" alt="" /></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">A rede Cielo aprova a transação <strong>(1)</strong> e o POS envia um comando para finalizar a sessão, indicando sucesso <strong>(2)</strong>.</th>
-      <th style="text-align: left"> </th>
-      <th style="text-align: left"> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><strong>POS Þ</strong></td>
-      <td style="text-align: left">{ “<strong>msg_id</strong>”: “CmdEndSession”,<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>pos_id</strong>”: “91746241”,<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>seq_pos</strong>”: “00018725”,<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>seq_ac</strong>”: “00000098”,<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>status</strong>”: 0,<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>pos_sn</strong>”: “987264BY3463-23”</td>
-      <td style="text-align: left"> </td>
-    </tr>
-    <tr>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">  </code>“<strong>transaction</strong>”: {<br /><code class="language-plaintext highlighter-rouge">    </code>“<strong>amount</strong>”: “12580”,<br /><code class="language-plaintext highlighter-rouge">    </code>“<strong>prod_pri</strong>”: 3,<br /><code class="language-plaintext highlighter-rouge">    </code>“<strong>prod_sec</strong>”: 14,<br /><code class="language-plaintext highlighter-rouge">    </code>“<strong>nsu</strong>”: “987654”,<br /><code class="language-plaintext highlighter-rouge">    </code>“<strong>aut</strong>”: “901782”,<br /><code class="language-plaintext highlighter-rouge">    </code>“<strong>installments</strong>”: 3,<br /><code class="language-plaintext highlighter-rouge">    </code>“<strong>timestamp</strong>”: “2023-11-29T15:02:18”,<br /><code class="language-plaintext highlighter-rouge">    </code>“<strong>receipt_gen</strong>”: [ … ],<br /><code class="language-plaintext highlighter-rouge">    </code>“<strong>receipt_cli</strong>”: [ … ],<br /><code class="language-plaintext highlighter-rouge">    </code>“<strong>receipt_cli_sm</strong>”: [ … ],<br /><code class="language-plaintext highlighter-rouge">    </code>“<strong>receipt_cli_mch</strong>”: [ … ] }<br />}</td>
-      <td style="text-align: left"> </td>
-    </tr>
-    <tr>
-      <td style="text-align: left">O <em>checkout</em> recebe os dados da transação, mas não consegue efetuar os procedimentos fiscais e retorna indicação de erro para o POS <strong>(3)</strong>.</td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><strong>Ü AC</strong></td>
-      <td style="text-align: left">{<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>msg_id</strong>”: “RspEndSession”,<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>pos_id</strong>”: “91746241”,<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>seq_pos</strong>”: “00018725”,<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>seq_ac</strong>”: “00000098”,<br /><code class="language-plaintext highlighter-rouge">  </code>“<strong>status</strong>”: <strong>12</strong><br />}</td>
-      <td style="text-align: left"> </td>
-    </tr>
-    <tr>
-      <td style="text-align: left">O POS desfaz a transação na rede Cielo <strong>(4)</strong>.</td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
-    </tr>
-  </tbody>
-</table>
-
-<ol>
-  <li>
-    <h1 id="implementação-alternativa-simbiose"><strong>Implementação Alternativa (SIMBIOSE)</strong></h1>
-    <p>Existe um padrão antigo de mercado para comunicação entre sistemas de checkout e sistemas de pagamento usando troca de arquivos especificado pelo documento <strong>&amp;<a href="#doc_tef_dial">TEF_DIAL</a>.</strong> Apesar de ser um padrão bem antigo, ele ainda é suportado por diversos sistemas de <em>checkout</em> do mercado brasileiro.</p>
-
-    <p>Para facilitar a integração com esses sistemas existentes, a Cielo fornece uma aplicação denominada “SIMBIOSE” capaz de emular essa troca de arquivos e implementar a comunicação com o POS usando o protocolo JSON especificado neste documento.</p>
-  </li>
-</ol>
-
-<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.5106fbda-7c74-4c82-a3a3-e0d058563a95.012.png" alt="" /></p>
-
-<p>O “SIMBIOSE” implementa o esquema especificado no documento <strong>&amp;<a href="#doc_tef_dial">TEF_DIAL**</a></strong> com as seguintes diferenças:</p>
-
-<ul>
-  <li>Somente os seguintes tipos de operação estão implementados:</li>
-</ul>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: center"><strong>Operação</strong></th>
-      <th style="text-align: left"><strong>Descrição</strong></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center"><strong>“ATV”</strong></td>
-      <td style="text-align: left">Verifica se o <strong>SIMBIOSE</strong> está ativo.</td>
-    </tr>
-    <tr>
-      <td style="text-align: center"><strong>“CRT”</strong></td>
-      <td style="text-align: left">Pedido de autorização para transação por meio de cartão.</td>
-    </tr>
-    <tr>
-      <td style="text-align: center"><strong>“CNF”</strong></td>
-      <td style="text-align: left">Confirmação da venda e realização dos processos fiscais.</td>
-    </tr>
-    <tr>
-      <td style="text-align: center"><strong>“NCN”</strong></td>
-      <td style="text-align: left">Não confirmação da venda e/ou realização dos processos fiscais.</td>
-    </tr>
-  </tbody>
-</table>
-
-<ul>
-  <li>Os seguintes campos foram criados para implementar os diferentes tipos e vias de comprovante:</li>
-</ul>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: center"><strong>Campo</strong></th>
-      <th style="text-align: left"><strong>Descrição</strong></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center"><strong>028-000</strong></td>
-      <td style="text-align: left">Quantidade de linhas do comprovante genérico (“.receipt_gen”).</td>
-    </tr>
-    <tr>
-      <td style="text-align: center"><strong>029-xxx</strong></td>
-      <td style="text-align: left">Cada uma das linhas do comprovante genérico (“.receipt_gen”), sendo xxx &gt;= “001”.</td>
-    </tr>
-    <tr>
-      <td style="text-align: center"><strong>710-000</strong></td>
-      <td style="text-align: left">Quantidade de linhas do comprovante reduzido (“.receipt_cli_sm”).</td>
-    </tr>
-    <tr>
-      <td style="text-align: center"><strong>711-xxx</strong></td>
-      <td style="text-align: left">Cada uma das linhas do comprovante genérico (“.receipt_cli_sm”), sendo xxx &gt;= “001”.</td>
-    </tr>
-    <tr>
-      <td style="text-align: center"><strong>712-000</strong></td>
-      <td style="text-align: left">Quantidade de linhas da via do cliente (“.receipt_cli”).</td>
-    </tr>
-    <tr>
-      <td style="text-align: center"><strong>713-xxx</strong></td>
-      <td style="text-align: left">Cada uma das linhas da via do cliente (“.receipt_cli”), sendo xxx &gt;= “001”.</td>
-    </tr>
-    <tr>
-      <td style="text-align: center"><strong>714-000</strong></td>
-      <td style="text-align: left">Quantidade de linhas da via do estabelecimento (“.receipt_mch”).</td>
-    </tr>
-    <tr>
-      <td style="text-align: center"><strong>715-xxx</strong></td>
-      <td style="text-align: left">Cada uma das linhas da via do estabelecimento (“.receipt_mch”), sendo xxx &gt;= “001”.</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
