@@ -1702,3 +1702,14 @@ Response
 "Ok": true
 }
 ```
+
+## 12 - Arquivo de saída
+
+É o arquivo conciliado, também chamado de arquivo de fluxo de caixa, que contém todas as vendas, pagamentos, estornos e cancelamentos, enfim, todos os movimentos que uma loja possui para determinada data.
+
+O arquivo de saída é um meio de integração, e você poderá fazer o upload do arquivo conciliado para o seu ERP ou sistema de gestão para gerar um “contas a receber” e realizar as baixas das contas que receber dentro do seu sistema.
+
+Nesse manual, você pode consultar a configuração de dois formatos de arquivo de saída, XML e CSV:
+
+[Arquivos Fluxo de Caixa 2.0 – XML;)](https://braspag.github.io//manual/braspag-conciliador#arquivos-fluxo-de-caixa-2.0-xml)
+[Arquivos Fluxo de Caixa 2.0 – CSV.](https://braspag.github.io//manual/braspag-conciliador#arquivos-fluxo-de-caixa-2.0-csv)
