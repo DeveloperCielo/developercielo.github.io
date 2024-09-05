@@ -1712,4 +1712,5 @@ O arquivo de saída é um meio de integração, e você poderá fazer o upload d
 Nesse manual, você pode consultar a configuração de dois formatos de arquivo de saída, XML e CSV:
 
 [Arquivos Fluxo de Caixa 2.0 – XML;)](https://braspag.github.io//manual/braspag-conciliador#arquivos-fluxo-de-caixa-2.0-xml)
+
 [Arquivos Fluxo de Caixa 2.0 – CSV.](https://braspag.github.io//manual/braspag-conciliador#arquivos-fluxo-de-caixa-2.0-csv)
