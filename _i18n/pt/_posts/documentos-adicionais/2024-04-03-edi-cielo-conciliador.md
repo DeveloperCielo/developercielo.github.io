@@ -1703,7 +1703,7 @@ Response
 }
 ```
 
-## 12 - Arquivo de saída
+# 12 - Arquivo de saída
 
 É o arquivo conciliado, também chamado de arquivo de fluxo de caixa, que contém todas as vendas, pagamentos, estornos e cancelamentos, enfim, todos os movimentos que uma loja possui para determinada data.
 
