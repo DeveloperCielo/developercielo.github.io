@@ -37,9 +37,6 @@ tags:
 - **Atualização de tabelas de domínio**:
   - Revisão da **Tabela IX** do manual.
 
-* Versão produtiva: **15.9.1**
-
-  
 **Arquivos de teste**
 
 [Arquivos de Teste](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/ArquivosTeste22082024.zip)
