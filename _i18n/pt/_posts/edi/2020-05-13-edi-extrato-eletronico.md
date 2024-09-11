@@ -15,7 +15,27 @@ tags:
 
 **Documentação**
 
-[CIELO_Extrato_Eletronico_Manual_Versao_15.9.1](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO_Extrato_Eletronico_Manual_Versao_15.9.1.zip)  
+[CIELO_Extrato_Eletronico_Manual_Versao_15.10](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO_Extrato_Eletronico_Manual_Versao_15.10.rar)
+
+* Versão produtiva: **15.8.1**
+* Próxima atualização: **23/07/2024 para a versão 15.9.errata**
+
+**Melhorias no Extrato Eletrônico**
+
+- **Atualização no arquivo de Negociação de Recebíveis Cielo (NRC)**:
+  - Inclusão do campo **"Taxa efetiva da negociação"** nos registros tipo "A".  
+    _Esse campo proporciona mais transparência ao processo de conciliação das operações efetuadas pelo cliente._
+  - Inclusão do campo **"Valor de desconto"** nos registros tipo "B".  
+    _Esse campo oferece visibilidade da diferença entre o valor bruto e o valor líquido._
+
+- **Atualização nos arquivos de venda e pagamento**:
+  - Inclusão do **CNPJ** que efetuou a negociação de recebíveis nos registros tipo "E".  
+    _Esse campo detalha a origem da negociação realizada pelo cliente._
+  - Equalização do domicílio bancário nos arquivos de pagamento.  
+    _Isso garante uma visualização consistente entre os registros de detalhe e a consolidação do saldo das URs._
+
+- **Atualização de tabelas de domínio**:
+  - Revisão da **Tabela IX** do manual.
 
 * Versão produtiva: **15.9.1**
 
