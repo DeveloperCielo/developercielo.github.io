@@ -136,12 +136,32 @@
 
             <div class="post"><h1 id="electronic-statement-v15">ELECTRONIC STATEMENT v15</h1>
 
-<p><strong>Documentation</strong></p>
+<p><a href="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO_Eletronic_Statement_Manual_-_Version_15.10.zip">CIELO_Extrato_Eletronico_Manual_Versao_15.10</a></p>
 
-<p><a href="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO_Eletronic_Statement_Manual_-_Version_15.9.1.zip">CIELO_Extrato_Eletronico_Manual_Versao_15.9.1</a></p>
+<p><strong>Improvements to the Electronic Statement</strong></p>
 
 <ul>
-  <li>Current version: <strong>15.9.1</strong></li>
+  <li><strong>Update to the Cielo Receivables Negotiation (NRC) file</strong>:
+    <ul>
+      <li>Inclusion of the field <strong>“Effective negotiation rate”</strong> in type “A” records.<br />
+<em>This field provides more transparency to the process of reconciling transactions carried out by the client.</em></li>
+      <li>Inclusion of the field <strong>“Discount value”</strong> in type “B” records.<br />
+<em>This field provides visibility into the difference between the gross value and the net value.</em></li>
+    </ul>
+  </li>
+  <li><strong>Update in sales and payment files</strong>:
+    <ul>
+      <li>Inclusion of the <strong>CNPJ</strong> that carried out the negotiation of receivables in type “E” records.<br />
+<em>This field details the origin of the negotiation carried out by the client.</em></li>
+      <li>Equalization of bank address in payment files.<br />
+<em>This ensures a consistent view between detail records and UR balance consolidation.</em></li>
+    </ul>
+  </li>
+  <li><strong>Domain table update</strong>:
+    <ul>
+      <li>Review of <strong>Table IX</strong> of the manual.</li>
+    </ul>
+  </li>
 </ul>
 
 <p><strong>Test files</strong></p>
