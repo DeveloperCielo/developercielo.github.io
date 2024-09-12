@@ -17,9 +17,6 @@ tags:
 
 [CIELO_Extrato_Eletronico_Manual_Versao_15.10](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO_Extrato_Eletronico_Manual_Versao_15.10.rar)
 
-* Versão produtiva: **15.8.1**
-* Próxima atualização: **23/07/2024 para a versão 15.9.errata**
-
 **Melhorias no Extrato Eletrônico**
 
 - **Atualização no arquivo de Negociação de Recebíveis Cielo (NRC)**:
