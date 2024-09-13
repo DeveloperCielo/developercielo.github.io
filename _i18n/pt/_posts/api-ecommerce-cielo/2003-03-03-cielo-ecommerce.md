@@ -13,6 +13,7 @@ language_tabs:
   json: JSON
   shell: cURL
 ---
+<meta http-equiv="refresh" content="0; URL=https://docs.cielo.com.br/ecommerce-cielo/">
 
 <aside class="warning"> O conteúdo deste manual foi descontinuado e não é atualizado desde 14/08/2024. Acesse o novo portal.</aside>
 
