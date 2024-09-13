@@ -31,7 +31,12 @@ tags:
 
 - **Domain table update**:
   - Review of **Table IX** of the manual.
-  
+
+
+**Implementation date: 10/24/2024**
+
+**Test files v15.10: Expected for the week of 9/16**
+
 **Test files**
 
 [Test Files](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/ArquivosTeste22082024.zip)
