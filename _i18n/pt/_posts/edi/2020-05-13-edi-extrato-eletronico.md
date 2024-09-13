@@ -34,6 +34,9 @@ tags:
 - **Atualização de tabelas de domínio**:
   - Revisão da **Tabela IX** do manual.
 
+**Data de implantação: 24/10/2024**
+**Arquivos de teste v15.10: Previstos para a semana do dia 16/09**
+
 **Arquivos de teste**
 
 [Arquivos de Teste](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/ArquivosTeste22082024.zip)
