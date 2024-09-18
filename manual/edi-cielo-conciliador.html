@@ -1781,7 +1781,7 @@ O “Tipo de acesso da API” fica a seu critério, selecionar as permissões de
 O status deve ser <strong>Ativo</strong>.</p>
 
 <blockquote>
-  <p>Ponto de atenção:  O token só fica visível 1 vez na tela, certifique-se de copiá-lo e guardá-lo.</p>
+  <p><strong>Ponto de atenção:</strong>  O token só fica visível 1 vez na tela, certifique-se de copiá-lo e guardá-lo.</p>
 </blockquote>
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Conciliador_API_Publica.png" alt="Conciliador_API_Publica" /></p>
@@ -1795,8 +1795,9 @@ O status deve ser <strong>Ativo</strong>.</p>
 
 <p>Esse método gera o relatório com dados de conciliação, conforme descrito na documentação do Agiliza:</p>
 
-<p><a href="https://braspag.github.io//manual/braspag-conciliador#arquivos-fluxo-de-caixa-2.0-xml">Arquivos Fluxo de Caixa XML</a>
-<a href="https://braspag.github.io//manual/braspag-conciliador#arquivos-fluxo-de-caixa-2.0-csv">Arquivos Fluxo de Caixa CSV</a></p>
+<p><a href="https://braspag.github.io//manual/braspag-conciliador#arquivos-fluxo-de-caixa-2.0-xml">Arquivos Fluxo de Caixa XML</a></p>
+
+<p><a href="https://braspag.github.io//manual/braspag-conciliador#arquivos-fluxo-de-caixa-2.0-csv">Arquivos Fluxo de Caixa CSV</a></p>
 
 <table>
   <thead>
@@ -1807,7 +1808,7 @@ O status deve ser <strong>Ativo</strong>.</p>
   </thead>
   <tbody>
     <tr>
-      <td>** Token**</td>
+      <td><strong>Token</strong></td>
       <td> </td>
     </tr>
   </tbody>
@@ -1828,13 +1829,9 @@ O status deve ser <strong>Ativo</strong>.</p>
   </tbody>
 </table>
 
-<p>Example Request</p>
-
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">--location</span> <span class="nt">-g</span> <span class="s1">'/PublicRelatorioAPI/GerarRelatorioFormatoAgiliza?merchantId=&amp;Acquirer=&amp;dateFile=&amp;pageIndex=&amp;pageSize='</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span>
 </code></pre></div></div>
-
-<p>Example Response</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"pageIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -2126,8 +2123,9 @@ O status deve ser <strong>Ativo</strong>.</p>
 </code></pre></div></div>
 <p>Esse método gera o relatório com dados de conciliação, conforme descrito na documentação do Agiliza:</p>
 
-<p><a href="https://braspag.github.io//manual/braspag-conciliador#arquivos-fluxo-de-caixa-2.0-xml">Arquivos Fluxo de Caixa XML</a>
-<a href="https://braspag.github.io//manual/braspag-conciliador#arquivos-fluxo-de-caixa-2.0-csv">Arquivos Fluxo de Caixa CSV</a></p>
+<p><a href="https://braspag.github.io//manual/braspag-conciliador#arquivos-fluxo-de-caixa-2.0-xml">Arquivos Fluxo de Caixa XML</a></p>
+
+<p><a href="https://braspag.github.io//manual/braspag-conciliador#arquivos-fluxo-de-caixa-2.0-csv">Arquivos Fluxo de Caixa CSV</a></p>
 
 <p>É necessário enviar a solicitação através desse endpoint, em que será retornado um id de relatório.</p>
 
@@ -2148,8 +2146,6 @@ O status deve ser <strong>Ativo</strong>.</p>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="nl">"Service"</span><span class="p">:</span><span class="s2">"relatorio_agiliza_gateway"</span><span class="p">,</span><span class="nl">"Value"</span><span class="p">:{</span><span class="nl">"Id"</span><span class="p">:</span><span class="s2">"66e87a81be5b7a52e4641702"</span><span class="p">,</span><span class="nl">"FileName"</span><span class="p">:</span><span class="s2">"RelatorioDeSaidaAgilizaGateway.csv"</span><span class="p">}}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Example Request</p>
-
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">--location</span> <span class="nt">-g</span> <span class="s1">'/PublicRelatorioAPI/SolicitarRelatorioAgilizaAsync'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data</span> <span class="s1">'{
@@ -2160,8 +2156,6 @@ O status deve ser <strong>Ativo</strong>.</p>
     "urlNotificacao": "http://localhost:5000"
 }'</span>
 </code></pre></div></div>
-
-<p>Example Response</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"66e87a81be5b7a52e4641702"</span><span class="p">,</span><span class="w">
@@ -2198,9 +2192,6 @@ O status deve ser <strong>Ativo</strong>.</p>
     </tr>
   </tbody>
 </table>
-
-<p>| <strong>Body</strong> | raw(json)       |
-|———-|—————–|</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"merchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
