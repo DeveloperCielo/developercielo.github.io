@@ -1716,7 +1716,7 @@ Selecione o **Webservice API Pública da F360**, indique um nome de identificaç
 O “Tipo de acesso da API” fica a seu critério, selecionar as permissões dessa chave ou acesso total.
 O status deve ser **Ativo**.
 
-> Ponto de atenção:  O token só fica visível 1 vez na tela, certifique-se de copiá-lo e guardá-lo.
+> **Ponto de atenção:**  O token só fica visível 1 vez na tela, certifique-se de copiá-lo e guardá-lo.
 
 ![Conciliador_API_Publica](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Conciliador_API_Publica.png)
 
@@ -1732,12 +1732,13 @@ O status deve ser **Ativo**.
 Esse método gera o relatório com dados de conciliação, conforme descrito na documentação do Agiliza:
 
 [Arquivos Fluxo de Caixa XML](https://braspag.github.io//manual/braspag-conciliador#arquivos-fluxo-de-caixa-2.0-xml)
+
 [Arquivos Fluxo de Caixa CSV](https://braspag.github.io//manual/braspag-conciliador#arquivos-fluxo-de-caixa-2.0-csv)
 
 
 | **AUTHORIZATION** |                    |
 |-------------------|--------------------|
-| ** Token**        | {{token_jwt}}      |
+| **Token**         | {{token_jwt}}      |
 
 
 | **HEADERS**        |                    |
@@ -1745,14 +1746,11 @@ Esse método gera o relatório com dados de conciliação, conforme descrito na 
 | **Content-Type**   | application/json   |
 
 
-Example Request
-
 ```shell
 curl --location -g '{{URL}}/PublicRelatorioAPI/GerarRelatorioFormatoAgiliza?merchantId=&Acquirer=&dateFile=&pageIndex=&pageSize=' \
 --header 'Content-Type: application/json'
 ```
 
-Example Response
 
 ```json
 {
@@ -2027,6 +2025,7 @@ Example Response
 Esse método gera o relatório com dados de conciliação, conforme descrito na documentação do Agiliza:
 
 [Arquivos Fluxo de Caixa XML](https://braspag.github.io//manual/braspag-conciliador#arquivos-fluxo-de-caixa-2.0-xml)
+
 [Arquivos Fluxo de Caixa CSV](https://braspag.github.io//manual/braspag-conciliador#arquivos-fluxo-de-caixa-2.0-csv)
 
 É necessário enviar a solicitação através desse endpoint, em que será retornado um id de relatório.
@@ -2047,7 +2046,6 @@ Sobre os parâmetros do body:
 {"Service":"relatorio_agiliza_gateway","Value":{"Id":"66e87a81be5b7a52e4641702","FileName":"RelatorioDeSaidaAgilizaGateway.csv"}}
 ```
 
-Example Request
 
 ```shell
 curl --location -g '{{URL}}/PublicRelatorioAPI/SolicitarRelatorioAgilizaAsync' \
@@ -2061,7 +2059,6 @@ curl --location -g '{{URL}}/PublicRelatorioAPI/SolicitarRelatorioAgilizaAsync' \
 }'
 ```
 
-Example Response
 
 ```json
 {
@@ -2079,10 +2076,6 @@ Example Response
 | **HEADERS**        |                    |
 |--------------------|--------------------|
 | **Content-Type**   | application/json   |
-
-
-| **Body** | raw(json)       |
-|----------|-----------------|
 
 
 
