@@ -1773,11 +1773,444 @@ Response
 
 <p>O arquivo de saída é um meio de integração, e você poderá fazer o upload do arquivo conciliado para o seu ERP ou sistema de gestão para gerar um “contas a receber” e realizar as baixas das contas que receber dentro do seu sistema.</p>
 
-<p>Nesse manual, você pode consultar a configuração de dois formatos de arquivo de saída, XML e CSV:</p>
+<p>Para liberar o Token utilizado na API para extração dos arquivos de Saída no formato Agiliza, você deve acessar o site Cielo e realizar login. Na Aba <strong>Menu de Cadastro</strong> selecione <strong>Integrações</strong> e clique em <strong>“+CRIAR”</strong> no rodapé da página. 
+Após finalizar o preenchimento das informações solicitadas, o token de acesso será disponibilizado e poderá seguir com as próximas etapas.</p>
 
-<p><a href="https://braspag.github.io//manual/braspag-conciliador#arquivos-fluxo-de-caixa-2.0-xml">Arquivos Fluxo de Caixa 2.0 – XML;)</a></p>
+<p>Selecione o <strong>Webservice API Pública da F360</strong>, indique um nome de identificação para a chave que será criada.
+O “Tipo de acesso da API” fica a seu critério, selecionar as permissões dessa chave ou acesso total.
+O status deve ser <strong>Ativo</strong>.</p>
 
-<p><a href="https://braspag.github.io//manual/braspag-conciliador#arquivos-fluxo-de-caixa-2.0-csv">Arquivos Fluxo de Caixa 2.0 – CSV.</a></p>
+<blockquote>
+  <p>Ponto de atenção:  O token só fica visível 1 vez na tela, certifique-se de copiá-lo e guardá-lo.</p>
+</blockquote>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Conciliador_API_Publica.png" alt="Conciliador_API_Publica" /></p>
+
+<h2 id="gerar-relatório-formato-agiliza">Gerar Relatório Formato Agiliza</h2>
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint"> Gerar Relatório Formato Agiliza</span></aside>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">/</span><span class="nc">PublicRelatorioAPI</span><span class="o">/</span><span class="nc">GerarRelatorioFormatoAgiliza</span><span class="o">?</span><span class="n">merchantId</span><span class="o">=&amp;</span><span class="nc">Acquirer</span><span class="o">=&amp;</span><span class="n">dateFile</span><span class="o">=&amp;</span><span class="n">pageIndex</span><span class="o">=&amp;</span><span class="n">pageSize</span><span class="o">=</span>
+</code></pre></div></div>
+
+<p>Esse método gera o relatório com dados de conciliação, conforme descrito na documentação do Agiliza:</p>
+
+<p><a href="https://braspag.github.io//manual/braspag-conciliador#arquivos-fluxo-de-caixa-2.0-xml">Arquivos Fluxo de Caixa XML</a>
+<a href="https://braspag.github.io//manual/braspag-conciliador#arquivos-fluxo-de-caixa-2.0-csv">Arquivos Fluxo de Caixa CSV</a></p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>AUTHORIZATION</strong></th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>** Token**</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>HEADERS</strong></th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Content-Type</strong></td>
+      <td>application/json</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Example Request</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">--location</span> <span class="nt">-g</span> <span class="s1">'/PublicRelatorioAPI/GerarRelatorioFormatoAgiliza?merchantId=&amp;Acquirer=&amp;dateFile=&amp;pageIndex=&amp;pageSize='</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span>
+</code></pre></div></div>
+
+<p>Example Response</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"pageIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"pageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"totalItems"</span><span class="p">:</span><span class="w"> </span><span class="mi">138</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"merchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"acquirerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"generationDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-09-13T16:23:29.7699612-03:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"startPeriod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-05-02"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"endPeriod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-05-02"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"processingTypeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"processingType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Daily"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"conciliatedTransactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"conciliationTypeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"conciliationType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Automatic"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"saleData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"affiliationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"authorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"682149"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"saleDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-05-02"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"captureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-05-02"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transactionAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"877936"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"installmentCount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"nsu"</span><span class="p">:</span><span class="w"> </span><span class="s2">"139090"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"acquirerData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"affiliationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"summaryNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4240502"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"saleDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-05-02"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transactionGrossAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"877936"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transactionTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"25550"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transactionNetAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"852386"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"roundingInstallmentGrossAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"87799"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"roundingInstallmentTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2555"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"roundingInstallmentNetAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"85244"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"installmentsGrossAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"87793"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"installmentsTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2555"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"installmentsNetAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"85238"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"291"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"nsu"</span><span class="p">:</span><span class="w"> </span><span class="s2">"139090"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"terminalLogicNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"captureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-05-02"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"summaryIdentifierNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4240502"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"installmentCount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"authorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"682149"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"captureMethodId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"captureMethodDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E-Commerce"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cardBrandId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cardBrand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VISA"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cardTypeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cardType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"productIdentifierCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"43"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"productIdentifierDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa Parcelado Loja"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"accountingEvents"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"eventDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-06-03"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"categoryId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pagamento"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"typeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Realized"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"affiliationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"transactionInstallment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"grossAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"87799"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"netAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"85244"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"taxAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2555"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"bank"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"agency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2271"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13029117"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"originalPaymentDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"numeroLote"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4240502"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"eventDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-07-02"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"categoryId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pagamento"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"typeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Realized"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"affiliationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"transactionInstallment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"grossAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"87793"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"netAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"85238"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"taxAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2555"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"bank"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"agency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2271"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13029117"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"originalPaymentDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"numeroLote"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4240502"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"eventDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-08-01"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"categoryId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pagamento"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"typeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Realized"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"affiliationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"transactionInstallment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"grossAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"87793"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"netAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"85238"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"taxAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2555"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"bank"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"agency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2271"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13029117"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"originalPaymentDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"numeroLote"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4240502"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"eventDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-09-02"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"categoryId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pagamento"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"typeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Preview"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"affiliationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"transactionInstallment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"grossAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"87793"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"netAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"85238"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"taxAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2555"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"bank"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"agency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2271"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13029117"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"originalPaymentDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"numeroLote"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4240502"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"eventDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-10-02"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"categoryId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pagamento"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"typeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Preview"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"affiliationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"transactionInstallment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"grossAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"87793"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"netAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"85238"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"taxAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2555"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"bank"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"agency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2271"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13029117"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"originalPaymentDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"numeroLote"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4240502"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"eventDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-11-01"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"categoryId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pagamento"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"typeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Preview"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"affiliationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"transactionInstallment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"grossAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"87793"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"netAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"85238"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"taxAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2555"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"bank"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"agency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2271"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13029117"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"originalPaymentDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"numeroLote"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4240502"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"eventDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-12-02"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"categoryId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pagamento"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"typeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Preview"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"affiliationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"transactionInstallment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"grossAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"87793"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"netAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"85238"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"taxAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2555"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"bank"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"agency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2271"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13029117"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"originalPaymentDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"numeroLote"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4240502"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"eventDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-01-02"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"categoryId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pagamento"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"typeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Preview"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"affiliationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"transactionInstallment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"grossAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"87793"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"netAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"85238"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"taxAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2555"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"bank"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"agency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2271"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13029117"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"originalPaymentDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"numeroLote"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4240502"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"eventDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-02-03"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"categoryId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pagamento"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"typeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Preview"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"affiliationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"transactionInstallment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"grossAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"87793"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"netAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"85238"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"taxAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2555"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"bank"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"agency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2271"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13029117"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"originalPaymentDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"numeroLote"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4240502"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"eventDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-03-05"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"categoryId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pagamento"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"typeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Preview"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"affiliationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"transactionInstallment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"grossAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"87793"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"netAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"85238"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"taxAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2555"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"bank"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"agency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2271"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13029117"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"originalPaymentDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"numeroLote"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4240502"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"informationalEvents"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"eventDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-05-02"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"categoryId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Captura"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"typeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Realized"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"affiliationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"transactionInstallment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"grossAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"877936"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"netAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"852386"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"taxAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"25550"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"bank"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"agency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2271"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13029117"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"originalPaymentDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"affiliationAccountingEvents"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>PARAMS</strong></th>
+      <th><strong>Descrição</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>merchantId</strong></td>
+      <td>É o CNPJ da loja (apenas números)</td>
+    </tr>
+    <tr>
+      <td><strong>Acquirer</strong></td>
+      <td>Número da adquirente, seguindo os mesmos números da documentação do Agiliza (Ex: Cielo é 1)</td>
+    </tr>
+    <tr>
+      <td><strong>dateFile</strong></td>
+      <td>Data do arquivo no formato yyyy-MM-dd</td>
+    </tr>
+    <tr>
+      <td><strong>pageIndex</strong></td>
+      <td>Número da página, iniciando em 1</td>
+    </tr>
+    <tr>
+      <td><strong>pageSize</strong></td>
+      <td>Tamanho da página, que pode ser até 150</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="solicitar-relatório-agiliza-assincrono">Solicitar Relatório Agiliza Assincrono</h2>
+
+<aside class="request"><span class="method get">POST</span> <span class="endpoint"> Solicitar Relatório Agiliza Assincrono</span></aside>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">/</span><span class="nc">PublicRelatorioAPI</span><span class="o">/</span><span class="nc">SolicitarRelatorioAgilizaAsync</span>
+</code></pre></div></div>
+<p>Esse método gera o relatório com dados de conciliação, conforme descrito na documentação do Agiliza:</p>
+
+<p><a href="https://braspag.github.io//manual/braspag-conciliador#arquivos-fluxo-de-caixa-2.0-xml">Arquivos Fluxo de Caixa XML</a>
+<a href="https://braspag.github.io//manual/braspag-conciliador#arquivos-fluxo-de-caixa-2.0-csv">Arquivos Fluxo de Caixa CSV</a></p>
+
+<p>É necessário enviar a solicitação através desse endpoint, em que será retornado um id de relatório.</p>
+
+<p>Depois que o relatório estiver pronto, é necessário enviar o id recebido no endpoint de “Obter Relatório” para fazer download do arquivo.</p>
+
+<p>É possível incluir uma URL no body para onde vamos enviar uma notificação assim que o relatório estiver pronto.</p>
+
+<p>Sobre os parâmetros do body:</p>
+
+<ul>
+  <li>merchantId : CNPJ da empresa (apenas números)</li>
+  <li>Acquirer : Número da adquirente, seguindo os mesmos números da documentação do Agiliza (Ex: Cielo é 1)</li>
+  <li>dateFile : Data do arquivo no formato yyyy-MM-dd</li>
+  <li>formato : Formato do arquivo (xml ou csv)</li>
+  <li>urlNotificacao : URL que vamos enviar uma notificação assim que o relatório estiver pronto. A mensagem que enviamos é no seguinte formato, em que Id e Filename são o Id e nome do relatório gerado, respectivamente.</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="nl">"Service"</span><span class="p">:</span><span class="s2">"relatorio_agiliza_gateway"</span><span class="p">,</span><span class="nl">"Value"</span><span class="p">:{</span><span class="nl">"Id"</span><span class="p">:</span><span class="s2">"66e87a81be5b7a52e4641702"</span><span class="p">,</span><span class="nl">"FileName"</span><span class="p">:</span><span class="s2">"RelatorioDeSaidaAgilizaGateway.csv"</span><span class="p">}}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Example Request</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">--location</span> <span class="nt">-g</span> <span class="s1">'/PublicRelatorioAPI/SolicitarRelatorioAgilizaAsync'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data</span> <span class="s1">'{
+    "merchantId": "",
+    "Acquirer": 1,
+    "dateFile": "2024-05-02",
+    "formato" : "csv",
+    "urlNotificacao": "http://localhost:5000"
+}'</span>
+</code></pre></div></div>
+
+<p>Example Response</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"Result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"66e87a81be5b7a52e4641702"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>AUTHORIZATION</strong></th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>** Token**</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>HEADERS</strong></th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Content-Type</strong></td>
+      <td>application/json</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>| <strong>Body</strong> | raw(json)       |
+|———-|—————–|</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"merchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Acquirer"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"dateFile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-05-02"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"formato"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"csv"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"urlNotificacao"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:5000"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
 </div>
 
 
