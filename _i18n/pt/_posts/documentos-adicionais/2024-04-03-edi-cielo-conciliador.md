@@ -1709,8 +1709,390 @@ Response
 
 O arquivo de saída é um meio de integração, e você poderá fazer o upload do arquivo conciliado para o seu ERP ou sistema de gestão para gerar um “contas a receber” e realizar as baixas das contas que receber dentro do seu sistema.
 
-Nesse manual, você pode consultar a configuração de dois formatos de arquivo de saída, XML e CSV:
+Para liberar o Token utilizado na API para extração dos arquivos de Saída no formato Agiliza, você deve acessar o site Cielo e realizar login. Na Aba **Menu de Cadastro** selecione **Integrações** e clique em **“+CRIAR”** no rodapé da página. 
+Após finalizar o preenchimento das informações solicitadas, o token de acesso será disponibilizado e poderá seguir com as próximas etapas.
 
-[Arquivos Fluxo de Caixa 2.0 – XML;)](https://braspag.github.io//manual/braspag-conciliador#arquivos-fluxo-de-caixa-2.0-xml)
+Selecione o **Webservice API Pública da F360**, indique um nome de identificação para a chave que será criada.
+O “Tipo de acesso da API” fica a seu critério, selecionar as permissões dessa chave ou acesso total.
+O status deve ser **Ativo**.
 
-[Arquivos Fluxo de Caixa 2.0 – CSV.](https://braspag.github.io//manual/braspag-conciliador#arquivos-fluxo-de-caixa-2.0-csv)
+> Ponto de atenção:  O token só fica visível 1 vez na tela, certifique-se de copiá-lo e guardá-lo.
+
+![Conciliador_API_Publica](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Conciliador_API_Publica.png)
+
+
+## Gerar Relatório Formato Agiliza
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint"> Gerar Relatório Formato Agiliza</span></aside>
+
+```java
+{{URL}}/PublicRelatorioAPI/GerarRelatorioFormatoAgiliza?merchantId=&Acquirer=&dateFile=&pageIndex=&pageSize=
+```
+
+Esse método gera o relatório com dados de conciliação, conforme descrito na documentação do Agiliza:
+
+[Arquivos Fluxo de Caixa XML](https://braspag.github.io//manual/braspag-conciliador#arquivos-fluxo-de-caixa-2.0-xml)
+[Arquivos Fluxo de Caixa CSV](https://braspag.github.io//manual/braspag-conciliador#arquivos-fluxo-de-caixa-2.0-csv)
+
+
+| **AUTHORIZATION** |                    |
+|-------------------|--------------------|
+| ** Token**        | {{token_jwt}}      |
+
+
+| **HEADERS**        |                    |
+|--------------------|--------------------|
+| **Content-Type**   | application/json   |
+
+
+Example Request
+
+```shell
+curl --location -g '{{URL}}/PublicRelatorioAPI/GerarRelatorioFormatoAgiliza?merchantId=&Acquirer=&dateFile=&pageIndex=&pageSize=' \
+--header 'Content-Type: application/json'
+```
+
+Example Response
+
+```json
+{
+  "pageIndex": 1,
+  "pageSize": 100,
+  "totalItems": 138,
+  "totalPages": 2,
+  "merchantId": "",
+  "acquirerId": "1",
+  "generationDateTime": "2024-09-13T16:23:29.7699612-03:00",
+  "startPeriod": "2024-05-02",
+  "endPeriod": "2024-05-02",
+  "processingTypeId": "1",
+  "processingType": "Daily",
+  "version": "2.0",
+  "conciliatedTransactions": [
+    {
+      "conciliationTypeId": "1",
+      "conciliationType": "Automatic",
+      "saleData": {
+        "affiliationCode": "",
+        "authorizationCode": "682149",
+        "saleDate": "2024-05-02",
+        "captureDate": "2024-05-02",
+        "transactionAmount": "877936",
+        "installmentCount": "10",
+        "nsu": "139090"
+      },
+      "acquirerData": {
+        "affiliationCode": "",
+        "summaryNumber": "4240502",
+        "saleDate": "2024-05-02",
+        "transactionGrossAmount": "877936",
+        "transactionTaxAmount": "25550",
+        "transactionNetAmount": "852386",
+        "roundingInstallmentGrossAmount": "87799",
+        "roundingInstallmentTaxAmount": "2555",
+        "roundingInstallmentNetAmount": "85244",
+        "installmentsGrossAmount": "87793",
+        "installmentsTaxAmount": "2555",
+        "installmentsNetAmount": "85238",
+        "tax": "291",
+        "nsu": "139090",
+        "terminalLogicNumber": "",
+        "captureDate": "2024-05-02",
+        "summaryIdentifierNumber": "4240502",
+        "installmentCount": "10",
+        "authorizationCode": "682149",
+        "captureMethodId": "3",
+        "captureMethodDescription": "E-Commerce",
+        "cardBrandId": "1",
+        "cardBrand": "VISA",
+        "cardTypeId": "2",
+        "cardType": "Credit",
+        "productIdentifierCode": "43",
+        "productIdentifierDescription": "Visa Parcelado Loja"
+      },
+      "accountingEvents": [
+        {
+          "eventDate": "2024-06-03",
+          "categoryId": "4",
+          "category": "Pagamento",
+          "typeId": "1",
+          "type": "Realized",
+          "affiliationCode": "",
+          "transactionInstallment": "1",
+          "grossAmount": "87799",
+          "netAmount": "85244",
+          "taxAmount": "2555",
+          "bank": "33",
+          "agency": "2271",
+          "account": "13029117",
+          "originalPaymentDate": "0001-01-01",
+          "numeroLote": "4240502"
+        },
+        {
+          "eventDate": "2024-07-02",
+          "categoryId": "4",
+          "category": "Pagamento",
+          "typeId": "1",
+          "type": "Realized",
+          "affiliationCode": "",
+          "transactionInstallment": "2",
+          "grossAmount": "87793",
+          "netAmount": "85238",
+          "taxAmount": "2555",
+          "bank": "33",
+          "agency": "2271",
+          "account": "13029117",
+          "originalPaymentDate": "0001-01-01",
+          "numeroLote": "4240502"
+        },
+        {
+          "eventDate": "2024-08-01",
+          "categoryId": "4",
+          "category": "Pagamento",
+          "typeId": "1",
+          "type": "Realized",
+          "affiliationCode": "",
+          "transactionInstallment": "3",
+          "grossAmount": "87793",
+          "netAmount": "85238",
+          "taxAmount": "2555",
+          "bank": "33",
+          "agency": "2271",
+          "account": "13029117",
+          "originalPaymentDate": "0001-01-01",
+          "numeroLote": "4240502"
+        },
+        {
+          "eventDate": "2024-09-02",
+          "categoryId": "4",
+          "category": "Pagamento",
+          "typeId": "2",
+          "type": "Preview",
+          "affiliationCode": "",
+          "transactionInstallment": "4",
+          "grossAmount": "87793",
+          "netAmount": "85238",
+          "taxAmount": "2555",
+          "bank": "33",
+          "agency": "2271",
+          "account": "13029117",
+          "originalPaymentDate": "0001-01-01",
+          "numeroLote": "4240502"
+        },
+        {
+          "eventDate": "2024-10-02",
+          "categoryId": "4",
+          "category": "Pagamento",
+          "typeId": "2",
+          "type": "Preview",
+          "affiliationCode": "",
+          "transactionInstallment": "5",
+          "grossAmount": "87793",
+          "netAmount": "85238",
+          "taxAmount": "2555",
+          "bank": "33",
+          "agency": "2271",
+          "account": "13029117",
+          "originalPaymentDate": "0001-01-01",
+          "numeroLote": "4240502"
+        },
+        {
+          "eventDate": "2024-11-01",
+          "categoryId": "4",
+          "category": "Pagamento",
+          "typeId": "2",
+          "type": "Preview",
+          "affiliationCode": "",
+          "transactionInstallment": "6",
+          "grossAmount": "87793",
+          "netAmount": "85238",
+          "taxAmount": "2555",
+          "bank": "33",
+          "agency": "2271",
+          "account": "13029117",
+          "originalPaymentDate": "0001-01-01",
+          "numeroLote": "4240502"
+        },
+        {
+          "eventDate": "2024-12-02",
+          "categoryId": "4",
+          "category": "Pagamento",
+          "typeId": "2",
+          "type": "Preview",
+          "affiliationCode": "",
+          "transactionInstallment": "7",
+          "grossAmount": "87793",
+          "netAmount": "85238",
+          "taxAmount": "2555",
+          "bank": "33",
+          "agency": "2271",
+          "account": "13029117",
+          "originalPaymentDate": "0001-01-01",
+          "numeroLote": "4240502"
+        },
+        {
+          "eventDate": "2025-01-02",
+          "categoryId": "4",
+          "category": "Pagamento",
+          "typeId": "2",
+          "type": "Preview",
+          "affiliationCode": "",
+          "transactionInstallment": "8",
+          "grossAmount": "87793",
+          "netAmount": "85238",
+          "taxAmount": "2555",
+          "bank": "33",
+          "agency": "2271",
+          "account": "13029117",
+          "originalPaymentDate": "0001-01-01",
+          "numeroLote": "4240502"
+        },
+        {
+          "eventDate": "2025-02-03",
+          "categoryId": "4",
+          "category": "Pagamento",
+          "typeId": "2",
+          "type": "Preview",
+          "affiliationCode": "",
+          "transactionInstallment": "9",
+          "grossAmount": "87793",
+          "netAmount": "85238",
+          "taxAmount": "2555",
+          "bank": "33",
+          "agency": "2271",
+          "account": "13029117",
+          "originalPaymentDate": "0001-01-01",
+          "numeroLote": "4240502"
+        },
+        {
+          "eventDate": "2025-03-05",
+          "categoryId": "4",
+          "category": "Pagamento",
+          "typeId": "2",
+          "type": "Preview",
+          "affiliationCode": "",
+          "transactionInstallment": "10",
+          "grossAmount": "87793",
+          "netAmount": "85238",
+          "taxAmount": "2555",
+          "bank": "33",
+          "agency": "2271",
+          "account": "13029117",
+          "originalPaymentDate": "0001-01-01",
+          "numeroLote": "4240502"
+        }
+      ],
+      "informationalEvents": [
+        {
+          "eventDate": "2024-05-02",
+          "categoryId": "3",
+          "category": "Captura",
+          "typeId": "1",
+          "type": "Realized",
+          "affiliationCode": "",
+          "transactionInstallment": "1",
+          "grossAmount": "877936",
+          "netAmount": "852386",
+          "taxAmount": "25550",
+          "bank": "33",
+          "agency": "2271",
+          "account": "13029117",
+          "originalPaymentDate": "0001-01-01"
+        }
+      ]
+    }
+  ],
+  "affiliationAccountingEvents": []
+}
+```
+
+
+| **PARAMS**    | **Descrição**                                                   |
+|---------------|-----------------------------------------------------------------|
+| **merchantId**| É o CNPJ da loja (apenas números)                               |
+| **Acquirer**  | Número da adquirente, seguindo os mesmos números da documentação do Agiliza (Ex: Cielo é 1) |
+| **dateFile**  | Data do arquivo no formato yyyy-MM-dd                           |
+| **pageIndex** | Número da página, iniciando em 1                                |
+| **pageSize**  | Tamanho da página, que pode ser até 150                         |
+
+
+## Solicitar Relatório Agiliza Assincrono
+
+<aside class="request"><span class="method get">POST</span> <span class="endpoint"> Solicitar Relatório Agiliza Assincrono</span></aside>
+
+
+```java
+{{URL}}/PublicRelatorioAPI/SolicitarRelatorioAgilizaAsync
+```
+Esse método gera o relatório com dados de conciliação, conforme descrito na documentação do Agiliza:
+
+[Arquivos Fluxo de Caixa XML](https://braspag.github.io//manual/braspag-conciliador#arquivos-fluxo-de-caixa-2.0-xml)
+[Arquivos Fluxo de Caixa CSV](https://braspag.github.io//manual/braspag-conciliador#arquivos-fluxo-de-caixa-2.0-csv)
+
+É necessário enviar a solicitação através desse endpoint, em que será retornado um id de relatório.
+
+Depois que o relatório estiver pronto, é necessário enviar o id recebido no endpoint de "Obter Relatório" para fazer download do arquivo.
+
+É possível incluir uma URL no body para onde vamos enviar uma notificação assim que o relatório estiver pronto.
+
+Sobre os parâmetros do body:
+
+- merchantId : CNPJ da empresa (apenas números)
+- Acquirer : Número da adquirente, seguindo os mesmos números da documentação do Agiliza (Ex: Cielo é 1)
+- dateFile : Data do arquivo no formato yyyy-MM-dd
+- formato : Formato do arquivo (xml ou csv)
+- urlNotificacao : URL que vamos enviar uma notificação assim que o relatório estiver pronto. A mensagem que enviamos é no seguinte formato, em que Id e Filename são o Id e nome do relatório gerado, respectivamente.
+
+```json
+{"Service":"relatorio_agiliza_gateway","Value":{"Id":"66e87a81be5b7a52e4641702","FileName":"RelatorioDeSaidaAgilizaGateway.csv"}}
+```
+
+Example Request
+
+```shell
+curl --location -g '{{URL}}/PublicRelatorioAPI/SolicitarRelatorioAgilizaAsync' \
+--header 'Content-Type: application/json' \
+--data '{
+    "merchantId": "",
+    "Acquirer": 1,
+    "dateFile": "2024-05-02",
+    "formato" : "csv",
+    "urlNotificacao": "http://localhost:5000"
+}'
+```
+
+Example Response
+
+```json
+{
+  "Result": "66e87a81be5b7a52e4641702",
+  "Ok": true
+}
+```
+
+
+| **AUTHORIZATION** |                    |
+|-------------------|--------------------|
+| ** Token**        | {{token_jwt}}      |
+
+
+| **HEADERS**        |                    |
+|--------------------|--------------------|
+| **Content-Type**   | application/json   |
+
+
+| **Body** | raw(json)       |
+|----------|-----------------|
+
+
+
+```json
+{
+    "merchantId": "",
+    "Acquirer": 1,
+    "dateFile": "2024-05-02",
+    "formato" : "csv",
+    "urlNotificacao": "http://localhost:5000"
+}
+```
+
