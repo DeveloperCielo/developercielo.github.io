@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="theme-color" content="#00aeef" />
+  <meta http-equiv="Content-Language" content="pt" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1"
+  />
+
+  <title>
+     Webhooks -Cielo Conciliador &middot; Documentações e tutoriais 
+  </title>
+
+  <link rel="shortcut icon" href="https://developercielo.github.io/assets/favicon.ico" />
+
+  <!-- CSS -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500"
+    rel="stylesheet"
+    media="none"
+    onload="if(media!='all')media='all'"
+  />
+  <script async src="https://use.fontawesome.com/3ae06f1030.js"></script>
+
+  <link
+    rel="stylesheet"
+    href="https://developercielo.github.io/assets/bundles/css/bundle.min.css"
+  />
+
+   
+  <link
+    rel="alternate"
+    hreflang="pt"
+    href="https://developercielo.github.io/manual/edi-webhook-conciliador"
+  />
+    
+  <link
+    rel="alternate"
+    hreflang="en"
+    href="https://developercielo.github.io/en/manual/edi-webhook-conciliador"
+  />
+   
+
+  <!-- RSS -->
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="RSS"
+    href="https://developercielo.github.io/atom.xml"
+  />
+</head>
+
+    <body>
+        
+        <div class="content-container">
+            <div class="language-tabs">
+                <a class='hide-btn' id="hide-button" title="Comutar"><i class="fa fa-bars" aria-hidden="true"></i></a>
+                <ul class="language-buttons">
+                    
+                    <li><a data-language-name='json'>JSON</a></li>
+                    
+                    <li><a data-language-name='shell'>cURL</a></li>
+                    
+                </ul>
+            </div>
+            <div class="dark-box"></div>
+            <div class="overlay"></div>
+        
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="https://devcielo.zendesk.com/hc/pt-br#suporte" class="help">Ajuda</a>
+
+                            
+                        </div>
+
+                        
+                        <div class="search">
+                            <input type="text" class="search" id="input-search">
+                        </div>
+                    </div>
+                    <div class="submenu-row results">
+                        <div class="search-results-container">
+                            <ul class="search-results"></ul>
+                        </div>
+                    </div>
+                        
+
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="/">Início</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="https://developercielo.github.io/manual/edi-webhook-conciliador">Webhooks -Cielo Conciliador</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post"><h1 id="integração-f360º-e-outras-plataformas-webhooks">Integração F360º e outras plataformas (Webhooks)</h1>
+
+<p>Os <strong>Webhooks</strong> permitem o envio de notificações via HTTP em tempo real para o F360 Finanças, como, por exemplo, notificações para registrar vendas, entradas de cupons, entre outros. Isso elimina a necessidade de preenchimento manual de certas informações, bastando apenas a chamada do Webhook para inserção dos registros, trazendo agilidade ao processo de integração.</p>
+
+<h1 id="primeiros-passos">Primeiros Passos</h1>
+
+<p>Inicialmente, você deve entrar em contato com o usuário da plataforma F360 Finanças e solicitar a URL para a qual as mensagens serão enviadas. Esse processo é importante para garantir a segurança e identificar corretamente cada parceiro. O cliente pode consultar esse processo na nossa <strong>Documentação Técnica</strong>.</p>
+
+<p>Na prática, foi desenvolvido um único endpoint para todos os fornecedores de dados que desejam enviar informações via Webhook, onde será possível transmitir todas as informações necessárias. Por isso, as informações abaixo são de extrema importância.</p>
+
+<h1 id="modelo-de-endereço-disponibilizado">Modelo de endereço disponibilizado:</h1>
+
+<blockquote>
+  <p>webhook.f360.com.br/identificador-unico-do-servico/servico-consumido</p>
+</blockquote>
+
+<ul>
+  <li><strong>“identificador-unico-do-servico”</strong>: Um ID gerado por nós e enviado mediante solicitação da empresa fornecedora dos dados.</li>
+  <li><strong>“servico-consumido”</strong>: O endereço para o qual as requisições devem ser direcionadas.</li>
+</ul>
+
+<h1 id="consulta-de-disponibilidade-de-serviço">Consulta de Disponibilidade de Serviço</h1>
+
+<p>É possível consultar o status de todos os serviços disponíveis utilizando a URL abaixo:</p>
+
+<blockquote>
+  <p>webhook.f360.com.br/IDENTIFICADOR-UNICO-DO-SERVICO/f360-cupom-fiscal</p>
+</blockquote>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/mceclip0.png" alt="" /></p>
+
+<h1 id="criação-de-cupons-fiscais---webhook-f360-pdv">Criação de Cupons Fiscais - Webhook F360 (PDV)</h1>
+
+<p>A request deve ser enviada por meio de uma solicitação HTTP POST. É obrigatório que o corpo da requisição seja um <strong>JSON válido</strong> e contenha todos os dados que descrevem o cupom fiscal ou o período de vendas. Abaixo, detalharemos os campos obrigatórios e opcionais desse corpo.</p>
+
+<h2 id="exemplo-de-requisição">Exemplo de Requisição:</h2>
+
+<p>A request deve ser enviada por meio de uma solicitação HTTP POST. É obrigatório que o corpo da requisição seja um <strong>JSON válido</strong> e contenha todos os dados que descrevem o cupom fiscal ou o período de vendas. Abaixo, detalharemos os campos obrigatórios e opcionais desse corpo.</p>
+
+<pre><code class="language-curl">curl --location --request POST 'https://webhook.f360.com.br/identificador-unico-do-servico/f360-cupom-fiscal' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "NomeSistema": "Meu PDV",
+    "Values": [
+        {
+            "NumeroCupom": "123456",
+            "CNPJEmitente": "01234567000199",
+            "Cliente": {
+                "Nome": "João da Silva",
+                "Cpf": "123.456.789-10"
+            },
+            "MeioPagamento": [
+                {
+                    "FormaPagamento": "Dinheiro",
+                    "Valor": 71.12,
+                    "Bandeira": "",
+                    "Autorizacao": "",
+                    "NSU": "",
+                    "QtdParcelas": "1",
+                    "Vencimento": "2022-05-26T15:08:26"
+                }
+            ],
+            "Data": "2022-05-26T15:08:26"
+        },
+        {
+            "NumeroCupom": "123457",
+            "CNPJEmitente": "01234567000199",
+            "Cliente": {
+                "Nome": "Jorge da Silva",
+                "Cpf": "456.807.789-10"
+            },
+            "MeioPagamento": [
+                {
+                    "FormaPagamento": "Cartao Parcelado",
+                    "Valor": 38.40,
+                    "Bandeira": "",
+                    "Autorizacao": "A25V87",
+                    "NSU": "123456",
+                    "QtdParcelas": "2",
+                    "Parcelas": [
+                        {
+                            "DataDeApresentacao": "2022-05-26",
+                            "Valor": 19.2,
+                            "NumeroDaParcela": "1",
+                            "Vencimento": "2022-06-26"
+                        },
+                        {
+                            "DataDeApresentacao": "2022-05-26",
+                            "Valor": 19.2,
+                            "NumeroDaParcela": "2",
+                            "Vencimento": "2022-07-26"
+                        }
+                    ]
+                },
+                {
+                    "FormaPagamento": "Cartao Debito",
+                    "Valor": 21.50,
+                    "Bandeira": "",
+                    "Autorizacao": "",
+                    "NSU": "789654",
+                    "QtdParcelas": "1",
+                    "Vencimento": "2022-05-27T15:08:26"
+                }
+            ],
+            "Data": "2022-05-26T15:08:26",
+            "VendaCancelada": true,
+            "ValorFrete": 10.21
+        }
+    ]
+}'
+</code></pre>
+
+<p>Por se tratar de uma requisição assíncrona, não retornamos o status da operação realizada no F360 Finanças. Logo, o processamento da informação enviada na requisição deve ser verificado na própria plataforma do F360 Finanças. Caso o sistema não localize a ‘CNPJEmitente’ cadastrado, o sistema irá descartar a mensagem.</p>
+
+<p><strong>Atenção:</strong> Apesar de aceitarmos mais de um cupom fiscal no mesmo corpo da request, é importante observar que o ‘CNPJEmitente’ e o dia das datas das vendas devem ser únicos dentro da mesma request. Já a informação da hora da venda (que complementa o campo ‘Data’) pode ser diferente dentre os cupons fiscais.</p>
+
+<p>Lançamentos pertencentes ao mesmo cupom fiscal devem ser enviados em uma única request, para evitar que esses registros sejam interpretados como vendas duplicadas, o que resultaria na não inserção dessas vendas.</p>
+
+<h2 id="detalhamento-dos-campos">Detalhamento dos campos</h2>
+
+<ul>
+  <li>
+    <p><strong>NumeroCupom (long):</strong> Número do cupom da venda.</p>
+  </li>
+  <li>
+    <p><strong>CNPJEmitente (string):</strong> Número do CNPJ da loja cadastrado no F360 Finanças e deve ser apresentado sem traço e sem pontos.</p>
+  </li>
+  <li>
+    <p><strong>Cliente (object):</strong> Nesse campo devem ser informados Nome e CPF do cliente do cupom.</p>
+  </li>
+  <li>
+    <p><strong>Data (string, formato: “yyyy-MM-ddTHH:mm:ss”):</strong> Data em que a venda foi realizada.</p>
+  </li>
+  <li>
+    <p><strong>VendaCancelada (bool):</strong> O campo deve ser preenchido com um valor booleano (true/false) e, caso não seja preenchido, o valor será considerado como false. Se o valor for preenchido como true, então a venda será buscada no sistema e depois será cancelada. Se a venda não for encontrada, ela não será cancelada.</p>
+  </li>
+  <li>
+    <p><strong>ValorFrete (double, ‘0.00’):</strong> O campo é opcional e pode ser preenchido com o valor do frete relacionado à venda, para que esta informação possa ser usada no sistema.</p>
+  </li>
+  <li>
+    <p><strong>MeioPagamento (array):</strong> Nesse campo deve ser detalhado as diversas formas de pagamento do cupom fiscal, ele é um array que deve conter os campos abaixo.</p>
+
+    <ul>
+      <li>
+        <p><strong>FormaPagamento (string):</strong> Forma com que foi efetuado o pagamento.</p>
+      </li>
+      <li>
+        <p><strong>Valor (double, ‘0.00’):</strong> Valor líquido pago naquela forma de pagamento; nas vendas em dinheiro, é comum ter troco, sendo o resultado depois do valor recebido menos o troco, descrito no campo acima.</p>
+      </li>
+      <li>
+        <p><strong>Bandeira (string):</strong> Bandeira do cartão utilizado para pagamento, ver ‘Tabela 1’.</p>
+      </li>
+      <li>
+        <p><strong>Autorizacao (string):</strong> Informação que comprova a autenticidade do pagamento e é gerada pela adquirente contratada do cliente.</p>
+      </li>
+      <li>
+        <p><strong>NSU (long):</strong> Código de rastreio do pagamento, gerado pela adquirente contratada do cliente.</p>
+      </li>
+      <li>
+        <p><strong>QtdParcelas (int):</strong> Quantidade de parcelas em que a forma de pagamento foi efetuada. Caso essa informação não esteja presente no arquivo, iremos considerar o valor de 1 parcela.</p>
+      </li>
+      <li>
+        <p><strong>Vencimento (string, formato: “yyyy-MM-ddTHH:mm:ss”):</strong> Data de vencimento do pagamento.</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Parcelas (array):</strong> O campo não é obrigatório, mas é possível informar os detalhes de cada parcela separadamente, desde que as informações sejam consistentes. Caso o campo não seja preenchido, o parcelamento da venda será calculado automaticamente através do valor, vencimento e quantidade de parcelas informadas. Os campos do objeto de parcela são os seguintes:</p>
+
+    <ul>
+      <li>
+        <p><strong>DataDeApresentacao (string, formato: “yyyy-MM-dd”):</strong> Data de apresentação da parcela.</p>
+      </li>
+      <li>
+        <p><strong>Valor (double, ‘0.00’):</strong> Valor da parcela.</p>
+      </li>
+      <li>
+        <p><strong>NumeroDaParcela (int):</strong> Número da parcela.</p>
+      </li>
+      <li>
+        <p><strong>Vencimento (string, formato: “yyyy-MM-ddTHH:mm:ss”):</strong> Data de vencimento da parcela.</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Campos marcados com * são campos obrigatórios, porém o envio das informações adicionais traz benefícios à conciliação e rastreabilidade dos cupons fiscais.</strong></p>
+
+<h1 id="criação-de-títulos-contas-a-pagarreceber---webhook-f360---títulos">Criação de Títulos (Contas a pagar/receber) - (Webhook F360 - Títulos)</h1>
+
+<p>A request deve ser enviada por meio de solicitação HTTP POST e é obrigatório que o corpo da requisição seja um JSON válido, e contenha todos os dados que descrevem os títulos. Detalharemos mais à frente os campos obrigatórios e opcionais desse corpo.</p>
+
+<p>Tanto contas a pagar quanto a receber são tratados como Títulos no sistema, então este webhook pode ser usado para envio de ambos.</p>
+
+<p>Esta operação pode ser utilizada apenas para inserir novos registros. Não é possível realizar operação de “alteração” ou “exclusão” nesta integração.</p>
+
+<p>Algumas informações cadastradas no sistema, como Plano de Contas e Centro de Custo, podem ser consultadas em nossa API pública, cada uma em seu respectivo endpoint, conforme descrito na documentação, disponível no link a seguir: <a href="https://getpostman.com">F360 Finanças</a>.</p>
+
+<p>Abaixo há um exemplo de requisição para o webhook de títulos. A URL contém campos que variam para cada cadastro do webhook, realizado na tela de webservice. Os campos variáveis estão envolvidos por <code class="language-plaintext highlighter-rouge">{}</code>. A URL completa é obtida na tela de webservices, após a criação do webservice deste webhook.</p>
+
+<pre><code class="language-curl">curl --location 'https://webhook.f360.com.br/{identificador-unico-do-servico}/f360-{id}-titulos/' \
+--header 'Content-Type: application/json' \
+--data '{
+    "titulos": [
+        {
+            "cnpj": "00.000.000/0000-00",
+            "tipoTitulo": "receber",
+            "numeroTitulo": "123456",
+            "clienteFornecedor": "João da Silva",
+            "emissao": "2023-02-14",
+            "valor": 150,
+            "tipoDocumento": "boleto",
+            "contaBancaria": "nome da conta bancária",
+            "meioPagamento": "boleto",
+            "historico": "",
+            "remessaCnab": false,
+            "receitaDeCaixa": false,
+            "parcelas": [{
+                "vencimento": "2023-03-14",
+                "valor": 150,
+                "numeroParcela": 1,
+                "liquidacao": null,
+                "codigoDeBarras": null
+            }],
+            "rateio": [{
+                "competencia": "03-2022",
+                "centroDeCusto": "centro de custo",
+                "planoDeContas": "vendas de mercadorias",
+                "numeroParcela": 1,
+                "valor": 150
+            }]
+        }
+    ]
+}'
+</code></pre>
+
+<h2 id="detalhamento-dos-campos-1">Detalhamento dos campos</h2>
+
+<p>Campos marcados com (*) são de preenchimento obrigatório e caso não sejam preenchidos o registro será ignorado.</p>
+
+<h3 id="objeto-titulo">Objeto Titulo</h3>
+
+<ul>
+  <li>
+    <p><strong>cnpj</strong> (string): Deve ser preenchido com o CNPJ da empresa.</p>
+  </li>
+  <li><strong>tipoTitulo</strong> (string): Deve ser preenchido com uma das seguintes opções:
+    <ul>
+      <li>Pagar</li>
+      <li>Receber</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>numeroTitulo</strong> (string): Deve ser preenchido com o número do título.</p>
+  </li>
+  <li>
+    <p><strong>clienteFornecedor</strong> (string): Deve ser preenchido com o CPF/CNPJ ou nome do fornecedor em contas a pagar, ou cliente em contas a receber. Caso a pessoa não exista no sistema, ela será criada.</p>
+  </li>
+  <li>
+    <p><strong>emissao</strong> (string, formato “yyyy-MM-dd”): Deve ser preenchido com a data de emissão do título.</p>
+  </li>
+  <li>
+    <p><strong>valor</strong> (double, formato “0.00”): Deve ser preenchido com o valor total do título.</p>
+  </li>
+  <li><strong>tipoDocumento</strong> (string): Deve ser preenchido com uma das opções abaixo:
+    <ul>
+      <li>Duplicata</li>
+      <li>Boleto</li>
+      <li>Nota Fiscal</li>
+      <li>Nota De Débito</li>
+      <li>Conta De Consumo</li>
+      <li>Cupom Fiscal</li>
+      <li>Outros</li>
+      <li>Previsão</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>contaBancaria</strong> (string): Deve ser preenchido com o nome de uma conta bancária já cadastrada no sistema.</p>
+  </li>
+  <li><strong>meioPagamento</strong> (string): Deve ser preenchido com uma das opções abaixo:
+    <ul>
+      <li>Boleto</li>
+      <li>Dinheiro</li>
+      <li>Cheque</li>
+      <li>DDA</li>
+      <li>DOC/TED</li>
+      <li>Depósito em Conta</li>
+      <li>Transferência Bancária</li>
+      <li>Débito Automático</li>
+      <li>Cartão de Crédito / Débito</li>
+      <li>Outros</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>historico</strong> (string): Esta informação é opcional, e se trata de uma descrição que pode ser adicionada ao título.</p>
+  </li>
+  <li>
+    <p><strong>remessaCnab</strong> (boolean): Este campo é opcional e está relacionado com a origem do título, podendo ser da importação comum de títulos (false) ou gerado pelo CNAB (true). Caso não seja preenchido no body, o valor do campo será false.</p>
+  </li>
+  <li>
+    <p><strong>receitaDeCaixa</strong> (boolean): Este campo é opcional e está relacionado ao título ser mostrado ou não na tela de fechamento de caixa. Caso não seja preenchido no body, o valor do campo será false.</p>
+  </li>
+  <li>
+    <p><strong>parcelas</strong> (array de objetos): Deve ser preenchido com os detalhes de cada parcela do título, no formato do “Objeto Parcela” descrito neste artigo. Qualquer título, mesmo que não seja parcelado, terá pelo menos uma parcela, com número “1”, para que seja informado o vencimento, e a possível liquidação.</p>
+  </li>
+  <li><strong>rateios</strong> (array de objetos): Deve ser preenchido com os detalhes do rateio do título, no formato “Objeto Rateio” descrito neste artigo. Qualquer título, mesmo que não seja rateado, terá</li>
+</ul>
+
+<h3 id="objeto-parcela">Objeto Parcela</h3>
+
+<ul>
+  <li>
+    <p><strong>vencimento</strong> (string, formato “yyyy-MM-dd”): Deve ser preenchido com a data de vencimento da parcela.</p>
+  </li>
+  <li>
+    <p><strong>valor</strong> (double, formato “0.00”): Deve ser preenchido com o valor da parcela.</p>
+  </li>
+  <li>
+    <p><strong>numeroParcela</strong> (short): Deve ser preenchido com o número da parcela.</p>
+  </li>
+  <li>
+    <p><strong>liquidacao</strong> (string, formato “yyyy-MM-dd”): O campo é opcional. Caso não seja preenchido, a parcela será considerada como não liquidada, mas caso seja preenchido, a parcela será liquidada, com a data informada.</p>
+  </li>
+  <li>
+    <p><strong>codigoDeBarras</strong> (string): O campo é opcional.</p>
+  </li>
+</ul>
+
+<p>### Objeto Rateio</p>
+
+<ul>
+  <li>
+    <p><strong>competencia</strong> (string, formato “MM-dd”): Deve ser preenchido com a data de competência deste rateio.</p>
+  </li>
+  <li>
+    <p><strong>centroDeCusto</strong> (string): Deve ser preenchido com o nome do centro de custo cadastrado no sistema, que será relacionado ao rateio. Caso o campo não seja preenchido, será utilizado o centro de custo padrão. Os centros de custo disponíveis podem ser obtidos na API pública, no seguinte endpoint da documentação: <a href="https://getpostman.com">F360 Finanças (getpostman.com)</a>.</p>
+  </li>
+  <li>
+    <p><strong>planoDeContas</strong> (string): Deve ser preenchido com um plano de contas cadastrado no sistema, que será relacionado ao rateio. Os planos de contas disponíveis podem ser obtidos na API pública, no seguinte endpoint da documentação: <a href="https://getpostman.com">F360 Finanças (getpostman.com)</a>.</p>
+  </li>
+  <li>
+    <p><strong>numeroParcela</strong> (short): Deve ser preenchido com o número da parcela à qual este rateio faz referência.</p>
+  </li>
+  <li>
+    <p><strong>valor</strong> (double, formato “0.00”): Deve ser preenchido com o valor do rateio.</p>
+  </li>
+</ul>
+
+<h1 id="regras-de-leitura">Regras de Leitura</h1>
+
+<ul>
+  <li>Todo título deve ter pelo menos uma parcela e um rateio.</li>
+  <li>O rateio deve corresponder a uma parcela que foi preenchida.</li>
+  <li>A soma do valor das parcelas deve corresponder ao valor do título.</li>
+  <li>A soma dos valores dos rateios da mesma parcela deve corresponder ao valor da parcela.</li>
+</ul>
+
+<h1 id="resposta">Resposta</h1>
+
+<p>Caso o envio seja bem-sucedido, o status HTTP 200 será retornado com um ID de rastreio do evento. Este ID poderá ser utilizado para consultar o status do processamento da mensagem. Porém, caso algum problema ocorra ao recebermos a mensagem, o status HTTP 500 será retornado.</p>
+
+<h2 id="exemplo-http-200">Exemplo HTTP 200</h2>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"rastreioId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5737a24e-8eef-4090-9c8d-6c168af2c8a4"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="exemplo-http-500">Exemplo HTTP 500</h2>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://tools.ietf.org/html/rfc7231#section-6.6.1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"An error occurred while processing your request."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"traceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00-92255f294a1a8995227eac28b180a0a7-91d42cfdc65d5e99-00"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h1 id="tabela-1---bandeiras-de-cartão">Tabela 1 - Bandeiras de Cartão</h1>
+
+<ul>
+  <li>99 Food</li>
+  <li>Cabal</li>
+  <li>Garantido ABC</li>
+  <li>Abastece Aí</li>
+  <li>Cabal Alimentação</li>
+  <li>Gift Card</li>
+  <li>Acqio</li>
+  <li>CalCard</li>
+  <li>Goias Card</li>
+  <li>Adiq</li>
+  <li>Card System</li>
+  <li>Golden Farma</li>
+  <li>Adyen</li>
+  <li>Cartao</li>
+  <li>Good Card Plus</li>
+  <li>Agiplan</li>
+  <li>Cartão Confiança</li>
+  <li>Goodcard</li>
+  <li>Alelo</li>
+  <li>Cartão SupCard</li>
+  <li>Grand Card</li>
+  <li>Alelo Alimentação</li>
+  <li>Chefmio</li>
+  <li>Granito</li>
+  <li>Alelo Cultura</li>
+  <li>Chilli Match</li>
+  <li>GreenCard</li>
+  <li>Alelo Refeição</li>
+  <li>Cispay</li>
+  <li>Hiper</li>
+  <li>Ame Digital</li>
+  <li>CompreMax</li>
+  <li>Hipercard</li>
+  <li>Amex</li>
+  <li>Compro Card</li>
+  <li>IBI Card</li>
+  <li>ASCIPAM</li>
+  <li>Convenios Card</li>
+  <li>IdealCard</li>
+  <li>Asu</li>
+  <li>CooperCred</li>
+  <li>IFood</li>
+  <li>Aura</li>
+  <li>CornershopApp</li>
+  <li>JamesDelivery</li>
+  <li>Avancard</li>
+  <li>CrediShop</li>
+  <li>JCB</li>
+  <li>BandCard</li>
+  <li>CredNosso</li>
+  <li>King Pay</li>
+  <li>Banescard</li>
+  <li>Crednova</li>
+  <li>Kredit</li>
+  <li>Banese Card</li>
+  <li>CredPar</li>
+  <li>Lagoacred</li>
+  <li>Banpara</li>
+  <li>Credshop</li>
+  <li>Libercard</li>
+  <li>Banquet</li>
+  <li>CredSystem</li>
+  <li>Linx Pay</li>
+  <li>Banri Card</li>
+  <li>Credz</li>
+  <li>Linx S.A.</li>
+  <li>BanriCompras</li>
+  <li>Cros Card</li>
+  <li>Losango</li>
+  <li>Banrisul</li>
+  <li>DaCasa</li>
+  <li>Maestro</li>
+  <li>Banrisul Cultura</li>
+  <li>Delivery Center</li>
+  <li>Magalu</li>
+  <li>Barra Cred</li>
+  <li>Delivery Direto</li>
+  <li>Mais</li>
+  <li>BCard</li>
+  <li>Diners</li>
+  <li>MasterCard</li>
+  <li>Ben Visa Vale</li>
+  <li>Dinheiro</li>
+  <li>Masterfarma</li>
+  <li>BigCard</li>
+  <li>Discovery</li>
+  <li>Maxxivan</li>
+  <li>Blu</li>
+  <li>ECX Card</li>
+  <li>Mercado Pago</li>
+  <li>BNBClube</li>
+  <li>Electron</li>
+  <li>Money Plus</li>
+  <li>Bônus CBA</li>
+  <li>Elo</li>
+  <li>Mooz Boleto</li>
+  <li>Bônus Cred</li>
+  <li>Esplanada</li>
+  <li>Mooz Omnichannel</li>
+  <li>Borba Net</li>
+  <li>Expers</li>
+  <li>Mooz Omnichannel Boleto</li>
+  <li>BR Card</li>
+  <li>Fininvest</li>
+  <li>Moreira Card</li>
+  <li>Bradesco</li>
+  <li>FitCard - Prime</li>
+  <li>Movile Pay</li>
+  <li>Brasil Card (.net)</li>
+  <li>FitCard Link Benefícios</li>
+  <li>MultMais Card</li>
+  <li>BrasilCard</li>
+  <li>FitCard Neo Benefícios</li>
+  <li>NutriCash</li>
+  <li>Braspag</li>
+  <li>Flexocard</li>
+  <li>Nutricash Cultura</li>
+  <li>Braspag Boleto</li>
+  <li>FortBrasil</li>
+  <li>Omni</li>
+  <li>C6 Pay</li>
+  <li>Fortcard</li>
+  <li>Pagar Me</li>
+  <li>PagarMe - Track&amp;Field</li>
+  <li>Sindcred</li>
+  <li>ValeMulti</li>
+  <li>PagarMe Boleto</li>
+  <li>Sipag</li>
+  <li>Valorem Pay</li>
+  <li>PagoLivre</li>
+  <li>Sodexo</li>
+  <li>Vegas Card</li>
+  <li>Pagseguro Boleto</li>
+  <li>Sodexo Alimentação</li>
+  <li>VerdeCard</li>
+  <li>PagueLogo</li>
+  <li>Sodexo Combustível</li>
+  <li>Verocard</li>
+  <li>Pão de Açúcar</li>
+  <li>Sodexo Cultura</li>
+  <li>VeroCheque</li>
+  <li>Payly</li>
+  <li>Sodexo Gift</li>
+  <li>Vinhecard</li>
+  <li>PayPal</li>
+  <li>Sodexo Premium</li>
+  <li>Visa</li>
+  <li>Personal Card</li>
+  <li>Sodexo Refeição</li>
+  <li>Visa Electron</li>
+  <li>Picpay</li>
+  <li>Softcred</li>
+  <li>Visa Vale</li>
+  <li>PitCard</li>
+  <li>Solucard</li>
+  <li>VR</li>
+  <li>PIX</li>
+  <li>SoroCred</li>
+  <li>VR Alimentação</li>
+  <li>PlanVale</li>
+  <li>Stone</li>
+  <li>VR Auto</li>
+  <li>PlanVale Alimentação</li>
+  <li>Sysdata</li>
+  <li>VR Cultura</li>
+  <li>PlanVale Combustível</li>
+  <li>SysproCard</li>
+  <li>VR Refeição</li>
+  <li>PlanVale Cultura</li>
+  <li>System Farma</li>
+  <li>Vuon Card</li>
+  <li>PlanVale Farmácia</li>
+  <li>Tecard</li>
+  <li>Westwing</li>
+  <li>PlanVale Refeição</li>
+  <li>TerCRED</li>
+  <li>Wirecard</li>
+  <li>PoliCard</li>
+  <li>Ticket</li>
+  <li>Wizeo</li>
+  <li>Policard</li>
+  <li>Ticket Alimentação</li>
+  <li>Zoop - Opatech</li>
+  <li>Quero2Pay</li>
+  <li>Ticket Cultura</li>
+  <li>Rappi</li>
+  <li>Ticket Parceiro</li>
+  <li>Rappi App Varejo</li>
+  <li>Ticket Refeição</li>
+  <li>Redconv</li>
+  <li>Ticket Restaurante</li>
+  <li>RedeMed</li>
+  <li>TKS (Global Payments)</li>
+  <li>RedeShop</li>
+  <li>ToNoLucro</li>
+  <li>Regicred</li>
+  <li>Tricard Mais</li>
+  <li>Repom</li>
+  <li>Uber Eats</li>
+  <li>Repom Abastecimento</li>
+  <li>Unica</li>
+  <li>Repom Saque</li>
+  <li>UnionPay</li>
+  <li>Resgate Fácil</li>
+  <li>Up Brasil</li>
+  <li>SafraDigital</li>
+  <li>USA Card</li>
+  <li>Sapore</li>
+  <li>Usecred</li>
+  <li>Sem Parar</li>
+  <li>UVE</li>
+  <li>Senff</li>
+  <li>Vale Fácil</li>
+  <li>Sertão Card</li>
+  <li>Vale Mais</li>
+  <li>Shippi Delivery</li>
+  <li>ValeCard</li>
+  <li>Sicredi</li>
+  <li>ValeCard Cultura</li>
+  <li>SideCard</li>
+  <li>ValeConcard</li>
+  <li>Sin Card</li>
+  <li>ValeFrota</li>
+</ul>
+</div>
+
+
+            <div class="footer-conteudo">
+  <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+    <img
+      src="https://developercielo.github.io/assets/images/icon-doubt.svg"
+      width="55px"
+      height="53px"
+      alt="Precisa de ajuda?"
+    />
+  </div>
+
+  <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+    <h2>Precisa de ajuda?</h2>
+    <p>Se você não conseguiu encontrar sua resposta acima, <a href="https://devcielo.zendesk.com/hc/pt-br#suporte">entre em contato conosco</a>.</p>
+  </div>
+</div>
+
+        </div>
+
+        <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a
+        title="Comutar a coluna da esquerda"
+        class="hamburger"
+      >
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+      <a href="https://desenvolvedores.cielo.com.br" target="_blank">
+        <img
+          src="https://developercielo.github.io/assets/images/logo.png"
+          alt="Documentações e tutoriais"
+          style="width: 60%; margin-left: 20%"
+        />
+      </a>
+      <div></div>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="fixed-footer">
+      
+      <div class="toc-footer">
+        <h2 class="no-toc toc-footer-title">Materiais complementares</h2>
+           
+
+        <ul class="toc-footer">
+            
+          <li>
+            <a
+              href="https://developercielo.github.io/tutorial/abecs-e-outros-codigos"
+              
+              >Códigos de retorno ABECS</a
+            >
+          </li>
+             
+          <li>
+            <a
+              href="https://developercielo.github.io/tutorial/programa-retentativa-bandeiras"
+              
+              >Programa de Retentativa das Bandeiras</a
+            >
+          </li>
+             
+          <li>
+            <a
+              href="https://developercielo.github.io/tutorial/habilitacao-meios-de-pagamento"
+              
+              >Configurando Boletos e Débito Online</a
+            >
+          </li>
+             
+          <li>
+            <a
+              href="https://developercielo.github.io/tutorial/manual-boleto"
+              
+              >Manual Boletos</a
+            >
+          </li>
+                 
+        </ul>
+      </div>
+      
+
+      <div class="toc-contact">
+        <div class="contact">
+          <a
+            title="Contato"
+            href="https://devcielo.zendesk.com/"
+          >
+            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+            <span>Contato</span>
+          </a>
+        </div>
+        <div class="github">
+          <a title="GitHub" href="https://github.com/developercielo">
+            <i class="fa fa-github" aria-hidden="true"></i>
+            <span>GitHub</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+        <script src="https://developercielo.github.io/assets/bundles/js/bundle.min.js"></script>
+        <script>
+            
+            var selectors = 'h1,h2,h3,h4,h5,h6';
+            
+        </script>
+
+        
+        <script src="https://developercielo.github.io/assets/bundles/js/search.min.js"></script>
+        
+
+        
+        <script>
+            let langs = '';
+            let langsArray = [];
+
+            
+            langs += "<a data-language-name='json'>JSON</a>";
+            langsArray.push('json');
+            
+            langs += "<a data-language-name='shell'>cURL</a>";
+            langsArray.push('shell');
+            
+
+            var toggleCode = 'Comutar';
+        </script>
+
+        <script src='https://developercielo.github.io/assets/bundles/js/language_buttons.min.js'></script>
+        
+
+        <!-- Hotjar Tracking Code for https://developercielo.github.io/ -->
+<script>
+  (function (h, o, t, j, a, r) {
+    h.hj =
+      h.hj ||
+      function () {
+        (h.hj.q = h.hj.q || []).push(arguments);
+      };
+    h._hjSettings = { hjid: 674586, hjsv: 6 };
+    a = o.getElementsByTagName("head")[0];
+    r = o.createElement("script");
+    r.async = 1;
+    r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+    a.appendChild(r);
+  })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
+</script>
+
+    </body>
+</html>
