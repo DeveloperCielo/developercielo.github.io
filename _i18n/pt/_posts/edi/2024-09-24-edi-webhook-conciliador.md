@@ -6,9 +6,9 @@ search: true
 translated: false
 toc_footers: true
 categories: manual
-sort_order: 8
+sort_order: 10
 tags:
-  - Documentos Adicionais
+  - 6. EDI Cielo
 language_tabs:
   json: JSON
   shell: cURL
@@ -284,7 +284,7 @@ Campos marcados com (*) são de preenchimento obrigatório e caso não sejam pre
 
 - **codigoDeBarras** (string): O campo é opcional.
 
- ### Objeto Rateio
+### Objeto Rateio
 
 - **competencia** (string, formato “MM-dd”): Deve ser preenchido com a data de competência deste rateio.
 

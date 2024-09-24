@@ -6,9 +6,9 @@ search: true
 translated: false
 toc_footers: true
 categories: manual
-sort_order: 7
+sort_order: 9
 tags:
-  - Documentos Adicionais
+    - 6. EDI Cielo
 language_tabs:
   json: JSON
   shell: cURL
