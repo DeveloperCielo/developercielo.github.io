@@ -7,7 +7,7 @@ translated: true
 categories: manual
 sort_order: 10
 tags:
-  - 1. API E-commerce
+  - 3. API Cielo Conecta
 ---
 
 # <a name="_toc173245709"></a>**Documentação para Integração SDK A910/920**
