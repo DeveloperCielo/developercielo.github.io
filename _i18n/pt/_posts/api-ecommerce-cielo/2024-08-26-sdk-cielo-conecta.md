@@ -325,7 +325,6 @@ public class MyActivity extends Activity implements PaymentClient.PaymentCallbac
 }
 ```
 
-| :- |
 -----
 # <a name="_toc173245735"></a>**Pré-requisitos**
 ## <a name="_toc173245736"></a>**IDE**
@@ -339,10 +338,8 @@ Para iniciar o desenvolvimento, é necessário um terminal físico com chaves v�
 
 Veja quais terminais estão homologados
 
-|***Warning***|
-| :- |
-|<h5>**Atualmente não é possível utilizar a integração de pagamento em emuladores Android ou SmartPhones. Essa solução foi desenvolvida para terminais POS (Point Off Service).**</h5>|
------
+> Warning: Atualmente não é possível utilizar a integração de pagamento em emuladores Android ou SmartPhones. Essa solução foi desenvolvida para terminais POS (Point Off Service)
+
 ## <a name="_toc173245740"></a>**Portal da PayStore**
 ### <a name="_toc173245741"></a>**Cadastros (Facilitador, Estabelecimento, Terminal)**
 É necessário acessar o Portal da PayStore ambiente de desenvolvimento para esse primeiro contato e realizar os cadastros necessários para **inicializar o terminal** pela primeira vez. Nesse processo entre em contato com **a equipe de suporte**.
@@ -360,32 +357,30 @@ Os aplicativos PayStore devem estar instalados no terminal. A instalação deve 
 
 Para mais informações sobre as aplicações da PayStore, veja Apks PayStore
 
-|![(informação)]**Info**|
-| :- |
-|<h5>**Com o ADB devidamente instalado e configurado na sua máquina, abra o prompt dentro do diretório com os arquivos, e execute o comando conforme ordem acima:**</h5>|
-##### **adb install -r [arquivo]**
+> Com o ADB devidamente instalado e configurado na sua máquina, abra o prompt dentro do diretório com os arquivos, e execute o comando conforme ordem acima:
+
+**adb install -r [arquivo]**
+
 Se preferir utilize o programa PayDroid
 
 -----
 ## <a name="_toc173245744"></a>**Inicializar o terminal**
 ### <a name="_toc173245745"></a>**Inicialização PayStore**
 
-|***Warning***|
-| :- |
-|<h5>**Para continuar é importante que, nesse ponto, seu terminal já esteja inicializado com a PayStore. Caso tenha dúvidas sobre esse procedimento, entre em contato com a equipe de suporte**</h5>|
------
+
+
+> Warning: Para continuar é importante que, nesse ponto, seu terminal já esteja inicializado com a PayStore. Caso tenha dúvidas sobre esse procedimento, entre em contato com a equipe de suporte
+ 
+
 ## <a name="_toc173245746"></a>**Tour pela documentação**
 ## <a name="_toc173245747"></a>**Ler a documentação**
 Antes de iniciar de fato, é importante conhecer quais ferramentas estão disponíveis para o desenvolvimento. Por isso deve-se entender a arquitetura, os aplicativos envolvidos e como eles se comunicam. Veja as Referências API e explore todo o poder dessa integração.
 
------
-## ** 
 ## <a name="_toc173245748"></a>**App Demo Android**
 Para facilitar sua integração, criamos um projeto demo desenvolvido em Android já integrado com app Pagamentos. Explore esse projeto para visualizar a integração em ação.
 ## <a name="_toc173245749"></a>**App Demo React-Native**
 Criamos esse projeto demo para você ter liberdade de escolher qual tecnologia usar no desenvolvimento de sua aplicação. É possível integrar suas aplicações que não foram desenvolvidas, necessariamente em Android com nossas soluções de pagamento.
 
------
 ## <a name="_toc173245750"></a>**Iniciar Integração**
 ## <a name="_toc173245751"></a>**Parabéns!**
 Se você chegou até aqui, é porque já possui todas as informações necessárias de para iniciar o desenvolvimento do seu aplicativo integrado à nossa solução de pagamento. Caso tenha dúvidas, entre em contato com **a equipe de suporte**.
@@ -400,9 +395,12 @@ Entre em <project>\app do seu projeto e crie uma pasta chamada *libs*. Baixe a �
 
 Após isso, abra o arquivo build.gradle (Module app) e adicione as seguintes dependências em destaque:
 
-|<h5>**implementation fileTree(dir: "libs", include: ["\*.jar", "\*.aar"])</h5><br>implementation 'org.parceler:parceler-api:1.1.12'</h5><br>annotationProcessor 'org.parceler:parceler:1.1.12'</h5><br>implementation 'com.google.code.gson:gson:2.8.5'**</h5>|
-| :-: |
-
+```java
+implementation fileTree(dir: "libs", include: ["*.jar", "*.aar"])
+implementation 'org.parceler:parceler-api:1.1.12'
+annotationProcessor 'org.parceler:parceler:1.1.12'
+implementation 'com.google.code.gson:gson:2.8.5'
+```
 
 ![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.023.jpeg)
 
@@ -508,10 +506,10 @@ Lista todos os pagamentos confirmados. O usuário deve selecionar o pagamento qu
 ## <a name="_toc173245769"></a>**Tela de desfazimento do estorno**
 Lista todos os estornos. O usuário deve selecionar o estorno que deseja realizar o desfazimento.
 
-|**Warning**|
-| :-: |
-|<h5>**A depender do comportamento de cada adquirente, é possível que não haja desfazimento para a transação de estorno.**</h5>|
-![](Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.038.jpeg)
+> Warning: A depender do comportamento de cada adquirente, é possível que não haja desfazimento para a transação de estorno.
+
+![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.038.jpeg)
+
 ## <a name="_toc173245770"></a>**Listar Pagamentos**
 Realiza uma consulta dos pagamentos de acordo com os filtros escolhidos.
 
@@ -542,7 +540,7 @@ Para realizar a integração entre aplicativos e a solução de pagamento da Pay
 A classe CredentialsUtils.java presente no projeto demo mostra uma forma de implementar as credenciais que serão usadas no request do pagamento através da classe PaymentRequestV2.java que está presente na lib de integração payments-api-x.x.x.x.aar. Para mais detalhes, veja o projeto demo.
 
 -----
-<a name="_toc173245776"></a>**Pagamento
+# Pagamento
 
 [DEPRECATED] Integração com Pagamentos V1**
 ===========================================
@@ -556,17 +554,23 @@ A seguir, temos a especificação detalhada das operações disponíveis.
 
 Para integração com a API de pagamentos, é fornecida a interface PaymentClient.
 
-|**Warning**|
-| :-: |
-|<h5>**O método PaymentClient.Bind(\_callback) deve ser chamado, obrigatoriamente, antes de chamar qualquer método da Integração de Pagamento. O bind é assíncrono, ou seja, a próxima linha após o bind() será executada antes de receber a sua resposta, por isso, garanta que, antes de chamar os métodos de integração, o bind esteja conectado.**</h5>|
+> Warning: O método PaymentClient.Bind(\_callback) deve ser chamado, obrigatoriamente, antes de chamar qualquer método da Integração de Pagamento. O bind é assíncrono, ou seja, a próxima linha após o bind() será executada antes de receber a sua resposta, por isso, garanta que, antes de chamar os métodos de integração, o bind esteja conectado.**</h5>|
+
 ## <a name="_toc173245777"></a>**Métodos**
 
-|**Assinatura**|**Descrição**|
-| :- | :- |
-|<h5>**void startPayment(PaymentRequest paymentRequest, PaymentCallback paymentCallback)**</h5>|Realiza o processo de autorização de pagamento. (DEPRECATED: Utilizar startPaymentV2)|
-|<h5>**void confirmPayment(String paymentId, PaymentCallback paymentCallback)**</h5>|Confirma uma autorização de pagamento realizada anteriormente.|
-|<h5>**void cancelPayment(String paymentId, PaymentCallback paymentCallback)**</h5>|Desfaz uma autorização de pagamento realizada anteriormente.|
-#### **startPayment() (DEPRECATED: Utilizar startPaymentV2)**
+
+Aqui está a tabela transformada em Markdown:
+
+markdown
+Copiar código
+| **Assinatura**                                                              | **Descrição**                                                                                   |
+|---------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|
+| **void startPayment(PaymentRequest paymentRequest, PaymentCallback paymentCallback)** | Realiza o processo de autorização de pagamento. (DEPRECATED: Utilizar startPaymentV2)         |
+| **void confirmPayment(String paymentId, PaymentCallback paymentCallback)** | Confirma uma autorização de pagamento realizada anteriormente.                                  |
+| **void cancelPayment(String paymentId, PaymentCallback paymentCallback)**  | Desfaz uma autorização de pagamento realizada anteriormente.                                   |
+
+**startPayment() (DEPRECATED: Utilizar startPaymentV2)**
+
 Este método deve ser chamado quando se deseja fazer uma solicitação de autorização de pagamento. Durante sua execução, os dados do pagamento serão validados, informações adicionais serão solicitadas ao operador (e.g. senha e CVV), e a autorização junto à adquirente será feita.
 
 **Parâmetros**
@@ -577,45 +581,47 @@ Este método deve ser chamado quando se deseja fazer uma solicitação de autori
 |<h5>**callback**</h5>|<h5>**PaymentCallback**</h5>|**Sim**|Interface que será executada para notificações de sucesso ou erro do processo de pagamento.|
 
 **Detalhe dos Parâmetros**
-#### ***request (PaymentRequest)***
+***request (PaymentRequest)***
 
-|<h5>**Nome**</h5>|<h5>**Tipo**</h5>|**Obrigatório**|**Descrição**|
-| :- | :- | :- | :- |
-|<h5>**value**</h5>|<h5>**BigDecimal**</h5>|**Não**|Valor do pagamento solicitado. Caso não seja preenchido (null), a interface solicitará o valor ao operador.|
-|<h5>**paymentTypes**</h5>|<h5>**List<PaymentType>**</h5>|**Não**|Tipos de pagamentos (Débito, Crédito, Voucher, etc.) permitidos para este pagamento. Caso seja vazio, ou seja, null, significa que todos os tipos são permitidos. Caso contenha apenas um, este tipo será o utilizado (se possível) e não será perguntado nada ao operador.|
-|<h5>**installments**</h5>|<h5>**Integer**</h5>|**Não**|Quantidade de parcelas. Usado apenas para tipos de pagamentos que suportem parcelamento e neste caso é obrigatório. Valor deve ser entre 2 e 99.|
-|<h5>**appTransactionId**</h5>|<h5>**String**</h5>|**Sim**|Identificador da transação integrada. O Identificador referido é aquele utilizado na aplicação que originou a solicitação de pagamento. Não deve se repetir.|
-|<h5>**ApplicationInfo.credentials**</h5>|<h5>**Credentials**</h5>|**Sim**|Credenciais da aplicação que está solicitando a operação, conforme cadastro na PayStore. Basicamente, trata-se da identificação da aplicação e o token de acesso.|
-|<h5>**ApplicationInfo.softwareVersion**</h5>|<h5>**String**</h5>|**Sim**|Versão da aplicação que está solicitando o pagamento.|
-|<h5>**showReceiptView (DEPRECATED)**</h5>|<h5>**Boolean**</h5>|**Não**|A Solução sempre irá imprimir o comprovante depois que a [confirmação](#_confirmpayment\(\)) for executada.|
+| **Nome**                                | **Tipo**                          | **Obrigatório** | **Descrição**                                                                                                                                                                                                                                           |
+|-----------------------------------------|-----------------------------------|------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| value                                   | BigDecimal                        | Não              | Valor do pagamento solicitado. Caso não seja preenchido (null), a interface solicitará o valor ao operador.                                                                                                                                             |
+| paymentTypes                            | List<PaymentType>                | Não              | Tipos de pagamentos (Débito, Crédito, Voucher, etc.) permitidos para este pagamento. Caso seja vazio, ou seja, null, significa que todos os tipos são permitidos. Caso contenha apenas um, este tipo será o utilizado (se possível) e não será perguntado nada ao operador. |
+| installments                            | Integer                           | Não              | Quantidade de parcelas. Usado apenas para tipos de pagamentos que suportem parcelamento e neste caso é obrigatório. Valor deve ser entre 2 e 99.                                                                                                                                     |
+| appTransactionId                        | String                            | Sim              | Identificador da transação integrada. O Identificador referido é aquele utilizado na aplicação que originou a solicitação de pagamento. Não deve se repetir.                                                                                              |
+| ApplicationInfo.credentials             | Credentials                       | Sim              | Credenciais da aplicação que está solicitando a operação, conforme cadastro na PayStore. Basicamente, trata-se da identificação da aplicação e o token de acesso.                                                                                        |
+| ApplicationInfo.softwareVersion         | String                            | Sim              | Versão da aplicação que está solicitando o pagamento.                                                                                                                                                                                                    |
+| showReceiptView (DEPRECATED)           | Boolean                           | Não              | A Solução sempre irá imprimir o comprovante depois que a confirmação for executada.                                                                                                                                                                    |
+
 #### ***callback (PaymentCallback)***
 
-|<h5>**Nome**</h5>|<h5>**Tipo**</h5>|**Obrigatório**|**Descrição**|
-| :- | :- | :- | :- |
-|<h5>**onSuccess**</h5>|<h5>** </h5>| |Método para notificação em caso de sucesso|
-|<h5>**Payment.value**</h5>|<h5>**BigDecimal**</h5>|**Sim**|Valor do pagamento. Este é o valor que foi aprovado pela adquirente. Deve ser validado sempre na resposta, ainda que tenha sido passado como parâmetro, pois há adquirentes que, para algumas situações, aprovam valores diferentes dos solicitados.|
-|<h5>**Payment.paymentType**</h5>|<h5>**PaymentType**</h5>|**Sim**|Tipo de pagamento (Débito, Crédito, Voucher, etc.).|
-|<h5>**Payment.installments**</h5>|<h5>**Integer**</h5>|**Não**|Quantidade de parcelas do pagamento.|
-|<h5>**Payment.acquirer**</h5>|<h5>**String**</h5>|**Sim**|Adquirente que autorizou o pagamento.|
-|<h5>**Payment.paymentId**</h5>|<h5>**String**</h5>|**Sim**|Identificador da transação para a aplicação de pagamentos. Esta é a informação a ser usada para a confirmação e desfazimento.|
-|<h5>**Payment.brand**</h5>|<h5>**String**</h5>|**Sim**|Bandeira do cartão.|
-|<h5>**Payment.bin**</h5>|<h5>**String**</h5>|**Sim**|BIN do cartão.|
-|<h5>**Payment.panLast4Digits**</h5>|<h5>**String**</h5>|**Sim**|Últimos 4 dígitos do PAN do cartão.|
-|<h5>**Payment.captureType**</h5>|<h5>**CaptureType**</h5>|**Sim**|Forma de captura do cartão.|
-|<h5>**Payment.paymentStatus**</h5>|<h5>**PaymentStatus**</h5>|**Sim**|Situação do pagamento. No caso de solicitações retornadas com sucesso, esta informação sempre será PENDING, requerendo uma confirmação ou desfazimento para a sua conclusão definitiva.|
-|<h5>**Payment.paymentDate**</h5>|<h5>**Date**</h5>|**Sim**|Data/hora do pagamento para a aplicação de pagamentos.|
-|<h5>**Payment.acquirerId**</h5>|<h5>**String**</h5>|**Sim**|Identificador da transação para a adquirente. Este é o identificador que consta no arquivo que a adquirente fornece (EDI). Desta forma, é possível realizar a conciliação do pagamento com a transação integrada.|
-|<h5>**Payment.acquirerResponseCode**</h5>|<h5>**String**</h5>|**Sim**|Código de resposta da adquirente.|
-|<h5>**Payment.acquirerResponseDate**</h5>|<h5>**String**</h5>|**Sim**|Data/hora retornada pela adquirente.|
-|<h5>**Payment.acquirerAuthorizationNumber**</h5>|<h5>**String**</h5>|**Sim**|Número da autorização fornecido pela adquirente (consta no comprovante do Portador do Cartão).|
-|<h5>**Payment.Receipt.clientVia**</h5>|<h5>**String**</h5>|**Não**|Conteúdo do comprovante - via do cliente.|
-|<h5>**Payment.Receipt.merchantVia**</h5>|<h5>**String**</h5>|**Não**|Conteúdo do comprovante - via do estabelecimento.|
-|<h5>** </h5>|<h5>** </h5>|** | |
-|<h5>**onError**</h5>|<h5>** </h5>|** |Método para notificação em caso de erro.|
-|<h5>**ErrorData.paymentsResponseCode**</h5>|<h5>**String**</h5>|**Sim**|Código de resposta para o erro ocorrido. Vide [Códigos de Resposta](#_códigos_de_resposta)|
-|<h5>**ErrorData.acquirerResponseCode**</h5>|<h5>**String**</h5>|**Não**|Código de resposta para o erro ocorrido retornado pela adquirente. Note que este erro só será retornado se a transação não for autorizada pela adquirente.|
-|<h5>**ErrorData.responseMessage**</h5>|<h5>**String**</h5>|**Sim**|Mensagem descritiva da causa da não autorização. Caso a transação tenha sido negada pela adquirente, conterá a mensagem retornada pela adquirente.|
+| **Nome**                               | **Tipo**                          | **Obrigatório** | **Descrição**                                                                                                                                                                                                                                           |
+|----------------------------------------|-----------------------------------|------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| onSuccess                              |                                   |                  | Método para notificação em caso de sucesso.                                                                                                                                                                                                             |
+| Payment.value                          | BigDecimal                        | Sim              | Valor do pagamento. Este é o valor que foi aprovado pela adquirente. Deve ser validado sempre na resposta, ainda que tenha sido passado como parâmetro, pois há adquirentes que, para algumas situações, aprovam valores diferentes dos solicitados. |
+| Payment.paymentType                    | PaymentType                       | Sim              | Tipo de pagamento (Débito, Crédito, Voucher, etc.).                                                                                                                                                                                                  |
+| Payment.installments                   | Integer                           | Não              | Quantidade de parcelas do pagamento.                                                                                                                                                                                                                    |
+| Payment.acquirer                       | String                            | Sim              | Adquirente que autorizou o pagamento.                                                                                                                                                                                                                  |
+| Payment.paymentId                      | String                            | Sim              | Identificador da transação para a aplicação de pagamentos. Esta é a informação a ser usada para a confirmação e desfazimento.                                                                                                                         |
+| Payment.brand                          | String                            | Sim              | Bandeira do cartão.                                                                                                                                                                                                                                    |
+| Payment.bin                            | String                            | Sim              | BIN do cartão.                                                                                                                                                                                                                                          |
+| Payment.panLast4Digits                | String                            | Sim              | Últimos 4 dígitos do PAN do cartão.                                                                                                                                                                                                                    |
+| Payment.captureType                    | CaptureType                       | Sim              | Forma de captura do cartão.                                                                                                                                                                                                                             |
+| Payment.paymentStatus                  | PaymentStatus                     | Sim              | Situação do pagamento. No caso de solicitações retornadas com sucesso, esta informação sempre será PENDING, requerendo uma confirmação ou desfazimento para a sua conclusão definitiva.                                                                  |
+| Payment.paymentDate                    | Date                              | Sim              | Data/hora do pagamento para a aplicação de pagamentos.                                                                                                                                                                                                 |
+| Payment.acquirerId                     | String                            | Sim              | Identificador da transação para a adquirente. Este é o identificador que consta no arquivo que a adquirente fornece (EDI). Desta forma, é possível realizar a conciliação do pagamento com a transação integrada.                                    |
+| Payment.acquirerResponseCode           | String                            | Sim              | Código de resposta da adquirente.                                                                                                                                                                                                                       |
+| Payment.acquirerResponseDate           | String                            | Sim              | Data/hora retornada pela adquirente.                                                                                                                                                                                                                   |
+| Payment.acquirerAuthorizationNumber     | String                            | Sim              | Número da autorização fornecido pela adquirente (consta no comprovante do Portador do Cartão).                                                                                                                                                         |
+| Payment.Receipt.clientVia              | String                            | Não              | Conteúdo do comprovante - via do cliente.                                                                                                                                                                                                              |
+| Payment.Receipt.merchantVia            | String                            | Não              | Conteúdo do comprovante - via do estabelecimento.                                                                                                                                                                                                      |
+| onError                                |                                   |                  | Método para notificação em caso de erro.                                                                                                                                                                                                               |
+| ErrorData.paymentsResponseCode         | String                            | Sim              | Código de resposta para o erro ocorrido. Vide Códigos de Resposta.                                                                                                                                                                                     |
+| ErrorData.acquirerResponseCode         | String                            | Não              | Código de resposta para o erro ocorrido retornado pela adquirente. Note que este erro só será retornado se a transação não for autorizada pela adquirente.                                                                                               |
+| ErrorData.responseMessage               | String                            | Sim              | Mensagem descritiva da causa da não autorização. Caso a transação tenha sido negada pela adquirente, conterá a mensagem retornada pela adquirente.                                                                                                        |
+
 #### **confirmPayment()**
+
 Este método deve ser chamado para confirmar uma transação que o terminal conseguiu processar completamente a perna de autorização enviada pelo Autorizador.
 
 Este método **não** deve ser chamado para uma transação já confirmada, ou seja, em que já se executou o método **confirmPayment()** anteriormente.
@@ -640,13 +646,15 @@ Como resultado, poderemos ter uma inconsistência transacional, visto que, na vi
 **Detalhe dos parâmetros**
 #### ***callback***
 
-|**Nome**|**Tipo**|**Obrigatório**|**Descrição**|
-| :- | :- | :- | :- |
-|<h5>**onSuccess**</h5>|<h5>** </h5>| |Método para notificação em caso de sucesso|
-|<h5>**onError**</h5>|<h5>** </h5>| |Método para notificação em caso de erro.|
-|<h5>**ErrorData.paymentsResponseCode**</h5>|<h5>**String**</h5>|**Sim**|Código de resposta para o erro ocorrido. Vide [Códigos de Resposta](#_códigos_de_resposta)|
-|<h5>**ErrorData.acquirerResponseCode**</h5>|<h5>**String**</h5>|**Não**|Código de resposta para o erro ocorrido retornado pela adquirente. Note que este erro só será retornado se a transação não for autorizada pela adquirente.|
-|<h5>**ErrorData.responseMessage**</h5>|<h5>**String**</h5>|**Sim**|Mensagem descritiva da causa da não autorização. Caso a transação tenha sido negada pela adquirente, conterá a mensagem retornada pela adquirente.|
+| **Nome**                               | **Tipo**                          | **Obrigatório** | **Descrição**                                                                                                                                                                |
+|----------------------------------------|-----------------------------------|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| onSuccess                              |                                   |                  | Método para notificação em caso de sucesso.                                                                                                                                 |
+| onError                                |                                   |                  | Método para notificação em caso de erro.                                                                                                                                   |
+| ErrorData.paymentsResponseCode         | String                            | Sim              | Código de resposta para o erro ocorrido. Vide Códigos de Resposta.                                                                                                         |
+| ErrorData.acquirerResponseCode         | String                            | Não              | Código de resposta para o erro ocorrido retornado pela adquirente. Note que este erro só será retornado se a transação não for autorizada pela adquirente.                 |
+| ErrorData.responseMessage               | String                            | Sim              | Mensagem descritiva da causa da não autorização. Caso a transação tenha sido negada pela adquirente, conterá a mensagem retornada pela adquirente.                          |
+
+
 #### **cancelPayment()**
 Este método deve ser sempre chamado para desfazer uma transação que o terminal não conseguiu processar completamente a perna de autorização enviada pelo Autorizador.
 
@@ -672,18 +680,144 @@ Caso o App consumidor desta API não tenha finalizado o seu processo de negócio
 **Detalhe dos parâmetros**
 #### ***callback***
 
-|**Nome**|**Tipo**|**Obrigatório**|**Descrição**|
-| :- | :- | :- | :- |
-|<h5>**onSuccess**</h5>|<h5>** </h5>| |Método para notificação em caso de sucesso|
-|<h5>**onError**</h5>|<h5>** </h5>| |Método para notificação em caso de erro.|
-|<h5>**ErrorData.paymentsResponseCode**</h5>|<h5>**String**</h5>|**Sim**|Código de resposta para o erro ocorrido. Vide [Códigos de Resposta](#_códigos_de_resposta)|
-|<h5>**ErrorData.acquirerResponseCode**</h5>|<h5>**String**</h5>|**Não**|Código de resposta para o erro ocorrido retornado pela adquirente. Note que este erro só será retornado se a transação não for autorizada pela adquirente.|
-|<h5>**ErrorData.responseMessage**</h5>|<h5>**String**</h5>|**Sim**|Mensagem descritiva da causa da não autorização. Caso a transação tenha sido negada pela adquirente, conterá a mensagem retornada pela adquirente.|
-## <a name="_toc173245778"></a>**Exemplo do fluxo de Pagamento**
+| **Nome**                              | **Tipo**  | **Obrigatório** | **Descrição**                                                                                                                                                                |
+|---------------------------------------|-----------|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| onSuccess                             |           |                  | Método para notificação em caso de sucesso.                                                                                                                                 |
+| onError                               |           |                  | Método para notificação em caso de erro.                                                                                                                                   |
+| ErrorData.paymentsResponseCode        | String    | Sim              | Código de resposta para o erro ocorrido. Vide Códigos de Resposta.                                                                                                         |
+| ErrorData.acquirerResponseCode        | String    | Não              | Código de resposta para o erro ocorrido retornado pela adquirente. Note que este erro só será retornado se a transação não for autorizada pela adquirente.                 |
+| ErrorData.responseMessage             | String    | Sim              | Mensagem descritiva da causa da não autorização. Caso a transação tenha sido negada pela adquirente, conterá a mensagem retornada pela adquirente.                          |
 
-|<p><h5>**package com.example.appmanoel;**</h5></p><p><h5>**import androidx.appcompat.app.AppCompatActivity;**</h5></p><p><h5>**import android.content.Intent;</h5><br>import android.os.Bundle;</h5><br>import android.util.Log;</h5><br>import android.view.View;</h5><br>import android.widget.Button;</h5><br>import android.widget.Toast;**</h5></p><p><h5>**import java.math.BigDecimal;**</h5></p><p><h5>**import br.com.phoebus.android.payments.api.ApplicationInfo;</h5><br>import br.com.phoebus.android.payments.api.Credentials;</h5><br>import br.com.phoebus.android.payments.api.ErrorData;</h5><br>import br.com.phoebus.android.payments.api.Payment;</h5><br>import br.com.phoebus.android.payments.api.PaymentClient;</h5><br>import br.com.phoebus.android.payments.api.PaymentRequest;</h5><br>import br.com.phoebus.android.payments.api.exception.ClientException;**</h5></p><p><h5>**public class MainActivity extends AppCompatActivity implements View.OnClickListener, PaymentClient.PaymentCallback<Payment> {**</h5></p><p><h5>`    `**Button bt\_start;</h5><br>`    `private PaymentClient paymentClient;</h5><br>`    `public static final String TEST\_APPLICATION\_ID = "0";</h5><br>`    `public static final String TEST\_SECRET\_TOKEN = "000000000000000000000000";</h5><br>`    `public static final String TAG = "TAG\_DEMO";</h5><br> </h5><br>`    `@Override</h5><br>`    `protected void onCreate(Bundle savedInstanceState) {</h5><br>`        `super.onCreate(savedInstanceState);</h5><br>`        `setContentView(R.layout.activity\_main);</h5><br>`        `bt\_start = (Button) this.findViewById(R.id.button);</h5><br>`        `bt\_start.setOnClickListener(this);</h5><br>`        `paymentClient = new PaymentClient();</h5><br>`    `}**</h5></p><p><h5>`    `**@Override</h5><br>`    `public void onClick(View view) {</h5><br>`        `doExecute();</h5><br>`    `}**</h5></p><p><h5>`    `**@Override</h5><br>`    `protected void onResume() {</h5><br>`        `super.onResume();</h5><br>`        `paymentClient.bind(this);</h5><br>`    `}**</h5></p><p><h5>`    `**@Override</h5><br>`    `protected void onDestroy() {</h5><br>`        `try {</h5><br>`            `paymentClient.unbind(this);</h5><br>`        `} catch (Exception e) {</h5><br>`            `Log.e(TAG, e.getMessage());</h5><br>`        `}</h5><br>`        `super.onDestroy();</h5><br>`    `}**</h5></p><p><h5>`    `**public void doExecute(){</h5><br>`        `PaymentRequest request = new PaymentRequest();</h5><br>`        `request.setValue(new BigDecimal(50));</h5><br>`        `request.setAppTransactionId("123456");**</h5></p><p><h5>`        `**Credentials credentials = new Credentials();</h5><br>`        `credentials.setApplicationId(TEST\_APPLICATION\_ID);</h5><br>`        `credentials.setSecretToken(TEST\_SECRET\_TOKEN);**</h5></p><p><h5>`       `**ApplicationInfo applicationInfo = new ApplicationInfo();</h5><br>`        `applicationInfo.setCredentials(credentials);</h5><br>`        `applicationInfo.setSoftwareVersion("1.0");**</h5></p><p><h5>`        `**request.setAppInfo(applicationInfo);**</h5></p><p><h5>`        `**try {</h5><br>`            `paymentClient.startPayment(request, this);</h5><br>`        `} catch (ClientException e) {</h5><br>`            `Log.e(TAG, "Error starting payment", e);</h5><br>`        `}</h5><br>`    `}**</h5></p><p><h5>**@Override</h5><br>`    `public void onSuccess(Payment payment) {</h5><br>`        `Log.i(TAG, payment.toString());**</h5></p><p><h5>`        `**doConfirmPayment(payment);</h5><br>`        `/\*</h5><br>`          `Se, na sua regra de negócio, for preciso desfazer a transação por algum motivo,</h5><br>`          `chame o método doCancelPayment()</h5><br>`        `\*\*/</h5><br>`    `}**</h5></p><p><h5>`    `**@Override</h5><br>`    `public void onError(ErrorData errorData) {</h5><br>`       `Log.e(TAG, errorData.getResponseMessage());</h5><br>`        `Toast.makeText(this, errorData.getResponseMessage(), Toast.LENGTH\_LONG).show();</h5><br>`    `}**</h5></p><p><h5>`    `**private void doConfirmPayment(Payment payment) {</h5><br>`        `try {</h5><br>`            `paymentClient.confirmPayment(payment.getPaymentId(),</h5><br>`                    `new PaymentClient.PaymentCallback<Payment>() {**</h5></p><p><h5>`                        `**@Override</h5><br>`                        `public void onError(ErrorData errorData) {</h5><br>`                            `Log.e(TAG, errorData.getResponseMessage());</h5><br>`                            `Toast.makeText(MainActivity.this, errorData.getResponseMessage(), Toast.LENGTH\_LONG).show();</h5><br>`                        `}**</h5></p><p><h5>`                        `**@Override</h5><br>`                        `public void onSuccess(Payment payment) {</h5><br>`                            `Log.i(TAG, payment.toString());</h5><br>`                        `}**</h5></p><p><h5>`                    `**});</h5><br>`        `} catch (ClientException e) {</h5><br>`            `Log.e(TAG, "Error confirmPayment", e);</h5><br>`        `}</h5><br>`    `}**</h5></p><p><h5>`    `**private void doCancelPayment(Payment payment) {</h5><br>`        `try {</h5><br>`            `paymentClient.cancelPayment(payment.getPaymentId(),</h5><br>`                    `new PaymentClient.PaymentCallback<Payment>() {**</h5></p><p><h5>`                        `**@Override</h5><br>`                        `public void onError(ErrorData errorData) {</h5><br>`                           `Log.e(TAG, errorData.getResponseMessage());</h5><br>`                            `Toast.makeText(MainActivity.this, errorData.getResponseMessage(), Toast.LENGTH\_LONG).show();</h5><br>`                        `}**</h5></p><p><h5>`                        `**@Override</h5><br>`                        `public void onSuccess(Payment payment) {</h5><br>`                            `Log.i(TAG, payment.toString());</h5><br>`                        `}</h5><br>`                    `});</h5><br>`        `} catch (ClientException e) {</h5><br>`            `Log.e(TAG, "Error cancelPayment", e);</h5><br>`        `}</h5><br>`    `}</h5><br>}**</h5></p>|
-| :- |
------
+
+**Exemplo do fluxo de Pagamento**
+
+```java
+package com.example.appmanoel;
+import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+import java.math.BigDecimal;
+import br.com.phoebus.android.payments.api.ApplicationInfo;
+import br.com.phoebus.android.payments.api.Credentials;
+import br.com.phoebus.android.payments.api.ErrorData;
+import br.com.phoebus.android.payments.api.Payment;
+import br.com.phoebus.android.payments.api.PaymentClient;
+import br.com.phoebus.android.payments.api.PaymentRequest;
+import br.com.phoebus.android.payments.api.exception.ClientException;
+public class MainActivity extends AppCompatActivity implements
+View.OnClickListener, PaymentClient.PaymentCallback<Payment> {
+ Button bt_start;
+ private PaymentClient paymentClient;
+ public static final String TEST_APPLICATION_ID = "0";
+ public static final String TEST_SECRET_TOKEN =
+"000000000000000000000000";
+ public static final String TAG = "TAG_DEMO";
+ @Override
+ protected void onCreate(Bundle savedInstanceState) {
+ super.onCreate(savedInstanceState);
+ setContentView(R.layout.activity_main);
+ bt_start = (Button) this.findViewById(R.id.button);
+ bt_start.setOnClickListener(this);
+ paymentClient = new PaymentClient();
+ }
+ @Override
+ public void onClick(View view) {
+CLASSIFICAÇÃO: PÚBLICA 56 / 236
+ doExecute();
+ }
+ @Override
+ protected void onResume() {
+ super.onResume();
+ paymentClient.bind(this);
+ }
+ @Override
+ protected void onDestroy() {
+ try {
+ paymentClient.unbind(this);
+ } catch (Exception e) {
+ Log.e(TAG, e.getMessage());
+ }
+ super.onDestroy();
+ }
+ public void doExecute(){
+ PaymentRequest request = new PaymentRequest();
+ request.setValue(new BigDecimal(50));
+ request.setAppTransactionId("123456");
+ Credentials credentials = new Credentials();
+ credentials.setApplicationId(TEST_APPLICATION_ID);
+ credentials.setSecretToken(TEST_SECRET_TOKEN);
+ ApplicationInfo applicationInfo = new ApplicationInfo();
+ applicationInfo.setCredentials(credentials);
+ applicationInfo.setSoftwareVersion("1.0");
+ request.setAppInfo(applicationInfo);
+ try {
+ paymentClient.startPayment(request, this);
+ } catch (ClientException e) {
+ Log.e(TAG, "Error starting payment", e);
+ }
+ }
+@Override
+ public void onSuccess(Payment payment) {
+ Log.i(TAG, payment.toString());
+ doConfirmPayment(payment);
+ /*
+ Se, na sua regra de negócio, for preciso desfazer a transação por
+algum motivo,
+ chame o método doCancelPayment()
+ **/
+ }
+ @Override
+ public void onError(ErrorData errorData) {
+ Log.e(TAG, errorData.getResponseMessage());
+ Toast.makeText(this, errorData.getResponseMessage(),
+Toast.LENGTH_LONG).show();
+ }
+ private void doConfirmPayment(Payment payment) {
+ try {
+ paymentClient.confirmPayment(payment.getPaymentId(),
+ new PaymentClient.PaymentCallback<Payment>() {
+ @Override
+public void onError(ErrorData errorData) {
+ Log.e(TAG, errorData.getResponseMessage());
+Toast.makeText(MainActivity.this,
+errorData.getResponseMessage(), Toast.LENGTH_LONG).show();
+ }
+ @Override
+public void onSuccess(Payment payment) {
+ Log.i(TAG, payment.toString());
+ }
+ });
+ } catch (ClientException e) {
+ Log.e(TAG, "Error confirmPayment", e);
+ }
+ }
+ private void doCancelPayment(Payment payment) {
+ try {
+ paymentClient.cancelPayment(payment.getPaymentId(),
+ new PaymentClient.PaymentCallback<Payment>() {
+ @Override
+public void onError(ErrorData errorData) {
+ Log.e(TAG, errorData.getResponseMessage());
+ Toast.makeText(MainActivity.this,
+errorData.getResponseMessage(), Toast.LENGTH_LONG).show();
+ }
+ @Override
+public void onSuccess(Payment payment) {
+ Log.i(TAG, payment.toString());
+ }
+ });
+ } catch (ClientException e) {
+ Log.e(TAG, "Error cancelPayment", e);
+ }
+ }
+}
+```
+
+
 # <a name="_toc173245779"></a>**Integração com Pagamentos V2**
 Uma das formas de se integrar com a aplicação de pagamentos da Cielo é via [IPC](https://developer.android.com/guide/components/aidl.html). Para isto, é fornecida uma biblioteca, a [payments-api-x.x.x.x.aar](https://github.com/paystore/paystore-api-demo/tree/master/app/aars), contendo todo o código necessário a ser usado para tais chamadas.
 
@@ -695,9 +829,7 @@ A seguir, temos a especificação detalhada das operações disponíveis.
 
 Para integração com a API de pagamentos, é fornecida a interface PaymentClient presente na biblioteca.
 
-|**Warning**|
-| :-: |
-|<h5>**O método PaymentClient.Bind(\_callback) deve ser chamado, obrigatoriamente, antes de chamar qualquer método da Integração de Pagamento. O bind é assíncrono, ou seja, a próxima linha após o bind() será executada antes de receber a sua resposta, por isso garanta que, antes de chamar os métodos de integração, o bind esteja conectado.**</h5>|
+> Warning: O método PaymentClient.Bind(\_callback) deve ser chamado, obrigatoriamente, antes de chamar qualquer método da Integração de Pagamento. O bind é assíncrono, ou seja, a próxima linha após o bind() será executada antes de receber a sua resposta, por isso garanta que, antes de chamar os métodos de integração, o bind esteja conectado.
 ## <a name="_toc173245780"></a>**Fluxo de Pagamento**
 ![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Aspose.Words.c887f4b5-085c-45fe-8850-cdf33ec8ac16.042.jpeg)
 
@@ -741,79 +873,76 @@ Este método deve ser chamado quando se deseja fazer uma solicitação de autori
 
 **Detalhe dos Parâmetros** *request (**PaymentRequestV2**)*
 
+| Nome                          | Tipo                 | Obrigatório | Descrição                                                                                                                                                                                                                             |
+|-------------------------------|----------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| value                         | BigDecimal           | Não         | Valor do pagamento solicitado. Caso não seja preenchido (null), a interface solicitará o valor ao operador. O valor deverá ser formatado com duas casas decimais.                                                                     |
+| additionalValueType           | AdditionalValueType  | Não         | Tipo de valor adicional (Cashback, TIP, etc.). Se não estiver preenchido (nulo), deve-se ignorar o campo "additionalValue". Para FastTrack, apenas o valor CASHBACK é permitido.                                                     |
+| additionalValue               | BigDecimal           | Não         | Valor adicionado ao valor da transação. Se "additionalValueType" for relatado e "additionalValue" não foi preenchido (nulo) ou é igual a 0 (zero), a interface irá pedir ao operador o valor adicional.                                 |
+| paymentTypes                  | List<PaymentType>    | Não         | Tipos de pagamentos (Débito, Crédito, Voucher, etc.) permitidos para este pagamento. Caso seja vazio, ou seja, null, significa que todos os tipos são permitidos.                                                                     |
+| installments                  | Integer              | Não         | Quantidade de parcelas. Usado apenas para tipos de pagamentos que suportem parcelamento e neste caso é obrigatório. Valor deve ser entre 2 e 99.                                                                                     |
+| accountTypeId                 | String               | Não         | Tipo de conta. Se não for preenchido (nulo), a interface pode perguntar ao operador o tipo de conta.                                                                                                                                 |
+| planId                        | String               | Não         | Identificação do plano de pagamento. Pode ter um ou dois caracteres, a depender da regra da adquirente selecionada.                                                                                                                |
+| appTransactionId              | String               | Sim         | Identificador da transação integrada para o software. O Identificador referido é aquele utilizado na aplicação que originou a solicitação de pagamento. Não deve se repetir.                                                            |
+| ApplicationInfo.credentials    | Credentials          | Sim         | Credenciais da aplicação que está solicitando a operação, conforme cadastro na PayStore.                                                                                                                                             |
+| ApplicationInfo.softwareVersion | String               | Sim         | Versão da aplicação que está solicitando o pagamento.                                                                                                                                                                              |
+| showReceiptView (DEPRECATED)   | Boolean              | Não         | A Solução irá utilizar o valor dos parâmetros printMerchantReceipt e printCustomerReceipt para executar a impressão depois que a confirmação for executada.                                                                            |
+| printMerchantReceipt           | Boolean              | Não         | Indica se o comprovante do estabelecimento deve ser impresso ou não depois da confirmação da transação. O valor padrão é true, isto é, o comprovante é impresso.                                                                      |
+| printCustomerReceipt           | Boolean              | Não         | Indica se o comprovante do cliente deve ser impresso ou não depois da confirmação da transação. O valor padrão é true, isto é, o comprovante é impresso.                                                                             |
+| tokenizeCard                   | Boolean              | Não         | Indica se deve ser feita ou não a tokenização do cartão após a aprovação do pagamento. O valor padrão é false, isto é, não será feita a tokenização.                                                                                  |
+| tokenizeEmail                  | String               | Se tokenizeCard for true, caso contrário, não. | E-mail do portador do cartão. Se “tokenizeCard” for false, este parâmetro é ignorado.                                                                                                                  |
+| tokenizeNationalDocument       | String               | Não         | CPF ou CNPJ do portador do cartão. Se “tokenizeCard” for false, este parâmetro é ignorado.                                                                                                                                        |
+| productShortName               | String               | Não         | Identificação resumida do produto de bandeira do cartão.                                                                                                                                                                           |
+| note                           | String               | Não         | Texto adicional que é inserido como Nota. (pode ser o número da fatura)                                                                                                                                                            |
+| dni                            | String               | Não         | Número do Documento.                                                                                                                                                                                                                  |
+| operationMethodAllowed         | Integer              | Sim         | Indica o método de operação de pagamento, anulação e devolução. Admita os seguintes valores: 0 - Apenas com cartão físico (lido ou digitado); 1 - Somente com QRCode.                                                                 |
+| allowBenefit (OBSOLETO)       | Boolean              | Não         | Indica se o QRCode deve ser gerado com as opções do produto associadas aos benefícios. O valor padrão é 'verdadeiro', ou seja, os benefícios serão adicionados.                                                                         |
+| previewMerchantReceipt         | Boolean              | Não         | Indica se a tela de pré-visualização do comprovante do estabelecimento deve ser exibida após a confirmação da transação. O valor padrão é true, o que significa que o comprovante será exibido.                                     |
+| previewCustomerReceipt         | Boolean              | Não         | Indica se a tela de pré-visualização do comprovante do cliente deve ser exibida após a confirmação da transação. O valor padrão é true, o que significa que o comprovante será exibido.                                             |
 
-
-|**Nome**|**Tipo**|**Obrigatório**|**Descrição**|
-| :- | :- | :- | :- |
-|<h5>**value**</h5>|<h5>**BigDecimal**</h5>|**Não**|<p>Valor do pagamento solicitado. Caso não seja preenchido (null), a interface solicitará o valor ao operador.</p><p>O valor deverá ser formatado com duas casas decimais.</p>|
-|<h5>**additionalValueType**</h5>|<h5>**AdditionalValueType**</h5>|**Não**|Tipo de valor adicional (Cashback, TIP, etc.). Se não estiver preenchido (nulo), deve-se ignorar o campo "additionalValue". ‘AdditionalValueType’ deve admitir, para FastTrack, apenas o valor CASHBACK. Depois de ler o cartão, se o AdditionalValueType informado não for compatível com produto banner do Cartão, o terminal exibe um erro na tela e finaliza a transação. Para evitar que esse erro ocorra, é recomendado usar este campo apenas junto com um "productShortName", que deve ser preenchido cmo um produto que suporta o uso do tipo de valor adicional em questão. Para pagamentos de QRCode estático não considerar este parâmetro quando operationMethodAllowed = 1|
-|<h5>**additionalValue**</h5>|<h5>**BigDecimal**</h5>|**Não**|Valor adicionado ao valor da transação. Se "additionalValueType" for relatado e "additionalValue" não foi preenchido (nulo) ou é igual a 0 (zero), a interface irá pedir ao operador o valor adicional. Se "additionalValueType" for preenchido e "additionalValue" tiver um valor mais alto do que 0 (zero), a interface não pedirá ao operador o valor adicional. Para pagamentos de QRCode estático não considerar este parâmetro quando operationMethodAllowed = 1|
-|<h5>**paymentTypes**</h5>|<h5>**List<PaymentType>**</h5>|**Não**|Tipos de pagamentos (Débito, Crédito, Voucher, etc.) permitidos para este pagamento. Caso seja vazio, ou seja, null, significa que todos os tipos são permitidos. Caso contenha apenas um, este tipo será o utilizado (se possível) e não será perguntado nada ao operador. Para pagamentos de QRCode estático não considerar este parâmetro quando operationMethodAllowed = 1|
-|<h5>**installments**</h5>|<h5>**Integer**</h5>|**Não**|Quantidade de parcelas. Usado apenas para tipos de pagamentos que suportem parcelamento e neste caso é obrigatório. Valor deve ser entre 2 e 99.|
-|<h5>**accountTypeId**</h5>|<h5>**String**</h5>|**Não**|Tipo de conta. Se não for preenchido (nulo), a interface pode perguntar ao operador o tipo de conta, dependendo da configuração do produto principal associado ao cartão usado na transação. Depois de ler o cartão, se o accountTypeId inserido não existir na cnofiguração do produto de bandeira do Cartão, o terminal exibe um erro na tela e finaliza a transação. Para evitar que esse erro ocorra, é recomendado usar este campo apenas junto com um "productShortName", onde deve constar um produto que suporta o uso do tipo de conta. Para pagamentos de QRCode estático não considerar este parâmetro quando operationMethodAllowed = 1|
-|<h5>**planId**</h5>|<h5>**String**</h5>|**Não**|Identificação do plano de pagamento. Pode ter um ou dois caracteres, a depender da regra da adquirente selecionada. Se não for preenchido (nulo), a interface pode solicitar o plano para a operadora, de acordo com a configuração do produto de bandeira associado ao cartão usado na transação. Depois de ler o cartão, se o planId relatado não for compatível com o número de parcelas (capturado no terminal ou informado no parâmetro "Parcelas") e com a configuração do produto de bandeira do cartão (observando as configurações planCondition, planType e planList), o terminal mostra um erro na tela e finaliza a transação. A fim de evitar que esse erro ocorra, é recomendado usar este campo apenas junto com um "productShortName", onde deve constar um produto que apóia o plano referido. Para pagamentos de QRCode estático não considerar este parâmetro quando operationMethodAllowed = 1|
-|<h5>**appTransactionId**</h5>|<h5>**String**</h5>|**Sim**|Identificador da transação integrada para o software. O Identificador referido é aquele utilizado na aplicação que originou a solicitação de pagamento. Não deve se repetir.|
-|<h5>**ApplicationInfo.credentials**</h5>|<h5>**Credentials**</h5>|**Sim**|Credenciais da aplicação que está solicitando a operação, conforme cadastro na PayStore. Basicamente, trata-se da identificação da aplicação e o token de acesso.|
-|<h5>**ApplicationInfo.softwareVersion**</h5>|<h5>**String**</h5>|**Sim**|Versão da aplicação que está solicitando o pagamento.|
-|<h5>**showReceiptView (DEPRECATED)**</h5>|<h5>**Boolean**</h5>|**Não**|A Solução irá utilizar o valor dos parâmetros printMerchantReceipt e printCustomerReceipt para executar a impressão depois que a [confirmação](#_confirmpayment\(\)) for executada.|
-|<h5>**printMerchantReceipt**</h5>|<h5>**Boolean**</h5>|**Não**|Indica se o comprovante do estabelecimento deve ser impresso ou não depois da [confirmação](#_confirmpayment\(\)) da transação. O valor padrão é *true*, isto é, o comprovante é impresso.|
-|<h5>**printCustomerReceipt**</h5>|<h5>**Boolean**</h5>|**Não**|Indica se o comprovante do cliente deve ser impresso ou não depois da [confirmação](#_confirmpayment\(\)) da transação. O valor padrão é *true*, isto é, o comprovante é impresso.|
-|<h5>**tokenizeCard**</h5>|<h5>**Boolean**</h5>|**Não**|Indica se deve ser feita ou não a tokenização do cartão após a aprovação do pagamento ou não. O valor padrão é false, isto é, não será feita a tokenização.|
-|<h5>**tokenizeEmail**</h5>|<h5>**String**</h5>|**Se tokenizeCard for true, sim, caso contrário, não.**|E-mail do portador do cartão. Se “tokenizeCard” for false, este parâmetro é ignorado.|
-|<h5>**tokenizeNationalDocument**</h5>|<h5>**String**</h5>|**Não**|CPF ou CNPJ do portador do cartão. Se “tokenizeCard” for false, este parâmetro é ignorado. Se for true, mas não for informado esse parâmetro, então a chamada à API de criação de token no e-commerce também não o utilizará.|
-|<h5>**productShortName**</h5>|<h5>**String**</h5>|**Não**|Identificação resumida do produto de bandeira do cartão. Depois de ler o cartão e identificar o produto de bandeira, se ele não corresponder ao productShortName referido, o terminal exibe um erro na tela e finaliza a transação. Para pagamentos de QRCode estático não considerar este parâmetro quando operationMethodAllowed = 1, o terminal exibe um erro caso o campo seja informado e este valor corresponda a um produto cujo campo acquirerParams.allowQRCode seja false; Ou o campo acquirerParams.qrPaymentMethodId não esteja configurado; Ou se o produto existir, mas não estiver habilitado no terminal.|
-|<h5>**note**</h5>|<h5>**String**</h5>|**Não**|Texto adicional que é inserido como Nota. (pode ser o número da fatura)|
-|<h5>**dni**</h5>|<h5>**String**</h5>|**Não**|Número do Documento. Para pagamentos de QRCode estático não considerar este parâmetro quando operationMethodAllowed = 1|
-|<h5>**operationMethodAllowed**</h5>|<h5>**Integer**</h5>|**Sim**|Indica o método de operação de pagamento, anulação e devolução. Admita os seguintes valores: 0 - Apenas com cartão físico (lido ou digitado); 1 - Somente com QRCode.|
-|<h5>**allowBenefit (OBSOLETO)**</h5>|<h5>**Boolean**</h5>|**Não**|Indica se o QRCode deve ser gerado com as opções do produto associadas aos benefícios. O valor padrão é 'verdadeiro', ou seja, os benefícios serão adicionados.|
-|<h5>**previewMerchantReceipt**</h5>|<h5>**Boolean**</h5>|**Não**|Indica se a tela de pré-visualização do comprovante do estabelecimento deve ser exibida após a confirmação da transação. O valor padrão é true, o que significa que o comprovante será exibido.|
-|<h5>**previewCustomerReceipt**</h5>|<h5>**Boolean**</h5>|**Não**|Indica se a tela de pré-visualização do comprovante do cliente deve ser exibida após a confirmação da transação. O valor padrão é true, o que significa que o comprovante será exibido.|
 #### ***callback (PaymentCallback)***
 
-|**Nome**|**Tipo**|**Obrigatório**|**Descrição**|
-| :- | :- | :- | :- |
-|<h5>**onSuccess**</h5>|<h5>** </h5>| |Método para notificação em caso de sucesso|
-|<h5>**Payment.value**</h5>|<h5>**BigDecimal**</h5>|**Sim**|Valor do pagamento. Este é o valor que foi aprovado pela adquirente. Deve ser validado sempre na resposta, ainda que tenha sido passado como parâmetro, pois há adquirentes que, para algumas situações, aprovam valores diferentes dos solicitados.|
-|<h5>**Payment.additionalValueType**</h5>|<h5>**AdditionalValueType**</h5>|**Não**|Presente apenas quando existe um valor adicional no contexto da transação executada.|
-|<h5>**Payment.additionalValue**</h5>|<h5>**BigDecimal**</h5>|**Não**|Presente apenas quando existe um valor adicional no contexto da transação executada.|
-|<h5>**Payment.paymentType**</h5>|<h5>**PaymentType**</h5>|**Sim**|Tipo de pagamento (Débito, Crédito, Voucher, etc.).|
-|<h5>**Payment.installments**</h5>|<h5>**Integer**</h5>|**Não**|Quantidade de parcelas do pagamento.|
-|<h5>**Payment.accountTypeId**</h5>|<h5>**String**</h5>|**Não**|Presente apenas quando existe um tipo de conta no contexto da transação executada.|
-|<h5>**Payment.planId**</h5>|<h5>**String**</h5>|**Não**|Presente apenas quando existe um plano no contexto da transação executada.|
-|<h5>**Payment.productShortName**</h5>|<h5>**String**</h5>|**Sim**|Corresponde ao productShortName correspondente ao produto principal no contexto da transação.|
-|<h5>**Payment.ticketNumber**</h5>|<h5>**String**</h5>|**Não**|ticketNumber gerado pelo terminal para a transação.|
-|<h5>**Payment.batchNumber**</h5>|<h5>**String**</h5>|**Sim**|Número de lote.|
-|<h5>**Payment.nsuTerminal**</h5>|<h5>**String**</h5>|**Sim**|NSU gerado pelo terminal para a transação.|
-|<h5>**Payment.acquirer**</h5>|<h5>**String**</h5>|**Sim**|Adquirente que autorizou o pagamento.|
-|<h5>**Payment.paymentId**</h5>|<h5>**String**</h5>|**Sim**|Identificador da transação para a aplicação de pagamentos. Esta é a informação a ser usada para a confirmação e desfazimento.|
-|<h5>**Payment.brand**</h5>|<h5>**String**</h5>|**Sim**|Bandeira do cartão.|
-|<h5>**Payment.bin**</h5>|<h5>**String**</h5>|**Sim**|BIN do cartão.|
-|<h5>**Payment.panLast4Digits**</h5>|<h5>**String**</h5>|**Sim**|Últimos 4 dígitos do PAN do cartão.|
-|<h5>**Payment.captureType**</h5>|<h5>**CaptureType**</h5>|**Sim**|Forma de captura do cartão.|
-|<h5>**Payment.paymentStatus**</h5>|<h5>**PaymentStatus**</h5>|**Sim**|Situação do pagamento. No caso de solicitações retornadas com sucesso, esta informação sempre será *PENDING*, requerendo uma confirmação ou desfazimento para a sua conclusão definitiva.|
-|<h5>**Payment.paymentDate**</h5>|<h5>**Date**</h5>|**Sim**|Data/hora do pagamento para a aplicação de pagamentos.|
-|<h5>**Payment.acquirerId**</h5>|<h5>**String**</h5>|**Sim**|Identificador da transação para a adquirente. Este é o identificador que consta no arquivo que a adquirente fornece (EDI). Desta forma,é possível realizar a conciliação do pagamento com a transação integrada.|
-|<h5>**Payment.acquirerResponseCode**</h5>|<h5>**String**</h5>|**Sim**|Código de resposta da adquirente.|
-|<h5>**Payment.acquirerResponseDate**</h5>|<h5>**String**</h5>|**Sim**|Data/hora retornada pela adquirente.|
-|<h5>**Payment.acquirerAdditionalMessage**</h5>|<h5>**String**</h5>|**Não**|Mensagem adicional enviada pela adquirente na resposta da transação|
-|<h5>**Payment.acquirerAuthorizationNumber**</h5>|<h5>**String**</h5>|**Sim**|Número da autorização fornecido pela adquirente (consta no comprovante do cliente Portador do Cartão).|
-|<h5>**Payment.Receipt.clientVia**</h5>|<h5>**String**</h5>|**Não**|Conteúdo do comprovante - via do cliente.|
-|<h5>**Payment.Receipt.merchantVia**</h5>|<h5>**String**</h5>|**Não**|Conteúdo do comprovante - via do estabelecimento.|
-|<h5>**Payment.cardToken**</h5>|<h5>**String**</h5>|**Não**|Token do cartão utilizado na transação.|
-|<h5>**Payment.cardholderName**</h5>|<h5>**String**</h5>|**Não**|Nome do portador do cartão.|
-|<h5>**Payment.terminalId**</h5>|<h5>**String**</h5>|**Sim**|Identificação do terminal.|
-|<h5>**Payment.note**</h5>|<h5>**String**</h5>|**Sim**|Valor adicional que é inserido como Nota. (pode ser o número da fatura) Este campo só virá na resposta caso tenha sido preenchido na requisição do pagamento pela api; Caso seja capturado pelo comprovante, não é possível retornar, pois como o comprovante é exibido depois da confirmação, nessa altura a resposta do pagamento já tem sido enviada para o app.|
-|<h5>**Payment.dni**</h5>|<h5>**String**</h5>|**Sim**|Número do Documento. Este campo só virá na resposta caso tenha sido preenchido na requisição do pagamento pela api; Caso seja capturado pelo comprovante, não é possível retornar, pois como o comprovante é exibido depois da confirmação, nessa altura a resposta do pagamento já tem sido enviada para o app.|
-|<h5>**Payment.qrId**</h5>|<h5>**String**</h5>|**Não**|Identificador QrCode gerado pelo terminal de captura.|
-|<h5>**Payment.originalValue**</h5>|<h5>**BigDecimal**</h5>|**Não**|Valor orginal da venda. Presente em pagamentos com QRCode, cujo benefício foi aplicado ao valor da venda.|
-|<h5>**Payment.acquirerNsu**</h5>|<h5>**String**</h5>|**Não**|NSU Adquirente para consulta e identificação de transações.|
-|<h5>** </h5>|<h5>** </h5>|** | |
-|<h5>**onError**</h5>|<h5>** </h5>|** |Método para notificação em caso de erro.|
-|<h5>**ErrorData.paymentsResponseCode**</h5>|<h5>**String**</h5>|**Sim**|Código de resposta para o erro ocorrido. Vide [Códigos de Resposta](#_códigos_de_resposta)|
-|<h5>**ErrorData.acquirerResponseCode**</h5>|<h5>**String**</h5>|**Não**|Código de resposta para o erro ocorrido retornado pela adquirente. Note que este erro só será retornado se a transação não for autorizada pela adquirente.|
-|<h5>**ErrorData.responseMessage**</h5>|<h5>**String**</h5>|**Sim**|Mensagem descritiva da causa da não autorização. Caso a transação tenha sido negada pela adquirente, conterá a mensagem retornada pela adquirente.|
-|<h5>**ErrorData.acquirerAdditionalMessage**</h5>|<h5>**String**</h5>|**Não**|<p>Mensagem adicional enviada pela adquirente na</p><p>resposta da transação.</p>|
-
+| Nome                                   | Tipo                 | Obrigatório | Descrição                                                                                                                                                                                                                      |
+|----------------------------------------|----------------------|-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| onSuccess                              | Método               | -           | Método para notificação em caso de sucesso.                                                                                                                                                                                  |
+| Payment.value                          | BigDecimal           | Sim         | Valor do pagamento. Este é o valor que foi aprovado pela adquirente. Deve ser validado sempre na resposta, ainda que tenha sido passado como parâmetro.                                                                       |
+| Payment.additionalValueType            | AdditionalValueType  | Não         | Presente apenas quando existe um valor adicional no contexto da transação executada.                                                                                                                                         |
+| Payment.additionalValue                | BigDecimal           | Não         | Presente apenas quando existe um valor adicional no contexto da transação executada.                                                                                                                                         |
+| Payment.paymentType                    | PaymentType          | Sim         | Tipo de pagamento (Débito, Crédito, Voucher, etc.).                                                                                                                                                                          |
+| Payment.installments                   | Integer              | Não         | Quantidade de parcelas do pagamento.                                                                                                                                                                                          |
+| Payment.accountTypeId                  | String               | Não         | Presente apenas quando existe um tipo de conta no contexto da transação executada.                                                                                                                                           |
+| Payment.planId                         | String               | Não         | Presente apenas quando existe um plano no contexto da transação executada.                                                                                                                                                   |
+| Payment.productShortName               | String               | Sim         | Corresponde ao productShortName correspondente ao produto principal no contexto da transação.                                                                                                                                 |
+| Payment.ticketNumber                   | String               | Não         | ticketNumber gerado pelo terminal para a transação.                                                                                                                                                                          |
+| Payment.batchNumber                    | String               | Sim         | Número de lote.                                                                                                                                                                                                                |
+| Payment.nsuTerminal                    | String               | Sim         | NSU gerado pelo terminal para a transação.                                                                                                                                                                                   |
+| Payment.acquirer                       | String               | Sim         | Adquirente que autorizou o pagamento.                                                                                                                                                                                          |
+| Payment.paymentId                      | String               | Sim         | Identificador da transação para a aplicação de pagamentos. Esta é a informação a ser usada para a confirmação e desfazimento.                                                                                                   |
+| Payment.brand                          | String               | Sim         | Bandeira do cartão.                                                                                                                                                                                                            |
+| Payment.bin                            | String               | Sim         | BIN do cartão.                                                                                                                                                                                                                 |
+| Payment.panLast4Digits                | String               | Sim         | Últimos 4 dígitos do PAN do cartão.                                                                                                                                                                                           |
+| Payment.captureType                    | CaptureType          | Sim         | Forma de captura do cartão.                                                                                                                                                                                                    |
+| Payment.paymentStatus                  | PaymentStatus        | Sim         | Situação do pagamento. No caso de solicitações retornadas com sucesso, esta informação sempre será PENDING, requerendo uma confirmação ou desfazimento para a sua conclusão definitiva.                                            |
+| Payment.paymentDate                    | Date                 | Sim         | Data/hora do pagamento para a aplicação de pagamentos.                                                                                                                                                                         |
+| Payment.acquirerId                     | String               | Sim         | Identificador da transação para a adquirente. Este é o identificador que consta no arquivo que a adquirente fornece (EDI). Desta forma, é possível realizar a conciliação do pagamento com a transação integrada.                |
+| Payment.acquirerResponseCode           | String               | Sim         | Código de resposta da adquirente.                                                                                                                                                                                             |
+| Payment.acquirerResponseDate           | String               | Sim         | Data/hora retornada pela adquirente.                                                                                                                                                                                          |
+| Payment.acquirerAdditionalMessage      | String               | Não         | Mensagem adicional enviada pela adquirente na resposta da transação.                                                                                                                                                         |
+| Payment.acquirerAuthorizationNumber    | String               | Sim         | Número da autorização fornecido pela adquirente (consta no comprovante do cliente Portador do Cartão).                                                                                                                       |
+| Payment.Receipt.clientVia              | String               | Não         | Conteúdo do comprovante - via do cliente.                                                                                                                                                                                     |
+| Payment.Receipt.merchantVia            | String               | Não         | Conteúdo do comprovante - via do estabelecimento.                                                                                                                                                                             |
+| Payment.cardToken                      | String               | Não         | Token do cartão utilizado na transação.                                                                                                                                                                                       |
+| Payment.cardholderName                 | String               | Não         | Nome do portador do cartão.                                                                                                                                                                                                    |
+| Payment.terminalId                     | String               | Sim         | Identificação do terminal.                                                                                                                                                                                                     |
+| Payment.note                           | String               | Sim         | Valor adicional que é inserido como Nota. (pode ser o número da fatura) Este campo só virá na resposta caso tenha sido preenchido na requisição do pagamento pela API.                                                         |
+| Payment.dni                            | String               | Sim         | Número do Documento. Este campo só virá na resposta caso tenha sido preenchido na requisição do pagamento pela API.                                                                                                          |
+| Payment.qrId                          | String               | Não         | Identificador QrCode gerado pelo terminal de captura.                                                                                                                                                                        |
+| Payment.originalValue                  | BigDecimal           | Não         | Valor original da venda. Presente em pagamentos com QRCode, cujo benefício foi aplicado ao valor da venda.                                                                                                                   |
+| Payment.acquirerNsu                    | String               | Não         | NSU Adquirente para consulta e identificação de transações.                                                                                                                                                                   |
+| onError                               | Método               | -           | Método para notificação em caso de erro.                                                                                                                                                                                      |
+| ErrorData.paymentsResponseCode        | String               | Sim         | Código de resposta para o erro ocorrido. Vide Códigos de Resposta.                                                                                                                                                            |
+| ErrorData.acquirerResponseCode        | String               | Não         | Código de resposta para o erro ocorrido retornado pela adquirente. Note que este erro só será retornado se a transação não for autorizada pela adquirente.                                                                        |
+| ErrorData.responseMessage              | String               | Sim         | Mensagem descritiva da causa da não autorização. Caso a transação tenha sido negada pela adquirente, conterá a mensagem retornada pela adquirente.                                                                               |
+| ErrorData.acquirerAdditionalMessage    | String               | Não         | Mensagem adicional enviada pela adquirente na resposta da transação.                                                                                                                                                         |
 -----
 ### <a name="_toc173245783"></a><a name="_confirmpayment()"></a>**confirmPayment()**
 Este método deve ser chamado para confirmar uma transação que o terminal conseguiu processar completamente a perna de autorização enviada pelo Autorizador.
@@ -840,13 +969,15 @@ Como resultado, poderemos ter uma inconsistência transacional, visto que, na vi
 **Detalhe dos parâmetros**
 #### ***callback***
 
-|**Nome**|**Tipo**|**Obrigatório**|**Descrição**|
-| :- | :- | :- | :- |
-|<h5>**onSuccess**</h5>|<h5>** </h5>| |Método para notificação em caso de sucesso|
-|<h5>**onError**</h5>|<h5>** </h5>| |Método para notificação em caso de erro.|
-|<h5>**ErrorData.paymentsResponseCode**</h5>|<h5>**String**</h5>|**Sim**|Código de resposta para o erro ocorrido. Vide [Códigos de Resposta](#_códigos_de_resposta)|
-|<h5>**ErrorData.acquirerResponseCode**</h5>|<h5>**String**</h5>|**Não**|Código de resposta para o erro ocorrido retornado pela adquirente. Note que este erro só será retornado se a transação não for autorizada pela adquirente.|
-|<h5>**ErrorData.responseMessage**</h5>|<h5>**String**</h5>|**Sim**|Mensagem descritiva da causa da não autorização. Caso a transação tenha sido negada pela adquirente, conterá a mensagem retornada pela adquirente.|
+| Nome                                   | Tipo    | Obrigatório | Descrição                                                                                                                                                                          |
+|----------------------------------------|---------|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| onSuccess                              | Método  | -           | Método para notificação em caso de sucesso.                                                                                                                                       |
+| onError                                | Método  | -           | Método para notificação em caso de erro.                                                                                                                                          |
+| ErrorData.paymentsResponseCode         | String  | Sim         | Código de resposta para o erro ocorrido. Vide Códigos de Resposta.                                                                                                               |
+| ErrorData.acquirerResponseCode         | String  | Não         | Código de resposta para o erro ocorrido retornado pela adquirente. Note que este erro só será retornado se a transação não for autorizada pela adquirente.                        |
+| ErrorData.responseMessage               | String  | Sim         | Mensagem descritiva da causa da não autorização. Caso a transação tenha sido negada pela adquirente, conterá a mensagem retornada pela adquirente.                                 |
+
+
 ### <a name="_toc173245784"></a>**cancelPayment()**
 Este método deve ser sempre chamado para desfazer uma transação que o terminal não conseguiu processar completamente a perna de autorização enviada pelo Autorizador.
 
@@ -877,30 +1008,158 @@ Caso o App consumidor desta API não tenha finalizado o seu processo de negócio
 
 ***callback***
 
-|**Nome**|**Tipo**|**Obrigatório**|**Descrição**|
-| :- | :- | :- | :- |
-|<h5>**onSuccess**</h5>|<h5>** </h5>|** |Método para notificação em caso de sucesso.|
-|<h5>**onError**</h5>|<h5>** </h5>|** |Método para notificação em caso de erro.|
-|<h5>**ErrorData.paymentsResponseCode**</h5>|<h5>**String**</h5>|**Sim**|Código de resposta para o erro ocorrido. Vide [Códigos de Resposta](#_códigos_de_resposta)|
-|<h5>**ErrorData.acquirerResponseCode**</h5>|<h5>**String**</h5>|**Não**|Código de resposta para o erro ocorrido retornado pela adquirente. Note que este erro só será retornado se a transação não for autorizada pela adquirente.|
-|<h5>**ErrorData.responseMessage**</h5>|<h5>**String**</h5>|**Sim**|Mensagem descritiva da causa da não autorização. Caso a transação tenha sido negada pela adquirente, conterá a mensagem retornada pela adquirente.|
+| Nome                                   | Tipo    | Obrigatório | Descrição                                                                                                                                                                          |
+|----------------------------------------|---------|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| onSuccess                              | Método  | -           | Método para notificação em caso de sucesso.                                                                                                                                       |
+| onError                                | Método  | -           | Método para notificação em caso de erro.                                                                                                                                          |
+| ErrorData.paymentsResponseCode         | String  | Sim         | Código de resposta para o erro ocorrido. Vide Códigos de Resposta.                                                                                                               |
+| ErrorData.acquirerResponseCode         | String  | Não         | Código de resposta para o erro ocorrido retornado pela adquirente. Note que este erro só será retornado se a transação não for autorizada pela adquirente.                        |
+| ErrorData.responseMessage               | String  | Sim         | Mensagem descritiva da causa da não autorização. Caso a transação tenha sido negada pela adquirente, conterá a mensagem retornada pela adquirente.                                 |
+
 ### <a name="_toc173245785"></a>**Campo adicional api\_pending**
 Além dos métodos para resolução de pagamentos (confirmPayment e cancelPayment), há a possibilidade de se configurar um **campo adicional** no Portal Paystore para realizar esta resolução automaticamente, em determinado tempo. Para isto, deve ser criado um campo adicional no Portal Paystore com o tipo JSON e a chave api\_pending.
 
 **Valor do campo**
 
-|**Nome**|**Tipo**|**Obrigatório**|**Descrição**|
-| :- | :- | :- | :- |
-|<h5>**confirmationTime**</h5>|<h5>**String**</h5>|**Sim**|Intervalo, em minutos, para resolução das pendências.|
-|<h5>**transactionConfirmation**</h5>|<h5>**String**</h5>|**Sim**|Ação a ser tomada. Permite os valores CONFIRM (Confirma a transação) ou UNDO (Desfaz a transação).|
+| Nome                       | Tipo    | Obrigatório | Descrição                                                                                      |
+|----------------------------|---------|-------------|------------------------------------------------------------------------------------------------|
+| confirmationTime           | String  | Sim         | Intervalo, em minutos, para resolução das pendências.                                         |
+| transactionConfirmation     | String  | Sim         | Ação a ser tomada. Permite os valores CONFIRM (Confirma a transação) ou UNDO (Desfaz a transação). |
 
-|<h5>**{</h5><br>`    `"confirmationTime": "10",</h5><br>`    `"transactionConfirmation": "CONFIRM"</h5><br>}**</h5>|
-| :-: |
-` `**EXEMPLO DO FLUXO DE PAGAMENTO**
+Exemplo JSON:
 
-|<p><h5>**import androidx.appcompat.app.AppCompatActivity;**</h5></p><p><h5>**import android.content.Intent;</h5><br>import android.os.Bundle;</h5><br>import android.util.Log;</h5><br>import android.view.View;</h5><br>import android.widget.Button;</h5><br>import android.widget.Toast;**</h5></p><p><h5>**import java.math.BigDecimal;**</h5></p><p><h5>**import br.com.phoebus.android.payments.api.ApplicationInfo;</h5><br>import br.com.phoebus.android.payments.api.Credentials;</h5><br>import br.com.phoebus.android.payments.api.ErrorData;</h5><br>import br.com.phoebus.android.payments.api.PaymentClient;</h5><br>import br.com.phoebus.android.payments.api.PaymentRequestV2;</h5><br>import br.com.phoebus.android.payments.api.PaymentV2;</h5><br>import br.com.phoebus.android.payments.api.exception.ClientException;**</h5></p><p><h5>**public class MainActivity extends AppCompatActivity implements View.OnClickListener, PaymentClient.PaymentCallback<PaymentV2> {</h5><br>`    `Button bt\_start;</h5><br>`    `private PaymentClient paymentClient;</h5><br>`    `public static final String TEST\_APPLICATION\_ID = "0";</h5><br>`    `public static final String TEST\_SECRET\_TOKEN = "000000000000000000000000";</h5><br>`    `public static final String TAG = "TAG\_DEMO";**</h5></p><p><h5>`    `**@Override</h5><br>`    `protected void onCreate(Bundle savedInstanceState) {</h5><br>`        `super.onCreate(savedInstanceState);</h5><br>`        `setContentView(R.layout.activity\_main);</h5><br>`        `bt\_start = (Button) this.findViewById(R.id.button);</h5><br>`        `bt\_start.setOnClickListener(this);</h5><br>`        `paymentClient = new PaymentClient();</h5><br>`    `}**</h5></p><p><h5>`    `**@Override</h5><br>`    `public void onClick(View view) {</h5><br>`        `doExecute();</h5><br>`    `}**</h5></p><p><h5>`    `**@Override</h5><br>`    `protected void onResume() {</h5><br>`        `super.onResume();</h5><br>`        `paymentClient.bind(this);</h5><br>`    `}**</h5></p><p><h5>`    `**@Override</h5><br>`    `protected void onDestroy() {</h5><br>`        `try {</h5><br>`            `paymentClient.unbind(this);</h5><br>`        `} catch (Exception e) {</h5><br>`            `Log.e(TAG, e.getMessage());</h5><br>`        `}</h5><br>`        `super.onDestroy();</h5><br>`    `}**</h5></p><p><h5>`    `**public void doExecute(){</h5><br>`        `PaymentRequestV2 request = new PaymentRequestV2();</h5><br>`        `BigDecimal value = BigDecimal.valueOf(5000).movePointLeft(2);</h5><br>`        `request.setValue(value);</h5><br>`        `request.setAppTransactionId("123456");</h5><br> </h5><br>`        `Credentials credentials = new Credentials();</h5><br>`        `credentials.setApplicationId(TEST\_APPLICATION\_ID);</h5><br>`        `credentials.setSecretToken(TEST\_SECRET\_TOKEN);**</h5></p><p><h5>`       `**ApplicationInfo applicationInfo = new ApplicationInfo();</h5><br>`        `applicationInfo.setCredentials(credentials);</h5><br>`       `applicationInfo.setSoftwareVersion("1.0");**</h5></p><p><h5>`        `**request.setAppInfo(applicationInfo);**</h5></p><p><h5>`        `**try {</h5><br>`            `paymentClient.startPaymentV2(request, this);</h5><br>`        `} catch (ClientException e) {</h5><br>`            `Log.e(TAG, "Error starting payment", e);</h5><br>`        `}</h5><br>`    `}</h5><br> </h5><br>`    `@Override</h5><br>`    `public void onSuccess(PaymentV2 paymentV2) {</h5><br>`        `Log.i(TAG, paymentV2.toString());**</h5></p><p><h5>`        `**doConfirmPayment(paymentV2);</h5><br>`        `/\*</h5><br>`          `Se, na sua regra de negócio, for preciso desfazer a transação por algum motivo,</h5><br>`          `chame o método doCancelPayment(paymentV2)</h5><br>`        `\*\*/</h5><br>`    `}**</h5></p><p><h5>`    `**@Override</h5><br>`    `public void onError(ErrorData errorData) {</h5><br>`        `Log.e(TAG, errorData.getResponseMessage());</h5><br>`        `Toast.makeText(this, errorData.getResponseMessage(), Toast.LENGTH\_LONG).show();</h5><br>`    `}**</h5></p><p><h5>`    `**private void doConfirmPayment(PaymentV2 paymentV2) {</h5><br>`        `try {</h5><br>`            `paymentClient.confirmPayment(paymentV2.getPaymentId(),</h5><br>`                    `new PaymentClient.PaymentCallback<PaymentV2>() {**</h5></p><p><h5>`                        `**@Override</h5><br>`                        `public void onError(ErrorData errorData) {</h5><br>`                            `Log.e(TAG, errorData.getResponseMessage());</h5><br>`                            `Toast.makeText(MainActivity.this, errorData.getResponseMessage(), Toast.LENGTH\_LONG).show();</h5><br>`                        `}**</h5></p><p><h5>`                        `**@Override</h5><br>`                        `public void onSuccess(PaymentV2 payment) {</h5><br>`                            `Log.i(TAG, payment.toString());</h5><br>`                        `}</h5><br>`                    `});</h5><br>`        `} catch (ClientException e) {</h5><br>`            `Log.e(TAG, "Error confirmPayment", e);</h5><br>`        `}</h5><br>`    `}**</h5></p><p><h5>`    `**private void doCancelPayment(PaymentV2 paymentV2) {</h5><br>`        `try {</h5><br>`            `paymentClient.cancelPayment(paymentV2.getPaymentId(),</h5><br>`                    `new PaymentClient.PaymentCallback<PaymentV2>() {**</h5></p><p><h5>`                        `**@Override</h5><br>`                        `public void onError(ErrorData errorData) {</h5><br>`                            `Log.e(TAG, errorData.getResponseMessage());</h5><br>`                            `Toast.makeText(MainActivity.this, errorData.getResponseMessage(), Toast.LENGTH\_LONG).show();</h5><br>`                        `}**</h5></p><p><h5>`                        `**@Override</h5><br>`                        `public void onSuccess(PaymentV2 payment) {</h5><br>`                            `Log.i(TAG, payment.toString());</h5><br>`                        `}</h5><br>`                    `});</h5><br>`        `} catch (ClientException e) {</h5><br>`            `Log.e(TAG, "Error cancelPayment", e);</h5><br>`        `}</h5><br>`    `}</h5><br>}**</h5></p>|
-| :- |
------
+```json
+{
+  "confirmationTime": "10",
+  "transactionConfirmation": "CONFIRM"
+}
+```
+
+**EXEMPLO DO FLUXO DE PAGAMENTO**
+
+```java
+import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+import java.math.BigDecimal;
+import br.com.phoebus.android.payments.api.ApplicationInfo;
+import br.com.phoebus.android.payments.api.Credentials;
+import br.com.phoebus.android.payments.api.ErrorData;
+import br.com.phoebus.android.payments.api.PaymentClient;
+import br.com.phoebus.android.payments.api.PaymentRequestV2;
+import br.com.phoebus.android.payments.api.PaymentV2;
+import br.com.phoebus.android.payments.api.exception.ClientException;
+public class MainActivity extends AppCompatActivity implements View.OnClickListener,
+PaymentClient.PaymentCallback<PaymentV2> {
+ Button bt_start;
+ private PaymentClient paymentClient;
+ public static final String TEST_APPLICATION_ID = "0";
+ public static final String TEST_SECRET_TOKEN = "000000000000000000000000";
+ public static final String TAG = "TAG_DEMO";
+ @Override
+ protected void onCreate(Bundle savedInstanceState) {
+ super.onCreate(savedInstanceState);
+ setContentView(R.layout.activity_main);
+ bt_start = (Button) this.findViewById(R.id.button);
+ bt_start.setOnClickListener(this);
+ paymentClient = new PaymentClient();
+ }
+ @Override
+ public void onClick(View view) {
+ doExecute();
+ }
+ @Override
+ protected void onResume() {
+ super.onResume();
+ paymentClient.bind(this);
+ }
+ @Override
+ protected void onDestroy() {
+ try {
+ paymentClient.unbind(this);
+ } catch (Exception e) {
+ Log.e(TAG, e.getMessage());
+ }
+ super.onDestroy();
+ }
+ public void doExecute(){
+ PaymentRequestV2 request = new PaymentRequestV2();
+ BigDecimal value = BigDecimal.valueOf(5000).movePointLeft(2);
+ request.setValue(value);
+ request.setAppTransactionId("123456");
+ Credentials credentials = new Credentials();
+ credentials.setApplicationId(TEST_APPLICATION_ID);
+ credentials.setSecretToken(TEST_SECRET_TOKEN);
+ ApplicationInfo applicationInfo = new ApplicationInfo();
+ applicationInfo.setCredentials(credentials);
+ applicationInfo.setSoftwareVersion("1.0");
+ request.setAppInfo(applicationInfo);
+ try {
+ paymentClient.startPaymentV2(request, this);
+ } catch (ClientException e) {
+ Log.e(TAG, "Error starting payment", e);
+ }
+ }
+ @Override
+ public void onSuccess(PaymentV2 paymentV2) {
+ Log.i(TAG, paymentV2.toString());
+ doConfirmPayment(paymentV2);
+ /*
+ Se, na sua regra de negócio, for preciso desfazer a transação por algum motivo,
+ chame o método doCancelPayment(paymentV2)
+ **/
+ }
+ @Override
+ public void onError(ErrorData errorData) {
+ Log.e(TAG, errorData.getResponseMessage());
+ Toast.makeText(this, errorData.getResponseMessage(), Toast.LENGTH_LONG).show();
+ }
+ private void doConfirmPayment(PaymentV2 paymentV2) {
+ try {
+ paymentClient.confirmPayment(paymentV2.getPaymentId(),
+ new PaymentClient.PaymentCallback<PaymentV2>() {
+ @Override
+public void onError(ErrorData errorData) {
+ Log.e(TAG, errorData.getResponseMessage());
+Toast.makeText(MainActivity.this, errorData.getResponseMessage(),
+Toast.LENGTH_LONG).show();
+ }
+ @Override
+public void onSuccess(PaymentV2 payment) {
+ Log.i(TAG, payment.toString());
+ }
+ });
+ } catch (ClientException e) {
+ Log.e(TAG, "Error confirmPayment", e);
+ }
+ }
+ private void doCancelPayment(PaymentV2 paymentV2) {
+ try {
+ paymentClient.cancelPayment(paymentV2.getPaymentId(),
+ new PaymentClient.PaymentCallback<PaymentV2>() {
+ @Override
+public void onError(ErrorData errorData) {
+ Log.e(TAG, errorData.getResponseMessage());
+Toast.makeText(MainActivity.this, errorData.getResponseMessage(),
+Toast.LENGTH_LONG).show();
+ }
+ @Override
+public void onSuccess(PaymentV2 payment) {
+ Log.i(TAG, payment.toString());
+ }
+ });
+ } catch (ClientException e) {
+ Log.e(TAG, "Error cancelPayment", e);
+CLASSIFICAÇÃO: PÚBLICA 80 / 236
+ }
+ }
+}
+```
+
 ### <a name="_toc173245786"></a>**getPayment()** 
 Este método é usado para obter as informações de uma transação. Durante sua execução, os dados serão solicitados via API do ***connecta***, sendo obrigatório a conexão com a internet. 
 
@@ -915,34 +1174,250 @@ Este método é usado para obter as informações de uma transação. Durante su
 
 ***callback***
 
-|**Nome**|**Tipo**|**Obrigatório**|**Descrição**|
-| :- | :- | :- | :- |
-|<h5>**onSuccess**</h5>|<h5>** </h5>|** |Método para notificação em caso de sucesso.|
-|<h5>**onError**</h5>|<h5>** </h5>|** |Método para notificação em caso de erro.|
-|<h5>**ErrorData.paymentsResponseCode**</h5>|<h5>**String**</h5>|**Sim**|Código de resposta para o erro ocorrido. Vide [Códigos de Resposta](#_códigos_de_resposta)|
-|||||
-|<h5>**ErrorData.responseMessage**</h5>|<h5>**String**</h5>|**Sim**|Mensagem descritiva da causa da não localizado.|
+| Nome                           | Tipo    | Obrigatório | Descrição                                                    |
+|--------------------------------|---------|-------------|-------------------------------------------------------------|
+| onSuccess                      | Método  | Sim         | Método para notificação em caso de sucesso.                |
+| onError                        | Método  | Sim         | Método para notificação em caso de erro.                   |
+| ErrorData.paymentsResponseCode | String  | Sim         | Código de resposta para o erro ocorrido. Vide Códigos de Resposta. |
+| ErrorData.responseMessage      | String  | Sim         | Mensagem descritiva da causa da não localizado.            |
+
+
 #### **Exemplo de chamada de**
 
-|<p><h6>private fun doGetPayment(payment: Payment, callback: (Boolean) -> Unit) {</h6><br>try {</h6><br>paymentClient.getPayment(payment.paymentId, object : PaymentCallback<Any?> {</h6><br>override fun onSuccess(data: Any?) {</h6><br>val toast: Toast = Toast.makeText(</h6><br>this@MainActivity,</h6><br>"Dados retornardo com sucesso",</h6><br>Toast.LENGTH\_SHORT</h6><br>)</h6><br>toast.show()</h6><br>callback(true)</h6><br>}</h6></p><p>`        `**override fun onError(errorData: ErrorData) {**</p><p>`            `**val toast: Toast = Toast.makeText(**</p><p>`                `**this@MainActivity,**</p><p>`                `**R.string.payment\_not\_get,**</p><p>`                `**Toast.LENGTH\_SHORT**</p><p>`            `**)**</p><p>`            `**toast.show()**</p><p>`            `**callback(true)**</p><p>`        `**}**</p><p>`    `**})**</p><p>**} catch (e: Exception) {**</p><p>`    `**Toast.makeText(**</p><p>`        `**this@MainActivity,**</p><p>`        `**e.message,**</p><p>`        `**Toast.LENGTH\_LONG**</p><p>`    `**).show()**</p><p>`    `**callback(true)**</p><p>**}**</p><p>**}**</p>|
-| :- |
+```java
+private fun doGetPayment(payment: Payment, callback: (Boolean) -> Unit) {
+try {
+paymentClient.getPayment(payment.paymentId, object : PaymentCallback<Any?> {
+override fun onSuccess(data: Any?) {
+val toast: Toast = Toast.makeText(
+this@MainActivity,
+"Dados retornardo com sucesso",
+Toast.LENGTH_SHORT
+)
+toast.show()
+callback(true)
+}
+ override fun onError(errorData: ErrorData) {
+ val toast: Toast = Toast.makeText(
+ this@MainActivity,
+ R.string.payment_not_get,
+ Toast.LENGTH_SHORT
+ )
+ toast.show()
+ callback(true)
+ }
+ })
+} catch (e: Exception) {
+ Toast.makeText(
+ this@MainActivity,
+ e.message,
+ Toast.LENGTH_LONG
+ ).show()
+ callback(true)
+}
+}
+```
+
 #### **Exemplo do retorno de dados getPayment()**
 
-|<p><h5>**{</h5><br>"MerchantOrderId": "20180204",</h5><br>"Customer": {</h5><br>"Name": "[Guest]"</h5><br>},</h5><br>"Payment": {</h5><br>"Installments": 1,</h5><br>"Interest": "ByMerchant",</h5><br>"CreditCard": {</h5><br>"ExpirationDate": "12/2020",</h5><br>"BrandId": 1,</h5><br>"IssuerId": 2,</h5><br>"TruncateCardNumberWhenPrinting": true,</h5><br>"InputMode": "Emv",</h5><br>"AuthenticationMethod": "OnlineAuthentication",</h5><br>"EmvData": "112233445566778899011AABBC012D3456789E0123FF45678AB901234C5D112233445566778800",</h5><br>"PinBlock": {</h5><br>"EncryptedPinBlock": "2280F6BDFD0C038D",</h5><br>"EncryptionType": "Dukpt3Des",</h5><br>"KsnIdentification": "1231vg31fv231313123"</h5><br>}</h5><br>},</h5><br>"PaymentDateTime": "2019-04-15T12:00:00Z",</h5><br>"ServiceTaxAmount": 0,</h5><br>"SoftDescriptor": "Description",</h5><br>"ProductId": 1,</h5><br>"PinPadInformation": {</h5><br>"TerminalId": "10000001",</h5><br>"SerialNumber": "ABC123",</h5><br>"PhysicalCharacteristics": "PinPadWithChipReaderWithSamModule",</h5><br>"ReturnDataInfo": "00"</h5><br>},</h5><br>"Amount": 15798,</h5><br>"ReceivedDate": "2019-04-15T12:00:00Z",</h5><br>"CapturedAmount": 15798,</h5><br>"Provider": "Cielo",</h5><br>"ConfirmationStatus": 0,</h5><br>"InitializationVersion": 1558708320029,</h5><br>"EmvResponseData": "123456789ABCD1345DEA",</h5><br>"Status": 2,</h5><br>"IsSplitted": false,</h5><br>"ReturnCode": 0,</h5><br>"ReturnMessage": "Successful",</h5><br>"PaymentId": "f15889ea-5719-4e1a-a2da-f4e50d5bd702",</h5><br>"Type": "PhysicalDebitCard",</h5><br>"Currency": "BRL",</h5><br>"Country": "BRA",** </h5></p><p>**"Links": [** </p><p>** </p><p>`  `**{** </p><p>`    `**"Method": "GET",** </p><p>`    `**"Rel": "self",** </p><p>`    `**"Href": "<https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702>"** </p><p>`  `**},** </p><p>** </p><p>`  `**{** </p><p>`    `**"Method": "DELETE",** </p><p>`    `**"Rel": "self",** </p><p>`    `**"Href": "<https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702>"** </p><p>`  `**},** </p><p>** </p><p>`  `**{** </p><p>`    `**"Method": "PUT",** </p><p>`    `**"Rel": "self",** </p><p>`    `**"Href": "<https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702/confirmation>"** </p><p>`  `**}** </p><p>**],** </p><p>** </p><p>**"PrintMessage": [** </p><p>`  `**{** </p><p>`    `**"Position": "Top",** </p><p>`    `**"Message": "Transação autorizada"** </p><p>`  `**},** </p><p>** </p><p>`  `**{** </p><p>`    `**"Position": "Bottom",** </p><p>`    `**"Message": "Obrigado e volte sempre!"** </p><p>`  `**}** </p><p>**],** </p><p>** </p><p>**"ReceiptInformation": [** </p><p>`  `**{** </p><p>`    `**"Field": "MERCHANT\_NAME",** </p><p>`    `**"Label": "NOME DO ESTABELECIMENTO",** </p><p>`    `**"Content": "Estabelecimento"** </p><p>`  `**},** </p><p>** </p><p>`  `**{** </p><p>`    `**"Field": "MERCHANT\_ADDRESS",** </p><p>`    `**"Label": "ENDEREÇO DO ESTABELECIMENTO",** </p><p>`    `**"Content": "Rua Sem Saida, 0"** </p><p>`  `**},** </p><p>** </p><p>`  `**{** </p><p>`    `**"Field": "MERCHANT\_CITY",** </p><p>`    `**"Label": "CIDADE DO ESTABELECIMENTO",** </p><p>`    `**"Content": "Cidade"** </p><p>`  `**},** </p><p>** </p><p>`  `**{** </p><p>`    `**"Field": "MERCHANT\_STATE",** </p><p>`    `**"Label": "ESTADO DO ESTABELECIMENTO",** </p><p>`    `**"Content": "WA"** </p><p>`  `**},** </p><p>** </p><p>`  `**{** </p><p>`    `**"Field": "MERCHANT\_CODE",** </p><p>`    `**"Label": "COD.ESTAB.",** </p><p>`    `**"Content": 1234567890123456** </p><p>`  `**},** </p><p>** </p><p>`  `**{** </p><p>`    `**"Field": "TERMINAL",** </p><p>`    `**"Label": "POS",** </p><p>`    `**"Content": 12345678** </p><p>`  `**},** </p><p>** </p><p>`  `**{** </p><p>`    `**"Field": "NSU",** </p><p>`    `**"Label": "DOC",** </p><p>`    `**"Content": 123456** </p><p>`  `**},** </p><p>** </p><p>`  `**{** </p><p>`    `**"Field": "DATE",** </p><p>`    `**"Label": "DATA",** </p><p>`    `**"Content": "01/01/20"** </p><p>`  `**},** </p><p>** </p><p>`  `**{** </p><p>`    `**"Field": "HOUR",** </p><p>`    `**"Label": "HORA",** </p><p>`    `**"Content": "01:01"** </p><p>`  `**},** </p><p>** </p><p>`  `**{** </p><p>`    `**"Field": "ISSUER\_NAME",** </p><p>`    `**"Label": "EMISSOR",** </p><p>`    `**"Content": "NOME DO EMISSOR"** </p><p>`  `**},** </p><p>** </p><p>`  `**{** </p><p>`    `**"Field": "CARD\_NUMBER",** </p><p>`    `**"Label": "CARTÃO",** </p><p>`    `**"Content": 5432123454321234** </p><p>`  `**},** </p><p>** </p><p>`  `**{** </p><p>`    `**"Field": "TRANSACTION\_TYPE",** </p><p>`    `**"Label": "TIPO DE TRANSAÇÃO",** </p><p>`    `**"Content": "VENDA A CREDITO"** </p><p>`  `**},** </p><p>** </p><p>`  `**{** </p><p>`    `**"Field": "AUTHORIZATION\_CODE",** </p><p>`    `**"Label": "AUTORIZAÇÃO",** </p><p>`    `**"Content": 123456** </p><p>`  `**},** </p><p>** </p><p>`  `**{** </p><p>`    `**"Field": "TRANSACTION\_MODE",** </p><p>`    `**"Label": "MODO DA TRANSAÇÃO",** </p><p>`    `**"Content": "ONL"** </p><p>`  `**},** </p><p>** </p><p>`  `**{** </p><p>`    `**"Field": "INPUT\_METHOD",** </p><p>`    `**"Label": "MODO DE ENTRADA",** </p><p>`    `**"Content": "X"** </p><p>`  `**},** </p><p>** </p><p>`  `**{** </p><p>`    `**"Field": "VALUE",** </p><p>`    `**"Label": "VALOR",** </p><p>`    `**"Content": "1,23"** </p><p>`  `**},** </p><p>** </p><p>`  `**{** </p><p>`    `**"Field": "SOFT\_DESCRIPTOR",** </p><p>`    `**"Label": "SOFT DESCRIPTOR",** </p><p>`    `**"Content": "Simulado"** </p><p>`  `**}** </p><p>**],** </p><p>** </p><p>**"Receipt": {** </p><p>`  `**"MerchantName": "Estabelecimento",** </p><p>`  `**"MerchantAddress": "Rua Sem Saida, 0",** </p><p>`  `**"MerchantCity": "Cidade",** </p><p>`  `**"MerchantState": "WA",** </p><p>`  `**"MerchantCode": 1234567890123456,** </p><p>`  `**"Terminal": 12345678,** </p><p>`  `**"Nsu": 123456,** </p><p>`  `**"Date": "01/01/20",** </p><p>`  `**"Hour": "01:01",** </p><p>`  `**"IssuerName": "NOME DO EMISSOR",** </p><p>`  `**"CardNumber": 5432123454321234,** </p><p>`  `**"TransactionType": "VENDA A CREDITO",** </p><p>`  `**"AuthorizationCode": 123456,** </p><p>`  `**"TransactionMode": "ONL",** </p><p>`  `**"InputMethod": "X",** </p><p>`  `**"Value": "1,23",** </p><p>`  `**"SoftDescriptor": "Simulado"** </p><p>**}** </p><p>**}<br>}**</p>|
-| :- |
-
------
+```java
+{
+"MerchantOrderId": "20180204",
+"Customer": {
+"Name": "[Guest]"
+},
+"Payment": {
+"Installments": 1,
+"Interest": "ByMerchant",
+"CreditCard": {
+"ExpirationDate": "12/2020",
+"BrandId": 1,
+"IssuerId": 2,
+"TruncateCardNumberWhenPrinting": true,
+"InputMode": "Emv",
+"AuthenticationMethod": "OnlineAuthentication",
+"EmvData": "112233445566778899011AABBC012D3456789E0123FF45678AB901234C5D112233445566778800",
+"PinBlock": {
+"EncryptedPinBlock": "2280F6BDFD0C038D",
+"EncryptionType": "Dukpt3Des",
+"KsnIdentification": "1231vg31fv231313123"
+}
+},
+"PaymentDateTime": "2019-04-15T12:00:00Z",
+"ServiceTaxAmount": 0,
+"SoftDescriptor": "Description",
+"ProductId": 1,
+"PinPadInformation": {
+"TerminalId": "10000001",
+"SerialNumber": "ABC123",
+"PhysicalCharacteristics": "PinPadWithChipReaderWithSamModule",
+"ReturnDataInfo": "00"
+},
+"Amount": 15798,
+"ReceivedDate": "2019-04-15T12:00:00Z",
+"CapturedAmount": 15798,
+"Provider": "Cielo",
+"ConfirmationStatus": 0,
+"InitializationVersion": 1558708320029,
+"EmvResponseData": "123456789ABCD1345DEA",
+"Status": 2,
+"IsSplitted": false,
+"ReturnCode": 0,
+"ReturnMessage": "Successful",
+CLASSIFICAÇÃO: PÚBLICA 83 / 236
+"PaymentId": "f15889ea-5719-4e1a-a2da-f4e50d5bd702",
+"Type": "PhysicalDebitCard",
+"Currency": "BRL",
+"Country": "BRA",
+"Links": [
+ {
+ "Method": "GET",
+ "Rel": "self",
+ "Href": "<https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2daf4e50d5bd702>"
+ },
+ {
+ "Method": "DELETE",
+ "Rel": "self",
+ "Href": "<https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2daf4e50d5bd702>"
+ },
+ {
+ "Method": "PUT",
+ "Rel": "self",
+ "Href": "<https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2daf4e50d5bd702/confirmation>"
+ }
+],
+"PrintMessage": [
+ {
+ "Position": "Top",
+ "Message": "Transação autorizada"
+ },
+ {
+ "Position": "Bottom",
+ "Message": "Obrigado e volte sempre!"
+ }
+],
+"ReceiptInformation": [
+ {
+ "Field": "MERCHANT_NAME",
+ "Label": "NOME DO ESTABELECIMENTO",
+ "Content": "Estabelecimento"
+ },
+ {
+ "Field": "MERCHANT_ADDRESS",
+ "Label": "ENDEREÇO DO ESTABELECIMENTO",
+ "Content": "Rua Sem Saida, 0"
+ },
+ {
+ "Field": "MERCHANT_CITY",
+ "Label": "CIDADE DO ESTABELECIMENTO",
+ "Content": "Cidade"
+ },
+ {
+ "Field": "MERCHANT_STATE",
+ "Label": "ESTADO DO ESTABELECIMENTO",
+ "Content": "WA"
+ },
+ {
+ "Field": "MERCHANT_CODE",
+ "Label": "COD.ESTAB.",
+ "Content": 1234567890123456
+ },
+ {
+ "Field": "TERMINAL",
+ "Label": "POS",
+ "Content": 12345678
+ },
+ {
+ "Field": "NSU",
+CLASSIFICAÇÃO: PÚBLICA 85 / 236
+ "Label": "DOC",
+ "Content": 123456
+ },
+ {
+ "Field": "DATE",
+ "Label": "DATA",
+ "Content": "01/01/20"
+ },
+ {
+ "Field": "HOUR",
+ "Label": "HORA",
+ "Content": "01:01"
+ },
+ {
+ "Field": "ISSUER_NAME",
+ "Label": "EMISSOR",
+ "Content": "NOME DO EMISSOR"
+ },
+ {
+ "Field": "CARD_NUMBER",
+ "Label": "CARTÃO",
+ "Content": 5432123454321234
+ },
+ {
+ "Field": "TRANSACTION_TYPE",
+ "Label": "TIPO DE TRANSAÇÃO",
+ "Content": "VENDA A CREDITO"
+ },
+ {
+ "Field": "AUTHORIZATION_CODE",
+ "Label": "AUTORIZAÇÃO",
+ "Content": 123456
+ },
+ {
+ "Field": "TRANSACTION_MODE",
+ "Label": "MODO DA TRANSAÇÃO",
+ "Content": "ONL"
+ },
+ {
+ "Field": "INPUT_METHOD",
+ "Label": "MODO DE ENTRADA",
+ "Content": "X"
+ },
+ {
+ "Field": "VALUE",
+ "Label": "VALOR",
+ "Content": "1,23"
+ },
+ {
+ "Field": "SOFT_DESCRIPTOR",
+ "Label": "SOFT DESCRIPTOR",
+ "Content": "Simulado"
+ }
+],
+"Receipt": {
+ "MerchantName": "Estabelecimento",
+ "MerchantAddress": "Rua Sem Saida, 0",
+ "MerchantCity": "Cidade",
+ "MerchantState": "WA",
+ "MerchantCode": 1234567890123456,
+ "Terminal": 12345678,
+ "Nsu": 123456,
+ "Date": "01/01/20",
+ "Hour": "01:01",
+ "IssuerName": "NOME DO EMISSOR",
+ "CardNumber": 5432123454321234,
+ "TransactionType": "VENDA A CREDITO",
+ "AuthorizationCode": 123456,
+ "TransactionMode": "ONL",
+CLASSIFICAÇÃO: PÚBLICA 87 / 236
+ "InputMethod": "X",
+ "Value": "1,23",
+ "SoftDescriptor": "Simulado"
+}
+}
+}
+```
 
 ### <a name="_toc173245787"></a>**getPaymentByMerchantOrderId()**
 Este método é usado para obter as informações de uma transação. Durante sua execução, os dados serão solicitados via API do Connecta, sendo obrigatório a conexão com a internet.  
 
 **Parâmetros**
 
-|**Nome**|**Tipo**|**Obrigatório**|**Descrição**|
-| :- | :- | :- | :- |
-|<h5>**merchantOrderId**</h5>|<h5>**String**</h5>|**Sim**|ID Externo do pagamento gerado pelo usuário no formato string de 15 posições.|
-|<h5>**callback**</h5>|<h5>**PaymentCallback**</h5>|**Sim**|Interface que será executada para notificações de sucesso ou erro.|
-**
+| Nome                 | Tipo             | Obrigatório | Descrição                                                                                          |
+|----------------------|------------------|-------------|---------------------------------------------------------------------------------------------------|
+| merchantOrderId      | String           | Sim         | ID Externo do pagamento gerado pelo usuário no formato string de 15 posições.                     |
+| callback             | PaymentCallback   | Sim         | Interface que será executada para notificações de sucesso ou erro.                                |
+
 
 
 
@@ -954,26 +1429,221 @@ Este método é usado para obter as informações de uma transação. Durante su
 ***Call-back***
 \*
 
-
-|**Nome**|**Tipo**|**Obrigatório**|**Descrição**|
-| :- | :- | :- | :- |
-|<h5>**onSuccess**</h5>|<h5>** </h5>|** |Método para notificação em caso de sucesso.|
-|<h5>**onError**</h5>|<h5>** </h5>|** |Método para notificação em caso de erro.|
-|<h5>**ErrorData.paymentsResponseCode**</h5>|<h5>**String**</h5>|**Sim**|Código de resposta para o erro ocorrido. Vide [Códigos de Resposta](#_códigos_de_resposta)|
-|<h5>**ErrorData.responseMessage**</h5>|<h5>**String**</h5>|**Sim**|Mensagem descritiva da causa da não localizado.|
+| Nome                             | Tipo             | Obrigatório | Descrição                                                                                         |
+|----------------------------------|------------------|-------------|--------------------------------------------------------------------------------------------------|
+| onSuccess                        | Método           | Sim         | Método para notificação em caso de sucesso.                                                      |
+| onError                         | Método           | Sim         | Método para notificação em caso de erro.                                                         |
+| ErrorData.paymentsResponseCode    | String           | Sim         | Código de resposta para o erro ocorrido. Vide Códigos de Resposta.                               |
+| ErrorData.responseMessage         | String           | Sim         | Mensagem descritiva da causa da não autorização ou localização.                                   |
 
 
 #### **Exemplo de chamada de getPaymentByMerchantOrderId()**
 
-|<p>**paymentClient.getPaymentByMerchantOrderId("123456", new PaymentCallback<Any?>() {**</p><p>`    `**@Override**</p><p>`    `**public void onSuccess(Any? data) {**</p><p>`        `**Toast toast = Toast.makeText(this@MainActivity, "Dados retornados com sucesso", Toast.LENGTH\_SHORT);**</p><p>`        `**toast.show();**</p><p>`        `**callback(true);**</p><p>`    `**}**</p><p>** </p><p>`    `**@Override**</p><p>`    `**public void onError(ErrorData errorData) {**</p><p>`        `**Toast toast = Toast.makeText(this@MainActivity, R.string.payment\_not\_get, Toast.LENGTH\_SHORT);**</p><p>`        `**toast.show();**</p><p>`        `**callback(false);**</p><p>`    `**}**</p><p>**});**</p><p><h4>** </h4></p>|
-| :- |
-#### ** 
+```java
+paymentClient.getPaymentByMerchantOrderId("123456", new PaymentCallback<Any?>() {
+@Override
+public void onSuccess(Any? data) {
+Toast toast = Toast.makeText(this@MainActivity, "Dados retornados com sucesso",
+Toast.LENGTH_SHORT);
+toast.show();
+callback(true);
+}
+@Override
+public void onError(ErrorData errorData) {
+Toast toast = Toast.makeText(this@MainActivity, R.string.payment_not_get, Toast.LENGTH_SHORT);
+toast.show();
+callback(false);
+}
+});
+```
+
 #### **Exemplo do retorno de dados getPaymentMerchantOrderId()**
 
-|<p><h5>**{</h5><br>"MerchantOrderId": "20180204",</h5><br>"Customer": {</h5><br>"Name": "[Guest]"</h5><br>},</h5><br>"Payment": {</h5><br>"Installments": 1,</h5><br>"Interest": "ByMerchant",</h5><br>"CreditCard": {</h5><br>"ExpirationDate": "12/2020",</h5><br>"BrandId": 1,</h5><br>"IssuerId": 2,</h5><br>"TruncateCardNumberWhenPrinting": true,</h5><br>"InputMode": "Emv",</h5><br>"AuthenticationMethod": "OnlineAuthentication",</h5><br>"EmvData": "112233445566778899011AABBC012D3456789E0123FF45678AB901234C5D112233445566778800",</h5><br>"PinBlock": {</h5><br>"EncryptedPinBlock": "2280F6BDFD0C038D",</h5><br>"EncryptionType": "Dukpt3Des",</h5><br>"KsnIdentification": "1231vg31fv231313123"</h5><br>}</h5><br>},</h5><br>"PaymentDateTime": "2019-04-15T12:00:00Z",</h5><br>"ServiceTaxAmount": 0,</h5><br>"SoftDescriptor": "Description",</h5><br>"ProductId": 1,</h5><br>"PinPadInformation": {</h5><br>"TerminalId": "10000001",</h5><br>"SerialNumber": "ABC123",</h5><br>"PhysicalCharacteristics": "PinPadWithChipReaderWithSamModule",</h5><br>"ReturnDataInfo": "00"</h5><br>},</h5><br>"Amount": 15798,</h5><br>"ReceivedDate": "2019-04-15T12:00:00Z",</h5><br>"CapturedAmount": 15798,</h5><br>"Provider": "Cielo",</h5><br>"ConfirmationStatus": 0,</h5><br>"InitializationVersion": 1558708320029,</h5><br>"EmvResponseData": "123456789ABCD1345DEA",</h5><br>"Status": 2,</h5><br>"IsSplitted": false,</h5><br>"ReturnCode": 0,</h5><br>"ReturnMessage": "Successful",</h5><br>"PaymentId": "f15889ea-5719-4e1a-a2da-f4e50d5bd702",</h5><br>"Type": "PhysicalDebitCard",</h5><br>"Currency": "BRL",</h5><br>"Country": "BRA",** </h5></p><p>**"Links": [** </p><p>** </p><p>`  `**{** </p><p>`    `**"Method": "GET",** </p><p>`    `**"Rel": "self",** </p><p>`    `**"Href": "<https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702>"** </p><p>`  `**},** </p><p>** </p><p>`  `**{** </p><p>`    `**"Method": "DELETE",** </p><p>`    `**"Rel": "self",** </p><p>`    `**"Href": "<https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702>"** </p><p>`  `**},** </p><p>** </p><p>`  `**{** </p><p>`    `**"Method": "PUT",** </p><p>`    `**"Rel": "self",** </p><p>`    `**"Href": "<https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702/confirmation>"** </p><p>`  `**}** </p><p>**],** </p><p>** </p><p>**"PrintMessage": [** </p><p>`  `**{** </p><p>`    `**"Position": "Top",** </p><p>`    `**"Message": "Transação autorizada"** </p><p>`  `**},** </p><p>** </p><p>`  `**{** </p><p>`    `**"Position": "Bottom",** </p><p>`    `**"Message": "Obrigado e volte sempre!"** </p><p>`  `**}** </p><p>**],** </p><p>** </p><p>**"ReceiptInformation": [** </p><p>`  `**{** </p><p>`    `**"Field": "MERCHANT\_NAME",** </p><p>`    `**"Label": "NOME DO ESTABELECIMENTO",** </p><p>`    `**"Content": "Estabelecimento"** </p><p>`  `**},** </p><p>** </p><p>`  `**{** </p><p>`    `**"Field": "MERCHANT\_ADDRESS",** </p><p>`    `**"Label": "ENDEREÇO DO ESTABELECIMENTO",** </p><p>`    `**"Content": "Rua Sem Saida, 0"** </p><p>`  `**},** </p><p>** </p><p>`  `**{** </p><p>`    `**"Field": "MERCHANT\_CITY",** </p><p>`    `**"Label": "CIDADE DO ESTABELECIMENTO",** </p><p>`    `**"Content": "Cidade"** </p><p>`  `**},** </p><p>** </p><p>`  `**{** </p><p>`    `**"Field": "MERCHANT\_STATE",** </p><p>`    `**"Label": "ESTADO DO ESTABELECIMENTO",** </p><p>`    `**"Content": "WA"** </p><p>`  `**},** </p><p>** </p><p>`  `**{** </p><p>`    `**"Field": "MERCHANT\_CODE",** </p><p>`    `**"Label": "COD.ESTAB.",** </p><p>`    `**"Content": 1234567890123456** </p><p>`  `**},** </p><p>** </p><p>`  `**{** </p><p>`    `**"Field": "TERMINAL",** </p><p>`    `**"Label": "POS",** </p><p>`    `**"Content": 12345678** </p><p>`  `**},** </p><p>** </p><p>`  `**{** </p><p>`    `**"Field": "NSU",** </p><p>`    `**"Label": "DOC",** </p><p>`    `**"Content": 123456** </p><p>`  `**},** </p><p>** </p><p>`  `**{** </p><p>`    `**"Field": "DATE",** </p><p>`    `**"Label": "DATA",** </p><p>`    `**"Content": "01/01/20"** </p><p>`  `**},** </p><p>** </p><p>`  `**{** </p><p>`    `**"Field": "HOUR",** </p><p>`    `**"Label": "HORA",** </p><p>`    `**"Content": "01:01"** </p><p>`  `**},** </p><p>** </p><p>`  `**{** </p><p>`    `**"Field": "ISSUER\_NAME",** </p><p>`    `**"Label": "EMISSOR",** </p><p>`    `**"Content": "NOME DO EMISSOR"** </p><p>`  `**},** </p><p>** </p><p>`  `**{** </p><p>`    `**"Field": "CARD\_NUMBER",** </p><p>`    `**"Label": "CARTÃO",** </p><p>`    `**"Content": 5432123454321234** </p><p>`  `**},** </p><p>** </p><p>`  `**{** </p><p>`    `**"Field": "TRANSACTION\_TYPE",** </p><p>`    `**"Label": "TIPO DE TRANSAÇÃO",** </p><p>`    `**"Content": "VENDA A CREDITO"** </p><p>`  `**},** </p><p>** </p><p>`  `**{** </p><p>`    `**"Field": "AUTHORIZATION\_CODE",** </p><p>`    `**"Label": "AUTORIZAÇÃO",** </p><p>`    `**"Content": 123456** </p><p>`  `**},** </p><p>** </p><p>`  `**{** </p><p>`    `**"Field": "TRANSACTION\_MODE",** </p><p>`    `**"Label": "MODO DA TRANSAÇÃO",** </p><p>`    `**"Content": "ONL"** </p><p>`  `**},** </p><p>** </p><p>`  `**{** </p><p>`    `**"Field": "INPUT\_METHOD",** </p><p>`    `**"Label": "MODO DE ENTRADA",** </p><p>`    `**"Content": "X"** </p><p>`  `**},** </p><p>** </p><p>`  `**{** </p><p>`    `**"Field": "VALUE",** </p><p>`    `**"Label": "VALOR",** </p><p>`    `**"Content": "1,23"** </p><p>`  `**},** </p><p>** </p><p>`  `**{** </p><p>`    `**"Field": "SOFT\_DESCRIPTOR",** </p><p>`    `**"Label": "SOFT DESCRIPTOR",** </p><p>`    `**"Content": "Simulado"** </p><p>`  `**}** </p><p>**],** </p><p>** </p><p>**"Receipt": {** </p><p>`  `**"MerchantName": "Estabelecimento",** </p><p>`  `**"MerchantAddress": "Rua Sem Saida, 0",** </p><p>`  `**"MerchantCity": "Cidade",** </p><p>`  `**"MerchantState": "WA",** </p><p>`  `**"MerchantCode": 1234567890123456,** </p><p>`  `**"Terminal": 12345678,** </p><p>`  `**"Nsu": 123456,** </p><p>`  `**"Date": "01/01/20",** </p><p>`  `**"Hour": "01:01",** </p><p>`  `**"IssuerName": "NOME DO EMISSOR",** </p><p>`  `**"CardNumber": 5432123454321234,** </p><p>`  `**"TransactionType": "VENDA A CREDITO",** </p><p>`  `**"AuthorizationCode": 123456,** </p><p>`  `**"TransactionMode": "ONL",** </p><p>`  `**"InputMethod": "X",** </p><p>`  `**"Value": "1,23",** </p><p>`  `**"SoftDescriptor": "Simulado"** </p><p>**}** </p><p>**}<br>}**</p>|
-| :- |
-
-
+```java
+{
+"MerchantOrderId": "20180204",
+"Customer": {
+"Name": "[Guest]"
+},
+"Payment": {
+"Installments": 1,
+"Interest": "ByMerchant",
+"CreditCard": {
+"ExpirationDate": "12/2020",
+"BrandId": 1,
+"IssuerId": 2,
+"TruncateCardNumberWhenPrinting": true,
+"InputMode": "Emv",
+"AuthenticationMethod": "OnlineAuthentication",
+"EmvData": "112233445566778899011AABBC012D3456789E0123FF45678AB901234C5D112233445566778800",
+"PinBlock": {
+"EncryptedPinBlock": "2280F6BDFD0C038D",
+"EncryptionType": "Dukpt3Des",
+"KsnIdentification": "1231vg31fv231313123"
+}
+},
+"PaymentDateTime": "2019-04-15T12:00:00Z",
+"ServiceTaxAmount": 0,
+"SoftDescriptor": "Description",
+"ProductId": 1,
+"PinPadInformation": {
+"TerminalId": "10000001",
+"SerialNumber": "ABC123",
+"PhysicalCharacteristics": "PinPadWithChipReaderWithSamModule",
+"ReturnDataInfo": "00"
+},
+"Amount": 15798,
+"ReceivedDate": "2019-04-15T12:00:00Z",
+"CapturedAmount": 15798,
+"Provider": "Cielo",
+"ConfirmationStatus": 0,
+"InitializationVersion": 1558708320029,
+"EmvResponseData": "123456789ABCD1345DEA",
+"Status": 2,
+"IsSplitted": false,
+"ReturnCode": 0,
+"ReturnMessage": "Successful",
+"PaymentId": "f15889ea-5719-4e1a-a2da-f4e50d5bd702",
+"Type": "PhysicalDebitCard",
+"Currency": "BRL",
+"Country": "BRA",
+"Links": [
+ {
+ "Method": "GET",
+ "Rel": "self",
+ "Href": "<https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2daf4e50d5bd702>"
+ },
+ {
+ "Method": "DELETE",
+ "Rel": "self",
+ "Href": "<https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2daf4e50d5bd702>"
+ },
+ {
+ "Method": "PUT",
+ "Rel": "self",
+ "Href": "<https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2daf4e50d5bd702/confirmation>"
+ }
+],
+"PrintMessage": [
+ {
+ "Position": "Top",
+ "Message": "Transação autorizada"
+ },
+ {
+ "Position": "Bottom",
+ "Message": "Obrigado e volte sempre!"
+ }
+],
+"ReceiptInformation": [
+ {
+ "Field": "MERCHANT_NAME",
+ "Label": "NOME DO ESTABELECIMENTO",
+ "Content": "Estabelecimento"
+ },
+ {
+ "Field": "MERCHANT_ADDRESS",
+ "Label": "ENDEREÇO DO ESTABELECIMENTO",
+ "Content": "Rua Sem Saida, 0"
+ },
+ {
+ "Field": "MERCHANT_CITY",
+ "Label": "CIDADE DO ESTABELECIMENTO",
+ "Content": "Cidade"
+ },
+ {
+ "Field": "MERCHANT_STATE",
+ "Label": "ESTADO DO ESTABELECIMENTO",
+ "Content": "WA"
+ },
+ {
+ "Field": "MERCHANT_CODE",
+ "Label": "COD.ESTAB.",
+ "Content": 1234567890123456
+ },
+ {
+ "Field": "TERMINAL",
+ "Label": "POS",
+ "Content": 12345678
+ },
+ {
+ "Field": "NSU",
+ "Label": "DOC",
+ "Content": 123456
+ },
+ {
+ "Field": "DATE",
+ "Label": "DATA",
+CLASSIFICAÇÃO: PÚBLICA 92 / 236
+ "Content": "01/01/20"
+ },
+ {
+ "Field": "HOUR",
+ "Label": "HORA",
+ "Content": "01:01"
+ },
+ {
+ "Field": "ISSUER_NAME",
+ "Label": "EMISSOR",
+ "Content": "NOME DO EMISSOR"
+ },
+ {
+ "Field": "CARD_NUMBER",
+ "Label": "CARTÃO",
+ "Content": 5432123454321234
+ },
+ {
+ "Field": "TRANSACTION_TYPE",
+ "Label": "TIPO DE TRANSAÇÃO",
+ "Content": "VENDA A CREDITO"
+ },
+ {
+ "Field": "AUTHORIZATION_CODE",
+ "Label": "AUTORIZAÇÃO",
+ "Content": 123456
+ },
+ {
+ "Field": "TRANSACTION_MODE",
+ "Label": "MODO DA TRANSAÇÃO",
+ "Content": "ONL"
+ },
+ {
+ "Field": "INPUT_METHOD",
+ "Label": "MODO DE ENTRADA",
+ "Content": "X"
+ },
+ {
+ "Field": "VALUE",
+ "Label": "VALOR",
+ "Content": "1,23"
+ },
+ {
+ "Field": "SOFT_DESCRIPTOR",
+ "Label": "SOFT DESCRIPTOR",
+ "Content": "Simulado"
+ }
+],
+"Receipt": {
+ "MerchantName": "Estabelecimento",
+ "MerchantAddress": "Rua Sem Saida, 0",
+ "MerchantCity": "Cidade",
+ "MerchantState": "WA",
+ "MerchantCode": 1234567890123456,
+ "Terminal": 12345678,
+ "Nsu": 123456,
+ "Date": "01/01/20",
+ "Hour": "01:01",
+ "IssuerName": "NOME DO EMISSOR",
+ "CardNumber": 5432123454321234,
+ "TransactionType": "VENDA A CREDITO",
+ "AuthorizationCode": 123456,
+ "TransactionMode": "ONL",
+ "InputMethod": "X",
+ "Value": "1,23",
+ "SoftDescriptor": "Simulado"
+}
+}
+}
+```
 
 
 # <a name="_toc173245788"></a>**Estorno**
@@ -988,16 +1658,17 @@ A seguir, temos a especificação detalhada das operações disponíveis.
 
 Para integração com a API de pagamentos, é fornecida a interface PaymentClient.
 
-|**Warning**|
-| :-: |
-|<h5>**O método PaymentClient.Bind(\_callback) deve ser chamado obrigatoriamente, antes de chamar qualquer método da Integração de Pagamento. O bind é assíncrono, ou seja, a próxima linha após o bind() será executada antes de receber a sua resposta, por isso garanta que antes de chamar os métodos de integração, o bind esteja conectado.**</h5>|
------
+
+> Warning: O método PaymentClient.Bind(\_callback) deve ser chamado obrigatoriamente, antes de chamar qualquer método da Integração de Pagamento. O bind é assíncrono, ou seja, a próxima linha após o bind() será executada antes de receber a sua resposta, por isso garanta que antes de chamar os métodos de integração, o bind esteja conectado.
+
 ## <a name="_toc173245790"></a>**Métodos**
 
-|**Assinatura**|**Descrição**|
-| :- | :- |
-|<h5>**void reversePayment(ReversePaymentRequest paymentRequest, PaymentCallback paymentCallback)**</h5>|Realiza o processo de estorno de pagamento. (DEPRECATED: Utilizar reversePaymentV2)|
-|<h5>**void cancelReversePayment(String paymentId, PaymentCallback paymentCallback)**</h5>|Desfaz uma solicitação de estorno de pagamento.|
+| Assinatura                                         | Descrição                                                        |
+|----------------------------------------------------|------------------------------------------------------------------|
+| `void reversePayment(ReversePaymentRequest paymentRequest, PaymentCallback paymentCallback)` | Realiza o processo de estorno de pagamento. (DEPRECATED: Utilizar `reversePaymentV2`) |
+| `void cancelReversePayment(String paymentId, PaymentCallback paymentCallback)` | Desfaz uma solicitação de estorno de pagamento.                  |
+
+
 ### <a name="_toc173245791"></a>**reversePayment() (DEPRECATED: Utilizar reversePaymentV2)**
 Este método deve ser chamado quando se deseja fazer uma solicitação de estorno de pagamento. Durante sua execução, os dados do estorno serão validados, informações adicionais serão solicitadas ao operador (e.g. cartão) e a autorização junto à adquirente será feita.
 
@@ -1016,32 +1687,36 @@ Também a depender do comportamento de cada adquirente, é possível que não ha
 
 *request (**ReversePaymentRequest**)*
 
-|**Nome**|**Tipo**|**Obrigatório**|**Descrição**|
-| :- | :- | :- | :- |
-|<h5>**value**</h5>|<h5>**BigDecimal**</h5>|**Não**|Valor da transação a ser estornada. Caso não seja preenchido (null), a interface solicitará o valor ao operador. Esta informação é utilizada para validar a integridade da transação que está sendo estornada.|
-|<h5>**paymentId**</h5>|<h5>**String**</h5>|**Sim**|Identificador da transação que será estornada. O Identificador referido é aquele utilizado na aplicação de pagamentos.|
-|<h5>**appTransactionId**</h5>|<h5>**String**</h5>|**Sim**|Identificador da transação integrada. O Identificador referido é o da aplicação que originou a solicitação de estorno. Deve ser o mesmo valor enviado na transação de pagamento.|
-|<h5>**ApplicationInfo.credentials**</h5>|<h5>**Credentials**</h5>|**Sim**|Credenciais da aplicação que está solicitando a operação, conforme cadastro na PayStore. Basicamente, trata-se da identificação da aplicação e o token de acesso.|
-|<h5>**ApplicationInfo.softwareVersion**</h5>|<h5>**String**</h5>|**Sim**|Versão da aplicação que está solicitando o pagamento.|
-|<h5>**showReceiptView (DEPRECATED)**</h5>|<h5>**Boolean**</h5>|**Não**|A Solução sempre irá imprimir o comprovante.|
+| Nome                     | Tipo                        | Obrigatório | Descrição                                                                                                                                                                                                 |
+|--------------------------|-----------------------------|-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| value                    | `BigDecimal`                | Não         | Valor da transação a ser estornada. Caso não seja preenchido (null), a interface solicitará o valor ao operador. Esta informação é utilizada para validar a integridade da transação que está sendo estornada. |
+| paymentId                | `String`                    | Sim         | Identificador da transação que será estornada. O Identificador referido é aquele utilizado na aplicação de pagamentos.                                                                                     |
+| appTransactionId         | `String`                    | Sim         | Identificador da transação integrada. O Identificador referido é o da aplicação que originou a solicitação de estorno. Deve ser o mesmo valor enviado na transação de pagamento.                             |
+| ApplicationInfo.credentials | `Credentials`          | Sim         | Credenciais da aplicação que está solicitando a operação, conforme cadastro na PayStore. Basicamente, trata-se da identificação da aplicação e o token de acesso.                                           |
+| ApplicationInfo.softwareVersion | `String`          | Sim         | Versão da aplicação que está solicitando o pagamento.                                                                                                                                                      |
+| showReceiptView (DEPRECATED) | `Boolean`             | Não         | A Solução sempre irá imprimir o comprovante.                                                                                                                                                              |
+
 
 *callback (**ReversePaymentCallback**)*
 
-|**Nome**|**Tipo**|**Obrigatório**|**Descrição**|
-| :- | :- | :- | :- |
-|<h5>**onSuccess**</h5>|<h5>** </h5>| |Método para notificação em caso de sucesso|
-|<h5>**ReversePayment.paymentId**</h5>|<h5>**String**</h5>|**Sim**|Identificador da transação de estorno para a aplicação de pagamentos. Esta é a informação a ser usada para a confirmação e desfazimento.|
-|<h5>**ReversePayment.acquirerId**</h5>|<h5>**String**</h5>|**Sim**|Identificador da transação de estorno para a adquirente. Este é o identificador que consta no arquivo que a adquirente fornece (EDI). Desta forma, é possível realizar a conciliação do estorno com a transação integrada.|
-|<h5>**ReversePayment.cancelable**</h5>|<h5>**Boolean**</h5>|**Sim**|*True*, caso esta transação possa ser desfeita; *False*, caso contrário.|
-|<h5>**ReversePayment.acquirerResponseCode**</h5>|<h5>**String**</h5>|**Sim**|Código de resposta da adquirente.|
-|<h5>**ReversePayment.acquirerResponseDate**</h5>|<h5>**String**</h5>|**Sim**|Data/hora retornada pela adquirente.|
-|<h5>**ReversePayment.acquirerAuthorizationNumber**</h5>|<h5>**String**</h5>|**Sim**|Número da autorização fornecido pela adquirente (consta no comprovante do cliente Portador do Cartão).|
-|<h5>**ReversePayment.Receipt.clientVia**</h5>|<h5>**String**</h5>|**Não**|Conteúdo do comprovante - via do cliente.|
-|<h5>**ReversePayment.Receipt.merchantVia**</h5>|<h5>**String**</h5>|**Não**|Conteúdo do comprovante - via do estabelecimento.|
-|<h5>**onError**</h5>|<h5>** </h5>|** |Método para notificação em caso de erro.|
-|<h5>**ErrorData.paymentsResponseCode**</h5>|<h5>**String**</h5>|**Sim**|Código de resposta para o erro ocorrido. Vide [Códigos de Resposta](#_códigos_de_resposta)|
-|<h5>**ErrorData.acquirerResponseCode**</h5>|<h5>**String**</h5>|**Não**|Código de resposta para o erro ocorrido retornado pela adquirente. Note que este erro só será retornado se a transação não for autorizada pela adquirente.|
-|<h5>**ErrorData.responseMessage**</h5>|<h5>**String**</h5>|**Sim**|Mensagem descritiva da causa da não autorização. Caso a transação tenha sido negada pela adquirente, conterá a mensagem retornada pela adquirente.|
+### Parâmetros
+
+| Nome                                   | Tipo                          | Obrigatório | Descrição                                                                                                                                                                                                 |
+|----------------------------------------|-------------------------------|-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| onSuccess                              | Método                        | Sim         | Método para notificação em caso de sucesso.                                                                                                                                                              |
+| ReversePayment.paymentId               | `String`                      | Sim         | Identificador da transação de estorno para a aplicação de pagamentos. Esta é a informação a ser usada para a confirmação e desfazimento.                                                                |
+| ReversePayment.acquirerId              | `String`                      | Sim         | Identificador da transação de estorno para a adquirente. Este é o identificador que consta no arquivo que a adquirente fornece (EDI). Desta forma, é possível realizar a conciliação do estorno com a transação integrada. |
+| ReversePayment.cancelable              | `Boolean`                     | Sim         | True, caso esta transação possa ser desfeita; False, caso contrário.                                                                                                                                   |
+| ReversePayment.acquirerResponseCode    | `String`                      | Sim         | Código de resposta da adquirente.                                                                                                                                                                        |
+| ReversePayment.acquirerResponseDate    | `String`                      | Sim         | Data/hora retornada pela adquirente.                                                                                                                                                                     |
+| ReversePayment.acquirerAuthorizationNumber | `String`                  | Sim         | Número da autorização fornecido pela adquirente (consta no comprovante do cliente Portador do Cartão).                                                                                                 |
+| ReversePayment.Receipt.clientVia       | `String`                      | Não         | Conteúdo do comprovante - via do cliente.                                                                                                                                                                 |
+| ReversePayment.Receipt.merchantVia     | `String`                      | Não         | Conteúdo do comprovante - via do estabelecimento.                                                                                                                                                        |
+| onError                                | Método                        | Sim         | Método para notificação em caso de erro.                                                                                                                                                                 |
+| ErrorData.paymentsResponseCode         | `String`                      | Sim         | Código de resposta para o erro ocorrido. Vide Códigos de Resposta.                                                                                                                                       |
+| ErrorData.acquirerResponseCode         | `String`                      | Não         | Código de resposta para o erro ocorrido retornado pela adquirente. Note que este erro só será retornado se a transação não for autorizada pela adquirente.                                               |
+| ErrorData.responseMessage              | `String`                      | Sim         | Mensagem descritiva da causa da não autorização. Caso a transação tenha sido negada pela adquirente, conterá a mensagem retornada pela adquirente.                                                       |
+
 ### <a name="_toc173245792"></a>**cancelReversePayment()**
 Este método deve ser chamado para desfazer uma transação de estorno anteriormente autorizada. Esta transação deve não ter sido desfeita ainda e deve ter sido autorizada (não negada) previamente.
 
