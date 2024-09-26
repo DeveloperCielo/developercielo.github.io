@@ -14,6 +14,20 @@ language_tabs:
   shell: cURL
 ---
 
+<aside class="warning"> The content on this page is being discontinued and will not receive updates after 09/04/2024. Please visit the new documentation.</aside>
+
+# The documentation for Checkout Cielo is now on a new portal
+
+[![new e-commerce developers portal for Cielo and Braspag]({{ site.baseurl_root }}/images/apicieloecommerce/new-doc-cielo.com.br.png)](https://docs.cielo.com.br/english)
+
+Access the new E-commerce developers portal at **[docs.cielo.com.br](https://docs.cielo.com.br/english)**.
+
+> **Warning**: The content on this page is being discontinued and will not receive updates after 09/04/2024. Please visit the new documentation at [docs.cielo.br](https://docs.cielo.com.br/link-en/docs/link-and-checkout).
+
+--------------------------------------------------------------------------------------------------------------------------
+
+<aside class="warning"> The following content has not been updated since 09/04/2024.</aside>
+
 # Cielo OAUTH
 
 Cielo OAUTH is an authentication process used in Cielo APIs that are correlated to E-commerce products. It uses the **[OAUTH2](https://oauth.net/2/)** protocol, where it is first necessary to obtain an access token, using its credentials, which should then be sent to the CieloOAuth API.
