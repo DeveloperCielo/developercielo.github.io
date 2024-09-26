@@ -13,21 +13,6 @@ language_tabs:
   shell: cURL
 ---
 
-<aside class="warning"> Attention: The content on this page is being discontinued and will not receive updates after 09/16/2024. Please visit the new documentation.
-  
-# The documentation for the API E-commerce Cielo is now on a new portal
-
-[![New e-commerce developers portal for Cielo and Braspag]({{ site.baseurl_root }}/images/apicieloecommerce/new-doc-cielo.com.br.png)](https://docs.cielo.com.br/ecommerce-cielo-en/docs/about-cielo-e-commerce-api)
-
- Access the new E-commerce developers portal at **[docs.cielo.com.br](https://docs.cielo.com.br/english)**.
-
-> **Attention**: The content on this page is being discontinued and will not receive updates after 09/16/2024. Please visit the new documentation at [docs.cielo.br](https://docs.cielo.com.br/ecommerce-cielo-en/docs/about-cielo-e-commerce-api).
-
---------------------------------------------------------------------------------------------------------------------------
-
-<aside class="warning"> The following content has not been updated since 09/16/2024.</aside>
-
-
 # API E-commerce Cielo
 
 # Overview
