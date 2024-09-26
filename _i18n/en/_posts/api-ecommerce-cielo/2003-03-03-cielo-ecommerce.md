@@ -12,7 +12,6 @@ language_tabs:
   json: JSON
   shell: cURL
 ---
-<meta http-equiv="refresh" content="0; URL=https://docs.cielo.com.br/ecommerce-cielo-en/docs/about-cielo-e-commerce-api/">
 
 <aside class="warning"> Attention: The content on this page is being discontinued and will not receive updates after 09/16/2024. Please visit the new documentation.
   
