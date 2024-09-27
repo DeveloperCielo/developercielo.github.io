@@ -10,6 +10,20 @@ tags:
   - 3. Checkout and Link de Pagamento
 ---
 
+<aside class="warning"> The content on this page is being discontinued and will not receive updates after 09/16/2024. Please visit the new documentation.</aside>
+
+# The documentation for Link de Pagamento e Checkout Cielo is now on a new portal
+
+[![new e-commerce developers portal for Cielo and Braspag]({{ site.baseurl_root }}/images/apicieloecommerce/new-doc-cielo.com.br.png)](https://docs.cielo.com.br/english)
+
+Access the new E-commerce developers portal at **[docs.cielo.com.br](https://docs.cielo.com.br/english)**.
+
+> **Warning**: The content on this page is being discontinued and will not receive updates after 09/16/2024. Please visit the new documentation at [docs.cielo.br](https://docs.cielo.com.br/link/docs/faq-link-checkout).
+
+--------------------------------------------------------------------------------------------------------------------------
+
+<aside class="warning"> The following content has not been updated since 09/16/2024.</aside>
+
 # Questions about the integration
 
 ## What’s the difference between the integration type used on CIELO CHECKOUT?
