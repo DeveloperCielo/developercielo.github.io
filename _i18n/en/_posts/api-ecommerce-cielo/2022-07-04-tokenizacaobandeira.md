@@ -12,6 +12,20 @@ tags:
   - 3. Checkout and Link de Pagamento
 ---
 
+<aside class="warning"> The content on this page is being discontinued and will not receive updates after 09/16/2024. Please visit the new documentation.</aside>
+
+# The documentation for API Cielo E-commerce is now on a new portal
+
+[![new e-commerce developers portal for Cielo and Braspag]({{ site.baseurl_root }}/images/apicieloecommerce/new-doc-cielo.com.br.png)](https://docs.cielo.com.br/english)
+
+Access the new E-commerce developers portal at **[docs.cielo.com.br](https://docs.cielo.com.br/english)**.
+
+> **Warning**: The content on this page is being discontinued and will not receive updates after 09/16/2024. Please visit the new documentation at [docs.cielo.br](https://docs.cielo.com.br/ecommerce-cielo-en/docs/what-is-card-tokenization).
+
+--------------------------------------------------------------------------------------------------------------------------
+
+<aside class="warning"> The following content has not been updated since 09/16/2024.</aside>
+
 # Network tokenization – Visa Mandate
 
 **What is the Visa mandate about tokenization?**
