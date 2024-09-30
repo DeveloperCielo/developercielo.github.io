@@ -14,19 +14,32 @@ language_tabs:
   shell: cURL
 ---
 
-# Integração F360º e outras plataformas (Webhooks)
+# Integrações do Cielo Conciliador com outras plataformas via webhooks
 
-Os **Webhooks** permitem o envio de notificações via HTTP em tempo real para o F360 Finanças, como, por exemplo, notificações para registrar vendas, entradas de cupons, entre outros. Isso elimina a necessidade de preenchimento manual de certas informações, bastando apenas a chamada do Webhook para inserção dos registros, trazendo agilidade ao processo de integração.
+Os **Webhooks** permitem o envio de notificações via HTTP em tempo real para o Cielo Conciliador, como, por exemplo, notificações para registrar vendas, entradas de cupons, entre outros. Isso elimina a necessidade de preenchimento manual de certas informações, bastando apenas a chamada do Webhook para inserção dos registros, trazendo agilidade ao processo de integração.
 
 # Primeiros Passos
 
-Inicialmente, você deve entrar em contato com o usuário da plataforma F360 Finanças e solicitar a URL para a qual as mensagens serão enviadas. Esse processo é importante para garantir a segurança e identificar corretamente cada parceiro. O cliente pode consultar esse processo na nossa **Documentação Técnica**.
+Inicialmente, você deve entrar em contato com o usuário da plataforma Cielo Conciliador e solicitar a URL para a qual as mensagens serão enviadas. Esse processo é importante para garantir a segurança e identificar corretamente cada parceiro.
 
 Na prática, foi desenvolvido um único endpoint para todos os fornecedores de dados que desejam enviar informações via Webhook, onde será possível transmitir todas as informações necessárias. Por isso, as informações abaixo são de extrema importância.
 
+# Como criar uma URL para envio de mensagens
+
+1 - Entre na tela de Webservices do Cielo Conciliador.
+
+2 - Clique no botão Criar localizado no canto inferior esquerdo da tela. 
+
+3 - Selecione a opção de mensagens que deseja permitir o recebimento, atualmente temos a seguinte opção:
+- Webhook F360 - PDV
+
+4 - Clique no botão Salvar e aguarde a confirmação da plataforma. 
+
+5 - Agora localize a webservice que você acabou de criar, na coluna 'Outros' encontra-se a URL para a qual seu fornecedor deverá enviar as mensagens via webhook.
+
 # Modelo de endereço disponibilizado:
 
-> webhook.f360.com.br/identificador-unico-do-servico/servico-consumido
+> webhook.exemplo.com.br/identificador-unico-do-servico/servico-consumido
 
 - **"identificador-unico-do-servico"**: Um ID gerado por nós e enviado mediante solicitação da empresa fornecedora dos dados.
 - **"servico-consumido"**: O endereço para o qual as requisições devem ser direcionadas.
@@ -35,7 +48,7 @@ Na prática, foi desenvolvido um único endpoint para todos os fornecedores de d
 
 É possível consultar o status de todos os serviços disponíveis utilizando a URL abaixo:
 
-> webhook.f360.com.br/IDENTIFICADOR-UNICO-DO-SERVICO/f360-cupom-fiscal
+> webhook.exemplo.com.br/IDENTIFICADOR-UNICO-DO-SERVICO/f360-cupom-fiscal
 
 ![](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/mceclip0.png)
 
@@ -48,7 +61,7 @@ A request deve ser enviada por meio de uma solicitação HTTP POST. É obrigató
 A request deve ser enviada por meio de uma solicitação HTTP POST. É obrigatório que o corpo da requisição seja um **JSON válido** e contenha todos os dados que descrevem o cupom fiscal ou o período de vendas. Abaixo, detalharemos os campos obrigatórios e opcionais desse corpo.
 
 ```curl
-curl --location --request POST 'https://webhook.f360.com.br/identificador-unico-do-servico/f360-cupom-fiscal' \
+curl --location --request POST 'https://webhook.exemplo.com.br/identificador-unico-do-servico/f360-cupom-fiscal' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "NomeSistema": "Meu PDV",
@@ -121,7 +134,7 @@ curl --location --request POST 'https://webhook.f360.com.br/identificador-unico-
 }'
 ```
 
-Por se tratar de uma requisição assíncrona, não retornamos o status da operação realizada no F360 Finanças. Logo, o processamento da informação enviada na requisição deve ser verificado na própria plataforma do F360 Finanças. Caso o sistema não localize a ‘CNPJEmitente’ cadastrado, o sistema irá descartar a mensagem.
+Por se tratar de uma requisição assíncrona, não retornamos o status da operação realizada no Cielo Conciliador. Logo, o processamento da informação enviada na requisição deve ser verificado na própria plataforma do Cielo Conciliador. Caso o sistema não localize a ‘CNPJEmitente’ cadastrado, o sistema irá descartar a mensagem.
 
 **Atenção:** Apesar de aceitarmos mais de um cupom fiscal no mesmo corpo da request, é importante observar que o ‘CNPJEmitente’ e o dia das datas das vendas devem ser únicos dentro da mesma request. Já a informação da hora da venda (que complementa o campo ‘Data’) pode ser diferente dentre os cupons fiscais.
 
@@ -131,7 +144,7 @@ Lançamentos pertencentes ao mesmo cupom fiscal devem ser enviados em uma única
 
 - **NumeroCupom (long):** Número do cupom da venda.
 
-- **CNPJEmitente (string):** Número do CNPJ da loja cadastrado no F360 Finanças e deve ser apresentado sem traço e sem pontos.
+- **CNPJEmitente (string):** Número do CNPJ da loja cadastrado no Cielo Conciliador e deve ser apresentado sem traço e sem pontos.
 
 - **Cliente (object):** Nesse campo devem ser informados Nome e CPF do cliente do cupom.
 
@@ -177,12 +190,12 @@ Tanto contas a pagar quanto a receber são tratados como Títulos no sistema, en
 
 Esta operação pode ser utilizada apenas para inserir novos registros. Não é possível realizar operação de "alteração" ou "exclusão" nesta integração.
 
-Algumas informações cadastradas no sistema, como Plano de Contas e Centro de Custo, podem ser consultadas em nossa API pública, cada uma em seu respectivo endpoint, conforme descrito na documentação, disponível no link a seguir: [F360 Finanças](https://getpostman.com).
+Algumas informações cadastradas no sistema, como Plano de Contas e Centro de Custo, podem ser consultadas em nossa API pública, cada uma em seu respectivo endpoint, conforme descrito na documentação, disponível no link a seguir: [Visão geral do Cielo Conciliador](https://developercielo.github.io/manual/edi-cielo-conciliador).
 
 Abaixo há um exemplo de requisição para o webhook de títulos. A URL contém campos que variam para cada cadastro do webhook, realizado na tela de webservice. Os campos variáveis estão envolvidos por `{}`. A URL completa é obtida na tela de webservices, após a criação do webservice deste webhook.
 
 ```curl
-curl --location 'https://webhook.f360.com.br/{identificador-unico-do-servico}/f360-{id}-titulos/' \
+curl --location 'https://webhook.exemplo.com.br/{identificador-unico-do-servico}/f360-{id}-titulos/' \
 --header 'Content-Type: application/json' \
 --data '{
     "titulos": [
@@ -288,9 +301,9 @@ Campos marcados com (*) são de preenchimento obrigatório e caso não sejam pre
 
 - **competencia** (string, formato “MM-dd”): Deve ser preenchido com a data de competência deste rateio.
 
-- **centroDeCusto** (string): Deve ser preenchido com o nome do centro de custo cadastrado no sistema, que será relacionado ao rateio. Caso o campo não seja preenchido, será utilizado o centro de custo padrão. Os centros de custo disponíveis podem ser obtidos na API pública, no seguinte endpoint da documentação: [F360 Finanças (getpostman.com)](https://getpostman.com).
+- **centroDeCusto** (string): Deve ser preenchido com o nome do centro de custo cadastrado no sistema, que será relacionado ao rateio. Caso o campo não seja preenchido, será utilizado o centro de custo padrão. Os centros de custo disponíveis podem ser obtidos na API pública, no seguinte endpoint da documentação: [Visão geral do Cielo Conciliador](https://developercielo.github.io/manual/edi-cielo-conciliador).
 
-- **planoDeContas** (string): Deve ser preenchido com um plano de contas cadastrado no sistema, que será relacionado ao rateio. Os planos de contas disponíveis podem ser obtidos na API pública, no seguinte endpoint da documentação: [F360 Finanças (getpostman.com)](https://getpostman.com).
+- **planoDeContas** (string): Deve ser preenchido com um plano de contas cadastrado no sistema, que será relacionado ao rateio. Os planos de contas disponíveis podem ser obtidos na API pública, no seguinte endpoint da documentação: [Visão geral do Cielo Conciliador](https://developercielo.github.io/manual/edi-cielo-conciliador).
 
 - **numeroParcela** (short): Deve ser preenchido com o número da parcela à qual este rateio faz referência.
 
