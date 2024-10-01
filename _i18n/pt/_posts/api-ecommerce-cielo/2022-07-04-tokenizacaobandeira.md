@@ -1,5 +1,6 @@
 ---
-layout: tutorial
+layout: redirect
+redirect: https://docs.cielo.com.br/ecommerce-cielo/docs/tokenizacao-mandate-visa
 title: Tokenização de Bandeira – Mandate Visa
 description: Tokenização de Bandeira – Regra Visa
 search: true
