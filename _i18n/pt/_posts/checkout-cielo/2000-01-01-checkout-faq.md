@@ -1,5 +1,6 @@
 ---
-layout: faq
+layout: redirect
+redirect: https://docs.cielo.com.br/link/docs/faq-link-checkout
 title: FAQ
 description: Respostas para dúvidas comuns sobre o Checkout
 search: true
