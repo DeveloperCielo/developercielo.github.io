@@ -1,5 +1,6 @@
 ---
-layout: manual
+layout: redirect
+redirect: https://docs.cielo.com.br/conectores/docs/nuvemshop
 title: Integração Nuvemshop
 description: Integração Nuvemshop
 search: true
