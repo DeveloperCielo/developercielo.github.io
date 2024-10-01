@@ -1,5 +1,6 @@
 ---
-layout: tutorial
+layout: redirect
+redirect: https://docs.cielo.com.br/link/docs/configurar-loja
 title: Tutorial Checkout e Link de Pagamento
 description: Tutorial do backoffice Checkout e Link de Pagamento e tutorial de criação do link
 search: true
