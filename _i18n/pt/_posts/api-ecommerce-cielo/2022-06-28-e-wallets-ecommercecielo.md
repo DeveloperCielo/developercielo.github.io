@@ -1,5 +1,6 @@
 ---
-layout: manual
+layout: redirect
+redirect: https://docs.cielo.com.br/ecommerce-cielo/docs/e-wallets
 title: Manual E-Wallets (Carteiras Digitais)
 description: Manual integração técnica via API
 search: true
