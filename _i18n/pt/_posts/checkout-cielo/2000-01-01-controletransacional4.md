@@ -1,5 +1,6 @@
 ---
-layout: manual
+layout: redirect
+redirect: https://docs.cielo.com.br/link/reference/consultar-transa%C3%A7%C3%A3o
 title: API de Controle Transacional
 description: Integração técnica via API
 search: true
