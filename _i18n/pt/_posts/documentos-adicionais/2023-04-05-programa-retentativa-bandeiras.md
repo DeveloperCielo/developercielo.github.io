@@ -1,5 +1,6 @@
 ---
-layout: tutorial
+layout: redirect
+redirect: https://docs.cielo.com.br/ecommerce-cielo/reference/retentativa-bandeira
 title: Programa de Retentativa das Bandeiras
 search: true
 toc_footers: true
