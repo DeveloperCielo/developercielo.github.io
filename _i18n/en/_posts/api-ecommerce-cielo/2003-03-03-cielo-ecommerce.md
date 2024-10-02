@@ -1,5 +1,6 @@
 ---
-layout: manual
+layout: redirect
+redirect: https://docs.cielo.com.br/ecommerce-cielo-en/docs/
 title: Integration Manual E-commerce Cielo
 description: The purpose of this documentation is to guide the developer on how to integrate with Cielo's API E-commerce Cielo.
 search: true
