@@ -1,5 +1,6 @@
 ---
-layout: manual
+layout: redirect
+redirect: https://docs.cielo.com.br/link-en/docs/about-link-de-pagamento
 title: Link de Pagamento API
 description: Technical integration through API
 search: true

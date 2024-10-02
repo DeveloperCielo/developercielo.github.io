@@ -1,5 +1,6 @@
 ---
-layout: tutorial
+layout: redirect
+redirect: https://docs.cielo.com.br/ecommerce-cielo-en/docs/network-tokenization
 title: Network Tokenization – Mandate Visa
 description: Network Tokenization – Mandate Visa
 search: true

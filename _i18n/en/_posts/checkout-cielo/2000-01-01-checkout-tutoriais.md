@@ -1,5 +1,6 @@
 ---
-layout: tutorial
+layout: redirect
+redirect: https://docs.cielo.com.br/link-en/docs/setting-up-the-store
 title: Tutorial Checkout and Link de Pagamento
 description:
 search: true

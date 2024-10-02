@@ -1,5 +1,6 @@
 ---
-layout: tutorial
+layout: redirect
+redirect: https://docs.cielo.com.br/ecommerce-cielo/docs/boleto
 title: Configuring Boletos and Online Debit
 search: true
 toc_footers: true

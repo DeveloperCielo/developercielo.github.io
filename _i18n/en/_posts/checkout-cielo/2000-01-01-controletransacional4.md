@@ -1,5 +1,6 @@
 ---
-layout: manual
+layout: redirect
+redirect: https://docs.cielo.com.br/link-en/reference/get-transaction-order_number
 title: Transactional Control Api
 description: Technical integration via API
 search: true

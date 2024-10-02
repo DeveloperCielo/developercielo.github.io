@@ -1,5 +1,6 @@
 ---
-layout: tutorial
+layout: redirect
+redirect: https://docs.cielo.com.br/ecommerce-cielo-en/reference/card-brands-retry-program-1
 title: Card Brands Retry Program
 search: true
 toc_footers: true
