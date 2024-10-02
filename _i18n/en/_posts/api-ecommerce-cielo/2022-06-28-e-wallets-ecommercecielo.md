@@ -1,5 +1,6 @@
 ---
-layout: manual
+layout: redirect
+redirect: https://docs.cielo.com.br/ecommerce-cielo-en/docs/e-wallet
 title: E-wallets Manual
 description: E-wallets integration
 search: true
