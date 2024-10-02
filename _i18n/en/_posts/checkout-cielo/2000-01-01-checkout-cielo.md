@@ -1,5 +1,6 @@
 ---
-layout: manual
+layout: redirect
+redirect: https://docs.cielo.com.br/link-en/docs/about-checkout-cielo
 title: Cielo Checkout Integration
 description: Integração técnica via API
 search: true
