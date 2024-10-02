@@ -1,5 +1,6 @@
 ---
-layout: tutorial
+layout: redirect
+redirect: https://docs.cielo.com.br/ecommerce-cielo-en/page/return-codes-abecs
 title: ABECS Return Codes
 search: true
 translated: true
