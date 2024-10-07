@@ -23,7 +23,7 @@ Essa documentação contém todas as API's públicas disponíveis pela plataform
 Para liberar o Token utilizado na API para extração dos arquivos de Saída no formato Agiliza, você deve acessar o site Cielo e realizar login. Na Aba **Menu de Cadastro** selecione **Integrações** e clique em **“+CRIAR”** no rodapé da página. 
 Após finalizar o preenchimento das informações solicitadas, o token de acesso será disponibilizado e poderá seguir com as próximas etapas.
 
-Selecione o **Webservice API Pública da F360 **, indique um nome de identificação para a chave que será criada.
+Selecione o **Webservice API Pública da F360**, indique um nome de identificação para a chave que será criada.
 O “Tipo de acesso da API” fica a seu critério, selecionar as permissões dessa chave ou acesso total.
 O status deve ser **Ativo**.
 
