@@ -176,9 +176,21 @@
 
 <p><a href="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/v15_10-Tabela-IX-EDIv15PT-EN_2.xlsx">V15.10 Tuning Tables</a></p>
 
-<p><a href="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/15-7-Reserva-Financeira-Financial-Reserve_.zip">15.7 Financial Reserve</a></p>
+<p><a href="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_Manual_Versao_15_11.pdf">CIELO_Extrato_Eletronico_Manual_Versao_15.11</a></p>
 
-<p><a href="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/15-8-Atualizacao-de-negociacoes-Receivable-negotiation-update.zip">15.8 Receivable negotiation update</a></p>
+<p><strong>Improvements to the Electronic Statement:</strong></p>
+
+<ul>
+  <li>Adjustment to the information sent in position 557 to 565 of type “E” records: This field will be divided into two distinct positions, being:
+    <ul>
+      <li>557 to 560: Cielo Use (Field reserved for Cielo use)</li>
+      <li>561 to 565: Tax pricing modality code</li>
+    </ul>
+  </li>
+  <li>Inclusion of new domain table: Table XI – Pricing type</li>
+</ul>
+
+<p>Important: This new field is a new field for reconciliation, it does not indicate that your rate has changed.</p>
 
 <aside class="warning">ERRATUM - Consider this as a communication of a layout update of the Electronic Statement to version 15.9 with implementation on 07/23/2024. has undergone a small change.</aside>
 
