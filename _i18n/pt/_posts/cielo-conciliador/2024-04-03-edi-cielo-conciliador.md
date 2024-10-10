@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Cielo Conciliador
+title: Cielo Conciliador - Visão geral do produto
 description: Instruções EDI
 search: true
 translated: false
@@ -20,9 +20,16 @@ Essa documentação contém todas as API's públicas disponíveis pela plataform
 
 # 1 - Login
 
-O token é dispobinilizado pela plataforma ao criar um webservice de API Pública. Segue o link de como criar um token de autenticação na API:
+Para liberar o Token utilizado na API para extração dos arquivos de Saída no formato Agiliza, você deve acessar o site Cielo e realizar login. Na Aba **Menu de Cadastro** selecione **Integrações** e clique em **“+CRIAR”** no rodapé da página. 
+Após finalizar o preenchimento das informações solicitadas, o token de acesso será disponibilizado e poderá seguir com as próximas etapas.
 
-https://f360.zendesk.com/hc/pt-br/articles/360062098714
+Selecione o **Webservice API Pública da F360**, indique um nome de identificação para a chave que será criada.
+O “Tipo de acesso da API” fica a seu critério, selecionar as permissões dessa chave ou acesso total.
+O status deve ser **Ativo**.
+
+> **Ponto de atenção:**  O token só fica visível 1 vez na tela, certifique-se de copiá-lo e guardá-lo.
+
+![Conciliador_API_Publica](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Conciliador_API_Publica.png)
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/PublicLoginAPI/DoLogin</span></aside>
 
@@ -50,13 +57,13 @@ Response
 
 # 2 - Relatórios
 
-Aqui você irá encontrar todos os endpoints disponíveis relacionados a download de relatórios da F360
+Aqui você irá encontrar todos os endpoints disponíveis relacionados a download de relatórios do Cielo Conciliador 
 
 ## Gerar Relatório para Contabilidade
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/PublicRelatorioAPI/GerarRelatorio</span></aside>
 
-Esse método irá gerar um relatório para a contabilidade com base nas informações do módulo F360 Finanças. Os campos obrigatórios estão em negrito:
+Esse método irá gerar um relatório para a contabilidade com base nas informações do Cielo Conciliador. Os campos obrigatórios estão em negrito:
 
 **Data:** "yyyy-MM-dd"
 
@@ -135,7 +142,7 @@ Response
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/PublicRelatorioAPI/GerarRelatorioDeConciliacaoDeCartoes</span></aside>
 
-Esse método irá gerar um relatório dos cartões conciliados a partir dos filtros escolhidos e com base nas informações do módulo F360 Finanças. Os campos obrigatórios estão em negrito:
+Esse método irá gerar um relatório dos cartões conciliados a partir dos filtros escolhidos e com base nas informações do Cielo Conciliador. Os campos obrigatórios estão em negrito:
 
 **DataInicio:** "yyyy-MM-dd";
 
@@ -224,7 +231,7 @@ curl --location -g '{{URL}}/PublicRelatorioAPI/Download?id=60db204089d59e0aec5d8
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/PublicRelatorioAPI/GerarRelatorioTransferenciasEntreContas</span></aside>
 
-Esse método irá gerar um relatório contendo informações das Transferências entre Contas a partir dos filtros escolhidos e com base nas informações do módulo F360 Finanças.
+Esse método irá gerar um relatório contendo informações das Transferências entre Contas a partir dos filtros escolhidos e com base nas informações do Cielo Conciliador.
 
 Os campos obrigatórios estão em negrito:
 
@@ -276,7 +283,7 @@ Response
 
 # 3 - Planos de Contas
 
-Os planos de contas são as classificações contábeis das despesas e receitas dentro da plataforma da F360. O objetivo desses endpoint é permitir que algumas dessas classificações possam ser feitas por meio de API.
+Os planos de contas são as classificações contábeis das despesas e receitas dentro da plataforma do Cielo Conciliador. O objetivo desses endpoint é permitir que algumas dessas classificações possam ser feitas por meio de API.
 
 ## Listar Planos de Contas
 
@@ -378,7 +385,7 @@ Response
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/PlanoDeContasPublicAPI/ObterPlanoDeContas/5da089312629530ed0249022</span></aside>
 
-Este método irá obter um Plano de Contas existente do módulo F360 Finanças. É obrigatório informar o Id do Plano de Contas.
+Este método irá obter um Plano de Contas existente do Cielo Conciliador. É obrigatório informar o Id do Plano de Contas.
 
 Authorization Bearer {{token_jwt}}
 
@@ -408,7 +415,7 @@ Response
 
 Este método irá listar todas as classificações de produtos disponíveis. Essas classificações são importantes para que o sistema faça o lançamento automático do rateio de plano de contas das despesas provindas de Nota Fiscal de Mercadorias.
 
-Dentro do módulo F360 Finanças, a classificação de uma despesa de Nota Fiscal de Mercadorias é feita da seguinte forma:
+Dentro do Cielo Conciliador, a classificação de uma despesa de Nota Fiscal de Mercadorias é feita da seguinte forma:
 
 Por padrão, utilizamos uma combinação de NCM e CFOP para definir qual o plano de contas que deve ser utilizado. Dessa forma, se na nota fiscal existem 10 produtos no mesmo NCM e CFOP, iremos sugerir a classificação contábil de todos esses produtos para o plano de contas que foi selecionado na parametrização desse NCM e CFOP.
 
@@ -530,7 +537,7 @@ Authorization Bearer {{token_jwt}}
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/PlanoDeContasPublicAPI/CriarPlanoDeContas</span></aside>
 
-Este método irá criar um novo Plano de Contas do módulo F360 Finanças. Os campos obrigatórios estão em negrito:
+Este método irá criar um novo Plano de Contas do Cielo Conciliador. Os campos obrigatórios estão em negrito:
 
 **Nome:** "Nome do plano de contas"
 
@@ -564,7 +571,7 @@ Authorization Bearer {{token_jwt}}
 
 <aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/PlanoDeContasPublicAPI/ExcluirPlanoDeContas/60b6539d243c1419b084b181</span></aside>
 
-Este método irá excluir um Plano de Contas do módulo F360 Finanças. É obrigatório informar o Id do Plano de Contas.
+Este método irá excluir um Plano de Contas do Cielo Conciliador. É obrigatório informar o Id do Plano de Contas.
 
 Authorization Bearer {{token_jwt}}
 
@@ -577,7 +584,7 @@ curl --location -g --request DELETE '{{URL}}/PlanoDeContasPublicAPI/ExcluirPlano
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/PlanoDeContasPublicAPI/EditarPlanoDeContas/60b6539d243c1419b084b181</span></aside>
 
-Este método irá editar um Plano de Contas existente do módulo F360 Finanças. É obrigatório informar o Id do Plano de Contas.
+Este método irá editar um Plano de Contas existente do Cielo Conciliador. É obrigatório informar o Id do Plano de Contas.
 
 Authorization Bearer {{token_jwt}}
 
@@ -605,13 +612,13 @@ Authorization Bearer {{token_jwt}}
 
 # 4- Pessoas
 
-Aqui poderá ter acesso aos endpoints disponíveis para a área de Clientes e Fornecedores da F360.
+Aqui poderá ter acesso aos endpoints disponíveis para a área de Clientes e Fornecedores do Cielo Conciliador.
 
 ## Listar Pessoas
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/PessoasPublicAPI/ListarPessoas?pagina=1&definicao=ambos</span></aside>
 
-Aqui poderá ter acesso aos endpoints disponíveis para a área de Clientes e Fornecedores da F360. É opcional informar um CPF ou CNPJ, para buscar uma pessoa por este parâmetro.
+Aqui poderá ter acesso aos endpoints disponíveis para a área de Clientes e Fornecedores do Cielo Conciliador. É opcional informar um CPF ou CNPJ, para buscar uma pessoa por este parâmetro.
 
 Authorization Bearer {{token_jwt}}
 
@@ -735,7 +742,7 @@ Response
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/PessoasPublicAPI/ObterPessoa/60a51476a413311798b4a27e</span></aside>
 
-Neste endpoint poderá ter acesso aos dados de uma Pessoa cadastrada em sua conta da F360. É obrigatório informar o Id da Pessoa.
+Neste endpoint poderá ter acesso aos dados de uma Pessoa cadastrada em sua conta do Cielo Conciliador. É obrigatório informar o Id da Pessoa.
 
 Authorization Bearer {{token\_jwt}}
 
@@ -785,7 +792,7 @@ Response
 
 <aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/PessoasPublicAPI/ExcluirPessoa/60ba8a6d243c143044040f40</span></aside>
 
-Neste endpoint poderá excluir uma Pessoa cadastrada em sua conta da F360. É obrigatório informar o Id da Pessoa.
+Neste endpoint poderá excluir uma Pessoa cadastrada em sua conta do Cielo Conciliador. É obrigatório informar o Id da Pessoa.
 
 Authorization Bearer {{token_jwt}}
 
@@ -800,7 +807,7 @@ curl --location -g --request DELETE '{{URL}}//PessoasPublicAPI/ExcluirPessoa/60b
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/PessoasPublicAPI/CriarPessoa</span></aside>
 
-Neste endpoint poderá criar uma nova Pessoa em sua conta da F360. Os campos obrigatórios estão em negrito:
+Neste endpoint poderá criar uma nova Pessoa em sua conta do Cielo Conciliador. Os campos obrigatórios estão em negrito:
 
 **Nome:** "Nome da Pessoa"
 
@@ -873,7 +880,7 @@ curl --location -g '{{URL}}/PessoasPublicAPI/CriarPessoa' \
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/PessoasPublicAPI/EditarPessoa/60ba9117243c141a14383d29</span></aside>
 
-Neste endpoint poderá editar os dados de uma Pessoa cadastrada em sua conta da F360. É obrigatório informar o Id da Pessoa.
+Neste endpoint poderá editar os dados de uma Pessoa cadastrada em sua conta do Cielo Conciliador. É obrigatório informar o Id da Pessoa.
 
 ```json
 {
@@ -935,13 +942,13 @@ curl --location -g --request PUT '{{URL}}/PessoasPublicAPI/EditarPessoa/60ba9117
 
 # 5 - Notas Fiscais
 
-Aqui poderá ter acesso aos endpoints disponíveis para a área de Notas Ficais da F360.
+Aqui poderá ter acesso aos endpoints disponíveis para a área de Notas Ficais do Cielo Conciliador.
 
 ## Listar Notas
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/NFPublicAPI/ListarNotas?pagina=1&registro=NFSe&inicio=2021-05-01&fim=2021-05-11&tipo=Criação&empresas=82.374.240/0001-10,30.733.246/0001-33&clienteFornecedores=10.118.341/0001-10</span></aside>
 
-Neste endpoint poderá ter uma lista tendo uma paginação de até 75 Notas fiscais com uma paginação da pesquisa da F360, o período de pesquisa não pode ultrapassar 31 dias. Os parâmetros obrigatórios estão em negrito:
+Neste endpoint poderá ter uma lista tendo uma paginação de até 75 Notas fiscais com uma paginação da pesquisa do Cielo Conciliador, o período de pesquisa não pode ultrapassar 31 dias. Os parâmetros obrigatórios estão em negrito:
 
 **registro:** "O tipo de registro das Notas ficais, podendo ser NFe, NFSe e NotaDeDebito"
 
@@ -990,7 +997,7 @@ curl --location -g '{{URL}}/NFPublicAPI/ListarNotas?pagina=1&registro=NFSe&inici
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/NFPublicAPI/ObterDanfe/60be13ca243c1322b4f726cb</span></aside>
 
-Neste endpoint poderá ter acesso ao arquivo XML em base64 de uma Nota Fiscal da F360. É obrigatório informar o Id da Nota Fiscal.
+Neste endpoint poderá ter acesso ao arquivo XML em base64 de uma Nota Fiscal do Cielo Conciliador. É obrigatório informar o Id da Nota Fiscal.
 
 Authorization Bearer {{token_jwt}}
 
@@ -1005,7 +1012,7 @@ curl --location -g '{{URL}}/NFPublicAPI/ObterDanfe/60be13ca243c1322b4f726cb' \
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/NFPublicAPI/ObterXML/60be13ca243c1322b4f726cb</span></aside>
 
-Neste endpoint poderá ter acesso ao arquivo DANFE em base64 de uma Nota Fiscal da F360. É obrigatório informar o Id da Nota Fiscal.
+Neste endpoint poderá ter acesso ao arquivo DANFE em base64 de uma Nota Fiscal do Cielo Conciliador. É obrigatório informar o Id da Nota Fiscal.
 
 Authorization Bearer {{token_jwt}}
 
@@ -1018,7 +1025,7 @@ curl --location -g '{{URL}}/NFPublicAPI/ObterXML/60be13ca243c1322b4f726cb' \
 
 # 6 - Parcelas de Título
 
-Aqui poderá ter acesso aos endpoints de Parcela de Títulos da F360.
+Aqui poderá ter acesso aos endpoints de Parcela de Títulos do Cielo Conciliador.
 
 ## Listar Parcelas De Titulos
 
@@ -1166,7 +1173,7 @@ Response
 
 # 7 - Parcelas de Cartões
 
-Aqui poderá ter acesso aos endpoints de Parcela de Cartões da F360.
+Aqui poderá ter acesso aos endpoints de Parcela de Cartões do Cielo Conciliador.
 
 ## Listar Parcelas De Cartões
 
@@ -1709,16 +1716,7 @@ Response
 
 O arquivo de saída é um meio de integração, e você poderá fazer o upload do arquivo conciliado para o seu ERP ou sistema de gestão para gerar um “contas a receber” e realizar as baixas das contas que receber dentro do seu sistema.
 
-Para liberar o Token utilizado na API para extração dos arquivos de Saída no formato Agiliza, você deve acessar o site Cielo e realizar login. Na Aba **Menu de Cadastro** selecione **Integrações** e clique em **“+CRIAR”** no rodapé da página. 
-Após finalizar o preenchimento das informações solicitadas, o token de acesso será disponibilizado e poderá seguir com as próximas etapas.
 
-Selecione o **Webservice API Pública da F360**, indique um nome de identificação para a chave que será criada.
-O “Tipo de acesso da API” fica a seu critério, selecionar as permissões dessa chave ou acesso total.
-O status deve ser **Ativo**.
-
-> **Ponto de atenção:**  O token só fica visível 1 vez na tela, certifique-se de copiá-lo e guardá-lo.
-
-![Conciliador_API_Publica](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Conciliador_API_Publica.png)
 
 
 ## Gerar Relatório Formato Agiliza
