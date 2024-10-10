@@ -43,10 +43,16 @@ tags:
 
 [V15.10 Tuning Tables](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/v15_10-Tabela-IX-EDIv15PT-EN_2.xlsx)
 
-[15.7 Financial Reserve](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/15-7-Reserva-Financeira-Financial-Reserve_.zip)
+[CIELO_Extrato_Eletronico_Manual_Versao_15.11](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_Manual_Versao_15_11.pdf)
 
-[15.8 Receivable negotiation update](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/15-8-Atualizacao-de-negociacoes-Receivable-negotiation-update.zip)
+**Improvements to the Electronic Statement:**
 
+* Adjustment to the information sent in position 557 to 565 of type "E" records: This field will be divided into two distinct positions, being:
+  * 557 to 560: Cielo Use (Field reserved for Cielo use)
+  * 561 to 565: Tax pricing modality code
+* Inclusion of new domain table: Table XI – Pricing type
+
+Important: This new field is a new field for reconciliation, it does not indicate that your rate has changed.
 
 # Introduction
 
