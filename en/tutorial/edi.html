@@ -136,11 +136,7 @@
 
             <div class="post"><h1 id="electronic-statement-v15">ELECTRONIC STATEMENT v15</h1>
 
-<p><strong>Documentation</strong></p>
-
-<p><a href="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Eletronic_Statement_-_Manual_-_Version_15_10.pdf">CIELO_Extrato_Eletronico_Manual_Versao_15.10</a></p>
-
-<p><strong>Improvements to the Electronic Statement</strong></p>
+<p><strong>Improvements in Electronic Statement v15.10</strong></p>
 
 <ul>
   <li><strong>Update to the Cielo Receivables Negotiation (NRC) file</strong>:
@@ -168,23 +164,21 @@
 
 <p><strong>Implementation date: 10/24/2024</strong></p>
 
-<p><strong>Test files v15.10: Expected for the week of 9/16</strong></p>
+<p><strong>Documentation</strong></p>
 
-<p><strong>Test files</strong></p>
+<p><a href="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO_Extrato_Eletronico_Manual_Versao_15.10.rar">CIELO_Extrato_Eletronico_Manual_Versao_15.10</a></p>
 
 <p><a href="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Arquivosdetesteversao15_10.zip">Test Files v15.10</a></p>
 
-<p><a href="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/v15_10-Tabela-IX-EDIv15PT-EN_2.xlsx">V15.10 Tuning Tables</a></p>
+<p><a href="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/v15_10-Table-IX-EDIv15PT-EN_2.xlsx">Adjustment tables V15.10</a></p>
 
-<p><a href="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_Manual_Versao_15_11.pdf">CIELO_Extrato_Eletronico_Manual_Versao_15.11</a></p>
-
-<p><strong>Improvements to the Electronic Statement:</strong></p>
+<p><strong>Improvements to Electronic Statement v15.11</strong></p>
 
 <ul>
   <li>Adjustment to the information sent in position 557 to 565 of type “E” records: This field will be divided into two distinct positions, being:
     <ul>
       <li>557 to 560: Cielo Use (Field reserved for Cielo use)</li>
-      <li>561 to 565: Tax pricing modality code</li>
+      <li>561 to 565: Rate pricing modality code</li>
     </ul>
   </li>
   <li>Inclusion of new domain table: Table XI – Pricing type</li>
@@ -192,9 +186,11 @@
 
 <p>Important: This new field is a new field for reconciliation, it does not indicate that your rate has changed.</p>
 
-<aside class="warning">ERRATUM - Consider this as a communication of a layout update of the Electronic Statement to version 15.9 with implementation on 07/23/2024. has undergone a small change.</aside>
+<p><strong>Implementation date: 01/14/2025</strong></p>
 
-<p>The inclusion of the fields TID and Order/Reference Code will not happen in the Record Type 8. The size increase to 400 positions is maintained. Therefore, from position 240 to 400, it will be reserved for Uso Cielo.</p>
+<p><strong>Documentation</strong></p>
+
+<p><a href="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_Manual_Versao_15_11.pdf">CIELO_Extrato_Eletronico_Manual_Versao_15.11</a></p>
 
 <p><strong>Last updates</strong></p>
 
