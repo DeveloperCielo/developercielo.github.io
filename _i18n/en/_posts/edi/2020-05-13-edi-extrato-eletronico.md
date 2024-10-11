@@ -13,9 +13,7 @@ tags:
 
 # ELECTRONIC STATEMENT v15
 
-[CIELO_Extrato_Eletronico_Manual_Versao_15.10](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Eletronic_Statement_-_Manual_-_Version_15_10.pdf)
-
-**Improvements to the Electronic Statement**
+**Improvements in Electronic Statement v15.10**
 
 - **Update to the Cielo Receivables Negotiation (NRC) file**:
   - Inclusion of the field **"Effective negotiation rate"** in type "A" records.  
@@ -32,27 +30,30 @@ tags:
 - **Domain table update**:
   - Review of **Table IX** of the manual.
 
-
 **Implementation date: 10/24/2024**
 
-**Test files v15.10: Expected for the week of 9/16**
+**Documentation**
 
-**Test files**
+[CIELO_Extrato_Eletronico_Manual_Versao_15.10](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO_Extrato_Eletronico_Manual_Versao_15.10.rar)
 
 [Test Files v15.10](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Arquivosdetesteversao15_10.zip)
 
-[V15.10 Tuning Tables](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/v15_10-Tabela-IX-EDIv15PT-EN_2.xlsx)
+[Adjustment tables V15.10](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/v15_10-Table-IX-EDIv15PT-EN_2.xlsx)
 
-[CIELO_Extrato_Eletronico_Manual_Versao_15.11](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_Manual_Versao_15_11.pdf)
-
-**Improvements to the Electronic Statement:**
+**Improvements to Electronic Statement v15.11**
 
 * Adjustment to the information sent in position 557 to 565 of type "E" records: This field will be divided into two distinct positions, being:
   * 557 to 560: Cielo Use (Field reserved for Cielo use)
-  * 561 to 565: Tax pricing modality code
+  * 561 to 565: Rate pricing modality code
 * Inclusion of new domain table: Table XI – Pricing type
 
 Important: This new field is a new field for reconciliation, it does not indicate that your rate has changed.
+
+**Implementation date: 01/14/2025**
+
+**Documentation**
+
+[CIELO_Extrato_Eletronico_Manual_Versao_15.11](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_Manual_Versao_15_11.pdf)
 
 # Introduction
 
