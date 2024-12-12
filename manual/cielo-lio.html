@@ -152,20 +152,20 @@
 
 <p><strong>Integração via Deeplink</strong></p>
 
-<ol>
+<ul>
   <li>Incluir uma nova tag no arquivo AndroidManifest.xml para que o App possa ser distribuído corretamente para os terminais no processo de publicação</li>
-</ol>
+</ul>
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;meta-data</span>
     <span class="na">android:name=</span><span class="s">"cs_integration_type"</span>
     <span class="na">android:value=</span><span class="s">"uri"</span> <span class="nt">/&gt;</span>
 </code></pre></div></div>
 
-<ol>
+<ul>
   <li>Garantir a compatibilidade com o Android 10 (permissões, notificações, criação de intents, etc)</li>
-</ol>
+</ul>
 
-<aside class="warning">A Integração via SDK será descontinuada..</aside>
+<aside class="warning">Gostaríamos de informar que o SDK foi descontinuado e, a partir de agora, enviaremos apenas patches com correções pontuais.</aside>
 
 <h2 id="beneficios-da-integração-via-deeplink">Beneficios da Integração via Deeplink</h2>
 
@@ -183,7 +183,7 @@
   <li>Segurança: Reduz a superfície de ataque, pois não incorpora código de terceiros diretamente no aplicativo.</li>
 </ol>
 
-<p>Para saber mais, acesse <a href="https://developercielo.github.io/manual/cielo-lio#integra%C3%A7%C3%A3o-via-deeplink7">AQUI</a> a documentação de Integração via Deeplink</p>
+<p>Para saber mais, acesse <a href="https://developercielo.github.io/manual/cielo-lio#credenciais">AQUI</a> a documentação de Integração via Deeplink</p>
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/comunicado_lio_on.jpg" alt="Comunicado LIO ON" /></p>
 
@@ -2283,44 +2283,6 @@ Exemplo de chamada <strong>deactivate</strong>:</p>
 
 <p>Acesse o nosso projeto de exemplo em: <a href="https://github.com/DeveloperCielo/LIO-Hybrid-Integration-Sample-Flutter">Flutter</a></p>
 
-<h1 id="pix">PIX</h1>
-
-<h2 id="o-que-é-o-pix">O que é o Pix</h2>
-
-<p>O Pix é o meio de pagamento criado pelo Banco Central em que os recursos são transferidos entre contas e poucos segundos, a qualquer hora ou dia. O Pix é um novo jeito de vender de forma instantânea, segura e simples pelas soluções da Cielo.</p>
-
-<h2 id="como-habilitar-o-pagamento-pix">Como habilitar o pagamento PIX?</h2>
-
-<p>Para que seja possível efetivar um pagamento utilizando a forma de pagamento PIX, é necessário que o estabelecimento tenha esse tipo de pagamento habilitado.</p>
-
-<p>Para realizar essa ação, siga as instruções abaixo.</p>
-
-<p>Após essa habilitação via Site Cielo o estabelecimento estará apto a trabalhar com a modalidade PIX.</p>
-
-<h2 id="habilitando-pagamento-pix">Habilitando pagamento PIX</h2>
-
-<p>Para que seja possivel efetivar um pagamento utilizando a forma de pagamento PIX, é necessário que o estabelecimento tenha esse tipo de pagamento habilitado.</p>
-
-<p><strong>PASSO 1:</strong> Entrar no <a href="https://minhaconta2.cielo.com.br/site/login">site Cielo</a> com seu login e senha</p>
-
-<p><strong>PASSO 2:</strong> Clicar em “Meu cadastro”</p>
-
-<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/cadastro_site.png" alt="Meu Cadastro" /></p>
-
-<p><strong>PASSO 3:</strong> Clicar em “Autorizações”</p>
-
-<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/autorizar_pix_site.png" alt="Autorização" /></p>
-
-<p><strong>PASSO 4:</strong> Clicar em “PIX</p>
-
-<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/selecionar_pix_site.png" alt="Clicar PIX" /></p>
-
-<p><strong>PASSO 5:</strong> Marcar a caixa de aceite , e clicar em “Enviar</p>
-
-<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/aceite_pix_site.png" alt="Clicar PIX" /></p>
-
-<p>Após essa habilitação via Site Cielo o estabelecimento estará apto a trabalhar com a modalidade PIX.</p>
-
 <h1 id="integração-remota">Integração Remota</h1>
 
 <h2 id="apresentação">Apresentação</h2>
@@ -4046,9 +4008,61 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
   <li><a href="https://devcielo.zendesk.com/hc/pt-br#suporte">Entre em contato conosco</a> para solicitar o desbloqueio, informando o número do EC e o endereço do serviço, caso haja alteração.</li>
 </ul>
 
+<h1 id="pix">PIX</h1>
+
+<h2 id="o-que-é-o-pix">O que é o Pix</h2>
+
+<p>O Pix é o meio de pagamento criado pelo Banco Central em que os recursos são transferidos entre contas e poucos segundos, a qualquer hora ou dia. O Pix é um novo jeito de vender de forma instantânea, segura e simples pelas soluções da Cielo.</p>
+
+<h2 id="como-habilitar-o-pagamento-pix">Como habilitar o pagamento PIX?</h2>
+
+<p>Para que seja possível efetivar um pagamento utilizando a forma de pagamento PIX, é necessário que o estabelecimento tenha esse tipo de pagamento habilitado.</p>
+
+<p>Para realizar essa ação, siga as instruções abaixo.</p>
+
+<p>Após essa habilitação via Site Cielo o estabelecimento estará apto a trabalhar com a modalidade PIX.</p>
+
+<h2 id="habilitando-pagamento-pix">Habilitando pagamento PIX</h2>
+
+<p>Para que seja possivel efetivar um pagamento utilizando a forma de pagamento PIX, é necessário que o estabelecimento tenha esse tipo de pagamento habilitado.</p>
+
+<p><strong>PASSO 1:</strong> Entrar no <a href="https://minhaconta2.cielo.com.br/site/login">site Cielo</a> com seu login e senha</p>
+
+<p><strong>PASSO 2:</strong> Clicar em “Meu cadastro”</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/cadastro_site.png" alt="Meu Cadastro" /></p>
+
+<p><strong>PASSO 3:</strong> Clicar em “Autorizações”</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/autorizar_pix_site.png" alt="Autorização" /></p>
+
+<p><strong>PASSO 4:</strong> Clicar em “PIX</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/selecionar_pix_site.png" alt="Clicar PIX" /></p>
+
+<p><strong>PASSO 5:</strong> Marcar a caixa de aceite , e clicar em “Enviar</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/aceite_pix_site.png" alt="Clicar PIX" /></p>
+
+<p>Após essa habilitação via Site Cielo o estabelecimento estará apto a trabalhar com a modalidade PIX.</p>
+
 <h1 id="faq">FAQ</h1>
 
 <h2 id="integrações">Integrações</h2>
+
+<h3 id="integração-local">Integração Local</h3>
+
+<p>Essa é a integração de APP embarcado na LIO, utilizando os seus recursos: Pagamento, impressão e cancelamento. O seu Aplicativo instalado na LIO, se integra com o módulo de pedidos e pagamentos da Cielo LIO através do Cielo LIO Order Manager SDK.</p>
+
+<p>É possível desenvolver utilizando Java e Kotlin e se integrar a nossa SDK e também utilizando linguagens hibridas com Deep Link, segue abaixo as respectivas documentações:</p>
+
+<p><a href="https://developercielo.github.io/manual/cielo-lio#integra%C3%A7%C3%A3o-local">Documentação Integração Local Nativa</a>.</p>
+
+<h4 id="existe-algum-aplicativo-de-exemplo-disponível">Existe algum aplicativo de exemplo disponível?</h4>
+
+<p>Disponibilizamos no GitHub um aplicativo Sample de forma que o desenvolvedor consiga ver como funciona as chamadas para utilização do SDK. </p>
+
+<p><a href="https://github.com/DeveloperCielo/LIO-SDK-Sample-Integracao-Local">Download do aplicativo Sample</a>.</p>
 
 <h4 id="É-necessário-colocar-todos-os-itens-do-pedido-na-order">É necessário colocar todos os itens do pedido na order?</h4>
 
@@ -4073,9 +4087,9 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
 
 <p>Sim, é fundamental o cadastro no portal para que você possa obter os tokens de acesso e testar as suas aplicações.</p>
 
-<h3 id="integração-via-deeplink-2">Integração via Deeplink</h3>
+<h3 id="integração-híbrida">Integração Híbrida</h3>
 
-<p>A Cielo oferece integração via intents para comunicação por meio de deep links, permitindo que aplicativos Android se integrem a recursos como pagamento, impressão e cancelamento.</p>
+<p>O processo de integração híbrida é um pouco diferente da integração com o SDK (Integração Local). Para parceiros que não estão integrando com a linguagem nativa Java ou Kotlin a integração hibrida via deep link é uma opção.</p>
 
 <p><a href="https://developercielo.github.io/manual/cielo-lio#integra%C3%A7%C3%A3o-h%C3%ADbrida">Documentação Integração Hibrida</a>.</p>
 
@@ -4093,7 +4107,7 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
         <span class="na">android:value=</span><span class="s">"uri"</span><span class="nt">/&gt;</span>
 </code></pre></div></div>
 
-<h4 id="preciso-de-uma-máquina-cielo-lio-para-realizar-os-testes">Preciso de uma máquina Cielo LIO para realizar os testes?</h4>
+<h4 id="preciso-de-uma-máquina-cielo-lio-para-realizar-os-testes-de-integração-local">Preciso de uma máquina Cielo LIO para realizar os testes de integração local?</h4>
 
 <p>Não é necessário ter uma máquina Cielo LIO para realizar os testes.</p>
 
