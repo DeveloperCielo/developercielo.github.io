@@ -55,6 +55,8 @@ Importante: Este campo novo é um campo novo para a conciliação, não indica q
 
 [CIELO_Extrato_Eletronico_Manual_Versao_15.11](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_Manual_Versao_15-11.pdf)
 
+[Arquivos de Teste v15.11](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Arquivos_teste15-11.zip)
+
 # Introdução
 
 Essa API possibilita o registro de grupos e mantém seu registro para receber arquivos EDI (Electronic Data Interchange).

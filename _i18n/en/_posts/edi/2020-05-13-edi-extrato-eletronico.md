@@ -55,6 +55,8 @@ Important: This new field is a new field for reconciliation, it does not indicat
 
 [CIELO_Extrato_Eletronico_Manual_Versao_15.11](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Eletronic_Statement_Manual_Version_15-11.pdf)
 
+[Test Files v15.10 v15.11](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Arquivos_teste15-11.zip)
+
 # Introduction
 
 This API makes possible to register groups and maintain their registration to receive Electronic Data Interchange (EDI) files
