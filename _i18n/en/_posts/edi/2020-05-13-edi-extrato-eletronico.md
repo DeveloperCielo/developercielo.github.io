@@ -40,7 +40,7 @@ tags:
 
 [Adjustment tables V15.10](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/v15_10-Table-IX-EDIv15PT-EN_2.xlsx)
 
-**Improvements to Electronic Statement v15.11**
+**Improvements to Electronic Statement v15.11.1**
 
 * Adjustment to the information sent in position 557 to 565 of type "E" records: This field will be divided into two distinct positions, being:
   * 557 to 560: Cielo Use (Field reserved for Cielo use)
@@ -49,11 +49,11 @@ tags:
 
 Important: This new field is a new field for reconciliation, it does not indicate that your rate has changed.
 
-**Implementation date: 01/14/2025**
+**Implementation date: 01/25/2025**
 
 **Documentation**
 
-[CIELO_Extrato_Eletronico_Manual_Versao_15.11](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Eletronic_Statement_Manual_Version_15-11.pdf)
+[CIELO_Extrato_Eletronico_Manual_Versao_15.11.1](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Eletronic_Statement_-_Manual_Version_15_11_1.pdf)
 
 [Test Files v15.11](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Arquivos_teste15-11.zip)
 

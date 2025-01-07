@@ -40,7 +40,7 @@ tags:
 
 [Tabelas de ajuste V15.10](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/v15_10-Tabela-IX-EDIv15PT-EN_2.xlsx)
 
-**Melhorias no Extrato Eletrônico v15.11**
+**Melhorias no Extrato Eletrônico v15.11.1**
 
 * Ajuste na informação enviada na posição 557 a 565 dos registros tipo "E": Este campo será dividido em duas posições distintas, sendo:
   *  557 a 560: Uso Cielo (Campo reservado para uso Cielo)
@@ -49,11 +49,11 @@ tags:
 
 Importante: Este campo novo é um campo novo para a conciliação, não indica que a sua taxa foi alterada.
 
-**Data de implantação: 14/01/2025**
+**Data de implantação: 25/01/2025**
 
 **Documentação**
 
-[CIELO_Extrato_Eletronico_Manual_Versao_15.11](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_Manual_Versao_15-11.pdf)
+[CIELO_Extrato_Eletronico_Manual_Versao_15.11.1](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_Manual_Versao_15_11_1.pdf)
 
 [Arquivos de Teste v15.11](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Arquivos_teste15-11.zip)
 
