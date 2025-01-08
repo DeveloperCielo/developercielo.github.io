@@ -49,7 +49,7 @@ tags:
 
 Important: This new field is a new field for reconciliation, it does not indicate that your rate has changed.
 
-**Implementation date: 01/25/2025**
+**Implementation date: 01/28/2025**
 
 **Documentation**
 

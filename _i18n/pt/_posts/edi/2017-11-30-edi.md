@@ -49,7 +49,7 @@ tags:
 
 Importante: Este campo novo é um campo novo para a conciliação, não indica que a sua taxa foi alterada.
 
-**Data de implantação: 25/01/2025**
+**Data de implantação: 28/01/2025**
 
 **Documentação**
 
