@@ -186,6 +186,248 @@
 </blockquote>
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem2.png" alt="Imagem2" /></p>
+
+<p>Preencha o e-mail de quem fará o gerenciamento das credenciais para acessar a API de cancelamento e demais dados do Estabelecimento.</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem3.png" alt="Imagem3" /></p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem4.png" alt="Imagem4" /></p>
+
+<p>Ao concluir o cadastro, um e-mail de confirmação será enviado.</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem5.png" alt="Imagem5" /></p>
+
+<p>Acesse o e-mail utilizado no cadastro e acesse o link para validar o primeiro acesso.</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem6.png" alt="Imagem6" /></p>
+
+<p>Altere a senha inicial e salve as alterações.</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem7.png" alt="Imagem7" /></p>
+
+<p>Para ter mais segurança no acesso às credenciais, clique no botão “Configurar Aplicativo” e instale em seu dispositivo móvel ou desktop aplicativo de duplo fator de autenticação que desejar /preferir.</p>
+<ul>
+  <li>Google Authenticator (Android/iPhone/BlackBerry)</li>
+  <li>Authy (Android/iPhone)</li>
+  <li>Authenticator (Windows Phone)</li>
+  <li>FreeOTP (Android)</li>
+  <li>GAuth Authenticator (Firefox OS, desktop, outros)</li>
+</ul>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem8.png" alt="Imagem8" /></p>
+
+<p>O aplicativo de autenticação de dois fatores será usado durante esta configuração e para gerar códigos durante a autenticação regular. Se o aplicativo for compatível, realize a leitura do código QR Code para obter o código de configuração, caso contrário você poderá inserir manualmente o código de texto.</p>
+
+<p>Link para instalação do app: https://www.microsoft.com/pt-br/security/mobile-authenticator-app</p>
+
+<p>Forneça a senha atual e confirme.</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem9.png" alt="Imagem9" /></p>
+
+<p>O aplicativo de autenticação de dois fatores será usado durante esta configuração e para gerar códigos durante a autenticação regular. Se o aplicativo for compatível, realize a leitura do código QR Code para obter o código de configuração, caso contrário você poderá inserir manualmente o código de texto.</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem10.png" alt="Imagem10" /></p>
+
+<p>Valide o código fornecido no aplicativo Microsoft Authenticator (é obrigatório).</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem11.png" alt="Imagem11" /></p>
+
+<p>Após concluída a autenticação, a mensagem “Configuração do TFA concluída” será exibida e poderá ter acesso a sua conta conforme dados enviados por e-mail.</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem12.png" alt="Imagem12" /></p>
+
+<p>Acesse Cliente-Ids Cadastrados acessando no menu item <em>“Perfil” &gt; “Client-Ids Cadastrados”</em> ou acessando <em>Client-Ids Cadastrados</em> no rodapé.</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem13.png" alt="Imagem13" /></p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem14.png" alt="Imagem14" /></p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem15.png" alt="Imagem15" /></p>
+
+<h1 id="criação-de-uma-chave-pública-e-privada-para-criptografia-certificado-mtls">Criação de uma chave pública e privada para criptografia (Certificado MTLS)</h1>
+
+<p>Para conferir maior segurança no uso da API Única de Cancelamento, é necessário uso de certificado assinado pela Cielo.</p>
+
+<p>Este certificado não tem custo adicional e todas as chamadas aos serviços da API em homologação e produção devem ser feitas com certificado MTLS assinado pela Cielo.</p>
+
+<p>Gere o arquivo da chave pública no formato .csr executando o comando abaixo em um terminal como gitbash ou via ferramenta openssl.</p>
+
+<p>Exemplo:</p>
+
+<blockquote>
+  <p>openssl req -new -newkey rsa:2048 -nodes -keyout <strong>NomeEmpresa</strong>_Cielo.key -out <strong>NomeEmpresa</strong>_Cielo.csr</p>
+</blockquote>
+
+<p>Ao executar este comando, preencha as informações solicitadas conforme exemplo abaixo e substituindo os dados sinalizadas na cor <strong>azul em negrito</strong> com o nome da sua empresa:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+      <th>Valor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">emailAddress</code></td>
+      <td>E-mail da área de produtos Cielo responsável pela API</td>
+      <td>api.cancelamento@cielo.com.br</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Common Name</code></td>
+      <td>Nome da empresa que está integrando na API Única de Cancelamento</td>
+      <td><strong>Informe nome da sua empresa</strong></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Organizational Unit</code></td>
+      <td>Nome da área de produtos Cielo responsável pela API “squad-cancelamento”</td>
+      <td>squad-cancelamento</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Organization Name</code></td>
+      <td>Empresa que está fornecendo a solução API Única de Cancelamento</td>
+      <td>Cielo S.A.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Locality</code></td>
+      <td>Cidade Cielo</td>
+      <td>Barueri</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">State</code></td>
+      <td>Estado Cielo</td>
+      <td>SP</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Country</code></td>
+      <td>País Cielo</td>
+      <td>BR</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Exemplo:</strong></p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem16.png" alt="Imagem16" /></p>
+
+<p>Serão gerados dois arquivos no caminho de diretório em que for executado o comando, um deles .csr e outr .key</p>
+<ul>
+  <li>O arquivo “.key” é de uso exclusivo do estabelecimento</li>
+</ul>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem17.png" alt="Imagem17" /></p>
+
+<ul>
+  <li>Já o arquivo “.csr” deve ser encaminhado para assinatura da Cielo, sendo utilizado o mesmo certificado nos ambientes de Sandbox e Produção.</li>
+</ul>
+
+<p>O cliente deve enviar o arquivo .csr por e-mail para geração do certificado assinado.</p>
+
+<p>Envie o arquivo para: <strong>api.cancelamento@cielo.com.br</strong> e aguarde retorno do time Cielo com o certificado MTLS assinado.</p>
+
+<aside class="notice"> Após concluir o processo de assinatura do certificado MTLS e obter seu Client_ID e Client_Secret, você estará habilitado a acessar nosso ambiente de homologação e produção. 🚀🚀</aside>
+
+<aside class="warning">Todas as chamadas para nossas APIs (nos ambientes de homologação ou produção) devem ser enviadas com a chave MTLS assinada. </aside>
+
+<h1 id="configurações-para-utilização-da-api">Configurações para utilização da API</h1>
+
+<h2 id="adicionar-certificado-mtls-no-postman">Adicionar certificado MTLS no Postman</h2>
+
+<p>Nesse tópico serão fornecidas informações sobre como anexar o certificado assinado pela Cielo na API Única de Cancelamentos.</p>
+
+<p>Na ferramenta do Postman, vá para o ícone de <em>“ferramentas” &gt; Configurações &gt; Certificados &gt; Anexe o arquivo .crt assinado pela Cielo e o .key.</em></p>
+
+<p><strong>Observação:</strong> Este passo deve ser feito tanto para o ambiente de produção quanto para o de homologação, mas você pode usar o mesmo certificado, apenas alterando o campo “Host”.</p>
+
+<p>Acesso aos endpoints da Cielo:</p>
+
+<p>Homologação: 	https://apihml-corp.cielo.com.br/cielo-refunds-exp-hml/refunds/v1/refunds
+Produção: 	  https://api-corp.cielo.com.br/cielo-refunds-exp/refunds/v1/refunds</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem18.png" alt="Imagem18" /></p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem19.png" alt="Imagem19" /></p>
+
+<h1 id="fluxo-de-autenticação-de-credenciais-do-cliente-client-credencials-flow">Fluxo de Autenticação de Credenciais do Cliente (Client Credencials flow)</h1>
+
+<h2 id="obtenção-do-token">Obtenção do Token</h2>
+
+<p>Para realizar uma solicitação de cancelamento ou consulta na API, é necessário obter o token utilizando seu cliente_id e Cliente_secret</p>
+
+<p><strong>Homologação</strong></p>
+
+<blockquote>
+  <p>curl –location –request POST
+https://apihml-corp.cielo.com.br/cielo-security-sys-hml/oauth/v2/MulesoftHML/protocol/openid-connect/token\</p>
+
+  <p>–header ‘Content-Type: application/x-www-form-urlencoded’ \
+–data-urlencode ‘client_id={ <strong>clientId</strong> }’ \
+–data-urlencode ‘client_secret={ <strong>secret</strong> }’ \
+–data-urlencode ‘grant_type=client_credentials’</p>
+</blockquote>
+
+<p><strong>Produção</strong></p>
+
+<blockquote>
+  <p>curl –location –request POST
+https://api-corp.cielo.com.br/cielo-security-sys-web/oauth/v2/MulesoftPRD/protocol/openid-connect/token’ \</p>
+
+  <p>–header ‘Content-Type: application/x-www-form-urlencoded’ \
+–data-urlencode ‘client_id={ <strong>clientId</strong> }’ \
+–data-urlencode ‘client_secret={ <strong>secret</strong> }’ \
+–data-urlencode ‘grant_type=client_credentials’</p>
+</blockquote>
+
+<p><strong>Exemplo no Postman:</strong></p>
+
+<p>Header:</p>
+
+<aside class="notice">https://apihml-corp.cielo.com.br/cielo-security-sys-hml/oauth/v2/MulesoftHML/protocol/openid-connect/token</aside>
+
+<p>Body:</p>
+
+<p>(enviar o client_id e o client secret disponibilizado pela Cielo)</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem20.png" alt="Imagem20" /></p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem21.png" alt="Imagem21" /></p>
+
+<h2 id="enviando-uma-requisição-com-token">Enviando uma requisição com token</h2>
+
+<p>Extraia o campo access_token do retorno da requisição apresentada no passo anterior e passe como header em “Authorization” quando for realizar requisição.</p>
+
+<p>Exemplo: header (“Authorization”, “Bearer “ + token)</p>
+
+<aside class="warning">Lembrete: O access_token precisa ser renovado a cada 5 minutos.</aside>
+
+<table>
+  <thead>
+    <tr>
+      <th>AMBIENTE</th>
+      <th>ENDPOINT</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Homologação</strong></td>
+      <td>https://apihml-corp.cielo.com.br/cielo-refunds-exp-hml/refunds/v1/refunds</td>
+    </tr>
+    <tr>
+      <td><strong>Produção</strong></td>
+      <td>https://api-corp.cielo.com.br/cielo-refunds-exp/refunds/v1/refunds</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem22.png" alt="Imagem22" /></p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem23.png" alt="Imagem23" /></p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem24.png" alt="Imagem24" /></p>
+
+<h1 id="serviços-disponíveis-api-Única-de-cancelamento">Serviços disponíveis API Única de Cancelamento</h1>
+
 </div>
 
 
