@@ -189,7 +189,7 @@
 
 <p>Preencha o e-mail de quem fará o gerenciamento das credenciais para acessar a API de cancelamento e demais dados do Estabelecimento.</p>
 
-<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem3.png" alt="Imagem3" /></p>
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem3_0.png" alt="Imagem3" /></p>
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem4.png" alt="Imagem4" /></p>
 
@@ -570,6 +570,582 @@ https://api-corp.cielo.com.br/cielo-security-sys-web/oauth/v2/MulesoftPRD/protoc
 </span></code></pre></div></div>
 
 <h1 id="consultar-cancelamento">Consultar Cancelamento</h1>
+
+<p>Neste serviço, é possível consultar solicitações de cancelamento e visualizar status de cada requisição através de diversos parâmetros como lote de cancelamento, ID de cancelamento, data ou status.</p>
+
+<blockquote>
+  <p><strong>Headers</strong>: <strong>(*mesmos headers utilizados na requisição de cancelamento)</strong>
+No campo <strong>“key”</strong> digite: <strong>Authorization</strong> e no campo <strong>“value”</strong> digite: <strong>Bearer + espaço + {access_token}</strong>
+Em seguida no campo <strong>“key</strong> digite: Content-Type e no campo <strong>“value”</strong> digite: <strong>application/json.</strong></p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th>AMBIENTE</th>
+      <th>MÉTODO</th>
+      <th>ENDPOINT</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Homologação</strong></td>
+      <td>GET</td>
+      <td>https://apihml-corp.cielo.com.br /cielo-refunds-exp-hml/refunds/v1/refunds{refundID}/{merchantID}?limit={limit} &amp;offset={offset}</td>
+    </tr>
+    <tr>
+      <td><strong>Produção</strong></td>
+      <td>GET</td>
+      <td>https://api-corp.cielo.com.br/cielo-refunds-exp/refunds/v1/refunds{refundID}/{merchantID}?limit={limit} &amp;offset={offset}</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Exemplo de requisição em homologação:</strong></p>
+
+<p>https://apihml-corp.cielo.com.br/cielo-refunds-exp-hml/refunds/v1/refunds/140426/2005157770</p>
+
+<p><strong>Request:</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">/</span><span class="p">{</span><span class="err">refundID</span><span class="p">}</span><span class="err">/</span><span class="p">{</span><span class="err">merchantID</span><span class="p">}</span><span class="err">?limit=</span><span class="p">{</span><span class="err">limit</span><span class="p">}</span><span class="w"> </span><span class="err">&amp;offset=</span><span class="p">{</span><span class="err">offset</span><span class="p">}</span><span class="w">
+</span><span class="err">refundID</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">identificador</span><span class="w"> </span><span class="err">devolvido</span><span class="w"> </span><span class="err">no</span><span class="w"> </span><span class="err">response</span><span class="w"> </span><span class="err">da</span><span class="w"> </span><span class="err">solicitação</span><span class="w"> </span><span class="err">de</span><span class="w"> </span><span class="err">cancelamento.</span><span class="w">
+</span><span class="err">merchantID</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">número</span><span class="w"> </span><span class="err">do</span><span class="w"> </span><span class="err">EC</span><span class="w"> </span><span class="err">(estabelecimento</span><span class="w"> </span><span class="err">comercial)</span><span class="w">
+</span><span class="err">limit</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">quantidade</span><span class="w"> </span><span class="err">de</span><span class="w"> </span><span class="err">solicitações</span><span class="w"> </span><span class="err">dentro</span><span class="w"> </span><span class="err">do</span><span class="w"> </span><span class="err">json</span><span class="w">
+</span><span class="err">offset</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">paginação</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Response:</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"refundID"</span><span class="p">:</span><span class="w"> </span><span class="mi">140426</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"refundDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-10-09T15:31:19.000-0300"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"transactionID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20051577703PPIQIJ7FB"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"nsu"</span><span class="p">:</span><span class="w"> </span><span class="mi">515027</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"cardNumberLast4Digits"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0034"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"merchantID"</span><span class="p">:</span><span class="w"> </span><span class="mi">2005157770</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"authorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"546441"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"refundAmount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.01</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"saleAmount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">70000.0</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"transactionDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-07-03T18:13:40.000-0300"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"controlID"</span><span class="p">:</span><span class="w"> </span><span class="mi">3506674</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"done"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"detail"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cancelamento aprovado com sucesso."</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Descrição dos campos:</strong></p>
+
+<blockquote>
+  <p>{
+<strong>“refundID”:</strong> Identificador do lote de cancelamento
+<strong>“refundDate”:</strong> Data da solicitação do cancelamento, formato exemplo: 2019-12-27T19:38:30.547Z
+ <strong>“transactions”:</strong> [
+        {
+<strong>transactionID</strong>= identificador de transação E-commerce.
+<strong>Nsu</strong> = Número sequencial único.
+<strong>cardNumberLast4Digits</strong> = os 4 últimos dígitos do cartão.
+<strong>merchantID</strong> = número do EC (estabelecimento comercial).
+<strong>authorizationCode</strong> = Código de autorização da venda.
+<strong>refundAmount</strong>: {
+        <strong>currency</strong> = tipo de moeda para cancelamento utilizar somente <strong>BRL</strong>.
+        <strong>value</strong> = Valor para cancelar, pode ser o valor parcial ou total.
+      }
+<strong>saleAmount</strong>: {
+        <strong>currency</strong> = tipo de moeda para cancelamento utilizar somente <strong>BRL</strong>.
+        <strong>value</strong> = Valor da venda.
+      }
+<strong>transactionDate</strong> = no formato DD-MM-YYYY HH24:MI:SS data da venda. “<strong>controlID</strong>”: identificador do cancelamento
+      “<strong>status</strong>”: {
+        “<strong>type</strong>”: Status da solicitação 
+      }</p>
+</blockquote>
+
+<p><strong>Caso o status for rejected:</strong>
+“<strong>detail</strong>”: {
+          “<strong>code</strong>” = Código da rejeição de cancelamento
+          “<strong>message</strong>” = Motivo da rejeição de cancelamento
+        }</p>
+
+<p>O status pending e approved não tem detail no json.</p>
+
+<p><strong>Os retornos do tipo rejeição:</strong></p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem28.png" alt="Imagem28" /></p>
+
+<h1 id="consultar-cancelamento-por-timeout-na-requisição">Consultar Cancelamento por timeout na requisição</h1>
+
+<p>Essa consulta deve ser executada somente quando houver problemas na comunicação durante a solicitação de cancelamento.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>AMBIENTE</th>
+      <th>MÉTODO</th>
+      <th>ENDPOINT</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Homologação</strong></td>
+      <td>GET</td>
+      <td>https://apihml-corp.cielo.com.br/cielo-refunds-exp-hml/refunds/v1/refunds?cancelStartDate={DD/MM/YYYY}&amp;cancelEndDate={DD/MM/YYYY}&amp;rows=25&amp;page=1&amp;merchantId={codigo_estabelecimento}&amp;authorizationCode={codigo_autorizacao}</td>
+    </tr>
+    <tr>
+      <td><strong>Produção</strong></td>
+      <td>GET</td>
+      <td>https://api-corp.cielo.com.br/refunds-api/v1/refunds refunds/v1/refunds?cancelStartDate={DD/MM/YYYY}&amp;cancelEndDate={DD/MM/YYYY}&amp;rows=25&amp;page=1&amp;merchantId={codigo_estabelecimento}&amp;authorizationCode={codigo_autorizacao}</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Exemplo Request:</strong></p>
+
+<p>https://apihml-corp.cielo.com.br/cielo-refunds-exp-hml/refunds/v1/refunds?cancelStartDate=09-10-2024&amp;cancelEndDate=10-10-2024&amp;rows=25&amp;page=1&amp;merchantId=2005157770&amp;authorizationCode=546441</p>
+
+<p><strong>Request:</strong></p>
+
+<blockquote>
+  <p>?cancelStartDate= {Data inicial}&amp;cancelEndDate={Data final}&amp;rows={linha}&amp;page={pagina}&amp;merchantId={Estabelecimento}&amp;authorizationCode={código de autorização}</p>
+</blockquote>
+
+<p><strong>cancelStartDate</strong> = Data inicial da solicitação de cancelamento (formato dd-MM-yyyy)
+<strong>cancelEndDate</strong> = Data final da solicitação de cancelamento (formato dd-MM-yyyy)
+<strong>rows</strong> = Quantidade de linhas
+<strong>page</strong> = Paginação
+<strong>merchantId</strong> = número do EC (estabelecimento comercial)
+<strong>authorizationCode</strong> = Código de autorização da venda.</p>
+
+<p><strong>Respose:</strong></p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem29.png" alt="Imagem29" /></p>
+
+<p><strong>Descrição dos campos:</strong></p>
+
+<p>{
+“<strong>refundID</strong>”: Identificador do lote de cancelamento
+ “<strong>refundDate</strong>”: Data da solicitação do cancelamento, formato exemplo: 2019-12-27T19:38:30.547Z
+ “<strong>transactions</strong>”: [
+        {
+<strong>transactionID</strong> = identificador de transação E-commerce.
+<strong>Nsu</strong> = Número sequencial único.
+<strong>cardNumberLast4Digits</strong> = os 4 últimos dígitos do cartão.
+<strong>merchantID</strong> = número do EC (estabelecimento comercial).
+<strong>authorizationCode</strong> = Código de autorização da venda.
+<strong>refundAmount</strong>: {
+        <strong>currency</strong> = tipo de moeda para cancelamento utilizar somente <strong>BRL</strong>.
+        <strong>value</strong> = Valor para cancelar, pode ser o valor parcial ou total.
+      }
+<strong>saleAmount</strong>: {
+        <strong>currency</strong> = tipo de moeda para cancelamento utilizar somente <strong>BRL</strong>.
+        <strong>value</strong> = Valor da venda.
+      }
+<strong>transactionDate</strong> = no formato DD-MM-YYYY HH24:MI:SS data da venda. “<strong>controlID</strong>”: identificador do cancelamento
+      “<strong>status</strong>”: {
+        “<strong>type</strong>”: Status da solicitação 
+      }</p>
+
+<p><strong>Observações</strong>:
+O status pending e approved não tem detail no json.</p>
+
+<p>Caso o status for rejected (Rejeição):
+“<strong>detail</strong>”: {
+          “<strong>code</strong>” = Código da rejeição de cancelamento
+          “<strong>message</strong>” = Motivo da rejeição de cancelamento
+        }</p>
+
+<h1 id="fluxo-de-cancelamento">Fluxo de Cancelamento</h1>
+
+<h2 id="efetivação-de-cancelamento">Efetivação de Cancelamento</h2>
+
+<p>A efetivação dos cancelamentos solicitados pela API é feita de forma assíncrona em processo batch com corte às 18h30 da tarde. O que significa que cancelamentos solicitados antes deste horário e que forem aprovados na validação de regras de negócio de cancelamento serão enviados para efetivação e terão seus status finais retornados na manhã do dia seguinte a partir das 8h (D1).</p>
+
+<h2 id="status-códigos-e-mensagens-de-retorno">Status, Códigos e Mensagens de Retorno</h2>
+
+<h3 id="status">Status</h3>
+
+<p>A API de Cancelamento possui 4 tipos de status de cancelamento retornados.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>TYPE STATUS</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong><em>Pending</em></strong></td>
+      <td>Este status indica que a requisição foi recebida pelo sistema e está aguardando processamento. Neste caso, não há informação de retorno no campo details</td>
+    </tr>
+    <tr>
+      <td><strong><em>Rejected</em></strong></td>
+      <td>Este status indica que a solicitação de cancelamento não foi aprovada nas validações de regras de negócio de cancelamento. Neste caso, no campo details teremos informações complementares no campo Code e Message.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>“detail”: {
+          “code” = Código da rejeição de cancelamento
+          “message” = Motivo da rejeição de cancelamento
+        }
+|
+| <strong><em>Done</em></strong> | Este Status indica que a solicitação teve sucesso na efetivação do Cancelamento e o cancelamento já foi liquidado. Neste caso, não há informação de retorno no campo details | 
+| <strong><em>Failed</em></strong> | Este status indica alguma falha de comunicação entre sistemas.  Uma nova tentativa de cancelamento pode ser feita. |</p>
+
+<h3 id="códigos-e-mensagens-de-retorno">Códigos e Mensagens de Retorno</h3>
+
+<p>Nos cancelamentos com Status Rejected e Failed, temos informações de retorno no campo details. Os retornos possíveis são:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>COD</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>5</td>
+      <td>Erro de efetivação.</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Cancelamento não efetuado. Não foi possivel localizar a venda com a identificação do cancelamento enviada.</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Cancelamento não efetuado. Solicitação pendente com as mesmas informações.</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>Saldo da transação insuficiente para cancelamento da venda.</td>
+    </tr>
+    <tr>
+      <td>51</td>
+      <td>Cancelamento acima do valor origina da venda</td>
+    </tr>
+    <tr>
+      <td>54</td>
+      <td>Cancelamento não efetuado entre em contato com a Central de Atendimento</td>
+    </tr>
+    <tr>
+      <td>56</td>
+      <td>Saldo do Lojista Insuficiente para Cancelar</td>
+    </tr>
+    <tr>
+      <td>72</td>
+      <td>Saldo na Agenda insuficiente para cancelamento da venda. Ligue para Central ou Seu Gestor</td>
+    </tr>
+    <tr>
+      <td>77</td>
+      <td>Venda original não encontrada para cancelamento.</td>
+    </tr>
+    <tr>
+      <td>99</td>
+      <td>Falha no processamento. Por favor tente novamente.</td>
+    </tr>
+    <tr>
+      <td>101</td>
+      <td>Cancelamento não realizado, por estar acima do prazo permitido pela Bandeira</td>
+    </tr>
+    <tr>
+      <td>102</td>
+      <td>Cancelamento solicitado acima do valor da transação original.</td>
+    </tr>
+    <tr>
+      <td>103</td>
+      <td>Restrição Cadastral. Cancelamento não permitido. Entre em contato com a Central de Cancelamento.</td>
+    </tr>
+    <tr>
+      <td>104</td>
+      <td>Restrição Cadastral. Cancelamento não permitido. Entre em contato com a Central de Cancelamento.</td>
+    </tr>
+    <tr>
+      <td>105</td>
+      <td>Restrição Cadastral. Cancelamento não permitido. Entre em contato com a Central de Cancelamento.</td>
+    </tr>
+    <tr>
+      <td>106</td>
+      <td>Restrição Cadastral. Cancelamento não permitido. Entre em contato com a Central de Cancelamento.</td>
+    </tr>
+    <tr>
+      <td>108</td>
+      <td>Número do Estabelecimento (EC) não encontrado. Por favor verifique o número enviado.</td>
+    </tr>
+    <tr>
+      <td>109</td>
+      <td>Produto Débito só permite cancelamento total.</td>
+    </tr>
+    <tr>
+      <td>115</td>
+      <td>Requisição inválida.</td>
+    </tr>
+    <tr>
+      <td>120</td>
+      <td>Produto da venda não permite cancelamento.</td>
+    </tr>
+    <tr>
+      <td>200</td>
+      <td>Cancelamento não efetuado. Não foi possível localizar a venda com os dados enviados do cartão.</td>
+    </tr>
+    <tr>
+      <td>201</td>
+      <td>Cancelamento não efetuado. Não foi possível localizar a venda com o NSU enviado.</td>
+    </tr>
+    <tr>
+      <td>203</td>
+      <td>Cancelamento não efetuado. Não foi possível localizar a venda com a data enviada.</td>
+    </tr>
+    <tr>
+      <td>206</td>
+      <td>Cancelamento não efetuado. Não foi possível localizar a venda com o valor da venda enviado.</td>
+    </tr>
+    <tr>
+      <td>209</td>
+      <td>Cancelamento não efetuado. Não foi possível localizar a venda com o produto enviado.</td>
+    </tr>
+    <tr>
+      <td>214</td>
+      <td>Cancelamento não efetuado. Não foi possível localizar a venda com o status enviado.</td>
+    </tr>
+    <tr>
+      <td>215</td>
+      <td>Cancelamento não efetuado. Não foi possível localizar a venda com a bandeira enviada.</td>
+    </tr>
+    <tr>
+      <td>216</td>
+      <td>Cancelamento não efetuado. Não foi possível localizar a venda com os dados enviados do cartão.</td>
+    </tr>
+    <tr>
+      <td>217</td>
+      <td>Cancelamento não efetuado. Foi localizado mais de uma venda com os dados enviados.</td>
+    </tr>
+    <tr>
+      <td>218</td>
+      <td>Cancelamento não efetuado. Usuário inválido.</td>
+    </tr>
+    <tr>
+      <td>219</td>
+      <td>Cancelamento não efetuado. Sistema de liquidação inválido.</td>
+    </tr>
+    <tr>
+      <td>221</td>
+      <td>Cancelamento não efetuado. Não foi possível localizar a venda com o valor do cancelamento enviado.</td>
+    </tr>
+    <tr>
+      <td>222</td>
+      <td>Cancelamento não efetuado. Não foi possível identificar o canal solicitante.</td>
+    </tr>
+    <tr>
+      <td>223</td>
+      <td>Cancelamento não efetuado. Solicitação pendente com as mesmas informações.</td>
+    </tr>
+    <tr>
+      <td>224</td>
+      <td>Cancelamento não efetuado. Não foi possivel identificar o ramo de atividade enviado.</td>
+    </tr>
+    <tr>
+      <td>225</td>
+      <td>Cancelamento não efetuado. Não foi possivel localizar a venda com o NSU da venda enviado.</td>
+    </tr>
+    <tr>
+      <td>476</td>
+      <td>Cancelamento não realizado. Existe um cancelamento para esta venda em processamento.</td>
+    </tr>
+    <tr>
+      <td>477</td>
+      <td>Cancelamento não efetivado.</td>
+    </tr>
+    <tr>
+      <td>800</td>
+      <td>Operação não permitida. Envio Automático de carta permitido apenas para Cliente.</td>
+    </tr>
+    <tr>
+      <td>801</td>
+      <td>Operação não permitida. Parametrização existente.</td>
+    </tr>
+    <tr>
+      <td>802</td>
+      <td>Falha ao consultar dados cadastrais.</td>
+    </tr>
+    <tr>
+      <td>803</td>
+      <td>Cliente não localizado nos dados cadastrais.</td>
+    </tr>
+    <tr>
+      <td>823</td>
+      <td>Solicitação reprovada por decurso de prazo.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Retorno do tipo Failed:</strong></p>
+
+<p>Neste caso é só fazer uma nova requisição:</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem30.png" alt="Imagem30" /></p>
+
+<p><strong>Retorno do tipo Done:</strong></p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem31.png" alt="Imagem31" /></p>
+
+<h1 id="carta-de-cancelamento">Carta de Cancelamento</h1>
+
+<p>Só será possível gerar a carta de cancelamento quando o status type for igual a done. Ou seja, só será possível gerar a carta de cancelamento quando a solicitação estiver efetivada.</p>
+
+<p>É possível solicitar a geração e carta por unidade ou lote.</p>
+
+<p>A geração de carta pode ser gerada no idioma português ou inglês.</p>
+
+<p>Não é possível gerar cartas em lote mesclados nos idiomas português e inglês.</p>
+
+<p>Nas requisições de carta por lote, o limite é de 10 cartas por requisição.</p>
+
+<p>Não é possível gerar um lote de cartas para ECs diferentes, na mesma requisição.</p>
+
+<h2 id="solicitação-de-carta-por-unidade">Solicitação de Carta por unidade</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>AMBIENTE</th>
+      <th>MÉTODO</th>
+      <th>ENDPOINT</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Homologação</strong></td>
+      <td>GET</td>
+      <td>https://apihml-corp.cielo.com.br/cielo-refunds-exp-hml/refunds/v1/refunds/v1/letter-api/pdf</td>
+    </tr>
+    <tr>
+      <td><strong>Produção</strong></td>
+      <td>GET</td>
+      <td>https://api-corp.cielo.com.br/cielo-refunds-exp/refunds/v1/refunds/v1/letter-api/pdf</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"merchantId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"cancellationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PT_BR"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>No campo <strong>merchantId</strong> é necessário informar o número do estabelecimento (EC), do tipo number, este campo é obrigatório.</p>
+
+<p>O Campo <strong>cancellationId</strong> é necessário informar o controlId, do tipo number, este campo é obrigatório.</p>
+
+<p>O campo <strong>language</strong> é opcional, mantendo como default o idioma português, podendo também usar como o PT_BR para português ou EN_US para inglês.</p>
+
+<p><strong>Response em caso de erro:</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">999</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You don't have sufficient credentials to perform this operation"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-04-23T18:25:43.511Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="solicitação-de-carta-por-lote">Solicitação de Carta por lote</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>AMBIENTE</th>
+      <th>MÉTODO</th>
+      <th>ENDPOINT</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Homologação</strong></td>
+      <td>GET</td>
+      <td>https://apihml-corp.cielo.com.br/cielo-refunds-exp-hml/refunds /v1/refunds/v1/letter-api/zip</td>
+    </tr>
+    <tr>
+      <td><strong>Produção</strong></td>
+      <td>GET</td>
+      <td>https://api-corp.cielo.com.br/cielo-refunds-exp/refunds/v1/refunds/v1/letter-api/zip</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"merchantId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"cancellations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PT_BR"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>No campo <strong>merchantId</strong> é necessário informar o número do estabelecimento (EC), do tipo number, este campo é obrigatório.</p>
+
+<p>O Campo <strong>cancellationId</strong> é necessário informar uma lista de controlId, separado por virgula (“,”), do tipo number, este campo é obrigatório.</p>
+
+<p>O campo <strong>language</strong> é opcional, mantendo como default o idioma português, podendo também usar como o PT_BR para português ou EN_US para inglês.</p>
+
+<h1 id="suporte-cielo">Suporte Cielo</h1>
+
+<p>Caso tenha dúvidas, envie um e-mail para: <strong>api.cancelamento@cielo.com.br</strong></p>
+
+<h1 id="faq---perguntas-frequentes">FAQ - Perguntas Frequentes</h1>
+
+<p><strong>O que fazer se o token expirar?</strong></p>
+
+<p>Obtenha um novo token JWT repetindo o processo de autenticação descrito no passo (Fluxo de Autenticação de Credenciais do Cliente)</p>
+
+<p><strong>Como testar sem impactar o ambiente de produção?</strong></p>
+
+<p>Use a URL de homologação fornecida no passo (Acesso aos endpoints da Cielo).</p>
+
+<p><strong>Posso reutilizar o mesmo token para múltiplas requisições?</strong></p>
+
+<p>Sim, desde que ele ainda esteja válido (duração: 5 minutos). Caso expire, gere um novo token.</p>
+
+<p><strong>Ao integrar na API de Cancelamento, ainda poderei solicitar cancelamento por outros Canais?</strong></p>
+
+<p>Sim. A API é mais uma opção de canal para solicitar cancelamento de vendas. Os demais canais continuarão disponíveis para solicitação de cancelamento (POS, TEF, e-commerce, Central de Atendimento, Site/APP).</p>
+
+<p>Atente-se para envio de cancelamentos parciais por 2 canais diferentes. Havendo saldo disponível na transação, as duas solicitações podem ser efetivadas.</p>
+
+<p><strong>É possível enviar cancelamentos parciais pela API de Cancelamento?</strong></p>
+
+<p>Sim. É possível enviar um ou mais cancelamentos parciais de uma mesma transação pela API. As solicitações serão efetivadas respeitando o saldo disponível na transação e as regras de cancelamento de cada Bandeira.</p>
+
+<p>Débito Mastercard só permite um cancelamento parcial por transação. Em caso de 2ª solicitação de cancelamento, ela será rejeitada por regra da bandeira.</p>
+
+<p><strong>Qual o prazo de efetivação de cancelamento solicitado via API de Cancelamento?</strong></p>
+
+<p>Cancelamentos solicitados no mesmo dia da venda terão o status final disponível a partir das 8h da manhã de D2.</p>
+
+<p>Cancelamentos solicitados após a data da venda, caso solicitados até as 18h30 terão seu status final disponível a partir das 8h da manhã de D1.</p>
+
+<p><strong>Qual a diferença entre API Única de Cancelamento e a API E-Commerce?</strong></p>
+
+<p>API Única de Cancelamento e a API E-commerce são soluções diferentes com propósitos e integrações diferentes.</p>
+
+<p>A API E-commerce é uma solução de captura que também permite solicitação de cancelamentos de vendas e-commerce. Só é permitido cancelar vendas e-commerce do EC integrado</p>
+
+<p>A API Única de cancelamento é uma solução cujo objetivo é permitir clientes centralizarem cancelamentos de diversas soluções de captura oferecidas pelas Cielo (TEF, POS, E-commerce, LIO). A integração é por Raiz de CNPJ e é possível cancelar vendas de todos os ECs que compõem essa Raiz.</p>
 
 </div>
 
