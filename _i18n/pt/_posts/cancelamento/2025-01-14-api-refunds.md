@@ -65,6 +65,3 @@ Acesse o Portal de Desenvolvedores Cielo  https://desenvolvedores.cielo.com.br/
 > **Importante:** O cadastro deve ser realizado com o mesmo e-mail do ponto focal do Estabelecimento enviado no passo 1.
 
 ![Imagem2](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem2.png)
-
-
-    
