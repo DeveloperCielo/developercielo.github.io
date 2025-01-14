@@ -1862,6 +1862,60 @@ dGFpbHMiOiIiLCJpZCI6IjkzMzA5ODkyLWMyMGItNDUyYy1iYTZmLTY4Mjc5NmI0YTk2ZSIsIm5hbWUi
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
+<h2 id="consulta-de-estabelecimentos">Consulta de Estabelecimentos</h2>
+
+<p>Para consultar a lista de ECs disponíveis no terminal, podemos fazer da seguinte forma:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">data</span> <span class="kd">class</span> <span class="nf">EstablishmentsRequest</span><span class="o">(</span><span class="n">val</span> <span class="nl">clientID:</span> <span class="nc">String</span><span class="o">,</span> <span class="n">val</span> <span class="nl">accessToken:</span> <span class="nc">String</span><span class="o">)</span>
+
+<span class="kd">private</span> <span class="n">fun</span> <span class="nf">listEstablishments</span><span class="o">()</span> <span class="o">{</span>
+<span class="n">val</span> <span class="n">request</span> <span class="o">=</span> <span class="nc">EstablishmentsRequest</span><span class="o">(</span><span class="s">"clientId"</span><span class="o">,</span> <span class="s">"accessToken"</span><span class="o">)</span>
+<span class="n">val</span> <span class="nl">json:</span> <span class="nc">String</span> <span class="o">=</span> <span class="nc">Gson</span><span class="o">().</span><span class="na">toJson</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">toString</span><span class="o">()</span>
+<span class="nc">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="no">TAG</span><span class="o">,</span> <span class="s">"checkout JSON STRING = $json"</span><span class="o">)</span>
+<span class="n">val</span> <span class="n">base64</span> <span class="o">=</span> <span class="n">getBase64</span><span class="o">(</span><span class="n">json</span><span class="o">)</span>
+
+<span class="n">val</span> <span class="n">checkoutUri</span> <span class="o">=</span> <span class="s">"lio://establishments?request=$base64&amp;urlCallback=$scheme://$establishmentsHost"</span>
+<span class="n">val</span> <span class="n">i</span> <span class="o">=</span> <span class="nc">Intent</span><span class="o">(</span><span class="nc">Intent</span><span class="o">.</span><span class="na">ACTION_VIEW</span><span class="o">,</span> <span class="nc">Uri</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="n">checkoutUri</span><span class="o">))</span>
+<span class="n">i</span><span class="o">.</span><span class="na">addFlags</span><span class="o">(</span><span class="nc">Intent</span><span class="o">.</span><span class="na">FLAG_ACTIVITY_CLEAR_TOP</span><span class="o">)</span>
+<span class="k">try</span> <span class="o">{</span>
+<span class="n">startActivity</span><span class="o">(</span><span class="n">i</span><span class="o">)</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nl">e:</span> <span class="nc">Exception</span><span class="o">)</span> <span class="o">{</span>
+<span class="nc">Log</span><span class="o">.</span><span class="na">e</span><span class="o">(</span><span class="no">TAG</span><span class="o">,</span> <span class="s">"ERROR"</span><span class="o">,</span> <span class="n">e</span><span class="o">)</span>
+<span class="n">logView</span><span class="o">.</span><span class="na">addText</span><span class="o">(</span><span class="s">"ERROR=$e ${e.message}"</span><span class="o">)</span>
+<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>A resposta será entregue na activity que tiver como parâmetro o intent filter com os dados passado pelo integrador na urlCallback. O formato da resposta será uma lista de estabelecimentos com os valores nome e código. O código que deverá ser passado no momento do pagamento.</p>
+
+<h3 id="exemplo-de-retorno">Exemplo de retorno</h3>
+
+<p>Segue exemplo de retorno de sucesso.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">uriappsample:</span><span class="c1">//establishments_response?response=W3siY29kZSI6IjAwMTAwMDAyNDQ0NzAwMDEiLCJuYW1lIjoiTE9KQSBPTiJ9XQ==&amp;responsecode=0</span>
+</code></pre></div></div>
+
+<p>Após realizar a decodificaçao será obtido um objeto JSON:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="nl">"code"</span><span class="p">:</span><span class="s2">"0000000000000000"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"EC NAME"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Retorno de erro</p>
+
+<p>Caso ocorra algum erro durante o processo de consulta, será retornado um base64 com o código e motivo do erro:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">uriappsample:</span><span class="c1">//establishments_response?response=eyJjb2RlIjoyLCJyZWFzb24iOiJFcnJvIGFvIGJ1c2NhciBvcyBlc3RhYmVsZWNpbWVudG9zOiBFcnJvciB0byBnZXQgZXN0YWJsaXNobWVudHMifQ==</span>
+</code></pre></div></div>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="nl">"code"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+</span><span class="nl">"reason"</span><span class="p">:</span><span class="s2">"Erro ao buscar os estabelecimentos: motivo do erro"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
 <h2 id="cancelamento">Cancelamento</h2>
 
 <aside class="warning">Hoje não é possivel realizar cancelamentos de pagamentos efetuados por PIX via integração.</aside>
