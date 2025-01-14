@@ -68,7 +68,7 @@ Acesse o Portal de Desenvolvedores Cielo  https://desenvolvedores.cielo.com.br/
 
 Preencha o e-mail de quem fará o gerenciamento das credenciais para acessar a API de cancelamento e demais dados do Estabelecimento.
 
-![Imagem3](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem3.png)
+![Imagem3](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem3_0.png)
 
 ![Imagem4](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem4.png)
 
@@ -331,6 +331,386 @@ transactionDate* = passar no formato DD-MM-YYYY HH24:MI:SS data da venda (Não �
 ```
 
 # Consultar Cancelamento 
+
+Neste serviço, é possível consultar solicitações de cancelamento e visualizar status de cada requisição através de diversos parâmetros como lote de cancelamento, ID de cancelamento, data ou status.
+
+> **Headers**: **(*mesmos headers utilizados na requisição de cancelamento)**
+> No campo **“key”** digite: **Authorization** e no campo **“value”** digite: **Bearer + espaço + {access_token}**
+> Em seguida no campo **“key** digite: Content-Type e no campo **“value”** digite: **application/json.**
+
+| AMBIENTE | MÉTODO |  ENDPOINT | 
+| ------------------ | ------------- | ------------------------------------------------------------------------------------| 
+| **Homologação** | GET | https://apihml-corp.cielo.com.br /cielo-refunds-exp-hml/refunds/v1/refunds{refundID}/{merchantID}?limit={limit} &offset={offset}  | 
+| **Produção**    | GET | https://api-corp.cielo.com.br/cielo-refunds-exp/refunds/v1/refunds{refundID}/{merchantID}?limit={limit} &offset={offset}  | 
+
+**Exemplo de requisição em homologação:**
+
+https://apihml-corp.cielo.com.br/cielo-refunds-exp-hml/refunds/v1/refunds/140426/2005157770
+
+**Request:**
+
+```json
+/{refundID}/{merchantID}?limit={limit} &offset={offset}
+refundID = identificador devolvido no response da solicitação de cancelamento.
+merchantID = número do EC (estabelecimento comercial)
+limit = quantidade de solicitações dentro do json
+offset = paginação
+```
+
+**Response:**
+
+```json
+{
+    "refundID": 140426,
+    "refundDate": "2024-10-09T15:31:19.000-0300",
+    "transactions": [
+        {
+            "transactionID": "20051577703PPIQIJ7FB",
+            "nsu": 515027,
+            "cardNumberLast4Digits": "0034",
+            "merchantID": 2005157770,
+            "authorizationCode": "546441",
+            "refundAmount": {
+                "currency": "BRL",
+                "value": 0.01
+            },
+            "saleAmount": {
+                "currency": "BRL",
+                "value": 70000.0
+            },
+            "transactionDate": "2024-07-03T18:13:40.000-0300",
+            "controlID": 3506674,
+            "status": {
+                "type": "done",
+                "detail": {
+                    "code": 0,
+                    "message": "Cancelamento aprovado com sucesso."
+                }
+            }
+        }
+    ]
+}
+```
+
+**Descrição dos campos:**
+
+>{
+**"refundID":** Identificador do lote de cancelamento
+**"refundDate":** Data da solicitação do cancelamento, formato exemplo: 2019-12-27T19:38:30.547Z
+ **"transactions":** [
+        {
+**transactionID**= identificador de transação E-commerce.
+**Nsu** = Número sequencial único.
+**cardNumberLast4Digits** = os 4 últimos dígitos do cartão.
+**merchantID** = número do EC (estabelecimento comercial).
+**authorizationCode** = Código de autorização da venda.
+**refundAmount**: {
+        **currency** = tipo de moeda para cancelamento utilizar somente **BRL**.
+        **value** = Valor para cancelar, pode ser o valor parcial ou total.
+      }
+**saleAmount**: {
+        **currency** = tipo de moeda para cancelamento utilizar somente **BRL**.
+        **value** = Valor da venda.
+      }
+**transactionDate** = no formato DD-MM-YYYY HH24:MI:SS data da venda. "**controlID**": identificador do cancelamento
+      "**status**": {
+        "**type**": Status da solicitação 
+      }
+
+
+**Caso o status for rejected:**
+"**detail**": {
+          "**code**" = Código da rejeição de cancelamento
+          "**message**" = Motivo da rejeição de cancelamento
+        }
+
+
+O status pending e approved não tem detail no json.
+
+**Os retornos do tipo rejeição:**
+
+![Imagem28](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem28.png)
+
+# Consultar Cancelamento por timeout na requisição
+
+Essa consulta deve ser executada somente quando houver problemas na comunicação durante a solicitação de cancelamento.
+
+| AMBIENTE | MÉTODO |  ENDPOINT | 
+| ------------------ | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
+| **Homologação** | GET | https://apihml-corp.cielo.com.br/cielo-refunds-exp-hml/refunds/v1/refunds?cancelStartDate={DD/MM/YYYY}&cancelEndDate={DD/MM/YYYY}&rows=25&page=1&merchantId={codigo_estabelecimento}&authorizationCode={codigo_autorizacao}  | 
+| **Produção**    | GET | https://api-corp.cielo.com.br/refunds-api/v1/refunds refunds/v1/refunds?cancelStartDate={DD/MM/YYYY}&cancelEndDate={DD/MM/YYYY}&rows=25&page=1&merchantId={codigo_estabelecimento}&authorizationCode={codigo_autorizacao}  |
+
+**Exemplo Request:**
+
+https://apihml-corp.cielo.com.br/cielo-refunds-exp-hml/refunds/v1/refunds?cancelStartDate=09-10-2024&cancelEndDate=10-10-2024&rows=25&page=1&merchantId=2005157770&authorizationCode=546441
+
+**Request:** 
+
+> ?cancelStartDate= {Data inicial}&cancelEndDate={Data final}&rows={linha}&page={pagina}&merchantId={Estabelecimento}&authorizationCode={código de autorização}
+
+**cancelStartDate** = Data inicial da solicitação de cancelamento (formato dd-MM-yyyy)
+**cancelEndDate** = Data final da solicitação de cancelamento (formato dd-MM-yyyy)
+**rows** = Quantidade de linhas
+**page** = Paginação
+**merchantId** = número do EC (estabelecimento comercial)
+**authorizationCode** = Código de autorização da venda.
+
+**Respose:** 
+
+![Imagem29](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem29.png)
+
+**Descrição dos campos:**
+
+{
+"**refundID**": Identificador do lote de cancelamento
+ "**refundDate**": Data da solicitação do cancelamento, formato exemplo: 2019-12-27T19:38:30.547Z
+ "**transactions**": [
+        {
+**transactionID** = identificador de transação E-commerce.
+**Nsu** = Número sequencial único.
+**cardNumberLast4Digits** = os 4 últimos dígitos do cartão.
+**merchantID** = número do EC (estabelecimento comercial).
+**authorizationCode** = Código de autorização da venda.
+**refundAmount**: {
+        **currency** = tipo de moeda para cancelamento utilizar somente **BRL**.
+        **value** = Valor para cancelar, pode ser o valor parcial ou total.
+      }
+**saleAmount**: {
+        **currency** = tipo de moeda para cancelamento utilizar somente **BRL**.
+        **value** = Valor da venda.
+      }
+**transactionDate** = no formato DD-MM-YYYY HH24:MI:SS data da venda. "**controlID**": identificador do cancelamento
+      "**status**": {
+        "**type**": Status da solicitação 
+      }
+
+**Observações**:
+O status pending e approved não tem detail no json.
+
+Caso o status for rejected (Rejeição):
+"**detail**": {
+          "**code**" = Código da rejeição de cancelamento
+          "**message**" = Motivo da rejeição de cancelamento
+        }
+
+# Fluxo de Cancelamento
+
+## Efetivação de Cancelamento
+
+A efetivação dos cancelamentos solicitados pela API é feita de forma assíncrona em processo batch com corte às 18h30 da tarde. O que significa que cancelamentos solicitados antes deste horário e que forem aprovados na validação de regras de negócio de cancelamento serão enviados para efetivação e terão seus status finais retornados na manhã do dia seguinte a partir das 8h (D1).
+
+## Status, Códigos e Mensagens de Retorno
+
+### Status
+
+A API de Cancelamento possui 4 tipos de status de cancelamento retornados.
+
+| TYPE STATUS | DESCRIÇÃO | 
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | 
+| ***Pending*** | Este status indica que a requisição foi recebida pelo sistema e está aguardando processamento. Neste caso, não há informação de retorno no campo details | 
+| ***Rejected*** | Este status indica que a solicitação de cancelamento não foi aprovada nas validações de regras de negócio de cancelamento. Neste caso, no campo details teremos informações complementares no campo Code e Message. 
+
+"detail": {
+          "code" = Código da rejeição de cancelamento
+          "message" = Motivo da rejeição de cancelamento
+        }
+|
+| ***Done*** | Este Status indica que a solicitação teve sucesso na efetivação do Cancelamento e o cancelamento já foi liquidado. Neste caso, não há informação de retorno no campo details | 
+| ***Failed*** | Este status indica alguma falha de comunicação entre sistemas.  Uma nova tentativa de cancelamento pode ser feita. |
+
+### Códigos e Mensagens de Retorno
+
+Nos cancelamentos com Status Rejected e Failed, temos informações de retorno no campo details. Os retornos possíveis são:
+
+| COD | Descrição | 
+| --------- | ---------------------------------------------------------------------------------------------------------------------- | 
+| 5 | Erro de efetivação. | 
+| 7 | Cancelamento não efetuado. Não foi possivel localizar a venda com a identificação do cancelamento enviada. | 
+| 10 | Cancelamento não efetuado. Solicitação pendente com as mesmas informações. | 
+| 17 | Saldo da transação insuficiente para cancelamento da venda. | 
+| 51 | Cancelamento acima do valor origina da venda | 
+| 54 | Cancelamento não efetuado entre em contato com a Central de Atendimento | 
+| 56 | Saldo do Lojista Insuficiente para Cancelar | 
+| 72 | Saldo na Agenda insuficiente para cancelamento da venda. Ligue para Central ou Seu Gestor | 
+| 77 | Venda original não encontrada para cancelamento. | 
+| 99 | Falha no processamento. Por favor tente novamente. | 
+| 101 | Cancelamento não realizado, por estar acima do prazo permitido pela Bandeira| 
+| 102 | Cancelamento solicitado acima do valor da transação original.| 
+| 103 | Restrição Cadastral. Cancelamento não permitido. Entre em contato com a Central de Cancelamento.| 
+| 104 | Restrição Cadastral. Cancelamento não permitido. Entre em contato com a Central de Cancelamento.| 
+| 105 | Restrição Cadastral. Cancelamento não permitido. Entre em contato com a Central de Cancelamento.| 
+| 106 | Restrição Cadastral. Cancelamento não permitido. Entre em contato com a Central de Cancelamento.| 
+| 108 | Número do Estabelecimento (EC) não encontrado. Por favor verifique o número enviado.| 
+| 109 | Produto Débito só permite cancelamento total.| 
+| 115 | Requisição inválida.| 
+| 120 | Produto da venda não permite cancelamento.| 
+| 200 | Cancelamento não efetuado. Não foi possível localizar a venda com os dados enviados do cartão.| 
+| 201 | Cancelamento não efetuado. Não foi possível localizar a venda com o NSU enviado.| 
+| 203 | Cancelamento não efetuado. Não foi possível localizar a venda com a data enviada.| 
+| 206 | Cancelamento não efetuado. Não foi possível localizar a venda com o valor da venda enviado.| 
+| 209 | Cancelamento não efetuado. Não foi possível localizar a venda com o produto enviado.| 
+| 214 | Cancelamento não efetuado. Não foi possível localizar a venda com o status enviado.| 
+| 215 | Cancelamento não efetuado. Não foi possível localizar a venda com a bandeira enviada.| 
+| 216 | Cancelamento não efetuado. Não foi possível localizar a venda com os dados enviados do cartão.| 
+| 217 | Cancelamento não efetuado. Foi localizado mais de uma venda com os dados enviados.| 
+| 218 | Cancelamento não efetuado. Usuário inválido.| 
+| 219 | Cancelamento não efetuado. Sistema de liquidação inválido.| 
+| 221 | Cancelamento não efetuado. Não foi possível localizar a venda com o valor do cancelamento enviado.| 
+| 222 | Cancelamento não efetuado. Não foi possível identificar o canal solicitante.| 
+| 223 | Cancelamento não efetuado. Solicitação pendente com as mesmas informações.| 
+| 224 | Cancelamento não efetuado. Não foi possivel identificar o ramo de atividade enviado.| 
+| 225 | Cancelamento não efetuado. Não foi possivel localizar a venda com o NSU da venda enviado.| 
+| 476 | Cancelamento não realizado. Existe um cancelamento para esta venda em processamento.| 
+| 477 | Cancelamento não efetivado.| 
+| 800 | Operação não permitida. Envio Automático de carta permitido apenas para Cliente.| 
+| 801 | Operação não permitida. Parametrização existente.| 
+| 802 | Falha ao consultar dados cadastrais.| 
+| 803 | Cliente não localizado nos dados cadastrais.| 
+| 823 | Solicitação reprovada por decurso de prazo.| 
+
+**Retorno do tipo Failed:**
+
+Neste caso é só fazer uma nova requisição:
+
+![Imagem30](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem30.png)
+
+**Retorno do tipo Done:**
+
+![Imagem31](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem31.png)
+
+# Carta de Cancelamento
+
+Só será possível gerar a carta de cancelamento quando o status type for igual a done. Ou seja, só será possível gerar a carta de cancelamento quando a solicitação estiver efetivada. 
+
+É possível solicitar a geração e carta por unidade ou lote.
+
+A geração de carta pode ser gerada no idioma português ou inglês.
+
+Não é possível gerar cartas em lote mesclados nos idiomas português e inglês.
+
+Nas requisições de carta por lote, o limite é de 10 cartas por requisição.
+
+Não é possível gerar um lote de cartas para ECs diferentes, na mesma requisição.
+
+## Solicitação de Carta por unidade 
+
+| AMBIENTE | MÉTODO |  ENDPOINT | 
+| ------------------ | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
+| **Homologação** | GET |  https://apihml-corp.cielo.com.br/cielo-refunds-exp-hml/refunds/v1/refunds/v1/letter-api/pdf  | 
+| **Produção**    | GET | https://api-corp.cielo.com.br/cielo-refunds-exp/refunds/v1/refunds/v1/letter-api/pdf  |
+
+```json
+{
+  "merchantId": 0,
+  "cancellationId": 0,
+  "language": "PT_BR"
+}
+```
+
+No campo **merchantId** é necessário informar o número do estabelecimento (EC), do tipo number, este campo é obrigatório.
+
+O Campo **cancellationId** é necessário informar o controlId, do tipo number, este campo é obrigatório.
+
+O campo **language** é opcional, mantendo como default o idioma português, podendo também usar como o PT_BR para português ou EN_US para inglês.
+
+
+**Response em caso de erro:**
+
+```json
+{
+  "errorCode": 999,
+  "errorMessage": "You don't have sufficient credentials to perform this operation",
+  "date": "2012-04-23T18:25:43.511Z"
+}
+```
+
+## Solicitação de Carta por lote
+
+| AMBIENTE | MÉTODO |  ENDPOINT | 
+| ------------------ | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
+| **Homologação** | GET |  https://apihml-corp.cielo.com.br/cielo-refunds-exp-hml/refunds /v1/refunds/v1/letter-api/zip  | 
+| **Produção**    | GET | https://api-corp.cielo.com.br/cielo-refunds-exp/refunds/v1/refunds/v1/letter-api/zip  |
+
+```json 
+{
+  "merchantId": 0,
+  "cancellations": [
+    0,1,2,3
+  ],
+  "language": "PT_BR"
+}
+```
+
+No campo **merchantId** é necessário informar o número do estabelecimento (EC), do tipo number, este campo é obrigatório.
+
+O Campo **cancellationId** é necessário informar uma lista de controlId, separado por virgula (“,”), do tipo number, este campo é obrigatório.
+
+O campo **language** é opcional, mantendo como default o idioma português, podendo também usar como o PT_BR para português ou EN_US para inglês.
+
+# Suporte Cielo
+
+Caso tenha dúvidas, envie um e-mail para: **api.cancelamento@cielo.com.br**
+
+# FAQ - Perguntas Frequentes
+
+**O que fazer se o token expirar?**
+
+Obtenha um novo token JWT repetindo o processo de autenticação descrito no passo (Fluxo de Autenticação de Credenciais do Cliente)
+
+**Como testar sem impactar o ambiente de produção?**
+
+Use a URL de homologação fornecida no passo (Acesso aos endpoints da Cielo).
+
+**Posso reutilizar o mesmo token para múltiplas requisições?**
+
+Sim, desde que ele ainda esteja válido (duração: 5 minutos). Caso expire, gere um novo token.
+
+**Ao integrar na API de Cancelamento, ainda poderei solicitar cancelamento por outros Canais?**
+
+Sim. A API é mais uma opção de canal para solicitar cancelamento de vendas. Os demais canais continuarão disponíveis para solicitação de cancelamento (POS, TEF, e-commerce, Central de Atendimento, Site/APP). 
+
+Atente-se para envio de cancelamentos parciais por 2 canais diferentes. Havendo saldo disponível na transação, as duas solicitações podem ser efetivadas.
+
+**É possível enviar cancelamentos parciais pela API de Cancelamento?**
+
+Sim. É possível enviar um ou mais cancelamentos parciais de uma mesma transação pela API. As solicitações serão efetivadas respeitando o saldo disponível na transação e as regras de cancelamento de cada Bandeira.
+
+Débito Mastercard só permite um cancelamento parcial por transação. Em caso de 2ª solicitação de cancelamento, ela será rejeitada por regra da bandeira.
+
+**Qual o prazo de efetivação de cancelamento solicitado via API de Cancelamento?**
+
+Cancelamentos solicitados no mesmo dia da venda terão o status final disponível a partir das 8h da manhã de D2.
+
+Cancelamentos solicitados após a data da venda, caso solicitados até as 18h30 terão seu status final disponível a partir das 8h da manhã de D1.
+
+**Qual a diferença entre API Única de Cancelamento e a API E-Commerce?**
+
+API Única de Cancelamento e a API E-commerce são soluções diferentes com propósitos e integrações diferentes.
+
+A API E-commerce é uma solução de captura que também permite solicitação de cancelamentos de vendas e-commerce. Só é permitido cancelar vendas e-commerce do EC integrado
+
+A API Única de cancelamento é uma solução cujo objetivo é permitir clientes centralizarem cancelamentos de diversas soluções de captura oferecidas pelas Cielo (TEF, POS, E-commerce, LIO). A integração é por Raiz de CNPJ e é possível cancelar vendas de todos os ECs que compõem essa Raiz. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
