@@ -68,21 +68,21 @@ Acesse o Portal de Desenvolvedores Cielo  https://desenvolvedores.cielo.com.br/
 
 Preencha o e-mail de quem fará o gerenciamento das credenciais para acessar a API de cancelamento e demais dados do Estabelecimento.
 
-![Imagem3](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem3.png)
+![Imagem3](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem3.png)
 
-![Imagem4](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem4.png)
+![Imagem4](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem4.png)
 
 Ao concluir o cadastro, um e-mail de confirmação será enviado. 
 
-![Imagem5](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem5.png)
+![Imagem5](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem5.png)
 
 Acesse o e-mail utilizado no cadastro e acesse o link para validar o primeiro acesso. 
 
-![Imagem6](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem6.png)
+![Imagem6](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem6.png)
 
 Altere a senha inicial e salve as alterações.
 
-![Imagem7](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem7.png)
+![Imagem7](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem7.png)
 
 Para ter mais segurança no acesso às credenciais, clique no botão “Configurar Aplicativo” e instale em seu dispositivo móvel ou desktop aplicativo de duplo fator de autenticação que desejar /preferir.
 - Google Authenticator (Android/iPhone/BlackBerry)
@@ -91,7 +91,7 @@ Para ter mais segurança no acesso às credenciais, clique no botão “Configur
 - FreeOTP (Android)
 - GAuth Authenticator (Firefox OS, desktop, outros)
 
-![Imagem8](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem8.png)
+![Imagem8](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem8.png)
 
 O aplicativo de autenticação de dois fatores será usado durante esta configuração e para gerar códigos durante a autenticação regular. Se o aplicativo for compatível, realize a leitura do código QR Code para obter o código de configuração, caso contrário você poderá inserir manualmente o código de texto.
 
@@ -99,27 +99,27 @@ Link para instalação do app: https://www.microsoft.com/pt-br/security/mobile-a
 
 Forneça a senha atual e confirme.
 
-![Imagem9](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem9.png)
+![Imagem9](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem9.png)
 
 O aplicativo de autenticação de dois fatores será usado durante esta configuração e para gerar códigos durante a autenticação regular. Se o aplicativo for compatível, realize a leitura do código QR Code para obter o código de configuração, caso contrário você poderá inserir manualmente o código de texto.
 
-![Imagem10](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem10.png)
+![Imagem10](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem10.png)
 
 Valide o código fornecido no aplicativo Microsoft Authenticator (é obrigatório).
 
-![Imagem11](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem11.png)
+![Imagem11](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem11.png)
 
 Após concluída a autenticação, a mensagem “Configuração do TFA concluída” será exibida e poderá ter acesso a sua conta conforme dados enviados por e-mail.
 
-![Imagem12](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem12.png)
+![Imagem12](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem12.png)
 
 Acesse Cliente-Ids Cadastrados acessando no menu item *"Perfil” > “Client-Ids Cadastrados”* ou acessando *Client-Ids Cadastrados* no rodapé.
 
-![Imagem13](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem13.png)
+![Imagem13](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem13.png)
 
-![Imagem14](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem14.png)
+![Imagem14](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem14.png)
 
-![Imagem15](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem15.png)
+![Imagem15](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem15.png)
 
 # Criação de uma chave pública e privada para criptografia (Certificado MTLS)
 
@@ -147,12 +147,12 @@ Ao executar este comando, preencha as informações solicitadas conforme exemplo
 
 **Exemplo:** 
 
-![Imagem16](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem16.png)
+![Imagem16](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem16.png)
 
 Serão gerados dois arquivos no caminho de diretório em que for executado o comando, um deles .csr e outr .key 
 - O arquivo “.key” é de uso exclusivo do estabelecimento 
 
-![Imagem17](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem17.png)
+![Imagem17](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem17.png)
 
 -	Já o arquivo “.csr” deve ser encaminhado para assinatura da Cielo, sendo utilizado o mesmo certificado nos ambientes de Sandbox e Produção.
  
@@ -179,9 +179,9 @@ Acesso aos endpoints da Cielo:
 Homologação: 	https://apihml-corp.cielo.com.br/cielo-refunds-exp-hml/refunds/v1/refunds
 Produção: 	  https://api-corp.cielo.com.br/cielo-refunds-exp/refunds/v1/refunds
 
-![Imagem18](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem18.png)
+![Imagem18](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem18.png)
 
-![Imagem19](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem19.png)
+![Imagem19](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem19.png)
 
 # Fluxo de Autenticação de Credenciais do Cliente (Client Credencials flow)
 
@@ -223,9 +223,9 @@ Body:
 
 (enviar o client_id e o client secret disponibilizado pela Cielo)
 
-![Imagem20](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem20.png)
+![Imagem20](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem20.png)
 
-![Imagem21](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem21.png)
+![Imagem21](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem21.png)
 
 ## Enviando uma requisição com token 
 
@@ -240,13 +240,106 @@ Exemplo: header ("Authorization", "Bearer " + token)
 | **Homologação** | https://apihml-corp.cielo.com.br/cielo-refunds-exp-hml/refunds/v1/refunds | 
 | **Produção**    | https://api-corp.cielo.com.br/cielo-refunds-exp/refunds/v1/refunds | 
 
-![Imagem22](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem22.png)
+![Imagem22](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem22.png)
 
-![Imagem23](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem23.png)
+![Imagem23](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem23.png)
 
-![Imagem24](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem24.png)
+![Imagem24](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem24.png)
 
 # Serviços disponíveis API Única de Cancelamento
+
+| AMBIENTE | ENDPOINT | 
+| ------------------ | ------------------------------------------------------------------------------------| 
+| **Homologação** | https://apihml-corp.cielo.com.br/cielo-refunds-exp-hml/refunds/v1/refunds | 
+| **Produção**    | https://api-corp.cielo.com.br/cielo-refunds-exp/refunds/v1/refunds | 
+
+| DESCRIÇÃO | PATH | MÉTODO HTTP | 
+| ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| ------------------------| 
+| **Solicitação de Cancelamento (Unitária)** | /v1/refunds | POST | 
+| **Solicitação de Cancelamento (Lote)** | /v1/refunds | POST | 
+| **Consulta de Cancelamento (Unitária)** |  /v1/refunds/{refundID}/{merchantID} | GET | 
+| **Consulta de Cancelamento (Lista)** | /v1/refunds?cancelStartDate={Data inicial}&cancelEndDate={Data final}&rows={linha}&page={pagina}&merchantId={merchantID}&authorizationCode={código de autorização} | GET | 
+| **Geração de Carta de Cancelamento (Unitária)** | /v1/refunds/v1/letter-api/pdf | POST |
+| **Geração de Carta de Cancelamento (Lote)** | /v1/refunds/v1/letter-api/zip | POST |
+
+# Solicitação de Cancelamento 
+
+Com esse serviço, é possível realizar solicitações de cancelamento individuais ou em lote através de dados da venda como número do EC, data da venda, código de autorização, valor da venda, entre outros.
+
+| AMBIENTE | ENDPOINT | 
+| ------------------ | ------------------------------------------------------------------------------------| 
+| **Homologação** | https://apihml-corp.cielo.com.br/cielo-refunds-exp-hml/refunds/v1/refunds | 
+| **Produção**    | https://api-corp.cielo.com.br/cielo-refunds-exp/refunds/v1/refunds | 
+
+**Headers:**
+
+No campo “key” digite: Authorization e no campo “value” digite: Bearer + espaço + {access_token}
+
+Em seguida no campo “key digite: Content-Type e no campo “value” digite: application/json.
+
+![Imagem25](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem25.png)
+
+**Corpo da Requisição (Body):** 
+
+Enviando uma solicitação de cancelamento.
+
+![Imagem26](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem26.png)
+
+```json
+transactionID = identificador de transação E-commerce.
+Nsu = Número sequencial único
+cardNumberLast4Digits = os 4 últimos dígitos do cartão
+merchantID* = número do EC (estabelecimento comercial)
+authorizationCode* = Código de autorização da venda
+refundAmount: {
+        currency*= tipo de moeda para cancelamento utilizar somente BRL
+        value*= Valor para cancelar, pode ser o valor parcial ou total.
+      }
+saleAmount: {
+        currency*= tipo de moeda para cancelamento utilizar somente BRL. 
+        value*= valor da venda 
+      }
+transactionDate* = passar no formato DD-MM-YYYY HH24:MI:SS data da venda (Não é necessário passar a hora exata da venda)
+```
+
+**Campos obrigatórios*
+
+**Response da requisição de cancelamento**
+
+![Imagem27](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem27.png)
+
+```json
+  "merchantID": número do EC (estabelecimento comercial)
+      "authorizationCode": Código de autorização da venda
+      "refundAmount": {
+        "currency":  tipo de moeda para cancelamento utilizar somente BRL.
+        "value": Valor para cancelar, pode ser o valor parcial ou total
+      },
+      "saleAmount": {
+        "currency":  tipo de moeda para cancelamento utilizar somente BRL.
+        "value": Valor da venda
+      },
+      "transactionDate": formato DD-MM-YYYY HH24:MI:SS data da venda
+      "controlID": identificador do cancelamento
+      "status": {
+        "type": Status da solicitação 
+      }
+    }
+  ],
+  "refundID": Identificador do lote de cancelamento
+  "refundDate": Data da solicitação do cancelamento, formato exemplo: 2019-12-27T19:38:30.547Z
+```
+
+# Consultar Cancelamento 
+
+
+
+
+
+
+
+
+
 
 
 
