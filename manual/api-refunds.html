@@ -65,6 +65,8 @@
                     
                     <li><a data-language-name='json'>JSON</a></li>
                     
+                    <li><a data-language-name='shell'>cURL</a></li>
+                    
                 </ul>
             </div>
             <div class="dark-box"></div>
@@ -358,24 +360,23 @@
 
 <p><strong>Homologação</strong></p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl --location --request POST
+<pre><code class="language-curl">curl --location --request POST
 https://apihml-corp.cielo.com.br/cielo-security-sys-hml/oauth/v2/MulesoftHML/protocol/openid-connect/token\
-
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --data-urlencode 'client\_id={ **clientId** }' \
 --data-urlencode 'client\_secret={ **secret** }' \
 --data-urlencode 'grant\_type=client\_credentials'
-</code></pre></div></div>
+</code></pre>
 
 <p><strong>Produção</strong></p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl --location --request POST
+<pre><code class="language-curl">curl --location --request POST
 https://api-corp.cielo.com.br/cielo-security-sys-web/oauth/v2/MulesoftPRD/protocol/openid-connect/token' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --data-urlencode 'client\_id={ **clientId** }' \
 --data-urlencode 'client\_secret={ **secret** }' \
 --data-urlencode 'grant\_type=client\_credentials'
-</code></pre></div></div>
+</code></pre>
 
 <p><strong>Exemplo no Postman:</strong></p>
 
@@ -684,7 +685,7 @@ Em seguida no campo <strong>“key</strong> digite: Content-Type e no campo <str
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem28.png" alt="Imagem28" /></p>
 
-<h1 id="consultar-cancelamento-por-timeout-na-requisição">Consultar Cancelamento por timeout na requisição</h1>
+<h2 id="consultar-cancelamento-por-timeout-na-requisição">Consultar Cancelamento por timeout na requisição</h2>
 
 <p>Essa consulta deve ser executada somente quando houver problemas na comunicação durante a solicitação de cancelamento.</p>
 
@@ -716,21 +717,21 @@ Em seguida no campo <strong>“key</strong> digite: Content-Type e no campo <str
 
 <p><strong>Request:</strong></p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>?cancelStartDate= {Data inicial}&amp;cancelEndDate={Data final}&amp;rows={linha}&amp;page={pagina}&amp;merchantId={Estabelecimento}&amp;authorizationCode={código de autorização}
+<pre><code class="language-curl">?cancelStartDate= {Data inicial}&amp;cancelEndDate={Data final}&amp;rows={linha}&amp;page={pagina}&amp;merchantId={Estabelecimento}&amp;authorizationCode={código de autorização}
 **cancelStartDate** = Data inicial da solicitação de cancelamento (formato dd-MM-yyyy)
 **cancelEndDate** = Data final da solicitação de cancelamento (formato dd-MM-yyyy)
 **rows** = Quantidade de linhas
 **page** = Paginação
 **merchantId** = número do EC (estabelecimento comercial)
 **authorizationCode** = Código de autorização da venda.
-</code></pre></div></div>
+</code></pre>
 
 <p><strong>Respose:</strong></p>
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem29.png" alt="Imagem29" /></p>
 
 <p><strong>Descrição dos campos:</strong></p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+<pre><code class="language-curl">{
 "**refundID**": Identificador do lote de cancelamento
  "**refundDate**": Data da solicitação do cancelamento, formato exemplo: 2019-12-27T19:38:30.547Z
  "**transactions**": [
@@ -761,7 +762,7 @@ Caso o status for rejected (Rejeição):
           "**code**" = Código da rejeição de cancelamento
           "**message**" = Motivo da rejeição de cancelamento
         }
-</code></pre></div></div>
+</code></pre>
 
 <h1 id="fluxo-de-cancelamento">Fluxo de Cancelamento</h1>
 
@@ -789,18 +790,18 @@ Caso o status for rejected (Rejeição):
     </tr>
     <tr>
       <td><strong><em>Rejected</em></strong></td>
-      <td>Este status indica que a solicitação de cancelamento não foi aprovada nas validações de regras de negócio de cancelamento. Neste caso, no campo details teremos informações complementares no campo Code e Message.</td>
+      <td>Este status indica que a solicitação de cancelamento não foi aprovada nas validações de regras de negócio de cancelamento. Neste caso, no campo details teremos informações complementares no campo Code e Message.<br />“detail”:{<br />“code” = Código da rejeição de cancelamento<br />“message” = Motivo da rejeição de cancelamento<br />}<br /></td>
+    </tr>
+    <tr>
+      <td><strong><em>Done</em></strong></td>
+      <td>Este Status indica que a solicitação teve sucesso na efetivação do Cancelamento e o cancelamento já foi liquidado. Neste caso, não há informação de retorno no campo details</td>
+    </tr>
+    <tr>
+      <td><strong><em>Failed</em></strong></td>
+      <td>Este status indica alguma falha de comunicação entre sistemas.  Uma nova tentativa de cancelamento pode ser feita.</td>
     </tr>
   </tbody>
 </table>
-
-<p>“detail”: {
-          “code” = Código da rejeição de cancelamento
-          “message” = Motivo da rejeição de cancelamento
-        }
-|
-| <strong><em>Done</em></strong> | Este Status indica que a solicitação teve sucesso na efetivação do Cancelamento e o cancelamento já foi liquidado. Neste caso, não há informação de retorno no campo details | 
-| <strong><em>Failed</em></strong> | Este status indica alguma falha de comunicação entre sistemas.  Uma nova tentativa de cancelamento pode ser feita. |</p>
 
 <h3 id="códigos-e-mensagens-de-retorno">Códigos e Mensagens de Retorno</h3>
 
@@ -1000,6 +1001,8 @@ Caso o status for rejected (Rejeição):
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem31.png" alt="Imagem31" /></p>
 
 <h1 id="carta-de-cancelamento">Carta de Cancelamento</h1>
+
+<h2 id="validações-para-geração">Validações para geração</h2>
 
 <p>Só será possível gerar a carta de cancelamento quando o status type for igual a done. Ou seja, só será possível gerar a carta de cancelamento quando a solicitação estiver efetivada.</p>
 
@@ -1228,6 +1231,9 @@ Caso o status for rejected (Rejeição):
             
             langs += "<a data-language-name='json'>JSON</a>";
             langsArray.push('json');
+            
+            langs += "<a data-language-name='shell'>cURL</a>";
+            langsArray.push('shell');
             
 
             var toggleCode = 'Comutar';
