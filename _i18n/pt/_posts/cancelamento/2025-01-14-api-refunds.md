@@ -9,6 +9,7 @@ tags:
   - API Refunds
 language_tabs:
   json: JSON
+  shell: cURL
 ---
     
 # Objetivo
@@ -194,10 +195,9 @@ Para realizar uma solicitação de cancelamento ou consulta na API, é necessár
 
 **Homologação**
 
-```
+```curl
 curl --location --request POST
 https://apihml-corp.cielo.com.br/cielo-security-sys-hml/oauth/v2/MulesoftHML/protocol/openid-connect/token\
-
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --data-urlencode 'client\_id={ **clientId** }' \
 --data-urlencode 'client\_secret={ **secret** }' \
@@ -206,7 +206,7 @@ https://apihml-corp.cielo.com.br/cielo-security-sys-hml/oauth/v2/MulesoftHML/pro
 
 **Produção**
 
-```
+```curl
 curl --location --request POST
 https://api-corp.cielo.com.br/cielo-security-sys-web/oauth/v2/MulesoftPRD/protocol/openid-connect/token' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
@@ -435,7 +435,7 @@ O status pending e approved não tem detail no json.
 
 ![Imagem28](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem28.png)
 
-# Consultar Cancelamento por timeout na requisição
+## Consultar Cancelamento por timeout na requisição
 
 Essa consulta deve ser executada somente quando houver problemas na comunicação durante a solicitação de cancelamento.
 
@@ -450,7 +450,7 @@ https://apihml-corp.cielo.com.br/cielo-refunds-exp-hml/refunds/v1/refunds?cancel
 
 **Request:** 
 
-```
+```curl
 ?cancelStartDate= {Data inicial}&cancelEndDate={Data final}&rows={linha}&page={pagina}&merchantId={Estabelecimento}&authorizationCode={código de autorização}
 **cancelStartDate** = Data inicial da solicitação de cancelamento (formato dd-MM-yyyy)
 **cancelEndDate** = Data final da solicitação de cancelamento (formato dd-MM-yyyy)
@@ -465,7 +465,7 @@ https://apihml-corp.cielo.com.br/cielo-refunds-exp-hml/refunds/v1/refunds?cancel
 ![Imagem29](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem29.png)
 
 **Descrição dos campos:**
-```
+```curl
 {
 "**refundID**": Identificador do lote de cancelamento
  "**refundDate**": Data da solicitação do cancelamento, formato exemplo: 2019-12-27T19:38:30.547Z
@@ -514,13 +514,7 @@ A API de Cancelamento possui 4 tipos de status de cancelamento retornados.
 | TYPE STATUS | DESCRIÇÃO | 
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | 
 | ***Pending*** | Este status indica que a requisição foi recebida pelo sistema e está aguardando processamento. Neste caso, não há informação de retorno no campo details | 
-| ***Rejected*** | Este status indica que a solicitação de cancelamento não foi aprovada nas validações de regras de negócio de cancelamento. Neste caso, no campo details teremos informações complementares no campo Code e Message. 
-
-"detail": {
-          "code" = Código da rejeição de cancelamento
-          "message" = Motivo da rejeição de cancelamento
-        }
-|
+| ***Rejected*** | Este status indica que a solicitação de cancelamento não foi aprovada nas validações de regras de negócio de cancelamento. Neste caso, no campo details teremos informações complementares no campo Code e Message.<br>"detail":{<br>"code" = Código da rejeição de cancelamento<br>"message" = Motivo da rejeição de cancelamento<br>}<br>|
 | ***Done*** | Este Status indica que a solicitação teve sucesso na efetivação do Cancelamento e o cancelamento já foi liquidado. Neste caso, não há informação de retorno no campo details | 
 | ***Failed*** | Este status indica alguma falha de comunicação entre sistemas.  Uma nova tentativa de cancelamento pode ser feita. |
 
@@ -585,6 +579,8 @@ Neste caso é só fazer uma nova requisição:
 ![Imagem31](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem31.png)
 
 # Carta de Cancelamento
+
+## Validações para geração
 
 Só será possível gerar a carta de cancelamento quando o status type for igual a done. Ou seja, só será possível gerar a carta de cancelamento quando a solicitação estiver efetivada. 
 
