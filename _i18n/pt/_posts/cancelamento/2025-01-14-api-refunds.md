@@ -44,6 +44,8 @@ O fluxo abaixo mostra  a integração do cliente na API Única de Cancelamento d
 
 # Solicitação de Credenciais para Produção (client_id e client_secret)
 
+## Envio de informações para solicitação de credencial
+
 Para obter acesso à API de Cancelamento em Produção, envie os dados abaixo para: **api.cancelamento@cielo.com.br**  
 
 - **Nome**: nome do ponto focal do estabelecimento que fará o gerenciamento das credenciais para acessar a API de Cancelamento.  
@@ -56,7 +58,7 @@ Com esses dados, nosso time Cielo vai solicitar criação de credenciais de aces
 
 Mesmo que a integração do Estabelecimento com a API seja feita através de um terceiro, o e-mail que deve ser enviado deve ser do ponto focal do estabelecimento.
 
-# Cadastro no Portal de Desenvolvedores Cielo 
+## Cadastro no Portal de Desenvolvedores Cielo 
 
 Após a aprovação da solicitação, um e-mail será enviado ao ponto focal estabelecimento solicitante. 
 
@@ -150,10 +152,10 @@ Ao executar este comando, preencha as informações solicitadas conforme exemplo
 ![Imagem16](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem16.png)
 
 Serão gerados dois arquivos no caminho de diretório em que for executado o comando, um deles .csr e outr .key 
-- O arquivo “.key” é de uso exclusivo do estabelecimento 
 
 ![Imagem17](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem17.png)
 
+- O arquivo “.key” é de uso exclusivo do estabelecimento 
 -	Já o arquivo “.csr” deve ser encaminhado para assinatura da Cielo, sendo utilizado o mesmo certificado nos ambientes de Sandbox e Produção.
  
 O cliente deve enviar o arquivo .csr por e-mail para geração do certificado assinado. 
@@ -177,6 +179,7 @@ Na ferramenta do Postman, vá para o ícone de *“ferramentas” > Configuraç�
 Acesso aos endpoints da Cielo:
 
 Homologação: 	https://apihml-corp.cielo.com.br/cielo-refunds-exp-hml/refunds/v1/refunds
+
 Produção: 	  https://api-corp.cielo.com.br/cielo-refunds-exp/refunds/v1/refunds
 
 ![Imagem18](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem18.png)
@@ -191,27 +194,26 @@ Para realizar uma solicitação de cancelamento ou consulta na API, é necessár
 
 **Homologação**
 
-> curl --location --request POST
-> https://apihml-corp.cielo.com.br/cielo-security-sys-hml/oauth/v2/MulesoftHML/protocol/openid-connect/token\
->
->
-> --header 'Content-Type: application/x-www-form-urlencoded' \
-> --data-urlencode 'client\_id={ **clientId** }' \
-> --data-urlencode 'client\_secret={ **secret** }' \
-> --data-urlencode 'grant\_type=client\_credentials'
+```
+curl --location --request POST
+https://apihml-corp.cielo.com.br/cielo-security-sys-hml/oauth/v2/MulesoftHML/protocol/openid-connect/token\
 
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'client\_id={ **clientId** }' \
+--data-urlencode 'client\_secret={ **secret** }' \
+--data-urlencode 'grant\_type=client\_credentials'
+```
 
 **Produção**
 
-> curl --location --request POST
-> https://api-corp.cielo.com.br/cielo-security-sys-web/oauth/v2/MulesoftPRD/protocol/openid-connect/token' \
-> 
-> 
-> --header 'Content-Type: application/x-www-form-urlencoded' \
-> --data-urlencode 'client\_id={ **clientId** }' \
-> --data-urlencode 'client\_secret={ **secret** }' \
-> --data-urlencode 'grant\_type=client\_credentials'
-
+```
+curl --location --request POST
+https://api-corp.cielo.com.br/cielo-security-sys-web/oauth/v2/MulesoftPRD/protocol/openid-connect/token' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'client\_id={ **clientId** }' \
+--data-urlencode 'client\_secret={ **secret** }' \
+--data-urlencode 'grant\_type=client\_credentials'
+```
 
 **Exemplo no Postman:**
 
@@ -219,7 +221,7 @@ Header:
 
 <aside class="notice">https://apihml-corp.cielo.com.br/cielo-security-sys-hml/oauth/v2/MulesoftHML/protocol/openid-connect/token</aside>
 
-Body: 
+**Body:** 
 
 (enviar o client_id e o client secret disponibilizado pela Cielo)
 
@@ -334,9 +336,10 @@ transactionDate* = passar no formato DD-MM-YYYY HH24:MI:SS data da venda (Não �
 
 Neste serviço, é possível consultar solicitações de cancelamento e visualizar status de cada requisição através de diversos parâmetros como lote de cancelamento, ID de cancelamento, data ou status.
 
-> **Headers**: **(*mesmos headers utilizados na requisição de cancelamento)**
-> No campo **“key”** digite: **Authorization** e no campo **“value”** digite: **Bearer + espaço + {access_token}**
-> Em seguida no campo **“key** digite: Content-Type e no campo **“value”** digite: **application/json.**
+**Headers**: **(*mesmos headers utilizados na requisição de cancelamento)**
+
+No campo **“key”** digite: **Authorization** e no campo **“value”** digite: **Bearer + espaço + {access_token}**
+Em seguida no campo **“key** digite: Content-Type e no campo **“value”** digite: **application/json.**
 
 | AMBIENTE | MÉTODO |  ENDPOINT | 
 | ------------------ | ------------- | ------------------------------------------------------------------------------------| 
@@ -394,7 +397,8 @@ offset = paginação
 
 **Descrição dos campos:**
 
->{
+```json
+{
 **"refundID":** Identificador do lote de cancelamento
 **"refundDate":** Data da solicitação do cancelamento, formato exemplo: 2019-12-27T19:38:30.547Z
  **"transactions":** [
@@ -423,7 +427,7 @@ offset = paginação
           "**code**" = Código da rejeição de cancelamento
           "**message**" = Motivo da rejeição de cancelamento
         }
-
+```
 
 O status pending e approved não tem detail no json.
 
@@ -446,21 +450,22 @@ https://apihml-corp.cielo.com.br/cielo-refunds-exp-hml/refunds/v1/refunds?cancel
 
 **Request:** 
 
-> ?cancelStartDate= {Data inicial}&cancelEndDate={Data final}&rows={linha}&page={pagina}&merchantId={Estabelecimento}&authorizationCode={código de autorização}
-
+```
+?cancelStartDate= {Data inicial}&cancelEndDate={Data final}&rows={linha}&page={pagina}&merchantId={Estabelecimento}&authorizationCode={código de autorização}
 **cancelStartDate** = Data inicial da solicitação de cancelamento (formato dd-MM-yyyy)
 **cancelEndDate** = Data final da solicitação de cancelamento (formato dd-MM-yyyy)
 **rows** = Quantidade de linhas
 **page** = Paginação
 **merchantId** = número do EC (estabelecimento comercial)
 **authorizationCode** = Código de autorização da venda.
+```
 
 **Respose:** 
 
 ![Imagem29](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem29.png)
 
 **Descrição dos campos:**
-
+```
 {
 "**refundID**": Identificador do lote de cancelamento
  "**refundDate**": Data da solicitação do cancelamento, formato exemplo: 2019-12-27T19:38:30.547Z
@@ -492,6 +497,7 @@ Caso o status for rejected (Rejeição):
           "**code**" = Código da rejeição de cancelamento
           "**message**" = Motivo da rejeição de cancelamento
         }
+```
 
 # Fluxo de Cancelamento
 
