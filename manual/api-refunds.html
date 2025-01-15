@@ -159,6 +159,8 @@
 
 <h1 id="solicitação-de-credenciais-para-produção-client_id-e-client_secret">Solicitação de Credenciais para Produção (client_id e client_secret)</h1>
 
+<h2 id="envio-de-informações-para-solicitação-de-credencial">Envio de informações para solicitação de credencial</h2>
+
 <p>Para obter acesso à API de Cancelamento em Produção, envie os dados abaixo para: <strong>api.cancelamento@cielo.com.br</strong></p>
 
 <ul>
@@ -175,7 +177,7 @@
 
 <p>Mesmo que a integração do Estabelecimento com a API seja feita através de um terceiro, o e-mail que deve ser enviado deve ser do ponto focal do estabelecimento.</p>
 
-<h1 id="cadastro-no-portal-de-desenvolvedores-cielo">Cadastro no Portal de Desenvolvedores Cielo </h1>
+<h2 id="cadastro-no-portal-de-desenvolvedores-cielo">Cadastro no Portal de Desenvolvedores Cielo </h2>
 
 <p>Após a aprovação da solicitação, um e-mail será enviado ao ponto focal estabelecimento solicitante. </p>
 
@@ -312,13 +314,11 @@
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem16.png" alt="Imagem16" /></p>
 
 <p>Serão gerados dois arquivos no caminho de diretório em que for executado o comando, um deles .csr e outr .key</p>
-<ul>
-  <li>O arquivo “.key” é de uso exclusivo do estabelecimento</li>
-</ul>
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem17.png" alt="Imagem17" /></p>
 
 <ul>
+  <li>O arquivo “.key” é de uso exclusivo do estabelecimento</li>
   <li>Já o arquivo “.csr” deve ser encaminhado para assinatura da Cielo, sendo utilizado o mesmo certificado nos ambientes de Sandbox e Produção.</li>
 </ul>
 
@@ -342,8 +342,9 @@
 
 <p>Acesso aos endpoints da Cielo:</p>
 
-<p>Homologação: 	https://apihml-corp.cielo.com.br/cielo-refunds-exp-hml/refunds/v1/refunds
-Produção: 	  https://api-corp.cielo.com.br/cielo-refunds-exp/refunds/v1/refunds</p>
+<p>Homologação: 	https://apihml-corp.cielo.com.br/cielo-refunds-exp-hml/refunds/v1/refunds</p>
+
+<p>Produção: 	  https://api-corp.cielo.com.br/cielo-refunds-exp/refunds/v1/refunds</p>
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem18.png" alt="Imagem18" /></p>
 
@@ -357,27 +358,24 @@ Produção: 	  https://api-corp.cielo.com.br/cielo-refunds-exp/refunds/v1/refund
 
 <p><strong>Homologação</strong></p>
 
-<blockquote>
-  <p>curl –location –request POST
-https://apihml-corp.cielo.com.br/cielo-security-sys-hml/oauth/v2/MulesoftHML/protocol/openid-connect/token\</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl --location --request POST
+https://apihml-corp.cielo.com.br/cielo-security-sys-hml/oauth/v2/MulesoftHML/protocol/openid-connect/token\
 
-  <p>–header ‘Content-Type: application/x-www-form-urlencoded’ \
-–data-urlencode ‘client_id={ <strong>clientId</strong> }’ \
-–data-urlencode ‘client_secret={ <strong>secret</strong> }’ \
-–data-urlencode ‘grant_type=client_credentials’</p>
-</blockquote>
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'client\_id={ **clientId** }' \
+--data-urlencode 'client\_secret={ **secret** }' \
+--data-urlencode 'grant\_type=client\_credentials'
+</code></pre></div></div>
 
 <p><strong>Produção</strong></p>
 
-<blockquote>
-  <p>curl –location –request POST
-https://api-corp.cielo.com.br/cielo-security-sys-web/oauth/v2/MulesoftPRD/protocol/openid-connect/token’ \</p>
-
-  <p>–header ‘Content-Type: application/x-www-form-urlencoded’ \
-–data-urlencode ‘client_id={ <strong>clientId</strong> }’ \
-–data-urlencode ‘client_secret={ <strong>secret</strong> }’ \
-–data-urlencode ‘grant_type=client_credentials’</p>
-</blockquote>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl --location --request POST
+https://api-corp.cielo.com.br/cielo-security-sys-web/oauth/v2/MulesoftPRD/protocol/openid-connect/token' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'client\_id={ **clientId** }' \
+--data-urlencode 'client\_secret={ **secret** }' \
+--data-urlencode 'grant\_type=client\_credentials'
+</code></pre></div></div>
 
 <p><strong>Exemplo no Postman:</strong></p>
 
@@ -385,7 +383,7 @@ https://api-corp.cielo.com.br/cielo-security-sys-web/oauth/v2/MulesoftPRD/protoc
 
 <aside class="notice">https://apihml-corp.cielo.com.br/cielo-security-sys-hml/oauth/v2/MulesoftHML/protocol/openid-connect/token</aside>
 
-<p>Body:</p>
+<p><strong>Body:</strong></p>
 
 <p>(enviar o client_id e o client secret disponibilizado pela Cielo)</p>
 
@@ -573,11 +571,10 @@ https://api-corp.cielo.com.br/cielo-security-sys-web/oauth/v2/MulesoftPRD/protoc
 
 <p>Neste serviço, é possível consultar solicitações de cancelamento e visualizar status de cada requisição através de diversos parâmetros como lote de cancelamento, ID de cancelamento, data ou status.</p>
 
-<blockquote>
-  <p><strong>Headers</strong>: <strong>(*mesmos headers utilizados na requisição de cancelamento)</strong>
-No campo <strong>“key”</strong> digite: <strong>Authorization</strong> e no campo <strong>“value”</strong> digite: <strong>Bearer + espaço + {access_token}</strong>
+<p><strong>Headers</strong>: <strong>(*mesmos headers utilizados na requisição de cancelamento)</strong></p>
+
+<p>No campo <strong>“key”</strong> digite: <strong>Authorization</strong> e no campo <strong>“value”</strong> digite: <strong>Bearer + espaço + {access_token}</strong>
 Em seguida no campo <strong>“key</strong> digite: Content-Type e no campo <strong>“value”</strong> digite: <strong>application/json.</strong></p>
-</blockquote>
 
 <table>
   <thead>
@@ -650,36 +647,36 @@ Em seguida no campo <strong>“key</strong> digite: Content-Type e no campo <str
 
 <p><strong>Descrição dos campos:</strong></p>
 
-<blockquote>
-  <p>{
-<strong>“refundID”:</strong> Identificador do lote de cancelamento
-<strong>“refundDate”:</strong> Data da solicitação do cancelamento, formato exemplo: 2019-12-27T19:38:30.547Z
- <strong>“transactions”:</strong> [
-        {
-<strong>transactionID</strong>= identificador de transação E-commerce.
-<strong>Nsu</strong> = Número sequencial único.
-<strong>cardNumberLast4Digits</strong> = os 4 últimos dígitos do cartão.
-<strong>merchantID</strong> = número do EC (estabelecimento comercial).
-<strong>authorizationCode</strong> = Código de autorização da venda.
-<strong>refundAmount</strong>: {
-        <strong>currency</strong> = tipo de moeda para cancelamento utilizar somente <strong>BRL</strong>.
-        <strong>value</strong> = Valor para cancelar, pode ser o valor parcial ou total.
-      }
-<strong>saleAmount</strong>: {
-        <strong>currency</strong> = tipo de moeda para cancelamento utilizar somente <strong>BRL</strong>.
-        <strong>value</strong> = Valor da venda.
-      }
-<strong>transactionDate</strong> = no formato DD-MM-YYYY HH24:MI:SS data da venda. “<strong>controlID</strong>”: identificador do cancelamento
-      “<strong>status</strong>”: {
-        “<strong>type</strong>”: Status da solicitação 
-      }</p>
-</blockquote>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="err">**</span><span class="nl">"refundID"</span><span class="p">:</span><span class="err">**</span><span class="w"> </span><span class="err">Identificador</span><span class="w"> </span><span class="err">do</span><span class="w"> </span><span class="err">lote</span><span class="w"> </span><span class="err">de</span><span class="w"> </span><span class="err">cancelamento</span><span class="w">
+</span><span class="err">**</span><span class="nl">"refundDate"</span><span class="p">:</span><span class="err">**</span><span class="w"> </span><span class="err">Data</span><span class="w"> </span><span class="err">da</span><span class="w"> </span><span class="err">solicitação</span><span class="w"> </span><span class="err">do</span><span class="w"> </span><span class="err">cancelamento</span><span class="p">,</span><span class="w"> </span><span class="err">formato</span><span class="w"> </span><span class="err">exemplo:</span><span class="w"> </span><span class="mi">2019-12-27</span><span class="err">T</span><span class="mi">19</span><span class="err">:</span><span class="mi">38</span><span class="err">:</span><span class="mf">30.547</span><span class="err">Z</span><span class="w">
+ </span><span class="err">**</span><span class="nl">"transactions"</span><span class="p">:</span><span class="err">**</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+</span><span class="err">**transactionID**=</span><span class="w"> </span><span class="err">identificador</span><span class="w"> </span><span class="err">de</span><span class="w"> </span><span class="err">transação</span><span class="w"> </span><span class="err">E-commerce.</span><span class="w">
+</span><span class="err">**Nsu**</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">Número</span><span class="w"> </span><span class="err">sequencial</span><span class="w"> </span><span class="err">único.</span><span class="w">
+</span><span class="err">**cardNumberLast</span><span class="mi">4</span><span class="err">Digits**</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">os</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="err">últimos</span><span class="w"> </span><span class="err">dígitos</span><span class="w"> </span><span class="err">do</span><span class="w"> </span><span class="err">cartão.</span><span class="w">
+</span><span class="err">**merchantID**</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">número</span><span class="w"> </span><span class="err">do</span><span class="w"> </span><span class="err">EC</span><span class="w"> </span><span class="err">(estabelecimento</span><span class="w"> </span><span class="err">comercial).</span><span class="w">
+</span><span class="err">**authorizationCode**</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">Código</span><span class="w"> </span><span class="err">de</span><span class="w"> </span><span class="err">autorização</span><span class="w"> </span><span class="err">da</span><span class="w"> </span><span class="err">venda.</span><span class="w">
+</span><span class="err">**refundAmount**:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="err">**currency**</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">tipo</span><span class="w"> </span><span class="err">de</span><span class="w"> </span><span class="err">moeda</span><span class="w"> </span><span class="err">para</span><span class="w"> </span><span class="err">cancelamento</span><span class="w"> </span><span class="err">utilizar</span><span class="w"> </span><span class="err">somente</span><span class="w"> </span><span class="err">**BRL**.</span><span class="w">
+        </span><span class="err">**value**</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">Valor</span><span class="w"> </span><span class="err">para</span><span class="w"> </span><span class="err">cancelar</span><span class="p">,</span><span class="w"> </span><span class="err">pode</span><span class="w"> </span><span class="err">ser</span><span class="w"> </span><span class="err">o</span><span class="w"> </span><span class="err">valor</span><span class="w"> </span><span class="err">parcial</span><span class="w"> </span><span class="err">ou</span><span class="w"> </span><span class="err">total.</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+</span><span class="err">**saleAmount**:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="err">**currency**</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">tipo</span><span class="w"> </span><span class="err">de</span><span class="w"> </span><span class="err">moeda</span><span class="w"> </span><span class="err">para</span><span class="w"> </span><span class="err">cancelamento</span><span class="w"> </span><span class="err">utilizar</span><span class="w"> </span><span class="err">somente</span><span class="w"> </span><span class="err">**BRL**.</span><span class="w">
+        </span><span class="err">**value**</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">Valor</span><span class="w"> </span><span class="err">da</span><span class="w"> </span><span class="err">venda.</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+</span><span class="err">**transactionDate**</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">no</span><span class="w"> </span><span class="err">formato</span><span class="w"> </span><span class="err">DD-MM-YYYY</span><span class="w"> </span><span class="err">HH</span><span class="mi">24</span><span class="err">:MI:SS</span><span class="w"> </span><span class="err">data</span><span class="w"> </span><span class="err">da</span><span class="w"> </span><span class="err">venda.</span><span class="w"> </span><span class="nl">"**controlID**"</span><span class="p">:</span><span class="w"> </span><span class="err">identificador</span><span class="w"> </span><span class="err">do</span><span class="w"> </span><span class="err">cancelamento</span><span class="w">
+      </span><span class="nl">"**status**"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"**type**"</span><span class="p">:</span><span class="w"> </span><span class="err">Status</span><span class="w"> </span><span class="err">da</span><span class="w"> </span><span class="err">solicitação</span><span class="w"> 
+      </span><span class="p">}</span><span class="w">
 
-<p><strong>Caso o status for rejected:</strong>
-“<strong>detail</strong>”: {
-          “<strong>code</strong>” = Código da rejeição de cancelamento
-          “<strong>message</strong>” = Motivo da rejeição de cancelamento
-        }</p>
+
+</span><span class="err">**Caso</span><span class="w"> </span><span class="err">o</span><span class="w"> </span><span class="err">status</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">rejected:**</span><span class="w">
+</span><span class="nl">"**detail**"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"**code**"</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">Código</span><span class="w"> </span><span class="err">da</span><span class="w"> </span><span class="err">rejeição</span><span class="w"> </span><span class="err">de</span><span class="w"> </span><span class="err">cancelamento</span><span class="w">
+          </span><span class="s2">"**message**"</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">Motivo</span><span class="w"> </span><span class="err">da</span><span class="w"> </span><span class="err">rejeição</span><span class="w"> </span><span class="err">de</span><span class="w"> </span><span class="err">cancelamento</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <p>O status pending e approved não tem detail no json.</p>
 
@@ -719,54 +716,52 @@ Em seguida no campo <strong>“key</strong> digite: Content-Type e no campo <str
 
 <p><strong>Request:</strong></p>
 
-<blockquote>
-  <p>?cancelStartDate= {Data inicial}&amp;cancelEndDate={Data final}&amp;rows={linha}&amp;page={pagina}&amp;merchantId={Estabelecimento}&amp;authorizationCode={código de autorização}</p>
-</blockquote>
-
-<p><strong>cancelStartDate</strong> = Data inicial da solicitação de cancelamento (formato dd-MM-yyyy)
-<strong>cancelEndDate</strong> = Data final da solicitação de cancelamento (formato dd-MM-yyyy)
-<strong>rows</strong> = Quantidade de linhas
-<strong>page</strong> = Paginação
-<strong>merchantId</strong> = número do EC (estabelecimento comercial)
-<strong>authorizationCode</strong> = Código de autorização da venda.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>?cancelStartDate= {Data inicial}&amp;cancelEndDate={Data final}&amp;rows={linha}&amp;page={pagina}&amp;merchantId={Estabelecimento}&amp;authorizationCode={código de autorização}
+**cancelStartDate** = Data inicial da solicitação de cancelamento (formato dd-MM-yyyy)
+**cancelEndDate** = Data final da solicitação de cancelamento (formato dd-MM-yyyy)
+**rows** = Quantidade de linhas
+**page** = Paginação
+**merchantId** = número do EC (estabelecimento comercial)
+**authorizationCode** = Código de autorização da venda.
+</code></pre></div></div>
 
 <p><strong>Respose:</strong></p>
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem29.png" alt="Imagem29" /></p>
 
 <p><strong>Descrição dos campos:</strong></p>
-
-<p>{
-“<strong>refundID</strong>”: Identificador do lote de cancelamento
- “<strong>refundDate</strong>”: Data da solicitação do cancelamento, formato exemplo: 2019-12-27T19:38:30.547Z
- “<strong>transactions</strong>”: [
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+"**refundID**": Identificador do lote de cancelamento
+ "**refundDate**": Data da solicitação do cancelamento, formato exemplo: 2019-12-27T19:38:30.547Z
+ "**transactions**": [
         {
-<strong>transactionID</strong> = identificador de transação E-commerce.
-<strong>Nsu</strong> = Número sequencial único.
-<strong>cardNumberLast4Digits</strong> = os 4 últimos dígitos do cartão.
-<strong>merchantID</strong> = número do EC (estabelecimento comercial).
-<strong>authorizationCode</strong> = Código de autorização da venda.
-<strong>refundAmount</strong>: {
-        <strong>currency</strong> = tipo de moeda para cancelamento utilizar somente <strong>BRL</strong>.
-        <strong>value</strong> = Valor para cancelar, pode ser o valor parcial ou total.
+**transactionID** = identificador de transação E-commerce.
+**Nsu** = Número sequencial único.
+**cardNumberLast4Digits** = os 4 últimos dígitos do cartão.
+**merchantID** = número do EC (estabelecimento comercial).
+**authorizationCode** = Código de autorização da venda.
+**refundAmount**: {
+        **currency** = tipo de moeda para cancelamento utilizar somente **BRL**.
+        **value** = Valor para cancelar, pode ser o valor parcial ou total.
       }
-<strong>saleAmount</strong>: {
-        <strong>currency</strong> = tipo de moeda para cancelamento utilizar somente <strong>BRL</strong>.
-        <strong>value</strong> = Valor da venda.
+**saleAmount**: {
+        **currency** = tipo de moeda para cancelamento utilizar somente **BRL**.
+        **value** = Valor da venda.
       }
-<strong>transactionDate</strong> = no formato DD-MM-YYYY HH24:MI:SS data da venda. “<strong>controlID</strong>”: identificador do cancelamento
-      “<strong>status</strong>”: {
-        “<strong>type</strong>”: Status da solicitação 
-      }</p>
+**transactionDate** = no formato DD-MM-YYYY HH24:MI:SS data da venda. "**controlID**": identificador do cancelamento
+      "**status**": {
+        "**type**": Status da solicitação 
+      }
 
-<p><strong>Observações</strong>:
-O status pending e approved não tem detail no json.</p>
+**Observações**:
+O status pending e approved não tem detail no json.
 
-<p>Caso o status for rejected (Rejeição):
-“<strong>detail</strong>”: {
-          “<strong>code</strong>” = Código da rejeição de cancelamento
-          “<strong>message</strong>” = Motivo da rejeição de cancelamento
-        }</p>
+Caso o status for rejected (Rejeição):
+"**detail**": {
+          "**code**" = Código da rejeição de cancelamento
+          "**message**" = Motivo da rejeição de cancelamento
+        }
+</code></pre></div></div>
 
 <h1 id="fluxo-de-cancelamento">Fluxo de Cancelamento</h1>
 
