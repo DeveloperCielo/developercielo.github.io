@@ -1,5 +1,6 @@
 ---
-layout: manual
+layout: redirect
+redirect: https://docs.cielo.com.br/ecommerce-cielo/docs/prevencao
 title: Prevenção contra Fraudes e Chargeback
 description: Manual de prevenção contra fraudes e chargebacks
 search: true
