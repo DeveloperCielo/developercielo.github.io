@@ -25887,15 +25887,16 @@
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"MerchantVoidId"</span><span class="p">:</span><span class="s2">"123456789123456"</span><span class="p">,</span><span class="w">
-   </span><span class="nl">"MerchantVoidDate"</span><span class="p">:</span><span class="s2">"2025-01-08T18:45:59.796Z"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"MerchantVoidDate"</span><span class="p">:</span><span class="s2">"2025-01-08T18:29:15.074Z"</span><span class="p">,</span><span class="w">
    </span><span class="nl">"Card"</span><span class="p">:{</span><span class="w">
-      </span><span class="nl">"InputMode"</span><span class="p">:</span><span class="s2">"Emv"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"EmvData"</span><span class="p">:</span><span class="s2">"9F02060000000001009F1A020076950500000000005F2A0209869A03210315820258005F340100"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"TrackTwoData"</span><span class="p">:</span><span class="s2">"B1F9FFC37C7151EAE7C236AEDE4FA9043C3ED093E46A3152"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"InputMode"</span><span class="p">:</span><span class="s2">"MagStripe"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"TrackOneData"</span><span class="p">:</span><span class="s2">"4227E79441BB8E79642E442685BBDF4E5C596FC5D096271882BE25C5642E8B2B76797E1E243435A2E27422FC947F993F0A8067B0957176D97E"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"TrackTwoData"</span><span class="p">:</span><span class="s2">"47F44A051AB50EE62C656B0668A26242C24AA17DD977C646"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"EncryptedCardData"</span><span class="p">:{</span><span class="w">
          </span><span class="nl">"EncryptionType"</span><span class="p">:</span><span class="s2">"Dukpt3DesCBC"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"InitializationVector"</span><span class="p">:</span><span class="s2">"0000000000000000"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"TrackTwoDataKSN"</span><span class="p">:</span><span class="s2">"FFFFF99995C18C800066"</span><span class="w">
+         </span><span class="nl">"TrackOneDataKSN"</span><span class="p">:</span><span class="s2">"FFFFF99995C18C800083"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"TrackTwoDataKSN"</span><span class="p">:</span><span class="s2">"FFFFF99995C18C800084"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"InitializationVector"</span><span class="p">:</span><span class="s2">"0000000000000000"</span><span class="w">
       </span><span class="p">}</span><span class="w">
    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -25987,8 +25988,8 @@
 
 <h4 id="resposta-28">Resposta</h4>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="p">{</span><span class="w">
-   </span><span class="nl">"VoidId"</span><span class="p">:</span><span class="s2">"9f05a027-6abf-4e19-a09c-963cc1f234bc"</span><span class="p">,</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"VoidId"</span><span class="p">:</span><span class="s2">"abd3c6bb-3af9-4a02-b048-a455fc1b9f9f"</span><span class="p">,</span><span class="w">
    </span><span class="nl">"CancellationStatus"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
    </span><span class="nl">"InitializationVersion"</span><span class="p">:</span><span class="mi">1730810434149</span><span class="p">,</span><span class="w">
    </span><span class="nl">"PrintMessage"</span><span class="p">:[</span><span class="w">
@@ -26001,27 +26002,29 @@
       </span><span class="nl">"MerchantState"</span><span class="p">:</span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"MerchantCode"</span><span class="p">:</span><span class="s2">"0023137868169300"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Terminal"</span><span class="p">:</span><span class="s2">"41786816"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Nsu"</span><span class="p">:</span><span class="s2">"864712"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Nsu"</span><span class="p">:</span><span class="s2">"864699"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Date"</span><span class="p">:</span><span class="s2">"08/01/25"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Hour"</span><span class="p">:</span><span class="s2">"15:46"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"IssuerName"</span><span class="p">:</span><span class="s2">"CIELO#ELO CREDITO"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="s2">"************5488"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"ELO"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Hour"</span><span class="p">:</span><span class="s2">"15:33"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"IssuerName"</span><span class="p">:</span><span class="s2">"CIELO#MASTERCARD"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CardHolder"</span><span class="p">:</span><span class="s2">"MTIP04"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="s2">"541333-0037"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"MASTERCARD"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"TransactionType"</span><span class="p">:</span><span class="s2">"CANCELAMENTO DE TRANSACAO"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="s2">"560980"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="s2">"097122"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"TransactionMode"</span><span class="p">:</span><span class="s2">"ONL"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"InputMethod"</span><span class="p">:</span><span class="s2">"C"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"InputMethod"</span><span class="p">:</span><span class="s2">"D"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"CpfCnpj"</span><span class="p">:</span><span class="s2">"73096766000195"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"CancelValue"</span><span class="p">:</span><span class="s2">"13,00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CancelValue"</span><span class="p">:</span><span class="s2">"8,00"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"OriginalTransactonData"</span><span class="p">:</span><span class="s2">"DADOS DO PAGAMENTO ORIGINAL"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"OriginalTransactonType"</span><span class="p">:</span><span class="s2">"VENDA A CREDITO"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"OriginalTransactonNsu"</span><span class="p">:</span><span class="s2">"864709"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"OriginalTransactonAuthCode"</span><span class="p">:</span><span class="s2">"560980"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"OriginalTransactonNsu"</span><span class="p">:</span><span class="s2">"864698"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"OriginalTransactonAuthCode"</span><span class="p">:</span><span class="s2">"097122"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"OriginalTransactionDate"</span><span class="p">:</span><span class="s2">"08/01/25"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"OriginalTransactionHour"</span><span class="p">:</span><span class="s2">"15:45"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"OriginalTransactionValue"</span><span class="p">:</span><span class="s2">"13,00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"OriginalTransactionHour"</span><span class="p">:</span><span class="s2">"15:32"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"OriginalTransactionValue"</span><span class="p">:</span><span class="s2">"8,00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"OriginalTransactionCardHolder"</span><span class="p">:</span><span class="s2">"MTIP04"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"OriginalTransactionMode"</span><span class="p">:</span><span class="s2">"ONL"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"OriginalInputMethod"</span><span class="p">:</span><span class="s2">"L"</span><span class="w">
+      </span><span class="nl">"OriginalInputMethod"</span><span class="p">:</span><span class="s2">"D"</span><span class="w">
    </span><span class="p">},</span><span class="w">
    </span><span class="nl">"ConfirmationStatus"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
    </span><span class="nl">"Status"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="w">
@@ -26034,41 +26037,322 @@
       </span><span class="p">{</span><span class="w">
          </span><span class="nl">"Method"</span><span class="p">:</span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"Rel"</span><span class="p">:</span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Href"</span><span class="p">:</span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/physicalSales/ed0d7d1f-28c8-4cdb-9fb9-7e9d2e3d543d"</span><span class="w">
+         </span><span class="nl">"Href"</span><span class="p">:</span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/physicalSales/2360f2fb-5b95-4be0-8060-2815eec01f6e"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">
          </span><span class="nl">"Method"</span><span class="p">:</span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"Rel"</span><span class="p">:</span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Href"</span><span class="p">:</span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/ed0d7d1f-28c8-4cdb-9fb9-7e9d2e3d543d/voids/9f05a027-6abf-4e19-a09c-963cc1f234bc"</span><span class="w">
+         </span><span class="nl">"Href"</span><span class="p">:</span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/2360f2fb-5b95-4be0-8060-2815eec01f6e/voids/abd3c6bb-3af9-4a02-b048-a455fc1b9f9f"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">
          </span><span class="nl">"Method"</span><span class="p">:</span><span class="s2">"DELETE"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"Rel"</span><span class="p">:</span><span class="s2">"reverse"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Href"</span><span class="p">:</span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/ed0d7d1f-28c8-4cdb-9fb9-7e9d2e3d543d/voids/9f05a027-6abf-4e19-a09c-963cc1f234bc"</span><span class="w">
+         </span><span class="nl">"Href"</span><span class="p">:</span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/2360f2fb-5b95-4be0-8060-2815eec01f6e/voids/abd3c6bb-3af9-4a02-b048-a455fc1b9f9f"</span><span class="w">
       </span><span class="p">}</span><span class="w">
    </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>| Propriedade | Tipo | Tamanho | Obrigatório | Descrição | | ————————————– | ————- | ——- | ———– | —————————————————————————————————————————————————————————————————————————————————————————— | | VoidId | String - uuid | — | — | Identificador do cancelamento | | InitializationVersion | Integer int16 | — | — | Número de versão dos parametros baixados na inicialização do equipamento. | | PrintMessage.Position | String | — | — | Default: “Top”
-Enum: “Top”, “Middle”, “Bottom”
-Posição da mensagem no comprovante:
-Top - Início do comprovante, antes do código do estabelecimento
-Middle - Meio do comprovante, após a descrição dos valores
-Bottom - Final do comprovante | | PrintMessage.Message | String | — | — | Indica a mensagem que deve ser impressa no comprovante de acordo com a posição indicada no campo Position | | Status | Integerint16 | — | — | Status da transação.
-0 = Não Finalizado
-1 = Autorizado
-2 = Pago
-3 = Negado
-10 = Cancelado
-13 = Abortado | | CancellationStatus | Integer int16 | — | — | Status do cancelamento.
-0 = Não Finalizado
-1 = Autorizado
-2 = Negado
-3 = Confirmado
-4 = Desfeito | | ReasonCode | Integer int16 | — | — | Código de referência para análises. | | ReasonMessage | String | — | — | Mensagem explicativa para análise. | | ReturnCode | String | — | — | Código de erro/resposta da transação da Adquirência. | | ReturnMessage | String | — | — | Mensagem de erro/resposta da transação da Adquirência. | | Payment.Receipt.MerchantName | String | 255 | Sim | Nome da loja | | Payment.Receipt.MerchantAddress | String | 255 | Sim | Endereço da loja | | Payment.Receipt.MerchantCity | String | 255 | Sim | Cidade da loja | | Payment.Receipt.MerchantState | String | 2 | Sim | Estado da loja | | Payment.Receipt.MerchantCode | String | 16 | Sim | Codigo de identificação da loja | | Payment.Receipt.Terminal | String | 8 | Sim | Identificação do Terminal | | Payment.Receipt.Nsu | String | 6 | Sim | Numero de identificação da transação Cielo | | Payment.Receipt.Date | String | dd/MM/yy | Sim | Data da transação | | Payment.Receipt.Hour | String | HH:mm | Sim | Horario da transação | | Payment.Receipt.IssuerName | String | 255 | Sim | Nome do emissor obtido através do campo IssuerId no objeto BinEntry. | | Payment.Receipt.CardHolder | String | 255 | Não | Nome do titular do cartão. | | Payment.Receipt.CardNumber | String | 19 | Sim | Número do cartão | | Payment.Receipt.Brand | String | 255 | Sim | Bandeira do cartão | | Payment.Receipt.TransactionType | String | 255 | Sim | Tipo de transação | | Payment.Receipt.AuthorizationCode | String | 6 | Sim | Código da autorização | | Payment.Receipt.TransactionMode | String | 3 | Sim | Modo da transação | | Payment.Receipt.InputMethod | String | 1 | Sim | Metodo de entrada | | Payment.Receipt.CancelValue | — | — | — | — | | Payment.Receipt.OriginalTransactonData | — | — | — | — | | Payment.Receipt.OriginalTransactonType | — | — | — | — | | Payment.Receipt.OriginalTransactonNsu | — | — | — | — | | Payment.Receipt.OriginalTransactonAuthCode | — | — | — | — | | Payment.Receipt.OriginalTransactionDate | — | — | — | — | | Payment.Receipt.OriginalTransactionHour | — | — | — | — | | Payment.Receipt.OrignalTransactionValue | — | — | — | — | | Payment.Receipt.OrignalTransactionCardHolder | — | — | — | — | | Payment.Receipt.OriginalTransactionMode | — | — | — | — | | Payment.Receipt.OriginalInputMethod | — | — | — | — | | Links.Method | String | — | — | Enum: “POST”, “GET”, “PUT”.
-Método HTTP a ser utilizado na operação. | | Links.Rel | String | — | — | Enum: “self”, “cancel”, “confirm”.
-Referência da operação. | | Links.Href | String | — | — | Endereço de URL de chamada da API |</p>
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>VoidId</td>
+      <td>String - uuid</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Identificador do cancelamento</td>
+    </tr>
+    <tr>
+      <td>InitializationVersion</td>
+      <td>Integer int16</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Número de versão dos parâmetros baixados na inicialização do equipamento.</td>
+    </tr>
+    <tr>
+      <td>PrintMessage.Position</td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Default: “Top”<br />Enum: “Top”, “Middle”, “Bottom”<br />Posição da mensagem no comprovante:<br />Top - Início do comprovante, antes do código do estabelecimento<br />Middle - Meio do comprovante, após a descrição dos valores<br />Bottom - Final do comprovante</td>
+    </tr>
+    <tr>
+      <td>PrintMessage.Message</td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Indica a mensagem que deve ser impressa no comprovante de acordo com a posição indicada no campo Position.</td>
+    </tr>
+    <tr>
+      <td>Status</td>
+      <td>Integer int16</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Status da transação.<br />0 = Não Finalizado<br />1 = Autorizado<br />2 = Pago<br />3 = Negado<br />10 = Cancelado<br />13 = Abortado</td>
+    </tr>
+    <tr>
+      <td>CancellationStatus</td>
+      <td>Integer int16</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Status do cancelamento.<br />0 = Não Finalizado<br />1 = Autorizado<br />2 = Negado<br />3 = Confirmado<br />4 = Desfeito</td>
+    </tr>
+    <tr>
+      <td>ReasonCode</td>
+      <td>Integer int16</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Código de referência para análises.</td>
+    </tr>
+    <tr>
+      <td>ReasonMessage</td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Mensagem explicativa para análise.</td>
+    </tr>
+    <tr>
+      <td>ReturnCode</td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Código de erro/resposta da transação da Adquirência.</td>
+    </tr>
+    <tr>
+      <td>ReturnMessage</td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Mensagem de erro/resposta da transação da Adquirência.</td>
+    </tr>
+    <tr>
+      <td>Payment.Receipt.MerchantName</td>
+      <td>String</td>
+      <td>255</td>
+      <td>Sim</td>
+      <td>Nome da loja</td>
+    </tr>
+    <tr>
+      <td>Payment.Receipt.MerchantAddress</td>
+      <td>String</td>
+      <td>255</td>
+      <td>Sim</td>
+      <td>Endereço da loja</td>
+    </tr>
+    <tr>
+      <td>Payment.Receipt.MerchantCity</td>
+      <td>String</td>
+      <td>255</td>
+      <td>Sim</td>
+      <td>Cidade da loja</td>
+    </tr>
+    <tr>
+      <td>Payment.Receipt.MerchantState</td>
+      <td>String</td>
+      <td>2</td>
+      <td>Sim</td>
+      <td>Estado da loja</td>
+    </tr>
+    <tr>
+      <td>Payment.Receipt.MerchantCode</td>
+      <td>String</td>
+      <td>16</td>
+      <td>Sim</td>
+      <td>Código de identificação da loja</td>
+    </tr>
+    <tr>
+      <td>Payment.Receipt.Terminal</td>
+      <td>String</td>
+      <td>8</td>
+      <td>Sim</td>
+      <td>Identificação do Terminal</td>
+    </tr>
+    <tr>
+      <td>Payment.Receipt.Nsu</td>
+      <td>String</td>
+      <td>6</td>
+      <td>Sim</td>
+      <td>Número de identificação da transação Cielo</td>
+    </tr>
+    <tr>
+      <td>Payment.Receipt.Date</td>
+      <td>String</td>
+      <td>dd/MM/yy</td>
+      <td>Sim</td>
+      <td>Data da transação</td>
+    </tr>
+    <tr>
+      <td>Payment.Receipt.Hour</td>
+      <td>String</td>
+      <td>HH:mm</td>
+      <td>Sim</td>
+      <td>Horário da transação</td>
+    </tr>
+    <tr>
+      <td>Payment.Receipt.IssuerName</td>
+      <td>String</td>
+      <td>255</td>
+      <td>Sim</td>
+      <td>Nome do emissor obtido através do campo IssuerId no objeto BinEntry.</td>
+    </tr>
+    <tr>
+      <td>Payment.Receipt.CardHolder</td>
+      <td>String</td>
+      <td>255</td>
+      <td>Não</td>
+      <td>Nome do titular do cartão.</td>
+    </tr>
+    <tr>
+      <td>Payment.Receipt.CardNumber</td>
+      <td>String</td>
+      <td>19</td>
+      <td>Sim</td>
+      <td>Número do cartão</td>
+    </tr>
+    <tr>
+      <td>Payment.Receipt.Brand</td>
+      <td>String</td>
+      <td>255</td>
+      <td>Sim</td>
+      <td>Bandeira do cartão</td>
+    </tr>
+    <tr>
+      <td>Payment.Receipt.TransactionType</td>
+      <td>String</td>
+      <td>255</td>
+      <td>Sim</td>
+      <td>Tipo de transação</td>
+    </tr>
+    <tr>
+      <td>Payment.Receipt.AuthorizationCode</td>
+      <td>String</td>
+      <td>6</td>
+      <td>Sim</td>
+      <td>Código da autorização</td>
+    </tr>
+    <tr>
+      <td>Payment.Receipt.TransactionMode</td>
+      <td>String</td>
+      <td>3</td>
+      <td>Sim</td>
+      <td>Modo da transação</td>
+    </tr>
+    <tr>
+      <td>Payment.Receipt.InputMethod</td>
+      <td>String</td>
+      <td>1</td>
+      <td>Sim</td>
+      <td>Método de entrada</td>
+    </tr>
+    <tr>
+      <td>Payment.Receipt.CancelValue</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Payment.Receipt.OriginalTransactionData</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Payment.Receipt.OriginalTransactionType</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Payment.Receipt.OriginalTransactionNsu</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Payment.Receipt.OriginalTransactionAuthCode</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Payment.Receipt.OriginalTransactionDate</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Payment.Receipt.OriginalTransactionHour</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Payment.Receipt.OriginalTransactionValue</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Payment.Receipt.OriginalTransactionCardHolder</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Payment.Receipt.OriginalTransactionMode</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Payment.Receipt.OriginalInputMethod</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Links.Method</td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Enum: “POST”, “GET”, “PUT”.<br />Método HTTP a ser utilizado na operação.</td>
+    </tr>
+    <tr>
+      <td>Links.Rel</td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Enum: “self”, “cancel”, “confirm”.<br />Referência da operação.</td>
+    </tr>
+    <tr>
+      <td>Links.Href</td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Endereço de URL de chamada da API.</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="cancelamento-parcial">Cancelamento parcial</h3>
 
@@ -26095,13 +26379,6 @@ Referência da operação. | | Links.Href | String | — | — | Endereço de UR
       <td>—</td>
       <td>Sim</td>
       <td>Código do Pagamento</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">VoidAmount</code></td>
-      <td>Integer(int64)</td>
-      <td>—</td>
-      <td>Sim</td>
-      <td>O atributo VoidAmount permite enviar cancelamentos parciais, quantos desejar para uma única transação, considerando o valor total da transação de pagamento.</td>
     </tr>
   </tbody>
 </table>
@@ -26148,12 +26425,26 @@ Referência da operação. | | Links.Href | String | — | — | Endereço de UR
       <td>Sim</td>
       <td>Data do cancelamento.</td>
     </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">VoidAmount</code></td>
+      <td>Integer(int64)</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>O atributo VoidAmount permite enviar cancelamentos parciais, quantos desejar para uma única transação, considerando o valor total da transação de pagamento.</td>
+      <td> </td>
+    </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Card.InputMode</code></td>
       <td>String</td>
       <td>—</td>
       <td>Sim</td>
       <td>Enum: “Typed”, “MagStripe”, “Emv”, “ContactlessMagStripe”, “ContactlessEmv”</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Card.TrackOneData</code></td>
@@ -26161,6 +26452,7 @@ Referência da operação. | | Links.Href | String | — | — | Endereço de UR
       <td>—</td>
       <td>—</td>
       <td>Dados da trilha 1 <br />Obtidos através do comando PP_GetCard na BC no momento da captura da transação</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Card.TrackTwoData</code></td>
@@ -26168,6 +26460,7 @@ Referência da operação. | | Links.Href | String | — | — | Endereço de UR
       <td>—</td>
       <td>—</td>
       <td>Dados da trilha 2 <br />Obtidos através do comando PP_GetCard na BC no momento da captura da transação</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Card.EmvData</code></td>
@@ -26175,6 +26468,7 @@ Referência da operação. | | Links.Href | String | — | — | Endereço de UR
       <td>—</td>
       <td>—</td>
       <td>Dados de cancelamento EMV</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Card.AuthenticationMethod</code></td>
@@ -26182,6 +26476,7 @@ Referência da operação. | | Links.Href | String | — | — | Endereço de UR
       <td>—</td>
       <td>Sim</td>
       <td>Enum: “NoPassword”, , “OnlineAuthentication”, “OfflineAuthentication”<br />Método de autenticação<br />1 - Sem senha = “NoPassword”;<br />2 - Senha online = “Online Authentication”;<br />3 - Senha off-line = “Offline Authentication”.</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PinBlock.EncryptedPinBlock</code></td>
@@ -26189,6 +26484,7 @@ Referência da operação. | | Links.Href | String | — | — | Endereço de UR
       <td>—</td>
       <td>Sim</td>
       <td>PINBlock Criptografado<br />- Para transações EMV, esse campo é obtido através do retorno da função PP_GoOnChip(), mais especificamente das posições 007 até a posição 022;<br />- Para transações digitadas e com tarja magnética, verificar as posições 001 até 016 do retorno da função PP_GetPin().</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Card.EncryptedCardData.EncryptionType</code></td>
@@ -26196,6 +26492,7 @@ Referência da operação. | | Links.Href | String | — | — | Endereço de UR
       <td>—</td>
       <td>Sim</td>
       <td>Tipo de encriptação utilizada<br />Enum:<br />“DukptDes” = 1,<br />“MasterKey” = 2 &lt;br<br />“Dukpt3Des” = 3,<br />“Dukpt3DesCBC” = 4</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PinBlock.EmvData</code></td>
@@ -26203,6 +26500,7 @@ Referência da operação. | | Links.Href | String | — | — | Endereço de UR
       <td>—</td>
       <td>Sim</td>
       <td>Identificação do KSN<br />- Para transações EMV esse campo é obtido através do retorno da função PP_GoOnChip() nas posições 023 até 042;<br />- Para transações digitadas e com tarja magnética, verificar as posições 017 até 036 do retorno da função PP_GetPin().</td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
