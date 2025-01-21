@@ -8323,15 +8323,16 @@ Para simular alguma resposta especifica utilize o campo Amount, onde de acordo c
 ```json
 {
    "MerchantVoidId":"123456789123456",
-   "MerchantVoidDate":"2025-01-08T18:45:59.796Z",
+   "MerchantVoidDate":"2025-01-08T18:29:15.074Z",
    "Card":{
-      "InputMode":"Emv",
-      "EmvData":"9F02060000000001009F1A020076950500000000005F2A0209869A03210315820258005F340100",
-      "TrackTwoData":"B1F9FFC37C7151EAE7C236AEDE4FA9043C3ED093E46A3152",
+      "InputMode":"MagStripe",
+      "TrackOneData":"4227E79441BB8E79642E442685BBDF4E5C596FC5D096271882BE25C5642E8B2B76797E1E243435A2E27422FC947F993F0A8067B0957176D97E",
+      "TrackTwoData":"47F44A051AB50EE62C656B0668A26242C24AA17DD977C646",
       "EncryptedCardData":{
          "EncryptionType":"Dukpt3DesCBC",
-         "InitializationVector":"0000000000000000",
-         "TrackTwoDataKSN":"FFFFF99995C18C800066"
+         "TrackOneDataKSN":"FFFFF99995C18C800083",
+         "TrackTwoDataKSN":"FFFFF99995C18C800084",
+         "InitializationVector":"0000000000000000"
       }
    }
 }
@@ -8353,8 +8354,8 @@ Para simular alguma resposta especifica utilize o campo Amount, onde de acordo c
 #### Resposta
 
 ```json
-  {
-   "VoidId":"9f05a027-6abf-4e19-a09c-963cc1f234bc",
+{
+   "VoidId":"abd3c6bb-3af9-4a02-b048-a455fc1b9f9f",
    "CancellationStatus":1,
    "InitializationVersion":1730810434149,
    "PrintMessage":[
@@ -8367,27 +8368,29 @@ Para simular alguma resposta especifica utilize o campo Amount, onde de acordo c
       "MerchantState":"SP",
       "MerchantCode":"0023137868169300",
       "Terminal":"41786816",
-      "Nsu":"864712",
+      "Nsu":"864699",
       "Date":"08/01/25",
-      "Hour":"15:46",
-      "IssuerName":"CIELO#ELO CREDITO",
-      "CardNumber":"************5488",
-      "Brand":"ELO",
+      "Hour":"15:33",
+      "IssuerName":"CIELO#MASTERCARD",
+      "CardHolder":"MTIP04",
+      "CardNumber":"541333-0037",
+      "Brand":"MASTERCARD",
       "TransactionType":"CANCELAMENTO DE TRANSACAO",
-      "AuthorizationCode":"560980",
+      "AuthorizationCode":"097122",
       "TransactionMode":"ONL",
-      "InputMethod":"C",
+      "InputMethod":"D",
       "CpfCnpj":"73096766000195",
-      "CancelValue":"13,00",
+      "CancelValue":"8,00",
       "OriginalTransactonData":"DADOS DO PAGAMENTO ORIGINAL",
       "OriginalTransactonType":"VENDA A CREDITO",
-      "OriginalTransactonNsu":"864709",
-      "OriginalTransactonAuthCode":"560980",
+      "OriginalTransactonNsu":"864698",
+      "OriginalTransactonAuthCode":"097122",
       "OriginalTransactionDate":"08/01/25",
-      "OriginalTransactionHour":"15:45",
-      "OriginalTransactionValue":"13,00",
+      "OriginalTransactionHour":"15:32",
+      "OriginalTransactionValue":"8,00",
+      "OriginalTransactionCardHolder":"MTIP04",
       "OriginalTransactionMode":"ONL",
-      "OriginalInputMethod":"L"
+      "OriginalInputMethod":"D"
    },
    "ConfirmationStatus":1,
    "Status":10,
@@ -8400,41 +8403,65 @@ Para simular alguma resposta especifica utilize o campo Amount, onde de acordo c
       {
          "Method":"GET",
          "Rel":"self",
-         "Href":"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/physicalSales/ed0d7d1f-28c8-4cdb-9fb9-7e9d2e3d543d"
+         "Href":"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/physicalSales/2360f2fb-5b95-4be0-8060-2815eec01f6e"
       },
       {
          "Method":"GET",
          "Rel":"self",
-         "Href":"https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/ed0d7d1f-28c8-4cdb-9fb9-7e9d2e3d543d/voids/9f05a027-6abf-4e19-a09c-963cc1f234bc"
+         "Href":"https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/2360f2fb-5b95-4be0-8060-2815eec01f6e/voids/abd3c6bb-3af9-4a02-b048-a455fc1b9f9f"
       },
       {
          "Method":"DELETE",
          "Rel":"reverse",
-         "Href":"https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/ed0d7d1f-28c8-4cdb-9fb9-7e9d2e3d543d/voids/9f05a027-6abf-4e19-a09c-963cc1f234bc"
+         "Href":"https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/2360f2fb-5b95-4be0-8060-2815eec01f6e/voids/abd3c6bb-3af9-4a02-b048-a455fc1b9f9f"
       }
    ]
 }
 ```
 
-| Propriedade | Tipo | Tamanho | Obrigatório | Descrição | | ————————————– | ————- | ——- | ———– | —————————————————————————————————————————————————————————————————————————————————————————— | | VoidId | String - uuid | — | — | Identificador do cancelamento | | InitializationVersion | Integer int16 | — | — | Número de versão dos parametros baixados na inicialização do equipamento. | | PrintMessage.Position | String | — | — | Default: “Top”
-Enum: “Top”, “Middle”, “Bottom”
-Posição da mensagem no comprovante:
-Top - Início do comprovante, antes do código do estabelecimento
-Middle - Meio do comprovante, após a descrição dos valores
-Bottom - Final do comprovante | | PrintMessage.Message | String | — | — | Indica a mensagem que deve ser impressa no comprovante de acordo com a posição indicada no campo Position | | Status | Integerint16 | — | — | Status da transação.
-0 = Não Finalizado
-1 = Autorizado
-2 = Pago
-3 = Negado
-10 = Cancelado
-13 = Abortado | | CancellationStatus | Integer int16 | — | — | Status do cancelamento.
-0 = Não Finalizado
-1 = Autorizado
-2 = Negado
-3 = Confirmado
-4 = Desfeito | | ReasonCode | Integer int16 | — | — | Código de referência para análises. | | ReasonMessage | String | — | — | Mensagem explicativa para análise. | | ReturnCode | String | — | — | Código de erro/resposta da transação da Adquirência. | | ReturnMessage | String | — | — | Mensagem de erro/resposta da transação da Adquirência. | | Payment.Receipt.MerchantName | String | 255 | Sim | Nome da loja | | Payment.Receipt.MerchantAddress | String | 255 | Sim | Endereço da loja | | Payment.Receipt.MerchantCity | String | 255 | Sim | Cidade da loja | | Payment.Receipt.MerchantState | String | 2 | Sim | Estado da loja | | Payment.Receipt.MerchantCode | String | 16 | Sim | Codigo de identificação da loja | | Payment.Receipt.Terminal | String | 8 | Sim | Identificação do Terminal | | Payment.Receipt.Nsu | String | 6 | Sim | Numero de identificação da transação Cielo | | Payment.Receipt.Date | String | dd/MM/yy | Sim | Data da transação | | Payment.Receipt.Hour | String | HH:mm | Sim | Horario da transação | | Payment.Receipt.IssuerName | String | 255 | Sim | Nome do emissor obtido através do campo IssuerId no objeto BinEntry. | | Payment.Receipt.CardHolder | String | 255 | Não | Nome do titular do cartão. | | Payment.Receipt.CardNumber | String | 19 | Sim | Número do cartão | | Payment.Receipt.Brand | String | 255 | Sim | Bandeira do cartão | | Payment.Receipt.TransactionType | String | 255 | Sim | Tipo de transação | | Payment.Receipt.AuthorizationCode | String | 6 | Sim | Código da autorização | | Payment.Receipt.TransactionMode | String | 3 | Sim | Modo da transação | | Payment.Receipt.InputMethod | String | 1 | Sim | Metodo de entrada | | Payment.Receipt.CancelValue | — | — | — | — | | Payment.Receipt.OriginalTransactonData | — | — | — | — | | Payment.Receipt.OriginalTransactonType | — | — | — | — | | Payment.Receipt.OriginalTransactonNsu | — | — | — | — | | Payment.Receipt.OriginalTransactonAuthCode | — | — | — | — | | Payment.Receipt.OriginalTransactionDate | — | — | — | — | | Payment.Receipt.OriginalTransactionHour | — | — | — | — | | Payment.Receipt.OrignalTransactionValue | — | — | — | — | | Payment.Receipt.OrignalTransactionCardHolder | — | — | — | — | | Payment.Receipt.OriginalTransactionMode | — | — | — | — | | Payment.Receipt.OriginalInputMethod | — | — | — | — | | Links.Method | String | — | — | Enum: “POST”, “GET”, “PUT”.
-Método HTTP a ser utilizado na operação. | | Links.Rel | String | — | — | Enum: “self”, “cancel”, “confirm”.
-Referência da operação. | | Links.Href | String | — | — | Endereço de URL de chamada da API |
+| Propriedade                           | Tipo               | Tamanho | Obrigatório | Descrição                                                                                                                                                                                |
+|---------------------------------------|--------------------|---------|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| VoidId                                | String - uuid      | —       | —           | Identificador do cancelamento                                                                                                                                                           |
+| InitializationVersion                 | Integer int16      | —       | —           | Número de versão dos parâmetros baixados na inicialização do equipamento.                                                                                                               |
+| PrintMessage.Position                 | String             | —       | —           | Default: “Top”<br>Enum: “Top”, “Middle”, “Bottom”<br>Posição da mensagem no comprovante:<br>Top - Início do comprovante, antes do código do estabelecimento<br>Middle - Meio do comprovante, após a descrição dos valores<br>Bottom - Final do comprovante |
+| PrintMessage.Message                  | String             | —       | —           | Indica a mensagem que deve ser impressa no comprovante de acordo com a posição indicada no campo Position.                                                                               |
+| Status                                | Integer int16      | —       | —           | Status da transação.<br>0 = Não Finalizado<br>1 = Autorizado<br>2 = Pago<br>3 = Negado<br>10 = Cancelado<br>13 = Abortado                                                               |
+| CancellationStatus                    | Integer int16      | —       | —           | Status do cancelamento.<br>0 = Não Finalizado<br>1 = Autorizado<br>2 = Negado<br>3 = Confirmado<br>4 = Desfeito                                                                          |
+| ReasonCode                            | Integer int16      | —       | —           | Código de referência para análises.                                                                                                                                                     |
+| ReasonMessage                         | String             | —       | —           | Mensagem explicativa para análise.                                                                                                                                                      |
+| ReturnCode                            | String             | —       | —           | Código de erro/resposta da transação da Adquirência.                                                                                                                                    |
+| ReturnMessage                         | String             | —       | —           | Mensagem de erro/resposta da transação da Adquirência.                                                                                                                                  |
+| Payment.Receipt.MerchantName          | String             | 255     | Sim         | Nome da loja                                                                                                                                                                            |
+| Payment.Receipt.MerchantAddress       | String             | 255     | Sim         | Endereço da loja                                                                                                                                                                        |
+| Payment.Receipt.MerchantCity          | String             | 255     | Sim         | Cidade da loja                                                                                                                                                                          |
+| Payment.Receipt.MerchantState         | String             | 2       | Sim         | Estado da loja                                                                                                                                                                          |
+| Payment.Receipt.MerchantCode          | String             | 16      | Sim         | Código de identificação da loja                                                                                                                                                        |
+| Payment.Receipt.Terminal              | String             | 8       | Sim         | Identificação do Terminal                                                                                                                                                               |
+| Payment.Receipt.Nsu                   | String             | 6       | Sim         | Número de identificação da transação Cielo                                                                                                                                              |
+| Payment.Receipt.Date                  | String             | dd/MM/yy| Sim         | Data da transação                                                                                                                                                                       |
+| Payment.Receipt.Hour                  | String             | HH:mm   | Sim         | Horário da transação                                                                                                                                                                    |
+| Payment.Receipt.IssuerName            | String             | 255     | Sim         | Nome do emissor obtido através do campo IssuerId no objeto BinEntry.                                                                                                                    |
+| Payment.Receipt.CardHolder            | String             | 255     | Não         | Nome do titular do cartão.                                                                                                                                                              |
+| Payment.Receipt.CardNumber            | String             | 19      | Sim         | Número do cartão                                                                                                                                                                        |
+| Payment.Receipt.Brand                 | String             | 255     | Sim         | Bandeira do cartão                                                                                                                                                                      |
+| Payment.Receipt.TransactionType       | String             | 255     | Sim         | Tipo de transação                                                                                                                                                                       |
+| Payment.Receipt.AuthorizationCode     | String             | 6       | Sim         | Código da autorização                                                                                                                                                                   |
+| Payment.Receipt.TransactionMode       | String             | 3       | Sim         | Modo da transação                                                                                                                                                                       |
+| Payment.Receipt.InputMethod           | String             | 1       | Sim         | Método de entrada                                                                                                                                                                       |
+| Payment.Receipt.CancelValue           | —                  | —       | —           | —                                                                                                                                                                                      |
+| Payment.Receipt.OriginalTransactionData | —                  | —       | —           | —                                                                                                                                                                                      |
+| Payment.Receipt.OriginalTransactionType | —                  | —       | —           | —                                                                                                                                                                                      |
+| Payment.Receipt.OriginalTransactionNsu  | —                  | —       | —           | —                                                                                                                                                                                      |
+| Payment.Receipt.OriginalTransactionAuthCode | —              | —       | —           | —                                                                                                                                                                                      |
+| Payment.Receipt.OriginalTransactionDate | —                 | —       | —           | —                                                                                                                                                                                      |
+| Payment.Receipt.OriginalTransactionHour | —                 | —       | —           | —                                                                                                                                                                                      |
+| Payment.Receipt.OriginalTransactionValue | —                | —       | —           | —                                                                                                                                                                                      |
+| Payment.Receipt.OriginalTransactionCardHolder | —            | —       | —           | —                                                                                                                                                                                      |
+| Payment.Receipt.OriginalTransactionMode | —                | —       | —           | —                                                                                                                                                                                      |
+| Payment.Receipt.OriginalInputMethod   | —                  | —       | —           | —                                                                                                                                                                                      |
+| Links.Method                          | String             | —       | —           | Enum: “POST”, “GET”, “PUT”.<br>Método HTTP a ser utilizado na operação.                                                                                                                 |
+| Links.Rel                             | String             | —       | —           | Enum: “self”, “cancel”, “confirm”.<br>Referência da operação.                                                                                                                           |
+| Links.Href                            | String             | —       | —           | Endereço de URL de chamada da API.                                                                                                                                                      |
 
 ### Cancelamento parcial
 
@@ -8447,7 +8474,6 @@ Referência da operação. | | Links.Href | String | — | — | Endereço de UR
 | Propriedade | Tipo        | Tamanho | Obrigatório | Descrição           |
 | ----------- | ----------- | ------- | ----------- | ------------------- |
 | `PaymentId` | String uuid | ---     | Sim         | Código do Pagamento |
-| `VoidAmount` | Integer(int64) | ---     | Sim         | O atributo VoidAmount permite enviar cancelamentos parciais, quantos desejar para uma única transação, considerando o valor total da transação de pagamento. |
 
 ```json
 {
@@ -8470,7 +8496,9 @@ Referência da operação. | | Links.Href | String | — | — | Endereço de UR
 | Propriedade                             | Tipo   | Tamanho | Obrigatório | Descrição                                                                                                                                                                                                                                                                                                   |
 | --------------------------------------- | ------ | ------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `MerchantVoidId`                        | String | ---     | Sim         | Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal                                                                                                                                                                                          |
-| `MerchantVoidDate`                      | String | ---     | Sim         | Data do cancelamento.                                                                                                                                                                                                                                                                                       |
+| `MerchantVoidDate`                      | String | ---     | Sim         | Data do cancelamento.                                                                                          
+
+| `VoidAmount` | Integer(int64) | ---     | Sim         | O atributo VoidAmount permite enviar cancelamentos parciais, quantos desejar para uma única transação, considerando o valor total da transação de pagamento. |                                                                                                                                                                                            |
 | `Card.InputMode`                        | String | ---     | Sim         | Enum: "Typed", "MagStripe", "Emv", "ContactlessMagStripe", "ContactlessEmv"                                                                                                                                                                                                                                 |
 | `Card.TrackOneData`                     | String | ---     | ---         | Dados da trilha 1 <br><br>Obtidos através do comando PP_GetCard na BC no momento da captura da transação                                                                                                                                                                                                    |
 | `Card.TrackTwoData`                     | String | ---     | ---         | Dados da trilha 2 <br><br>Obtidos através do comando PP_GetCard na BC no momento da captura da transação                                                                                                                                                                                                    |
