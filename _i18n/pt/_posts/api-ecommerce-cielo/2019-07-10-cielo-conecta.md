@@ -8159,18 +8159,18 @@ Para simular alguma resposta especifica utilize o campo Amount, onde de acordo c
 
 ```json
 {
-  "MerchantVoidId": 2019042204,
-  "MerchantVoidDate": "2019-04-15T12:00:00Z",
-  "Card": {
-    "InputMode": "MagStripe",
-    "TrackOneData": "A1234567890123456^FULANO OLIVEIRA SA ^12345678901234567890123",
-    "TrackTwoData": "0123456789012345=012345678901234",
-    "EncryptedCardData": {
-      "EncryptionType": "DUKPT3DES",
-      "TrackOneDataKSN": "KSNforTrackOneData",
-      "TrackTwoDataKSN": "KSNforTrackTwoData"
-    }
-  }
+   "MerchantVoidId":"123456789123456",
+   "MerchantVoidDate":"2025-01-08T18:29:15.074Z",
+   "Card":{
+      "InputMode":"MagStripe",
+      "TrackOneData":"4227E79441BB8E79642E442685BBDF4E5C596FC5D096271882BE25C5642E8B2B76797E1E243435A2E27422FC947F993F0A8067B0957176D97E",
+      "TrackTwoData":"47F44A051AB50EE62C656B0668A26242C24AA17DD977C646",
+      "EncryptedCardData":{
+         "EncryptionType":"Dukpt3DesCBC",
+         "TrackOneDataKSN":"FFFFF99995C18C800083",
+         "TrackTwoDataKSN":"FFFFF99995C18C800084",
+         "InitializationVector":"0000000000000000"
+      }
 }
 ```
 
@@ -8191,76 +8191,44 @@ Para simular alguma resposta especifica utilize o campo Amount, onde de acordo c
 #### Resposta
 
 ```json
-{
-  "VoidId": "f15889ea-5719-4e1a-a2da-f4e50d5bd702",
-  "InitializationVersion": 1558708320029,
-  "PrintMessage": [
-    {
-      "Position": "Top",
-      "Message": "Transação autorizada"
-    },
-    {
-      "Position": "Middle",
-      "Message": "Informação adicional"
-    },
-    {
-      "Position": "Bottom",
-      "Message": "Obrigado e volte sempre!"
-    }
-  ],
-  "Receipt": {
-    "MerchantName": "Estabelecimento",
-    "MerchantAddress": "Rua Sem Saida, 0",
-    "MerchantCity": "Cidade",
-    "MerchantState": "WA",
-    "MerchantCode": 549798965249,
-    "Terminal": 12345678,
-    "Nsu": 123456,
-    "Date": "01/01/20",
-    "Hour": 720,
-    "IssuerName": "VISA  PROD-I",
-    "CardNumber": 1111222233334444,
-    "TransactionType": "CANCELAMENTO DE TRANSACAO",
-    "AuthorizationCode": 123456,
-    "TransactionMode": "ONL",
-    "InputMethod": "C",
-    "CancelValue": "3,00",
-    "OriginalTransactonData": "DADOS DO PAGAMENTO ORIGNAL",
-    "OriginalTransactonType": "VENDA A CREDITO",
-    "OriginalTransactonNsu": 5349,
-    "OriginalTransactonAuthCode": 543210,
-    "OriginalTransactionDate": "01/01/20",
-    "OriginalTransactionHour": 720,
-    "OrignalTransactionValue": "3,00",
-    "OrignalTransactionCardHolder": "NOME NOME NOME NOME NOME N",
-    "OriginalTransactionMode": "ONL",
-    "OriginalInputMethod": "C"
-  },
-  "Status": 10,
-  "ReturnCode": 0,
-  "ReturnMessage": "Success",
-  "Links": [
-    {
-      "Method": "GET",
-      "Rel": "self",
-      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"
-    },
-    {
-      "Method": "POST",
-      "Rel": "void",
-      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702/voids"
-    },
-    {
-      "Method": "DELETE",
-      "Rel": "reverse",
-      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702/voids/e5c889ea-5719-4e1a-a2da-f4f50d5bd7ca"
-    },
-    {
-      "Method": "PUT",
-      "Rel": "confirm",
-      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702/voids/e5c889ea-5719-4e1a-a2da-f4f50d5bd7ca/confirmation"
-    }
-  ]
+      "InputMethod":"D",
+      "CpfCnpj":"73096766000195",
+      "CancelValue":"8,00",
+      "OriginalTransactonData":"DADOS DO PAGAMENTO ORIGINAL",
+      "OriginalTransactonType":"VENDA A CREDITO",
+      "OriginalTransactonNsu":"864698",
+      "OriginalTransactonAuthCode":"097122",
+      "OriginalTransactionDate":"08/01/25",
+      "OriginalTransactionHour":"15:32",
+      "OriginalTransactionValue":"8,00",
+      "OriginalTransactionCardHolder":"MTIP04",
+      "OriginalTransactionMode":"ONL",
+      "OriginalInputMethod":"D"
+   },
+   "ConfirmationStatus":1,
+   "Status":10,
+   "PhysicalTransactionStatus":10,
+   "ReasonCode":0,
+   "ReasonMessage":"Successful",
+   "ReturnCode":"000",
+   "ReturnMessage":">CANCELAMENTO OK",
+   "Links":[
+      {
+         "Method":"GET",
+         "Rel":"self",
+         "Href":"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/physicalSales/2360f2fb-5b95-4be0-8060-2815eec01f6e"
+      },
+      {
+         "Method":"GET",
+         "Rel":"self",
+         "Href":"https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/2360f2fb-5b95-4be0-8060-2815eec01f6e/voids/abd3c6bb-3af9-4a02-b048-a455fc1b9f9f"
+      },
+      {
+         "Method":"DELETE",
+         "Rel":"reverse",
+         "Href":"https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/2360f2fb-5b95-4be0-8060-2815eec01f6e/voids/abd3c6bb-3af9-4a02-b048-a455fc1b9f9f"
+      }
+   ]
 }
 ```
 
@@ -8323,16 +8291,15 @@ Para simular alguma resposta especifica utilize o campo Amount, onde de acordo c
 ```json
 {
    "MerchantVoidId":"123456789123456",
-   "MerchantVoidDate":"2025-01-08T18:29:15.074Z",
+   "MerchantVoidDate":"2025-01-08T18:45:59.796Z",
    "Card":{
-      "InputMode":"MagStripe",
-      "TrackOneData":"4227E79441BB8E79642E442685BBDF4E5C596FC5D096271882BE25C5642E8B2B76797E1E243435A2E27422FC947F993F0A8067B0957176D97E",
-      "TrackTwoData":"47F44A051AB50EE62C656B0668A26242C24AA17DD977C646",
+      "InputMode":"Emv",
+      "EmvData":"9F02060000000001009F1A020076950500000000005F2A0209869A03210315820258005F340100",
+      "TrackTwoData":"B1F9FFC37C7151EAE7C236AEDE4FA9043C3ED093E46A3152",
       "EncryptedCardData":{
          "EncryptionType":"Dukpt3DesCBC",
-         "TrackOneDataKSN":"FFFFF99995C18C800083",
-         "TrackTwoDataKSN":"FFFFF99995C18C800084",
-         "InitializationVector":"0000000000000000"
+         "InitializationVector":"0000000000000000",
+         "TrackTwoDataKSN":"FFFFF99995C18C800066"
       }
    }
 }
@@ -8354,43 +8321,18 @@ Para simular alguma resposta especifica utilize o campo Amount, onde de acordo c
 #### Resposta
 
 ```json
-{
-   "VoidId":"abd3c6bb-3af9-4a02-b048-a455fc1b9f9f",
-   "CancellationStatus":1,
-   "InitializationVersion":1730810434149,
-   "PrintMessage":[
-      
-   ],
-   "Receipt":{
-      "MerchantName":"TESTE API",
-      "MerchantAddress":"Alameda Xingu, 512",
-      "MerchantCity":"BARUERI",
-      "MerchantState":"SP",
-      "MerchantCode":"0023137868169300",
-      "Terminal":"41786816",
-      "Nsu":"864699",
-      "Date":"08/01/25",
-      "Hour":"15:33",
-      "IssuerName":"CIELO#MASTERCARD",
-      "CardHolder":"MTIP04",
-      "CardNumber":"541333-0037",
-      "Brand":"MASTERCARD",
-      "TransactionType":"CANCELAMENTO DE TRANSACAO",
-      "AuthorizationCode":"097122",
-      "TransactionMode":"ONL",
-      "InputMethod":"D",
+      "InputMethod":"C",
       "CpfCnpj":"73096766000195",
-      "CancelValue":"8,00",
+      "CancelValue":"13,00",
       "OriginalTransactonData":"DADOS DO PAGAMENTO ORIGINAL",
       "OriginalTransactonType":"VENDA A CREDITO",
-      "OriginalTransactonNsu":"864698",
-      "OriginalTransactonAuthCode":"097122",
+      "OriginalTransactonNsu":"864709",
+      "OriginalTransactonAuthCode":"560980",
       "OriginalTransactionDate":"08/01/25",
-      "OriginalTransactionHour":"15:32",
-      "OriginalTransactionValue":"8,00",
-      "OriginalTransactionCardHolder":"MTIP04",
+      "OriginalTransactionHour":"15:45",
+      "OriginalTransactionValue":"13,00",
       "OriginalTransactionMode":"ONL",
-      "OriginalInputMethod":"D"
+      "OriginalInputMethod":"L"
    },
    "ConfirmationStatus":1,
    "Status":10,
@@ -8403,17 +8345,17 @@ Para simular alguma resposta especifica utilize o campo Amount, onde de acordo c
       {
          "Method":"GET",
          "Rel":"self",
-         "Href":"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/physicalSales/2360f2fb-5b95-4be0-8060-2815eec01f6e"
+         "Href":"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/physicalSales/ed0d7d1f-28c8-4cdb-9fb9-7e9d2e3d543d"
       },
       {
          "Method":"GET",
          "Rel":"self",
-         "Href":"https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/2360f2fb-5b95-4be0-8060-2815eec01f6e/voids/abd3c6bb-3af9-4a02-b048-a455fc1b9f9f"
+         "Href":"https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/ed0d7d1f-28c8-4cdb-9fb9-7e9d2e3d543d/voids/9f05a027-6abf-4e19-a09c-963cc1f234bc"
       },
       {
          "Method":"DELETE",
          "Rel":"reverse",
-         "Href":"https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/2360f2fb-5b95-4be0-8060-2815eec01f6e/voids/abd3c6bb-3af9-4a02-b048-a455fc1b9f9f"
+         "Href":"https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/ed0d7d1f-28c8-4cdb-9fb9-7e9d2e3d543d/voids/9f05a027-6abf-4e19-a09c-963cc1f234bc"
       }
    ]
 }
