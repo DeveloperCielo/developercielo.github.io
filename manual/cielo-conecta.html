@@ -25374,18 +25374,18 @@
 </table>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"MerchantVoidId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2019042204</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"MerchantVoidDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-15T12:00:00Z"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"InputMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MagStripe"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"TrackOneData"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A1234567890123456^FULANO OLIVEIRA SA ^12345678901234567890123"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"TrackTwoData"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0123456789012345=012345678901234"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"EncryptedCardData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"EncryptionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DUKPT3DES"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"TrackOneDataKSN"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KSNforTrackOneData"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"TrackTwoDataKSN"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KSNforTrackTwoData"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+   </span><span class="nl">"MerchantVoidId"</span><span class="p">:</span><span class="s2">"123456789123456"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"MerchantVoidDate"</span><span class="p">:</span><span class="s2">"2025-01-08T18:29:15.074Z"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Card"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"InputMode"</span><span class="p">:</span><span class="s2">"MagStripe"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"TrackOneData"</span><span class="p">:</span><span class="s2">"4227E79441BB8E79642E442685BBDF4E5C596FC5D096271882BE25C5642E8B2B76797E1E243435A2E27422FC947F993F0A8067B0957176D97E"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"TrackTwoData"</span><span class="p">:</span><span class="s2">"47F44A051AB50EE62C656B0668A26242C24AA17DD977C646"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"EncryptedCardData"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"EncryptionType"</span><span class="p">:</span><span class="s2">"Dukpt3DesCBC"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"TrackOneDataKSN"</span><span class="p">:</span><span class="s2">"FFFFF99995C18C800083"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"TrackTwoDataKSN"</span><span class="p">:</span><span class="s2">"FFFFF99995C18C800084"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"InitializationVector"</span><span class="p">:</span><span class="s2">"0000000000000000"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -25482,76 +25482,44 @@
 
 <h4 id="resposta-27">Resposta</h4>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"VoidId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f15889ea-5719-4e1a-a2da-f4e50d5bd702"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"InitializationVersion"</span><span class="p">:</span><span class="w"> </span><span class="mi">1558708320029</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"PrintMessage"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"Position"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Top"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transação autorizada"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"Position"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Middle"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Informação adicional"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"Position"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bottom"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Obrigado e volte sempre!"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nl">"Receipt"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"MerchantName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Estabelecimento"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"MerchantAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Sem Saida, 0"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"MerchantCity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cidade"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"MerchantState"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WA"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"MerchantCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">549798965249</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Terminal"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345678</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Nsu"</span><span class="p">:</span><span class="w"> </span><span class="mi">123456</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/20"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Hour"</span><span class="p">:</span><span class="w"> </span><span class="mi">720</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"IssuerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VISA  PROD-I"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1111222233334444</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"TransactionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CANCELAMENTO DE TRANSACAO"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">123456</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"TransactionMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ONL"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"InputMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"CancelValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3,00"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"OriginalTransactonData"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DADOS DO PAGAMENTO ORIGNAL"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"OriginalTransactonType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VENDA A CREDITO"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"OriginalTransactonNsu"</span><span class="p">:</span><span class="w"> </span><span class="mi">5349</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"OriginalTransactonAuthCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">543210</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"OriginalTransactionDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/20"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"OriginalTransactionHour"</span><span class="p">:</span><span class="w"> </span><span class="mi">720</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"OrignalTransactionValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3,00"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"OrignalTransactionCardHolder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOME NOME NOME NOME NOME N"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"OriginalTransactionMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ONL"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"OriginalInputMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POST"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702/voids"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reverse"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702/voids/e5c889ea-5719-4e1a-a2da-f4f50d5bd7ca"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"confirm"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702/voids/e5c889ea-5719-4e1a-a2da-f4f50d5bd7ca/confirmation"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">      </span><span class="nl">"InputMethod"</span><span class="p">:</span><span class="s2">"D"</span><span class="err">,</span><span class="w">
+      </span><span class="nl">"CpfCnpj"</span><span class="p">:</span><span class="s2">"73096766000195"</span><span class="err">,</span><span class="w">
+      </span><span class="nl">"CancelValue"</span><span class="p">:</span><span class="s2">"8,00"</span><span class="err">,</span><span class="w">
+      </span><span class="nl">"OriginalTransactonData"</span><span class="p">:</span><span class="s2">"DADOS DO PAGAMENTO ORIGINAL"</span><span class="err">,</span><span class="w">
+      </span><span class="nl">"OriginalTransactonType"</span><span class="p">:</span><span class="s2">"VENDA A CREDITO"</span><span class="err">,</span><span class="w">
+      </span><span class="nl">"OriginalTransactonNsu"</span><span class="p">:</span><span class="s2">"864698"</span><span class="err">,</span><span class="w">
+      </span><span class="nl">"OriginalTransactonAuthCode"</span><span class="p">:</span><span class="s2">"097122"</span><span class="err">,</span><span class="w">
+      </span><span class="nl">"OriginalTransactionDate"</span><span class="p">:</span><span class="s2">"08/01/25"</span><span class="err">,</span><span class="w">
+      </span><span class="nl">"OriginalTransactionHour"</span><span class="p">:</span><span class="s2">"15:32"</span><span class="err">,</span><span class="w">
+      </span><span class="nl">"OriginalTransactionValue"</span><span class="p">:</span><span class="s2">"8,00"</span><span class="err">,</span><span class="w">
+      </span><span class="nl">"OriginalTransactionCardHolder"</span><span class="p">:</span><span class="s2">"MTIP04"</span><span class="err">,</span><span class="w">
+      </span><span class="nl">"OriginalTransactionMode"</span><span class="p">:</span><span class="s2">"ONL"</span><span class="err">,</span><span class="w">
+      </span><span class="nl">"OriginalInputMethod"</span><span class="p">:</span><span class="s2">"D"</span><span class="w">
+   </span><span class="p">}</span><span class="err">,</span><span class="w">
+   </span><span class="nl">"ConfirmationStatus"</span><span class="p">:</span><span class="mi">1</span><span class="err">,</span><span class="w">
+   </span><span class="nl">"Status"</span><span class="p">:</span><span class="mi">10</span><span class="err">,</span><span class="w">
+   </span><span class="nl">"PhysicalTransactionStatus"</span><span class="p">:</span><span class="mi">10</span><span class="err">,</span><span class="w">
+   </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="mi">0</span><span class="err">,</span><span class="w">
+   </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="s2">"Successful"</span><span class="err">,</span><span class="w">
+   </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="s2">"000"</span><span class="err">,</span><span class="w">
+   </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="s2">"&gt;CANCELAMENTO OK"</span><span class="err">,</span><span class="w">
+   </span><span class="nl">"Links"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"Method"</span><span class="p">:</span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Rel"</span><span class="p">:</span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Href"</span><span class="p">:</span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/physicalSales/2360f2fb-5b95-4be0-8060-2815eec01f6e"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"Method"</span><span class="p">:</span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Rel"</span><span class="p">:</span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Href"</span><span class="p">:</span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/2360f2fb-5b95-4be0-8060-2815eec01f6e/voids/abd3c6bb-3af9-4a02-b048-a455fc1b9f9f"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"Method"</span><span class="p">:</span><span class="s2">"DELETE"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Rel"</span><span class="p">:</span><span class="s2">"reverse"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Href"</span><span class="p">:</span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/2360f2fb-5b95-4be0-8060-2815eec01f6e/voids/abd3c6bb-3af9-4a02-b048-a455fc1b9f9f"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -25887,16 +25855,15 @@
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"MerchantVoidId"</span><span class="p">:</span><span class="s2">"123456789123456"</span><span class="p">,</span><span class="w">
-   </span><span class="nl">"MerchantVoidDate"</span><span class="p">:</span><span class="s2">"2025-01-08T18:29:15.074Z"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"MerchantVoidDate"</span><span class="p">:</span><span class="s2">"2025-01-08T18:45:59.796Z"</span><span class="p">,</span><span class="w">
    </span><span class="nl">"Card"</span><span class="p">:{</span><span class="w">
-      </span><span class="nl">"InputMode"</span><span class="p">:</span><span class="s2">"MagStripe"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"TrackOneData"</span><span class="p">:</span><span class="s2">"4227E79441BB8E79642E442685BBDF4E5C596FC5D096271882BE25C5642E8B2B76797E1E243435A2E27422FC947F993F0A8067B0957176D97E"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"TrackTwoData"</span><span class="p">:</span><span class="s2">"47F44A051AB50EE62C656B0668A26242C24AA17DD977C646"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"InputMode"</span><span class="p">:</span><span class="s2">"Emv"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"EmvData"</span><span class="p">:</span><span class="s2">"9F02060000000001009F1A020076950500000000005F2A0209869A03210315820258005F340100"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"TrackTwoData"</span><span class="p">:</span><span class="s2">"B1F9FFC37C7151EAE7C236AEDE4FA9043C3ED093E46A3152"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"EncryptedCardData"</span><span class="p">:{</span><span class="w">
          </span><span class="nl">"EncryptionType"</span><span class="p">:</span><span class="s2">"Dukpt3DesCBC"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"TrackOneDataKSN"</span><span class="p">:</span><span class="s2">"FFFFF99995C18C800083"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"TrackTwoDataKSN"</span><span class="p">:</span><span class="s2">"FFFFF99995C18C800084"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"InitializationVector"</span><span class="p">:</span><span class="s2">"0000000000000000"</span><span class="w">
+         </span><span class="nl">"InitializationVector"</span><span class="p">:</span><span class="s2">"0000000000000000"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"TrackTwoDataKSN"</span><span class="p">:</span><span class="s2">"FFFFF99995C18C800066"</span><span class="w">
       </span><span class="p">}</span><span class="w">
    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -25988,66 +25955,41 @@
 
 <h4 id="resposta-28">Resposta</h4>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-   </span><span class="nl">"VoidId"</span><span class="p">:</span><span class="s2">"abd3c6bb-3af9-4a02-b048-a455fc1b9f9f"</span><span class="p">,</span><span class="w">
-   </span><span class="nl">"CancellationStatus"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-   </span><span class="nl">"InitializationVersion"</span><span class="p">:</span><span class="mi">1730810434149</span><span class="p">,</span><span class="w">
-   </span><span class="nl">"PrintMessage"</span><span class="p">:[</span><span class="w">
-      
-   </span><span class="p">],</span><span class="w">
-   </span><span class="nl">"Receipt"</span><span class="p">:{</span><span class="w">
-      </span><span class="nl">"MerchantName"</span><span class="p">:</span><span class="s2">"TESTE API"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"MerchantAddress"</span><span class="p">:</span><span class="s2">"Alameda Xingu, 512"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"MerchantCity"</span><span class="p">:</span><span class="s2">"BARUERI"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"MerchantState"</span><span class="p">:</span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"MerchantCode"</span><span class="p">:</span><span class="s2">"0023137868169300"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Terminal"</span><span class="p">:</span><span class="s2">"41786816"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Nsu"</span><span class="p">:</span><span class="s2">"864699"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Date"</span><span class="p">:</span><span class="s2">"08/01/25"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Hour"</span><span class="p">:</span><span class="s2">"15:33"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"IssuerName"</span><span class="p">:</span><span class="s2">"CIELO#MASTERCARD"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"CardHolder"</span><span class="p">:</span><span class="s2">"MTIP04"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="s2">"541333-0037"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"MASTERCARD"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"TransactionType"</span><span class="p">:</span><span class="s2">"CANCELAMENTO DE TRANSACAO"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="s2">"097122"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"TransactionMode"</span><span class="p">:</span><span class="s2">"ONL"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"InputMethod"</span><span class="p">:</span><span class="s2">"D"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"CpfCnpj"</span><span class="p">:</span><span class="s2">"73096766000195"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"CancelValue"</span><span class="p">:</span><span class="s2">"8,00"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"OriginalTransactonData"</span><span class="p">:</span><span class="s2">"DADOS DO PAGAMENTO ORIGINAL"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"OriginalTransactonType"</span><span class="p">:</span><span class="s2">"VENDA A CREDITO"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"OriginalTransactonNsu"</span><span class="p">:</span><span class="s2">"864698"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"OriginalTransactonAuthCode"</span><span class="p">:</span><span class="s2">"097122"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"OriginalTransactionDate"</span><span class="p">:</span><span class="s2">"08/01/25"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"OriginalTransactionHour"</span><span class="p">:</span><span class="s2">"15:32"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"OriginalTransactionValue"</span><span class="p">:</span><span class="s2">"8,00"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"OriginalTransactionCardHolder"</span><span class="p">:</span><span class="s2">"MTIP04"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"OriginalTransactionMode"</span><span class="p">:</span><span class="s2">"ONL"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"OriginalInputMethod"</span><span class="p">:</span><span class="s2">"D"</span><span class="w">
-   </span><span class="p">},</span><span class="w">
-   </span><span class="nl">"ConfirmationStatus"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-   </span><span class="nl">"Status"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="w">
-   </span><span class="nl">"PhysicalTransactionStatus"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="w">
-   </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-   </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
-   </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="s2">"000"</span><span class="p">,</span><span class="w">
-   </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="s2">"&gt;CANCELAMENTO OK"</span><span class="p">,</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">      </span><span class="nl">"InputMethod"</span><span class="p">:</span><span class="s2">"C"</span><span class="err">,</span><span class="w">
+      </span><span class="nl">"CpfCnpj"</span><span class="p">:</span><span class="s2">"73096766000195"</span><span class="err">,</span><span class="w">
+      </span><span class="nl">"CancelValue"</span><span class="p">:</span><span class="s2">"13,00"</span><span class="err">,</span><span class="w">
+      </span><span class="nl">"OriginalTransactonData"</span><span class="p">:</span><span class="s2">"DADOS DO PAGAMENTO ORIGINAL"</span><span class="err">,</span><span class="w">
+      </span><span class="nl">"OriginalTransactonType"</span><span class="p">:</span><span class="s2">"VENDA A CREDITO"</span><span class="err">,</span><span class="w">
+      </span><span class="nl">"OriginalTransactonNsu"</span><span class="p">:</span><span class="s2">"864709"</span><span class="err">,</span><span class="w">
+      </span><span class="nl">"OriginalTransactonAuthCode"</span><span class="p">:</span><span class="s2">"560980"</span><span class="err">,</span><span class="w">
+      </span><span class="nl">"OriginalTransactionDate"</span><span class="p">:</span><span class="s2">"08/01/25"</span><span class="err">,</span><span class="w">
+      </span><span class="nl">"OriginalTransactionHour"</span><span class="p">:</span><span class="s2">"15:45"</span><span class="err">,</span><span class="w">
+      </span><span class="nl">"OriginalTransactionValue"</span><span class="p">:</span><span class="s2">"13,00"</span><span class="err">,</span><span class="w">
+      </span><span class="nl">"OriginalTransactionMode"</span><span class="p">:</span><span class="s2">"ONL"</span><span class="err">,</span><span class="w">
+      </span><span class="nl">"OriginalInputMethod"</span><span class="p">:</span><span class="s2">"L"</span><span class="w">
+   </span><span class="p">}</span><span class="err">,</span><span class="w">
+   </span><span class="nl">"ConfirmationStatus"</span><span class="p">:</span><span class="mi">1</span><span class="err">,</span><span class="w">
+   </span><span class="nl">"Status"</span><span class="p">:</span><span class="mi">10</span><span class="err">,</span><span class="w">
+   </span><span class="nl">"PhysicalTransactionStatus"</span><span class="p">:</span><span class="mi">10</span><span class="err">,</span><span class="w">
+   </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="mi">0</span><span class="err">,</span><span class="w">
+   </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="s2">"Successful"</span><span class="err">,</span><span class="w">
+   </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="s2">"000"</span><span class="err">,</span><span class="w">
+   </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="s2">"&gt;CANCELAMENTO OK"</span><span class="err">,</span><span class="w">
    </span><span class="nl">"Links"</span><span class="p">:[</span><span class="w">
       </span><span class="p">{</span><span class="w">
          </span><span class="nl">"Method"</span><span class="p">:</span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"Rel"</span><span class="p">:</span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Href"</span><span class="p">:</span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/physicalSales/2360f2fb-5b95-4be0-8060-2815eec01f6e"</span><span class="w">
+         </span><span class="nl">"Href"</span><span class="p">:</span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/physicalSales/ed0d7d1f-28c8-4cdb-9fb9-7e9d2e3d543d"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">
          </span><span class="nl">"Method"</span><span class="p">:</span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"Rel"</span><span class="p">:</span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Href"</span><span class="p">:</span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/2360f2fb-5b95-4be0-8060-2815eec01f6e/voids/abd3c6bb-3af9-4a02-b048-a455fc1b9f9f"</span><span class="w">
+         </span><span class="nl">"Href"</span><span class="p">:</span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/ed0d7d1f-28c8-4cdb-9fb9-7e9d2e3d543d/voids/9f05a027-6abf-4e19-a09c-963cc1f234bc"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">
          </span><span class="nl">"Method"</span><span class="p">:</span><span class="s2">"DELETE"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"Rel"</span><span class="p">:</span><span class="s2">"reverse"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Href"</span><span class="p">:</span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/2360f2fb-5b95-4be0-8060-2815eec01f6e/voids/abd3c6bb-3af9-4a02-b048-a455fc1b9f9f"</span><span class="w">
+         </span><span class="nl">"Href"</span><span class="p">:</span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/ed0d7d1f-28c8-4cdb-9fb9-7e9d2e3d543d/voids/9f05a027-6abf-4e19-a09c-963cc1f234bc"</span><span class="w">
       </span><span class="p">}</span><span class="w">
    </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
