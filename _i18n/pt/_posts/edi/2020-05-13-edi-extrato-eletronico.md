@@ -53,7 +53,7 @@ Importante: Este campo novo é um campo novo para a conciliação, não indica q
 
 **Documentação**
 
-[CIELO_Extrato_Eletronico_Manual_Versao_15.11.1](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_Manual_Versao_15_11_1.pdf)
+[CIELO_Extrato_Eletronico_Manual_Versao_15.11.1](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/edi/CIELO_Extrato_Eletronico_Manual_Versao_15_11-1.pdf)
 
 [Arquivos de Teste v15.11](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Arquivos_teste15-11.zip)
 
