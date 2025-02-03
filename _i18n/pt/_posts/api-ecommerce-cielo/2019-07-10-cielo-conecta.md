@@ -8588,7 +8588,7 @@ Para simular alguma resposta especifica utilize o campo Amount, onde de acordo c
 | Propriedade | Tipo        | Tamanho | Obrigatório | Descrição                                    |
 | ----------- | ----------- | ------- | ----------- | -------------------------------------------- |
 | `PaymentId` | String guid | 36      | Sim         | Código do Pagamento                          |
-| `VoidId`    | String guid | 36      | Sim         | Identificador do cancelamento a ser desfeito |
+| `VoidId`    | String guid | 36      | Sim         | Identificador do cancelamento |
 
 #### Resposta
 
@@ -8641,7 +8641,7 @@ Consulta um cancelamento
 | Propriedade | Tipo        | Tamanho | Obrigatório | Descrição                                    |
 | ----------- | ----------- | ------- | ----------- | -------------------------------------------- |
 | `PaymentId` | String guid | 36      | Sim         | Código do Pagamento                          |
-| `VoidId`    | String guid | 36      | Sim         | Identificador do cancelamento a ser desfeito |
+| `VoidId`    | String guid | 36      | Sim         | Identificador do cancelamento |
 
 #### Resposta
 
@@ -8655,7 +8655,7 @@ Consulta um cancelamento
 
 | Propriedade          | Tipo        | Tamanho | Obrigatório | Descrição                                                                                                                                                                                                                     |
 | -------------------- | ----------- | ------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `VoidId`             | String guid | 36      | Sim         | Identificador do cancelamento a ser desfeito                                                                                                                                                                                  |
+| `VoidId`             | String guid | 36      | Sim         | Identificador do cancelamento                                                                                                                                                                                  |
 | `CancellationStatus` | Integer     | 2       | Sim         | Status do cancelamento. <br><br>0 = NotFinished <br><br>1 = Authorized <br><br>2 = Denied <br><br>3 = Confirmed <br><br>4 = Reversed                                                                                          |
 | `Status`             | Integer     | 2       | Sim         | Status da transação.<br><br>NotFinished = 0,<br><br>Authorized = 1,<br><br>PaymentConfirmed = 2,<br><br>Denied = 3,<br><br>Voided = 10,<br><br>Refunded = 11,<br><br>Pending = 12,<br><br>Aborted = 13,<br><br>Scheduled = 20 |
 
