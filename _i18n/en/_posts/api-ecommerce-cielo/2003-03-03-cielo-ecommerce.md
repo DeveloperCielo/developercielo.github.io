@@ -2253,14 +2253,14 @@ To create a transaction that will use a credit card, you need to send a request 
         "SubEstablishment": {
             "EstablishmentCode": "2000130733",
             "Mcc": "8999",
-            "Address": "Av Marechal Camara 160",
+            "Address": "Av ... 160",
             "City": "Rio de Janeiro",
             "State": "RJ",
             "CountryCode": "76",
             "PostalCode": "20020080",
             "CompanyName": "Lojinha01",
             "Identity": "90501654000191",
-            "PhoneNumber": "24999399555"
+            "PhoneNumber": "11987654321"
       }
     }
   }
@@ -2294,14 +2294,14 @@ curl
         "SubEstablishment": {
             "EstablishmentCode": "2000130733",
             "Mcc": "8999",
-            "Address": "Av Marechal Camara 160",
+            "Address": "Av ... 160",
             "City": "Rio de Janeiro",
             "State": "RJ",
             "CountryCode": "76",
             "PostalCode": "20020080",
             "CompanyName": "Lojinha01",
             "Identity": "90501654000191",
-            "PhoneNumber": "24999399555"
+            "PhoneNumber": "11987654321"
       }
     }
   }
@@ -2361,14 +2361,14 @@ curl
         "SubEstablishment": {
             "EstablishmentCode": "2000130733",
             "Mcc": "8999",
-            "Address": "Av Marechal Camara 160",
+            "Address": "Av ... 160",
             "City": "Rio de Janeiro",
             "State": "RJ",
             "CountryCode": "76",
             "PostalCode": "20020080",
             "CompanyName": "Lojinha01",
             "Identity": "90501654000191",
-            "PhoneNumber": "24999399555"
+            "PhoneNumber": "11987654321"
       }
     },
     "ReturnMessage": "QRCode gerado com sucesso",
@@ -2414,14 +2414,14 @@ curl
             "SubEstablishment": {
                 "EstablishmentCode": "2000130733",
                 "Mcc": "8999",
-                "Address": "Av Marechal Camara 160",
+                "Address": "Av ... 160",
                 "City": "Rio de Janeiro",
                 "State": "RJ",
                 "CountryCode": "76",
                 "PostalCode": "20020080",
                 "CompanyName": "Lojinha01",
                 "Identity": "90501654000191",
-                "PhoneNumber": "24999399555"
+                "PhoneNumber": "11987654321"
       }
     },
         "ReturnMessage": "QRCode gerado com sucesso",
