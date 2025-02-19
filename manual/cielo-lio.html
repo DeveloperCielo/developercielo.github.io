@@ -165,7 +165,7 @@
   <li>Garantir a compatibilidade com o Android 10 (permissões, notificações, criação de intents, etc)</li>
 </ul>
 
-<aside class="warning">Gostaríamos de informar que o SDK foi descontinuado e, a partir de agora, enviaremos apenas patches com correções pontuais.</aside>
+<aside class="warning">Gostaríamos de informar que o SDK foi descontinuado e, a partir de agora, enviaremos apenas patches com correções pontuais. Porém se estiver utilizando o SDK Cielo, garanta o uso de uma versão maior ou igual que 2.1.0.</aside>
 
 <h2 id="beneficios-da-integração-via-deeplink">Beneficios da Integração via Deeplink</h2>
 
@@ -551,40 +551,13 @@ aplicativo na plataforma Cielo LIO.</p>
 
 <p>O sistema operacional da plataforma Cielo LIO foi personalizado e, com isso, surgiu o Cielo OS, que é baseado em Android.</p>
 
-<h2 id="versão-target-da-aplicação">Versão target da aplicação</h2>
+<h2 id="cielo-lio---versão-target-da-aplicação">Cielo LIO - Versão target da aplicação</h2>
 
 <p>Recomenda-se que o desenvolvedor utilize as versões de sdk mínima 24 e target 29, para garantir compatibilidade com os modelos e versões do Android da LIO. <strong>Se o target estiver menor do que a versão 29, não estará apto para ser distribuído para os nossos terminais.</strong></p>
 
 <blockquote>
   <p>Para que o seu aplicativo funcione corretamente em todos os terminais, deve-se garantir que o aplicativo esteja de acordo com as definições de uso do Android 10 (Ex: permissões, notificações, uso de serviço em foreground).</p>
 </blockquote>
-
-<h2 id="bloqueando-pagamento-fora-do-aplicativo">Bloqueando pagamento fora do Aplicativo</h2>
-
-<p>Você poderá configurar seu App na Cielo LIO como um aplicativo padrão, ou seja, você pode deixar o pagamento disponível apenas para o seu aplicativo, bloqueando pagamentos via interface da Cielo LIO. Para isso você deve abrir um ticket no portal do desenvolvedor informando o package name do aplicativo e solicitando que o mesmo seja definido como frente de caixa.</p>
-
-<p>Após a aprovado/certificado, o App estará disponível para ser selecionado com App Padrão de venda e com isso você consegue deixar o pagamento disponível apenas pelo seu aplicativo</p>
-
-<h3 id="intent-para-receber-o-valor-da-venda">Intent para receber o valor da venda</h3>
-
-<p>A Intent informada ao submeter o App, deve ser a tela inicial de venda do seu App.</p>
-
-<p>O parâmetro de valor citado no item anterior, serve para receber o valor da venda, caso o usuário inicie uma transação usando o App padrão da Cielo, ao invés de usar o App Padrão selecionado.</p>
-
-<p>Esse valor é passado no formato de centavos, sem separação dos decimais. Por exemplo, o valor 152,25 é passado como 15225, ficando por conta do App fazer o tratamento e formatação.</p>
-
-<p>Essa Intent será chamada em dois momentos:</p>
-
-<ul>
-  <li>
-    <p>Quando o seu app estiver marcado como padrão, e o snap do Pinpad for conectado.</p>
-  </li>
-  <li>
-    <p>Quando o seu app estiver marcado como padrão, e uma transação for iniciada usando o App Cielo Vender (App padrão vendas da Cielo). Neste cenário o valor digitado no App Cielo Vender será passado como Intent Extra para o seu App.</p>
-  </li>
-</ul>
-
-<p>Caso possua algúma dúvida na configuração desse recurso, você pode abrir um ticket em nosso suporte: <a href="https://devcielo.zendesk.com/hc/pt-br/requests/new?ticket_form_id=360000614392">Clique aqui</a></p>
 
 <h2 id="recursos-indisponíveis">Recursos Indisponíveis</h2>
 
@@ -761,9 +734,7 @@ aplicativo na plataforma Cielo LIO.</p>
 <ul>
   <li>Selecione a opção <strong>Acessar Funções Técnicas</strong> e depois clique em <strong>Prosseguir</strong>.</li>
   <li>Digite o número da função <strong>69</strong> e clique em <strong>Executar função</strong>.</li>
-  <li>Para inserir a senha ambiente, você precisa fazer o cálculo. Atenção: Esta senha é alterada diariamente.
-Cálculo: ddmm * mmdd = senha (dd é o dia atual e mm o mês atual)
-Exemplo (dia: 06/12): 0612 * 1206 = 738072</li>
+  <li>Para inserir a senha ambiente, no Dev Console, acesse <em>Meus aplicativos</em>, clique em <em>Apps privados</em>, depois em <em>“Ver detalhes”</em> do aplicativo desejado e clique em <em>“Desinstalar app”</em> para visualizar a senha.</li>
   <li>Selecione opção <strong>Certificação</strong> para a configuração do ambiente.</li>
   <li>Retorne para a tela de inserção de CNPJ/CPF</li>
   <li>Após entrar em contato com o Suporte aos Integradores insira o CNPJ que será informado pelo time Cielo.</li>
@@ -852,8 +823,10 @@ Exemplo (dia: 06/12): 0612 * 1206 = 738072</li>
   <li>100% das transações dever ser via Cielo.</li>
   <li>Deve ficar disponível para todos Clientes da Cielo Store.</li>
   <li>Imagem, ícones e screenshot devem estar formato correto e elegível</li>
-  <li>Manter seu app sempre nas versões mais atuais do SDK. Confira as versões atuais através do <a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/sdk-cielo-lio">Portal do Dev na área logada</a>.</li>
+  <li>Manter seu app sempre nas versões mais atuais do SDK. Confira as versões atuais através do <a href="https://www.cieloliostore.com.br/sdk-cielo">Cielo Store Dev Console.</a>.</li>
 </ul>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/sdk_cielo_versao" alt="DevConsole SDK" /></p>
 
 <p><strong>O que o app não pode ter?</strong></p>
 
@@ -1010,9 +983,13 @@ Exemplo (dia: 06/12): 0612 * 1206 = 738072</li>
   <li>Gerar valores para teste até R$ 0,05 centavos.</li>
   <li><strong>IMPORTANTE: Qualquer valor transacionado maior do que R$ 0,05 devem ser cancelados para que não haja efetivação da transação.</strong></li>
   <li>100% das transações dever ser via Cielo.</li>
+  <li>Garantir que o aplicativo seja seguro para todos os públicos.</li>
   <li>Manter seu app sempre nas versões mais atuais do SDK. Confira as versões atuais através do <a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/sdk-cielo-lio">Portal do Dev</a> na área logada.</li>
   <li>Garantir que o aplicativo seja seguro para todos os públicos.</li>
+  <li>Manter seu app sempre nas versões mais atuais do SDK. Confira as versões atuais através do <a href="https://www.cieloliostore.com.br/sdk-cielo">Cielo Store Dev Console.</a>.</li>
 </ul>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/sdk_cielo_versao" alt="DevConsole SDK" /></p>
 
 <p><strong>O que o app não pode ter?</strong></p>
 
@@ -1037,6 +1014,69 @@ Exemplo (dia: 06/12): 0612 * 1206 = 738072</li>
 <p>Acesse no menu <strong>Lojas Privadas</strong>, clique em <strong>Todas as lojas</strong>, selecione a loja que deseja associar os ECs, em seguida clique no botão <strong>“+ Associar ECs”</strong>, e digite todos os ECs que serão associados àquela loja, depois clique no botão <strong>“Concluir”</strong> para finalizar.</p>
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/NovoAplicativo6.png" alt="NovoAplicativo6" /></p>
+
+<h3 id="desassociar-ec-de-loja-privada-na-cielo-store-dev-console">Desassociar EC de Loja privada na Cielo Store Dev Console</h3>
+
+<p>Agora é possível desassociar ECs de uma loja privada no Dev Console, acesse a aba <em>Lojas privadas</em> localize a loja privada e depois clique no botão <em>“Ver ECs”.</em></p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/desassociar_1.png" alt="Desassociar1" /></p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/desassociar_2.png" alt="Desassociar2" /></p>
+
+<h4 id="desassociando-um-único-ec">Desassociando um único EC</h4>
+
+<p>Encontre o EC pela paginação ou barra de busca, clique no botão <em>“Desassociar”.</em> Ao clicar será exibido uma modal para confirmar a desassociação, clique no botão <em>“Sim”.</em> E pronto, o EC será excluído da loja privada.</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/desassociar_3.png" alt="Desassociar3" /></p>
+
+<p>Utilizando a busca:</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/desassociar_4.png" alt="Desassociar4" /></p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/desassociar_5.png" alt="Desassociar5" /></p>
+
+<h4 id="desassociando-vários-ou-todos-os-ecs">Desassociando vários ou todos os ECs</h4>
+
+<p>Encontre os ECs pela paginação ou barra de busca, selecione os ECs e clique no botão <em>“Desassociar ECs selecionados”.</em> Ao clicar será exibido uma modal para confirmar a desassociação, clique no botão <em>“Sim”.</em> E pronto, os ECs serão excluídos da loja privada.</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/desassociar_6.png" alt="Desassociar6" /></p>
+
+<p>Ao clicar no checkbox ao lado de código EC, todos os ECs serão selecionados:</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/desassociar_7.png" alt="Desassociar7" /></p>
+
+<blockquote>
+  <p><strong>IMPORTANTE:</strong> Vale lembrar que a desinstalação deve ser realizada diretamente pelo cliente. Para o cliente desinstalar um aplicativo privado, primeiro é necessário que você desassocie o EC da loja privada, para que assim o cliente prossiga com as próximas etapas:</p>
+</blockquote>
+
+<p><strong>LIO ON (V3):</strong></p>
+<ul>
+  <li>Acesse “Ajuda” &gt; Ajustes &gt; Apps</li>
+  <li>Digite a senha (informada no Dev Console)</li>
+  <li>Escolha o app e em seguida a opção “Desinstalar”</li>
+</ul>
+
+<p><strong>Cielo Smart (DX8000):</strong></p>
+<ul>
+  <li>Acesse “Configurações” &gt; Atualização de software</li>
+  <li>Selecione o menu no topo e em seguida “Mostrar demais apps”</li>
+  <li>Escolha o app e depois a opção “Desinstalar”</li>
+  <li>Digite a senha (informada no Dev Console)</li>
+</ul>
+
+<aside class="warning">**ATENÇÃO:** A senha é disponibilizada no Dev Console, acesse Meus aplicativos, clique em Apps privados, depois em “Ver detalhes” do aplicativo desejado e clique em “Desinstalar app” para visualizar a senha.</aside>
+
+<h3 id="busca-por-loja-privada-e-ec">Busca por Loja privada e EC</h3>
+
+<p>Para encontrar de forma rápida uma loja privada ou um EC, utilize a barra de busca no topo da tela.</p>
+
+<p>Na aba de <em>Lojas Privadas:</em></p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/buscar_loja_1.png" alt="Buscar Loja" /></p>
+
+<p>Ao clicar em <em>“Ver ECs”:</em></p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/buscar_loja_2.png" alt="Buscar Loja 2 " /></p>
 
 <h3 id="download-de-aplicativo-da-loja-privada-na-lio">Download de Aplicativo da loja privada na LIO</h3>
 
@@ -1111,6 +1151,66 @@ Exemplo (dia: 06/12): 0612 * 1206 = 738072</li>
 <p>É possível enviar o piloto para todas as máquinas ou para algumas máquinas específicas do cliente.</p>
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cielo11.png" alt="StatusDeAplicativo9" /></p>
+
+<h2 id="configuração-de-frente-de-caixa-e-aplicativo-padrão">Configuração de Frente de caixa e Aplicativo padrão</h2>
+
+<p>Agora é possível configurar seu app na Cielo Smart como um aplicativo de frente de caixa, ou seja, você pode deixar o seu aplicativo como “default” assim que ligar a máquina, e/ou escolher também a opção de “aplicativo padrão”, desta forma o pagamento ficará disponível apenas para o seu aplicativo, bloqueando pagamentos via interface da Cielo Smart.</p>
+
+<p>Acesse o <a href="https://www.cieloliostore.com.br/sign-in">Dev Console</a>, clique em <em>Apps públicos</em> ou em <em>Apps privados</em>, depois em <em>“Ver detalhes”</em> do aplicativo desejado e clique no botão <em>“Configurar app”.</em></p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/frente_caixa_1.png" alt="Frente de Caixa 1" /></p>
+
+<p>Ao clicar no botão <em>“Configurar app”</em>, irá abrir as opções para você escolher.</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/frente_caixa_2.png" alt="Frente de Caixa 2" /></p>
+
+<h3 id="frente-de-caixa">Frente de caixa</h3>
+
+<p>Ao habilitar somente esta opção, o cliente deverá configurar o seu aplicativo na Cielo Smart para que todas as transações sejam realizadas através desse aplicativo.</p>
+
+<p>Para realizar a configuração, oriente seu cliente a seguir o passo a passo:</p>
+
+<ul>
+  <li><em>LIO On(V3): Ajuda &gt; Minha Lio &gt; App padrão de vendas</em></li>
+  <li><em>Cielo Smart: Abra o aplicativo “Cielo Router” na tela inicial &gt; Selecione o seu app</em></li>
+</ul>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/frente_caixa_3.png" alt="Frente de Caixa 3" /></p>
+
+<h4 id="frente-de-caixa--aplicativo-padrão">Frente de caixa + Aplicativo padrão</h4>
+
+<p>Ao habitar as opções Frente de caixa e Aplicativo padrão, todas as Cielo Smart que possuem esse aplicativo instalado conseguirão transacionar somente pelo aplicativo.</p>
+
+<aside class="warning">ATENÇÃO: Esta funcionalidade é somente para o aplicativo privado e ficará disponível para todos os clientes que usam o aplicativo, não há risco de alteração pelo cliente.</aside>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/frente_caixa_4.png" alt="Frente de Caixa 4" /></p>
+
+<h3 id="intent-para-receber-o-valor-da-venda">Intent para receber o valor da venda</h3>
+
+<p>A <em>intent</em> informada ao submeter o aplicativo, deve ser a tela inicial de venda do seu aplicativo.</p>
+
+<p>O <em>parâmetro</em> serve para receber o valor da venda, caso o usuário inicie uma transação usando o App padrão da Cielo, ao invés de usar o App Padrão selecionado.</p>
+
+<p>Esse valor é passado no formato de centavos, sem separação dos decimais. Por exemplo, o valor 152,25 é passado como 15225, ficando por conta do App fazer o tratamento e formatação.</p>
+
+<p>Essa <em>intent</em> será chamada em dois momentos:</p>
+
+<ul>
+  <li>Quando o seu aplicativo estiver marcado como padrão, e o snap do Pinpad for conectado.</li>
+  <li>Quando o seu aplicativo estiver marcado como padrão, e uma transação for iniciada usando o App Cielo Vender (App padrão vendas da Cielo). Neste cenário o valor digitado no App Cielo Vender será passado como <em>intent extra</em> para o seu aplicativo.</li>
+</ul>
+
+<p>A configuração de intent é por versão do aplicativo, logo se ao aplicativo tem várias versões, você poderá adicionar uma intent por versão, ou atualizá-las.</p>
+
+<p>Para realizar as configurações dessa intent, o aplicativo deve estar marcado como <em>“Frente de caixa”</em> e <em>“Aplicativo padrão”.</em> Após marcado estas opções, clique no botão “Frente de caixa” para fazer a configuração da <em>intent</em> e do parâmetro.</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/frente_caixa_5.png" alt="Frente de Caixa 5" /></p>
+
+<p>Ao clicar no botão <em>“Frente de caixa”</em>, você poderá configurar a <em>intent</em> e o <em>parâmetro.</em></p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/frente_caixa_6.png" alt="Frente de Caixa 5" /></p>
+
+<p>Caso possua alguma dúvida na configuração desse recurso, você pode abrir um chamado em nosso <a href="https://devcielo.zendesk.com/hc/pt-br/requests/new">Suporte</a>.</p>
 
 <h2 id="publicação-de-app-privado-em-produção">Publicação de app privado em produção</h2>
 
