@@ -53,7 +53,7 @@ Important: This new field is a new field for reconciliation, it does not indicat
 
 **Documentation**
 
-[CIELO_Extrato_Eletronico_Manual_Versao_15.12](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Eletronic_Statement_-_Manual_-_Version15_12.pdf)
+[CIELO_Extrato_Eletronico_Manual_Versao_15.12](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO_Eletronic_Statement_Manual_-_Version15.12.pdf)
 
 [Test Files v15.11](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Arquivos_teste15-11.zip)
 
