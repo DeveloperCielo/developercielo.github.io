@@ -32,14 +32,6 @@ tags:
 
 **Data de implantação: 24/10/2024**
 
-**Documentação**
-
-[CIELO_Extrato_Eletronico_Manual_Versao_15.10](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO_Extrato_Eletronico_Manual_Versao_15.10.rar)
-
-[Arquivos de Teste v15.10](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/Arquivosdetesteversao15_10.zip)
-
-[Tabelas de ajuste V15.10](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/v15_10-Tabela-IX-EDIv15PT-EN_2.xlsx)
-
 **Melhorias no Extrato Eletrônico v15.11.1**
 
 * Ajuste na informação enviada na posição 557 a 565 dos registros tipo "E": Este campo será dividido em duas posições distintas, sendo:
@@ -51,11 +43,33 @@ Importante: Este campo novo é um campo novo para a conciliação, não indica q
 
 **Data de implantação: 28/01/2025**
 
-**Documentação**
+**Melhorias no Extrato Eletrônico v15.13**
 
-[CIELO_Extrato_Eletronico_Manual_Versao_15.12](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/CIELO_Extrato_Eletronico_Manual_Versao15.12.pdf)
+Prezados Clientes,
 
-[Arquivos de Teste v15.12](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Arquivo_teste_15.12.zip)
+Melhorias no Extrato eletrônico:
+
+* 1. Inclusão de novo campo para demonstração de transações Pix automático:
+  * Inclusão do campo ID recorrência.
+    Para mais informações consultar o manual abaixo na página 30.
+
+
+ * 2. Demonstração de débitos em conta:
+   * Inclusão do domínio 45 na tabela de status de pagamento IV
+     Para mais informações consultar o manual abaixo na página 39 e 92 a 93.
+
+ **Data de implantação: 16/06/2025**
+
+ **Material**
+
+[CIELO_Extrato_Eletronico_Manual_Versao_15.13](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_15_13.pdf)
+
+[Tabela Ajustes v15.13](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/v15_13-Tabela-IX-EDIv15PT-EN_2.xlsx)
+
+
+**Arquivos de teste:**
+
+  Serão disponibilizados na semana do dia 26/05.
 
 # Introdução
 
