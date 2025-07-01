@@ -40,7 +40,9 @@ Improvements to the Electronic Statement:
 **Attachments**
 
 [LAYOUTS ATUALIZADOS](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/LAYOUTS_ATUALIZADOS.zip)
+
 [TABELA DE AJUSTES](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/TABELA_DE_AJUSTES.zip)
+
 [ARQUIVOS DE TESTE V15_13](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ARQUIVOS_DE_TESTE_V15_13.zip)
 
 
