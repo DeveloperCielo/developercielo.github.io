@@ -13,36 +13,6 @@ tags:
 
 # EXTRATO ELETRÔNICO v15
 
-**Melhorias no Extrato Eletrônico v15.10**
-
-- **Atualização no arquivo de Negociação de Recebíveis Cielo (NRC)**:
-  - Inclusão do campo **"Taxa efetiva da negociação"** nos registros tipo "A".  
-    _Esse campo proporciona mais transparência ao processo de conciliação das operações efetuadas pelo cliente._
-  - Inclusão do campo **"Valor de desconto"** nos registros tipo "B".  
-    _Esse campo oferece visibilidade da diferença entre o valor bruto e o valor líquido._
-
-- **Atualização nos arquivos de venda e pagamento**:
-  - Inclusão do **CNPJ** que efetuou a negociação de recebíveis nos registros tipo "E".  
-    _Esse campo detalha a origem da negociação realizada pelo cliente._
-  - Equalização do domicílio bancário nos arquivos de pagamento.  
-    _Isso garante uma visualização consistente entre os registros de detalhe e a consolidação do saldo das URs._
-
-- **Atualização de tabelas de domínio**:
-  - Revisão da **Tabela IX** do manual.
-
-**Data de implantação: 24/10/2024**
-
-**Melhorias no Extrato Eletrônico v15.11.1**
-
-* Ajuste na informação enviada na posição 557 a 565 dos registros tipo "E": Este campo será dividido em duas posições distintas, sendo:
-  *  557 a 560: Uso Cielo (Campo reservado para uso Cielo)
-  * 561 a 565: Código modalidade de precificação de taxa
-* Inclusão de nova tabela de domínio: Tabela XI – Tipo de precificação
-
-Importante: Este campo novo é um campo novo para a conciliação, não indica que a sua taxa foi alterada.
-
-**Data de implantação: 28/01/2025**
-
 **Melhorias no Extrato Eletrônico v15.13**
 
 Prezados Clientes,
@@ -59,6 +29,39 @@ Melhorias no Extrato eletrônico:
      Para mais informações consultar o manual abaixo na página 39 e 92 a 93.
 
  **Data de implantação: 16/06/2025**
+
+**Atualizações V15.13 - Demonstração débitos em conta + Pix automático**
+
+* Inclusão do status de pagamento 45 na tabela IV para demonstração de liquidações de débitos em conta
+* Inclusão de ID para demonstração de transações recorrentes no Pix nos registros tipo 8
+
+ **Data de implantação: 16/06/2025**
+
+**Anexos**
+
+[LAYOUTS ATUALIZADOS](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/LAYOUTS_ATUALIZADOS.zip)
+[TABELA DE AJUSTES](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/TABELA_DE_AJUSTES.zip)
+[ARQUIVOS DE TESTE V15_13](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ARQUIVOS_DE_TESTE_V15_13.zip)
+
+# Novo fluxo de entrega de extratos
+
+**Melhoria no fluxo de entrega de extratos**
+
+ 
+* **Fluxo de transmissão único através de SFTP:** A Cielo entrega os arquivos no servidor do cliente/conciliador
+* **Portal único para clientes –** Agora todas as consultas podem ser efetuadas no site Cielo (www.cielo.com.br)
+* **Canal de atendimento único para clientes e conciliadores:** EDI@cielo.com.br ou 4002-5270
+ 
+**Datas de implantação:**
+
+ * Desativação de entrega de arquivos através de conexões Connect Direct, Client EDI e SFTP (conciliador busca arquivos na Cielo): **15/07/2025**
+ * Ativação de download de extratos através do site Cielo: **31/07/2025**
+ 
+
+**Anexos:**
+
+[FAQ ATUALIZAÇÃO DE FLUXO DE ENTREGA DOS EXTRATOS](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/FAQ_ATUALIZACAO_DE_FLUXO_DE_ENTREGA_DOS_EXTRATOS.zip)
+
 
  **Material**
 

@@ -13,37 +13,6 @@ tags:
 
 # ELECTRONIC STATEMENT v15
 
-**Improvements in Electronic Statement v15.10**
-
-- **Update to the Cielo Receivables Negotiation (NRC) file**:
-  - Inclusion of the field **"Effective negotiation rate"** in type "A" records.  
-    _This field provides more transparency to the process of reconciling transactions carried out by the client._
-  - Inclusion of the field **"Discount value"** in type "B" records.  
-    _This field provides visibility into the difference between the gross value and the net value._
-
-- **Update in sales and payment files**:
-  - Inclusion of the **CNPJ** that carried out the negotiation of receivables in type "E" records.  
-    _This field details the origin of the negotiation carried out by the client._
-  - Equalization of bank address in payment files.  
-    _This ensures a consistent view between detail records and UR balance consolidation._
-
-- **Domain table update**:
-  - Review of **Table IX** of the manual.
-
-**Implementation date: 10/24/2024**
-
-
-**Improvements to Electronic Statement v15.11.1**
-
-* Adjustment to the information sent in position 557 to 565 of type "E" records: This field will be divided into two distinct positions, being:
-  * 557 to 560: Cielo Use (Field reserved for Cielo use)
-  * 561 to 565: Rate pricing modality code
-* Inclusion of new domain table: Table XI – Pricing type
-
-Important: This new field is a new field for reconciliation, it does not indicate that your rate has changed.
-
-**Implementation date: 01/28/2025**
-
 **Improvements to Electronic Statement v15.13**
 
 Dear Customers,
@@ -59,6 +28,40 @@ Improvements to the Electronic Statement:
      For more information, see the manual below on pages 39 and 92 to 93.
 
 **Implementation date: 16/06/2025**
+
+
+**Updates V15.13 - Demonstration of subsidies in account + automatic Pix**
+
+* Inclusion of payment status 45 in table IV to demonstrate settlements of debits in account
+* Inclusion of ID to demonstrate recurring transactions in Pix in type 8 records
+
+**Implementation date: 06/16/2025**
+
+**Attachments**
+
+[LAYOUTS ATUALIZADOS](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/LAYOUTS_ATUALIZADOS.zip)
+[TABELA DE AJUSTES](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/TABELA_DE_AJUSTES.zip)
+[ARQUIVOS DE TESTE V15_13](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ARQUIVOS_DE_TESTE_V15_13.zip)
+
+
+# New statement delivery flow
+
+**Improvement in the statement delivery flow**
+
+* **Single transmission flow via SFTP:** Cielo delivers the files to the client/conciliator server
+* **Single portal for clients –** All queries can now be made on the Cielo website (www.cielo.com.br)
+* **Single service channel for clients and conciliators:** EDI@cielo.com.br or 4002-5270
+
+**Implementation dates:**
+
+* Deactivation of file delivery via Connect Direct, Client EDI and SFTP connections (conciliator searches for files on Cielo): **07/15/2025**
+
+* Activation of statement download via the Cielo website: **07/31/2025**
+
+**Attachments:**
+
+[FAQ ATUALIZAÇÃO DE FLUXO DE ENTREGA DOS EXTRATOS](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/FAQ_ATUALIZACAO_DE_FLUXO_DE_ENTREGA_DOS_EXTRATOS.zip)
+
 
 **Documentation**
 
