@@ -2159,7 +2159,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 
 ```json
 {
-"MerchantOrderId": "201904150001123",
+    "MerchantOrderId": "201904150001123",
     "Payment": {
         "SubordinatedMerchantId": "{{SubordinatedMerchantId}}",
         "Type": "PhysicalCreditCard",
@@ -2206,9 +2206,9 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
                 "PhoneNumber": "1198080202011",
                 "CountryCode": "076",
                 "DocumentType": "Cpf",
-                "DocumentNumber": "08470483064"
+                "DocumentNumber": "08470483064",
+                "LegalBussinesName": "Loja Teste"
             }
-
         }
     }
 }
@@ -2257,241 +2257,243 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 | `PaymentFacilitator.SubEstablishment.CountryCode`       | String         | 3         | Sim         | Código do País do SubSeller - Obs: 076 - Brasil                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | `PaymentFacilitator.SubEstablishment.DocumentType`      | String         | 4         | Sim         | Tipo do documento do SubSeller - CPF ou CNPJ                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | `PaymentFacilitator.SubEstablishment.DocumentNumber`    | String         | 14        | Sim         | Número do CPF ou CNPJ do SubSeller                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| `PaymentFacilitator.SubEstablishment.LegalBusinessName`    | String         | 40        | Sim         | Nome da Razão Social do SubSeller                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 
 #### Resposta
 
 ```json
 {
- "MerchantOrderId": "201904150001123",
-    "Customer": {
-        "Name": "[Guest]"
-    },
-    "Payment": {
-        "Installments": 2,
-        "Interest": "ByIssuer",
-        "Capture": true,
-        "CreditCard": {
-            "ExpirationDate": "12/2035",
-            "BrandId": 2,
-            "IssuerId": 8080,
-            "TruncateCardNumberWhenPrinting": true,
-            "PanSequenceNumber": 0,
-            "InputMode": "Emv",
-            "AuthenticationMethod": "OfflineAuthentication",
-            "TrackTwoData": "************************************************",
-            "EmvData": "****************************************************************************************************************************************************************",
-            "IsFallback": false,
-            "BrandInformation": {
-                "Type": "VENDA A CREDITO",
-                "Name": "MASTERCARD",
-                "Description": "PARCELADO EMISSOR EM 2 PARCELAS"
-            },
-            "SaveCard": true,
-            "CardToken": "696200f1-f788-4004-a48d-1889269746ff",
-            "EncryptedCardData": {
-                "EncryptionType": 4,
-                "TrackTwoDataKSN": "FFFFF99995C18C80005E",
-                "InitializationVector": "0000000000000000",
-                "IsDataInTLVFormat": false
-            }
-        },
-        "Amount": 100,
-        "ReceivedDate": "2024-06-03T15:09:29Z",
-        "CapturedAmount": 100,
-        "CapturedDate": "2024-06-03T15:09:31Z",
-        "Provider": "Cielo",
-        "Status": 2,
-        "PhysicalTransactionStatus": 2,
-        "IsSplitted": false,
-        "ReturnMessage": "APROVADA 259345",
-        "ReturnCode": "000",
-        "PaymentId": "aed16b0d-33a6-48b5-af80-f6c7351590ba",
-        "Type": "PhysicalCreditCard",
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Links": [
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/physicalSales/aed16b0d-33a6-48b5-af80-f6c7351590ba"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "confirm",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/aed16b0d-33a6-48b5-af80-f6c7351590ba/confirmation"
-            },
-            {
-                "Method": "DELETE",
-                "Rel": "reverse",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/aed16b0d-33a6-48b5-af80-f6c7351590ba"
-            }
-        ],
-        "PaymentDateTime": "2024-06-03T12:09:30.578Z",
-        "ServiceTaxAmount": 0,
-        "SoftDescriptor": "Loja Teste",
-        "ProductId": 80,
-        "PinPadInformation": {
-            "TerminalId": "00000001",
-            "SerialNumber": "006H017950",
-            "PhysicalCharacteristics": "PinPadWithChipReaderWithSamModuleAndContactless",
-            "ReturnDataInfo": "00"
-        },
-        "PrintMessage": [
-            {
-                "Position": "Top",
-                "Message": "VALOR DA TARIFA:         0,00#TRIBUTOS:         2,41#SEGUROS:         0,00#OUTRAS DESPESAS:         0,00#T0TAL:         1,10#CET ANUAL:      0,00%"
-            }
-        ],
-        "ReceiptInformation": [
-            {
-                "Field": "MERCHANT_NAME",
-                "Label": "NOME DO ESTABELECIMENTO",
-                "Content": "Feira ACBR"
-            },
-            {
-                "Field": "MERCHANT_ADDRESS",
-                "Label": "ENDEREÇO DO ESTABELECIMENTO",
-                "Content": "Alameda Xingu, 512"
-            },
-            {
-                "Field": "MERCHANT_CITY",
-                "Label": "CIDADE DO ESTABELECIMENTO",
-                "Content": "BARUERI"
-            },
-            {
-                "Field": "MERCHANT_STATE",
-                "Label": "ESTADO DO ESTABELECIMENTO",
-                "Content": "SP"
-            },
-            {
-                "Field": "MERCHANT_CODE",
-                "Label": "COD.ESTAB.",
-                "Content": "0010255016990001"
-            },
-            {
-                "Field": "TERMINAL",
-                "Label": "POS",
-                "Content": "42001001"
-            },
-            {
-                "Field": "NSU",
-                "Label": "DOC",
-                "Content": "809102"
-            },
-            {
-                "Field": "DATE",
-                "Label": "DATA",
-                "Content": "03/06/24"
-            },
-            {
-                "Field": "HOUR",
-                "Label": "HORA",
-                "Content": "12:09"
-            },
-            {
-                "Field": "ISSUER_NAME",
-                "Label": "EMISSOR",
-                "Content": "CIELO#MASTERCARD"
-            },
-            {
-                "Field": "CARD_NUMBER",
-                "Label": "CARTÃO",
-                "Content": "546056-7843"
-            },
-            {
-                "Field": "BRAND",
-                "Label": "BANDEIRA",
-                "Content": "MASTERCARD"
-            },
-            {
-                "Field": "TRANSACTION_TYPE",
-                "Label": "TIPO DE TRANSAÇÃO",
-                "Content": "VENDA A CREDITO"
-            },
-            {
-                "Field": "TRANSACTION_DESC",
-                "Label": "DESCRIÇÃO DA TRANSAÇÃO",
-                "Content": "PARCELADO EMISSOR EM 2 PARCELAS"
-            },
-            {
-                "Field": "AUTHORIZATION_CODE",
-                "Label": "AUTORIZAÇÃO",
-                "Content": "259345"
-            },
-            {
-                "Field": "TRANSACTION_MODE",
-                "Label": "MODO DA TRANSAÇÃO",
-                "Content": "ONL"
-            },
-            {
-                "Field": "INPUT_METHOD",
-                "Label": "MODO DE ENTRADA",
-                "Content": "C"
-            },
-            {
-                "Field": "CPF_CNPJ",
-                "Label": "CPF OU CNPJ",
-                "Content": "24904219000183"
-            },
-            {
-                "Field": "VALUE",
-                "Label": "VALOR",
-                "Content": "1,00"
-            },
-            {
-                "Field": "SOFT_DESCRIPTOR",
-                "Label": "SOFT DESCRIPTOR",
-                "Content": "Loja Teste"
-            }
-        ],
-        "Receipt": {
-            "MerchantName": "Feira ACBR",
-            "MerchantAddress": "Alameda Xingu, 512",
-            "MerchantCity": "BARUERI",
-            "MerchantState": "SP",
-            "MerchantCode": "0010255016990001",
-            "Terminal": "42001001",
-            "Nsu": "809102",
-            "Date": "03/06/24",
-            "Hour": "12:09",
-            "IssuerName": "CIELO#MASTERCARD",
-            "CardNumber": "546056-7843",
-            "Brand": "MASTERCARD",
-            "TransactionType": "VENDA A CREDITO",
-            "TransactionDesc": "PARCELADO EMISSOR EM 2 PARCELAS",
-            "AuthorizationCode": "259345",
-            "TransactionMode": "ONL",
-            "InputMethod": "C",
-            "CpfCnpj": "24904219000183",
-            "Value": "1,00",
-            "SoftDescriptor": "Loja Teste"
-        },
-        "AuthorizationCode": "259345",
-        "ProofOfSale": "809102",
-        "InitializationVersion": 1711483206145,
-        "ConfirmationStatus": 0,
-        "EmvResponseData": "910a469327c2d6eff8a90012",
-        "SubordinatedMerchantId": "ddb891bf-73ae-41b0-8d37-380a9902438c",
-        "OfflinePaymentType": "Online",
-        "MerchantAcquirerId": "0010255016990001",
-        "TerminalAcquirerId": "42001001",
-        "PaymentFacilitator": {
-            "TerminalAcquirerId": "12345678",
-            "SubEstablishment": {
-                "DocumentType": 1,
-                "DocumentNumber": "08470483064",
-                "EstablishmentCode": "10084487",
-                "Mcc": "8999",
-                "Address": "Alameda Xingu",
-                "City": "São Paulo",
-                "State": "SP",
-                "PostalCode": "06455030",
-                "PhoneNumber": "1198080202011",
-                "CountryCode": "076"
-            },
-            "EstablishmentCode": "1234567890"
-        }
-    }
+    "MerchantOrderId": "201904150001123",
+    "Customer": {
+        "Name": "[Guest]"
+    },
+    "Payment": {
+        "Installments": 2,
+        "Interest": "ByIssuer",
+        "Capture": true,
+        "CreditCard": {
+            "ExpirationDate": "12/2035",
+            "BrandId": 2,
+            "IssuerId": 8080,
+            "TruncateCardNumberWhenPrinting": true,
+            "PanSequenceNumber": 0,
+            "InputMode": "Emv",
+            "AuthenticationMethod": "OfflineAuthentication",
+            "TrackTwoData": "************************************************",
+            "EmvData": "****************************************************************************************************************************************************************",
+            "IsFallback": false,
+            "BrandInformation": {
+                "Type": "VENDA A CREDITO",
+                "Name": "MASTERCARD",
+                "Description": "PARCELADO EMISSOR EM 2 PARCELAS"
+            },
+            "SaveCard": true,
+            "CardToken": "4e331c66-ca64-472c-90cf-be430552d9c1",
+            "EncryptedCardData": {
+                "EncryptionType": 4,
+                "TrackTwoDataKSN": "FFFFF99995C18C80005E",
+                "InitializationVector": "0000000000000000",
+                "IsDataInTLVFormat": false
+            }
+        },
+        "Amount": 100,
+        "ReceivedDate": "2025-05-09T17:32:52Z",
+        "CapturedAmount": 100,
+        "CapturedDate": "2025-05-09T17:32:56Z",
+        "Provider": "Cielo",
+        "Status": 2,
+        "PhysicalTransactionStatus": 2,
+        "IsSplitted": false,
+        "ReturnMessage": "APROVADA 097804",
+        "ReturnCode": "000",
+        "ExtendedMessage": "Transação aprovada.",
+        "PaymentId": "7002ba18-9a62-4f52-818e-1d2d08ef9964",
+        "Type": "PhysicalCreditCard",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/physicalSales/7002ba18-9a62-4f52-818e-1d2d08ef9964"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "confirm",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/7002ba18-9a62-4f52-818e-1d2d08ef9964/confirmation"
+            },
+            {
+                "Method": "DELETE",
+                "Rel": "reverse",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/7002ba18-9a62-4f52-818e-1d2d08ef9964"
+            }
+        ],
+        "PaymentDateTime": "2024-06-03T11:47:38.882Z",
+        "ServiceTaxAmount": 0,
+        "SoftDescriptor": "Loja Teste",
+        "ProductId": 80,
+        "PinPadInformation": {
+            "TerminalId": "00000001",
+            "SerialNumber": "006H017950",
+            "PhysicalCharacteristics": "PinPadWithChipReaderWithSamModuleAndContactless",
+            "ReturnDataInfo": "00"
+        },
+        "PrintMessage": [
+            {
+                "Position": "Top",
+                "Message": "VALOR DA TARIFA:         0,00#TRIBUTOS:         2,41#SEGUROS:         0,00#OUTRAS DESPESAS:         0,00#T0TAL:         1,10#CET ANUAL:      0,00%"
+            }
+        ],
+        "ReceiptInformation": [
+            {
+                "Field": "MERCHANT_NAME",
+                "Label": "NOME DO ESTABELECIMENTO",
+                "Content": "Loja Teste"
+            },
+            {
+                "Field": "MERCHANT_ADDRESS",
+                "Label": "ENDEREÇO DO ESTABELECIMENTO",
+                "Content": "Alameda Xingu, 13"
+            },
+            {
+                "Field": "MERCHANT_CITY",
+                "Label": "CIDADE DO ESTABELECIMENTO",
+                "Content": "BARUERI"
+            },
+            {
+                "Field": "MERCHANT_STATE",
+                "Label": "ESTADO DO ESTABELECIMENTO",
+                "Content": "SP"
+            },
+            {
+                "Field": "MERCHANT_CODE",
+                "Label": "COD.ESTAB.",
+                "Content": "0023137822689300"
+            },
+            {
+                "Field": "TERMINAL",
+                "Label": "POS",
+                "Content": "41782268"
+            },
+            {
+                "Field": "NSU",
+                "Label": "DOC",
+                "Content": "782883"
+            },
+            {
+                "Field": "DATE",
+                "Label": "DATA",
+                "Content": "09/05/25"
+            },
+            {
+                "Field": "HOUR",
+                "Label": "HORA",
+                "Content": "14:32"
+            },
+            {
+                "Field": "ISSUER_NAME",
+                "Label": "EMISSOR",
+                "Content": "CIELO#MASTERCARD"
+            },
+            {
+                "Field": "CARD_NUMBER",
+                "Label": "CARTÃO",
+                "Content": "546056-7843"
+            },
+            {
+                "Field": "BRAND",
+                "Label": "BANDEIRA",
+                "Content": "MASTERCARD"
+            },
+            {
+                "Field": "TRANSACTION_TYPE",
+                "Label": "TIPO DE TRANSAÇÃO",
+                "Content": "VENDA A CREDITO"
+            },
+            {
+                "Field": "TRANSACTION_DESC",
+                "Label": "DESCRIÇÃO DA TRANSAÇÃO",
+                "Content": "PARCELADO EMISSOR EM 2 PARCELAS"
+            },
+            {
+                "Field": "AUTHORIZATION_CODE",
+                "Label": "AUTORIZAÇÃO",
+                "Content": "097804"
+            },
+            {
+                "Field": "TRANSACTION_MODE",
+                "Label": "MODO DA TRANSAÇÃO",
+                "Content": "ONL"
+            },
+            {
+                "Field": "INPUT_METHOD",
+                "Label": "MODO DE ENTRADA",
+                "Content": "C"
+            },
+            {
+                "Field": "CPF_CNPJ",
+                "Label": "CPF OU CNPJ",
+                "Content": "65046208000197"
+            },
+            {
+                "Field": "VALUE",
+                "Label": "VALOR",
+                "Content": "1,00"
+            },
+            {
+                "Field": "SOFT_DESCRIPTOR",
+                "Label": "SOFT DESCRIPTOR",
+                "Content": "Loja Teste"
+            }
+        ],
+        "Receipt": {
+            "MerchantName": "Loja Teste",
+            "MerchantAddress": "Alameda Xingu, 13",
+            "MerchantCity": "BARUERI",
+            "MerchantState": "SP",
+            "MerchantCode": "0023137822689300",
+            "Terminal": "41782268",
+            "Nsu": "782883",
+            "Date": "09/05/25",
+            "Hour": "14:32",
+            "IssuerName": "CIELO#MASTERCARD",
+            "CardNumber": "546056-7843",
+            "Brand": "MASTERCARD",
+            "TransactionType": "VENDA A CREDITO",
+            "TransactionDesc": "PARCELADO EMISSOR EM 2 PARCELAS",
+            "AuthorizationCode": "097804",
+            "TransactionMode": "ONL",
+            "InputMethod": "C",
+            "CpfCnpj": "65046208000197",
+            "Value": "1,00",
+            "SoftDescriptor": "Loja Teste"
+        },
+        "AuthorizationCode": "097804",
+        "ProofOfSale": "782883",
+        "InitializationVersion": 1739297056931,
+        "ConfirmationStatus": 0,
+        "EmvResponseData": "910a469327c2d6eff8a90012",
+        "SubordinatedMerchantId": "0cea7ef3-4d7e-43b1-a33f-3ee199a2dcb6",
+        "OfflinePaymentType": "Online",
+        "MerchantAcquirerId": "0023137822689300",
+        "TerminalAcquirerId": "41782268",
+        "PaymentFacilitator": {
+            "TerminalAcquirerId": "12345678",
+            "SubEstablishment": {
+                "DocumentType": 1,
+                "DocumentNumber": "08470483064",
+                "EstablishmentCode": "10084487",
+                "Mcc": "8999",
+                "Address": "Alameda Xingu",
+                "City": "São Paulo",
+                "State": "SP",
+                "PostalCode": "06455030",
+                "PhoneNumber": "1198080202011",
+                "CountryCode": "076"
+            },
+            "EstablishmentCode": "1234567890"
+        }
+    }
 }
 ```
 
@@ -2578,6 +2580,8 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 | `PaymentFacilitator.SubEstablishment.CountryCode`       | String            | 3         | Sim         | Código do País do SubSeller - Obs: 076 - Brasil                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | `PaymentFacilitator.SubEstablishment.DocumentType`      | String            | 4         | Sim         | Tipo do documento do SubSeller - CPF ou CNPJ                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | `PaymentFacilitator.SubEstablishment.DocumentNumber`    | String            | 14        | Sim         | Número do CPF ou CNPJ do SubSeller                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| `PaymentFacilitator.SubEstablishment.LegalBusinessName`    | String         | 40        | Sim         | Nome da Razão Social do SubSeller                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+
 
 ### Crédito digitado com tokenização de cartão
 
