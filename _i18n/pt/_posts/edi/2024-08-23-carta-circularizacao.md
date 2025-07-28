@@ -19,4 +19,4 @@ tags:
 
 # Arquivos de teste
 
-[Arquivos de Teste](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Arquivos_de_teste.zip)
+[Arquivos de Teste](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Arquivos_de_teste-07-2025.zip)
