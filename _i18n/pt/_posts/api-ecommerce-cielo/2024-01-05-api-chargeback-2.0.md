@@ -286,7 +286,7 @@ Com esse serviço, você pode filtrar contestações para visualizar ou tratar c
 
 **Endpoint da requisição:**
 
->      {endpoint}/chargeback/v1/{status}?page={page}&pageSize={pageSize}
+> {endpoint}/chargeback/v1/{status}?page={page}&pageSize={pageSize}
 
 <aside class="warning"> Sempre iniciar a paginação pelo 0, exemplo page=0 </aside>
 
@@ -547,7 +547,7 @@ Esse serviço permite consultar o ciclo de vida de uma contestação tratada, ou
 
 **Endpoint da requisição:**
 
->      {endpoint}/chargeback/v1/lifecycle/{idCase}
+> {endpoint}/chargeback/v1/lifecycle/{idCase}
 
 **Retorno da requisição:**
 
@@ -585,7 +585,7 @@ Serviço para realizar o aceite de uma contestação, considerando a venda como 
 
 **Endpoint da requisição:**
 
->      {endpoint}/chargeback/v1/accept
+> {endpoint}/chargeback/v1/accept
 
 **Parâmetros e Path Variables:**
 
@@ -644,7 +644,7 @@ Com esse serviço, você pode se defender de uma contestação apresentando uma 
 
 **Endpoint da requisição:**
 
->      {endpoint}/chargeback/v1/refuse
+> {endpoint}/chargeback/v1/refuse
 
 **Parâmetros e Path Variables:**
 
@@ -685,7 +685,7 @@ Caso a contestação seja recusada, este serviço disponibiliza o documento de d
 
 **Endpoint da requisição:**
 
->      {endpoint}/chargeback/v1/supportDocument/{establishmentNumber}/{idChargeback}
+> {endpoint}/chargeback/v1/supportDocument/{establishmentNumber}/{idChargeback}
 
 **Parâmetros e Path Variables:**
 
@@ -720,7 +720,7 @@ _Obs.: Primeiro é necessário listar o documento neste serviço e, em seguida, 
 
 **Endpoint da requisição:**
 
->      {endpoint}/chargeback/v1/ListIssuerDocuments/{establishmentNumber}/{idChargeback}
+> {endpoint}/chargeback/v1/ListIssuerDocuments/{establishmentNumber}/{idChargeback}
 
 **Parâmetros e Path Variables:**
 
@@ -752,7 +752,7 @@ _Obs.: Primeiro é necessário listar o documento no tópico deste documento apr
 
 **Endpoint da requisição:**
 
->      {endpoint}/chargeback/v1/DocumentIssuer/{establishmentNumber}/{idDocumento}
+> {endpoint}/chargeback/v1/DocumentIssuer/{establishmentNumber}/{idDocumento}
 
 **Parâmetros e Path Variables:**
 
