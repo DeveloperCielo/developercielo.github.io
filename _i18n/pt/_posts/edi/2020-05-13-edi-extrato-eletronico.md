@@ -13,29 +13,20 @@ tags:
 
 # EXTRATO ELETRÔNICO v15
 
-**Melhorias no Extrato Eletrônico v15.13**
+## Melhorias no Extrato Eletrônico v15.13
+
+**Versão produtiva do extrato eletrônico desde 16/06/2025.**
+
+
+**Melhorias no Extrato Eletrônico v15.14**
 
 Prezados Clientes,
 
 Melhorias no Extrato eletrônico:
 
-* 1. Inclusão de novo campo para demonstração de transações Pix automático:
-  * Inclusão do campo ID recorrência.
-    Para mais informações consultar o manual abaixo na página 30.
+* Inclusão do ID de pagamento Pix (Implantação prevista para 14/10/2025);
+* Arquivo exclusivo para transações Pix – CIELO16 (Implantação prevista para **13/01/2026**).
 
-
- * 2. Demonstração de débitos em conta:
-   * Inclusão do domínio 45 na tabela de status de pagamento IV
-     Para mais informações consultar o manual abaixo na página 39 e 92 a 93.
-
- **Data de implantação: 16/06/2025**
-
-**Atualizações V15.13 - Demonstração débitos em conta + Pix automático**
-
-* Inclusão do status de pagamento 45 na tabela IV para demonstração de liquidações de débitos em conta
-* Inclusão de ID para demonstração de transações recorrentes no Pix nos registros tipo 8
-
- **Data de implantação: 16/06/2025**
 
 **Anexos**
 
@@ -44,6 +35,7 @@ Melhorias no Extrato eletrônico:
 [TABELA DE AJUSTES](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/TABELA_DE_AJUSTES.zip)
 
 [ARQUIVOS DE TESTE V15_13](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ARQUIVOS_DE_TESTE_V15_13.zip)
+
 
 # Novo fluxo de entrega de extratos
 
@@ -62,12 +54,12 @@ Melhorias no Extrato eletrônico:
 
 **Anexos:**
 
-[FAQ ATUALIZAÇÃO DE FLUXO DE ENTREGA DOS EXTRATOS](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/FAQ_ATUALIZACAO_DE_FLUXO_DE_ENTREGA_DOS_EXTRATOS.zip)
+[FAQ ATUALIZAÇÃO DE FLUXO DE ENTREGA DOS EXTRATOS V15.14](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/FAQ_Atualizacao_v15_14_Extrato_Eletronico_Cielo.pdf)
 
 
  **Material**
 
-[CIELO_Extrato_Eletronico_Manual_Versao_15.13](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_15_13.pdf)
+[CIELO_Extrato_Eletronico_Manual_Versao_15.14](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_15_14.pdf)
 
 [Tabela Ajustes v15.13](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/v15_13-Tabela-IX-EDIv15PT-EN_2.xlsx)
 
