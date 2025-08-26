@@ -13,29 +13,18 @@ tags:
 
 # ELECTRONIC STATEMENT v15
 
-**Improvements to Electronic Statement v15.13**
+## Improvements to Electronic Statement v15.13
+
+**Productive version of the electronic statement since June 16, 2025.**
+
+**Improvements to Electronic Statement v15.14**
 
 Dear Customers,
 
-Improvements to the Electronic Statement:
+Improvements to the electronic statement:
 
-* 1. Inclusion of a new field to demonstrate automatic Pix transactions:
-   * Inclusion of the recurrence ID field.
-    For more information, see the manual below on page 30.
-
-* 2. Demonstration of account subsidies:
-   * Inclusion of domain 45 in the payment status table IV
-     For more information, see the manual below on pages 39 and 92 to 93.
-
-**Implementation date: 16/06/2025**
-
-
-**Updates V15.13 - Demonstration of subsidies in account + automatic Pix**
-
-* Inclusion of payment status 45 in table IV to demonstrate settlements of debits in account
-* Inclusion of ID to demonstrate recurring transactions in Pix in type 8 records
-
-**Implementation date: 06/16/2025**
+* Inclusion of the Pix payment ID (Scheduled for implementation on October 14, 2025);
+* Exclusive file for Pix transactions – CIELO16 (Scheduled for implementation on January 13, 2026).
 
 **Attachments**
 
@@ -44,6 +33,14 @@ Improvements to the Electronic Statement:
 [TABELA DE AJUSTES](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/TABELA_DE_AJUSTES.zip)
 
 [ARQUIVOS DE TESTE V15_13](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ARQUIVOS_DE_TESTE_V15_13.zip)
+
+
+**Updates V15.13 - Demonstration of subsidies in account + automatic Pix**
+
+* Inclusion of payment status 45 in table IV to demonstrate settlements of debits in account
+* Inclusion of ID to demonstrate recurring transactions in Pix in type 8 records
+
+**Implementation date: 06/16/2025**
 
 
 # New statement delivery flow
@@ -67,7 +64,7 @@ Improvements to the Electronic Statement:
 
 **Documentation**
 
-[CIELO_Extrato_Eletronico_Manual_Versao_en_15.13](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Eletronic_Statement_-_Manual_-_Version_15_13.pdf)
+[CIELO_Extrato_Eletronico_Manual_Versao_en_15.14](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Eletronic_Statement_-_Manual_-_Version_15_14.pdf)
 
 [Adjustments Table](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/v15_13-Tabela-IX-EDIv15PT-EN_2.xlsx)
 
