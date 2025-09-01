@@ -28,7 +28,7 @@ Improvements to the electronic statement:
 
 **Attachments**
 
-[LAYOUTS ATUALIZADOS](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/LAYOUTS_ATUALIZADOS.zip)
+[LAYOUTS ATUALIZADOS](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/LAYOUTS_ATUALIZADOS_0.zip)
 
 [TABELA DE AJUSTES](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/TABELA_DE_AJUSTES.zip)
 
@@ -43,19 +43,10 @@ Improvements to the electronic statement:
 **Implementation date: 06/16/2025**
 
 
-# New statement delivery flow
+# Statement delivery flow
 
-**Improvement in the statement delivery flow**
-
-* **Single transmission flow via SFTP:** Cielo delivers the files to the client/conciliator server
-* **Single portal for clients –** All queries can now be made on the Cielo website (www.cielo.com.br)
-* **Single service channel for clients and conciliators:** EDI@cielo.com.br or 4002-5270
-
-**Implementation dates:**
-
-* Deactivation of file delivery via Connect Direct, Client EDI and SFTP connections (conciliator searches for files on Cielo): **07/15/2025**
-
-* Activation of statement download via the Cielo website: **07/31/2025**
+* **Single customer portal:** File queries and downloads are available in the logged-in area of ​​the Cielo website [www.cielo.com.br](www.cielo.com.br) - Services tab > access Electronic Statement.
+* **Customer service channel:** edi@cielo.com.br or (11) 4002-5270
 
 **Attachments:**
 

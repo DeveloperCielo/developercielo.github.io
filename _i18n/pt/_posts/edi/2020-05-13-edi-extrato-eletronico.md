@@ -30,27 +30,18 @@ Melhorias no Extrato eletrônico:
 
 **Anexos**
 
-[LAYOUTS ATUALIZADOS](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/LAYOUTS_ATUALIZADOS.zip)
+[LAYOUTS ATUALIZADOS](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/LAYOUTS_ATUALIZADOS_0.zip)
 
 [TABELA DE AJUSTES](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/TABELA_DE_AJUSTES.zip)
 
 [ARQUIVOS DE TESTE V15_13](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ARQUIVOS_DE_TESTE_V15_13.zip)
 
 
-# Novo fluxo de entrega de extratos
-
-**Melhoria no fluxo de entrega de extratos**
-
+# Fluxo de entrega de extratos
  
-* **Fluxo de transmissão único através de SFTP:** A Cielo entrega os arquivos no servidor do cliente/conciliador
-* **Portal único para clientes –** Agora todas as consultas podem ser efetuadas no site Cielo (www.cielo.com.br)
-* **Canal de atendimento único para clientes e conciliadores:** EDI@cielo.com.br ou 4002-5270
- 
-**Datas de implantação:**
-
- * Desativação de entrega de arquivos através de conexões Connect Direct, Client EDI e SFTP (conciliador busca arquivos na Cielo): **15/07/2025**
- * Ativação de download de extratos através do site Cielo: **31/07/2025**
- 
+* **Portal único para clientes:** As consultas e downloads dos arquivos estão disponíveis na área logada do site Cielo [www.cielo.com.br](www.cielo.com.br) - guia Serviços > acessar Extrato Eletrônico.
+* **Canal de atendimento:** edi@cielo.com.br ou (11) 4002-5270
+  
 
 **Anexos:**
 
