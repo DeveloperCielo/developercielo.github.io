@@ -45,10 +45,6 @@ Melhorias no Extrato eletrônico:
 * **Canal de atendimento:** edi@cielo.com.br ou (11) 4002-5270
   
 
-**Arquivos de teste:**
-
-  Serão disponibilizados na semana do dia 26/05.
-
 # Introdução
 
 Essa API possibilita o registro de grupos e mantém seu registro para receber arquivos EDI (Electronic Data Interchange).
