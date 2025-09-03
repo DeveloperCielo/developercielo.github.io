@@ -34,26 +34,16 @@ Melhorias no Extrato eletrônico:
 
 [TABELA DE AJUSTES](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/TABELA_DE_AJUSTES.zip)
 
+[FAQ ATUALIZAÇÃO DE FLUXO DE ENTREGA DOS EXTRATOS V15.14](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/FAQ_Atualizacao_v15_14_Extrato_Eletronico_Cielo.pdf)
+
 [ARQUIVOS DE TESTE V15_13](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ARQUIVOS_DE_TESTE_V15_13.zip)
 
 
 # Fluxo de entrega de extratos
  
-* **Portal único para clientes:** As consultas e downloads dos arquivos estão disponíveis na área logada do site Cielo [www.cielo.com.br](www.cielo.com.br) - guia Serviços > acessar Extrato Eletrônico.
+* **Portal único para clientes:** As consultas e downloads dos arquivos estão disponíveis na área logada do site Cielo [www.cielo.com.br](http://www.cielo.com.br) - guia Serviços > acessar Extrato Eletrônico.
 * **Canal de atendimento:** edi@cielo.com.br ou (11) 4002-5270
   
-
-**Anexos:**
-
-[FAQ ATUALIZAÇÃO DE FLUXO DE ENTREGA DOS EXTRATOS V15.14](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/FAQ_Atualizacao_v15_14_Extrato_Eletronico_Cielo.pdf)
-
-
- **Material**
-
-[CIELO_Extrato_Eletronico_Manual_Versao_15.14](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_15_14.pdf)
-
-[Tabela Ajustes v15.13](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/v15_13-Tabela-IX-EDIv15PT-EN_2.xlsx)
-
 
 **Arquivos de teste:**
 

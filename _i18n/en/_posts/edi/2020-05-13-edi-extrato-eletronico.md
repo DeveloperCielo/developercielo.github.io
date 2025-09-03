@@ -32,6 +32,10 @@ Improvements to the electronic statement:
 
 [TABELA DE AJUSTES](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/TABELA_DE_AJUSTES.zip)
 
+[FAQ ATUALIZAÇÃO DE FLUXO DE ENTREGA DOS EXTRATOS](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/FAQ_Atualizacao_v15_14_Extrato_Eletronico_Cielo.zip)
+
+[CIELO_Extrato_Eletronico_Manual_Versao_en_15.14](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Eletronic_Statement_-_Manual_-_Version_15_14.pdf)
+
 [ARQUIVOS DE TESTE V15_13](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ARQUIVOS_DE_TESTE_V15_13.zip)
 
 
@@ -45,23 +49,8 @@ Improvements to the electronic statement:
 
 # Statement delivery flow
 
-* **Single customer portal:** File queries and downloads are available in the logged-in area of ​​the Cielo website [www.cielo.com.br](www.cielo.com.br) - Services tab > access Electronic Statement.
+* **Single customer portal:** File queries and downloads are available in the logged-in area of ​​the Cielo website [www.cielo.com.br](http://www.cielo.com.br) - Services tab > access Electronic Statement.
 * **Customer service channel:** edi@cielo.com.br or (11) 4002-5270
-
-**Attachments:**
-
-[FAQ ATUALIZAÇÃO DE FLUXO DE ENTREGA DOS EXTRATOS](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/FAQ_ATUALIZACAO_DE_FLUXO_DE_ENTREGA_DOS_EXTRATOS.zip)
-
-
-**Documentation**
-
-[CIELO_Extrato_Eletronico_Manual_Versao_en_15.14](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Eletronic_Statement_-_Manual_-_Version_15_14.pdf)
-
-[Adjustments Table](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/v15_13-Tabela-IX-EDIv15PT-EN_2.xlsx)
-
-**Test files:**
-
-Will be available the week of May 26th.
 
 
 # Introduction
