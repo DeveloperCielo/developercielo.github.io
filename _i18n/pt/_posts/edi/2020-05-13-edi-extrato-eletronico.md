@@ -34,7 +34,7 @@ Melhorias no Extrato eletrônico:
 
 [TABELA DE AJUSTES](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/TABELA_DE_AJUSTES.zip)
 
-[FAQ ATUALIZAÇÃO DE FLUXO DE ENTREGA DOS EXTRATOS V15.14](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/FAQ_Atualizacao_v15_14_Extrato_Eletronico_Cielo.pdf)
+[FAQ ATUALIZAÇÃO DE FLUXO DE ENTREGA DOS EXTRATOS V15.14](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/FAQ_Atualizacao_v15_14_Extrato_Eletronico_Cielo.zip) 
 
 [ARQUIVOS DE TESTE V15_13](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ARQUIVOS_DE_TESTE_V15_13.zip)
 
