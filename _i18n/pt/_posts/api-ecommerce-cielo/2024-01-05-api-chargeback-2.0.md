@@ -29,7 +29,7 @@ Prezado cliente,
 
 A seguir, forneceremos todas as informações necessárias para que você possa realizar a integração conosco. Pedimos que leia atentamente todo o material antes de iniciar a integração na API de Chargeback.
 
-É importante ressaltar que a caixa de atendimento techsupport@chargeback.com.br destina-se exclusivamente a questões relacionadas à integração na API de Chargeback, não oferecendo suporte para outros assuntos relacionados a contestações de vendas. Caso necessite de assistência nesse sentido, solicitamos que entre em contato com o seu gestor comercial, que poderá auxiliá-lo no direcionamento correto.
+É importante ressaltar que a caixa de atendimento techsupportchargeback@cielo.com.br destina-se exclusivamente a questões relacionadas à integração na API de Chargeback, não oferecendo suporte para outros assuntos relacionados a contestações de vendas. Caso necessite de assistência nesse sentido, solicitamos que entre em contato com o seu gestor comercial, que poderá auxiliá-lo no direcionamento correto.
 
 Agradecemos a compreensão.</aside>
 
@@ -106,15 +106,16 @@ a. Execute o comando a seguir em um prompt de comando de sua preferência, subst
 
 b. Ao executar este comando, preencha as informações solicitadas, substituindo os respectivos dados sinalizadas **em negrito** no exemplo abaixo.
 
-| _Campo_                   | _Descrição_                                | _Valor_                                 |
-|-------------------------|-------------------------------------------|----------------------------------------|
-| emailAddress            | Nome da área de produtos Cielo @cielo.com.br | techsupportchargeback@cielo.com.br     |
-| Common Name (CN)        | Sigla-ambiente-serviço-mtls              | STC-PRD-MULESOFT-MTLS                  |
-| Organizational Unit (OU)| Nome da área de produtos Cielo           | Chargeback                             |
-| Organization (O)        | Cielo S/A                                | Cielo S/A                              |
-| Locality (L)            | Cidade                                   | **Informe seu estado**                     |
-| State (ST)              | Estado                                   | **Informe seu estado**                     |
-| Country (C)             | País                                     | **Informe seu país**                       |
+| Campo | Descrição | Valor |
+| :--- | :--- | :--- |
+| **emailAddress** | Nome da área de produtos Cielo | techsupportchargeback@cielo.com.br |
+| **Common Name (CN)** | Sigla-ambiente-serviço-mtls | STC-PRD-Informe sua empresa-MULESOFT-MTLS |
+| **Organizational Unit (OU)** | Nome da área de produtos Cielo | Chargeback |
+| **Organization (O)** | Cielo S/A | Cielo S/A |
+| **Locality (L)** | Cidade | Informe sua cidade |
+| **State (ST)** | Estado | Informe seu estado |
+| **Country (C)** | País | Informe seu país |
+| **Retorno da Requisição Ciclo de Vida** | O correto é caseId e não idcase. | N/A |
 
 ![API Chargeback Imagem 10](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/img_10.png)
 
@@ -1082,7 +1083,7 @@ Ficou com dúvida? Acesse a página: [blog da Cielo](https://blog.cielo.com.br/d
 
 E-mail para suporte técnico: [techsupportchargeback@cielo.com.br](mailto:techsupportchargeback@cielo.com.br)
 
-<aside class="warning"> Importante ressaltar que a caixa de atendimento pode ser acionada antes ou depois da conclusão da integração. No entanto, reforçamos que o e-mail "techsupport@chargeback.com.br" destina-se exclusivamente a questões relacionadas à integração na API de Chargeback, não oferecendo suporte para outros assuntos relacionados a contestações de vendas. </aside>
+<aside class="warning"> Importante ressaltar que a caixa de atendimento pode ser acionada antes ou depois da conclusão da integração. No entanto, reforçamos que o e-mail "techsupportchargeback@cielo.com.br" destina-se exclusivamente a questões relacionadas à integração na API de Chargeback, não oferecendo suporte para outros assuntos relacionados a contestações de vendas. </aside>
 
 Caso precise de alguma ajuda, você pode entrar em contato diretamente com seu Gerente de Negócios, que estará pronto para te atender da melhor forma!
 
