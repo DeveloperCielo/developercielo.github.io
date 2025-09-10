@@ -115,7 +115,10 @@ b. Ao executar este comando, preencha as informações solicitadas, substituindo
 | **Locality (L)** | Cidade | Informe sua cidade |
 | **State (ST)** | Estado | Informe seu estado |
 | **Country (C)** | País | Informe seu país |
-| **Retorno da Requisição Ciclo de Vida** | O correto é caseId e não idcase. | N/A |
+
+
+**Retorno da Requisição Ciclo de Vida** 
+O correto é **caseId** e não **idcase**.
 
 ![API Chargeback Imagem 10](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/img_10.png)
 
