@@ -117,9 +117,6 @@ b. Ao executar este comando, preencha as informações solicitadas, substituindo
 | **Country (C)** | País | Informe seu país |
 
 
-**Retorno da Requisição Ciclo de Vida** 
-O correto é **caseId** e não **idcase**.
-
 ![API Chargeback Imagem 10](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/img_10.png)
 
 c. Após a execução e preenchimento dos dados, conforme apresentado acima, serão gerados dois arquivo:  **chave pública (extensão “.csr”) e a chave privada  (extensão “.key”)**.
@@ -873,7 +870,7 @@ Este serviço fornece informações em tempo real sempre que houver atualizaçõ
 ``` JSON
 {
   "establishmentNumber": 2312054625,
-  "idcase": 6035477,
+  "caseId": 6035477,
   "message": "A favor do Estabelecimento",
   "executionDate": "2024-12-22",
   "ActionCicleDate": "2024-12-22"
