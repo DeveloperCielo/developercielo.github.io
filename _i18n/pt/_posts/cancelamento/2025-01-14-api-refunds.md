@@ -40,7 +40,7 @@ A versão atual da API Cancelamento Cielo possui **suporte de cancelamento** a *
 
 # Fluxo para acesso API de Cancelamento
 
-O fluxo abaixo mostra a integração do cliente na API Única deCancelamento desde o recebimento das credenciais de Homologação/Produção até o acesso à API em Produção.
+O fluxo abaixo mostra a integração do cliente na API Única de Cancelamento desde o recebimento das credenciais de Homologação/Produção até o acesso à API em Produção.
 
 ![Imagem1](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem1.jpg)
 
@@ -48,7 +48,7 @@ O fluxo abaixo mostra a integração do cliente na API Única deCancelamento des
 
 ## Envio de informações para solicitação de credencial
 
-Para obter acesso a API de Cancelamento em Produção, envie osdados abaixo para: **api.cancelamento@cielo.com.br**  
+Para obter acesso à API de Cancelamento em Produção, envie os dados abaixo para: **api.cancelamento@cielo.com.br**  
 
 - **Nome** – nome do ponto focal do estabelecimento que fará gerenciamento das credenciais para acessa a API de
 Cancelamento.
