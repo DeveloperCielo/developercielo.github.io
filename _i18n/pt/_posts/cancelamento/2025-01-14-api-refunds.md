@@ -22,16 +22,17 @@ A API Única de Cancelamento é mais uma opção de canal de cancelamento de ven
 
 Com a API Única de cancelamento, é possível centralizar cancelamentos de vendas de diversas soluções de captura em uma única integração (POS, LIO, TEF e E-commerce) além de permitir consulta de cancelamentos e geração de Cartas de Cancelamentos efetivados.
 
-A integração com a API exige credenciais de acesso que são concedidas por Raiz de CNPJ. Ou seja, todos os Estabelecimentos (ECs) que fazem parte dessa raiz podem ter cancelamentos de vendas solicitados usando uma mesma credencial de acesso em uma única integração.
+A integração com a API exige **credenciais de acesso** que são concedidas por Raiz de CNPJ. Ou seja, todos os Estabelecimentos que fazem parte dessa raiz podem ter cancelamentos de vendas solicitados usando uma mesma credencial de acesso em uma única integração.
 
 Principais benefícios da solução da API de Cancelamento
-- **Solicitação de cancelamento direta** para o Sistema de Cancelamento Cielo.  
-- **Consulta de Status de Cancelamento** com descrição complementar de motivo em caso de rejeição de cancelamento.  
-- **Centralização de solicitações de cancelamento** de vendas feitas por variadas soluções de captura usadas pelo cliente (POS, TEF, LIO, E-commerce).  
-- **Geração de Carta de Cancelamento** no mesmo dia da efetivação do cancelamento, de forma unitária ou em lote.  
-- **Autonomia e autosserviço** no processo de solicitação de cancelamento de vendas.  
-- **Simplicidade**: o protocolo utilizado é puramente HTTPS, tecnologia REST, que é padrão de mercado.  
-- **Facilidade de testes**: disponibilizamos credenciais de ambiente de homologação e massa de vendas para teste em ambiente de homologação.
+- **Solicitação** de cancelamento **direta** para o SistemadeCancelamento Cielo;
+- **Consulta de Status de Cancelamento** com descriçãocomplementar de motivo em caso de rejeição de
+cancelamento;
+- **Centralização de solicitação de cancelamento** de vendasf eitas por variadas soluções de captura usadas pelocliente (POS, TEF, LIO, E-commerce);
+- **Geração de Carta de Cancelamento** no mesmo dia daefetivação do cancelamento de forma unitária ou em lote;
+- **Autonomia e autosserviço** no processo de solicitação de cancelamento de vendas;
+- **Simplicidade**, pois o protocolo utilizado é puramente o HTTPS tecnologia REST, que é padrão de mercado;
+- **Facilidade de testes** disponibilizamos credenciais dea mbiente de homologação e massa de vendas para teste em ambiente de homologação;
 
 # Produtos e Bandeiras suportadas
 
@@ -39,7 +40,7 @@ A versão atual da API Cancelamento Cielo possui **suporte de cancelamento** a *
 
 # Fluxo para acesso API de Cancelamento
 
-O fluxo abaixo mostra  a integração do cliente na API Única de Cancelamento desde o recebimento das credenciais de Homologação produção até o acesso à API em Produção
+O fluxo abaixo mostra a integração do cliente na API Única deCancelamento desde o recebimento das credenciais de Homologação/Produção até o acesso à API em Produção.
 
 ![Imagem1](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/cancelamento/Imagem1.jpg)
 
@@ -47,17 +48,19 @@ O fluxo abaixo mostra  a integração do cliente na API Única de Cancelamento d
 
 ## Envio de informações para solicitação de credencial
 
-Para obter acesso à API de Cancelamento em Produção, envie os dados abaixo para: **api.cancelamento@cielo.com.br**  
+Para obter acesso a API de Cancelamento em Produção, envie osdados abaixo para: **api.cancelamento@cielo.com.br**  
 
-- **Nome**: nome do ponto focal do estabelecimento que fará o gerenciamento das credenciais para acessar a API de Cancelamento.  
-- **E-mail**: e-mail do ponto focal do estabelecimento que fará o gerenciamento das credenciais para acessar a API de Cancelamento.  
-- **Raiz de CNPJ**: raiz do CNPJ que deseja integrar na API. Caso tenha mais de uma raiz de CNPJ a ser integrada, envie todas.  
+- **Nome** – nome do ponto focal do estabelecimento que fará gerenciamento das credenciais para acessa a API de
+Cancelamento.
+- **E-mail** – e-mail do ponto focal do estabelecimento que fará gerenciamento das credenciais para acessa a API de
+Cancelamento.
+- Raiz de CNPJ que deseja integrar na API. Caso tenha maisde uma Raiz de CNPJ a ser integrada, envie todas.
 
-> **Nota**: Todos os estabelecimentos que compõem essa raiz de CNPJ poderão ter os cancelamentos de vendas solicitados pela API Única de Cancelamento.
+> **Nota**: Todos os estabelecimentos que compõe essa Raiz de CNPJ poderão ter os cancelamentos de vendas solicitados pela API Única de Cancelamento.
 
 Com esses dados, nosso time Cielo vai solicitar criação de credenciais de acesso para integração em Produção.
 
-Mesmo que a integração do Estabelecimento com a API seja feita através de um terceiro, o e-mail que deve ser enviado deve ser do ponto focal do estabelecimento.
+Mesmo que a integração do Estabelecimento com a API seja feita através de um terceiro, o e-mail que deve ser enviado deve serdo **ponto focal do estabelecimento**.
 
 ## Cadastro no Portal de Desenvolvedores Cielo 
 
@@ -96,7 +99,7 @@ Para ter mais segurança no acesso às credenciais, clique no botão “Configur
 
 ![Imagem8](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem8.png)
 
-O aplicativo de autenticação de dois fatores será usado durante esta configuração e para gerar códigos durante a autenticação regular. Se o aplicativo for compatível, realize a leitura do código QR Code para obter o código de configuração, caso contrário você poderá inserir manualmente o código de texto.
+O aplicativo de autenticação de dois fatores será usado durante esta configuração e para gerar códigos durante a autenticação regular. Se o aplicativo for compatível, realize a leitura docódigo QR Code para obter o código de configuração, caso contrário você poderá inserir manualmente o código de texto.
 
 Link para instalação do app: https://www.microsoft.com/pt-br/security/mobile-authenticator-app
 
@@ -104,7 +107,7 @@ Forneça a senha atual e confirme.
 
 ![Imagem9](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem9.png)
 
-O aplicativo de autenticação de dois fatores será usado durante esta configuração e para gerar códigos durante a autenticação regular. Se o aplicativo for compatível, realize a leitura do código QR Code para obter o código de configuração, caso contrário você poderá inserir manualmente o código de texto.
+O aplicativo de autenticação de dois fatores será usado duranteesta configuração e para gerar códigos durante a autenticação regular. Se o aplicativo for compatível, realize a leitura docódigo QR Code para obter o código de configuração, caso contrário você poderá inserir manualmente o código de texto.
 
 ![Imagem10](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem10.png)
 
@@ -130,7 +133,7 @@ Para conferir maior segurança no uso da API Única de Cancelamento, é necessá
 
 Este certificado não tem custo adicional e todas as chamadas aos serviços da API em homologação e produção devem ser feitas com certificado MTLS assinado pela Cielo.
 
-Gere o arquivo da chave pública no formato .csr executando o comando abaixo em um terminal como gitbash ou via ferramenta openssl. 
+Gere o arquivo da chave pública no formato **.csr** executando o comando abaixo em um terminal como gitbash ou via ferramenta openssl. 
 
 Exemplo:
 
@@ -141,7 +144,7 @@ Ao executar este comando, preencha as informações solicitadas conforme exemplo
 | Campo                              | Descrição           | Valor  |
 | ---------------------------------- | ------------------------------------------------------------------------------------------- | ----------------------------------- |
 |  `emailAddress`                  | E-mail da área de produtos Cielo responsável pela API | api.cancelamento@cielo.com.br  | 
-|   `Common Name`                  | Nome da empresa que está integrando na API Única de Cancelamento | **Informe nome da sua empresa**  | 
+|   `Common Name`                  | Nome da empresa que está integrando na API Única de Cancelamento | CAN-**EMPRESA**-PRD-MULESOFT-MTLS  | 
 |  `Organizational Unit`           | Nome da área de produtos Cielo responsável pela API “squad-cancelamento”  | squad-cancelamento  | 
 |  `Organization Name`             | Empresa que está fornecendo a solução API Única de Cancelamento  | Cielo S.A.  | 
 |  `Locality`                      | Cidade Cielo | Barueri  | 
@@ -179,13 +182,13 @@ Na ferramenta do Postman, vá para o ícone de *“ferramentas” > Configuraç�
 
 Acesso aos endpoints da Cielo:
 
-Homologação: 	https://apihml-corp.cielo.com.br/cielo-refunds-exp-hml/refunds/v1/refunds
+HML/Sandbox: https://apihml-internet.cielo.com.br/refunds-api/v1
 
-Produção: 	  https://api-corp.cielo.com.br/cielo-refunds-exp/refunds/v1/refunds
+PRD/External: https://api-internet.cielo.com.br/cielo-refunds-exp-external/refunds/v1 
 
-![Imagem18](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem18.png)
+![nova_imagem_1](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/nova_imagem_1.png)
 
-![Imagem19](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem19.png)
+![Nova_imagem_2](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Nova_imagem_2.png)
 
 # Fluxo de Autenticação de Credenciais do Cliente (Client Credencials flow)
 
@@ -197,7 +200,7 @@ Para realizar uma solicitação de cancelamento ou consulta na API, é necessár
 
 ```curl
 curl --location --request POST
-https://apihml-corp.cielo.com.br/cielo-security-sys-hml/oauth/v2/MulesoftHML/protocol/openid-connect/token\
+https://me.hdevelo.com.br/auth/realms/MulesoftHML/protocol/openid-connect/token\
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --data-urlencode 'client\_id={ **clientId** }' \
 --data-urlencode 'client\_secret={ **secret** }' \
@@ -208,7 +211,7 @@ https://apihml-corp.cielo.com.br/cielo-security-sys-hml/oauth/v2/MulesoftHML/pro
 
 ```curl
 curl --location --request POST
-https://api-corp.cielo.com.br/cielo-security-sys-web/oauth/v2/MulesoftPRD/protocol/openid-connect/token' \
+https://me.cielo.com.br/auth/realms/MulesoftPRD/protocol/openid-connect/token' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --data-urlencode 'client\_id={ **clientId** }' \
 --data-urlencode 'client\_secret={ **secret** }' \
@@ -219,15 +222,13 @@ https://api-corp.cielo.com.br/cielo-security-sys-web/oauth/v2/MulesoftPRD/protoc
 
 Header:
 
-<aside class="notice">https://apihml-corp.cielo.com.br/cielo-security-sys-hml/oauth/v2/MulesoftHML/protocol/openid-connect/token</aside>
+<aside class="notice">https://me.hdevelo.com.br/auth/realms/MulesoftHML/protocol/openid-connect/token</aside>
 
 **Body:** 
 
-(enviar o client_id e o client secret disponibilizado pela Cielo)
+![Nova_imagem_3](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Nova_imagem_3.png)
 
-![Imagem20](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem20.png)
-
-![Imagem21](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem21.png)
+(enviar o client_id e o client secret disponibilizado pela Cielo).
 
 ## Enviando uma requisição com token 
 
@@ -239,21 +240,17 @@ Exemplo: header ("Authorization", "Bearer " + token)
 
 | AMBIENTE | ENDPOINT | 
 | ------------------ | ------------------------------------------------------------------------------------| 
-| **Homologação** | https://apihml-corp.cielo.com.br/cielo-refunds-exp-hml/refunds/v1/refunds | 
-| **Produção**    | https://api-corp.cielo.com.br/cielo-refunds-exp/refunds/v1/refunds | 
+| **Homologação** | https://apihml-internet.cielo.com.br/refunds-api/v1/refunds/{refundID}/{merchantID} | 
+| **Produção**    | https://api-internet.cielo.com.br/cielo-refunds-exp-external/refunds/v1/refunds/{refundID}/{merchantID} | 
 
 ![Imagem22](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem22.png)
-
-![Imagem23](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem23.png)
-
-![Imagem24](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem24.png)
 
 # Serviços disponíveis API Única de Cancelamento
 
 | AMBIENTE | ENDPOINT | 
 | ------------------ | ------------------------------------------------------------------------------------| 
-| **Homologação** | https://apihml-corp.cielo.com.br/cielo-refunds-exp-hml/refunds/v1/refunds | 
-| **Produção**    | https://api-corp.cielo.com.br/cielo-refunds-exp/refunds/v1/refunds | 
+| **Homologação** | https://apihml-internet.cielo.com.br/refunds-api/v1 | 
+| **Produção**    | https://api-internet.cielo.com.br/cielo-refunds-exp-external/refunds/v1 | 
 
 | DESCRIÇÃO | PATH | MÉTODO HTTP | 
 | ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| ------------------------| 
@@ -270,8 +267,8 @@ Com esse serviço, é possível realizar solicitações de cancelamento individu
 
 | AMBIENTE | ENDPOINT | 
 | ------------------ | ------------------------------------------------------------------------------------| 
-| **Homologação** | https://apihml-corp.cielo.com.br/cielo-refunds-exp-hml/refunds/v1/refunds | 
-| **Produção**    | https://api-corp.cielo.com.br/cielo-refunds-exp/refunds/v1/refunds | 
+| **Homologação** | https://apihml-internet.cielo.com.br/refunds-api/v1/refunds/  | 
+| **Produção**    | https://api-internet.cielo.com.br/cielo-refunds-exp-external/refunds/v1/refunds/ | 
 
 **Headers:**
 
@@ -343,12 +340,12 @@ Em seguida no campo **“key** digite: Content-Type e no campo **“value”** d
 
 | AMBIENTE | MÉTODO |  ENDPOINT | 
 | ------------------ | ------------- | ------------------------------------------------------------------------------------| 
-| **Homologação** | GET | https://apihml-corp.cielo.com.br /cielo-refunds-exp-hml/refunds/v1/refunds{refundID}/{merchantID}?limit={limit} &offset={offset}  | 
-| **Produção**    | GET | https://api-corp.cielo.com.br/cielo-refunds-exp/refunds/v1/refunds{refundID}/{merchantID}?limit={limit} &offset={offset}  | 
+| **Homologação** | GET | https://apihml-internet.cielo.com.br/refunds-api/v1/refunds/{refundID}/{merchantID}?limit={limit} &offset={offset}  | 
+| **Produção**    | GET | https://api-internet.cielo.com.br/cielo-refunds-exp-external/refunds/v1/ refunds/{refundID}/{merchantID}?limit={limit} &offset={offset}  | 
 
 **Exemplo de requisição em homologação:**
 
-https://apihml-corp.cielo.com.br/cielo-refunds-exp-hml/refunds/v1/refunds/140426/2005157770
+https://apihml-internet.cielo.com.br/refunds-api/v1/refunds/140426/2005157770
 
 **Request:**
 
@@ -437,16 +434,24 @@ O status pending e approved não tem detail no json.
 
 ## Consultar Cancelamento por timeout na requisição
 
-Essa consulta deve ser executada somente quando houver problemas na comunicação durante a solicitação de cancelamento.
+Essa consulta deve ser executada somente quando houver problemas na comunicação durante a solicitação de cancelamento. Deve ser realizada utilizando como base o código do Estabelecimento, um range de datas (sete dias) e um argumento de pesquisa como o código de autorização.
+
+Essa pesquisa pode ser realizada também para localizar um cancelamento utilizando como base o código do Estabelecimento e um intervalo de datas (range de 7 dias), podendo ser combinado com mais argumentos de pesquisa como:
+
+- Código de autorização (authorizationCode)
+- NSU (nsu)
+- Valor da Venda (saleAmount)
 
 | AMBIENTE | MÉTODO |  ENDPOINT | 
 | ------------------ | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
-| **Homologação** | GET | https://apihml-corp.cielo.com.br/cielo-refunds-exp-hml/refunds/v1/refunds?cancelStartDate={DD/MM/YYYY}&cancelEndDate={DD/MM/YYYY}&rows=25&page=1&merchantId={codigo_estabelecimento}&authorizationCode={codigo_autorizacao}  | 
-| **Produção**    | GET | https://api-corp.cielo.com.br/refunds-api/v1/refunds refunds/v1/refunds?cancelStartDate={DD/MM/YYYY}&cancelEndDate={DD/MM/YYYY}&rows=25&page=1&merchantId={codigo_estabelecimento}&authorizationCode={codigo_autorizacao}  |
+| **Homologação** | GET | https://apihml-internet.cielo.com.br/refunds-api/v1/refunds?cancelStartDate={DD/MM/YYYY}&cancelEndDate={DD/MM/YYYY}&rows=25&page=1&merchantId={codigo_estabelecimento}&authorizationCode={codigo_autorizacao}  | 
+| **Produção**    | GET | https://api-internet.cielo.com.br/cielo-refunds-exp-external/refunds/v1/refunds?cancelStartDate={DD/MM/YYYY}&cancelEndDate={DD/MM/YYYY}&rows=25&page=1&merchantId={codigo_estabelecimento}&authorizationCode={codigo_autorizacao}  |
 
 **Exemplo Request:**
 
-https://apihml-corp.cielo.com.br/cielo-refunds-exp-hml/refunds/v1/refunds?cancelStartDate=09-10-2024&cancelEndDate=10-10-2024&rows=25&page=1&merchantId=2005157770&authorizationCode=546441
+https://apihml-internet.cielo.com.br/refunds-api/v1/refunds?cancelStartDate=09-10-2024&cancelEndDate=10-10-2024&rows=25&page=1&merchantId=2005157770&authorizationCode=546441
+
+![Nova_Imagem_5](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Nova_Imagem_5.png)
 
 **Request:** 
 
@@ -598,8 +603,8 @@ Não é possível gerar um lote de cartas para ECs diferentes, na mesma requisi�
 
 | AMBIENTE | MÉTODO |  ENDPOINT | 
 | ------------------ | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
-| **Homologação** | GET |  https://apihml-corp.cielo.com.br/cielo-refunds-exp-hml/refunds/v1/refunds/v1/letter-api/pdf  | 
-| **Produção**    | GET | https://api-corp.cielo.com.br/cielo-refunds-exp/refunds/v1/refunds/v1/letter-api/pdf  |
+| **Homologação** | GET | https://apihml-internet.cielo.com.br/refunds-api/v1/letter-api/pdf  | 
+| **Produção**    | GET | https://api-internet.cielo.com.br/cielo-refunds-exp-external/refunds/v1/letter-api/pdf  |
 
 ```json
 {
@@ -630,8 +635,8 @@ O campo **language** é opcional, mantendo como default o idioma português, pod
 
 | AMBIENTE | MÉTODO |  ENDPOINT | 
 | ------------------ | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
-| **Homologação** | GET |  https://apihml-corp.cielo.com.br/cielo-refunds-exp-hml/refunds /v1/refunds/v1/letter-api/zip  | 
-| **Produção**    | GET | https://api-corp.cielo.com.br/cielo-refunds-exp/refunds/v1/refunds/v1/letter-api/zip  |
+| **Homologação** | GET | https://apihml-internet.cielo.com.br/refunds-api/v1/letter-api/zip | 
+| **Produção**    | GET | https://api-internet.cielo.com.br/cielo-refunds-exp-external/refunds/v1/letter-api/zip  |
 
 ```json 
 {
@@ -647,8 +652,6 @@ No campo **merchantId** é necessário informar o número do estabelecimento (EC
 
 O Campo **cancellationId** é necessário informar uma lista de controlId, separado por virgula (“,”), do tipo number, este campo é obrigatório.
 
-O campo **language** é opcional, mantendo como default o idioma português, podendo também usar como o PT_BR para português ou EN_US para inglês.
-
 # Suporte Cielo
 
 Caso tenha dúvidas, envie um e-mail para: **api.cancelamento@cielo.com.br**
@@ -657,11 +660,11 @@ Caso tenha dúvidas, envie um e-mail para: **api.cancelamento@cielo.com.br**
 
 **O que fazer se o token expirar?**
 
-Obtenha um novo token JWT repetindo o processo de autenticação descrito no passo (Fluxo de Autenticação de Credenciais do Cliente)
+Obtenha um novo token JWT repetindo o processo de autenticação descrito no passo [Fluxo de Autenticação de Credenciais do Cliente](https://developercielo.github.io/manual/api-refunds#fluxo-de-autentica%C3%A7%C3%A3o-de-credenciais-do-cliente-(client-credencials-flow)).
 
 **Como testar sem impactar o ambiente de produção?**
 
-Use a URL de homologação fornecida no passo (Acesso aos endpoints da Cielo).
+Use a URL de homologação fornecida no passo [Acesso aos endpoints da Cielo](https://developercielo.github.io/manual/api-refunds#configura%C3%A7%C3%B5es-para-utiliza%C3%A7%C3%A3o-da-api).
 
 **Posso reutilizar o mesmo token para múltiplas requisições?**
 
@@ -692,53 +695,3 @@ API Única de Cancelamento e a API E-commerce são soluções diferentes com pro
 A API E-commerce é uma solução de captura que também permite solicitação de cancelamentos de vendas e-commerce. Só é permitido cancelar vendas e-commerce do EC integrado
 
 A API Única de cancelamento é uma solução cujo objetivo é permitir clientes centralizarem cancelamentos de diversas soluções de captura oferecidas pelas Cielo (TEF, POS, E-commerce, LIO). A integração é por Raiz de CNPJ e é possível cancelar vendas de todos os ECs que compõem essa Raiz. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
