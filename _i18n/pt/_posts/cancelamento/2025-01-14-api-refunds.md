@@ -243,7 +243,7 @@ Exemplo: header ("Authorization", "Bearer " + token)
 | **Homologação** | https://apihml-internet.cielo.com.br/refunds-api/v1/refunds/{refundID}/{merchantID} | 
 | **Produção**    | https://api-internet.cielo.com.br/cielo-refunds-exp-external/refunds/v1/refunds/{refundID}/{merchantID} | 
 
-![Imagem22](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem22.png)
+![Nova_imagem_4](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Nova_imagem_4.png)
 
 # Serviços disponíveis API Única de Cancelamento
 
