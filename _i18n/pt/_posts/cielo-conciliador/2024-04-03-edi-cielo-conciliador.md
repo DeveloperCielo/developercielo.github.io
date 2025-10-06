@@ -2183,6 +2183,8 @@ Abaixo a estimativa de dias em que a adquirente envia os eventos no extrato elet
 | Nsu                            | NSU                                             | Número                             | N       | Número sequencial da transação na  Adquirente, recebido pelo lojista                  |
 | IataAmount                     | Valor da taxa IATA                              | Número                             | N       | Valor da taxa IATA (apenas para setor aéreo), em centavos                             |
 | PaymentMethodName              | Tipo de Integração                              | Alfanumérico                       | A       | Nome do meio de pagamento utilizado no caso da transação efetuada no  gateway Pagador |
+| anticipationTaxAmount           | Taxa de antecipação                            | Numérico                           | N       | Valor da taxa de antecipação |
+
 
 1. As informações de venda são as transações enviadas pelo cliente do mundo físico, ou do  gateway/sistema transacional utilizado para efetuar as transações. São a primeira parte da conciliação. O Identificador Único da Venda pode ser utilizado para visualizar a venda no WebSite do Conciliador, preenchendo a URL:
 
@@ -2233,6 +2235,9 @@ Abaixo a estimativa de dias em que a adquirente envia os eventos no extrato elet
 | ProductIdentifierDescription   | Descrição do Produto na Cielo                                      | Alfanumérico                      | A       | A descrição do Produto na Adquirente Cielo utilizado para efetuar a  transação7                                     |
 | PixId | ID Pix | Alfanumérico | A | O identificador inicial gerado no momento da transação. |
 | OriginalPixId | ID Pix Original | Alfanumérico | A | Gerado para identificar a transação original. |
+| ra | Identificador de recebimento automático | Alfanumérico | A | “True” para sim e “False” para não |
+
+
 
 1. As informações da adquirente são os dados da venda que o Conciliador recebe dos extratos eletrônicos, o meio de integração da adquirente com os sistemas externos. São a segunda parte da conciliação. O Identificador Único da Transação pode ser utilizado para visualizar a venda no WebSite do Conciliador, preenchendo a URL:   
 
@@ -2927,7 +2932,7 @@ Abaixo a estimativa de dias em que a adquirente envia os eventos no extrato elet
 | Campo                                | Tipo               | Formato | Descrição                          |
 |--------------------------------------|--------------------|---------|------------------------------------|
 | Identificador do Registro            | Numérico (Inteiro) | N       | Constante com valor  9             |
-| Usuario de conciliação manual        | Alfanumérico)      | A       | Login do usuario que efetuou a conciliação manual |
+| Usuario de conciliação manual        | Alfanumérico      | A       | Login do usuario que efetuou a conciliação manual |
 | Data e hora da conciliação manual    | Data/hora          | ddmmyyyyhhmmss       | Data e hora sm que a conciliação manual foi efeturada pelo usuário  |
 
 ### Registro de Informação de Venda (Tabela VI)
@@ -3002,6 +3007,7 @@ Onde o texto [ID] deve ser substituído pelo identificador informado no registro
 | Nome do tipo de cartão                                             | Tipo de cartão                     | A        | O nome do tipo do cartão utilizado para efetuar a transação                                                          |
 | Código de Identificação do  Produto na Cielo                       | Numérico (Inteiro)                 | N        | O código que identifica o   Produto da Adquirente Cielo utilizado para efetuar a transação7                          |
 | Descrição do Produto na Cielo                                      | Alfanumérico                       | A        | A descrição do Produto na Adquirente Cielo utilizado para efetuar a transação7                                       |
+| Identificador de recebimento automático | Alfanumérico | A | RA “True” para sim e “False” para não. |
 | Identificador PIX | Alfanumérico | A | O identificador inicial gerado no momento da transação. |
 | Identificador PIX Original | Alfanumérico | A | Gerado para identificar a transação original. |
 
@@ -3042,6 +3048,7 @@ Onde o texto [ID] deve ser substituído pelo identificador informado no registro
 | Número da Operação de Antecipação na Cielo    | Numérico                           | N        | O número da Operação de Antecipação (apenas para eventos derivados de antecipações na Cielo)                                                                       |
 | Data original de pagamento                    | Data                               | ddMMyyyy | A data original para a qual o evento de pagamento estava previsto (apenas para eventos de antecipações)                                                            |
 |Número do Lote                                 | Numérico                           | N        | O número do Lote (Resumo de Vendas) ao qual o evento pertence (Somente disponível no CSV a partir do dia 16/04/2018)|
+| Taxa de antecipação | Numérico | N | Valor da taxa de antecipação |
 | Identificador PIX | Alfanumérico | A | O identificador inicial gerado no momento da transação. |
 | Identificador PIX Original | Alfanumérico | A | Gerado para identificar a transação original. |
 
