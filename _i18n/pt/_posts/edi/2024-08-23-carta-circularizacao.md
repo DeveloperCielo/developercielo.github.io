@@ -15,7 +15,7 @@ tags:
 
 # Documentação
 
-[Documentação e apoio](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Materiais_de_apoio_0.zip)
+[Documentação e apoio](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Materiais_de_apoio_1.zip)
 
 # Arquivos de teste
 
