@@ -14,9 +14,9 @@ language_tabs:
   shell: cURL
 ---
 
-# Visão geral - API Cielo Conecta Cielo
+# INTRODUÇÃO
 
-# Objetivo
+## Conheça o Cielo Conecta
 
 O Cielo Conecta permite integrar parceiros de negócio e subadquirentes à Cielo para realizar transações com cartões não presentes (transações digitadas) e cartões presentes nas modalidades chip e tarja. 
 
@@ -33,18 +33,87 @@ Com o Cielo Conecta, você pode:
 - Facilitar a conciliação. 
 
 
+![benefícios Cielo Conecta](../../../../images/conecta/)
 
-# Glossário
+## Modelos de negócio 
 
-|ID|Descrição|
-|BC|Biblioteca Compartilhada para PINPad|
-|DUKPT|(Devired Unique Key Per Transaction) Método de criptografia utilizado na Cielo|
-|PIN|Senha do cartão|
-|BDK|(Base Derived Key) Chave do Sub a ser instalada no HSM|
-|HSM|(Hardware Security Module) Servidor para geração, armazenamento, gerenciamento e funcionalidades criptográficas de chaves digitais|
-|OAUTH2|Protocolo de autenticação utilizado nas APIs|
+A integração com o Cielo Conecta pode ser aplicada em diferentes cenários, dependendo do modelo de negócio e da proposta da sua solução. A seguir, apresentamos alguns modelos disponíveis para você explorar e implementar. 
 
-# Pré-requisitos
+**Varejo**  
+
+- Frente de Caixa (PDV): A integração conecta diretamente o sistema de PDV ao Cielo Conecta, permitindo que as transações sejam processadas pelo pin pad ou terminal sem intermediários. O pagamento é iniciado no caixa e transmitido via API para a Cielo. 
+- Autoatendimento (Totem): O totem ou quiosque é integrado à API do Conecta, possibilitando que o cliente realize o pagamento de forma autônoma. O terminal ou pin pad é acionado pelo sistema do totem, garantindo uma experiência rápida e segura. 
+- Tap on Phone: Transforma um smartphone ou tablet em um terminal de pagamento, utilizando tecnologia NFC para aceitar cartões por aproximação.  
+- Tap on Phone SDK: Permite que empresas desenvolvam aplicativos próprios com a funcionalidade de pagamento por aproximação integrada. O SDK do Conecta é incorporado ao app, oferecendo controle total sobre a experiência do usuário. 
+- Smart POS White Label: Disponibiliza um terminal inteligente pronto para uso, sem necessidade de integração com PDV. Basta ativar o dispositivo e começar a operar, com recursos embarcados para pagamentos e gestão. 
+
+**Transporte**  
+
+- Transporte Público: Permite integrar um leitor de cartão NFC acoplado a catraca para aceitar pagamento com cartão no metrô, ônibus e trem. 
+- Pedágio:  Ideal para pedágios, com integração via API Conecta usando biblioteca e PINPad ou terminal homologado.  
+
+## Glossário
+
+Este glossário reúne os principais termos utilizados no ecossistema de desenvolvimento do Cielo Conecta. Ele foi criado para facilitar a compreensão de conceitos técnicos e operacionais, promovendo uma integração mais eficiente com nossas soluções. Consulte-o sempre que tiver dúvidas sobre siglas, nomenclaturas ou funcionalidades. 
+
+
+| **Termo**                              | **Descrição**                                                                 |
+|----------------------------------------|-------------------------------------------------------------------------------|
+| Baixa de parâmetros                    | Operação para receber tabelas de parâmetros via API.                        |
+| BC (Biblioteca compartilhada)          | Biblioteca usada para integração com PIN pad.                                |
+| BDK (Base Derived Key)                 | Chave do subadquirente instalada no HSM.                                     |
+| BIN                                    | Faixa de números que identifica o emissor do cartão.                         |
+| CDC                                    | Crédito Direto ao Consumidor.                                                |
+| ClientId / ClientSecret                | Credenciais utilizadas para autenticação via OAuth2.                         |
+| Desfazimento                           | Reversão de autorizações não concluídas.                                     |
+| DUKPT                                  | Método de criptografia: Derived Unique Key Per Transaction.                  |
+| EMV                                    | Padrão de cartões com chip.                                                  |
+| HSM (Hardware Security Module)         | Servidor para gerenciamento de chaves criptográficas.                        |
+| Inicialização                          | Solicitação de parâmetros para operação do terminal.                         |
+| KSN / KSI / DID / TC                   | Componentes da chave criptográfica utilizadas na transação.                  |
+| MerchantId                             | Identificador único da loja.                                                 |
+| OAuth2                                 | Protocolo de autenticação utilizado nas APIs da Cielo.                       |
+| PCI DSS / PA DSS                       | Certificações de segurança exigidas para conformidade com padrões da indústria. |
+| PIN                                    | Senha do cartão inserida pelo cliente.                                       |
+| PIN pad                                | Dispositivo eletrônico usado para inserir senhas (PIN) de forma segura.      |
+| Produção                               | Ambiente real de operação da API.                                            |
+| Sandbox                                | Ambiente de testes da API.                                                   |
+| Scopes                                 | Permissões atribuídas ao token de autenticação.                              |
+| TerminalId                             | Identificador do terminal de pagamento.                                      |
+| Token                                  | Chave de acesso gerada após autenticação.                                    |
+| Transação                              | Requisição de autorização financeira.                                        |
+| Venda Garantida / Pré-datada           | Tipos de transações com garantia ou agendamento.                             |
+| WKPAN                                  | Criptografia obrigatória para PIN pad externo.                               |
+
+## Suporte técnico 
+
+ 
+Nosso objetivo é apoiar você em cada etapa do desenvolvimento de soluções integradas com o Cielo Conecta.  
+
+Caso tenha dúvidas envie um e-mail para suportesolucoesintegradas@cielo.com.br ou [envie sua pergunta pelo portal](https://devcielo.zendesk.com/hc/pt-br).  
+
+Você também pode agendar uma chamada no dia e horário que preferir para conversar diretamente com nossos desenvolvedores especializados em suporte às soluções integradas do Cielo Conecta. 
+
+Ou, se preferir, entrar em contato pela Central de Atendimento: 
+
+- Capitais e regiões metropolitanas: (11) 4002-5472 
+- Demais localidades: 0800 570 8472 
+
+## Seja um parceiro
+
+A Aliança Cielo objetiva construir parcerias estratégicas com empresas de tecnologia, ampliando nossa atuação no mercado com soluções integradas e completas. A proposta é democratizar o acesso à inovação, conectando nossos serviços às soluções dos parceiros. A maioria das parcerias é formada por meio da integração entre os produtos da Cielo e as soluções dos parceiros. Também há troca de leads qualificados, criando oportunidades comerciais para ambos os lados. 
+  
+**Quem pode ser parceiro?**
+
+O programa é destinado a empresas de tecnologia de todos os portes que atuam nos segmentos do varejo físico e do e-commerce. Isso inclui Software Houses, TEF Houses, desenvolvedores de soluções integradas com maquininhas e aplicativos para Cielo Smart, além de plataformas de e-commerce, orquestradores de pagamento, agências implementadoras e criadores de marketplaces. 
+
+![etapas para se tornar parceiro](../../../../images/cielo-lio/diagramaparceria.png)
+
+Ficou com dúvidas? Envie um e-mail para **parcerias@cielo.com.br** ou [acesse o site](https://www.cielo.com.br/alianca/) com mais informações sobre o programa de parcerias e seus benefícios.
+
+# VISÃO GERAL TÉCNICA
+
+## Pré-requisitos
 
 Para a integração é necessário que a solução de captura do parceiro de negócio/Subadquirente possua os seguintes componentes:
 
@@ -67,7 +136,7 @@ No cadastro da chave somente é inserido o KSI que possui 5 caracteres numérico
 
 <aside class="warning">Obs.: Os F’s devem ser preenchidos automaticamente pela Solução de Captura.</aside>
 
-# Autenticação
+## Autenticação
 
 A autenticação é uma operação necessária para obtenção do token que será utilizado nas demais chamadas de APIs.
 
