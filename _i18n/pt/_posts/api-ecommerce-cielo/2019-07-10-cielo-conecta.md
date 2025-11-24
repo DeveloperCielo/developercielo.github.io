@@ -113,28 +113,70 @@ Ficou com dúvidas? Envie um e-mail para **parcerias@cielo.com.br** ou [acesse o
 
 # VISÃO GERAL TÉCNICA
 
+## Funcionalidades
+
+Para atender diferentes modelos de negócio, o Cielo Conecta oferece uma ampla gama de funcionalidades e modalidades de pagamento:  
+
+- Crédito e débito 
+- Parcelado loja e emissor 
+- Pré-autorização 
+- Pré-pago 
+- Cancelamento 
+- Construcard 
+- Private label 
+- Voucher (Ticket e Alelo) 
+
+<aside style="background-color: #d4edda; padding: 15px; border-left: 5px solid #28a745; color: #155724;margin-top: 20px; margin-bottom: 20px;"> Cielo Conecta está aderente ao normativo 23, regulamentado pelo Banco Central, que define padrões para interoperabilidade, segurança e portabilidade entre arranjos de pagamento. Além disso, o Cielo Conecta consegue reaproveitar Lista de Operações Autorizadas (LOAS) de outras adquirentes. O reaproveitamento significa que, em situações específicas previstas pelo regulamento, a Cielo pode utilizar essas autorizações sem precisar refazer todo o processo.</aside>
+
+## Terminais compatíveis
+
+A integração com o Cielo Conecta funciona com todos os tipos de terminais, como POS, PIN pad e outros dispositivos. No entanto, para uso em produção, o terminal precisa estar homologado pela Cielo. 
+
+<aside style="background-color: #d4edda; padding: 15px; border-left: 5px solid #28a745; color: #155724;margin-top: 20px; margin-bottom: 20px;"> Um terminal compatível pode funcionar com a solução porque tem os recursos necessários, mas ainda não foi testado, enquanto um terminal homologado já foi testado e aprovado pela Cielo, garantindo que funciona corretamente e com segurança. </aside>
+
+Confira abaixo os pré-requisitos para garantir a compatibilidade do terminal: 
+
+- Para terminais PIN pad, é necessário possuir a versão 2.12 Abecs ou superior e o mapa de chaves com a posição da Cielo injetada no equipamento. 
+- Atenda aos requisitos de criptografia do Cielo Conecta (DUKPT 3DES CBC) e mantenha-se em conformidade, ou seja, com as certificações PCI, L1/L2 válidas e não vencidas. 
+
+**Alugando terminais homologados com a Cielo** 
+
+Atualmente, o Conecta possui alguns terminais homologados. É possível alugar alguns modelos diretamente com a Cielo, como os PIN Pads P200, PPC930, MP15 e o SmartPOS A910S. 
+
+Para solicitar o aluguel de um terminal PIN pad com a Cielo, entre em contato com seu representante comercial ou com o time de suporte. 
+
+Para outros modelos, a aquisição deve ser feita com o fabricante, e será necessário realizar a certificação de bandeiras, contratando um laboratório e arcando com os custos do processo. 
+
+<aside style="background-color: #f8d7da; padding: 15px; border-left: 5px solid #dc3545; color: #721c24;margin-top: 20px; margin-bottom: 20px;"> É importante observar que, para terminais que não fazem parte do portfólio da Cielo, pode haver restrições relacionadas à certificação junto às bandeiras. Recomenda-se verificar previamente a homologação desses equipamentos para garantir o pleno funcionamento da solução. </aside>
+
+Demais terminais de mercado também podem ser utilizados mediante certificação para submissão de bandeiras. 
+
 ## Pré-requisitos
 
-Para a integração é necessário que a solução de captura do parceiro de negócio/Subadquirente possua os seguintes componentes:
+Para que a integração com o Cielo Conecta seja realizada com sucesso, a solução de captura do parceiro de negócio ou subadquirente deve atender aos seguintes requisitos técnicos: 
 
-- Biblioteca Compartilhada para PINPad ou biblioteca proprietária certificada com as bandeiras.
-- Chaves de Criptografia DUKPT implementada para PIN.
-- Disponibilizar sua BDK para instalação no HSM Cielo.
-- Para soluções de pagamento que utilizam Pinpad externo (conexão Bluetooth ou cabo), é obrigatório o uso de criptografia WKPAN para dados. Clientes desse tipo de solução precisam apresentar certificado PCI DSS e PA DSS
+- A solução deve utilizar uma biblioteca compartilhada para PIN pad ou uma biblioteca proprietária certificada pelas bandeiras; 
+- É obrigatório que a criptografia DUKPT esteja implementada para PIN; 
+- O parceiro deve disponibilizar sua BDK (Base Derivation Key) para instalação no HSM da Cielo; 
+- Para soluções que utilizam PIN pad externo via Bluetooth ou cabo, é obrigatório o uso de criptografia WKPAN para proteção dos dados. Além disso, o cliente deve apresentar os certificados PCI DSS e PA DSS válidos. 
 
-Formato da Chave exigida pela Cielo:
+<aside style="background-color: #d4edda; padding: 15px; border-left: 5px solid #28a745; color: #155724;margin-top: 20px; margin-bottom: 20px;"> Para se integrar com nossa API, o cliente precisa ter ou contratar um time de desenvolvimento ou solicitar a uma software house de Automação Comercial (PDV) que faça essa integração. </aside>
 
-O HSM Cielo está parametrizado para um KSN da seguinte forma:
+Em relação ao formato da chave requerido, o HSM da Cielo está configurado para utilizar KSNs (Key Serial Numbers) com a seguinte estrutura: 
 
-- **KSI -** Número de identificação da Chave
-- **DID –** Device ID
-- **TC –** Transaction Counter
+- KSI – Identificador da Chave (Key Set Identifier) 
+- DID – Identificador do Dispositivo (Device ID) 
+- TC – Contador de Transações (Transaction Counter) 
 
-No cadastro da chave somente é inserido o KSI que possui 5 caracteres numéricos e a chave, conforme exemplo abaixo:
+No momento do cadastro da chave, apenas o KSI (composto por 5 caracteres numéricos) e a chave são inseridos, conforme o exemplo abaixo: 
 
-**FFFFF**030331234500012
+FFFFF030331234500012 
 
-<aside class="warning">Obs.: Os F’s devem ser preenchidos automaticamente pela Solução de Captura.</aside>
+<aside style="background-color: #d4edda; padding: 15px; border-left: 5px solid #28a745; color: #155724;margin-top: 20px; margin-bottom: 20px;"> Os caracteres “F” devem ser preenchidos automaticamente pela solução de captura.</aside>
+
+# INTEGRAÇÃO COM A API
+
+Aqui, você encontra todas as informações necessárias sobre endpoints e recursos disponíveis na API Cielo Conecta.  
 
 ## Autenticação
 
