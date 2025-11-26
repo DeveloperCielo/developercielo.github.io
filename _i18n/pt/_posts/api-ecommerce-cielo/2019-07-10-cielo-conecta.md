@@ -52,6 +52,22 @@ A integração com o Cielo Conecta pode ser aplicada em diferentes cenários, de
 - Transporte Público: Permite integrar um leitor de cartão NFC acoplado a catraca para aceitar pagamento com cartão no metrô, ônibus e trem. 
 - Pedágio:  Ideal para pedágios, com integração via API Conecta usando biblioteca e PINPad ou terminal homologado.  
 
+## Primeiros passos 
+
+Está iniciando agora a sua jornada de integração e não sabe por onde começar? Aqui, você encontra uma visão simplificada dos passos para integrar com o Cielo Conecta.  
+
+![jornada do integrador](../../../../images/conecta/jornadadointegrador.png)
+
+Para integrar sua solução com o Cielo Conecta, é essencial compreender as principais operações disponíveis na API. Cada funcionalidade desempenha um papel específico no fluxo de pagamento, desde a configuração inicial até a gestão completa das transações. A seguir, apresentamos uma visão geral das etapas que você passará  durante a integração. 
+
+A primeira seção desta documentação, intitulada **Introdução**, apresenta uma visão geral do Cielo Conecta, explicando sua proposta e benefícios. Nessa parte, você encontra este guia de primeiros passos com orientações básicas para iniciar a integração, um glossário com os principais termos técnicos utilizados ao longo da documentação, os canais de suporte disponíveis, informações sobre o nosso programa de parceria e uma área dedicada às últimas atualizações da plataforma.  
+
+A seção **Visão geral técnica**, aprofunda os aspectos técnicos do Cielo Conecta, detalhando as funcionalidades bem como pré-requisitos da integração. 
+
+Em seguida, a seção **Integração com a API**, reúne informações sobre os ambientes Sandbox e Produção, autenticações e credenciais, além do fluxo de autenticação e do processo para criação de tokens de acesso e configurações iniciais. 
+
+A seção **Operações** detalha todas as funcionalidades suportadas pela API, abrangendo Pagamentos (incluindo fluxo, autorização, desfazimento, confirmação e consultas) e Cancelamento. Além disso, também detalha as operações relacionadas a Lojas, contemplando a criação, consulta e atualização de lojas, além da gestão de terminais e a consulta de equipamentos. Para cada operação, são fornecidos exemplos de requisição, path parameters e respostas. 
+
 ## Glossário
 
 Este glossário reúne os principais termos utilizados no ecossistema de desenvolvimento do Cielo Conecta. Ele foi criado para facilitar a compreensão de conceitos técnicos e operacionais, promovendo uma integração mais eficiente com nossas soluções. Consulte-o sempre que tiver dúvidas sobre siglas, nomenclaturas ou funcionalidades. 
@@ -178,34 +194,70 @@ FFFFF030331234500012
 
 Aqui, você encontra todas as informações necessárias sobre endpoints e recursos disponíveis na API Cielo Conecta.  
 
-## Autenticação
+## Ambientes: Produção e Sandbox 
 
-A autenticação é uma operação necessária para obtenção do token que será utilizado nas demais chamadas de APIs.
+Você pode utilizar o ambiente Sandbox para realizar testes com a API do Cielo Conecta. [Clique aqui](https://omnichannelcadastrosandbox.cieloecommerce.cielo.com.br/) para gerar uma credencial para testes em Sandbox. 
 
-> **URL Sandbox**: https://authsandbox.cieloecommerce.cielo.com.br
->
-> **URL Produção**: https://auth.cieloecommerce.cielo.com.br
+Já o ambiente de Produção é integrado ao sistema da Cielo, sendo utilizado para operações reais que não podem ser desfeitas. Faça o seu cadastro para receber o MerchantId e o Merchant Key, que são as credenciais necessárias para os métodos da API. 
 
-|Security scheme type:|OAuth2|
-|clientCredentials OAuth Flow|**Username:** ClientId<br><br>**Password:** ClientSecret<br>**Scopes:**<br><br>_ `PhysicalCieloMaster` - Cadastrar de Lojas e Terminais<br><br>_ `PhysicalCieloTransactional` - Transacionar e consultar<br><br>\* Se não solicitar um escopo ele é atribuido por padrão|
+### Autenticação
 
-Para testes em sandbox você pode gerar uma credencial a qualquer momento através do site abaixo.
+A autenticação é o primeiro passo para usar as APIs do Cielo Conecta. Ela serve para garantir que apenas sistemas autorizados possam fazer chamadas para os serviços da Cielo. Esse processo é indispensável para gerar o token que será usado nas chamadas às APIs.
 
-> **URL**: https://omnichannelcadastrosandbox.cieloecommerce.cielo.com.br/
+| Ambiente   | URL Base                                                                 |
+|------------|--------------------------------------------------------------------------|
+| Sandbox    | `https://authsandbox.cieloecommerce.cielo.com.br`              |
+| Produção   | `https://auth.cieloecommerce.cielo.com.br `                          |
 
-## Criar Token
+O Cielo Conecta usa o tipo de autenticação chamado Client Credentials, que é uma das formas do OAuth2.  
 
-> **POST** https://authsandbox.cieloecommerce.cielo.com.br/oauth2/token
->
-> | Key               | Value                           |
-> | ----------------- | ------------------------------- |
-> | **AUTHORIZATION** | _Username{Auth_ClientId}_       |
-> | **AUTHORIZATION** | _Password{Auth_ClientSecret}_   |
-> | **HEADERS**       | _Content-Type text/plain_       |
-> | **BODY**          | _grant_type client_credentials_ |
-> | **scope**         | _{scope}_                       |
+**Credenciais necessárias** 
 
-### Request
+- ClientId: Usuário do cliente 
+- ClientSecret: Senha do cliente 
+
+**Escopos disponíveis**
+
+Os escopos definem as permissões do token: 
+
+- PhysicalCieloMaster: Cadastro de lojas e terminais
+- PhysicalCieloTransactional: Transações e consultas
+
+<aside style="background-color: #d4edda; padding: 15px; border-left: 5px solid #28a745; color: #155724;margin-top: 20px; margin-bottom: 20px;"> Se nenhum escopo for informado, um escopo padrão será atribuído. </aside>
+
+#### Fluxo de autenticação
+
+Aqui está o passo a passo do fluxo de autenticação: 
+
+1. Você recebe um Client ID e um Client Secret da Cielo; 
+2. Sua aplicação envia esses dados para a Cielo, pedindo um token de acesso; 
+3. A Cielo responde com um token, que é uma chave temporária que sua aplicação vai usar para se identificar nas próximas chamadas à API.
+
+![Fluxo de autenticação](../../../../images/conecta/fluxogramacredenciaisconecta.png)
+
+<aside style="background-color: #d4edda; padding: 15px; border-left: 5px solid #28a745; color: #155724;margin-top: 20px; margin-bottom: 20px;"> O token de homologação tem uma validade limitada de 24 horas enquanto o de produção tem uma validade de 20 minutos. </aside>
+
+
+### Criando um token de acesso
+
+Abaixo está o passo a passo para criar o token de acesso para acessar a API Cielo Conecta. 
+
+| Método   | Endpoint                                                                 |
+|------------|--------------------------------------------------------------------------|
+| POST   | `https://authsandbox.cieloecommerce.cielo.com.br/oauth2/token`              |
+
+
+Na tabela abaixo, você encontra os parâmetros necessários e seus respectivos valores para montar a requisição corretamente. 
+
+| Key               | Value                           |
+| ----------------- | ------------------------------- |
+| **Authorization** | Username{Auth_ClientId}       |
+| **Authorization** | Password{Auth_ClientSecret}  |
+| **Headers**       | Content-Type text/plain       |
+| **Body**          | grant_type client_credentials |
+| **Scope**         | {scope}                      |
+
+**Request**
 
 ```shell
 curl --location --request POST 'https://authsandbox.cieloecommerce.cielo.com.br/oauth2/token' \
@@ -214,7 +266,7 @@ curl --location --request POST 'https://authsandbox.cieloecommerce.cielo.com.br/
 --data-urlencode 'grant_type=client_credentials'
 ```
 
-### Response
+**Response**
 
 ```json
 {
@@ -224,39 +276,42 @@ curl --location --request POST 'https://authsandbox.cieloecommerce.cielo.com.br/
 }
 ```
 
-# Baixa de parâmetros
+## Configuração inicial: Baixa de parâmetros
 
-Essa operação é necessária para que o parceiro de negócio / Subadquirente receba todas as tabelas de parâmetros necessários para que a solução de captura possa efetuar as transações via chamada de API. Essa informação será recebida através de API e deverá ser instalada na BC.
+Essa configuração inicial é essencial para que você obtenha todas as tabelas de parâmetros necessárias para que a solução de captura funcione corretamente via API. Os dados são fornecidos por meio de uma chamada à API e devem ser instalados na Biblioteca Compartilhada (BC) do terminal. 
 
-|                                SandBox                                 |                            Produção                             |
-| :--------------------------------------------------------------------: | :-------------------------------------------------------------: |
-| https://parametersdownloadsandbox.cieloecommerce.cielo.com.br/api/v0.1 | https://parametersdownload.cieloecommerce.cielo.com.br/api/v0.1 |
+Esses parâmetros incluem informações como bandeiras, emissores, produtos, regras de negócio e configurações técnicas, garantindo que o terminal esteja apto a realizar transações de forma segura e conforme as especificações da Cielo. 
 
-**Simular respostas:**
+| Ambiente   | URL Base                                                                 |
+|------------|--------------------------------------------------------------------------|
+| Sandbox    | `https://parametersdownloadsandbox.cieloecommerce.cielo.com.br/api/v0.1`              |
+| Produção   | `https://parametersdownload.cieloecommerce.cielo.com.br/api/v0.1`                          |
 
-Para simular uma resposta especifica utilize o campo TerminalId, onde de acordo com os quatro ultimos digitos finais do valor informado é possivel receber uma resposta conforme a tabela abaixo:
+Para simular uma resposta específica da API, utilize o campo TerminalId. Os quatro últimos dígitos desse valor determinam qual tipo de resposta será retornada, conforme descrito na tabela abaixo:  
 
-| TerminalId(ultimos digitos) | ---                  | Retorno simulado | Exemplo do valor do TerminalId |
+
+
+| TerminalId (últimos digitos) | ---                  | Retorno simulado | Exemplo do valor do TerminalId |
 | --------------------------- | -------------------- | ---------------- | ------------------------------ |
 | 0404                        | TERMINAL INEXISTENTE | 71990404         | ---                            |
 | Demais valores              | SUCESSO              | 82990566         | ---                            |
 
-## Inicialização
+### Inicialização
 
 Solicita as tabelas e parametros para operação do terminal
 
-### Requisição
+**Requisição**
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/initialization/{SubordinatedMerchantId}/{TerminalId}</span></aside>
 
-**Path Parameters:**
+**Path parameters:**
 
 | Propriedade              | Tipo   | Tamanho | Obrigatório | Descrição                 |
 | ------------------------ | ------ | ------- | ----------- | ------------------------- |
 | `SubordinatedMerchantId` | String | ---     | Sim         | Identificador da loja     |
 | `TerminalId`             | String | ---     | Sim         | Identificador do terminal |
 
-### Resposta
+**Resposta**
 
 ```json
 {
@@ -611,11 +666,11 @@ Solicita as tabelas e parametros para operação do terminal
 
 Solicita as tabelas e parametros para operação do terminal.
 
-### Requisição
+**Requisição**
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/initialization/</span></aside>
 
-**Path Parameters:**
+**Path parameters:**
 
 | Propriedade                                          | Tipo         | Tamanho | Obrigatório | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | ---------------------------------------------------- | ------------ | ------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -662,7 +717,7 @@ Solicita as tabelas e parametros para operação do terminal.
 }
 ```
 
-### Resposta
+**Resposta**
 
 ```json
 {
