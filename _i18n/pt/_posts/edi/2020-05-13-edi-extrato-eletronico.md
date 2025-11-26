@@ -28,10 +28,11 @@ Melhorias no Extrato eletrônico:
 - Arquivo exclusivo para transações Pix – CIELO16 (Implantação prevista para **13/01/2026**). <br/>
 <br/>
 
-Atualizações V15.14.1
+Atualizações V15.14.1:
 
 - Identificação de hierarquia de cadastro (Implantação prevista para **13/01/2026**).
-- Identificação de transações com produto TC no registro tipo “E” (Implantação prevista para **13/01/2026**).
+- Identificação de transações com produto TC no registro tipo “E” (Implantação prevista para **13/01/2026**). <br/>
+<br/>
 
 **Anexos**
 
