@@ -36,7 +36,10 @@ Atualizações V15.14.1:
 
 **Anexos**
 
-[LAYOUTS ATUALIZADOS](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/LAYOUTS_ATUALIZADOS_1.zip)
+LAYOUTS ATUALIZADOS
+
+- [Manual da especificação técnica - Português](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/edi/CIELO_Extrato_Eletronico_-_Manual_-_Versao_15_14_1.pdf)
+- [Technical Specification Manual - English](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/edi/CIELO_Eletronic_Statement_-_Manual_-_Version_15_14_1.pdf)
 
 [TABELA DE AJUSTES](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/TABELA_DE_AJUSTES.zip)
 
