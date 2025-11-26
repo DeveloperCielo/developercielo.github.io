@@ -25,7 +25,8 @@ Prezados Clientes,
 Melhorias no Extrato eletrônico:
 
 - Inclusão do ID de pagamento Pix (Implantação prevista para **14/10/2025**);
-- Arquivo exclusivo para transações Pix – CIELO16 (Implantação prevista para **13/01/2026**).
+- Arquivo exclusivo para transações Pix – CIELO16 (Implantação prevista para **13/01/2026**). </br>
+</br>
 
 Atualizações V15.14.1
 
