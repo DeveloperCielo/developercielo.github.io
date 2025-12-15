@@ -40,19 +40,19 @@ A integração com o Cielo Conecta pode ser aplicada em diferentes cenários, de
 
 **Varejo**  
 
-- Frente de Caixa (PDV): A integração conecta diretamente o sistema de PDV ao Cielo Conecta, permitindo que as transações sejam processadas pelo pinpad ou terminal sem intermediários. O pagamento é iniciado no caixa e transmitido via API para a Cielo. 
-- Autoatendimento (Totem): O totem ou quiosque é integrado à API do Conecta, possibilitando que o cliente realize o pagamento de forma autônoma. O terminal ou pin pad é acionado pelo sistema do totem, garantindo uma experiência rápida e segura.    
+- Frente de Caixa (PDV): A integração conecta diretamente o sistema de PDV ao Cielo Conecta, permitindo que as transações sejam processadas pelo Pin Pad ou terminal sem intermediários. O pagamento é iniciado no caixa e transmitido via API para a Cielo. 
+- Autoatendimento (Totem): O totem ou quiosque é integrado à API do Conecta, possibilitando que o cliente realize o pagamento de forma autônoma. O terminal ou Pin Pad é acionado pelo sistema do totem, garantindo uma experiência rápida e segura.    
 
 **Transporte**  
 
 - Transporte Público: Permite integrar um leitor de cartão NFC acoplado a catraca para aceitar pagamento com cartão no metrô, ônibus e trem. 
-- Pedágio:  Ideal para pedágios, com integração via API Conecta usando biblioteca e PINPad ou terminal homologado.  
+- Pedágio:  Ideal para pedágios, com integração via API Conecta usando biblioteca e Pin Pad ou terminal homologado.  
 
 ## Primeiros passos 
 
 Está iniciando agora a sua jornada de integração e não sabe por onde começar? Aqui, você encontra uma visão simplificada dos passos para integrar com o Cielo Conecta.  
 
-![jornada do integrador](../../../../images/conecta/jornadadointegrador.png)
+![jornada do integrador](../../../../images/conecta/jornadadointegradorconecta.png)
 
 Para integrar sua solução com o Cielo Conecta, é essencial compreender as principais operações disponíveis na API. Cada funcionalidade desempenha um papel específico no fluxo de pagamento, desde a configuração inicial até a gestão completa das transações. A seguir, apresentamos uma visão geral das etapas que você passará  durante a integração. 
 
@@ -94,7 +94,7 @@ Este glossário reúne os principais termos utilizados no ecossistema de desenvo
 | TerminalId                             | Identificador do terminal de pagamento.                                      |
 | Token                                  | Chave de acesso gerada após autenticação.                                    |
 | Transação                              | Requisição de autorização financeira.                                        |                          |
-| WKPAN                                  | Criptografia obrigatória para PIN pad externo.                               |
+| WKPAN                                  | Criptografia obrigatória para Pin Pad externo.                               |
 
 ## Suporte técnico 
 
@@ -144,13 +144,12 @@ Confira abaixo os pré-requisitos para garantir a compatibilidade do terminal:
 
 ### Aderência a normativos Abecs
 
-Parágrafo introdutório
+A conformidade com os normativos estabelecidos pela Abecs é um requisito essencial para garantir a segurança, a integridade e a padronização das operações no mercado de meios de pagamento. Durante sua jornada de integração, o processo de aderência passará por uma avaliação do time Cielo. 
 
-Processo sob avaliação do time da Cielo
 
 **Normativo 23**
 
- O Cielo Conecta permite aplicabilidade ao normativo 23, conforme regras da ABECS, que define padrões para interoperabilidade, segurança e portabilidade entre arranjos de pagamento. Dessa forma, o Cielo Conecta permite reaproveitar LOAS de outras adquirentes. Ou seja, em situações específicas previstas pelo regulamento, a Cielo pode utilizar essas autorizações sem precisar refazer todo o processo de homologação com as bandeiras.
+ O Cielo Conecta permite aplicabilidade ao normativo 23, conforme regras da Abecs, que define padrões para interoperabilidade, segurança e portabilidade entre arranjos de pagamento. Dessa forma, o Cielo Conecta permite reaproveitar LOAS de outras adquirentes. Ou seja, em situações específicas previstas pelo regulamento, a Cielo pode utilizar essas autorizações sem precisar refazer todo o processo de homologação com as bandeiras.
 
 **Normativo 27**
 
@@ -159,22 +158,22 @@ Há pré-requisitos que devem obrigatoriamente ser atendidos para garantir a apl
 - A solução POSTEF do cliente deve estar certificada pelas Bandeiras e integrada, no mínimo, a uma adquirente. 
 - O cliente precisa apresentar os LOAs emitidos pelas bandeiras (Visa, Master, Elo e Amex). Caso deseje utilizar outra bandeira, o LOA deve ser apresentado.
 - O modelo de integração certificado  nas bandeiras deve seguir o mesmo padrão do Cielo Conecta (via API). 
-- O equipamento utilizado deve conter a chave da adquirente Cielo, conforme o mapa de chaves da ABECS. 
+- O equipamento utilizado deve conter a chave da adquirente Cielo, conforme o mapa de chaves da Abecs. 
 - Para garantir conformidade com os processos internos da Cielo, é obrigatório realizar testes de interoperabilidade, assegurando que a integração com a solução Cielo Conecta atende aos requisitos de cada Bandeira.
 
 **Alugando terminais homologados com a Cielo** 
 
 É possível alugar alguns modelos de Pin Pad que atendem todos os requisitos de homologação diretamente com a Cielo. 
 
-Para saber quais modelos de terminal estão disponíveis ou solicitar o aluguel de um terminal Pin pad com a Cielo, entre em contato com seu representante comercial ou com o time de suporte. 
+Para saber quais modelos de terminal estão disponíveis ou solicitar o aluguel de um terminal Pin Pad com a Cielo, entre em contato com seu representante comercial ou com o time de suporte. 
 
-Para outros modelos, a aquisição deve ser feita com o fabricante. Será necessário realizar a certificação de bandeiras, contratando um laboratório e arcando com os custos do processo. Ou, caso atenda os requisitos, é possível [aplicação dos normativos]().
+Para outros modelos, a aquisição deve ser feita com o fabricante. Será necessário realizar a certificação de bandeiras, contratando um laboratório e arcando com os custos do processo. Ou, caso atenda os requisitos, é possível a aplicação dos normativos.
 
 ## Pré-requisitos
 
 Para que a integração com o Cielo Conecta seja realizada com sucesso, a solução de captura do parceiro de negócio ou subadquirente deve atender aos seguintes requisitos técnicos: 
 
-- A solução deve utilizar uma biblioteca compartilhada para Pin pad no padrão Abecs ou uma biblioteca proprietária certificada pelas bandeiras; 
+- A solução deve utilizar uma biblioteca compartilhada para Pin Pad no padrão Abecs ou uma biblioteca proprietária certificada pelas bandeiras; 
 - É obrigatório que a criptografia DUKPT esteja implementada para PIN; 
 - Para utilização de chave própria, deverá disponibilizar sua BDK (Base Derivation Key) para instalação no HSM da Cielo.
 
@@ -204,7 +203,7 @@ Você pode utilizar o ambiente Sandbox para realizar testes com a API do Cielo C
 
 Já o ambiente de Produção é integrado ao sistema da Cielo, sendo utilizado para operações reais. 
 
-A credencial para o ambiente de Produção, composta pelo Client Id e Client Secret, será disponibilizada após a conclusão do desenvolvimento e homologação da integração. 
+A credencial para o ambiente de Produção, composta pelo ClientId e ClientSecret, será disponibilizada após a conclusão do desenvolvimento e homologação da integração. 
 
 
 
@@ -212,11 +211,13 @@ A credencial para o ambiente de Produção, composta pelo Client Id e Client Sec
 
 A autenticação é o primeiro passo para usar as APIs do Cielo Conecta. Ela serve para garantir que apenas sistemas autorizados possam fazer chamadas para os serviços da Cielo. Esse processo é indispensável para gerar o token que será usado nas chamadas às APIs.
 
-| Ambiente   | URL Base                                                                 |
-|------------|--------------------------------------------------------------------------|
-| Sandbox    | `https://authsandbox.cieloecommerce.cielo.com.br`              |
-| Homologação   | `https://authsandbox.cieloecommerce.cielo.com.br`                          |
-| Produção   | `https://auth.cieloecommerce.cielo.com.br `                          |
+
+| **Método** | **Ambiente**    | **Endpoint**                                                   |
+|------------|-----------------|----------------------------------------------------------------|
+| POST       | Sandbox         | `https://authsandbox.cieloecommerce.cielo.com.br/oauth2/token` |
+| POST       | Homologação     | `https://authsandbox.cieloecommerce.cielo.com.br/oauth2/token` |
+| POST       | Produção    | `https://auth.cieloecommerce.cielo.com.br` |
+|                         |
 
 O Cielo Conecta usa o tipo de autenticação chamado Client Credentials, que é uma das formas do OAuth2.  
 
@@ -238,9 +239,10 @@ Os escopos definem as permissões do token:
 
 Aqui está o passo a passo do fluxo de autenticação: 
 
-1. Você recebe um Client ID e um Client Secret da Cielo; 
+1. Você recebe um ClientId e um ClientSecret da Cielo; 
 2. Sua aplicação envia esses dados para a Cielo, utilizando a API de autenticação, e solicita um token de acesso; 
-3. A Cielo responde com um token, que é uma chave temporária que sua aplicação vai usar para se identificar nas próximas chamadas à API.
+3. A Cielo responde com um token, que é uma chave temporária que sua aplicação vai usar para se identificar nas próximas chamadas à API. <br/>
+<br/>
 
 ![Fluxo de autenticação](../../../../images/conecta/fluxogramacredenciaisconecta.png)
 
@@ -251,12 +253,12 @@ Aqui está o passo a passo do fluxo de autenticação:
 
 Abaixo está o passo a passo para criar o token de acesso para acessar a API Cielo Conecta. 
 
-| Método   | Ambient Endpoint                                                                 |
-|------------|--------------------------------------------------------------------------|
-| POST   | `https://authsandbox.cieloecommerce.cielo.com.br/oauth2/token`              |
-| POST   | `https://authsandbox.cieloecommerce.cielo.com.br/oauth2/token`              |
-
-
+| **Método** | **Ambiente**    | **Endpoint**                                                   |
+|------------|-----------------|----------------------------------------------------------------|
+| POST       | Sandbox         | `https://authsandbox.cieloecommerce.cielo.com.br/oauth2/token` |
+| POST       | Homologação     | `https://authsandbox.cieloecommerce.cielo.com.br/oauth2/token` |
+| POST       | Produção    | `https://auth.cieloecommerce.cielo.com.br/oauth2/token` |
+| 
 
 Na tabela abaixo, você encontra os parâmetros necessários e seus respectivos valores para montar a requisição corretamente. 
 
@@ -295,16 +297,19 @@ Esses parâmetros incluem informações como bandeiras, emissores, produtos, reg
 
 | Ambiente   | URL Base                                                                 |
 |------------|--------------------------------------------------------------------------|
-| Sandbox    | `https://parametersdownloadsandbox.cieloecommerce.cielo.com.br/api/v0.1`              |
+| Sandbox    | `https://parametersdownloadsandbox.cieloecommerce.cielo.com.br/api/v0.1`
+| Homologação    | `https://parametersdownloadsandbox.cieloecommerce.cielo.com.br/api/v0.1`               |
 | Produção   | `https://parametersdownload.cieloecommerce.cielo.com.br/api/v0.1`                          |
+
 
 Para simular uma resposta específica da API, utilize o campo TerminalId. Os quatro últimos dígitos desse valor determinam qual tipo de resposta será retornada, conforme descrito na tabela abaixo:  
 
 
-| TerminalId (últimos digitos) | ---                  | Retorno simulado | Exemplo do valor do TerminalId |
-| --------------------------- | -------------------- | ---------------- | ------------------------------ |
-| 0404                        | TERMINAL INEXISTENTE | 71990404         | ---                            |
-| Demais valores              | SUCESSO              | 82990566         | ---                            |
+| **TerminalId (últimos dígitos)** | **Retorno simulado**    | **Mensagem**   |
+|----------------------------------|--------------------------|----------------|
+| 0404                             | TERMINAL INEXISTENTE    | 71990404       |
+| Demais valores                   | SUCESSO                 | 82990566       |
+
 
 ### Inicialização
 
@@ -313,6 +318,8 @@ Solicita as tabelas e parametros para operação do terminal
 **Requisição**
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/initialization/{SubordinatedMerchantId}/{TerminalId}</span></aside>
+
+<br/>
 
 **Path parameters:**
 
