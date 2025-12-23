@@ -339,7 +339,7 @@ Registre o ID do lojista(apenas um, uma lista ou todos), com base no número da 
 | `mainMerchantId` | ID principal do cliente.                                                                                                                                        | String |         |             |
 | `merchants`      | Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista ["9999111111", "9999111333"] |        |         |             |
 | `merchantEMail`  | Endereço de e-mail do cliente                                                                                                                                   |        |         |             |
-| `type`           | Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, BALANCE e NRC                                     |        |         |             |
+| `type`           | Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, BALANCE, NRC e PIX. Obs: O type "PIX" poderá ser enviados a partir de 14/01/2026.                                     |        |         |             |
 
 ### Response
 
@@ -427,7 +427,7 @@ Consulte o MerchantID com base no registerID ou no mainMerchantID.
 | `mainMerchantId`    | ID principal do cliente.                                                                                                                                                                                                                                               | String |         |             |
 | `registerID`        | ID do registro. O mesmo fornecido por /edi/registers                                                                                                                                                                                                                   | String |         |             |
 | `merchants`         | Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista ["9999111111", "9999111333"]                                                                                                        |        |         |             |
-| `type`              | Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, BALANCE e NRC                                                                                                                                            |        |         |             |
+| `type`              | Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, BALANCE, NRC e PIX. Obs: O type "PIX" poderá ser enviados a partir de 14/01/2026                                                                                                                                            |        |         |             |
 
 ## **PUT** Atualizar o Registro do merchantID
 
