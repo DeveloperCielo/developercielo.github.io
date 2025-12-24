@@ -305,7 +305,7 @@ Retorna configurações existentes agrupadas por mainMerchantID.
     "SELL",
     "PAYMENT",
     "BALANCE",
-    "NRC"
+    "NRC",
     "PIX"
   ],
   "ediStatus": "AVAILABLE"
