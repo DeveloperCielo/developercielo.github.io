@@ -603,8 +603,8 @@ Não é possível gerar um lote de cartas para ECs diferentes, na mesma requisi�
 
 | AMBIENTE | MÉTODO |  ENDPOINT | 
 | ------------------ | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
-| **Homologação** | GET | https://apihml-internet.cielo.com.br/refunds-api/v1/letter-api/pdf  | 
-| **Produção**    | GET | https://api-internet.cielo.com.br/cielo-refunds-exp-external/refunds/v1/letter-api/pdf  |
+| **Homologação** | POST | https://apihml-internet.cielo.com.br/refunds-api/v1/letter-api/pdf  | 
+| **Produção**    | POST | https://api-internet.cielo.com.br/cielo-refunds-exp-external/refunds/v1/letter-api/pdf  |
 
 ```json
 {
@@ -635,8 +635,8 @@ O campo **language** é opcional, mantendo como default o idioma português, pod
 
 | AMBIENTE | MÉTODO |  ENDPOINT | 
 | ------------------ | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
-| **Homologação** | GET | https://apihml-internet.cielo.com.br/refunds-api/v1/letter-api/zip | 
-| **Produção**    | GET | https://api-internet.cielo.com.br/cielo-refunds-exp-external/refunds/v1/letter-api/zip  |
+| **Homologação** | POST | https://apihml-internet.cielo.com.br/refunds-api/v1/letter-api/zip | 
+| **Produção**    | POST | https://api-internet.cielo.com.br/cielo-refunds-exp-external/refunds/v1/letter-api/zip  |
 
 ```json 
 {
