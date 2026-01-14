@@ -687,6 +687,13 @@ Solicita as tabelas e parametros para operação do terminal
 | Issuers.RequiresSecurityCodeWhenCardNumberIsTyped | Booleano | — | — | Código ao digitar. |
 
 
+**Outros parâmetros**
+
+| Propriedade           | Tipo   | Tamanho | Obrigatório | Descrição |
+|-----------------------|--------|---------|-------------|-----------|
+| AidParameters         | string | —       | —           | — |
+| PublicKeys            | string | —       | —           | — |
+| InitializationVersion | number | —       | —           | Versão numérica da inicialização (timestamp). |
 
 
 # Pagamentos
