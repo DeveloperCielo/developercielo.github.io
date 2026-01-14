@@ -633,6 +633,62 @@ Solicita as tabelas e parametros para operação do terminal
 | Emv.ProductIds | Array of integers int32 | — | — | Produtos habilitados. |
 
 
+**Parameters**
+
+| Propriedade | Tipo | Tamanho | Obrigatório | Descrição |
+|-------------|------|---------|-------------|-----------|
+| Parameters.Currency | String | — | — | — |
+| Parameters.AllowFallbackWhenChipReadingFails | Booleano | — | — | Permite fallback. |
+| Parameters.AllowChargingMoedeiroFromCash | Booleano | — | — | Permite carga com dinheiro. |
+| Parameters.AllowPurchaseWithCompreESaque | Booleano | — | — | Permite Compre & Saque. |
+| Parameters.AllowOfflineFunctionExceptForEMVCard | Booleano | — | — | Offline exceto EMV. |
+| Parameters.AllowTypingCardNumber | Booleano | — | — | Entrada manual. |
+| Parameters.MaskCardNumberUsingLast4Digits | Booleano | — | — | Imprimir últimos 4 dígitos. |
+| Parameters.MaskCardNumberUsingFirst6AndLast4Digits | Booleano | — | — | Imprimir 6+4 dígitos. |
+| Parameters.AllowPrintCardHolderBalance | Booleano | — | — | Imprimir saldo. |
+| Parameters.AllowDisplayCardHolderBalance | Booleano | — | — | Exibir saldo. |
+| Parameters.AllowPrintingPartialCardNumberInReceipt | Booleano | — | — | Imprimir parcial. |
+| Parameters.RestrictSaleWithDuplicateValueWhenPostdated | Booleano | — | — | Impede duplicado pré-datado. |
+| Parameters.RestrictSaleWithDuplicateValue | Booleano | — | — | Impede duplicado. |
+| Parameters.RequiresPassword | Booleano | — | — | Solicita senha. |
+| Parameters.InterpretsLastDigitOfSecurityCode | Booleano | — | — | Interpreta último dígito CSC. |
+| Parameters.RequiresPasswordExceptForEMVCard | Booleano | — | — | Senha exceto EMV. |
+| Parameters.EnableAdditionalSecurityCodeOptions_Unreadable_NoCode | Booleano | — | — | Opções Ilegível/Não Possui. |
+| Parameters.RequiresSecurityCodeWhenMagneticTrackIsRead | Booleano | — | — | Código ao ler trilha. |
+| Parameters.RequiresSecurityCodeWhenCardNumberIsTyped | Booleano | — | — | Código ao digitar. |
+| Parameters.RequiresTypingLast4Digits | Booleano | — | — | Digitar últimos 4. |
+| Parameters.CapturesServiceFee | Booleano | — | — | Captura Taxa de Serviço. |
+| Parameters.AllowCancellationWithValueGreaterThanTheValueOfTheSale | Booleano | — | — | Cancelamento > venda. |
+| Parameters.CaptureBoardingFee | Booleano | — | — | Captura Taxa de Embarque. |
+
+**Issuers**
+
+| Propriedade | Tipo | Tamanho | Obrigatório | Descrição |
+|-------------|------|---------|-------------|-----------|
+| Issuers.IssuerId | integer int32 | — | — | Identificador do emissor. |
+| Issuers.IssuerName | String | — | — | Nome do emissor. |
+| Issuers.AllowFallbackWhenChipReadingFails | Booleano | — | — | Permite fallback. |
+| Issuers.AllowChargingMoedeiroFromCash | Booleano | — | — | Permite carga com dinheiro. |
+| Issuers.AllowPurchaseWithCompreESaque | Booleano | — | — | Permite Compre & Saque. |
+| Issuers.AllowOfflineFunctionExceptForEMVCard | Booleano | — | — | Offline exceto EMV. |
+| Issuers.AllowTypingCardNumber | Booleano | — | — | Permite digitação. |
+| Issuers.MaskCardNumberUsingLast4Digits | Booleano | — | — | Imprimir últimos 4. |
+| Issuers.MaskCardNumberUsingFirst6AndLast4Digits | Booleano | — | — | Imprimir 6+4. |
+| Issuers.AllowPrintCardHolderBalance | Booleano | — | — | Imprimir saldo. |
+| Issuers.AllowDisplayCardHolderBalance | Booleano | — | — | Exibir saldo. |
+| Issuers.AllowPrintingPartialCardNumberInReceipt | Booleano | — | — | Imprimir parcial. |
+| Issuers.RestrictSaleWithDuplicateValueWhenPostdated | Booleano | — | — | Impede duplicado pré-datado. |
+| Issuers.RestrictSaleWithDuplicateValue | Booleano | — | — | Impede duplicado. |
+| Issuers.RequiresPassword | Booleano | — | — | Solicita senha. |
+| Issuers.InterpretsLastDigitOfSecurityCode | Booleano | — | — | Interpreta CSC. |
+| Issuers.RequiresPasswordExceptForEMVCard | Booleano | — | — | Senha exceto EMV. |
+| Issuers.EnableAdditionalSecurityCodeOptions_Unreadable_NoCode | Booleano | — | — | Opções Ilegível/Não Possui. |
+| Issuers.RequiresSecurityCodeWhenMagneticTrackIsRead | Booleano | — | — | Código leitura trilha. |
+| Issuers.RequiresSecurityCodeWhenCardNumberIsTyped | Booleano | — | — | Código ao digitar. |
+
+
+
+
 # Pagamentos
 
 ## Fluxo de pagamento
