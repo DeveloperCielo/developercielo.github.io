@@ -510,6 +510,7 @@ Solicita as tabelas e parametros para operação do terminal
 }
 ```
 
+As tabelas a seguir detalham cada propriedade retornada pela API, organizadas por domínios funcionais para facilitar a compreensão do propósito e do comportamento de cada campo.
 
 **Merchant**
 
