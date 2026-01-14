@@ -536,6 +536,102 @@ Solicita as tabelas e parametros para operação do terminal
 | Acquirer.IntervalInDaysForSendingTechnicalParameter | Integer | — | Não | intervalo em dias de envio da Baixa Técnica:<br>0 - nunca enviar<br>1 a 99 - exemplo: 30 = enviar a cada 30 dias. |
 
 
+**Bins**
+
+| Propriedade | Tipo | Tamanho | Obrigatório | Descrição |
+|-------------|------|---------|-------------|-----------|
+| Bins.InitialBin | String | — | — | Início do range de BIN’s. |
+| Bins.FinalBin | String | — | — | Final do range de BIN’s. |
+| Bins.ProductId | Integer int32 | — | — | Chave estrangeira de “PRODUCT TABLE”. |
+| Bins.Type | Integer int32 | — | — | 0 - ESPECÍFICO<br>1 – GENERICO. |
+| Bins.AllowFallbackWhenChipReadingFails | Booleano | — | — | Permite fallback se houver erro na leitura do Chip. |
+| Bins.AllowChargingMoedeiroFromCash | Booleano | — | — | Permite carga de moedeiro a partir de dinheiro em espécie. |
+| Bins.AllowPurchaseWithCompreESaque | Booleano | — | — | Permite venda com Compre & Saque. |
+| Bins.AllowOfflineFunctionExceptForEMVCard | Booleano | — | — | Permite função offline, exceto cartão EMV. |
+| Bins.AllowTypingCardNumber | Booleano | — | — | Permite digitação do número do cartão. |
+| Bins.MaskCardNumberUsingLast4Digits | Booleano | — | — | Imprimir apenas os 4 últimos dígitos do cartão. |
+| Bins.MaskCardNumberUsingFirst6AndLast4Digits | Booleano | — | — | Imprimir os 6 primeiros e os 4 últimos dígitos do cartão. |
+| Bins.AllowPrintCardHolderBalance | Booleano | — | — | Permite imprimir o saldo do portador. |
+| Bins.AllowDisplayCardHolderBalance | Booleano | — | — | Permite exibir no display o saldo do portador. |
+| Bins.AllowPrintingPartialCardNumberInReceipt | Booleano | — | — | Permite impressão parcial do número do cartão. |
+| Bins.RestrictSaleWithDuplicateValueWhenPostdated | Booleano | — | — | Impede venda com valor duplicado para prédatamento. |
+| Bins.RestrictSaleWithDuplicateValueWhenPostdated | Booleano | — | — | Impede venda com valor duplicado. |
+| Bins.RequiresPassword | Booleano | — | — | Solicita senha. |
+| Bins.InterpretsLastDigitOfSecurityCode | Booleano | — | — | Interpreta último dígito do Código de Serviço. |
+| Bins.RequiresPasswordExceptForEMVCard | Booleano | — | — | Solicita senha, exceto cartão EMV. |
+| Bins.EnableAdditionalSecurityCodeOptions_Unreadable_NoCode | Booleano | — | — | Habilita opções “Ilegível” e “Não Possui”. |
+| Bins.RequiresSecurityCodeWhenMagneticTrackIsRead | Booleano | — | — | Solicita Código na leitura de trilha. |
+| Bins.RequiresSecurityCodeWhenCardNumberIsTyped | Booleano | — | — | Solicita Código para cartão digitado. |
+| Bins.RequiresTypingLast4Digits | Booleano | — | — | Solicita digitação dos últimos 4 dígitos. |
+| Bins.AllowCaptureOfFirstInstallmentValue | Booleano | — | — | Permite captura do valor da primeira parcela. |
+| Bins.AllowCaptureOfDownpaymentValue | Booleano | — | — | Permite captura do valor de entrada. |
+| Bins.AllowGuaranteeHandling | Booleano | — | — | Permite tratamento de garantia. |
+| Bins.AllowPostdating | Booleano | — | — | Permite pré-datamento. |
+| Bins.AllowFinancingByStore | Booleano | — | — | Permite financiamento pela Loja. |
+| Bins.AllowFinancingByCreditCardCompany | Booleano | — | — | Permite financiamento pela Administradora. |
+| Bins.ValidateCardTrack1 | Booleano | — | — | Verifica Trilha 1 do cartão. |
+| Bins.DoNotValidateCardModule10 | Booleano | — | — | Não validar o Módulo 10 do cartão. |
+| Bins.CheckExpiryDateWhenCardNumberIsTyped | Booleano | — | — | Verifica data de validade do cartão digitado. |
+| Bins.CheckExpiryDateWhenMagneticTrackIsRead | Booleano | — | — | Verifica data de validade da trilha. |
+| Bins.IssuerId | Integer int32 | — | — | Chave estrangeira de “ISSUER TABLE”. |
+
+
+**Products**
+
+| Propriedade | Tipo | Tamanho | Obrigatório | Descrição |
+|-------------|------|---------|-------------|-----------|
+| Products.ProductId | Integer int32 | — | — | Identificador do produto. |
+| Products.ProductName | String | — | — | Nome do produto. |
+| Products.ProductType | Integer int32 | — | — | 0 - CREDITO<br>1 – DEBITO |
+| Products.BrandId | String | — | — | Identificador da bandeira do cartão. |
+| Products.AllowTransactionWithContactlessCard | Booleano | — | — | Permite transação com Sem Contato. |
+| Products.IsFinancialProduct | Booleano | — | — | Produto financeiro. |
+| Products.AllowOfflineAuthorizationForEMVCard | Booleano | — | — | Permite Autorização Offline EMV. |
+| Products.AllowReprintReceipt | Booleano | — | — | Permite Reimpressão. |
+| Products.AllowPrintReceipt | Booleano | — | — | Permite Impressão. |
+| Products.AllowOfflineAuthorizationForContactlessCard | Booleano | — | — | Permite Autorização Offline Sem Contato. |
+| Products.AllowCancel | Booleano | — | — | Permite cancelamento. |
+| Products.AllowUndo | Booleano | — | — | Permite desfazimento. |
+| Products.AllowCaptureOfFirstInstallmentValue | Booleano | — | — | Captura da primeira parcela. |
+| Products.AllowCaptureOfDownpaymentValue | Booleano | — | — | Captura da entrada. |
+| Products.AllowGuaranteeHandling | Booleano | — | — | Permite tratamento de garantia. |
+| Products.AllowPostdating | Booleano | — | — | Permite pré-datamento. |
+| Products.AllowFinancingByStore | Booleano | — | — | Permite financiamento pela Loja. |
+| Products.AllowFinancingByCreditCardCompany | Booleano | — | — | Permite financiamento pela Administradora. |
+| Products.MaximumNumberOfInstallmentsWhenFinancingByCreditCardCompany | Integer int32 | — | — | Máximo de parcelas ADM. |
+| Products.MaximumNumberOfInstallmentsWhenFinancingByStore | Integer int32 | — | — | Máximo pela Loja. |
+| Products.MinimumNumberOfInstallmentsWhenFinancingByStore | Integer int64 | — | — | Mínimo pela Loja. |
+| Products.PostdatedSaleGuaranteeType | String | — | — | 00 – Sem garantia<br>05 – Garantida<br>07 – Garantida e Sem Garantia |
+| Products.PostdatedDayCountLimit | Integer int32 | — | — | Limite de dias para pré-datar. |
+| Products.FirstInstallmentDayCountLimit | Integer int32 | — | — | Limite da primeira parcela. |
+
+
+**Emv** 
+
+| Propriedade | Tipo | Tamanho | Obrigatório | Descrição |
+|-------------|------|---------|-------------|-----------|
+| Emv.Aid | String | — | — | Identificador EMV. |
+| Emv.TagsFirst | String | — | — | Tags do 1º Generate AC. |
+| Emv.TagsSecond | String | — | — | Tags do 2º Generate AC. |
+| Emv.IdxRecord | Integer int32 | — | — | — |
+| Emv.Type | Integer int32 | — | — | 0 - CREDITO<br>1 – DEBITO |
+| Emv.RCodeFirst | String | — | — | — |
+| Emv.RCodeSecond | String | — | — | — |
+| Emv.InvalidateFunctionIfCardIsOnBlacklist | Booleano | — | — | Invalida se cartão está na blacklist. |
+| Emv.RequireBINToBeInCardRangeTable | Booleano | — | — | Exige BIN na tabela 2B. |
+| Emv.StoreTransactionsRejectedByTerminalAppAndSendToHost | Booleano | — | — | Armazena e envia rejeitadas. |
+| Emv.AllowOnlineAuthorizationTransactionRequest | Booleano | — | — | — |
+| Emv.AllowExtendedCardHolderName | Booleano | — | — | — |
+| Emv.NatEmvConctactRiskFloorLimit | Integer int32 | — | — | Floor limit contato nacional. |
+| Emv.NatEmvConctactRiskMinValue | Integer int32 | — | — | Valor mínimo seleção aleatória. |
+| Emv.NatEmvConctactRiskMinPercent | Integer int32 | — | — | Percentual mínimo. |
+| Emv.NatEmvConctactRiskMaxPercent | Integer int32 | — | — | Percentual máximo. |
+| Emv.IntEmvConctactRiskFloorLimit | Integer int32 | — | — | Floor limit internacional. |
+| Emv.IntEmvConctactRiskMinValue | Integer int32 | — | — | Valor mínimo seleção aleatória. |
+| Emv.IntEmvConctactRiskMinPercent | Integer int32 | — | — | Percentual mínimo. |
+| Emv.IntEmvConctactRiskMaxPercent | Integer int32 | — | — | Percentual máximo. |
+| Emv.ProductIds | Array of integers int32 | — | — | Produtos habilitados. |
+
 
 # Pagamentos
 
