@@ -510,6 +510,7 @@ Solicita as tabelas e parametros para operação do terminal
 }
 ```
 
+Abaixo, confira a tabela:
 
 | Propriedade | Tipo | Tamanho | Obrigatório | Descrição |
 |-------------|------|---------|-------------|-----------|
