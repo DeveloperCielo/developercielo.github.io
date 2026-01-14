@@ -697,7 +697,7 @@ As tabelas a seguir detalham cada propriedade retornada pela API, organizadas po
 | InitializationVersion | number | —       | —           | Versão numérica da inicialização (timestamp). |
 
 
-# Pagamentos
+# PAGAMENTO
 
 ## Fluxo de pagamento
 
@@ -7430,7 +7430,7 @@ A consulta de transação pode ser realizada utilizando os parâmetros PaymentId
 | `Payment.Receipt.Value`                             | ---  | ---     | ---         | ---       |
 | `Payment.Receipt.SoftDescriptor`                    | ---  | ---     | ---         | ---       |
 
-### Cancelamento
+### CANCELAMENTO
 
 Consulta um cancelamento
 
@@ -8137,7 +8137,7 @@ Consulta um cancelamento
 | `CancellationStatus` | Integer     | 2       | Sim         | Status do cancelamento. <br><br>0 = NotFinished <br><br>1 = Authorized <br><br>2 = Denied <br><br>3 = Confirmed <br><br>4 = Reversed                                                                                          |
 | `Status`             | Integer     | 2       | Sim         | Status da transação.<br><br>NotFinished = 0,<br><br>Authorized = 1,<br><br>PaymentConfirmed = 2,<br><br>Denied = 3,<br><br>Voided = 10,<br><br>Refunded = 11,<br><br>Pending = 12,<br><br>Aborted = 13,<br><br>Scheduled = 20 |
 
-# Lojas
+# LOJAS
 
 Essa operação permite o cadastro de lojas e terminais , viabilizando modelos de negócios onde o facilitador necessite segmentar sua operação.
 
