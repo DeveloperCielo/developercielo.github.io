@@ -56,13 +56,15 @@ Está iniciando agora a sua jornada de integração e não sabe por onde começa
 
 Para integrar sua solução com o Cielo Conecta, é essencial compreender as principais operações disponíveis na API. Cada funcionalidade desempenha um papel específico no fluxo de pagamento, desde a configuração inicial até a gestão completa das transações. A seguir, apresentamos uma visão geral das etapas que você passará  durante a integração. 
 
-A primeira seção desta documentação, intitulada **Introdução**, apresenta uma visão geral do Cielo Conecta, explicando sua proposta e benefícios. Nessa parte, você encontra este guia de primeiros passos com orientações básicas para iniciar a integração, um glossário com os principais termos técnicos utilizados ao longo da documentação, os canais de suporte disponíveis, informações sobre o nosso programa de parceria e uma área dedicada às últimas atualizações da plataforma.  
+A primeira seção desta documentação, intitulada [Introdução](https://developercielo.github.io/manual/cielo-conecta#introdu%C3%A7%C3%A3o), apresenta uma visão geral do Cielo Conecta, explicando sua proposta e benefícios. Nessa parte, você encontra este guia de primeiros passos com orientações básicas para iniciar a integração, um glossário com os principais termos técnicos utilizados ao longo da documentação, os canais de suporte disponíveis, informações sobre o nosso programa de parceria e uma área dedicada às últimas atualizações da plataforma. 
 
-A seção **Visão geral técnica**, aprofunda os aspectos técnicos do Cielo Conecta, detalhando as funcionalidades bem como pré-requisitos da integração. 
+A seção [Visão geral técnica](https://developercielo.github.io/manual/cielo-conecta#vis%C3%A3o-geral-t%C3%A9cnica), aprofunda os aspectos técnicos do Cielo Conecta, detalhando as funcionalidades bem como pré-requisitos da integração. 
 
-Em seguida, a seção **Integração com a API**, reúne informações sobre os ambientes Sandbox e Produção, autenticações e credenciais, além do fluxo de autenticação e do processo para criação de tokens de acesso e configurações iniciais. 
+Em [Integração com a API](https://developercielo.github.io/manual/cielo-conecta#integra%C3%A7%C3%A3o-com-a-api), você aprende obre os ambientes Sandbox e Produção, autenticações e credenciais, além do fluxo de autenticação e do processo para criação de tokens de acesso e configurações iniciais. 
 
-A seção **Operações** detalha todas as funcionalidades suportadas pela API, abrangendo Pagamentos (incluindo fluxo, autorização, desfazimento, confirmação e consultas) e Cancelamento. Além disso, também detalha as operações relacionadas a Lojas, contemplando a criação, consulta e atualização de lojas, além da gestão de terminais e a consulta de equipamentos. Para cada operação, são fornecidos exemplos de requisição, path parameters e respostas. 
+A seção [Baixa de parâmetros](https://developercielo.github.io/manual/cielo-conecta#baixa-de-par%C3%A2metros) reúne informações sobre a configuração inicial necessária para que você obtenha todas as tabelas de parâmetros necessárias para que a solução de captura funcione corretamente via API 
+
+Em seguida, vem as seções de operações que detalham as funcionalidades suportadas pela API. Para começar, a seção de [Pagamento](https://developercielo.github.io/manual/cielo-conecta#pagamento) inclui fluxo, autorização, desfazimento, confirmação e consultas, sendo seguida pela seção de [Cancelamento](https://developercielo.github.io/manual/cielo-conecta#cancelamento5). Além disso, tem a seção de operações relacionadas a [Lojas](https://developercielo.github.io/manual/cielo-conecta#lojas), contemplando a criação, consulta e atualização de lojas, além da gestão de terminais e a consulta de equipamentos. Para cada operação, são fornecidos exemplos de requisição, path parameters e respostas. 
 
 ## Glossário
 
