@@ -289,7 +289,7 @@ curl --location --request POST 'https://authsandbox.cieloecommerce.cielo.com.br/
 }
 ```
 
-## Baixa de parâmetros
+# BAIXA DE PARÂMETROS
 
 Essa configuração inicial é essencial para que você obtenha todas as tabelas de parâmetros necessárias para que a solução de captura funcione corretamente via API. Os dados são fornecidos por meio de uma chamada à API e devem ser instalados na Biblioteca Compartilhada (BC) do terminal. 
 
@@ -311,7 +311,7 @@ Para simular uma resposta específica da API, utilize o campo TerminalId. Os qua
 | Demais valores                   | SUCESSO                 | 82990566       |
 
 
-### Inicialização
+## Inicialização
 
 Solicita as tabelas e parametros para operação do terminal
 
