@@ -207,7 +207,7 @@ A credencial para o ambiente de Produção, composta pelo ClientId e ClientSecre
 
 
 
-### Autenticação
+## Autenticação
 
 A autenticação é o primeiro passo para usar as APIs do Cielo Conecta. Ela serve para garantir que apenas sistemas autorizados possam fazer chamadas para os serviços da Cielo. Esse processo é indispensável para gerar o token que será usado nas chamadas às APIs.
 
@@ -235,7 +235,7 @@ Os escopos definem as permissões do token:
 
 <aside style="background-color: #d4edda; padding: 15px; border-left: 5px solid #28a745; color: #155724;margin-top: 20px; margin-bottom: 20px;"> Se nenhum escopo for informado, um escopo padrão será atribuído. </aside>
 
-#### Fluxo de autenticação
+### Fluxo de autenticação
 
 Aqui está o passo a passo do fluxo de autenticação: 
 
@@ -289,7 +289,7 @@ curl --location --request POST 'https://authsandbox.cieloecommerce.cielo.com.br/
 }
 ```
 
-## Configuração inicial: Baixa de parâmetros
+## Baixa de parâmetros
 
 Essa configuração inicial é essencial para que você obtenha todas as tabelas de parâmetros necessárias para que a solução de captura funcione corretamente via API. Os dados são fornecidos por meio de uma chamada à API e devem ser instalados na Biblioteca Compartilhada (BC) do terminal. 
 
@@ -7454,7 +7454,7 @@ Consulta um cancelamento
 | `CancellationStatus` | ---  | ---     | ---         | ---       |
 | `Status`             | ---  | ---     | ---         | ---       |
 
-# Cancelamento
+# CANCELAMENTO
 
 |                    SandBox                     |                 Produção                 |
 | :--------------------------------------------: | :--------------------------------------: |
