@@ -6926,7 +6926,7 @@ Para solicitar o desfazimento é necessário informar o MerchantOrderId enviado 
 
 | Propriedade       | Tipo   | Tamanho | Obrigatório | Descrição                                                                                                                                                             |
 | ----------------- | ------ | ------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `MerchantOrderId` | String | —       | Sim         | Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal. Aceita apenas valores numéricos de 1 a 15 dígitos e não pode ser duplicado. O envio do desfazimento é permitido apenas para transações do dia atual.  |
+| `MerchantOrderId` | String | —       | Sim         | Informe o número do documento da venda original, indicado no atributo MerchantOrderId, para a qual deseja solicitar o desfazimento.  O envio do desfazimento é permitido apenas para transações do dia atual.  |
 
 ##### Resposta
 
@@ -6969,7 +6969,7 @@ Para solicitar o desfazimento é necessário informar o MerchantOrderId enviado 
 <aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/orderId/{MerchantOrderId}</span></aside>
 
 ------------------------------------------------------------------ |
-| `MerchantOrderId` | String | —       | Sim         | Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal. Aceita apenas valores numéricos de 1 a 15 dígitos e não pode ser duplicado. O envio do desfazimento é permitido apenas para transações do dia atual.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| `MerchantOrderId` | String | —       | Sim         | Informe o número do documento da venda original, indicado no atributo MerchantOrderId, para a qual deseja solicitar o desfazimento.  O envio do desfazimento é permitido apenas para transações do dia atual.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 
 ```json
 {
