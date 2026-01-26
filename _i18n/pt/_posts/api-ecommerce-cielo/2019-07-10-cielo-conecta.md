@@ -6967,9 +6967,10 @@ Para solicitar o desfazimento é necessário informar o MerchantOrderId enviado 
 ##### Requisição
 
 <aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/orderId/{MerchantOrderId}</span></aside>
-
------------------------------------------------------------------- |
-| `MerchantOrderId` | String | —       | Sim         | Informe o número do documento da venda original, indicado no atributo MerchantOrderId, para a qual deseja solicitar o desfazimento.  O envio do desfazimento é permitido apenas para transações do dia atual.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+                                                                                                      
+| Propriedade       | Tipo   | Tamanho | Obrigatório | Descrição                                                                                                                                                             |
+| ----------------- | ------ | ------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `MerchantOrderId` | String | —       | Sim         | Informe o número do documento da venda original, indicado no atributo MerchantOrderId, para a qual deseja solicitar o desfazimento.  O envio do desfazimento é permitido apenas para transações do dia atual.                                                                                                                                                                                                                                                                                                                                                                                               |
 
 ```json
 {
