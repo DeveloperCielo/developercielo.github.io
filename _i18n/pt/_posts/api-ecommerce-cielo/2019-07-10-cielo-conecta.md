@@ -209,7 +209,7 @@ A credencial para o ambiente de Produção, composta pelo ClientId e ClientSecre
 
 
 
-## Autenticação
+# AUTENTICAÇÃO
 
 A autenticação é o primeiro passo para usar as APIs do Cielo Conecta. Ela serve para garantir que apenas sistemas autorizados possam fazer chamadas para os serviços da Cielo. Esse processo é indispensável para gerar o token que será usado nas chamadas às APIs.
 
@@ -218,7 +218,7 @@ A autenticação é o primeiro passo para usar as APIs do Cielo Conecta. Ela ser
 |------------|-----------------|----------------------------------------------------------------|
 | POST       | Sandbox         | `https://authsandbox.cieloecommerce.cielo.com.br/oauth2/token` |
 | POST       | Homologação     | `https://authsandbox.cieloecommerce.cielo.com.br/oauth2/token` |
-| POST       | Produção    | `https://auth.cieloecommerce.cielo.com.br` |
+| POST       | Produção    | `https://auth.cieloecommerce.cielo.com.br/oauth2/token` |
 |                         |
 
 O endpoint utilizado para Sandbox e Homologação é o mesmo. Portanto, para direcionar a requisição especificamente para o ambiente de Homologação, é necessário incluir uma informação adicional no header. Para isso, crie uma chave no header com: 
@@ -298,18 +298,25 @@ curl --location --request POST 'https://authsandbox.cieloecommerce.cielo.com.br/
 
 # BAIXA DE PARÂMETROS
 
+## Inicialização
+
 Essa configuração inicial é essencial para que você obtenha todas as tabelas de parâmetros necessárias para que a solução de captura funcione corretamente via API. Os dados são fornecidos por meio de uma chamada à API e devem ser instalados na Biblioteca Compartilhada (BC) do terminal. 
 
 Esses parâmetros incluem informações como bandeiras, emissores, produtos, regras de negócio e configurações técnicas, garantindo que o terminal esteja apto a realizar transações de forma segura e conforme as especificações da Cielo. 
 
-| Ambiente   | URL Base                                                                 |
-|------------|--------------------------------------------------------------------------|
-| Sandbox    | `https://parametersdownloadsandbox.cieloecommerce.cielo.com.br/api/v0.1`
-| Homologação    | `https://parametersdownloadsandbox.cieloecommerce.cielo.com.br/api/v0.1`               |
-| Produção   | `https://parametersdownload.cieloecommerce.cielo.com.br/api/v0.1`                          |
 
+| **Método** | **Ambiente**    | **Endpoint**                                                   |
+|------------|-----------------|----------------------------------------------------------------|
+| GET       | Sandbox         | `https://parametersdownloadsandbox.cieloecommerce.cielo.com.br/api/v0.1/initialization/{SubordinatedMerchantId}/{TerminalId}` |
+| GET       | Homologação     | `https://parametersdownloadsandbox.cieloecommerce.cielo.com.br/api/v0.1/initialization/{SubordinatedMerchantId}/{TerminalId}` |
+| GET       | Produção    | `https://parametersdownload.cieloecommerce.cielo.com.br/api/v0.1/initialization/{SubordinatedMerchantId}/{TerminalId}` |
 
-Para simular uma resposta específica da API, utilize o campo TerminalId. Os quatro últimos dígitos desse valor determinam qual tipo de resposta será retornada, conforme descrito na tabela abaixo:  
+O endpoint utilizado para Sandbox e Homologação é o mesmo. Portanto, para direcionar a requisição especificamente para o ambiente de Homologação, é necessário incluir uma informação adicional no header. Para isso, crie uma chave no header com: 
+
+- Nome: Environment 
+- Valor: Homologacao15 
+
+No ambiente Sandbox, para simular uma resposta específica da API, utilize o campo TerminalId. Os quatro últimos dígitos desse valor determinam qual tipo de resposta será retornada, conforme descrito na tabela abaixo:  
 
 
 | **TerminalId (últimos dígitos)** | **Retorno simulado**    | **Mensagem**   |
@@ -317,24 +324,6 @@ Para simular uma resposta específica da API, utilize o campo TerminalId. Os qua
 | 0404                             | TERMINAL INEXISTENTE    | 71990404       |
 | Demais valores                   | SUCESSO                 | 82990566       |
 
-
-## Inicialização
-
-A inicialização é o processo obrigatório de envio e atualização das informações essenciais que permitem ao terminal de pagamento operar de forma confiável. Durante essa etapa, são carregados dados como tabelas de bandeiras, parâmetros de operação, chaves de segurança, e demais recursos necessários para o processamento de transações. 
-
-**Requisição**
-
-| **Método** | **Ambiente**    | **Endpoint**                                                   |
-|------------|-----------------|----------------------------------------------------------------|
-| GET       | Sandbox         | `https://authsandbox.cieloecommerce.cielo.com.br/initialization/{SubordinatedMerchantId}/{TerminalId} ` |
-| GET       | Homologação     | `https://authsandbox.cieloecommerce.cielo.com.br/initialization/{SubordinatedMerchantId}/{TerminalId} ` |
-| GET       | Produção    | `https://auth.cieloecommerce.cielo.com.br/initialization/{SubordinatedMerchantId}/{TerminalId} ` |
-| 
-
-O endpoint utilizado para Sandbox e Homologação é o mesmo. Portanto, para direcionar a requisição especificamente para o ambiente de Homologação, é necessário incluir uma informação adicional no header. Para isso, crie uma chave no header com: 
-
-- Nome: Environment 
-- Valor: Homologacao15 
 
 <br/>
 
