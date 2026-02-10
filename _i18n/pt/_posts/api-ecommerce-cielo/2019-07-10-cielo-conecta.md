@@ -163,6 +163,8 @@ Há pré-requisitos que devem obrigatoriamente ser atendidos para garantir a apl
 - O equipamento utilizado deve conter a chave da adquirente Cielo, conforme o mapa de chaves da Abecs. 
 - Para garantir conformidade com os processos internos da Cielo, é obrigatório realizar testes de interoperabilidade, assegurando que a integração com a solução Cielo Conecta atende aos requisitos de cada Bandeira.
 
+<br/>
+
 **Alugando terminais homologados com a Cielo** 
 
 É possível alugar alguns modelos de Pin Pad que atendem todos os requisitos de homologação diretamente com a Cielo. 
@@ -227,6 +229,7 @@ O endpoint utilizado para Sandbox e Homologação é o mesmo. Portanto, para dir
 - Valor: Homologacao15 
 
 <br/>
+
 O Cielo Conecta usa o tipo de autenticação chamado Client Credentials, que é uma das formas do OAuth2.  
 
 **Credenciais necessárias** 
@@ -235,6 +238,7 @@ O Cielo Conecta usa o tipo de autenticação chamado Client Credentials, que é 
 - ClientSecret: Senha do cliente 
 
 <br/>
+
 **Escopos disponíveis**
 
 Os escopos definem as permissões do token: 
