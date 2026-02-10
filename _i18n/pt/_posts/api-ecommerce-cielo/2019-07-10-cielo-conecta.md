@@ -62,7 +62,7 @@ A primeira seção desta documentação, intitulada [Introdução](https://devel
 
 A seção [Visão geral técnica](https://developercielo.github.io/manual/cielo-conecta#vis%C3%A3o-geral-t%C3%A9cnica), aprofunda os aspectos técnicos do Cielo Conecta, detalhando as funcionalidades bem como pré-requisitos da integração. 
 
-Em [Integração com a API](https://developercielo.github.io/manual/cielo-conecta#integra%C3%A7%C3%A3o-com-a-api), você aprende obre os ambientes Sandbox e Produção, autenticações e credenciais, além do fluxo de autenticação e do processo para criação de tokens de acesso e configurações iniciais. 
+Em [Autenticação](https://developercielo.github.io/manual/cielo-conecta#autentica%C3%A7%C3%A3o), você aprende obre os ambientes Sandbox e Produção, autenticações e credenciais. 
 
 A seção [Baixa de parâmetros](https://developercielo.github.io/manual/cielo-conecta#baixa-de-par%C3%A2metros) reúne informações sobre a configuração inicial necessária para que você obtenha todas as tabelas de parâmetros necessárias para que a solução de captura funcione corretamente via API 
 
