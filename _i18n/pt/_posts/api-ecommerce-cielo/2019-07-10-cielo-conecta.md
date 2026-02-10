@@ -41,7 +41,9 @@ A integração com o Cielo Conecta pode ser aplicada em diferentes cenários, de
 **Varejo**  
 
 - Frente de Caixa (PDV): A integração conecta diretamente o sistema de PDV ao Cielo Conecta, permitindo que as transações sejam processadas pelo Pin Pad ou terminal sem intermediários. O pagamento é iniciado no caixa e transmitido via API para a Cielo. 
-- Autoatendimento (Totem): O totem ou quiosque é integrado à API do Conecta, possibilitando que o cliente realize o pagamento de forma autônoma. O terminal ou Pin Pad é acionado pelo sistema do totem, garantindo uma experiência rápida e segura.    
+- Autoatendimento (Totem): O totem ou quiosque é integrado à API do Conecta, possibilitando que o cliente realize o pagamento de forma autônoma. O terminal ou Pin Pad é acionado pelo sistema do totem, garantindo uma experiência rápida e segura. 
+
+<br/>
 
 **Transporte**  
 
