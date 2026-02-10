@@ -195,9 +195,9 @@ FFFFF030331234500012
 
 <aside style="background-color: #d4edda; padding: 15px; border-left: 5px solid #28a745; color: #155724;margin-top: 20px; margin-bottom: 20px;"> Os caracteres “F” devem ser preenchidos automaticamente pela solução de captura.</aside>
 
-# INTEGRAÇÃO COM A API
+# AUTENTICAÇÃO
 
-Aqui, você encontra todas as informações necessárias sobre endpoints e recursos disponíveis na API Cielo Conecta.  
+Aqui, você encontra todas as informações necessárias sobre autenticação e ambientes da API Cielo Conecta.  
 
 ## Ambientes: Sandbox, Homologação e Produção
 
@@ -209,7 +209,7 @@ A credencial para o ambiente de Produção, composta pelo ClientId e ClientSecre
 
 
 
-# AUTENTICAÇÃO
+## Credenciais
 
 A autenticação é o primeiro passo para usar as APIs do Cielo Conecta. Ela serve para garantir que apenas sistemas autorizados possam fazer chamadas para os serviços da Cielo. Esse processo é indispensável para gerar o token que será usado nas chamadas às APIs.
 
@@ -226,12 +226,16 @@ O endpoint utilizado para Sandbox e Homologação é o mesmo. Portanto, para dir
 - Nome: Environment 
 - Valor: Homologacao15 
 
+<br/>
+
 O Cielo Conecta usa o tipo de autenticação chamado Client Credentials, que é uma das formas do OAuth2.  
 
 **Credenciais necessárias** 
 
 - ClientId: Usuário do cliente 
 - ClientSecret: Senha do cliente 
+
+<br/>
 
 **Escopos disponíveis**
 
@@ -242,7 +246,7 @@ Os escopos definem as permissões do token:
 
 <aside style="background-color: #d4edda; padding: 15px; border-left: 5px solid #28a745; color: #155724;margin-top: 20px; margin-bottom: 20px;"> Se nenhum escopo for informado, um escopo padrão será atribuído. </aside>
 
-### Fluxo de autenticação
+## Fluxo de autenticação
 
 Aqui está o passo a passo do fluxo de autenticação: 
 
