@@ -225,16 +225,16 @@ O endpoint utilizado para Sandbox e Homologação é o mesmo. Portanto, para dir
 
 - Nome: Environment 
 - Valor: Homologacao15 
-<br/>
 
+<br/>
 O Cielo Conecta usa o tipo de autenticação chamado Client Credentials, que é uma das formas do OAuth2.  
 
 **Credenciais necessárias** 
 
 - ClientId: Usuário do cliente 
 - ClientSecret: Senha do cliente 
-<br/>
 
+<br/>
 **Escopos disponíveis**
 
 Os escopos definem as permissões do token: 
