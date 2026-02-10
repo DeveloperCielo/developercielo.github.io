@@ -322,6 +322,8 @@ O endpoint utilizado para Sandbox e Homologação é o mesmo. Portanto, para dir
 - Nome: Environment 
 - Valor: Homologacao15 
 
+<br/>
+
 No ambiente Sandbox, para simular uma resposta específica da API, utilize o campo TerminalId. Os quatro últimos dígitos desse valor determinam qual tipo de resposta será retornada, conforme descrito na tabela abaixo:  
 
 
