@@ -105,9 +105,7 @@ Este glossário reúne os principais termos utilizados no ecossistema de desenvo
  
 Nosso objetivo é apoiar você em cada etapa do desenvolvimento de soluções integradas com o Cielo Conecta.  
 
-Caso tenha dúvidas envie um e-mail para suporteintegracao@cielo.com.br ou [envie sua pergunta pelo portal](https://devcielo.zendesk.com/hc/pt-br).  
-
-Você também pode [agendar uma chamada](https://outlook.office.com/book/SuporteCieloConecta@cielo.onmicrosoft.com/?ismsaljsauthenabled) no dia e horário que preferir para conversar diretamente com nossos desenvolvedores especializados em suporte às soluções integradas do Cielo Conecta. 
+Caso tenha dúvidas envie um e-mail para suporteintegracao@cielo.com.br ou [agende uma chamada](https://outlook.office.com/book/SuporteCieloConecta@cielo.onmicrosoft.com/?ismsaljsauthenabled) no dia e horário que preferir para conversar diretamente com nossos desenvolvedores especializados em suporte às soluções integradas do Cielo Conecta. 
 
 ## Seja um parceiro
 
