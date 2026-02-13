@@ -13,20 +13,14 @@ tags:
 
 # EXTRATO ELETRÔNICO v15
 
-## Melhorias no Extrato Eletrônico v15.14
+Data de implantação: 19/05/2026
 
-**Versão produtiva do extrato eletrônico desde 15/10/2025.**
+Atualizações V15.15:
+
+• Demonstração dos eventos de bloqueio/desbloqueio/liquidação judicial nas transações PIX
+• Inclusão dos lançamentos de contrapartida das negociações Voucher (PAT)
 
 
-**Melhorias no Extrato Eletrônico v15.14**
-
-Prezados Clientes,
-
-Melhorias no Extrato eletrônico:
-
-- Inclusão do ID de pagamento Pix (Implantação prevista para **14/10/2025**);
-- Arquivo exclusivo para transações Pix – CIELO16 (Implantação prevista para **13/01/2026**). <br/>
-<br/>
 
 Atualizações V15.14.1:
 
@@ -37,16 +31,9 @@ Atualizações V15.14.1:
 **Anexos**
 
 LAYOUTS ATUALIZADOS:
-- [Manual de Especificação Técnica - Português](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/edi/CIELO_Extrato_Eletronico_-_Manual_-_Versao_15_14_1.pdf)
-- [Technical Specification Manual - English](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/edi/CIELO_Eletronic_Statement_-_Manual_-_Version_15_14_1.pdf)  <br/>
+- [Manual de Especificação Técnica - Português](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/edi/CIELO_Eletronic_Statement_-_Manual_-_Version_Marcos_Meneses_Froes.pdf)
+- [Technical Specification Manual - English](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/edi/CIELO_Extrato_Eletronico_-_Manual_-_Versao_15_Marcos_Meneses_Froes.pdf)  <br/>
 <br/>
-
-[TABELA DE AJUSTES](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/TABELA_DE_AJUSTES.zip)
-
-[FAQ ATUALIZAÇÃO DE FLUXO DE ENTREGA DOS EXTRATOS V15.14](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/FAQ_Atualizacao_v15_14_Extrato_Eletronico_Cielo.zip) 
-
-[ARQUIVOS DE TESTE V15_13](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ARQUIVOS_DE_TESTE_V15_13.zip)
-
 
 # Fluxo de entrega de extratos
  
