@@ -13,12 +13,14 @@ tags:
 
 # EXTRATO ELETRÔNICO v15
 
-Atualizações V15.15 | Data de implantação: **19/05/2026**
+Atualizações V15.15
+Data de implantação: **19/05/2026**
 
 • Demonstração dos eventos de bloqueio/desbloqueio/liquidação judicial nas transações Pix
 • Inclusão dos lançamentos de contrapartida das negociações Voucher (PAT)
 
-Atualizações V15.14.1 | Data de implantação: **13/01/2026** 
+Atualizações V15.14.1
+Data de implantação: **13/01/2026** 
 
 • Identificação de hierarquia de cadastro
 • Identificação de transações com produto TC (Vendeu, Tá na Conta) no registro tipo “E”
