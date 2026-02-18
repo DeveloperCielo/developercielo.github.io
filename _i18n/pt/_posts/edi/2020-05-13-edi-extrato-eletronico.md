@@ -53,7 +53,7 @@ O Extrato Eletrônico é uma solução desenvolvida pela Cielo para clientes que
 - Segurança no recebiento das informações
 - Atendimento Especializado
 
-# Fluxo de Concessão
+# Fluxo de concessão
 
 ## Introdução para API (exclusiva para Conciliadoras)
 
@@ -502,7 +502,7 @@ Consulte o MerchantID com base no registerID ou no mainMerchantID.
 | `registerID`        | ID do registro. O mesmo fornecido por /edi/registers                                                                                                                                                                                                                   | String |         |             |
 | `acknowledge`       |                                                                                                                                                                                                                                                                        |        |         |             |
 
-# Duplicação de Matriz
+# Duplicação de matriz
 
 A duplicação de registro funciona com base no retorno do GET /merchantgroup, se retornar "unavailable" significa que esse merchant já possui vínculo com alguma conciliadora.
 
