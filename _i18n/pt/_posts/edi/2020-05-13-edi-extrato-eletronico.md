@@ -41,7 +41,7 @@ LAYOUTS ATUALIZADOS:
 
 Essa API possibilita o registro de grupos e mantém seu registro para receber arquivos EDI (Electronic Data Interchange).
 
-# Descrição do Produto
+## Descrição do produto
 
 O Extrato Eletrônico é uma solução desenvolvida pela Cielo para clientes que demandam automação no processo de conciliação financeira. Este produto disponibiliza, de forma padronizada e sem intervenção manual, os dados referentes às vendas, pagamentos, negociações e saldo em aberto processados pela Cielo. As informações são geradas em formato estruturado e ficam disponíveis para download direto no Site Cielo, garantindo agilidade, segurança e integridade no tráfego dos dados. Essa abordagem permite que os sistemas dos clientes integrem os dados de forma eficiente, reduzindo erros operacionais e aumentando a produtividade dos processos de backoffice.
 
