@@ -15,15 +15,13 @@ tags:
 
 Atualizações V15.15 - Data de implantação: **19/05/2026**
 
-• Demonstração dos eventos de bloqueio/desbloqueio/liquidação judicial nas transações Pix.
-• Inclusão dos lançamentos de contrapartida das negociações Voucher (PAT).
-<br/>
+• Demonstração dos eventos de bloqueio/desbloqueio/liquidação judicial nas transações Pix. <br/>
+• Inclusão dos lançamentos de contrapartida das negociações Voucher (PAT). <br/>
 
 Atualizações V15.14.1 - Data de implantação: **13/01/2026** 
 
-• Identificação de hierarquia de cadastro.
-• Identificação de transações com produto TC (Vendeu, Tá na Conta) no registro tipo “E”.
-<br/>
+• Identificação de hierarquia de cadastro. <br/>
+• Identificação de transações com produto TC (Vendeu, Tá na Conta) no registro tipo “E”. <br/>
 
 **Anexos**
 
