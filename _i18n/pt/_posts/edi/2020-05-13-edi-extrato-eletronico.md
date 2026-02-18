@@ -562,12 +562,12 @@ estão disponíveis na guia **Serviços > acessar Extrato Eletrônico**.
 Para clientes que utilizam um conciliador de mercado, todo o processo de solicitação e envio de
 extratos é realizado diretamente pelo conciliador.
 
-## Reenvio de Arquivos
+## Reenvio de arquivos
 
 Para cliente, basta localizar o arquivo e efetuar o download no Site Cielo.
 Para conciliadora, caso seja necessário o reenvio dos arquivos, deve contatar o Atendimento EDI
 (edi@cielo.com.br) indicando as matrizes de extrato, data dos arquivos e tipo de arquivo.
 
-## Recuperação de Arquivos
+## Reprocessamento de arquivos
 
-Permite a recuperação (geração de um novo arquivo) de uma data anterior, atualizando o status dos lançamentos conforme visão atual da agenda financeira. Os arquivos são disponibilizados separadamente do arquivo diário e identificados com o sequencial “9999999” no header. A solicitação deve ser encaminhada para o Atendimento EDI (edi@cielo.com.br). Esta função não está disponível para extratos de Saldo em Aberto (09)
+Permite o reprocessamento (geração de um novo arquivo) de uma data anterior, atualizando o status dos lançamentos conforme visão atual da agenda financeira. Os arquivos são disponibilizados separadamente do arquivo diário e identificados com o sequencial “9999999” no header. A solicitação deve ser encaminhada para o Atendimento EDI (edi@cielo.com.br). Esta função não está disponível para extratos de Saldo em Aberto (09)
