@@ -13,20 +13,16 @@ tags:
 
 # EXTRATO ELETRÔNICO v15
 
-Data de implantação: 19/05/2026
+Atualizações V15.15 | Data de implantação: **19/05/2026**
 
-Atualizações V15.15:
-
-• Demonstração dos eventos de bloqueio/desbloqueio/liquidação judicial nas transações PIX
+• Demonstração dos eventos de bloqueio/desbloqueio/liquidação judicial nas transações Pix
 • Inclusão dos lançamentos de contrapartida das negociações Voucher (PAT)
 
+Atualizações V15.14.1 | Data de implantação: **13/01/2026** 
 
+• Identificação de hierarquia de cadastro
+• Identificação de transações com produto TC (Vendeu, Tá na Conta) no registro tipo “E”
 
-Atualizações V15.14.1:
-
-- Identificação de hierarquia de cadastro (Implantação prevista para **13/01/2026**).
-- Identificação de transações com produto TC no registro tipo “E” (Implantação prevista para **13/01/2026**). <br/>
-<br/>
 
 **Anexos**
 
@@ -47,7 +43,7 @@ Essa API possibilita o registro de grupos e mantém seu registro para receber ar
 
 # Descrição do Produto
 
-O Extrato Eletrônico é um produto disponibilizado pela Cielo aos clientes que necessitam de automatização no processo de conciliação. Nele, as informações são transmitidas de forma padronizada sem intervenção manual por meio do canal SFG (Sterling File Gateway), proporcionando agilidade e segurança no tráfego das informações. Ao lado, macrofluxo do serviço.
+O Extrato Eletrônico é uma solução desenvolvida pela Cielo para clientes que demandam automação no processo de conciliação financeira. Este produto disponibiliza, de forma padronizada e sem intervenção manual, os dados referentes às vendas, pagamentos, negociações e saldo em aberto processados pela Cielo. As informações são geradas em formato estruturado e ficam disponíveis para download direto no Site Cielo, garantindo agilidade, segurança e integridade no tráfego dos dados. Essa abordagem permite que os sistemas dos clientes integrem os dados de forma eficiente, reduzindo erros operacionais e aumentando a produtividade dos processos de backoffice.
 
 ## Benefícios
 
@@ -59,7 +55,11 @@ O Extrato Eletrônico é um produto disponibilizado pela Cielo aos clientes que 
 
 # Fluxo de Concessão
 
-## Passo 1 - Login
+## Introdução para API (exclusiva para Conciliadoras)
+
+Essa API (exclusiva para Conciliadoras) possibilita o registro de grupos e mantém seu registro para receber arquivos EDI (Electronic Data Interchange).
+
+### Passo 1 - Login
 
 1 - O parceiro redireciona o cliente para `{cielo-login-url}`. <br>
 2 - O cliente entra com suas credenciais e clica em `Entrar`. <br>
@@ -95,12 +95,12 @@ https://`{partner-callback-url}`?code=`{code}`&state=`{state}`
 - **code:** O authorization code gerado pela Cielo. Com esse código o parceiro vai poder trocar por um access_token para fazer chamadas em nome do cliente.
 - **state:** O mesmo valor que o parceiro enviou na requisição.
 
-## Passo 2 – Requisitando um Access Token
+### Passo 2 – Requisitando um Access Token
 
 - O serviço do parceiro solicita um `access_token`.
 - A Cielo retorna um `acess_token`, um `refresh_token` e um `expiration_time`.
 
-### Request
+#### Request
 
 > **POST** {cielo-api-base-url}/consent/v1/oauth/access-token
 >
@@ -119,7 +119,7 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
 --verbose
 ```
 
-### Response
+#### Response
 
 ```json
 {
@@ -136,7 +136,7 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
 | `refresh_token`   | Quando o access_token expirar o parceiro pode solicitar um novo access_token usando este refresh_token. |
 | `expiration_time` | O tempo de expiração do access_token em segundos.                                                    |
 
-### Observações
+**Observações**
 
 - O authorization_code precisa ser trocado por um access_token em menos de 10 minutos.
 - Este tipo de access_token é mandatório para chamar as APIs que retornam dados sensíveis dos clientes.
@@ -146,7 +146,7 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
 - O parceiro NÃO consegue gerar um access_token sem o consentimento do cliente.
 - O parceiro NÃO consegue usar o authorization code, recebido no primeiro passo, mais de uma vez.
 
-## Passo 3 - Chamando as APIs
+### Passo 3 - Chamando as APIs
 
 Neste momento parceiro vai conseguir chamar as APIs da Cielo sem a necessidade da aprovação do cliente, pois esta já foi concedida.
 
@@ -156,14 +156,14 @@ Em todas as chamadas para as APIs.
 
 - O access_token foi obtido no Segundo passo
 
-## Passo 3.1 - Atualizando um Access Token
+### Passo 3.1 - Atualizando um Access Token
 
 > 1. O serviço do parceiro chama o serviço de `refresh_token`.
 > 2. A Cielo retorna um `access_token` novo, um `refresh_token` novo e um novo `expiration_time`.
 
 O dados de resposta serão os mesmos do passo 2 quando o parceiro solicita um acess_token, porém todos os dados retornados são novos e precisam ser armazenados no lugar dos antigos.
 
-### Request
+#### Request
 
 ```shell
 curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/access-token' \
@@ -178,7 +178,7 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
 
 Um ponto de atenção na requisição pois agora o parceiro precisa enviar o `grant_type` como `refresh_token` e no campo `refresh_token` deve ser enviado um `refresh_token` válido (e não mais um access_token).
 
-### Response
+#### Response
 
 ```json
 {
@@ -195,7 +195,7 @@ Um ponto de atenção na requisição pois agora o parceiro precisa enviar o `gr
 | `refresh_token`   | Quando o access_token expirar o parceiro pode solicitar um novo access_token usando este refresh_token. |
 | `expiration_time` | O tempo de expiração do access_token em segundos.                                                       |
 
-## Erros
+### Erros
 
 Caso ocorra algum erro do lado Cielo o cliente será redirecionado para a URL de call-back do parceiro com o parâmetro error na URL, por exemplo https://{partner-callback-url}?error={error}.
 
@@ -211,7 +211,7 @@ Possíveis valores para {error}:
 
 > Opcionalmente pode ser retornado um outro parâmetros `error_description` com um detalhe do erro, apenas um texto simples.
 
-## Observação
+**Observações**
 
 - Todos os tokens (access_token e refresh_token) devem ser armazenados em um local seguro.
 - O parceiro precisam iniciar um novo fluxo de concessão se perderem os tokens ou ambos expirarem (O refresh_token tem expiração de 90 dias a partir da geração).
@@ -558,19 +558,21 @@ Com isso, deverá ser feita uma chamada de PUT /edi no qual, irá fazer a duplic
 
 <aside class="warning"><b> Observação: Caso do retorno do GET /merchantgroup (1ºPASSO) seja "available" significa que esse merchant está disponível para registro, com isso, é necessário fazer a chamada de POST /registers.</b></aside>
 
-# Transmissão e Reenvio de arquivo
+# Transmissão e reenvio de arquivo
 
-Para receber o Extrato Eletrônico, é necessário que o cliente entre em contato com o Atendimento EDI e preencha o formulário de cadastro. Os arquivos serão disponibilizados na caixa postal diariamente, exceto o arquivo de saldo em aberto que será enviado mensalmente.
-Quando não houver movimento, o arquivo será enviado somente com o `"Header"` e o `"Trailer"`.
-Caso ocorra alguma inconsistência na transmissão do(s) arquivo(s), o cliente deverá informar à Cielo, contatando o Atendimento EDI (edi@cielo.com.br
+Para clientes que não utilizam conciliador terceirizado, o recebimento dos arquivos pode ocorrer da
+seguinte forma: Download no [site da Cielo](www.cielo.com.br). Ao realizar o login no site, os arquivos
+estão disponíveis na guia **Serviços > acessar Extrato Eletrônico**.
+
+Para clientes que utilizam um conciliador de mercado, todo o processo de solicitação e envio de
+extratos é realizado diretamente pelo conciliador.
 
 ## Reenvio de Arquivos
 
-Em caso de perda do arquivo ou não recebimento, a Cielo disponibilizará na caixa postal o mesmo arquivo enviado diariamente (arquivo backup). O cliente poderá contatar o Atendimento EDI para solicitar o reenvio
+Para cliente, basta localizar o arquivo e efetuar o download no Site Cielo.
+Para conciliadora, caso seja necessário o reenvio dos arquivos, deve contatar o Atendimento EDI
+(edi@cielo.com.br) indicando as matrizes de extrato, data dos arquivos e tipo de arquivo.
 
 ## Recuperação de Arquivos
 
-- Permite a recuperação de um movimento anterior, atualizando o status dos lançamentos.
-- Os arquivos são disponibilizados separadamente do arquivo diário.
-- Não disponível para o Extrato de Saldo em Aberto (09).
-- A solicitação deve ser encaminhada para o Atendimento EDI.
+Permite a recuperação (geração de um novo arquivo) de uma data anterior, atualizando o status dos lançamentos conforme visão atual da agenda financeira. Os arquivos são disponibilizados separadamente do arquivo diário e identificados com o sequencial “9999999” no header. A solicitação deve ser encaminhada para o Atendimento EDI (edi@cielo.com.br). Esta função não está disponível para extratos de Saldo em Aberto (09)
