@@ -26,8 +26,8 @@ Atualizações V15.14.1 - Data de implantação: **13/01/2026**
 **Anexos**
 
 LAYOUTS ATUALIZADOS:
-- [Manual de Especificação Técnica - Português](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/edi/CIELO_Extrato_Eletronico_-_Manual_-_Versao_15.pdf)
-- [Technical Specification Manual - English](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/edi/CIELO_Eletronic_Statement_-_Manual_-_Version_15.pdf)  <br/>
+- [Manual de Especificação Técnica - Português](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/edi/Cielo_Extrato_Eletronico_-_Manual_-_Versao_15.pdf)
+- [Technical Specification Manual - English](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/edi/Cielo_Eletronic_Statement_-_Manual_-_Version_15.pdf)  <br/>
 <br/>
 
 # Fluxo de entrega de extratos
