@@ -13,16 +13,16 @@ tags:
 
 # ELECTRONIC STATEMENT v15
 
-Updates v15.15 – Deployment date: **May 19, 2026**​
-​
-• Display of judicial block/unblock/settlement events in Pix transactions.​
-• Inclusion of offset entries related to Voucher (PAT) negotiations.​
+Updates v15.15 – Deployment date: **May 19, 2026**
+<br/>​
+• Display of judicial block/unblock/settlement events in Pix transactions. <br/>​
+• Inclusion of offset entries related to Voucher (PAT) negotiations. <br/>​
 ​
 
 Updates v15.14.1 – Deployment date: **January 13, 2026**​
-
-• Identification of registration hierarchy.​
-• Identification of transactions with the TC product (“Vendeu, Tá na Conta”) in record type “E”.
+<br/>
+• Identification of registration hierarchy. <br/>​
+• Identification of transactions with the TC product (“Vendeu, Tá na Conta”) in record type “E”. <br/>
 
 **Attachments**
 
