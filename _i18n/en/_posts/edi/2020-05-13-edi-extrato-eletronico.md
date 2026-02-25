@@ -509,7 +509,7 @@ Performs the list of customers below the informed access_token. The filter can b
 
 # File transmission and resending
 
-For customers who do not use a third-party reconciliation service, files can be received as follows: download from the Cielo website. After logging in to the website, the files are available under **Services > Access Electronic Statement**.
+For customers who do not use a third-party reconciliation service, files can be received as follows: download from the [Cielo website](www.cielo.com.br). After logging in to the website, the files are available under **Services > Access Electronic Statement**.
 ​
 For customers who use a market reconciliation provider, the entire process of requesting and sending statements is carried out directly by the reconciler.
 
