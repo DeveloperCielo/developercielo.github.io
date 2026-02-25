@@ -13,53 +13,33 @@ tags:
 
 # ELECTRONIC STATEMENT v15
 
-## Improvements to Electronic Statement v15.13
+Updates v15.15 – Deployment date: **May 19, 2026**​
+​
+• Display of judicial block/unblock/settlement events in Pix transactions.​
+• Inclusion of offset entries related to Voucher (PAT) negotiations.​
+​
 
-**Productive version of the electronic statement since June 16, 2025.**
+Updates v15.14.1 – Deployment date: **January 13, 2026**​
 
-**Improvements to Electronic Statement v15.14**
-
-Dear Customers,
-
-Improvements to the electronic statement:
-
-* Inclusion of the Pix payment ID (Scheduled for implementation on October 14, 2025);
-* Exclusive file for Pix transactions – CIELO16 (Scheduled for implementation on January 13, 2026).
+• Identification of registration hierarchy.​
+• Identification of transactions with the TC product (“Vendeu, Tá na Conta”) in record type “E”.
 
 **Attachments**
 
-[LAYOUTS ATUALIZADOS](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/LAYOUTS_ATUALIZADOS_0.zip)
+UPDATED LAYOUTS:
 
-[TABELA DE AJUSTES](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/TABELA_DE_AJUSTES.zip)
-
-[FAQ ATUALIZAÇÃO DE FLUXO DE ENTREGA DOS EXTRATOS](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/FAQ_Atualizacao_v15_14_Extrato_Eletronico_Cielo.zip)
-
-[CIELO_Extrato_Eletronico_Manual_Versao_en_15.14](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Eletronic_Statement_-_Manual_-_Version_15_14.pdf)
-
-[ARQUIVOS DE TESTE V15_13](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ARQUIVOS_DE_TESTE_V15_13.zip)
-
-
-**Updates V15.13 - Demonstration of subsidies in account + automatic Pix**
-
-* Inclusion of payment status 45 in table IV to demonstrate settlements of debits in account
-* Inclusion of ID to demonstrate recurring transactions in Pix in type 8 records
-
-**Implementation date: 06/16/2025**
-
+- [Technical Specification Manual - English](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/edi/Cielo_Eletronic_Statement_-_Manual_-_Version_15.pdf)  <br/>
+- [Manual de Especificação Técnica - Português](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/edi/Cielo_Extrato_Eletronico_-_Manual_-_Versao_15.pdf)
+<br/>
 
 # Statement delivery flow
 
-* **Single customer portal:** File queries and downloads are available in the logged-in area of ​​the Cielo website [www.cielo.com.br](http://www.cielo.com.br) - Services tab > access Electronic Statement.
-* **Customer service channel:** edi@cielo.com.br or (11) 4002-5270
-
-
-# Introduction
-
-This API makes possible to register groups and maintain their registration to receive Electronic Data Interchange (EDI) files
+- **Single customer portal:** File queries and downloads are available in the logged-in area of ​​the [Cielo website](www.cielo.com.br)- Services tab > access Electronic Statement.
+- **Customer service channel:** edi@cielo.com.br or (11) 4002-5270
 
 # Description
 
-The Electronic Statement is a service provided by Cielo to merchants that need an automatic in the reconciliation process. Through it, information is transmitted in a standardized manner, with no manual intervention via SFG channel (sterling file gateway), enabling agile and secure traffic of information/data. The macro flow of the service is as follows:
+The Electronic Statement is a solution developed by Cielo for clients who require automation in their financial reconciliation processes. This product provides standardized data—without manual intervention—related to sales, payments, negotiations, and outstanding balances processed by Cielo. The information is generated in a structured format and made available for direct download from the Cielo portal, ensuring speed, security, and data integrity during transmission. This approach enables client systems to integrate the data efficiently, reducing operational errors and increasing the productivity of back-office processes
 
 ## Benefits
 
@@ -70,6 +50,10 @@ The Electronic Statement is a service provided by Cielo to merchants that need a
 - Specialized support
 
 # Consent Flow
+
+## Introduction to the API (exclusive for Reconciliation Companies)​
+
+This API (exclusive for Reconciliation Companies) enables the registration of groups and maintains their records to receive EDI (Electronic Data Interchange) files.
 
 ## Step 1 - Login
 
@@ -521,17 +505,17 @@ Performs the list of customers below the informed access_token. The filter can b
 | `businessName`      | Legal business name                                               |        |      |          |
 | `status`            | Branch is available ou unavailable                                |        |      |          |
 
-# File Transmission and Resending
+# File transmission and resending
 
-In order to receive the Electronic Statement, the client must contact the EDI Service and complete the service acquisition form. The files will be made available in the Inbox daily, except for the remaining balance file, which will be sent monthly. In the absence of transactions, the file sent will contain only the and the . In the case of any inconsistency in the transmission of the file(s), the client should inform Cielo, contacting the EDI Service (edi@cielo.com.br).
+For customers who do not use a third-party reconciliation service, files can be received as follows: download from the Cielo website. After logging in to the website, the files are available under **Services > Access Electronic Statement**.
+​
+For customers who use a market reconciliation provider, the entire process of requesting and sending statements is carried out directly by the reconciler.
 
-## File Resending
+## File resending
 
-In case of loss of the file or not receiving, the Cielo will make available in the Inbox the same file sent daily (backup file). The client may contact EDI Service to request resending of the file.
+For customers, simply locate the file and download it from the Cielo website. For reconciliation companies, if file resending is required, they must contact EDI Support (edi@cielo.com.br), indicating the statement parent companies, file dates, and file type.
 
-## File Recovery
+## File recovery
 
-- Allows for the recovery of a previous transaction, updating the status of the entries.
-- The files will be made available separately from the daily file.
-- Recovery is not available for the Remaining Balance file (09).
-- The request can be made to EDI Service.
+Allows for the recovery of a previous transaction, updating the status of the entries. The files are made available separately from the daily file and are identified with the sequential number
+“9999999” in the header. Recovery is not available for the Remaining Balance file (09). The request can be made to EDI Service (edi@cielo.com.br).
