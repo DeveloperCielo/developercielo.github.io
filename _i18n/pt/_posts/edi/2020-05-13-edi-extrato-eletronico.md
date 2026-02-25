@@ -556,7 +556,7 @@ Com isso, deverá ser feita uma chamada de PUT /edi no qual, irá fazer a duplic
 # Transmissão e reenvio de arquivo
 
 Para clientes que não utilizam conciliador terceirizado, o recebimento dos arquivos pode ocorrer da
-seguinte forma: Download no [site da Cielo](www.cielo.com.br). Ao realizar o login no site, os arquivos
+seguinte forma: Download no site da Cielo [www.cielo.com.br](http://www.cielo.com.br). Ao realizar o login no site, os arquivos
 estão disponíveis na guia **Serviços > acessar Extrato Eletrônico**.
 
 Para clientes que utilizam um conciliador de mercado, todo o processo de solicitação e envio de
