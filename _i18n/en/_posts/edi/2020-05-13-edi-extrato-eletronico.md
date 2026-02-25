@@ -30,13 +30,13 @@ Updates v15.14.1 – Deployment date: **January 13, 2026**​
 
 UPDATED LAYOUTS:
 
-- [Technical Specification Manual - English](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/edi/Cielo_Eletronic_Statement_-_Manual_-_Version_15.pdf)  <br/>
-- [Manual de Especificação Técnica - Português](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/edi/Cielo_Extrato_Eletronico_-_Manual_-_Versao_15.pdf)
+- [Technical Specification Manual - English](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/edi/CIELO_Eletronic_Statement_-_Manual_-_Version_.pdf)
+- [Manual de Especificação Técnica - Português](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/edi/CIELO_Extrato_Eletronico_-_Manual_-_Versao_.pdf)
 <br/>
 
 # Statement delivery flow
 
-- **Single customer portal:** File queries and downloads are available in the logged-in area of ​​the [Cielo website](www.cielo.com.br)- Services tab > access Electronic Statement.
+- **Single customer portal:** File queries and downloads are available in the logged-in area of ​​the  [Cielo website](www.cielo.com.br) - Services tab > access Electronic Statement.
 - **Customer service channel:** edi@cielo.com.br or (11) 4002-5270
 
 # Description
