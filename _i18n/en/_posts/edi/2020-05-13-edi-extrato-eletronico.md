@@ -34,6 +34,9 @@ UPDATED LAYOUTS:
 - [Manual de Especificação Técnica - Português](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/edi/CIELO_Extrato_Eletronico_-_Manual_-_Versao_.pdf)
 <br/>
 
+- [Test file - English](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/edi/ElectronicStatement_TestFile.zip)
+- [Arquivo teste - Português](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/edi/ArquivoTeste_ExtratoEletronico.zip)
+
 # Statement delivery flow
 
 - **Single customer portal:** File queries and downloads are available in the logged-in area of ​​the  Cielo website [www.cielo.com.br](http://www.cielo.com.br) - Services tab > access Electronic Statement.
