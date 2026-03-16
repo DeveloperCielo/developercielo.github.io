@@ -30,6 +30,9 @@ LAYOUTS ATUALIZADOS:
 - [Technical Specification Manual - English](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/edi/CIELO_Eletronic_Statement_-_Manual_-_Version_.pdf)  <br/>
 <br/>
 
+- [Arquivo teste - Português](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/edi/ArquivoTeste_ExtratoEletronico.zip)
+- [Test file - English](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/edi/ElectronicStatement_TestFile.zip)
+
 # Fluxo de entrega de extratos
  
 * **Portal único para clientes:** As consultas e downloads dos arquivos estão disponíveis na área logada do site Cielo [www.cielo.com.br](http://www.cielo.com.br) - guia Serviços > acessar Extrato Eletrônico.
