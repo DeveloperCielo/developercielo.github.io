@@ -335,12 +335,12 @@ Neste serviço, é possível consultar solicitações de cancelamento e visualiz
 
 **Headers**: **(*mesmos headers utilizados na requisição de cancelamento)**
 
-No campo **“key”** digite: **Authorization** e no campo **“value”** digite: **Bearer + espaço + {access_token}**
+No campo **“key”** digite: **Authorization** e no campo **“value”** digite: **Bearer + espaço + {access_token}** <br/>
 Em seguida no campo **“key** digite: Content-Type e no campo **“value”** digite: **application/json.**
 
 | AMBIENTE | MÉTODO |  ENDPOINT | 
 | ------------------ | ------------- | ------------------------------------------------------------------------------------| 
-| **Homologação** | GET | https://apihml-internet.cielo.com.br/refunds-api/v1/refunds/{refundID}/{merchantID}?limit={limit} &offset={offset}  | 
+| **Homologação** | GET | https://apihml-internet.cielo.com.br/refunds-api/v1/refunds/{refundID}/{merchantID}?limit={limit} &offset={offset}   | 
 | **Produção**    | GET | https://api-internet.cielo.com.br/cielo-refunds-exp-external/refunds/v1/ refunds/{refundID}/{merchantID}?limit={limit} &offset={offset}  | 
 
 **Exemplo de requisição em homologação:**
@@ -350,46 +350,46 @@ https://apihml-internet.cielo.com.br/refunds-api/v1/refunds/140426/2005157770
 **Request:**
 
 ```json
-/{refundID}/{merchantID}?limit={limit} &offset={offset}
-refundID = identificador devolvido no response da solicitação de cancelamento.
-merchantID = número do EC (estabelecimento comercial)
-limit = quantidade de solicitações dentro do json
-offset = paginação
+/{refundID}/{merchantID}?limit={limit} &offset={offset} 
+refundID = identificador devolvido no response da solicitação de cancelamento. 
+merchantID = número do EC (estabelecimento comercial) 
+limit = quantidade de solicitações dentro do json 
+offset = paginação 
 ```
 
 **Response:**
 
 ```json
-{
-    "refundID": 140426,
-    "refundDate": "2024-10-09T15:31:19.000-0300",
-    "transactions": [
-        {
-            "transactionID": "20051577703PPIQIJ7FB",
-            "nsu": 515027,
-            "cardNumberLast4Digits": "0034",
-            "merchantID": 2005157770,
-            "authorizationCode": "546441",
-            "refundAmount": {
-                "currency": "BRL",
-                "value": 0.01
-            },
-            "saleAmount": {
-                "currency": "BRL",
-                "value": 70000.0
-            },
-            "transactionDate": "2024-07-03T18:13:40.000-0300",
-            "controlID": 3506674,
-            "status": {
-                "type": "done",
-                "detail": {
-                    "code": 0,
-                    "message": "Cancelamento aprovado com sucesso."
-                }
-            }
-        }
-    ]
-}
+{ 
+    "refundID": 140426, 
+    "refundDate": "2024-10-09T15:31:19.000-0300", 
+    "transactions": [ 
+        { 
+            "transactionID": "20051577703PPIQIJ7FB", 
+            "nsu": 515027, 
+            "cardNumberLast4Digits": "0034", 
+            "merchantID": 2005157770, 
+            "authorizationCode": "546441", 
+            "refundAmount": { 
+                "currency": "BRL", 
+                "value": 0.01 
+            }, 
+            "saleAmount": { 
+                "currency": "BRL", 
+                "value": 70000.0 
+            }, 
+            "transactionDate": "2024-07-03T18:13:40.000-0300", 
+            "controlID": 26032304382552, 
+            "status": { 
+                "type": "done", 
+                "detail": { 
+                    "code": 0, 
+                    "message": "Cancelamento aprovado com sucesso." 
+                } 
+            } 
+        } 
+    ] 
+} 
 ```
 
 **Descrição dos campos:**
