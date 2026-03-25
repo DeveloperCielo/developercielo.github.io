@@ -449,11 +449,11 @@ Essa pesquisa pode ser realizada também para localizar um cancelamento utilizan
 
 **Exemplo Request:**
 
-https://apihml-internet.cielo.com.br/refunds-api/v1/refunds?cancelStartDate=09-10-2024&cancelEndDate=10-10-2024&rows=25&page=1&merchantId=2005157770&authorizationCode=546441
+https://apihml-internet.cielo.com.br/refunds-api/v1/refunds?cancelStartDate=09-10-2024&cancelEndDate=10-10-2024&rows=25&page=1&merchantId=2005157770&authorizationCode=546441 
 
 ![Nova_Imagem_5](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/Nova_Imagem_5.png)
 
-**Request:** 
+**Request/Response:** 
 
 ```curl
 ?cancelStartDate= {Data inicial}&cancelEndDate={Data final}&rows={linha}&page={pagina}&merchantId={Estabelecimento}&authorizationCode={código de autorização}
@@ -470,37 +470,37 @@ https://apihml-internet.cielo.com.br/refunds-api/v1/refunds?cancelStartDate=09-1
 ![Imagem29](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem29.png)
 
 **Descrição dos campos:**
-```curl
+```json
 {
-"**refundID**": Identificador do lote de cancelamento
- "**refundDate**": Data da solicitação do cancelamento, formato exemplo: 2019-12-27T19:38:30.547Z
- "**transactions**": [
+"refundID": Identificador do lote de cancelamento
+ "refundDate": Data da solicitação do cancelamento, formato exemplo: 2019-12-27T19:38:30.547Z
+ "transactions": [
         {
-**transactionID** = identificador de transação E-commerce.
-**Nsu** = Número sequencial único.
-**cardNumberLast4Digits** = os 4 últimos dígitos do cartão.
-**merchantID** = número do EC (estabelecimento comercial).
-**authorizationCode** = Código de autorização da venda.
-**refundAmount**: {
-        **currency** = tipo de moeda para cancelamento utilizar somente **BRL**.
-        **value** = Valor para cancelar, pode ser o valor parcial ou total.
+transactionID = identificador de transação E-commerce.
+Nsu = Número sequencial único.
+cardNumberLast4Digits = os 4 últimos dígitos do cartão.
+merchantID = número do EC (estabelecimento comercial).
+authorizationCode = Código de autorização da venda.
+refundAmount: {
+        currency = tipo de moeda para cancelamento utilizar somente BRL.
+        value = Valor para cancelar, pode ser o valor parcial ou total.
       }
-**saleAmount**: {
-        **currency** = tipo de moeda para cancelamento utilizar somente **BRL**.
-        **value** = Valor da venda.
+saleAmount: {
+        currency = tipo de moeda para cancelamento utilizar somente BRL.
+        value = Valor da venda.
       }
-**transactionDate** = no formato DD-MM-YYYY HH24:MI:SS data da venda. "**controlID**": identificador do cancelamento
-      "**status**": {
-        "**type**": Status da solicitação 
+transactionDate = no formato DD-MM-YYYY HH24:MI:SS data da venda. "controlID": identificador do cancelamento
+      "status": {
+        "type": Status da solicitação 
       }
 
-**Observações**:
+Observações:
 O status pending e approved não tem detail no json.
 
 Caso o status for rejected (Rejeição):
-"**detail**": {
-          "**code**" = Código da rejeição de cancelamento
-          "**message**" = Motivo da rejeição de cancelamento
+"detail": {
+          "code" = Código da rejeição de cancelamento
+          "message" = Motivo da rejeição de cancelamento
         }
 ```
 
