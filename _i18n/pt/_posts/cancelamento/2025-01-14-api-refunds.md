@@ -396,33 +396,33 @@ offset = paginação
 
 ```json
 {
-**"refundID":** Identificador do lote de cancelamento
-**"refundDate":** Data da solicitação do cancelamento, formato exemplo: 2019-12-27T19:38:30.547Z
- **"transactions":** [
+"refundID": Identificador do lote de cancelamento
+"refundDate": Data da solicitação do cancelamento, formato exemplo: 2019-12-27T19:38:30.547Z
+ "transactions": [
         {
-**transactionID**= identificador de transação E-commerce.
-**Nsu** = Número sequencial único.
-**cardNumberLast4Digits** = os 4 últimos dígitos do cartão.
-**merchantID** = número do EC (estabelecimento comercial).
-**authorizationCode** = Código de autorização da venda.
-**refundAmount**: {
-        **currency** = tipo de moeda para cancelamento utilizar somente **BRL**.
-        **value** = Valor para cancelar, pode ser o valor parcial ou total.
+transactionID = identificador de transação E-commerce.
+Nsu = Número sequencial único.
+cardNumberLast4Digits = os 4 últimos dígitos do cartão.
+merchantID = número do EC (estabelecimento comercial).
+authorizationCode = Código de autorização da venda.
+refundAmount: {
+        currency = tipo de moeda para cancelamento utilizar somente BRL.
+        value = Valor para cancelar, pode ser o valor parcial ou total.
       }
-**saleAmount**: {
-        **currency** = tipo de moeda para cancelamento utilizar somente **BRL**.
-        **value** = Valor da venda.
+saleAmount: {
+        currency = tipo de moeda para cancelamento utilizar somente BRL.
+        value = Valor da venda.
       }
-**transactionDate** = no formato DD-MM-YYYY HH24:MI:SS data da venda. "**controlID**": identificador do cancelamento
-      "**status**": {
-        "**type**": Status da solicitação 
+transactionDate = no formato DD-MM-YYYY HH24:MI:SS data da venda. "controlID": identificador do cancelamento
+      "status": {
+        "type": Status da solicitação 
       }
 
 
-**Caso o status for rejected:**
-"**detail**": {
-          "**code**" = Código da rejeição de cancelamento
-          "**message**" = Motivo da rejeição de cancelamento
+Caso o status seja rejected:
+"detail": {
+          "code" = Código da rejeição de cancelamento
+          "message" = Motivo da rejeição de cancelamento
         }
 ```
 
