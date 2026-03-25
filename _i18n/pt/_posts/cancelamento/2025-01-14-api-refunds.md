@@ -441,6 +441,7 @@ Essa pesquisa pode ser realizada também para localizar um cancelamento utilizan
 - Código de autorização (authorizationCode)
 - NSU (nsu)
 - Valor da Venda (saleAmount)
+<br/>
 
 | AMBIENTE | MÉTODO |  ENDPOINT | 
 | ------------------ | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
@@ -459,8 +460,6 @@ https://apihml-internet.cielo.com.br/refunds-api/v1/refunds?cancelStartDate=09-1
 
 ```curl
 ?cancelStartDate= {Data inicial}&cancelEndDate={Data final}&rows={linha}&page={pagina}&merchantId={Estabelecimento}&authorizationCode={código de autorização}
-
-<br/>
 
 cancelStartDate = Data inicial da solicitação de cancelamento (formato dd-MM-yyyy)
 cancelEndDate = Data final da solicitação de cancelamento (formato dd-MM-yyyy)
