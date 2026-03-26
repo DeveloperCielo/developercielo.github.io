@@ -469,7 +469,7 @@ merchantId = número do EC (estabelecimento comercial)
 authorizationCode = Código de autorização da venda.
 ```
 
-![Imagem29](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Imagem29.png)
+![descriçãocampos](../../../../images/cancelamento/imagem (1).png)
 
 
 ```json
