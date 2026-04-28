@@ -1618,55 +1618,61 @@ Caso o cliente deseje consultar transações de dias anteriores, será necessár
 
 ```json
 {
-    "MerchantOrderId": "201904150001123",
+    "MerchantOrderId": "{{merchantOrderId}}",
     "Payment": {
-        "SubordinatedMerchantId": "{{SubordinatedMerchantId}}",
-        "Type": "PhysicalCreditCard",
-        "SoftDescriptor": "Loja Teste",
-        "PaymentDateTime": "2024-06-03T11:47:38.882Z",
-        "Amount": 100,
-        "Installments": 2,
-        "Interest": "ByIssuer",
-        "Capture": true,
-        "ProductId": 80,
+        "SubordinatedMerchantId": "{{LojaSubordinada}}",
+        "Installments": 1,
+        "SoftDescriptor": "Chip",
         "CreditCard": {
-            "ExpirationDate": "12/2035",
-            "BrandId": "2",
-            "IssuerId": 8080,
+            "ExpirationDate": "12/2030",
+            "BrandId": 1,
+            "IssuerId": 1010,
             "InputMode": "Emv",
-            "SaveCard": true,
-            "AuthenticationMethod": "OfflineAuthentication",
-            "EmvData": "9F02060000000001009F1A020076950500000000015F2A0209869A03210322820219809F360200279F10120210A04003220000000000000000000000FF9F260857172EE678654C9F9F2701805F340100",
-            "TrackTwoData": "45CC3FE120E73BEB67AF0E3E22EB7784DA8D4212C606C571",
-            "TruncateCardNumberWhenPrinting": true,
+            "AuthenticationMethod": "OnlineAuthentication",
+            "TrackTwoData": "A3CE8E13D475CE75BE954B53C804265E6F07202158933F5B",
+            "EmvData": "9F02060000000001009F1A020076950542C00000005F2A0209869A0321100482025C009F360200019F100706011A039000009F260894A26A9922DE03EC9F2701005F3401018407A0000000031010",
             "EncryptedCardData": {
                 "EncryptionType": "Dukpt3DesCBC",
+                "IsDataInTLVFormat": false,
                 "InitializationVector": "0000000000000000",
-                "TrackTwoDataKSN": "FFFFF99995C18C80005E"
+                "TrackTwoDataKSN": "FFFFF999950000000001"
             },
-            "PanSequenceNumber": 0
+            "PinBlock": {
+                "EncryptedPinBlock": "ED9822DCD929BD14",
+                "EncryptionType": "Dukpt3Des",
+                "KsnIdentification": "FFFFF99999C19FC00072"
+            },
+            "PanSequenceNumber": 1,
+            "SaveCard": false,
+            "IsFallback": false
         },
+        "Type": "PhysicalCreditCard",
+        "PaymentDateTime": "2024-06-03T18:45:17.252Z",
+        "Interest": "ByMerchant",
+        "Amount": 100,
+        "Capture": true,
+        "ProductId": 1,
         "PinPadInformation": {
             "TerminalId": "00000001",
-            "SerialNumber": "006H017950",
-            "PhysicalCharacteristics": "PinPadWithChipReaderWithSamModuleAndContactless",
+            "SerialNumber": "205fae17775b1955",
+            "PhysicalCharacteristics": "WithoutPinPad",
             "ReturnDataInfo": "00"
         },
         "PaymentFacilitator": {
-            "EstablishmentCode": "1234567890",
-            "TerminalAcquirerId": "12345678",
+            "EstablishmentCode": "123456",
+            "TerminalAcquirerId": "00000001",
             "SubEstablishment": {
-                "EstablishmentCode": "10084487",
-                "Mcc": "8999",
-                "Address": "Alameda Xingu",
+                "EstablishmentCode": "251093",    
+                "Mcc": "3640",
+                "Address": "Avenida do teste",
                 "City": "São Paulo",
                 "State": "SP",
-                "PostalCode": "06455030",
-                "PhoneNumber": "1198080202011",
+                "PostalCode": "93534620",
+                "PhoneNumber": "1234567890123",
                 "CountryCode": "076",
-                "DocumentType": "Cpf",
-                "DocumentNumber": "08470483064",
-                "LegalBussinesName": "Loja Teste"
+                "DocumentType": "CNPJ",
+                "DocumentNumber": "01088564000190",
+                "LegalBusinessName": "Razão teste"
             }
         }
     }
@@ -1727,51 +1733,54 @@ Caso o cliente deseje consultar transações de dias anteriores, será necessár
 
 ```json
 {
-    "MerchantOrderId": "201904150001123",
+    "MerchantOrderId": "951461481488155",
     "Customer": {
         "Name": "[Guest]"
     },
     "Payment": {
-        "Installments": 2,
-        "Interest": "ByIssuer",
+        "Installments": 1,
+        "Interest": "ByMerchant",
         "Capture": true,
         "CreditCard": {
-            "ExpirationDate": "12/2035",
-            "BrandId": 2,
-            "IssuerId": 8080,
-            "TruncateCardNumberWhenPrinting": true,
-            "PanSequenceNumber": 0,
+            "ExpirationDate": "12/2030",
+            "BrandId": 1,
+            "IssuerId": 1010,
+            "TruncateCardNumberWhenPrinting": false,
+            "PanSequenceNumber": 1,
             "InputMode": "Emv",
-            "AuthenticationMethod": "OfflineAuthentication",
+            "AuthenticationMethod": "OnlineAuthentication",
             "TrackTwoData": "************************************************",
-            "EmvData": "****************************************************************************************************************************************************************",
+            "EmvData": "************************************************************************************************************************************************************",
             "IsFallback": false,
+            "PinBlock": {
+                "EncryptedPinBlock": "ED9822DCD929BD14",
+                "EncryptionType": "Dukpt3Des",
+                "KsnIdentification": "FFFFF99999C19FC00072"
+            },
             "BrandInformation": {
                 "Type": "VENDA A CREDITO",
-                "Name": "MASTERCARD",
-                "Description": "PARCELADO EMISSOR EM 2 PARCELAS"
+                "Name": "VISA"
             },
-            "SaveCard": true,
-            "CardToken": "4e331c66-ca64-472c-90cf-be430552d9c1",
+            "SaveCard": false,
             "EncryptedCardData": {
                 "EncryptionType": 4,
-                "TrackTwoDataKSN": "FFFFF99995C18C80005E",
+                "TrackTwoDataKSN": "FFFFF999950000000001",
                 "InitializationVector": "0000000000000000",
                 "IsDataInTLVFormat": false
             }
         },
         "Amount": 100,
-        "ReceivedDate": "2025-05-09T17:32:52Z",
+        "ReceivedDate": "2026-04-27T19:27:31Z",
         "CapturedAmount": 100,
-        "CapturedDate": "2025-05-09T17:32:56Z",
+        "CapturedDate": "2026-04-27T19:27:34Z",
         "Provider": "Cielo",
         "Status": 2,
         "PhysicalTransactionStatus": 2,
         "IsSplitted": false,
-        "ReturnMessage": "APROVADA 097804",
+        "ReturnMessage": "APROVADA 907541",
         "ReturnCode": "000",
         "ExtendedMessage": "Transação aprovada.",
-        "PaymentId": "7002ba18-9a62-4f52-818e-1d2d08ef9964",
+        "PaymentId": "9da9f4f0-477b-4c0f-adf5-5b8ea772bbc0",
         "Type": "PhysicalCreditCard",
         "Currency": "BRL",
         "Country": "BRA",
@@ -1779,45 +1788,40 @@ Caso o cliente deseje consultar transações de dias anteriores, será necessár
             {
                 "Method": "GET",
                 "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/physicalSales/7002ba18-9a62-4f52-818e-1d2d08ef9964"
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/physicalSales/9da9f4f0-477b-4c0f-adf5-5b8ea772bbc0"
             },
             {
                 "Method": "PUT",
                 "Rel": "confirm",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/7002ba18-9a62-4f52-818e-1d2d08ef9964/confirmation"
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/9da9f4f0-477b-4c0f-adf5-5b8ea772bbc0/confirmation"
             },
             {
                 "Method": "DELETE",
                 "Rel": "reverse",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/7002ba18-9a62-4f52-818e-1d2d08ef9964"
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/9da9f4f0-477b-4c0f-adf5-5b8ea772bbc0"
             }
         ],
-        "PaymentDateTime": "2024-06-03T11:47:38.882Z",
+        "PaymentDateTime": "2024-06-03T18:45:17.252Z",
         "ServiceTaxAmount": 0,
-        "SoftDescriptor": "Loja Teste",
-        "ProductId": 80,
+        "SoftDescriptor": "Chip",
+        "ProductId": 1,
         "PinPadInformation": {
             "TerminalId": "00000001",
-            "SerialNumber": "006H017950",
-            "PhysicalCharacteristics": "PinPadWithChipReaderWithSamModuleAndContactless",
+            "SerialNumber": "205fae17775b1955",
+            "PhysicalCharacteristics": "WithoutPinPad",
             "ReturnDataInfo": "00"
         },
-        "PrintMessage": [
-            {
-                "Position": "Top",
-                "Message": "VALOR DA TARIFA:         0,00#TRIBUTOS:         2,41#SEGUROS:         0,00#OUTRAS DESPESAS:         0,00#T0TAL:         1,10#CET ANUAL:      0,00%"
-            }
-        ],
+        "PrintMessage": [],
         "ReceiptInformation": [
             {
                 "Field": "MERCHANT_NAME",
                 "Label": "NOME DO ESTABELECIMENTO",
-                "Content": "Loja Teste"
+                "Content": "TESTE"
             },
             {
                 "Field": "MERCHANT_ADDRESS",
                 "Label": "ENDEREÇO DO ESTABELECIMENTO",
-                "Content": "Alameda Xingu, 13"
+                "Content": "Alameda Xingu, 512"
             },
             {
                 "Field": "MERCHANT_CITY",
@@ -1832,42 +1836,42 @@ Caso o cliente deseje consultar transações de dias anteriores, será necessár
             {
                 "Field": "MERCHANT_CODE",
                 "Label": "COD.ESTAB.",
-                "Content": "0023137822689300"
+                "Content": "0023137868169300"
             },
             {
                 "Field": "TERMINAL",
                 "Label": "POS",
-                "Content": "41782268"
+                "Content": "41786816"
             },
             {
                 "Field": "NSU",
                 "Label": "DOC",
-                "Content": "782883"
+                "Content": "816889"
             },
             {
                 "Field": "DATE",
                 "Label": "DATA",
-                "Content": "09/05/25"
+                "Content": "27/04/26"
             },
             {
                 "Field": "HOUR",
                 "Label": "HORA",
-                "Content": "14:32"
+                "Content": "16:27"
             },
             {
                 "Field": "ISSUER_NAME",
                 "Label": "EMISSOR",
-                "Content": "CIELO#MASTERCARD"
+                "Content": "CIELO#VISA CREDITO"
             },
             {
                 "Field": "CARD_NUMBER",
                 "Label": "CARTÃO",
-                "Content": "546056-7843"
+                "Content": "476173-0010"
             },
             {
                 "Field": "BRAND",
                 "Label": "BANDEIRA",
-                "Content": "MASTERCARD"
+                "Content": "VISA"
             },
             {
                 "Field": "TRANSACTION_TYPE",
@@ -1875,14 +1879,14 @@ Caso o cliente deseje consultar transações de dias anteriores, será necessár
                 "Content": "VENDA A CREDITO"
             },
             {
-                "Field": "TRANSACTION_DESC",
-                "Label": "DESCRIÇÃO DA TRANSAÇÃO",
-                "Content": "PARCELADO EMISSOR EM 2 PARCELAS"
+                "Field": "SALE_CODE",
+                "Label": "COD.VENDA",
+                "Content": "2604271131563200"
             },
             {
                 "Field": "AUTHORIZATION_CODE",
                 "Label": "AUTORIZAÇÃO",
-                "Content": "097804"
+                "Content": "907541"
             },
             {
                 "Field": "TRANSACTION_MODE",
@@ -1897,7 +1901,7 @@ Caso o cliente deseje consultar transações de dias anteriores, será necessár
             {
                 "Field": "CPF_CNPJ",
                 "Label": "CPF OU CNPJ",
-                "Content": "65046208000197"
+                "Content": "73096766000195"
             },
             {
                 "Field": "VALUE",
@@ -1907,55 +1911,56 @@ Caso o cliente deseje consultar transações de dias anteriores, será necessár
             {
                 "Field": "SOFT_DESCRIPTOR",
                 "Label": "SOFT DESCRIPTOR",
-                "Content": "Loja Teste"
+                "Content": "Chip"
             }
         ],
         "Receipt": {
-            "MerchantName": "Loja Teste",
-            "MerchantAddress": "Alameda Xingu, 13",
+            "MerchantName": "TESTE",
+            "MerchantAddress": "Alameda Xingu, 512",
             "MerchantCity": "BARUERI",
             "MerchantState": "SP",
-            "MerchantCode": "0023137822689300",
-            "Terminal": "41782268",
-            "Nsu": "782883",
-            "Date": "09/05/25",
-            "Hour": "14:32",
-            "IssuerName": "CIELO#MASTERCARD",
-            "CardNumber": "546056-7843",
-            "Brand": "MASTERCARD",
+            "MerchantCode": "0023137868169300",
+            "Terminal": "41786816",
+            "Nsu": "816889",
+            "Date": "27/04/26",
+            "Hour": "16:27",
+            "IssuerName": "CIELO#VISA CREDITO",
+            "CardNumber": "476173-0010",
+            "Brand": "VISA",
             "TransactionType": "VENDA A CREDITO",
-            "TransactionDesc": "PARCELADO EMISSOR EM 2 PARCELAS",
-            "AuthorizationCode": "097804",
+            "SaleCode": "2604271131563200",
+            "AuthorizationCode": "907541",
             "TransactionMode": "ONL",
             "InputMethod": "C",
-            "CpfCnpj": "65046208000197",
+            "CpfCnpj": "73096766000195",
             "Value": "1,00",
-            "SoftDescriptor": "Loja Teste"
+            "SoftDescriptor": "Chip"
         },
-        "AuthorizationCode": "097804",
-        "ProofOfSale": "782883",
-        "InitializationVersion": 1739297056931,
+        "AuthorizationCode": "907541",
+        "ProofOfSale": "816889",
+        "InitializationVersion": 1776082430740,
         "ConfirmationStatus": 0,
-        "EmvResponseData": "910a469327c2d6eff8a90012",
-        "SubordinatedMerchantId": "0cea7ef3-4d7e-43b1-a33f-3ee199a2dcb6",
+        "EmvResponseData": "9108ff133b9a00860000",
+        "SubordinatedMerchantId": "4c7449ce-cdcf-48e6-90db-5f0744fcde75",
         "OfflinePaymentType": "Online",
-        "MerchantAcquirerId": "0023137822689300",
-        "TerminalAcquirerId": "41782268",
+        "MerchantAcquirerId": "0023137868169300",
+        "TerminalAcquirerId": "41786816",
         "PaymentFacilitator": {
-            "TerminalAcquirerId": "12345678",
+            "TerminalAcquirerId": "00000001",
             "SubEstablishment": {
-                "DocumentType": 1,
-                "DocumentNumber": "08470483064",
-                "EstablishmentCode": "10084487",
-                "Mcc": "8999",
-                "Address": "Alameda Xingu",
+                "DocumentType": 2,
+                "DocumentNumber": "01088564000190",
+                "LegalBusinessName": "Razão teste",
+                "EstablishmentCode": "251093",
+                "Mcc": "3640",
+                "Address": "Avenida do teste",
                 "City": "São Paulo",
                 "State": "SP",
-                "PostalCode": "06455030",
-                "PhoneNumber": "1198080202011",
+                "PostalCode": "93534620",
+                "PhoneNumber": "1234567890123",
                 "CountryCode": "076"
             },
-            "EstablishmentCode": "1234567890"
+            "EstablishmentCode": "123456"
         }
     }
 }
