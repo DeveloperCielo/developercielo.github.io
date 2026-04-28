@@ -1618,9 +1618,9 @@ Caso o cliente deseje consultar transações de dias anteriores, será necessár
 
 ```json
 {
-    "MerchantOrderId": "{{merchantOrderId}}",
+    "MerchantOrderId": "{merchantOrderId}",
     "Payment": {
-        "SubordinatedMerchantId": "{{LojaSubordinada}}",
+        "SubordinatedMerchantId": "{LojaSubordinada}",
         "Installments": 1,
         "SoftDescriptor": "Chip",
         "CreditCard": {
