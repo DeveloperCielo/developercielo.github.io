@@ -35,7 +35,7 @@ LAYOUTS ATUALIZADOS:
 
 # Fluxo de entrega de extratos
  
-* **Portal único para clientes:** As consultas e downloads dos arquivos estão disponíveis na área logada do site Cielo [www.cielo.com.br](http://www.cielo.com.br) - guia Serviços > acessar Extrato Eletrônico.
+* **Portal único para clientes:** As consultas e downloads dos arquivos estão disponíveis na área logada do site Cielo www.cielo.com.br - guia **Vendas e Recebíveis > Recursos > Extrato Eletrônico**​.
 * **Canal de atendimento:** edi@cielo.com.br ou (11) 4002-5270
   
 
@@ -325,7 +325,7 @@ Registre o ID do lojista(apenas um, uma lista ou todos), com base no número da 
 | `mainMerchantId` | ID principal do cliente.                                                                                                                                        | String |         |             |
 | `merchants`      | Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista ["9999111111", "9999111333"] |        |         |             |
 | `merchantEMail`  | Endereço de e-mail do cliente                                                                                                                                   |        |         |             |
-| `type`           | Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, BALANCE, NRC e PIX. Obs: O type "PIX" poderá ser enviados a partir de 14/01/2026.                                     |        |         |             |
+| `type`           | Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, BALANCE, NRC e PIX.                                     |        |         |             |
 
 ### Response
 
@@ -346,7 +346,7 @@ Registre o ID do lojista(apenas um, uma lista ou todos), com base no número da 
 | `mainMerchantId`    | ID principal do cliente.                                                                                                                                                                                                                                               | String |         |             |
 | `registerID`        | ID do registro. O mesmo fornecido por /edi/registers                                                                                                                                                                                                                   | String |         |             |
 | `merchants`         | Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista ["9999111111", "9999111333"]                                                                                                        |        |         |             |
-| `type`              | Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, BALANCE e NRC                                                                                                                                           |        |         |             |
+| `type`              | Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, BALANCE, NRC e PIX.                                                                                                                                           |        |         |             |
 | `status`            | Status de registro. Se concluído, os arquivos serão fornecidos no dia seguinte                                                                                                                                                                                         |        |         |             |
 
 ## **GET** Consultar o Status do Registro
@@ -413,7 +413,7 @@ Consulte o MerchantID com base no registerID ou no mainMerchantID.
 | `mainMerchantId`    | ID principal do cliente.                                                                                                                                                                                                                                               | String |         |             |
 | `registerID`        | ID do registro. O mesmo fornecido por /edi/registers                                                                                                                                                                                                                   | String |         |             |
 | `merchants`         | Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista ["9999111111", "9999111333"]                                                                                                        |        |         |             |
-| `type`              | Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, BALANCE, NRC e PIX. Obs: O type "PIX" poderá ser enviados a partir de 14/01/2026                                                                                                                                            |        |         |             |
+| `type`              | Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, BALANCE, NRC e PIX.                                                                                                                                            |        |         |             |
 
 ## **PUT** Atualizar o Registro do merchantID
 
@@ -443,7 +443,7 @@ Atualize o merchantID com base no registerID ou mainMerchantID.
 | `registerID`     | ID do registro. O mesmo fornecido por /edi/registers                                                                                                            | String |         |             |
 | `mainMerchantId` | ID principal do cliente.                                                                                                                                        | String |         |             |
 | `merchants`      | Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista ["9999111111", "9999111333"] |        |         |             |
-| `type`           | Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, BALANCE e NRC                                     |        |         |             |
+| `type`           | Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, BALANCE, NRC e PIX.                                     |        |         |             |
 
 ### Response
 
@@ -463,7 +463,7 @@ Atualize o merchantID com base no registerID ou mainMerchantID.
 | `mainMerchantId`    | ID principal do cliente.                                                                                                                                                                                                                                               | String |         |             |
 | `registerID`        | ID do registro. O mesmo fornecido por /edi/registers                                                                                                                                                                                                                   | String |         |             |
 | `merchants`         | Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista ["9999111111", "9999111333"]                                                                                                        |        |         |             |
-| `type`              | Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, BALANCE e NRC                                                                                                                                            |        |         |             |
+| `type`              | Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, BALANCE, NRC e PIX.                                                                                                                                            |        |         |             |
 
 <aside class="warning"><b>Importante!<br>Esta funcionalidade realiza a atualização do registro do Extrato e atribui ao Conciliador, portanto:<br>1 - Se a matriz possui, por exemplo, 10 estabelecimentos e for realizada a chamada informando apenas 3 estabelecimentos, o registro será atualizado mantendo apenas os 3 que foram informados e excluindo o registro dos 7 pré-existentes.<br>
 2 - O mesmo comportamento acima ocorre com relação a atualização de tipos de extratos</b></aside>
@@ -558,9 +558,7 @@ Com isso, deverá ser feita uma chamada de PUT /edi no qual, irá fazer a duplic
 
 # Transmissão e reenvio de arquivo
 
-Para clientes que não utilizam conciliador terceirizado, o recebimento dos arquivos pode ocorrer da
-seguinte forma: Download no site da Cielo [www.cielo.com.br](http://www.cielo.com.br). Ao realizar o login no site, os arquivos
-estão disponíveis na guia **Serviços > acessar Extrato Eletrônico**.
+Para clientes que não utilizam conciliador terceirizado, o recebimento dos arquivos pode ocorrer da seguinte forma: Download no site da Cielo www.cielo.com.br. Ao realizar o login no site, os arquivos estão disponíveis na guia **Vendas e Recebíveis > Recursos > Extrato Eletrônico > Envio e recebimento**.
 
 Para clientes que utilizam um conciliador de mercado, todo o processo de solicitação e envio de
 extratos é realizado diretamente pelo conciliador.
