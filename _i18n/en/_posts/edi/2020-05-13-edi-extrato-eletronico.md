@@ -30,8 +30,8 @@ Updates v15.14.1 – Deployment date: **January 13, 2026**​
 
 UPDATED LAYOUTS:
 
-- [Technical Specification Manual - English](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/edi/CIELO_Eletronic_Statement_-_Manual_-_Version_.pdf)
-- [Manual de Especificação Técnica - Português](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/edi/CIELO_Extrato_Eletronico_-_Manual_-_Versao_.pdf)
+- [Manual de Especificação Técnica - Português](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/edi/CIELO_Extrato_Eletronico_-_Manual_-_Versao_15.pdf)
+- [Technical Specification Manual - English](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/edi/CIELO_Eletronic_Statement_-_Manual_-_Version_15.pdf)  <br/>
 <br/>
 
 - [Test file - English](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/edi/ElectronicStatement_TestFile.zip)
