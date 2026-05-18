@@ -39,7 +39,7 @@ UPDATED LAYOUTS:
 
 # Statement delivery flow
 
-- **Single customer portal:** File queries and downloads are available in the logged-in area of ​​the  Cielo website [www.cielo.com.br](http://www.cielo.com.br) - Services tab > access Electronic Statement.
+- **Single customer portal:** File queries and downloads are available in the logged-in area of ​​the Cielo website www.cielo.com.br - **Sales and Receivables guide > Resources > Electronic Statement**.
 - **Customer service channel:** edi@cielo.com.br or (11) 4002-5270
 
 # Description
@@ -218,10 +218,11 @@ Possible values for {error}:
 
 # Environment
 
-| Environment  | URL                                           |
-| ------------ | --------------------------------------------- |
-| Sandbox      | https://api2.cielo.com.br/sandbox/edi-api/v2/ |
-| Homologation | https://apihom-cielo.sensedia.com/edi-api/v2/ |
+| Environment    | URL                           |
+| ----------- | ---------------------------------- |
+| Sandbox     | https://api2.cielo.com.br/sandbox/ |
+| Homologation | https://apihom-cielo.sensedia.com/ |
+| Production    | https://api2.cielo.com.br/         |
 
 # Collection
 
@@ -266,7 +267,7 @@ Register Merchant ID (just one, a list or all), based on a Entity Number.
 | `mainMerchantId` | The most usual way to retrieve an EDI register in the company                                                                        | String |      |          |
 | `merchants`      | List representing the merchant codes registered. Example: List [ "9999111111", "9999111333" ]                                        |        |      |          |
 | `status`         | Branch is available ou unavailable                                                                                                   |        |      |          |
-| `type`           | List representing TO BE state of conciliation file type. At least one of these files are required: SELL, PAYMENT, ANTECIPATION_CIELO |        |      |          |
+| `type`           | List representing TO BE state of conciliation file type. At least one of these files are required: SELL, PAYMENT, BALANCE, ANTECIPATION_CIELO and PIX |        |      |          |
 
 ### Response
 
@@ -294,7 +295,7 @@ Register Merchant ID (just one, a list or all), based on a Entity Number.
 | `mainMerchantId`    | The most usual way to retrieve an EDI register in the company                                                                        | String |      |          |
 | `registerID`        | The same one provided by /edi/registers.                                                                                             | String |      |          |
 | `merchants`         | List representing the merchant codes registered. Example: List [ "9999111111", "9999111333" ]                                        |        |      |          |
-| `type`              | List representing TO BE state of conciliation file type. At least one of these files are required: SELL, PAYMENT, ANTECIPATION_CIELO |        |      |          |
+| `type`              | List representing TO BE state of conciliation file type. At least one of these files are required: SELL, PAYMENT, BALANCE, ANTECIPATION_CIELO and PIX. |        |      |          |
 | `status`            | Branch is available ou unavailable                                                                                                   |        |      |          |
 
 ## **GET** Retrieve status
@@ -372,7 +373,7 @@ Consult Merchant ID based on a Register ID or a Main Merchant ID.
 | `mainMerchantId`    | The most usual way to retrieve an EDI register in the company                                                                        | String |      |          |
 | `registerID`        | The same one provided by /edi/registers.                                                                                             | String |      |          |
 | `merchants`         | List representing the merchant codes registered. Example: List [ "9999111111", "9999111333" ]                                        |        |      |          |
-| `type`              | List representing TO BE state of conciliation file type. At least one of these files are required: SELL, PAYMENT, ANTECIPATION_CIELO |        |      |          |
+| `type`              | List representing TO BE state of conciliation file type. At least one of these files are required: SELL, PAYMENT, BALANCE, ANTECIPATION_CIELO and PIX |        |      |          |
 | `acknowledge`       |                                                                                                                                      |        |      |
 
 ## **PUT** Update Register Merchant ID
@@ -410,7 +411,7 @@ Update Merchant ID based on a Register ID or a Main Merchant ID.
 | `registerID`     | The same one provided by /edi/registers.                                                                                             | String |      |          |
 | `mainMerchantId` | The most usual way to retrieve an EDI register in the company                                                                        | String |      |          |
 | `merchants`      | List representing the merchant codes registered. Example: List [ "9999111111", "9999111333" ]                                        |        |      |          |
-| `type`           | List representing TO BE state of conciliation file type. At least one of these files are required: SELL, PAYMENT, ANTECIPATION_CIELO |        |      |          |
+| `type`           | List representing TO BE state of conciliation file type. At least one of these files are required: SELL, PAYMENT, BALANCE, ANTECIPATION_CIELO and PIX |        |      |          |
 
 ### Response
 
@@ -437,7 +438,7 @@ Update Merchant ID based on a Register ID or a Main Merchant ID.
 | `mainMerchantId`    | The most usual way to retrieve an EDI register in the company                                                                        | String |      |          |
 | `registerID`        | The same one provided by /edi/registers.                                                                                             | String |      |          |
 | `merchants`         | List representing the merchant codes registered. Example: List [ "9999111111", "9999111333" ]                                        |        |      |          |
-| `type`              | List representing TO BE state of conciliation file type. At least one of these files are required: SELL, PAYMENT, ANTECIPATION_CIELO |        |      |          |
+| `type`              | List representing TO BE state of conciliation file type. At least one of these files are required: SELL, PAYMENT, BALANCE, ANTECIPATION_CIELO and PIX |        |      |          |
 
 ## **DELETE** Delete Register Merchant ID
 
@@ -512,7 +513,7 @@ Performs the list of customers below the informed access_token. The filter can b
 
 # File transmission and resending
 
-For customers who do not use a third-party reconciliation service, files can be received as follows: download from the Cielo website [www.cielo.com.br](http://www.cielo.com.br). After logging in to the website, the files are available under **Services > Access Electronic Statement**.
+For customers who do not use a third-party reconciliation service, files can be received as follows: download from the Cielo website www.cielo.com.br. After logging in to the website, the files are available under  **Sales and Receivables guide > Resources > Electronic Statement > Sending and Receiving**. ​For customers who use a market reconciliation provider, the entire process of requesting and sending statements is carried out directly by the reconciler.​
 ​
 For customers who use a market reconciliation provider, the entire process of requesting and sending statements is carried out directly by the reconciler.
 
