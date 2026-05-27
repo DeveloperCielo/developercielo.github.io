@@ -50,7 +50,6 @@ jobs:
           ruby-version: '3.1'
       - name: Install Ruby dependencies
         run: |
-          bundle config set --local deployment 'true'
           bundle install --jobs 4 --retry 3
       - name: Setup Pages
         id: pages
