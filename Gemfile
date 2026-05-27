@@ -8,4 +8,4 @@ gem 'pygments.rb'
 gem 'jekyll-multiple-languages-plugin'
 gem 'mdl'
 gem "html-proofer"
-gem 'dartsass', '~> 2.1.0'
+gem 'dartsass'
