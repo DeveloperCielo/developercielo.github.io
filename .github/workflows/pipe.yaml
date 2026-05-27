@@ -33,6 +33,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential
       - uses: mskelton/setup-yarn@v3
         with:
          node-version: '18.x'
@@ -45,9 +49,7 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.1' # Not needed with a .ruby-version file
-      - name: Install dependencies
-        run: bundle install
-        
+          bundle-cache: true
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
