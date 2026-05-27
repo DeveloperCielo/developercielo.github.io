@@ -45,6 +45,9 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.1' # Not needed with a .ruby-version file
+      - name: Install dependencies
+        run: bundle install
+        
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
