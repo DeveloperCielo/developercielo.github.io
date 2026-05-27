@@ -33,26 +33,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Install system dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y build-essential
       - uses: mskelton/setup-yarn@v3
         with:
-         node-version: '18.x'
+          node-version: '18.x'
       - name: executando yarn
         run: |
-            yarn
-            yarn dist         
+          yarn
+          yarn dist
       - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
+        # https://github.com/ruby/setup-ruby/releases/tag/v1.207.0
+        uses: ruby/setup-ruby@4a9ddd6f338a97768b8006bf671dfbad383215f4
         with:
-          ruby-version: '3.1'
-      - name: Setup Rust (required for sass-embedded)
-        uses: dtolnay/rust-toolchain@stable
-      - name: Install Ruby dependencies
-        run: |
-          bundle install --jobs 4 --retry 3
+          ruby-version: '3.3' # 3.1 falha ao instalar sass-embedded (JSON::Fragment)
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+          cache-version: 0 # Increment this number if you need to re-download cached gems
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
@@ -75,4 +69,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
