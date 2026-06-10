@@ -811,7 +811,7 @@ Este serviço fornece informações em tempo real sempre que houver novos charge
     "nsu": 96207,
     "ro": "22774287",
     "terminal": "7792753766",
-    "tid": "",
+    "tid": "12043402495ERJ76EGDF",
     "establishmentName": "Ec Fake. - 22215"
   },
   "chargebackDetails": {
