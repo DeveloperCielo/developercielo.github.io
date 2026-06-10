@@ -787,7 +787,7 @@ Este serviço fornece informações em tempo real sempre que houver novos charge
 **Retorno da requisição:**
 *_É exatamente o mesmo do serviço de Consulta de Contestações Pendentes apresentado nesse manual anteriormente._
 
-``` JSON
+```json
 {
   "treatmentDeadline": "2024-12-20",
   "idCase": 49701065,
@@ -838,7 +838,7 @@ Este serviço fornece informações em tempo real sempre que houver atualizaçõ
 **Retorno da requisição:**
 *_É exatamente o mesmo do serviço de Ciclo de Vida apresentado nesse manual anteriormente._
 
-``` JSON
+```json
 {
   "establishmentNumber": 2312054625,
   "caseId": 6035477,
