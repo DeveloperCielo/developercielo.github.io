@@ -189,13 +189,9 @@ Na Loja Privada o modelo de distribuição consiste em um desenvolvedor (ou grup
 
 Baixe o SDK:
 
-- [SDK Android 1.4.0 blob](https://github.com/DeveloperCielo/TapOnPhone/blob/main/SDKCieloWebViewAndroid.1.4.0.zip)
-
 - [SDK Android 1.4.0 raw](https://github.com/DeveloperCielo/TapOnPhone/raw/main/SDKCieloWebViewAndroid.1.4.0.zip)
 
 Tutorial:
-
-- [Baixe o tutorial blob - Português](https://github.com/DeveloperCielo/TapOnPhone/blob/main/CIELO_Extrato_Eletronico_-_Manual_-_Versao_15_15.pdf)
 
 - [Baixe o tutorial raw - Português](https://github.com/DeveloperCielo/TapOnPhone/raw/main/CIELO_Extrato_Eletronico_-_Manual_-_Versao_15_15.pdf)
 
