@@ -184,3 +184,19 @@ O aplicativo deve possuir no máximo 100Mb para que o upload na Cielo Store seja
 Na Loja Pública, o aplicativo ficara disponível na Cielo Store para todos os clientes que possuem LIO.
 
 Na Loja Privada o modelo de distribuição consiste em um desenvolvedor (ou grupo de desenvolvedores), estando relacionado a uma loja privada. Esse modelo visa a distribuição seletiva do aplicativo, dado que ele só é instalado em LIOs cadastradas para aquela loja específica. O aplicativo que está na Loja Privada não estará disponível na Loja Pública.
+
+
+**Teste de upload de arquivos**
+
+Baixe o SDK:
+
+- [SDK Android 1.4.0 blob](https://github.com/DeveloperCielo/TapOnPhone/blob/main/SDKCieloWebViewAndroid.1.4.0.zip)
+
+- [SDK Android 1.4.0 raw](https://github.com/DeveloperCielo/TapOnPhone/raw/main/SDKCieloWebViewAndroid.1.4.0.zip)
+
+Tutorial:
+
+- [Baixe o tutorial blob - Português](https://github.com/DeveloperCielo/TapOnPhone/blob/main/CIELO_Extrato_Eletronico_-_Manual_-_Versao_15_15.pdf)
+
+- [Baixe o tutorial raw - Português](https://github.com/DeveloperCielo/TapOnPhone/raw/main/CIELO_Extrato_Eletronico_-_Manual_-_Versao_15_15.pdf)
+
