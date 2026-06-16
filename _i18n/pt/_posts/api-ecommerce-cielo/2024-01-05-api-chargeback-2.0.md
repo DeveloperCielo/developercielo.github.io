@@ -787,75 +787,46 @@ Este serviço fornece informações em tempo real sempre que houver novos charge
 **Retorno da requisição:**
 *_É exatamente o mesmo do serviço de Consulta de Contestações Pendentes apresentado nesse manual anteriormente._
 
-``` JSON
+```json
 {
-  "content": [
-    {
-      "treatmentDeadline": "2024-12-20",
-      "idCase": 49701065,
-      "idChargeback": 20451,
-      "establishmentNumber": 1024162076,
-      "process": "PRE_ARBITRAGEM",
-      "lifecycle": {},
-      "transactionAmount": 100.0,
-      "transactionDetails": {
-        "transactionDate": "2024-12-01",
-        "authorization": "2032089286",
-        "cardAssociation": 2,
-        "cardAssociationName": "Teste",
-        "productCode": 1,
-        "productDescription": "Teste",
-        "issuerSenderCode": "0237",
-        "issuerSenderDescription": "teste",
-        "truncatedCard": "816799******1808",
-        "currency": "REAL",
-        "referenceNumber": "31670530295011332758320",
-        "nsu": 96207,
-        "ro": "22774287",
-        "terminal": "7792753766",
-        "tid": "",
-        "establishmentName": "Ec Fake. - 22215"
-      },
-      "chargebackDetails": {
-        "reasonCode": "54190",
-        "reasonDescription": "Message Mock 4819",
-        "tpReason": 1,
-        "receptionDate": "2024-12-09",
-        "issuerDocument": [
-          {
-            "idDocumento": 1,
-            "nameFile": "Teste"
-          }
-        ]
-      },
-      "remainingDaysToTreat": 6
-    }
-  ],
-  "pageable": {
-    "sort": {
-      "sorted": true,
-      "unsorted": false,
-      "empty": false
-    },
-    "pageNumber": 0,
-    "pageSize": 10,
-    "offset": 0,
-    "paged": true,
-    "unpaged": false
+  "treatmentDeadline": "2024-12-20",
+  "idCase": 49701065,
+  "idChargeback": 20451,
+  "establishmentNumber": 1024162076,
+  "process": "PRIMEIRO_CHARGEBACK",
+  "lifecycle": {},
+  "transactionAmount": 100.0,
+  "transactionDetails": {
+    "transactionDate": "2024-12-01",
+    "authorization": "2032089286",
+    "cardAssociation": 2,
+    "cardAssociationName": "Teste",
+    "productCode": 1,
+    "productDescription": "Teste",
+    "issuerSenderCode": "0237",
+    "issuerSenderDescription": "teste",
+    "truncatedCard": "816799******1808",
+    "currency": "REAL",
+    "referenceNumber": "31670530295011332758320",
+    "nsu": 96207,
+    "ro": "22774287",
+    "terminal": "7792753766",
+    "tid": "12043402495ERJ76EGDF",
+    "establishmentName": "Ec Fake. - 22215"
   },
-  "last": false,
-  "totalElements": 123,
-  "totalPages": 12,
-  "number": 0,
-  "sort": {
-    "sorted": true,
-    "unsorted": false,
-    "empty": false
+  "chargebackDetails": {
+    "reasonCode": "54190",
+    "reasonDescription": "Message Mock 4819",
+    "tpReason": 1,
+    "receptionDate": "2024-12-09",
+    "issuerDocument": [
+      {
+        "idDocumento": 1,
+        "nameFile": "Teste"
+      }
+    ]
   },
-  "first": true,
-  "numberOfElements": 1,
-  "size": 10,
-  "empty": true
+  "remainingDaysToTreat": 6
 }
 
 ```
@@ -867,7 +838,7 @@ Este serviço fornece informações em tempo real sempre que houver atualizaçõ
 **Retorno da requisição:**
 *_É exatamente o mesmo do serviço de Ciclo de Vida apresentado nesse manual anteriormente._
 
-``` JSON
+```json
 {
   "establishmentNumber": 2312054625,
   "caseId": 6035477,

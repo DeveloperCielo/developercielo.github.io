@@ -184,3 +184,4 @@ O aplicativo deve possuir no máximo 100Mb para que o upload na Cielo Store seja
 Na Loja Pública, o aplicativo ficara disponível na Cielo Store para todos os clientes que possuem LIO.
 
 Na Loja Privada o modelo de distribuição consiste em um desenvolvedor (ou grupo de desenvolvedores), estando relacionado a uma loja privada. Esse modelo visa a distribuição seletiva do aplicativo, dado que ele só é instalado em LIOs cadastradas para aquela loja específica. O aplicativo que está na Loja Privada não estará disponível na Loja Pública.
+
