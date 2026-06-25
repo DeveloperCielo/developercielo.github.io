@@ -11,7 +11,7 @@ tags:
   - 6. EDI Cielo
 ---
 
-# IMPORTANTE: NOVO PORTAL 
+# IMPORTANTE: NOVO PORTAL DE DOCUMENTAÇÕES
 
 *Junho de 2026*
 
