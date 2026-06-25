@@ -14,6 +14,29 @@ language_tabs:
   shell: cURL
 ---
 
+
+# IMPORTANTE: NOVO PORTAL 
+
+*Junho de 2026*
+
+Nossas documentações estão disponíveis em um novo portal!
+
+[Acesse o novo portal de desenvolvedores](https://docs.cielo.com.br/conecta/docs/conheca-o-cielo-conecta).
+
+![aviso novo portal](../../../../images/novoportaldoc.jpg)
+
+O novo ambiente foi pensado para facilitar sua jornada como desenvolvedor proporcionando: 
+
+✅ Interface mais intuitiva e moderna; <br/>
+✅ Navegação simplificada; <br/>
+✅ Referências de API mais completas e estruturadas; <br/>
+✅ Maior padronização entre documentações; <br/>
+✅ Melhor experiência de leitura, aprendizado e integração. <br/>
+
+<aside style="background-color: #f8d7da; padding: 15px; border-left: 5px solid #dc3545; color: #721c24;margin-top: 20px; margin-bottom: 20px;"> O conteúdo deste portal não é atualizado desde 24/06/2026. </aside>
+
+
+
 # INTRODUÇÃO
 
 ## Conheça o Cielo Conecta
