@@ -12,7 +12,7 @@ language_tabs:
   shell: cURL
 ---
 
-# IMPORTANTE: NOVO PORTAL 
+# IMPORTANTE: NOVO PORTAL DE DOCUMENTAÇÕES
 
 *Junho de 2026*
 
