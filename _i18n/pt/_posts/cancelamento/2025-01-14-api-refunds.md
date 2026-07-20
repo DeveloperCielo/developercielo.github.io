@@ -1,5 +1,6 @@
 ---
-layout: manual
+layout: redirect
+redirect: https://docs.cielo.com.br/pix-can-cbk/docs/conheca-a-api-unica-de-cancelamento
 title: API Refunds
 description: API Única de Cancelamento e Cartas 
 search: true
