@@ -1,5 +1,6 @@
 ---
-layout: manual
+layout: redirect
+redirect: https://docs.cielo.com.br/pix-can-cbk/docs/conheca-chargeback
 title: API de Chargeback
 description: API de Chargeback
 search: true
