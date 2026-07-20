@@ -1,5 +1,6 @@
 ---
-layout: faq
+layout: redirect
+redirect: https://docs.cielo.com.br/cielo-smart/docs/conheca-a-cielo-smart
 title: FAQ
 description: Respostas para perguntas frequentes feitas pelos desenvolvedores durante a integração com a Cielo LIO.
 search: true
