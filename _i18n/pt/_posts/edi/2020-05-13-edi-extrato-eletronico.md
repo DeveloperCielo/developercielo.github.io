@@ -1,5 +1,6 @@
 ---
-layout: tutorial
+layout: redirect
+redirect: https://docs.cielo.com.br/extrato-webview/docs/conheca-o-extrato-eletronico
 title: EDI - Extrato Eletrônico
 description: Instruções EDI
 search: true
