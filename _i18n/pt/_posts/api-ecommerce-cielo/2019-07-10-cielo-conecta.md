@@ -1,5 +1,6 @@
 ---
-layout: manual
+layout: redirect
+redirect: https://docs.cielo.com.br/conecta/docs/conheca-o-cielo-conecta
 title: Manual de Integração Cielo Conecta
 description: API para integração de vendas no físico e OnLine
 search: true
