@@ -1,6 +1,6 @@
 ---
 layout: redirect
-redirect: https://docs.cielo.com.br/ecommerce-cielo/docs/
+redirect: https://docs.cielo.com.br/extrato-webview/docs/conheca-o-extrato-eletronico
 title: Manual de Integração API e-commerce Cielo
 description: Manual integração técnica via API
 search: true
